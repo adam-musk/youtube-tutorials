@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Vue.js 3 and the Composition API: Building an Expense Tracker - An Educational Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#vuejs-3-and-the-composition-api-building-an-expense-tracker-an-educational-guide">Vue.js 3 and the Composition API: Building an Expense Tracker - An Educational Guide</a></li>
+        <li><a href="#1-introduction-to-vuejs-3-and-the-composition-api">1. Introduction to Vue.js 3 and the Composition API</a></li><li><a href="#2-project-setup">2. Project Setup</a></li><li><a href="#3-component-breakdown">3. Component Breakdown</a></li><li><a href="#4-implementing-core-functionality">4. Implementing Core Functionality</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="vuejs-3-and-the-composition-api-building-an-expense-tracker-an-educational-guide">Vue.js 3 and the Composition API: Building an Expense Tracker - An Educational Guide</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/hNPwdOZ3qFU" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will guide you through the process of building a simple expense tracker application using Vue.js 3, specifically leveraging the Composition API and the script setup syntax. This project, originally part of a "20 Vanilla JavaScript Projects" course and later adapted for React, serves as an excellent practical example for understanding modern Vue.js development.</p>
+<h2 id="1-introduction-to-vuejs-3-and-the-composition-api">1. Introduction to Vue.js 3 and the Composition API</h2>
+<p>Vue.js is a progressive JavaScript framework for building user interfaces. Known for its ease of use and flexibility, Vue.js has become a popular choice for front-end development.  Version 3 of Vue.js introduced significant improvements, most notably the <strong>Composition API</strong>.</p>
+<blockquote>
+<p><strong>Vue.js:</strong> A progressive JavaScript framework used for building user interfaces and single-page applications. It is designed to be incrementally adoptable and focuses on the view layer.</p>
+</blockquote>
+<p>Traditionally, Vue.js components were structured using the <strong>Options API</strong>.</p>
+<blockquote>
+<p><strong>Options API:</strong>  The original way to structure Vue.js components, where component logic is organized into options like <code>data</code>, <code>methods</code>, <code>computed</code>, and <code>watch</code>. This approach groups related logic by option type.</p>
+</blockquote>
+<p>However, Vue.js 3 emphasizes the Composition API as a more organized and efficient way to manage component logic.</p>
+<h3 id="11-understanding-the-composition-api">1.1 Understanding the Composition API</h3>
+<p>The Composition API is a set of APIs that allows you to author Vue.js components using imported functions instead of declaring options. It aims to improve code reusability, readability, and especially <strong>reactivity</strong>.</p>
+<blockquote>
+<p><strong>Reactivity:</strong> In front-end frameworks, reactivity refers to the automatic updating of the user interface (UI) when the underlying data changes. This eliminates the need for manual DOM manipulation.</p>
+</blockquote>
+<p><strong>Key Benefits of the Composition API:</strong></p>
+<ul>
+<li><strong>Improved Logic Organization:</strong>  The Composition API allows you to group related logic together, regardless of the option type. This leads to more maintainable and understandable code, especially in complex components.</li>
+<li><strong>Enhanced Reusability:</strong>  Logic can be extracted into reusable functions (composables), promoting code sharing across components.</li>
+<li><strong>Better Readability:</strong>  Code becomes more linear and easier to follow as logic is organized by feature rather than option.</li>
+<li><strong>Simplified Reactivity:</strong>  The Composition API provides straightforward ways to establish reactivity, making UI updates more predictable and efficient.</li>
+</ul>
+<p>The Composition API contrasts with the Options API by moving away from organizing code by options (like <code>data</code>, <code>methods</code>, <code>computed</code>) and instead focusing on organizing code by <em>logical features</em>. This approach often results in cleaner and more scalable component structures.</p>
+<h3 id="12-project-overview-expense-tracker-application">1.2 Project Overview: Expense Tracker Application</h3>
+<p>This project involves building a web application to track income and expenses.  The application will feature:</p>
+<ul>
+<li><strong>Total Balance Display:</strong>  Shows the overall financial balance.</li>
+<li><strong>Income and Expense Balances:</strong> Displays separate balances for total income and total expenses.</li>
+<li><strong>Transaction History:</strong> A list of all transactions, visually differentiated as income (green border) or expense (red border). Each transaction will include a delete option.</li>
+<li><strong>Add Transaction Form:</strong> A form to input new income or expense transactions with descriptions and amounts.</li>
+<li><strong>Local Storage Persistence:</strong> Data will be saved in the browser's local storage, ensuring data persistence across sessions.</li>
+<li><strong>Toast Notifications:</strong>  Using <strong>View Toastify</strong> to provide user feedback upon adding or deleting transactions.</li>
+</ul>
+<blockquote>
+<p><strong>View Toastify:</strong> A Vue.js library used for displaying elegant and non-intrusive notification messages (toasts) to the user.</p>
+</blockquote>
+<p>This project provides a practical context to learn and apply the concepts of Vue.js 3 and the Composition API.</p>
+<h2 id="2-project-setup">2. Project Setup</h2>
+<p>To begin, ensure you have <strong>Node.js</strong> and <strong>npm</strong> (Node Package Manager) installed on your system. These are essential tools for JavaScript development and managing project dependencies.</p>
+<blockquote>
+<p><strong>Node.js:</strong> A JavaScript runtime environment that allows you to run JavaScript code outside of a web browser. It is essential for modern web development tooling.</p>
+<p><strong>npm (Node Package Manager):</strong> A package manager for JavaScript. It is used to install, manage, and share JavaScript packages and libraries.</p>
+</blockquote>
+<h3 id="21-creating-a-new-vuejs-project-with-vue-cli">2.1 Creating a New Vue.js Project with Vue CLI</h3>
+<p>We will use the <strong>Vue CLI</strong> (Command Line Interface) to quickly scaffold a new Vue.js project.  If you don't have Vue CLI installed globally, you can use <code>npx</code> to run it directly without global installation.</p>
+<blockquote>
+<p><strong>Vue CLI (Command Line Interface):</strong>  A command-line tool for scaffolding and managing Vue.js projects. It simplifies project setup and development workflows.</p>
+</blockquote>
+<p>Open your terminal and navigate to the directory where you want to create your project. Then, run the following command:</p>
+<pre><code class="language-bash">npx create-vue@latest .
+</code></pre>
+<p>The <code>.</code> specifies that you want to create the project in the current directory. You will be prompted with a series of questions:</p>
+<ul>
+<li><strong>Project name:</strong> Choose a name for your project (e.g., <code>vue-expense-tracker</code>).</li>
+<li><strong>Add TypeScript?</strong> Select <code>No</code>.</li>
+<li><strong>Add JSX Support?</strong> Select <code>No</code>.</li>
+<li><strong>Add Vue Router for Single Page Application development?</strong> Select <code>No</code> (for this project, a router is not needed).</li>
+<li><strong>Add Pinia for state management?</strong> Select <code>No</code> (for this project, Pinia is not necessary).</li>
+<li><strong>Add Vitest for Unit testing?</strong> Select <code>No</code>.</li>
+<li><strong>Add Cypress for E2E testing?</strong> Select <code>No</code>.</li>
+<li><strong>Add ESLint for code linting?</strong> Select <code>No</code>.</li>
+</ul>
+<p>After answering these questions, the Vue CLI will generate the basic project structure.  Navigate into your project directory (if you created a subdirectory project) and install the project dependencies using npm:</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+<p>To start the development server and see your application in the browser, run:</p>
+<pre><code class="language-bash">npm run dev
+</code></pre>
+<p>This will launch a development server, typically accessible at <code>http://localhost:5173</code> (the port number may vary).</p>
+<h3 id="22-file-structure-overview">2.2 File Structure Overview</h3>
+<p>Let's examine the key files and folders in the generated Vue.js project:</p>
+<ul>
+<li>
+<p><strong><code>package.json</code>:</strong> This file contains metadata about your project, including dependencies (libraries your project relies on) and scripts (commands to run development tasks). You'll see <code>vue</code> listed under <code>dependencies</code> and <code>vite</code> under <code>devDependencies</code>.</p>
+<blockquote>
+<p><strong>package.json:</strong> A JSON file at the root of a Node.js project that describes the project's dependencies, scripts, and other metadata. It is essential for managing project dependencies and build processes.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>vite.config.js</code>:</strong>  Configuration file for <strong>Vite</strong>, the development server and build tool used by Vue.js. You can customize development server settings here if needed, like changing the port number.</p>
+<blockquote>
+<p><strong>Vite:</strong> A fast build tool and development server for modern web development. It provides features like hot module replacement and optimized builds.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>index.html</code>:</strong> The main HTML file for your <strong>Single Page Application (SPA)</strong>. It includes a <code>&lt;div id="app"&gt;</code> where your Vue.js application will be mounted.</p>
+<blockquote>
+<p><strong>Single Page Application (SPA):</strong> A web application that loads a single HTML page and dynamically updates the content as the user interacts with it, without requiring full page reloads.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>src/main.js</code>:</strong> The entry point for your Vue.js application. It initializes the Vue application, mounts the main component (<code>App.vue</code>), and imports global CSS.</p>
+</li>
+<li>
+<p><strong><code>src/App.vue</code>:</strong> The root component of your application. It serves as the container for all other components and defines the overall application structure.</p>
+</li>
+<li>
+<p><strong><code>src/assets/</code>:</strong>  Directory to store assets like CSS files and images.</p>
+</li>
+<li>
+<p><strong><code>src/components/</code>:</strong>  Directory to store reusable Vue.js components.</p>
+</li>
+<li>
+<p><strong><code>public/</code>:</strong> Directory for public assets like <code>favicon.ico</code> which are served directly without processing by Vite.</p>
+</li>
+</ul>
+<h3 id="23-cleaning-up-and-setting-up-basic-styles">2.3 Cleaning Up and Setting Up Basic Styles</h3>
+<p>To start with a clean slate, perform the following cleanup:</p>
+<ol>
+<li><strong>Delete files in <code>src/assets</code>:</strong> Delete <code>base.css</code>, <code>logo.svg</code>, and <code>main.css</code>.</li>
+<li><strong>Delete files in <code>src/components</code>:</strong> Delete <code>HelloWorld.vue</code> and <code>icons/</code>.</li>
+<li>
+<p><strong>Modify <code>src/App.vue</code>:</strong> Remove all existing content within the <code>&lt;template&gt;</code> and <code>&lt;script&gt;</code> tags. Replace the content with:</p>
+<p>```vue
+<template>
+  <div>My App</div>
+</template></p>
+<p><script setup>
+</script></p>
+<p><style scoped>
+</style>
+```</p>
+</li>
+<li>
+<p><strong>Create <code>src/assets/style.css</code>:</strong> Create a new file named <code>style.css</code> in the <code>src/assets</code> folder. Copy the CSS styles provided in the transcript (or from the linked GitHub repository) and paste them into this file.</p>
+</li>
+<li>
+<p><strong>Import <code>style.css</code> in <code>src/main.js</code>:</strong>  Modify <code>src/main.js</code> to import your newly created CSS file:</p>
+<p>```javascript
+import './assets/style.css'</p>
+<p>import { createApp } from 'vue'
+import App from './App.vue'</p>
+<p>createApp(App).mount('#app')
+```</p>
+</li>
+<li>
+<p><strong>Replace <code>public/favicon.ico</code> (Optional):</strong> You can replace the default favicon with a custom one as mentioned in the transcript, or keep the default.</p>
+</li>
+</ol>
+<p>After these steps, your basic Vue.js application should be set up with a basic structure and styling applied. Running <code>npm run dev</code> should display "My App" centered on the screen with the styles from <code>style.css</code>.</p>
+<h2 id="3-component-breakdown">3. Component Breakdown</h2>
+<p>To structure the expense tracker application effectively, we will break down the UI into reusable components. This modular approach makes development more organized and maintainable.  Based on the application's design, we will create the following components:</p>
+<ul>
+<li><strong><code>Header.vue</code>:</strong>  Displays the main title of the application ("Expense Tracker").</li>
+<li><strong><code>Balance.vue</code>:</strong> Shows the total balance.</li>
+<li><strong><code>IncomeExpenses.vue</code>:</strong> Displays the income and expense balances side-by-side.</li>
+<li><strong><code>TransactionList.vue</code>:</strong>  Renders the list of transactions, including income and expenses.</li>
+<li><strong><code>AddTransaction.vue</code>:</strong> Contains the form to add new transactions.</li>
+</ul>
+<p>Create these component files within the <code>src/components</code> directory. Each file will have a <code>.vue</code> extension and should use PascalCase naming convention (e.g., <code>Header.vue</code>, <code>Balance.vue</code>).</p>
+<h3 id="31-creating-components-and-basic-structure">3.1 Creating Components and Basic Structure</h3>
+<p>For each component file (<code>Header.vue</code>, <code>Balance.vue</code>, <code>IncomeExpenses.vue</code>, <code>TransactionList.vue</code>, <code>AddTransaction.vue</code>), add the basic Vue.js component structure:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- Component Content Here --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+  // Component Logic Here (Composition API)
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+  /* Component Specific Styles Here (optional for now) */
+&lt;/style&gt;
+</code></pre>
+<p><strong>Populating Components with Basic HTML:</strong></p>
+<p>Refer to the transcript or the provided GitHub repository to copy the basic HTML structure for each component.  Place this HTML within the <code>&lt;template&gt;</code> section of each component file. For example, in <code>Header.vue</code>, it will be a simple <code>&lt;h2&gt;</code> tag. In <code>Balance.vue</code>, it will be an <code>&lt;h4&gt;</code> and an <code>&lt;h1&gt;</code> for the balance amount.</p>
+<p><strong>Importing and Registering Components in <code>App.vue</code>:</strong></p>
+<p>To use these components in your main application, you need to import and register them in <code>App.vue</code>.  Using the <code>&lt;script setup&gt;</code> syntax, component registration is implicit.  Simply import the components at the top of <code>App.vue</code> and then use them in the <code>&lt;template&gt;</code> section.</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;Header /&gt;
+    &lt;Balance /&gt;
+    &lt;IncomeExpenses /&gt;
+    &lt;TransactionList /&gt;
+    &lt;AddTransaction /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import Header from './components/Header.vue';
+import Balance from './components/Balance.vue';
+import IncomeExpenses from './components/IncomeExpenses.vue';
+import TransactionList from './components/TransactionList.vue';
+import AddTransaction from './components/AddTransaction.vue';
+&lt;/script&gt;
+</code></pre>
+<p>Ensure you add a <code>div</code> with the class <code>container</code> in <code>App.vue</code> to match the CSS styling from <code>style.css</code>.</p>
+<p>After completing these steps, your application should display the basic layout of the expense tracker, with hardcoded text within each component.  The next step is to implement the dynamic functionality and data handling.</p>
+<h2 id="4-implementing-core-functionality">4. Implementing Core Functionality</h2>
+<p>Now we will focus on making the application dynamic and interactive. This involves:</p>
+<ul>
+<li>Displaying transactions in the <code>TransactionList</code> component.</li>
+<li>Calculating and displaying the balance in the <code>Balance</code> component.</li>
+<li>Calculating and displaying income and expenses in the <code>IncomeExpenses</code> component.</li>
+<li>Implementing the "Add Transaction" form functionality.</li>
+<li>Adding the "Delete Transaction" functionality.</li>
+</ul>
+<h3 id="41-displaying-transactions-in-transactionlistvue">4.1 Displaying Transactions in <code>TransactionList.vue</code></h3>
+<p>We'll start by displaying a list of transactions in the <code>TransactionList</code> component.  For now, we will use hardcoded data in <code>App.vue</code> and pass it down to <code>TransactionList.vue</code> as <strong>props</strong>.</p>
+<blockquote>
+<p><strong>Props (Properties):</strong> Custom attributes you can register on a component. Props allow you to pass data from parent components to child components.</p>
+</blockquote>
+<p><strong>1. Define Transaction Data in <code>App.vue</code>:</strong></p>
+<p>In the <code>&lt;script setup&gt;</code> section of <code>App.vue</code>, define a reactive array of transaction objects using <code>ref</code> from Vue.js.</p>
+<pre><code class="language-vue">&lt;script setup&gt;
+import { ref } from 'vue';
+// ... other imports
+
+const transactions = ref([
+  { id: 1, text: 'Flower', amount: -20 },
+  { id: 2, text: 'Salary', amount: 300 },
+  { id: 3, text: 'Book', amount: -10 },
+  { id: 4, text: 'Camera', amount: 150 }
+]);
+&lt;/script&gt;
+</code></pre>
+<p><strong>2. Pass Transactions as Props to <code>TransactionList.vue</code>:</strong></p>
+<p>In <code>App.vue</code>'s template, bind the <code>transactions</code> ref as a prop to the <code>&lt;TransactionList&gt;</code> component.</p>
+<p>```vue
+<template>
+<br />
+<div class="container">
+    <Header />
+    <Balance />
+    <IncomeExpenses />
+    <TransactionList :transactions="transactions" /> <
+
+</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

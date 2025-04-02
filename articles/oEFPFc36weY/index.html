@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Cross-Site Scripting (XSS) Attacks: Understanding and Prevention - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#cross-site-scripting-xss-attacks-understanding-and-prevention">Cross-Site Scripting (XSS) Attacks: Understanding and Prevention</a></li>
+        <li><a href="#introduction-to-cross-site-scripting-xss-attacks">Introduction to Cross-Site Scripting (XSS) Attacks</a></li><li><a href="#demonstrating-a-cross-site-scripting-attack">Demonstrating a Cross-Site Scripting Attack</a></li><li><a href="#the-potential-impact-of-cross-site-scripting-attacks">The Potential Impact of Cross-Site Scripting Attacks</a></li><li><a href="#defending-against-cross-site-scripting-attacks">Defending Against Cross-Site Scripting Attacks</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="cross-site-scripting-xss-attacks-understanding-and-prevention">Cross-Site Scripting (XSS) Attacks: Understanding and Prevention</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/oEFPFc36weY" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="introduction-to-cross-site-scripting-xss-attacks">Introduction to Cross-Site Scripting (XSS) Attacks</h3>
+<h4 id="the-importance-of-security-for-web-developers">The Importance of Security for Web Developers</h4>
+<p>As a web developer, building secure web applications is paramount. Among the various threats to modern web application security, <strong>cross-site scripting (XSS)</strong> attacks are a significant concern. Understanding what these attacks are, how they work, and where vulnerabilities might exist in your code is crucial for writing secure and robust web applications. This chapter will delve into the intricacies of XSS attacks, exploring their mechanisms, potential impact, and effective defense strategies.</p>
+<blockquote>
+<p><strong>Cross-Site Scripting (XSS)</strong>: A type of web security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can then execute in the user's browser, potentially leading to data theft, session hijacking, or defacement of the website.</p>
+</blockquote>
+<h4 id="what-is-a-cross-site-scripting-attack">What is a Cross-Site Scripting Attack?</h4>
+<p>In essence, a cross-site scripting attack aims to execute <strong>JavaScript code</strong> on the devices of your website's users without their consent or knowledge.  To illustrate this concept, consider a simplified web application example.</p>
+<blockquote>
+<p><strong>JavaScript code</strong>: A programming language primarily used to make websites interactive and dynamic. It is executed by the user's web browser.</p>
+</blockquote>
+<h3 id="demonstrating-a-cross-site-scripting-attack">Demonstrating a Cross-Site Scripting Attack</h3>
+<h4 id="a-simple-web-application-example-browser-based">A Simple Web Application Example (Browser-Based)</h4>
+<p>Imagine a basic application where users can send messages containing text and an image URL. These messages are then displayed to all users. While this example might initially run solely within the <strong>browser</strong>, it's important to understand that in real-world scenarios, such applications typically involve a <strong>server</strong> and a <strong>database</strong>.</p>
+<blockquote>
+<p><strong>Browser</strong>: A software application used to access and view websites on the internet. Examples include Chrome, Firefox, Safari, and Edge.</p>
+<p><strong>Server</strong>: A computer system that provides resources, data, services, or programs to other computers, known as clients, over a network. In web development, servers store website files and handle requests from users' browsers.</p>
+<p><strong>Database</strong>: A structured collection of data that is organized and stored electronically in a computer system. Websites often use databases to store user information, content, and application data persistently.</p>
+</blockquote>
+<p>In a typical web application, user-submitted messages and image URLs would be sent to a server, stored in a database, and later retrieved to be displayed to other users. This process is fundamental to how most websites function, enabling features like e-commerce product purchases, blog posts, and public forums.</p>
+<h4 id="failed-attempt-using-script-tags">Failed Attempt: Using <code>&lt;script&gt;</code> Tags</h4>
+<p>One might initially attempt an XSS attack by directly embedding <strong>script tags</strong> containing malicious code within a message. For instance, a user could input a message like: <code>&lt;script&gt;alert('hacked')&lt;/script&gt;</code>. The intention is that when this message is rendered on the website, the browser will execute the JavaScript code within the script tags, in this case, displaying an alert box with the text "hacked".</p>
+<blockquote>
+<p><strong>Script tags</strong>: HTML tags, denoted as <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code>, used to embed client-side scripts, typically JavaScript code, within an HTML document.</p>
+</blockquote>
+<p>To understand how a website processes user input and renders it, developers can utilize browser developer tools. By <strong>inspecting</strong> the website's code, specifically the <strong>sources tab</strong>, you can examine the <strong>JavaScript code</strong> that powers the application. Even if the code is <strong>minified</strong> (compressed to reduce file size), it is still ultimately readable.</p>
+<blockquote>
+<p><strong>Inspect</strong>: To examine the underlying code and structure of a web page using browser developer tools. This allows developers to see the HTML, CSS, and JavaScript code, as well as network requests and console logs.</p>
+<p><strong>Sources tab</strong>: A section within browser developer tools that allows developers to view the source code of the web page, including HTML, CSS, and JavaScript files.</p>
+<p><strong>JavaScript code</strong>: (Refer to previous definition)</p>
+<p><strong>Minified</strong>: The process of removing unnecessary characters (like whitespace and comments) from code to reduce its file size, making it faster to download and execute. While minified code is harder to read, it still functions identically to the original code.</p>
+</blockquote>
+<p>In our example application, the JavaScript code (<code>app.js</code>) reveals how user messages are handled.  The code typically involves:</p>
+<ol>
+<li><strong>Validation</strong>: Checking the messages for certain criteria (though not explicitly shown in this simplified example).</li>
+<li><strong>Adding to a user messages array</strong>: Storing the messages in a temporary array. In a real application, this would involve sending the data to a server and storing it in a database.</li>
+<li><strong>Rendering</strong>: Displaying the messages on the webpage. In this application, rendering is achieved by iterating through the messages array and constructing a string of HTML list items (<code>&lt;li&gt;</code>). This string is then inserted into the HTML of the webpage using <strong><code>innerHTML</code></strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Validation</strong>: The process of ensuring that user input or data conforms to predefined rules and constraints. This can include checking for data type, format, length, and other criteria to maintain data integrity and security.</p>
+<p><strong>Fetch</strong>: In web development, to retrieve data from a server, often using JavaScript to make network requests. This is commonly used to load data from a database to display on a webpage.</p>
+<p><strong>Render</strong>: To generate and display the visual representation of a web page or application in a browser. This involves interpreting HTML, CSS, and JavaScript code to create the user interface that users see and interact with.</p>
+<p><strong><code>innerHTML</code></strong>: A property in JavaScript that allows you to get or set the HTML content within an element. When setting <code>innerHTML</code>, the browser parses the provided string as HTML code and renders it.</p>
+<p><strong>HTML</strong>: HyperText Markup Language, the standard markup language for documents designed to be displayed in a web browser. It provides the structure and content of a web page.</p>
+</blockquote>
+<p>Because <strong><code>innerHTML</code></strong> interprets its input as <strong>HTML</strong>, it might seem like injecting script tags would work. However, modern browsers are designed to prevent this basic XSS attempt. While the <code>&lt;script&gt;</code> tags might be rendered as HTML within the page's structure, the browser will not execute the script code embedded in this way when added via <code>innerHTML</code>.</p>
+<h4 id="successful-attack-exploiting-the-onerror-attribute-in-img-tags">Successful Attack: Exploiting the <code>onerror</code> Attribute in <code>&lt;img&gt;</code> Tags</h4>
+<p>While directly injecting <code>&lt;script&gt;</code> tags might be blocked, other avenues for XSS attacks exist. Consider the image URL functionality in our example application. The application uses <strong><code>innerHTML</code></strong> to insert an <code>&lt;img&gt;</code> tag into the page, using the user-provided image URL as the <strong><code>src</code> attribute</strong>.</p>
+<blockquote>
+<p><strong><code>&lt;img&gt;</code> tag</strong>: HTML tag used to embed images in a web page.</p>
+<p><strong><code>src</code> attribute</strong>: An attribute of the <code>&lt;img&gt;</code> tag that specifies the URL or path to the image file to be displayed.</p>
+</blockquote>
+<p>An attacker can manipulate the image URL to inject malicious JavaScript. Instead of a valid image URL, they could input something like: <code>"somepage.com/noimage.jpg" onerror="alert('hacked')"</code>.</p>
+<p>Here's how this works:</p>
+<ol>
+<li><strong>Invalid Image URL</strong>: <code>"somepage.com/noimage.jpg"</code> is likely to be an invalid or non-existent image URL, causing the image loading to fail.</li>
+<li><strong>Closing the <code>src</code> Attribute</strong>: The double quote <code>"</code> after the URL prematurely closes the <code>src</code> attribute.</li>
+<li><strong><code>onerror</code> Attribute Injection</strong>:  <code>onerror="alert('hacked')"</code> adds a new attribute to the <code>&lt;img&gt;</code> tag: <code>onerror</code>.</li>
+</ol>
+<p>The <strong><code>onerror</code> attribute</strong> is a standard HTML attribute for <code>&lt;img&gt;</code> tags. It specifies JavaScript code to be executed when an error occurs during image loading. Since the provided image URL is invalid, the <code>onerror</code> event is triggered, and the JavaScript code <code>alert('hacked')</code> (or any other malicious code) is executed.</p>
+<blockquote>
+<p><strong><code>onerror</code> attribute</strong>: An HTML attribute applicable to elements like <code>&lt;img&gt;</code> that specifies JavaScript code to be executed when an error occurs during the loading of the element (e.g., when an image fails to load).</p>
+</blockquote>
+<p>This example demonstrates a successful <strong>cross-site scripting attack</strong>. Even though it's a simple alert, in a real attack, the malicious script could perform far more damaging actions.</p>
+<h3 id="the-potential-impact-of-cross-site-scripting-attacks">The Potential Impact of Cross-Site Scripting Attacks</h3>
+<h4 id="consequences-of-successful-xss-exploits">Consequences of Successful XSS Exploits</h4>
+<p>In the demonstrated example, the attack is self-contained within the browser. However, if the vulnerable application were connected to a <strong>database</strong> and <strong>server</strong>, as is typical for most websites, the consequences of a successful XSS attack could be widespread.</p>
+<p>If the malicious message with the injected script were stored in the database and subsequently rendered for other users, the script would execute on <em>their</em> devices as well. This opens up a range of malicious possibilities:</p>
+<ul>
+<li><strong>Data Theft</strong>:  The script could access sensitive information stored in the user's <strong>local storage</strong> or <strong>cookies</strong>, such as session tokens or personal data. This stolen data could be sent to a server controlled by the attacker.</li>
+</ul>
+<blockquote>
+<p><strong>Local storage</strong>: A web storage technology that allows web applications to store data locally within the user's browser. Data stored in local storage persists even after the browser window is closed.</p>
+<p><strong>Cookies</strong>: Small text files that websites store on a user's computer to remember information about them, such as login details, preferences, or shopping cart items.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Session Hijacking</strong>: By stealing session cookies, attackers can impersonate users and gain unauthorized access to their accounts.</p>
+</li>
+<li>
+<p><strong>Actions on Behalf of Users</strong>: Malicious scripts can send <strong>HTTP requests</strong> behind the scenes, performing actions as if they were initiated by the user. This could include making purchases, changing account settings, or even posting content without the user's knowledge or consent, leveraging their <strong>authentication data</strong>.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>HTTP requests</strong>: Messages sent by a client (like a web browser) to a server to request resources or actions. In the context of XSS, malicious scripts can initiate HTTP requests to send stolen data or perform unauthorized actions.</p>
+<p><strong>Authentication data</strong>: Information used to verify a user's identity, such as usernames, passwords, session tokens, or cookies.</p>
+</blockquote>
+<h3 id="defending-against-cross-site-scripting-attacks">Defending Against Cross-Site Scripting Attacks</h3>
+<h4 id="best-practices-for-secure-coding">Best Practices for Secure Coding</h4>
+<p>To defend against XSS vulnerabilities, developers must adopt secure coding practices and implement appropriate security measures.</p>
+<p>One crucial step is to avoid vulnerable code patterns. For example, in our demonstration, the use of <strong><code>innerHTML</code></strong> to directly insert user-provided content as HTML created a <strong>vulnerability</strong>.  Alternative approaches, such as dynamically manipulating the Document Object Model (DOM) using JavaScript methods like <code>createElement</code>, <code>appendChild</code>, and <code>textContent</code>, can offer safer ways to update the webpage without directly parsing user input as HTML.</p>
+<blockquote>
+<p><strong>Vulnerability</strong>: A weakness in a system, application, or code that can be exploited by an attacker to cause harm or unauthorized access.</p>
+</blockquote>
+<h4 id="server-side-sanitization-of-user-input">Server-Side Sanitization of User Input</h4>
+<p>A critical defense mechanism is <strong>sanitization</strong> of all user input on the <strong>server-side</strong>.  Before storing any user-provided data in a database, it must be processed to remove or neutralize any potentially malicious code.</p>
+<blockquote>
+<p><strong>Sanitization</strong>: The process of cleaning or filtering user input to remove or neutralize potentially harmful content, such as malicious scripts, before it is processed, stored, or displayed on a webpage.</p>
+</blockquote>
+<p>For <strong>backend</strong> development using <strong>Node.js</strong>, libraries are available to facilitate sanitization. Similar packages exist for other server-side languages like <strong>PHP</strong> and various other technologies. These sanitization libraries analyze incoming content, identify potentially harmful patterns or code, and remove or modify them to ensure that only safe content is stored in the database.</p>
+<blockquote>
+<p><strong>Backend</strong>: The server-side portion of a web application, responsible for data storage, processing, and logic that is not directly visible to the user.</p>
+<p><strong>Node.js</strong>: A JavaScript runtime environment that allows developers to run JavaScript code on the server-side.</p>
+<p><strong>PHP</strong>: A widely-used server-side scripting language primarily used for web development.</p>
+</blockquote>
+<p>Choosing the right sanitization <strong>library</strong> or <strong>package</strong> is important. Developers should carefully evaluate different options, considering factors like update frequency, community support, and the specific types of attacks they protect against.  Some packages are designed for both browser and server-side use, offering flexibility in implementation.</p>
+<blockquote>
+<p><strong>Library/Package</strong>: In programming, a collection of pre-written code, functions, or modules that can be reused in different projects to simplify development and provide common functionalities.</p>
+</blockquote>
+<h4 id="client-side-html-escaping-in-modern-frameworks">Client-Side HTML Escaping in Modern Frameworks</h4>
+<p>In addition to server-side sanitization, client-side protection is also valuable. Modern JavaScript frameworks and libraries like <strong>React</strong>, <strong>Angular</strong>, and <strong>Vue</strong> incorporate built-in <strong>HTML escaping</strong> mechanisms.</p>
+<blockquote>
+<p><strong>React, Angular, Vue</strong>: Popular JavaScript frameworks and libraries used for building user interfaces and single-page applications.</p>
+<p><strong>HTML escaping</strong>: The process of converting special HTML characters (like <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>"</code>, <code>'</code>) into their corresponding HTML entities (like <code>&amp;lt;</code>, <code>&amp;gt;</code>, <code>&amp;amp;</code>, <code>&amp;quot;</code>, <code>&amp;apos;</code>). This prevents browsers from interpreting these characters as HTML code, thus mitigating XSS risks when displaying user-generated content.</p>
+</blockquote>
+<p>HTML escaping automatically converts special characters in user-provided content into their HTML entity equivalents before rendering them on the page. This prevents the browser from interpreting these characters as HTML tags or code, effectively neutralizing potential XSS attacks.</p>
+<p>While client-side escaping adds an extra layer of security, it is not a replacement for server-side sanitization. Server-side sanitization remains crucial as the primary line of defense, ensuring that malicious code never reaches the database in the first place.</p>
+<h4 id="third-party-library-risks-and-mitigation">Third-Party Library Risks and Mitigation</h4>
+<p>Beyond vulnerabilities in your own code, <strong>third-party libraries</strong> also present a potential attack vector. Modern web applications often rely on numerous third-party libraries for various functionalities, such as routing (<strong>React Router</strong>), form handling, UI components, and more. These libraries introduce external <strong>JavaScript code</strong> into your application.</p>
+<blockquote>
+<p><strong>Third-party libraries</strong>: Software libraries or packages developed by external developers or organizations that are integrated into a project to add functionality without writing code from scratch.</p>
+<p><strong>React Router</strong>: A popular routing library for React applications, used to manage navigation and page transitions.</p>
+</blockquote>
+<p>If a third-party library is compromised, either intentionally or unintentionally (e.g., through a malicious <strong>pull request</strong> merged by maintainers unaware of its malicious nature), the malicious code within the library can execute as part of your application. This code would bypass sanitization and escaping measures applied to user input, as it's considered part of the application's legitimate code.</p>
+<blockquote>
+<p><strong>Pull request</strong>: A proposal to merge changes from one branch of a version control repository (like Git) into another. In the context of open-source software, pull requests are a common way for contributors to suggest code changes.</p>
+</blockquote>
+<p>To mitigate this risk, <strong>npm audit</strong>, a feature of the npm package manager, can be used to scan your project's dependencies for known vulnerabilities. This helps identify libraries with reported security issues, allowing developers to update or replace them.</p>
+<blockquote>
+<p><strong>npm audit</strong>: A command-line tool provided by npm (Node Package Manager) that scans a project's dependencies for known security vulnerabilities and provides recommendations for remediation.</p>
+</blockquote>
+<p>Furthermore, using trusted and well-maintained libraries is essential. For large, widely used frameworks like Angular, the risk of compromise is significantly lower due to extensive security scrutiny and the resources of organizations like Google. However, for smaller or less actively maintained libraries, the risk might be higher. Developers should carefully evaluate the need for each third-party library and consider reducing reliance on external code where possible, as a positive side effect, this can also lead to smaller application sizes and improved website performance.</p>
+<p>Many popular frameworks and libraries, like Angular, are <strong>open source</strong>, allowing for community scrutiny of the code. While developers may not routinely examine all the code in their dependencies, the open-source nature enables wider review and potential identification of vulnerabilities by the community.</p>
+<blockquote>
+<p><strong>Open source</strong>: Software with source code that is publicly available and can be freely used, modified, and distributed.</p>
+</blockquote>
+<h3 id="conclusion">Conclusion</h3>
+<h4 id="key-takeaways-for-web-developers">Key Takeaways for Web Developers</h4>
+<p>Cross-site scripting (XSS) attacks are a serious threat to web application security. Understanding how these attacks work, recognizing potential vulnerabilities in code, and implementing effective defense strategies are crucial for every web developer.</p>
+<p>Key takeaways for building secure web applications against XSS attacks include:</p>
+<ul>
+<li><strong>Sanitize all user input on the server-side</strong>: This is the primary defense against XSS.</li>
+<li><strong>Utilize client-side HTML escaping</strong>: Frameworks like React, Angular, and Vue provide built-in protection.</li>
+<li><strong>Be mindful of third-party library risks</strong>: Use trusted libraries and regularly audit dependencies for vulnerabilities.</li>
+<li><strong>Avoid vulnerable code patterns</strong>: Be cautious when using methods like <code>innerHTML</code> and consider safer alternatives for DOM manipulation.</li>
+</ul>
+<p>By diligently applying these principles, developers can significantly enhance the security of their web applications and protect users from the dangers of cross-site scripting attacks.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

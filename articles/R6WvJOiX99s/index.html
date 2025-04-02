@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a Kirby-like Platformer Game with TypeScript and Kaboom.js - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-kirby-like-platformer-game-with-typescript-and-kaboomjs">Building a Kirby-like Platformer Game with TypeScript and Kaboom.js</a></li>
+        <li><a href="#1-introduction-to-kaboomjs-and-project-setup">1. Introduction to Kaboom.js and Project Setup</a></li><li><a href="#2-initializing-kaboomjs-context">2. Initializing Kaboom.js Context</a></li><li><a href="#3-loading-game-assets-maints">3. Loading Game Assets (main.ts)</a></li><li><a href="#4-level-design-with-tiled-and-json-export">4. Level Design with Tiled and JSON Export</a></li><li><a href="#5-loading-and-rendering-the-level-utilsts-maints">5. Loading and Rendering the Level (utils.ts &amp; main.ts)</a></li><li><a href="#6-implementing-the-player-character-entitiests">6. Implementing the Player Character (entities.ts)</a></li><li><a href="#7-enemy-implementation-entitiests-maints">7. Enemy Implementation (entities.ts &amp; main.ts)</a></li><li><a href="#8-building-and-publishing-the-game">8. Building and Publishing the Game</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-kirby-like-platformer-game-with-typescript-and-kaboomjs">Building a Kirby-like Platformer Game with TypeScript and Kaboom.js</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/R6WvJOiX99s" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will guide you through the process of creating a 2D platformer game similar to Kirby, using TypeScript and the Kaboom.js library. We will cover project setup, asset loading, level design, character implementation, enemy creation, and game mechanics. This tutorial assumes a basic understanding of TypeScript and Node.js.</p>
+<h2 id="1-introduction-to-kaboomjs-and-project-setup">1. Introduction to Kaboom.js and Project Setup</h2>
+<p>Kaboom.js is a JavaScript library designed for making games quickly and easily. It's particularly well-suited for 2D games and integrates seamlessly with TypeScript.</p>
+<blockquote>
+<p><strong>Kaboom.js:</strong> A simple and fun JavaScript library for making games in the browser. It is designed to be beginner-friendly and offers a wide range of features for 2D game development.</p>
+</blockquote>
+<p>This tutorial utilizes <strong>Vite</strong> as a bundler for project setup. Unlike traditional setups involving <code>index.html</code> and script tags, Vite simplifies the process and offers features like hot module replacement and optimized builds.</p>
+<blockquote>
+<p><strong>Bundler:</strong> A tool in web development that combines and packages JavaScript modules, CSS, and other assets into optimized bundles for deployment. This process often includes tasks like minification and code transformation.</p>
+</blockquote>
+<h3 id="11-prerequisites">1.1 Prerequisites</h3>
+<ul>
+<li><strong>Basic understanding of TypeScript:</strong> Familiarity with TypeScript syntax, types, and concepts is essential.</li>
+<li><strong>Node.js and npm (Node Package Manager):</strong> Node.js runtime environment and npm for package management are required.</li>
+</ul>
+<h3 id="12-setting-up-the-project-with-vite">1.2 Setting up the Project with Vite</h3>
+<ol>
+<li><strong>Open a terminal:</strong> Navigate to the directory where you want to create your project.</li>
+<li>
+<p><strong>Run the Vite create command:</strong> Execute the following command in your terminal:</p>
+<p><code>bash
+npm create vite@latest .</code></p>
+<p>The <code>.</code> at the end specifies that the project should be scaffolded in the current directory.
+3.  <strong>Select template:</strong> When prompted, choose the following options:
+*   <strong>Vanilla</strong> template
+*   <strong>TypeScript</strong> template
+4.  <strong>Project files:</strong> After successful execution, you should have a basic project structure with files like <code>package.json</code>, <code>tsconfig.json</code>, and a <code>src</code> folder.
+5.  <strong>Clean up:</strong>
+*   Delete <code>vite.svg</code> (optional).
+*   Delete all files within the <code>src</code> folder, but keep the <code>src</code> folder itself.</p>
+</li>
+</ol>
+<h3 id="13-installing-dependencies">1.3 Installing Dependencies</h3>
+<ol>
+<li><strong>Navigate to the project directory:</strong> Ensure you are in the newly created project directory in your terminal.</li>
+<li>
+<p><strong>Install dependencies:</strong> Run the command:</p>
+<p><code>bash
+npm install</code></p>
+<p>This command installs all the dependencies listed in your <code>package.json</code> file.
+3.  <strong>Install Kaboom.js:</strong> Install the Kaboom.js library specifically using:</p>
+<p><code>bash
+npm install kaboom</code></p>
+<p>This makes Kaboom.js available for import and use in your project.</p>
+</li>
+</ol>
+<h3 id="14-project-file-structure">1.4 Project File Structure</h3>
+<p>Create the following files within the <code>src</code> folder to organize your project:</p>
+<ul>
+<li><code>constants.ts</code>:  For storing constant values like game scale and resolution.</li>
+<li><code>entities.ts</code>:  To define game entities like players, enemies, and projectiles, along with their logic.</li>
+<li><code>kaboom-cx.ts</code>:  To initialize the Kaboom.js context and export it for use in other files.</li>
+<li><code>main.ts</code>:  The main entry point of your game application.</li>
+<li><code>state.ts</code>:  For managing the global game state, such as scene transitions and game over conditions.</li>
+<li><code>utils.ts</code>:  For utility functions, in this case, primarily for map loading and processing.</li>
+</ul>
+<h2 id="2-initializing-kaboomjs-context">2. Initializing Kaboom.js Context</h2>
+<p>The <code>kaboom-cx.ts</code> file is crucial for setting up the Kaboom.js environment.</p>
+<ol>
+<li>
+<p><strong>Import Kaboom:</strong> In <code>kaboom-cx.ts</code>, import the Kaboom function:</p>
+<p><code>typescript
+import kaboom from 'kaboom';</code></p>
+</li>
+<li>
+<p><strong>Initialize and Export Context:</strong> Initialize Kaboom with desired configurations and export the context.</p>
+<p>```typescript
+import kaboom from 'kaboom';</p>
+<p>export const k = kaboom({
+    width: 256,
+    height: 144,
+    letterbox: true,
+    global: false,
+    scale: 4,
+});
+```</p>
+<ul>
+<li><code>width</code>: Sets the width of the game canvas in pixels.</li>
+<li><code>height</code>: Sets the height of the game canvas in pixels.  The resolution (256x144) is chosen to resemble the Game Boy, but with a wider 16:9 aspect ratio.</li>
+<li><code>letterbox: true</code>: Ensures the canvas scales proportionally to different screen sizes while maintaining the aspect ratio, adding letterboxing if necessary.</li>
+<li><code>global: false</code>: Prevents Kaboom.js functions from being globally available.  This enforces using the exported context <code>k</code> for all Kaboom.js operations, promoting better code organization and avoiding namespace pollution.</li>
+<li><code>scale: 4</code>:  Scales the game up by a factor of 4. This is used both to enlarge the game visually and as a workaround for a pixel rendering issue in Kaboom.js.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define Scale Constant (constants.ts):</strong> Create a constant for the game scale in <code>constants.ts</code>.</p>
+<p><code>typescript
+export const SCALE = 4;</code></p>
+<p>Import this <code>SCALE</code> constant into <code>kaboom-cx.ts</code> and use it to set the <code>scale</code> option and also multiply the <code>width</code> and <code>height</code> options (though in this example, the multiplication is applied later to the resolution values, not directly in the <code>kaboom()</code> initialization).</p>
+</li>
+</ol>
+<h2 id="3-loading-game-assets-maints">3. Loading Game Assets (main.ts)</h2>
+<p>Assets like sprites and tile sets are essential for game visuals. Kaboom.js provides functions to load these assets.</p>
+<h3 id="31-asynchronous-game-setup">3.1 Asynchronous Game Setup</h3>
+<p>To manage asset loading efficiently, especially for map data from external sources, an asynchronous <code>gameSetup</code> function is used in <code>main.ts</code>.</p>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+
+async function gameSetup() {
+    // Asset loading logic will go here
+    await loadAssets(); // Function to load sprites and level data
+    k.k.go('level1'); // Transition to the 'level1' scene after setup
+}
+
+gameSetup();
+</code></pre>
+<p>Using <code>async</code> and <code>await</code> ensures that assets are fully loaded before the game scene starts, preventing issues like missing sprites or incomplete level data. This is particularly important for fetching external JSON map data.</p>
+<h3 id="32-loading-sprites">3.2 Loading Sprites</h3>
+<p>Spritesheets, which contain multiple sprite frames in a single image, are common in 2D game development. Kaboom.js's <code>loadSprite</code> function handles loading and slicing spritesheets.</p>
+<pre><code class="language-typescript">async function loadAssets() {
+    k.k.loadSpriteAtlas(&quot;kirbylike&quot;, 'assets/kirbylike.png', {
+        'kirbyidle': { x: 0, y: 0, width: 16, height: 16 },
+        'kirbyinhale': { x: 16, y: 0, width: 16, height: 16 },
+        'kirbyfull': { x: 32, y: 0, width: 16, height: 16 },
+        'kirbywalk': { x: 48, y: 0, width: 16, height: 16, frames: 9, animSpeed: 0.1 },
+        'kirbyjump': { x: 144, y: 0, width: 16, height: 16 },
+        'kirbyfall': { x: 160, y: 0, width: 16, height: 16 },
+        'star': { x: 176, y: 0, width: 16, height: 16 },
+        'flame': { x: 192, y: 0, width: 16, height: 16, frames: 6, animSpeed: 0.1 },
+        'guy': { x: 288, y: 0, width: 16, height: 16, frames: 4, animSpeed: 0.1 },
+        'bird': { x: 352, y: 0, width: 16, height: 16, frames: 4, animSpeed: 0.1 },
+        'cloud': { x: 384, y: 0, width: 16, height: 16 },
+        'hill': { x: 400, y: 0, width: 16, height: 16 },
+        'grass': { x: 432, y: 0, width: 16, height: 16 },
+        'sign': { x: 448, y: 0, width: 16, height: 16 },
+        'door': { x: 464, y: 0, width: 16, height: 16 },
+    });
+    k.k.loadSprite(&quot;level1&quot;, 'assets/level-1.png');
+}
+</code></pre>
+<ul>
+<li><code>k.k.loadSpriteAtlas("kirbylike", 'assets/kirbylike.png', {...})</code>: Loads a spritesheet named "kirbylike" from the <code>assets/kirbylike.png</code> file. The second argument is a configuration object defining individual sprites within the sheet, including their positions (<code>x</code>, <code>y</code>), dimensions (<code>width</code>, <code>height</code>), and animation properties (<code>frames</code>, <code>animSpeed</code>).</li>
+<li>
+<p><code>k.k.loadSprite("level1", 'assets/level-1.png')</code>: Loads a single sprite named "level1" from <code>assets/level-1.png</code>. This will be used for the level background image.</p>
+<blockquote>
+<p><strong>Sprite:</strong> A 2D image or animation frame used in games to represent characters, objects, or visual elements.
+<strong>Spritesheet (or Sprite Atlas):</strong> A single image file containing multiple sprites arranged in a grid. This is an efficient way to load and manage numerous sprites.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="4-level-design-with-tiled-and-json-export">4. Level Design with Tiled and JSON Export</h2>
+<p><strong>Tiled</strong> is a powerful and free tile map editor. It's used to design game levels visually and export them in various formats, including JSON, which is ideal for Kaboom.js.</p>
+<blockquote>
+<p><strong>Tiled:</strong> A free and open-source tile map editor. It allows game developers to create levels using tilesets and layers, and export them in various formats suitable for game engines.</p>
+</blockquote>
+<h3 id="41-using-tiled-editor">4.1 Using Tiled Editor</h3>
+<ol>
+<li><strong>Install Tiled:</strong> Download and install Tiled from its official website.</li>
+<li><strong>Configure Font Size (Optional):</strong> If using a high-resolution monitor, adjust the interface font size in Tiled's preferences (Edit &gt; Preferences &gt; Themes &gt; Use custom interface font) for better visibility.</li>
+<li><strong>Create a New Map:</strong><ul>
+<li>File &gt; New &gt; New Map.</li>
+<li>Set map dimensions (e.g., 27x20 tiles).</li>
+<li>Set tile size (e.g., 16x16 pixels).</li>
+</ul>
+</li>
+<li><strong>Import Tile Set:</strong><ul>
+<li>Tile Sets &gt; New Tile Set.</li>
+<li>Browse to your <code>assets/kirbylike.png</code> file as the source.</li>
+<li>Set tile size to 16x16 pixels.</li>
+</ul>
+</li>
+<li><strong>Create Layers:</strong> Tiled supports different layer types:<ul>
+<li><strong>Tile Layers:</strong> For background, platforms, clouds, and other tile-based elements. Create layers for "background," "clouds," and "platforms."</li>
+<li><strong>Object Layers:</strong> For colliders, spawn points, and other game logic elements. Create layers for "colliders" and "spawn points."</li>
+</ul>
+</li>
+<li><strong>Draw the Level:</strong> Use the tile sets and layers to visually design your level within Tiled.<ul>
+<li><strong>Background Layer:</strong> Draw the background elements (hills, ground, etc.).</li>
+<li><strong>Clouds Layer:</strong> Add cloud tiles for visual depth.</li>
+<li><strong>Platforms Layer:</strong> Create platforms for the player to jump on.</li>
+<li><strong>Colliders Layer:</strong> Use rectangle objects to define collision areas for platforms and level boundaries. Name the exit collider object as "exit".</li>
+<li><strong>Spawn Points Layer:</strong> Use point objects (pins) to mark spawn locations for:<ul>
+<li><code>player</code>: Player starting position.</li>
+<li><code>flame</code>: Flame enemy spawn points.</li>
+<li><code>bird</code>: Bird enemy spawn points.</li>
+<li><code>guy</code>: Guy enemy spawn points.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Save the Map:</strong> File &gt; Save As... Save the map as <code>level-1.json</code> in the <code>public</code> folder of your project.</li>
+<li>
+<p><strong>Export Level Image:</strong> For optimized rendering, export the visible layers (hide "spawn points" and "colliders" layers) as a single PNG image:</p>
+<ul>
+<li>File &gt; Export As Image...</li>
+<li>Save as <code>level-1.png</code> in the <code>public</code> folder, ensuring "Only include visible layers" is checked and other options are unchecked.</li>
+</ul>
+<blockquote>
+<p><strong>Tile Set:</strong> A collection of tiles (small images) used to construct tile maps in game development.
+<strong>Tile Map:</strong> A level or game world created by arranging tiles from a tile set on a grid.
+<strong>Layer:</strong> A level in a tile map editor can be composed of multiple layers. Layers can be of tile type, object type, or image type, allowing for organized level design.
+<strong>Collider:</strong> An invisible shape used for collision detection in games. Colliders define the boundaries of objects for interaction and physics.
+<strong>Spawn Point:</strong> A designated location in a game level where characters or objects are created or appear.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="5-loading-and-rendering-the-level-utilsts-maints">5. Loading and Rendering the Level (utils.ts &amp; main.ts)</h2>
+<p>To display the level created in Tiled, we need to load the JSON data and the exported PNG image in Kaboom.js.</p>
+<h3 id="51-makemap-utility-function-utilsts">5.1 <code>makeMap</code> Utility Function (utils.ts)</h3>
+<p>Create a utility function <code>makeMap</code> in <code>utils.ts</code> to handle loading and processing the Tiled JSON map data.</p>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { SCALE } from './constants';
+
+export async function makeMap(context: k.KaboomCtx, name: string) {
+    const mapData = await fetch(`./${name}.json`).then(res =&gt; res.json());
+    const map = k.k.make([
+        k.k.sprite(name),
+        k.k.scale(SCALE),
+        k.k.pos(0, 0),
+    ]);
+
+    const spawnPoints: Record&lt;string, { x: number, y: number }[]&gt; = {};
+
+    for (const layer of mapData.layers) {
+        if (layer.name === 'colliders') {
+            for (const collider of layer.objects) {
+                const childCollider = k.k.add([
+                    k.k.area({ shape: new k.k.Rect(k.k.vec2(0, 0), collider.width, collider.height), collisionIgnore: ['platform', 'exit'] }),
+                    collider.name !== 'exit' ? k.k.body({ isStatic: true }) : null,
+                    k.k.pos(collider.x, collider.y),
+                    collider.name !== 'exit' ? 'platform' : 'exit',
+                ]);
+                map.add(childCollider);
+            }
+        } else if (layer.name === 'spawn points') {
+            for (const spawnPoint of layer.objects) {
+                if (spawnPoints[spawnPoint.name]) {
+                    spawnPoints[spawnPoint.name].push({ x: spawnPoint.x, y: spawnPoint.y });
+                } else {
+                    spawnPoints[spawnPoint.name] = [{ x: spawnPoint.x, y: spawnPoint.y }];
+                }
+            }
+        }
+    }
+
+    return { map, spawnPoints };
+}
+</code></pre>
+<ul>
+<li>
+<p><code>fetch(</code>./${name}.json<code>).then(res =&gt; res.json())</code>: Fetches the JSON map data from the <code>public</code> folder using the <code>name</code> parameter (e.g., "level-1").</p>
+<blockquote>
+<p><strong>JSON (JavaScript Object Notation):</strong> A lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is often used for configuration files and data transfer over the internet.</p>
+</blockquote>
+</li>
+<li>
+<p><code>k.k.make(...)</code>: Creates a Kaboom.js game object for the map itself.</p>
+<ul>
+<li><code>k.k.sprite(name)</code>: Adds the sprite component, using the <code>name</code> (e.g., "level-1") to reference the loaded PNG image.</li>
+<li><code>k.k.scale(SCALE)</code>: Applies the game's scale factor to the map sprite.</li>
+<li><code>k.k.pos(0, 0)</code>: Sets the map's position to the top-left corner (0, 0).</li>
+</ul>
+</li>
+<li>
+<p><strong>Collider Processing:</strong> Iterates through the "colliders" layer in the JSON data. For each collider object:</p>
+<ul>
+<li><code>k.k.area({...})</code>: Adds an area component to define the collider's shape and collision behavior.<ul>
+<li><code>shape: new k.k.Rect(...)</code>: Creates a rectangular shape based on the collider's width and height from Tiled.</li>
+<li><code>collisionIgnore: ['platform', 'exit']</code>: Specifies tags to ignore during collision detection.</li>
+</ul>
+</li>
+<li>
+<p><code>collider.name !== 'exit' ? k.k.body({ isStatic: true }) : null</code>: Conditionally adds a body component with <code>isStatic: true</code> for platform colliders. Static bodies do not move or respond to forces, making them suitable for platforms and walls. The exit collider does not need a body component.</p>
+<blockquote>
+<p><strong>Component:</strong> In Kaboom.js (and ECS architectures), a component is a data container that adds specific functionalities or attributes to a game object. Examples include SpriteComponent, PosComponent, AreaComponent, BodyComponent, etc.
+<strong>Static Body:</strong> In physics engines, a static body is an object that is fixed in place and does not move or react to forces or collisions. It is often used for level geometry like platforms and walls.</p>
+</blockquote>
+</li>
+<li>
+<p><code>k.k.pos(collider.x, collider.y)</code>: Sets the collider's position based on the coordinates from Tiled.</p>
+</li>
+<li><code>collider.name !== 'exit' ? 'platform' : 'exit'</code>: Assigns tags "platform" or "exit" to the collider game object for collision identification.</li>
+<li><code>map.add(childCollider)</code>: Adds the created collider as a child of the map game object. This ensures that colliders are rendered and positioned relative to the map.</li>
+<li><strong>Spawn Point Processing:</strong> Iterates through the "spawn points" layer. For each spawn point object:</li>
+<li>Extracts the spawn point's name (e.g., "player," "flame") and position (<code>x</code>, <code>y</code>).</li>
+<li>Stores the spawn point data in the <code>spawnPoints</code> object, grouping spawn points by their names.</li>
+<li><code>return { map, spawnPoints }</code>: Returns the created map game object and the <code>spawnPoints</code> data.</li>
+</ul>
+</li>
+</ul>
+<h3 id="52-integrating-makemap-into-the-scene-maints">5.2 Integrating <code>makeMap</code> into the Scene (main.ts)</h3>
+<p>In <code>main.ts</code>, within the <code>level1</code> scene, call the <code>makeMap</code> function to load and add the level to the scene.</p>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { makeMap } from './utils';
+import { makePlayer, setControls } from './entities';
+
+k.k.scene('level1', async () =&gt; {
+    k.k.setGravity(2100);
+
+    // Background Rectangle
+    k.k.add([
+        k.k.rect(k.k.width(), k.k.height()),
+        k.k.color('#a0c4ff'),
+        k.k.fixed(),
+    ]);
+
+    // Load Level Layout and Spawn Points
+    const { map: levelLayout, spawnPoints: level1SpawnPoints } = await makeMap(k.k, 'level-1');
+    k.k.add(levelLayout);
+
+    // Create Player
+    const player = makePlayer(k.k, level1SpawnPoints.player[0].x, level1SpawnPoints.player[0].y);
+    k.k.add(player);
+    setControls(k.k, player);
+
+    // Camera Follow Logic
+    k.k.camScale(0.7);
+    k.k.onUpdate(() =&gt; {
+        if (player.pos.x &lt; levelLayout.pos.x + 432) {
+            k.k.camPos(player.pos.x + 500, 850);
+        }
+    });
+});
+
+k.k.start('level1');
+</code></pre>
+<ul>
+<li><code>const { map: levelLayout, spawnPoints: level1SpawnPoints } = await makeMap(k.k, 'level-1')</code>: Calls <code>makeMap</code> to load the level data for "level-1". It uses object destructuring with renaming (<code>map: levelLayout</code>, <code>spawnPoints: level1SpawnPoints</code>) to assign the returned values to more descriptive variable names.</li>
+<li><code>k.k.add(levelLayout)</code>: Adds the map game object (<code>levelLayout</code>) to the scene, rendering the level image and its child colliders.</li>
+</ul>
+<h2 id="6-implementing-the-player-character-entitiests">6. Implementing the Player Character (entities.ts)</h2>
+<p>The <code>entities.ts</code> file houses the logic for game entities.  Let's start by creating the player character.</p>
+<h3 id="61-makeplayer-function">6.1 <code>makePlayer</code> Function</h3>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { SCALE } from './constants';
+
+export type PlayerGameObject = k.GameObject&lt;k.SpriteComp | k.AreaComp | k.BodyComp | k.PosComp | k.ScaleComp | k.DoubleJumpComp | k.HealthComp | k.OpacityComp&gt; &amp; {
+    speed: number;
+    direction: 'left' | 'right';
+    isFull: boolean;
+    isInhaling: boolean;
+};
+
+export function makePlayer(context: k.KaboomCtx, posX: number, posY: number): PlayerGameObject {
+    const player = k.k.make([
+        k.k.sprite('kirbyidle', { anim: 'kirbyidle' }),
+        k.k.area({ shape: new k.k.Rect(k.k.vec2(4, 5.9), 8, 10) }),
+        k.k.body(),
+        k.k.pos(posX * SCALE, posY * SCALE),
+        k.k.scale(SCALE),
+        k.k.doubleJump(10),
+        k.k.health(3),
+        k.k.opacity(1),
+        {
+            speed: 120,
+            direction: 'right',
+            isFull: false,
+            isInhaling: false,
+        },
+        'player',
+    ]);
+
+    player.onCollide('enemy', async (enemy) =&gt; {
+        if (player.isInhaling &amp;&amp; enemy.isSwallowable) {
+            player.isInhaling = false;
+            k.k.destroy(enemy);
+            player.isFull = true;
+            return;
+        }
+
+        if (player.hp() &lt;= 0) {
+            k.k.destroy(player);
+            k.k.go('level1');
+            return;
+        }
+
+        player.hurt(1);
+        await k.k.tween(0.5, (t) =&gt; {
+            player.opacity = k.k.lerp(1, 0, t);
+        }, k.k.easings.linear);
+
+        await k.k.tween(0.5, (t) =&gt; {
+            player.opacity = k.k.lerp(0, 1, t);
+        }, k.k.easings.linear);
+    });
+
+    player.onCollide('exit', () =&gt; {
+        k.k.go('level2'); // Placeholder, level 2 is not implemented in this tutorial.
+    });
+
+    // Inhale Effect and Zone (defined later in the transcript)
+    const inhaleEffect = k.k.add([ /* ... inhale effect object ... */ ]);
+    const inhaleZone = k.k.add([ /* ... inhale zone object ... */ ]);
+
+    k.k.onUpdate(() =&gt; { /* ... inhale zone and effect update logic ... */ });
+    k.k.onUpdate(() =&gt; { /* ... respawn logic if player falls ... */ });
+
+    return player as PlayerGameObject;
+}
+</code></pre>
+<ul>
+<li>
+<p><strong><code>PlayerGameObject</code> Type:</strong> Defines a TypeScript type <code>PlayerGameObject</code> to ensure type safety for the player object. It specifies that the player object is a Kaboom.js <code>GameObject</code> with specific components (<code>SpriteComp</code>, <code>AreaComp</code>, etc.) and custom properties (<code>speed</code>, <code>direction</code>, <code>isFull</code>, <code>isInhaling</code>).</p>
+<blockquote>
+<p><strong>TypeScript Type:</strong> In TypeScript, a type defines the kind of values that can be assigned to a variable or used in a function. It helps in catching type-related errors during development and improves code readability.</p>
+</blockquote>
+</li>
+<li>
+<p><code>k.k.make(...)</code>: Creates the player game object with the specified components:</p>
+<ul>
+<li><code>k.k.sprite('kirbyidle', { anim: 'kirbyidle' })</code>: Adds the sprite component, using the "kirbyidle" sprite and playing the "kirbyidle" animation by default.</li>
+<li><code>k.k.area({...})</code>: Adds an area component for collision detection, defining a rectangular shape for the player's hitbox.</li>
+<li><code>k.k.body()</code>: Adds a body component, enabling physics and collision resolution.</li>
+<li><code>k.k.pos(posX * SCALE, posY * SCALE)</code>: Sets the player's initial position, scaled by the <code>SCALE</code> constant.</li>
+<li><code>k.k.scale(SCALE)</code>: Scales the player sprite.</li>
+<li><code>k.k.doubleJump(10)</code>: Adds the double jump component, allowing the player to jump multiple times in the air (simulating Kirby's float ability).</li>
+<li><code>k.k.health(3)</code>: Adds the health component, setting the player's initial health to 3.</li>
+<li><code>k.k.opacity(1)</code>: Sets the player's initial opacity to fully visible.</li>
+<li><code>{...}</code>: An anonymous object containing custom properties: <code>speed</code>, <code>direction</code>, <code>isFull</code>, <code>isInhaling</code>, and their initial values.</li>
+<li><code>'player'</code>: Assigns the "player" tag to the player game object.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>player.onCollide('enemy', async (enemy) =&gt; { ... })</code>:</strong>  Sets up a collision event handler for collisions between the player and game objects tagged as "enemy."</p>
+<blockquote>
+<p><strong>Event Handler:</strong> A function that is executed when a specific event occurs, such as a collision, key press, or mouse click. In Kaboom.js, <code>onCollide</code>, <code>onKeyPress</code>, and <code>onUpdate</code> are examples of event handlers.</p>
+</blockquote>
+<ul>
+<li><strong>Inhale Logic:</strong> Checks if the player is inhaling and the enemy is swallowable (<code>enemy.isSwallowable</code>). If both are true, it sets <code>player.isInhaling</code> to false, destroys the enemy using <code>k.k.destroy(enemy)</code>, and sets <code>player.isFull</code> to true (indicating the player has swallowed an enemy).</li>
+<li>
+<p><strong>Damage and Respawn Logic:</strong> If the player's health (<code>player.hp()</code>) is zero or less, it destroys the player and restarts the current level (<code>k.k.go('level1')</code>). Otherwise, it reduces the player's health by 1 (<code>player.hurt(1)</code>) and initiates a blinking effect using tweens.</p>
+<blockquote>
+<p><strong>Tween (Short for In-Betweening):</strong> An animation technique that smoothly transitions a property of an object from one value to another over a specified duration. Tweens are often used for animation, visual effects, and smooth transitions in games.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Blinking Effect:</strong> Uses two <code>k.k.tween</code> calls to create a blink effect when the player takes damage. The first tween reduces opacity from 1 to 0, and the second tween increases it back from 0 to 1, both over 0.5 seconds with linear easing.</p>
+<blockquote>
+<p><strong>Easing Function:</strong> A function that defines the rate of change of a value in a tween over time. Linear easing means a constant rate of change, while other easing functions (e.g., ease-in, ease-out) create more dynamic and visually appealing transitions.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>player.onCollide('exit', () =&gt; { ... })</code>:</strong> Sets up a collision event handler for collisions with game objects tagged as "exit." When the player collides with the exit, it attempts to transition to a "level2" scene (which is a placeholder in this tutorial).</p>
+</li>
+<li><strong>Inhale Effect and Zone (Placeholder):</strong> The code for creating the inhale effect and inhale zone game objects, as well as their update logic, is defined later in the transcript and will be added here.</li>
+<li><strong>Respawn Logic (Placeholder):</strong> The code for respawning the player if they fall off-screen is defined later and will be added.</li>
+<li><code>return player as PlayerGameObject</code>: Returns the created player game object, cast as the <code>PlayerGameObject</code> type for type safety.</li>
+</ul>
+<h3 id="62-setting-up-player-controls-entitiests">6.2 Setting up Player Controls (entities.ts)</h3>
+<p>The <code>setControls</code> function in <code>entities.ts</code> handles player input and actions.</p>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { SCALE } from './constants';
+import { PlayerGameObject } from './entities';
+
+export function setControls(context: k.KaboomCtx, player: PlayerGameObject) {
+    const inhaleEffectRef = k.k.get('inhaleEffect')[0];
+
+    k.k.onKeyDown((key) =&gt; {
+        switch (key) {
+            case 'left':
+                player.direction = 'left';
+                player.flipX(true);
+                player.move(-player.speed, 0);
+                break;
+            case 'right':
+                player.direction = 'right';
+                player.flipX(false);
+                player.move(player.speed, 0);
+                break;
+            case 'z':
+                if (player.isFull) {
+                    player.play('kirbyinhale'); // Play inhale animation even when full (for visual consistency)
+                    inhaleEffectRef.opacity = 0;
+                    break;
+                }
+                player.isInhaling = true;
+                player.play('kirbyinhale');
+                inhaleEffectRef.opacity = 1;
+                break;
+            default:
+                break;
+        }
+    });
+
+    k.k.onKeyPress('space', () =&gt; {
+        player.doubleJump();
+    });
+
+    k.k.onKeyRelease('z', () =&gt; {
+        if (player.isFull) {
+            player.play('kirbyinhale'); // Play inhale animation again when releasing 'z' after being full
+            const shootingStar = k.k.add([
+                k.k.sprite('star', { flipX: player.direction === 'right' }),
+                k.k.area({ shape: new k.k.Rect(k.k.vec2(4, 4), 6, 6) }),
+                k.k.pos(player.direction === 'left' ? player.pos.x - 80 : player.pos.x + 80, player.pos.y + 5),
+                k.k.scale(SCALE),
+                k.k.move(player.direction === 'left' ? k.k.LEFT : k.k.RIGHT, 400),
+                'shootingStar',
+            ]);
+
+            shootingStar.onCollide('platform', () =&gt; {
+                k.k.destroy(shootingStar);
+            });
+
+            player.isFull = false;
+            k.k.wait(1, () =&gt; {
+                player.play('kirbyidle');
+            });
+            return;
+        }
+
+        inhaleEffectRef.opacity = 0;
+        player.isInhaling = false;
+        player.play('kirbyidle');
+    });
+}
+</code></pre>
+<ul>
+<li><code>inhaleEffectRef = k.k.get('inhaleEffect')[0]</code>: Gets a reference to the "inhaleEffect" game object using its tag. <code>k.k.get('inhaleEffect')</code> returns an array of game objects with the "inhaleEffect" tag, and <code>[0]</code> accesses the first element (assuming only one inhale effect object exists).</li>
+<li><strong><code>k.k.onKeyDown((key) =&gt; { ... })</code>:</strong> Sets up a key down event handler. This function is called every frame while a key is pressed.<ul>
+<li><strong>Left/Right Movement:</strong> Handles 'left' and 'right' key presses to move the player horizontally using <code>player.move()</code>. <code>player.flipX()</code> flips the sprite horizontally to face the direction of movement.</li>
+<li><strong>Inhale (Z Key):</strong> Handles 'z' key presses for inhaling action.<ul>
+<li>If <code>player.isFull</code> is true (player has swallowed an enemy), it plays the "kirbyinhale" animation (for visual consistency) and hides the inhale effect.</li>
+<li>If <code>player.isFull</code> is false, it sets <code>player.isInhaling</code> to true, plays the "kirbyinhale" animation, and makes the inhale effect visible (<code>inhaleEffectRef.opacity = 1</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><code>k.k.onKeyPress('space', () =&gt; { ... })</code>:</strong> Sets up a key press event handler for the space key. <code>k.k.onKeyPress</code> is triggered once when a key is pressed down.<ul>
+<li><strong>Jump (Space Key):</strong> Calls <code>player.doubleJump()</code> to initiate a jump.</li>
+</ul>
+</li>
+<li><strong><code>k.k.onKeyRelease('z', () =&gt; { ... })</code>:</strong> Sets up a key release event handler for the 'z' key. This function is called once when a key is released.<ul>
+<li><strong>Shoot Star (Z Key Release when Full):</strong> If <code>player.isFull</code> is true when the 'z' key is released, it:<ul>
+<li>Plays the "kirbyinhale" animation again.</li>
+<li>Creates a "shootingStar" game object:<ul>
+<li><code>k.k.sprite('star', { flipX: player.direction === 'right' })</code>: Adds the "star" sprite, flipping it horizontally based on the player's direction.</li>
+<li><code>k.k.area({...})</code>: Adds an area component for collision detection for the star.</li>
+<li><code>k.k.pos(...)</code>: Sets the star's initial position relative to the player, adjusted based on the direction.</li>
+<li><code>k.k.scale(SCALE)</code>: Scales the star sprite.</li>
+<li><code>k.k.move(...)</code>: Adds a move component to propel the star left or right.</li>
+<li><code>'shootingStar'</code>: Assigns the "shootingStar" tag.</li>
+</ul>
+</li>
+<li><code>shootingStar.onCollide('platform', () =&gt; { ... })</code>: Sets up a collision event handler for the shooting star. If it collides with a "platform," it destroys the shooting star.</li>
+<li>Sets <code>player.isFull</code> to false.</li>
+<li>Uses <code>k.k.wait(1, () =&gt; { ... })</code> to wait for 1 second before playing the "kirbyidle" animation again.</li>
+</ul>
+</li>
+<li><strong>Stop Inhaling (Z Key Release when Not Full):</strong> If <code>player.isFull</code> is false when the 'z' key is released, it:<ul>
+<li>Hides the inhale effect (<code>inhaleEffectRef.opacity = 0</code>).</li>
+<li>Sets <code>player.isInhaling</code> to false.</li>
+<li>Plays the "kirbyidle" animation.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="63-defining-inhale-effect-and-zone-entitiests">6.3 Defining Inhale Effect and Zone (entities.ts)</h3>
+<p>Add the inhale effect and inhale zone game object definitions within the <code>makePlayer</code> function, before the <code>onUpdate</code> logic:</p>
+<pre><code class="language-typescript">export function makePlayer(context: k.KaboomCtx, posX: number, posY: number): PlayerGameObject {
+    // ... (previous player code) ...
+
+    // Inhale Effect
+    const inhaleEffect = k.k.add([
+        k.k.sprite('kirbyinhale', { anim: 'kirbyinhale' }),
+        k.k.pos(player.pos.x, player.pos.y), // Initial position (will be updated)
+        k.k.scale(SCALE),
+        k.k.opacity(0), // Initially hidden
+        'inhaleEffect',
+    ]);
+
+    // Inhale Zone (Hitbox)
+    const inhaleZone = k.k.add([
+        k.k.area({ shape: new k.k.Rect(k.k.vec2(0, 0), 16, 16), isSensor: true }), // Sensor: doesn't cause physical collisions
+        k.k.pos(player.pos.x, player.pos.y), // Initial position (will be updated)
+        'inhaleZone',
+    ]);
+
+    k.k.onUpdate(() =&gt; {
+        // Inhale Zone and Effect Update Logic
+        if (player.direction === 'left') {
+            inhaleZone.pos = k.k.vec2(player.pos.x - 14, player.pos.y + 8);
+            inhaleEffect.pos = k.k.vec2(player.pos.x - 14, player.pos.y + 8);
+            inhaleEffect.flipX(true);
+        } else { // direction === 'right' or default
+            inhaleZone.pos = k.k.vec2(player.pos.x + 14, player.pos.y + 8);
+            inhaleEffect.pos = k.k.vec2(player.pos.x + 14, player.pos.y + 8);
+            inhaleEffect.flipX(false);
+        }
+    });
+
+    k.k.onUpdate(() =&gt; {
+        // Respawn Logic
+        if (player.pos.y &gt; 2000) {
+            k.k.go('level1');
+        }
+    });
+
+    return player as PlayerGameObject;
+}
+</code></pre>
+<ul>
+<li><strong>Inhale Effect Object:</strong><ul>
+<li><code>k.k.sprite('kirbyinhale', { anim: 'kirbyinhale' })</code>: Adds the "kirbyinhale" sprite and plays the "kirbyinhale" animation.</li>
+<li><code>k.k.pos(player.pos.x, player.pos.y)</code>: Sets the initial position to the player's position.</li>
+<li><code>k.k.scale(SCALE)</code>: Scales the inhale effect.</li>
+<li><code>k.k.opacity(0)</code>: Sets the initial opacity to 0, making it invisible by default.</li>
+<li><code>'inhaleEffect'</code>: Assigns the "inhaleEffect" tag.</li>
+</ul>
+</li>
+<li><strong>Inhale Zone Object:</strong><ul>
+<li><code>k.k.area({...})</code>: Adds an area component for collision detection.<ul>
+<li><code>shape: new k.k.Rect(...)</code>: Defines a rectangular shape for the inhale zone.</li>
+<li><code>isSensor: true</code>: Makes the area a sensor, meaning it detects collisions but doesn't cause physical collisions (it's just for triggering events).</li>
+</ul>
+</li>
+<li><code>k.k.pos(player.pos.x, player.pos.y)</code>: Sets the initial position to the player's position.</li>
+<li><code>'inhaleZone'</code>: Assigns the "inhaleZone" tag.</li>
+</ul>
+</li>
+<li><strong>Inhale Zone and Effect Update Logic (<code>k.k.onUpdate(() =&gt; { ... })</code>):</strong><ul>
+<li>This <code>onUpdate</code> function runs every frame and updates the positions and <code>flipX</code> property of the <code>inhaleZone</code> and <code>inhaleEffect</code> objects based on the player's direction. It positions them slightly in front of the player, either to the left or right, depending on <code>player.direction</code>.</li>
+</ul>
+</li>
+<li><strong>Respawn Logic (<code>k.k.onUpdate(() =&gt; { ... })</code>):</strong><ul>
+<li>This <code>onUpdate</code> function checks if the player's vertical position (<code>player.pos.y</code>) exceeds 2000. If it does, it means the player has fallen off-screen, and it restarts the current level using <code>k.k.go('level1')</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-enemy-implementation-entitiests-maints">7. Enemy Implementation (entities.ts &amp; main.ts)</h2>
+<p>Let's add enemies to make the game more challenging. We'll create flame, guy, and bird enemies.</p>
+<h3 id="71-makeflameenemy-function-entitiests">7.1 <code>makeFlameEnemy</code> Function (entities.ts)</h3>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { SCALE } from './constants';
+
+export type FlameEnemyGameObject = k.GameObject&lt;k.SpriteComp | k.AreaComp | k.BodyComp | k.PosComp | k.ScaleComp | k.StateComp&gt; &amp; {
+    isSwallowable: boolean;
+};
+
+
+export function makeFlameEnemy(context: k.KaboomCtx, posX: number, posY: number): FlameEnemyGameObject {
+    const flame = k.k.add([
+        k.k.sprite('flame', { anim: 'flame' }),
+        k.k.scale(SCALE),
+        k.k.pos(posX * SCALE, posY * SCALE),
+        k.k.area({ shape: new k.k.Rect(k.k.vec2(0, 0), 16, 16), collisionIgnore: ['enemy'] }),
+        k.k.body(),
+        k.k.state('idle', ['idle', 'jump']),
+        'enemy',
+        'flameEnemy',
+        { isSwallowable: true },
+    ]);
+
+    flame.onStateEnter('idle', async () =&gt; {
+        await k.k.wait(1);
+        flame.enterState('jump');
+    });
+
+    flame.onStateEnter('jump', () =&gt; {
+        flame.jump(1000);
+    });
+
+    flame.onStateUpdate('jump', () =&gt; {
+        if (flame.isGrounded()) {
+            flame.enterState('idle');
+        }
+    });
+
+    return flame as FlameEnemyGameObject;
+}
+</code></pre>
+<ul>
+<li><strong><code>FlameEnemyGameObject</code> Type:</strong> Defines a TypeScript type for flame enemy objects, specifying components and the <code>isSwallowable</code> property.</li>
+<li>
+<p><code>k.k.make(...)</code>: Creates the flame enemy game object with the following:</p>
+<ul>
+<li><code>k.k.sprite('flame', { anim: 'flame' })</code>: Adds the "flame" sprite and plays the "flame" animation.</li>
+<li><code>k.k.scale(SCALE)</code>: Scales the flame sprite.</li>
+<li><code>k.k.pos(posX * SCALE, posY * SCALE)</code>: Sets the initial position.</li>
+<li><code>k.k.area({...})</code>: Adds an area component, ignoring collisions with other "enemy" tagged objects.</li>
+<li><code>k.k.body()</code>: Adds a body component for physics.</li>
+<li>
+<p><code>k.k.state('idle', ['idle', 'jump'])</code>: Adds a state component, defining the state machine with "idle" as the initial state and "idle" and "jump" as possible states.</p>
+<blockquote>
+<p><strong>State Machine:</strong> A behavioral design pattern used to model the states of an object and the transitions between those states based on events or conditions. In game development, state machines are often used to control the AI and behavior of characters and enemies.</p>
+</blockquote>
+</li>
+<li>
+<p><code>'enemy'</code>, <code>'flameEnemy'</code>: Assigns "enemy" and "flameEnemy" tags.</p>
+</li>
+<li><code>{ isSwallowable: true }</code>: Sets the <code>isSwallowable</code> property to true, indicating this enemy can be swallowed by the player.</li>
+<li><strong>State Machine Logic:</strong></li>
+<li><code>flame.onStateEnter('idle', async () =&gt; { ... })</code>: Defines the behavior when the flame enemy enters the "idle" state. It waits for 1 second using <code>k.k.wait(1)</code> and then transitions to the "jump" state using <code>flame.enterState('jump')</code>.</li>
+<li><code>flame.onStateEnter('jump', () =&gt; { ... })</code>: Defines the behavior when entering the "jump" state. It makes the flame enemy jump using <code>flame.jump(1000)</code>.</li>
+<li><code>flame.onStateUpdate('jump', () =&gt; { ... })</code>: Defines the behavior that runs every frame while in the "jump" state. It checks if the flame is grounded using <code>flame.isGrounded()</code>. If grounded, it transitions back to the "idle" state.</li>
+</ul>
+</li>
+</ul>
+<h3 id="72-makeguyenemy-function-entitiests">7.2 <code>makeGuyEnemy</code> Function (entities.ts)</h3>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { SCALE } from './constants';
+
+export type GuyEnemyGameObject = k.GameObject&lt;k.SpriteComp | k.AreaComp | k.BodyComp | k.PosComp | k.ScaleComp | k.StateComp&gt; &amp; {
+    isSwallowable: boolean;
+};
+
+export function makeGuyEnemy(context: k.KaboomCtx, posX: number, posY: number): GuyEnemyGameObject {
+    const guy = k.k.add([
+        k.k.sprite('guy', { anim: 'guy' }),
+        k.k.scale(SCALE),
+        k.k.pos(posX * SCALE, posY * SCALE),
+        k.k.area({ shape: new k.k.Rect(k.k.vec2(0, 0), 16, 16), collisionIgnore: ['enemy'] }),
+        k.k.body(),
+        k.k.state('idle', ['idle', 'left', 'right']),
+        'enemy',
+        'guyEnemy',
+        { isSwallowable: true },
+    ]);
+
+    guy.onStateEnter('idle', async () =&gt; {
+        await k.k.wait(1);
+        guy.enterState('left');
+    });
+
+    guy.onStateEnter('left', async () =&gt; {
+        guy.flipX(false); // Face left
+        await k.k.wait(2);
+        guy.enterState('right');
+    });
+
+    guy.onStateUpdate('left', () =&gt; {
+        guy.move(-50, 0); // Move left
+    });
+
+    guy.onStateEnter('right', async () =&gt; {
+        guy.flipX(true); // Face right
+        await k.k.wait(2);
+        guy.enterState('left');
+    });
+
+    guy.onStateUpdate('right', () =&gt; {
+        guy.move(50, 0); // Move right
+    });
+
+    return guy as GuyEnemyGameObject;
+}
+</code></pre>
+<ul>
+<li><strong><code>GuyEnemyGameObject</code> Type:</strong> Defines a TypeScript type for guy enemy objects.</li>
+<li><code>k.k.make(...)</code>: Creates the guy enemy game object. Similar to <code>makeFlameEnemy</code>, but with "guy" sprite, "guyEnemy" tag, and a different state machine.</li>
+<li><strong>State Machine Logic:</strong><ul>
+<li>States: "idle," "left," "right."</li>
+<li>"idle" state: Waits for 1 second, then transitions to "left."</li>
+<li>"left" state: Flips the sprite to face left, waits for 2 seconds, then transitions to "right." While in "left," it moves left using <code>guy.move(-50, 0)</code>.</li>
+<li>"right" state: Flips the sprite to face right, waits for 2 seconds, then transitions to "left." While in "right," it moves right using <code>guy.move(50, 0)</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="73-makebirdenemy-function-entitiests">7.3 <code>makeBirdEnemy</code> Function (entities.ts)</h3>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { SCALE } from './constants';
+
+export type BirdEnemyGameObject = k.GameObject&lt;k.SpriteComp | k.AreaComp | k.PosComp | k.ScaleComp | k.MoveComp | k.OffScreenComp&gt; &amp; {
+    isSwallowable: boolean;
+};
+
+export function makeBirdEnemy(context: k.KaboomCtx, posX: number, posY: number, speed: number): BirdEnemyGameObject {
+    const bird = k.k.add([
+        k.k.sprite('bird', { anim: 'bird' }),
+        k.k.scale(SCALE),
+        k.k.pos(posX * SCALE, posY * SCALE),
+        k.k.area({ shape: new k.k.Rect(k.k.vec2(0, 0), 16, 16), collisionIgnore: ['enemy'] }),
+        k.k.move(k.k.LEFT, speed),
+        k.k.offscreen({ destroy: true, distance: 400 }),
+        'enemy',
+        'birdEnemy',
+        { isSwallowable: true },
+    ]);
+
+    return bird as BirdEnemyGameObject;
+}
+</code></pre>
+<ul>
+<li><strong><code>BirdEnemyGameObject</code> Type:</strong> Defines a TypeScript type for bird enemy objects.</li>
+<li>
+<p><code>k.k.make(...)</code>: Creates the bird enemy game object.</p>
+<ul>
+<li><code>k.k.sprite('bird', { anim: 'bird' })</code>: Adds the "bird" sprite and animation.</li>
+<li><code>k.k.scale(SCALE)</code>: Scales the bird sprite.</li>
+<li><code>k.k.pos(posX * SCALE, posY * SCALE)</code>: Sets the initial position.</li>
+<li><code>k.k.area({...})</code>: Adds an area component, ignoring collisions with other "enemy" objects.</li>
+<li><code>k.k.move(k.k.LEFT, speed)</code>: Adds a move component to make the bird move left at the specified <code>speed</code>.</li>
+<li>
+<p><code>k.k.offscreen({ destroy: true, distance: 400 })</code>: Adds an offscreen component. When the bird is 400 pixels or more off-screen, it will be destroyed.</p>
+<blockquote>
+<p><strong>Offscreen Component:</strong> A Kaboom.js component that automatically destroys a game object when it moves off-screen by a specified distance. This is useful for managing performance by removing objects that are no longer visible.</p>
+</blockquote>
+</li>
+<li>
+<p><code>'enemy'</code>, <code>'birdEnemy'</code>: Assigns "enemy" and "birdEnemy" tags.</p>
+</li>
+<li><code>{ isSwallowable: true }</code>: Sets <code>isSwallowable</code> to true.</li>
+</ul>
+</li>
+</ul>
+<h3 id="74-adding-enemies-to-the-scene-maints">7.4 Adding Enemies to the Scene (main.ts)</h3>
+<p>In <code>main.ts</code>, within the <code>level1</code> scene, add logic to spawn the flame, guy, and bird enemies based on the spawn points defined in Tiled.</p>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { makeMap } from './utils';
+import { makePlayer, setControls, makeFlameEnemy, makeGuyEnemy, makeBirdEnemy, makeInhalable } from './entities';
+
+k.k.scene('level1', async () =&gt; {
+    // ... (background and level loading code) ...
+
+    // Create Player (already present)
+    const player = makePlayer(k.k, level1SpawnPoints.player[0].x, level1SpawnPoints.player[0].y);
+    k.k.add(player);
+    setControls(k.k, player);
+
+    // Create Flame Enemies
+    level1SpawnPoints.flame.forEach(spawn =&gt; {
+        const flame = makeFlameEnemy(k.k, spawn.x, spawn.y);
+        k.k.add(flame);
+        makeInhalable(k.k, flame);
+    });
+
+    // Create Guy Enemies
+    level1SpawnPoints.guy.forEach(spawn =&gt; {
+        const guy = makeGuyEnemy(k.k, spawn.x, spawn.y);
+        k.k.add(guy);
+        makeInhalable(k.k, guy);
+    });
+
+    // Create Bird Enemies (Looping Spawner)
+    const birdSpeeds = [100, 200, 300];
+    level1SpawnPoints.bird.forEach(spawn =&gt; {
+        k.k.loop(10, () =&gt; {
+            const bird = makeBirdEnemy(k.k, spawn.x, spawn.y, birdSpeeds[Math.floor(Math.random() * birdSpeeds.length)]);
+            k.k.add(bird);
+            makeInhalable(k.k, bird);
+        });
+    });
+
+    // ... (camera follow logic) ...
+});
+
+k.k.start('level1');
+</code></pre>
+<ul>
+<li><strong>Flame and Guy Enemy Spawning:</strong> Uses <code>level1SpawnPoints.flame.forEach(...)</code> and <code>level1SpawnPoints.guy.forEach(...)</code> to iterate over the spawn points for flame and guy enemies. For each spawn point:<ul>
+<li>Calls <code>makeFlameEnemy</code> or <code>makeGuyEnemy</code> to create an enemy instance at the spawn point's coordinates.</li>
+<li>Adds the created enemy to the scene using <code>k.k.add(enemy)</code>.</li>
+<li>Calls <code>makeInhalable(k.k, enemy)</code> to apply the inhalable behavior to the enemy.</li>
+</ul>
+</li>
+</ul>
+<h3 id="75-makeinhalable-function-entitiests">7.5 <code>makeInhalable</code> Function (entities.ts)</h3>
+<p>The <code>makeInhalable</code> function in <code>entities.ts</code> adds the logic to make enemies inhalable by the player.</p>
+<pre><code class="language-typescript">import * as k from './kaboom-cx';
+import { PlayerGameObject } from './entities';
+
+export function makeInhalable(context: k.KaboomCtx, enemy: k.GameObject) {
+    enemy.onCollide('inhaleZone', () =&gt; {
+        enemy.isSwallowable = true;
+    });
+
+    enemy.onCollideEnd('inhaleZone', () =&gt; {
+        enemy.isSwallowable = false;
+    });
+
+    enemy.onCollide('shootingStar', (shootingStar) =&gt; {
+        k.k.destroy(enemy);
+        k.k.destroy(shootingStar);
+    });
+
+    k.k.onUpdate(() =&gt; {
+        const playerRef = k.k.get('player')[0] as PlayerGameObject;
+        if (playerRef.isInhaling &amp;&amp; enemy.isSwallowable) {
+            if (playerRef.direction === 'right') {
+                enemy.move(-800, 0);
+            } else {
+                enemy.move(800, 0);
+            }
+        }
+    });
+}
+</code></pre>
+<ul>
+<li><strong><code>enemy.onCollide('inhaleZone', () =&gt; { ... })</code>:</strong> Sets up a collision event handler for when the enemy collides with the "inhaleZone." When a collision occurs, it sets <code>enemy.isSwallowable = true;</code>.</li>
+<li><strong><code>enemy.onCollideEnd('inhaleZone', () =&gt; { ... })</code>:</strong> Sets up a collision end event handler. When the collision with the "inhaleZone" ends, it sets <code>enemy.isSwallowable = false;</code>.</li>
+<li><strong><code>enemy.onCollide('shootingStar', (shootingStar) =&gt; { ... })</code>:</strong> Sets up a collision event handler for when the enemy collides with a "shootingStar." When a collision occurs, it destroys both the enemy and the shooting star using <code>k.k.destroy(enemy)</code> and <code>k.k.destroy(shootingStar)</code>.</li>
+<li><strong><code>k.k.onUpdate(() =&gt; { ... })</code>:</strong> Sets up an update event handler that runs every frame.<ul>
+<li><code>const playerRef = k.k.get('player')[0] as PlayerGameObject;</code>: Gets a reference to the player game object.</li>
+<li><strong>Inhale Movement Logic:</strong> Checks if the player is inhaling (<code>playerRef.isInhaling</code>) and if the enemy is swallowable (<code>enemy.isSwallowable</code>). If both are true, it moves the enemy towards the player (either left or right) using <code>enemy.move()</code>, simulating the enemy being pulled into the player's mouth.</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-building-and-publishing-the-game">8. Building and Publishing the Game</h2>
+<p>To share your game, you need to build it for web deployment.</p>
+<h3 id="81-vite-configuration-viteconfigts">8.1 Vite Configuration (<code>vite.config.ts</code>)</h3>
+<p>Create a <code>vite.config.ts</code> file at the root of your project with the following configuration:</p>
+<pre><code class="language-typescript">import { defineConfig } from 'vite'
+
+export default defineConfig({
+  base: './',
+  build: {
+    minify: false, // Disable minification due to Kaboom.js issue
+  },
+})
+</code></pre>
+<ul>
+<li><code>base: './'</code>:  Sets the base URL for the built application to be relative to the root directory. This is important for correct asset paths when deploying to platforms like itch.io.</li>
+<li>
+<p><code>build: { minify: false }</code>: Disables JavaScript minification during the build process. This is a workaround for a known issue with Kaboom.js and minification. You may try building with <code>minify: true</code> in the future to see if the issue is resolved.</p>
+<blockquote>
+<p><strong>Minification:</strong> The process of removing unnecessary characters (like whitespace and comments) from code to reduce its file size, making it faster to download and execute in web browsers.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="82-building-the-game">8.2 Building the Game</h3>
+<p>Run the following command in your terminal:</p>
+<pre><code class="language-bash">npm run build
+</code></pre>
+<p>This command uses Vite to build your TypeScript project.  After successful execution, a <code>dist</code> folder will be created at the root of your project. This folder contains the built game files.</p>
+<h3 id="83-testing-the-build-optional">8.3 Testing the Build (Optional)</h3>
+<p>To test the built game locally, you can use a local server like <code>live-server</code>.  Navigate into the <code>dist</code> folder in your terminal and run:</p>
+<pre><code class="language-bash">npx live-server .
+</code></pre>
+<p>This will start a local server, and you can access your game in a web browser.</p>
+<h3 id="84-publishing-to-itchio">8.4 Publishing to itch.io</h3>
+<ol>
+<li><strong>Zip the <code>dist</code> folder:</strong> Compress the entire <code>dist</code> folder into a ZIP file.</li>
+<li><strong>Create an itch.io account (or log in):</strong> Go to itch.io and create an account or log in to your existing account.</li>
+<li><strong>Upload your game:</strong><ul>
+<li>Go to your dashboard.</li>
+<li>Create a new project or edit an existing one.</li>
+<li>Upload the ZIP file containing the <code>dist</code> folder as your game's upload.</li>
+<li>Configure other game settings on itch.io as needed.</li>
+</ul>
+</li>
+</ol>
+<p>Your game is now published and playable on itch.io!</p>
+<blockquote>
+<p><strong>itch.io:</strong> A popular online platform for indie game distribution and sales. It provides tools for game developers to host, sell, and promote their games.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>This chapter has provided a comprehensive guide to building a Kirby-like platformer game using TypeScript and Kaboom.js. You have learned how to set up a project with Vite, load assets, design levels with Tiled, implement player controls and mechanics, create enemies with basic AI, and build and publish your game. This foundation allows you to expand upon this project, adding more levels, enemies, features, and complexity to create a fully realized game. Remember to explore the Kaboom.js documentation and experiment with its various features to further enhance your game development skills.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

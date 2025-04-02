@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Introduction to Algorithms and Time Complexity - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#introduction-to-algorithms-and-time-complexity">Introduction to Algorithms and Time Complexity</a></li>
+        <li><a href="#the-knapsack-problem-a-motivating-example">The Knapsack Problem: A Motivating Example</a></li><li><a href="#what-is-an-algorithm">What is an Algorithm?</a></li><li><a href="#measuring-algorithm-performance">Measuring Algorithm Performance</a></li><li><a href="#time-complexity-characterizing-algorithm-growth">Time Complexity: Characterizing Algorithm Growth</a></li><li><a href="#big-o-notation-a-standard-for-expressing-time-complexity">Big O Notation: A Standard for Expressing Time Complexity</a></li><li><a href="#asymptotic-analysis-deriving-time-complexity">Asymptotic Analysis: Deriving Time Complexity</a></li><li><a href="#practice-exercise-summing-array-elements">Practice Exercise: Summing Array Elements</a></li><li><a href="#course-overview-and-further-learning">Course Overview and Further Learning</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="introduction-to-algorithms-and-time-complexity">Introduction to Algorithms and Time Complexity</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/JgWm6sQwS_I" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter serves as an introduction to the fundamental concepts of algorithms and their performance analysis, particularly focusing on time complexity. We will explore these concepts through practical examples and establish a foundation for understanding and designing efficient algorithms.</p>
+<h2 id="the-knapsack-problem-a-motivating-example">The Knapsack Problem: A Motivating Example</h2>
+<p>Imagine you are preparing for a trip and have a knapsack with a limited weight capacity. You have a list of items, each with its own value and weight. Your goal is to choose the items to put into your knapsack such that you maximize the total value while staying within the weight limit.</p>
+<p>This scenario is a classic problem in computer science known as the <strong>Knapsack Problem</strong>.</p>
+<blockquote>
+<p><strong>Knapsack Problem:</strong> A combinatorial optimization problem where the goal is to find the most valuable items that can fit into a knapsack with a given weight capacity, given a set of items each with a value and weight.</p>
+</blockquote>
+<p>Let's consider a simple example:</p>
+<p><strong>Items:</strong></p>
+<ul>
+<li><strong>A:</strong> Value = 10, Weight = 4</li>
+<li><strong>B:</strong> Value = 6, Weight = 8</li>
+<li><strong>C:</strong> Value = 3, Weight = 2</li>
+</ul>
+<p><strong>Maximum Weight Capacity:</strong> 8</p>
+<p>In this example, selecting items A and C gives a total value of 13 (10 + 3) and a total weight of 6 (4 + 2), which is within the weight capacity of 8.  While item B alone fits within the capacity, it only provides a value of 6, which is less than the combined value of A and C.</p>
+<p>For humans, this problem might seem straightforward for small instances. However, when dealing with a large number of items, finding the optimal solution manually becomes increasingly complex.  This is where algorithms and efficient problem-solving techniques become crucial.</p>
+<h3 id="why-study-problems-like-the-knapsack-problem">Why Study Problems Like the Knapsack Problem?</h3>
+<p>You might wonder why tech companies ask interview questions related to problems like the Knapsack Problem. While you might not directly encounter packing knapsacks at companies like Google or Facebook, these types of problems serve to assess your <strong>problem-solving skills</strong>.</p>
+<blockquote>
+<p><strong>Problem-solving skills:</strong> The ability to analyze a situation, identify the core issues, and devise effective strategies and solutions. In software development, this often involves breaking down complex tasks into smaller, manageable steps and designing algorithms to automate these steps.</p>
+</blockquote>
+<p>As a developer, your primary role is to solve problems.  Whether you're working on a large team, freelancing, or building your own projects, the ability to analyze, strategize, and implement solutions is paramount.  Problems like the Knapsack Problem, despite their seemingly abstract nature, mirror real-world challenges where optimization and resource management are essential.</p>
+<h2 id="what-is-an-algorithm">What is an Algorithm?</h2>
+<p>To solve problems programmatically, we need <strong>algorithms</strong>.</p>
+<blockquote>
+<p><strong>Algorithm:</strong> A well-defined sequence of steps or instructions designed to solve a specific problem. It takes a clearly defined input, processes it through a series of steps, and produces a desired output, always leading to the same solution for the same input.</p>
+</blockquote>
+<p>In essence, an algorithm is a recipe for computation. It specifies how to transform input data into the desired output. Every program you write, from a simple click listener to a complex application, is built upon algorithms.  A program can be viewed as a collection of algorithms working together.</p>
+<h3 id="key-characteristics-of-an-algorithm">Key Characteristics of an Algorithm</h3>
+<ul>
+<li><strong>Sequence of Steps:</strong> Algorithms consist of a finite, ordered set of instructions.</li>
+<li><strong>Clearly Defined Problem:</strong>  An algorithm is designed to solve a specific, unambiguous problem. The input and desired output must be clearly defined.</li>
+<li><strong>Deterministic:</strong> For the same input, an algorithm should always produce the same output.</li>
+</ul>
+<h2 id="measuring-algorithm-performance">Measuring Algorithm Performance</h2>
+<p>When faced with a problem, there are often multiple algorithms that can solve it.  As developers, we aim to find the "best" solution. But what constitutes the "best" algorithm?</p>
+<p>The criteria for "best" can vary depending on the context and priorities.  We might consider:</p>
+<ul>
+<li><strong>Code Conciseness:</strong>  An algorithm with fewer lines of code might be considered simpler or easier to maintain.</li>
+<li><strong>Memory Usage:</strong> An algorithm that consumes less memory is beneficial, especially in resource-constrained environments.</li>
+<li><strong>Performance (Execution Time):</strong>  Often, the most crucial factor is the speed at which an algorithm executes, especially for large inputs or time-sensitive applications.</li>
+</ul>
+<p>While code style and memory usage are important, <strong>performance</strong>, specifically execution time, is frequently the primary metric for evaluating algorithm efficiency.  We want algorithms that solve problems quickly, especially as the input size grows.</p>
+<h3 id="the-problem-with-direct-time-measurement">The Problem with Direct Time Measurement</h3>
+<p>To understand how to measure performance, let's consider a simple problem: writing a function that calculates the sum of all numbers from 1 up to a given number <code>n</code>.</p>
+<p>Here's a JavaScript function to achieve this using a loop:</p>
+<pre><code class="language-javascript">function sumUp(n) {
+  let result = 0;
+  for (let i = 1; i &lt;= n; i++) {
+    result += i;
+  }
+  return result;
+}
+</code></pre>
+<p>We can attempt to measure the execution time of this function using JavaScript's <code>performance.now()</code>:</p>
+<pre><code class="language-javascript">let start = performance.now();
+sumUp(1000); // Example input
+let end = performance.now();
+console.log(end - start); // Time difference in milliseconds
+</code></pre>
+<p>However, directly measuring execution time in milliseconds or seconds has limitations:</p>
+<ul>
+<li><strong>Hardware Dependency:</strong> The execution time will vary depending on the computer's processing speed, memory, and other hardware specifications. A faster computer will execute the same algorithm quicker than a slower one.</li>
+<li><strong>Environmental Factors:</strong>  Other processes running on the computer, browser optimizations, caching, and even open browser tabs can influence the measured time, leading to inconsistent results.</li>
+<li><strong>Small Input Unreliability:</strong> For very small input values, the execution time might be so short that the measurement becomes unreliable and overshadowed by environmental noise.</li>
+</ul>
+<p>As demonstrated in the transcript, running the <code>sumUp</code> function with inputs like 5 and 10 might yield almost identical, or even seemingly random, time measurements due to these influencing factors.</p>
+<h3 id="the-need-for-a-better-approach-focusing-on-trends">The Need for a Better Approach: Focusing on Trends</h3>
+<p>While concrete time measurements are unreliable for precise algorithm comparison, observing trends in execution time as the input size increases can provide valuable insights.</p>
+<p>By running the <code>sumUp</code> function with progressively larger inputs (e.g., 1,000, 10,000, 100,000, 1,000,000), we can observe a pattern.  As the input <code>n</code> increases, the execution time also tends to increase.</p>
+<p>For the loop-based <code>sumUp</code> function, we might notice that if we multiply the input <code>n</code> by 10, the execution time roughly also increases by a factor of 10, especially for larger values of <code>n</code>.  This suggests a <strong>linear relationship</strong> between the input size and the execution time.</p>
+<h2 id="time-complexity-characterizing-algorithm-growth">Time Complexity: Characterizing Algorithm Growth</h2>
+<p>Instead of focusing on absolute time measurements, we focus on <strong>time complexity</strong> to analyze algorithm performance.</p>
+<blockquote>
+<p><strong>Time Complexity:</strong> A measure of how the execution time of an algorithm grows as the size of the input increases. It describes the relationship between input size and the number of operations performed by the algorithm, typically expressed using Big O notation.</p>
+</blockquote>
+<p>Time complexity describes the <em>trend</em> or the <em>function</em> of how execution time scales with input size. It's not about precise seconds or milliseconds but about the <em>rate of growth</em>.</p>
+<h3 id="linear-time-complexity-on">Linear Time Complexity: O(n)</h3>
+<p>For the loop-based <code>sumUp</code> function, we observed a linear trend.  This is because the number of loop iterations, and thus the number of operations, is directly proportional to the input <code>n</code>.  If <code>n</code> doubles, the number of loop iterations roughly doubles.</p>
+<p>We describe this as <strong>linear time complexity</strong>, often denoted as <strong>O(n)</strong> in <strong>Big O notation</strong>.</p>
+<blockquote>
+<p><strong>Linear Time Complexity (O(n)):</strong> An algorithm with linear time complexity has an execution time that grows linearly with the size of the input. If the input size doubles, the execution time roughly doubles.</p>
+</blockquote>
+<h3 id="constant-time-complexity-o1">Constant Time Complexity: O(1)</h3>
+<p>Consider an alternative, mathematically derived solution for the sum of numbers up to <code>n</code>:</p>
+<pre><code class="language-javascript">function sumUpConstantTime(n) {
+  return (n / 2) * (1 + n);
+}
+</code></pre>
+<p>This function directly calculates the sum using a mathematical formula without any loops or iterations.  If we measure the execution time of this function for various inputs, even very large ones, we observe that the time remains relatively constant and doesn't significantly increase with <code>n</code>.</p>
+<p>This is <strong>constant time complexity</strong>, denoted as <strong>O(1)</strong> in Big O notation.</p>
+<blockquote>
+<p><strong>Constant Time Complexity (O(1)):</strong> An algorithm with constant time complexity has an execution time that remains constant regardless of the size of the input. The number of operations performed is independent of the input size.</p>
+</blockquote>
+<p>Constant time complexity represents the most efficient scenario, as the algorithm's performance is unaffected by input growth.</p>
+<h3 id="quadratic-cubic-and-exponential-time-complexity">Quadratic, Cubic, and Exponential Time Complexity</h3>
+<p>Besides linear and constant time complexity, algorithms can exhibit other growth rates. Some common examples include:</p>
+<ul>
+<li><strong>Quadratic Time Complexity (O(n<sup>2</sup>)):</strong> The execution time grows proportionally to the square of the input size. Doubling the input size roughly quadruples the execution time.</li>
+<li><strong>Cubic Time Complexity (O(n<sup>3</sup>)):</strong> The execution time grows proportionally to the cube of the input size.</li>
+<li><strong>Exponential Time Complexity (O(2<sup>n</sup>)):</strong> The execution time grows exponentially with the input size. This leads to extremely rapid growth, making these algorithms impractical for even moderately sized inputs.</li>
+</ul>
+<p>Generally, algorithms with lower time complexity are considered more efficient than those with higher time complexity.  Constant time (O(1)) is better than linear time (O(n)), which is better than quadratic time (O(n<sup>2</sup>)), and so on.</p>
+<h2 id="big-o-notation-a-standard-for-expressing-time-complexity">Big O Notation: A Standard for Expressing Time Complexity</h2>
+<p><strong>Big O notation</strong> is a standardized way of expressing the time complexity of algorithms.</p>
+<blockquote>
+<p><strong>Big O Notation:</strong> A mathematical notation used to describe the limiting behavior of a function, particularly in computer science to classify algorithms according to how their runtime or space requirements grow as the input size grows. It focuses on the dominant term and ignores constant factors and lower-order terms.</p>
+</blockquote>
+<p>It provides a concise and widely understood way to communicate the performance characteristics of an algorithm without getting bogged down in implementation details or hardware specifics.</p>
+<p>Here are some common Big O notations and their corresponding time complexities:</p>
+<ul>
+<li><strong>O(1):</strong> Constant Time</li>
+<li><strong>O(log n):</strong> Logarithmic Time</li>
+<li><strong>O(n):</strong> Linear Time</li>
+<li><strong>O(n log n):</strong> Linearithmic Time</li>
+<li><strong>O(n<sup>2</sup>):</strong> Quadratic Time</li>
+<li><strong>O(n<sup>3</sup>):</strong> Cubic Time</li>
+<li><strong>O(2<sup>n</sup>):</strong> Exponential Time</li>
+</ul>
+<p>Big O notation focuses on the <strong>dominant term</strong> in the time complexity function and ignores constant factors and lower-order terms because as input size grows very large, the dominant term becomes the most significant factor in determining performance.</p>
+<p>For example, if the time complexity function is derived as <code>T(n) = 3 + n</code>, in Big O notation, we simplify it to <code>O(n)</code> because <code>n</code> is the fastest-growing term, and the constant <code>3</code> becomes insignificant for large <code>n</code>. Similarly, <code>T(n) = 2n + n^2 + 5</code> would be simplified to <code>O(n^2)</code>.</p>
+<h2 id="asymptotic-analysis-deriving-time-complexity">Asymptotic Analysis: Deriving Time Complexity</h2>
+<p><strong>Asymptotic analysis</strong> is the technique used to determine the time complexity (Big O notation) of an algorithm.</p>
+<blockquote>
+<p><strong>Asymptotic Analysis:</strong> A method for determining the time complexity of an algorithm by analyzing how the number of operations grows as the input size approaches infinity. It involves counting the number of elementary operations performed by the algorithm and identifying the dominant growth term.</p>
+</blockquote>
+<p>It typically involves these steps:</p>
+<ol>
+<li>
+<p><strong>Define the Time Complexity Function:</strong>  For a given algorithm, determine a mathematical function that represents the number of operations (or code executions) as a function of the input size <code>n</code>.</p>
+<ul>
+<li>This is done by analyzing the algorithm's code and counting how many times each line or block of code is executed.</li>
+<li>We often assume that each basic operation (arithmetic, comparison, assignment) takes approximately constant time.</li>
+</ul>
+</li>
+<li>
+<p><strong>Identify the Fastest-Growing Term:</strong>  Within the time complexity function, identify the term that grows most rapidly as <code>n</code> increases. This is usually the term with the highest power of <code>n</code>.</p>
+</li>
+<li>
+<p><strong>Remove Coefficients and Lower-Order Terms:</strong> Discard constant coefficients and lower-order terms from the fastest-growing term. This simplification gives us the Big O notation.</p>
+</li>
+</ol>
+<h3 id="example-asymptotic-analysis-of-loop-based-sumup-function">Example: Asymptotic Analysis of Loop-Based <code>sumUp</code> Function</h3>
+<p>Let's revisit the loop-based <code>sumUp</code> function:</p>
+<pre><code class="language-javascript">function sumUp(n) { // Input size: n
+  let result = 0;     // 1 execution
+  for (let i = 1; i &lt;= n; i++) { // 1 initialization
+    result += i;      // n executions (loop body)
+  }
+  return result;      // 1 execution
+}
+</code></pre>
+<ol>
+<li>
+<p><strong>Time Complexity Function:</strong>  Counting the executions: <code>T(n) = 1 (result initialization) + 1 (loop initialization) + n (loop body) + 1 (return) = 3 + n</code></p>
+</li>
+<li>
+<p><strong>Fastest-Growing Term:</strong> The fastest-growing term is <code>n</code>.</p>
+</li>
+<li>
+<p><strong>Remove Coefficients and Lower-Order Terms:</strong> Removing the constant <code>3</code>, we are left with <code>n</code>.</p>
+</li>
+</ol>
+<p>Therefore, the Big O notation for the loop-based <code>sumUp</code> function is <strong>O(n)</strong>, indicating linear time complexity.</p>
+<h3 id="example-asymptotic-analysis-of-constant-time-sumup-function">Example: Asymptotic Analysis of Constant Time <code>sumUp</code> Function</h3>
+<p>Now, consider the constant time <code>sumUp</code> function:</p>
+<pre><code class="language-javascript">function sumUpConstantTime(n) { // Input size: n
+  return (n / 2) * (1 + n);   // 1 execution (mathematical operation)
+}
+</code></pre>
+<ol>
+<li>
+<p><strong>Time Complexity Function:</strong> <code>T(n) = 1</code> (one mathematical operation)</p>
+</li>
+<li>
+<p><strong>Fastest-Growing Term:</strong>  There is no term that grows with <code>n</code>. The function is constant.</p>
+</li>
+<li>
+<p><strong>Remove Coefficients and Lower-Order Terms:</strong>  The function is already simplified to a constant.</p>
+</li>
+</ol>
+<p>Therefore, the Big O notation for the constant time <code>sumUp</code> function is <strong>O(1)</strong>, indicating constant time complexity.</p>
+<h2 id="practice-exercise-summing-array-elements">Practice Exercise: Summing Array Elements</h2>
+<p><strong>Task:</strong></p>
+<ol>
+<li>Write a JavaScript function <code>sumNumbers(numbers)</code> that takes an array of numbers as input and calculates the sum of all numbers in the array.</li>
+<li>Determine the time complexity of your algorithm using asymptotic analysis and express it in Big O notation.</li>
+<li>Investigate if there is a faster alternative algorithm for this problem and, if so, analyze its time complexity.</li>
+</ol>
+<p><strong>Starting Point:</strong></p>
+<pre><code class="language-javascript">function sumNumbers(numbers) {
+  // Your code here
+}
+
+// Example Usage:
+let numbersArray = [1, 3, 10];
+let sumResult = sumNumbers(numbersArray);
+console.log(sumResult); // Expected output: 14
+</code></pre>
+<p>This exercise provides an opportunity to apply the concepts of algorithm design and time complexity analysis discussed in this chapter. Consider different approaches to summing the array elements and compare their efficiency.</p>
+<h2 id="course-overview-and-further-learning">Course Overview and Further Learning</h2>
+<p>This chapter has laid the groundwork for understanding algorithms and their performance. This course will delve deeper into these concepts, covering:</p>
+<ul>
+<li><strong>Mathematical Algorithms:</strong> Exploring algorithms related to numbers and mathematical operations.</li>
+<li><strong>Recursion and Dynamic Programming:</strong> Learning powerful techniques for designing algorithms, particularly for complex problems.</li>
+<li><strong>Search and Sorting Algorithms:</strong> Studying fundamental algorithms for searching and sorting data, essential components in many applications.</li>
+<li><strong>Space Complexity:</strong>  Analyzing the memory usage of algorithms, another critical aspect of performance.</li>
+<li><strong>Set and Array Algorithms:</strong>  Examining algorithms specifically designed for working with sets and arrays.</li>
+<li><strong>Complex Algorithm Problems:</strong>  Tackling more challenging algorithmic problems, such as the Knapsack Problem, and developing problem-solving strategies.</li>
+</ul>
+<p>The goal of this course is not just to memorize algorithms but to equip you with the foundational knowledge and problem-solving skills to design, analyze, and implement efficient algorithms for various challenges you might encounter in software development and beyond.  By understanding time complexity and algorithm analysis, you will be well-prepared to choose the best solutions for your programming tasks and excel in technical interviews.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

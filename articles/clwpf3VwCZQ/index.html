@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Creating a Digital Resume with HTML, CSS, and GitHub Pages - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#creating-a-digital-resume-with-html-css-and-github-pages">Creating a Digital Resume with HTML, CSS, and GitHub Pages</a></li>
+        <li><a href="#introduction">Introduction</a></li><li><a href="#project-overview-and-demonstration">Project Overview and Demonstration</a></li><li><a href="#sponsorship-acknowledgment-agora">Sponsorship Acknowledgment: Agora</a></li><li><a href="#setting-up-the-project-structure">Setting Up the Project Structure</a></li><li><a href="#building-the-html-structure-indexhtml">Building the HTML Structure (index.html)</a></li><li><a href="#styling-the-resume-with-css-maincss">Styling the Resume with CSS (main.css)</a></li><li><a href="#creating-the-project-details-page-project1html">Creating the Project Details Page (project1.html)</a></li><li><a href="#deploying-the-digital-resume-with-github-pages">Deploying the Digital Resume with GitHub Pages</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="creating-a-digital-resume-with-html-css-and-github-pages">Creating a Digital Resume with HTML, CSS, and GitHub Pages</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/clwpf3VwCZQ" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction">Introduction</h2>
+<p>This chapter will guide you through the process of creating a digital resume using web technologies and deploying it online for free. We will transform a traditional resume into an interactive and shareable digital format using HTML (HyperText Markup Language) for structure and content, CSS (Cascading Style Sheets) for styling and visual appeal, and GitHub Pages for hosting. This digital resume will not only be more engaging than a static document but also easily accessible via a unique URL that you can share with potential employers and on social media platforms.</p>
+<blockquote>
+<p><strong>HTML (HyperText Markup Language)</strong>
+The standard markup language for documents designed to be displayed in a web browser. It provides the structure and content of a webpage.</p>
+<p><strong>CSS (Cascading Style Sheets)</strong>
+A style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS controls the layout, colors, fonts, and overall visual aesthetics of a webpage.</p>
+</blockquote>
+<p>While a digital resume can be a valuable tool, it is important to note that it is generally recommended to also maintain a separate portfolio website for showcasing more in-depth projects and work. Consider linking your digital resume from your portfolio site. However, if you do not yet have a portfolio, this digital resume is an excellent starting point to establish your online presence.</p>
+<h2 id="project-overview-and-demonstration">Project Overview and Demonstration</h2>
+<p>Before diving into the development process, let's understand what we aim to build. This project will result in a live, web-based version of a resume, complete with both light and dark mode themes. You will be able to choose your preferred theme and deploy it online.</p>
+<p>Here's a breakdown of the key features and content elements:</p>
+<ul>
+<li><strong>Live URL:</strong> Your resume will be accessible through a unique and shareable web address.</li>
+<li><strong>Stylish Design:</strong> Utilizing CSS, the resume will be visually appealing and more modern than a typical document.</li>
+<li><strong>Light and Dark Mode Themes:</strong> You can select either a light or dark theme to suit your preference.</li>
+<li><strong>Content Parallels Traditional Resume:</strong> The digital resume will include all essential sections found in a standard resume, such as:<ul>
+<li>Social Links and Contact Information</li>
+<li>Bio/Summary</li>
+<li>Skills and Qualifications</li>
+<li>Technical Stack</li>
+<li>Work History</li>
+</ul>
+</li>
+<li><strong>Optional Image:</strong> You have the option to include a personal image for added personalization.</li>
+<li><strong>Projects and Accomplishments Section (Optional):</strong>  An expandable section to showcase specific projects with more detail, source code links, images, and live demos.</li>
+</ul>
+<p>Let's take a look at a demonstration of the final product:</p>
+<p>[Demonstration of the digital resume interface, showcasing both light and dark mode, social links, bio, skills, tech stack, work history, and projects section.]</p>
+<p>As you can see in the demo, the digital resume presents information in a structured and visually engaging manner.  The content is drawn directly from a traditional resume, but enhanced for the web format.</p>
+<h2 id="sponsorship-acknowledgment-agora">Sponsorship Acknowledgment: Agora</h2>
+<p>Before we proceed with building the digital resume, let's take a moment to acknowledge our sponsor, Agora.</p>
+<p>Agora is a real-time engagement platform that provides developers with Software Development Kits (SDKs) and low-code tools to easily integrate real-time communication features into applications.</p>
+<blockquote>
+<p><strong>SDK (Software Development Kit)</strong>
+A set of software development tools that allows the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar development platform.</p>
+</blockquote>
+<p>Agora's offerings include:</p>
+<ul>
+<li><strong>Audio and Video Calling SDKs:</strong>  Enabling features like group chats, screen sharing, and recording within applications.</li>
+<li><strong>Real-time Data Signaling:</strong>  Facilitating the transmission of data in real-time.</li>
+<li><strong>Real-time Messaging SDK:</strong> Simplifying the implementation of real-time messaging, often a complex task when configuring websockets or socket servers manually.</li>
+<li><strong>Streaming to Third-Party Platforms:</strong>  Allowing direct streaming to platforms like YouTube.</li>
+</ul>
+<p>Agora's tools streamline the development of real-time engagement features, saving developers significant time and effort.  For those interested in exploring real-time communication capabilities, Agora offers a comprehensive suite of tools and resources. You can find more information on their website, agora.io.</p>
+<blockquote>
+<p><strong>Websockets</strong>
+A communication protocol that provides full-duplex communication channels over a single TCP connection. It enables real-time, two-way communication between client and server in web applications.</p>
+</blockquote>
+<h2 id="setting-up-the-project-structure">Setting Up the Project Structure</h2>
+<p>To begin building our digital resume, we need to set up the project file structure. This organized structure will keep our files manageable and ensure that our website functions correctly.</p>
+<p>Here's the recommended file structure:</p>
+<pre><code>resume-website/
+├── index.html        // Main HTML file for the resume
+├── assets/            // Folder for static assets
+│   ├── images/        // Folder for images (profile picture)
+│   │   └── profile-pic.jpg
+│   └── resume.pdf    // PDF version of your resume (optional)
+└── styles/           // Folder for CSS stylesheets
+    └── main.css      // Main CSS file for styling
+</code></pre>
+<p>Let's create this structure on your local machine:</p>
+<ol>
+<li><strong>Create a new folder:</strong> Name it <code>resume-website</code> (or any name you prefer).</li>
+<li><strong>Inside <code>resume-website</code>, create:</strong><ul>
+<li><code>index.html</code> file</li>
+<li><code>assets</code> folder</li>
+<li><code>styles</code> folder</li>
+</ul>
+</li>
+<li><strong>Inside <code>assets</code>, create:</strong><ul>
+<li><code>images</code> folder</li>
+</ul>
+</li>
+<li><strong>Inside <code>styles</code>, create:</strong><ul>
+<li><code>main.css</code> file</li>
+</ul>
+</li>
+</ol>
+<p>If you have a profile picture and a PDF version of your resume, place them in the <code>assets/images</code> and <code>assets</code> folders respectively, naming the image <code>profile-pic.jpg</code> and the PDF <code>resume.pdf</code> for consistency with the example project. You can use placeholder images and PDFs initially if you don't have these ready.</p>
+<h2 id="building-the-html-structure-indexhtml">Building the HTML Structure (index.html)</h2>
+<p>Now, let's construct the HTML structure of our digital resume in the <code>index.html</code> file. This file will define the content and basic layout of our webpage.</p>
+<p>Start with the basic HTML boilerplate:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Digital Resume&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./styles/main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>This provides the basic structure for an HTML document, including:</p>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code>:  Declares the document type as HTML5.</li>
+<li><code>&lt;html lang="en"&gt;</code>:  The root element of the HTML page, specifying the language as English.</li>
+<li><code>&lt;head&gt;</code>: Contains meta-information about the HTML document, such as character set, viewport settings, title, and links to stylesheets.<ul>
+<li><code>&lt;meta charset="UTF-8"&gt;</code>: Sets the character encoding for the document to UTF-8, supporting a wide range of characters.</li>
+<li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>: Configures the viewport for responsive design, ensuring proper scaling on different devices.</li>
+<li><code>&lt;title&gt;Digital Resume&lt;/title&gt;</code>: Sets the title that appears in the browser tab or window title bar.</li>
+<li><code>&lt;link rel="stylesheet" href="./styles/main.css"&gt;</code>: Links the external CSS file (<code>main.css</code>) to style the HTML document.</li>
+</ul>
+</li>
+<li><code>&lt;body&gt;</code>: Contains the visible content of the HTML document.</li>
+</ul>
+<h3 id="structuring-the-body-content">Structuring the Body Content</h3>
+<p>Within the <code>&lt;body&gt;</code> tags, we will add the content sections of our resume.  We will use semantic HTML elements and <code>div</code> elements with IDs and classes for styling and organization.  We will also employ the BEM (Block, Element, Modifier) naming convention for CSS classes to enhance maintainability and clarity.</p>
+<blockquote>
+<p><strong>BEM (Block, Element, Modifier)</strong>
+A methodology for naming CSS classes to create reusable and organized stylesheets. It helps to improve code readability and maintainability, especially in larger projects.</p>
+</blockquote>
+<p><strong>1. Main Container:</strong></p>
+<p>Wrap all the resume content within a main container <code>div</code> to control the overall width and centering of the page content.</p>
+<pre><code class="language-html">&lt;div id=&quot;container--main&quot;&gt;
+    &lt;/div&gt;
+</code></pre>
+<p><strong>2. Hero Section:</strong></p>
+<p>This section will typically be at the top of the resume and include your profile picture, name, bio, and contact information.</p>
+<pre><code class="language-html">&lt;section id=&quot;wrapper--hero&quot; class=&quot;section--page&quot;&gt;
+    &lt;img id=&quot;profile--pic&quot; src=&quot;./assets/images/profile-pic.jpg&quot; alt=&quot;Profile Picture&quot;&gt;
+    &lt;div&gt;
+        &lt;h1 id=&quot;user-name&quot;&gt;Your Name&lt;/h1&gt;
+        &lt;p id=&quot;bio&quot;&gt;A brief and impactful summary of your professional background and goals. Include links to relevant online profiles if applicable.&lt;/p&gt;
+        &lt;p id=&quot;email&quot;&gt;contact@email.com &lt;span style=&quot;font-size: smaller;&quot;&gt;👉&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<ul>
+<li><code>&lt;section id="wrapper--hero" class="section--page"&gt;</code>: A semantic section element to group the hero content. <code>id="wrapper--hero"</code> is used for specific hero section styling, and <code>class="section--page"</code> provides general styling applicable to all page sections.</li>
+<li><code>&lt;img id="profile--pic" ...&gt;</code>:  An <code>img</code> tag to display your profile picture.  <code>id="profile--pic"</code> is for styling the image.  <code>src="./assets/images/profile-pic.jpg"</code> specifies the image source path. <code>alt="Profile Picture"</code> provides alternative text for accessibility.</li>
+<li><code>&lt;div&gt; ... &lt;/div&gt;</code>: A <code>div</code> to wrap the text content (name, bio, email) within the hero section.</li>
+<li><code>&lt;h1 id="user-name"&gt;</code>:  An <code>h1</code> heading for your name. <code>id="user-name"</code> is for styling the name.</li>
+<li><code>&lt;p id="bio"&gt;</code>:  A paragraph for your professional bio or summary. <code>id="bio"</code> is for styling the bio.</li>
+<li><code>&lt;p id="email"&gt;</code>: A paragraph for your email address, including a pointing emoji for visual emphasis.</li>
+</ul>
+<p><strong>3. Social Links Section:</strong></p>
+<p>This section will list links to your social media profiles, portfolio website, and a downloadable resume.</p>
+<pre><code class="language-html">&lt;section class=&quot;section--page&quot;&gt;
+    &lt;div id=&quot;socials--list&quot;&gt;
+        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;YouTube&lt;/a&gt;
+        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;Twitter&lt;/a&gt;
+        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;
+        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt;
+        &lt;a href=&quot;./assets/resume.pdf&quot; target=&quot;_blank&quot;&gt;Download Resume&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<ul>
+<li><code>&lt;section class="section--page"&gt;</code>: Another section element, using the general <code>section--page</code> class for styling.</li>
+<li><code>&lt;div id="socials--list"&gt;</code>: A <code>div</code> to contain the social links. <code>id="socials--list"</code> is for styling the list of social links.</li>
+<li><code>&lt;a href="#" target="_blank"&gt; ... &lt;/a&gt;</code>: Anchor tags (<code>&lt;a&gt;</code>) for each social link.<ul>
+<li><code>href="#"</code>:  Replace <code>#</code> with the actual URL of your social profile or website.</li>
+<li><code>target="_blank"</code>:  Opens the link in a new tab or window.</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Skills and Qualifications Section:</strong></p>
+<p>This section will list your key skills and qualifications.</p>
+<pre><code class="language-html">&lt;section class=&quot;section--page&quot;&gt;
+    &lt;h2&gt;Skills &amp; Qualifications&lt;/h2&gt;
+    &lt;ul id=&quot;qualifications--list&quot;&gt;
+        &lt;li&gt;✅ Proficient in various programming languages and technologies.&lt;/li&gt;
+        &lt;li&gt;✅ Experience in web development, mobile development, and database management.&lt;/li&gt;
+        &lt;li&gt;✅ Strong problem-solving and analytical skills.&lt;/li&gt;
+        &lt;li&gt;✅ Excellent communication and teamwork abilities.&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+<ul>
+<li><code>&lt;section class="section--page"&gt;</code>: Another section element with general page section styling.</li>
+<li><code>&lt;h2&gt;Skills &amp; Qualifications&lt;/h2&gt;</code>: An <code>h2</code> heading for the section title.</li>
+<li><code>&lt;ul id="qualifications--list"&gt;</code>: An unordered list (<code>&lt;ul&gt;</code>) to list your skills. <code>id="qualifications--list"</code> is for styling the list.</li>
+<li><code>&lt;li&gt;✅ ... &lt;/li&gt;</code>: List item tags (<code>&lt;li&gt;</code>) for each skill or qualification, using a checkmark emoji for visual appeal.</li>
+</ul>
+<p><strong>5. Technical Stack Section:</strong></p>
+<p>This section will showcase your technical skills categorized by technology type (e.g., Languages, Frameworks, Databases).</p>
+<pre><code class="language-html">&lt;section class=&quot;section--page&quot;&gt;
+    &lt;h2&gt;Tech Stack&lt;/h2&gt;
+    &lt;div id=&quot;wrapper--techstack__items&quot;&gt;
+        &lt;div class=&quot;card card--techstack&quot;&gt;
+            &lt;span&gt;Python, JavaScript, Node.js&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card card--techstack&quot;&gt;
+            &lt;span&gt;Django, React, Express.js&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card card--techstack&quot;&gt;
+            &lt;span&gt;PostgreSQL, MySQL, MongoDB&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card card--techstack&quot;&gt;
+            &lt;span&gt;Git, Docker, AWS&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<ul>
+<li><code>&lt;section class="section--page"&gt;</code>: Section element with general page section styling.</li>
+<li><code>&lt;h2&gt;Tech Stack&lt;/h2&gt;</code>: <code>h2</code> heading for the section title.</li>
+<li><code>&lt;div id="wrapper--techstack__items"&gt;</code>: A <code>div</code> to wrap the tech stack items. <code>id="wrapper--techstack__items"</code> is for styling the layout of the tech stack items.</li>
+<li><code>&lt;div class="card card--techstack"&gt;</code>: <code>div</code> elements with classes <code>card</code> and <code>card--techstack</code> to represent individual tech stack cards. These are styled to visually separate tech categories.</li>
+<li><code>&lt;span&gt; ... &lt;/span&gt;</code>: <code>span</code> elements within each card to display the list of technologies in each category.</li>
+</ul>
+<p><strong>6. Work History Section:</strong></p>
+<p>This section will detail your professional work experience in reverse chronological order.</p>
+<pre><code class="language-html">&lt;section class=&quot;section--page&quot; id=&quot;work-history--wrapper&quot;&gt;
+    &lt;h2&gt;Work History&lt;/h2&gt;
+
+    &lt;div class=&quot;line-break&quot;&gt;&lt;/div&gt;
+
+    &lt;div class=&quot;card card--workhistory&quot;&gt;
+        &lt;strong&gt;Developer Advocate at Agora &lt;span style=&quot;opacity: 0.5;&quot;&gt; (Nov 2021 - Present)&lt;/span&gt;&lt;/strong&gt;
+        &lt;p&gt;As a Developer Advocate at Agora, I focus on creating educational content and building tools to help developers effectively use Agora's real-time engagement platform. My responsibilities include developing tutorials, sample applications, and engaging with the developer community.&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;✅ Doubled usage minutes from 15 million to 30 million minutes within the first four months.&lt;/li&gt;
+            &lt;li&gt;✅ Produced educational content (videos, articles, and workshops) on Agora's technology.&lt;/li&gt;
+            &lt;li&gt;✅ Led successful SEO campaigns resulting in increased organic traffic to Agora's developer resources.&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Repeat the card structure for each work experience entry --&gt;
+
+&lt;/section&gt;
+</code></pre>
+<ul>
+<li><code>&lt;section class="section--page" id="work-history--wrapper"&gt;</code>: Section element with general styling and <code>id="work-history--wrapper"</code> for specific work history section styling.</li>
+<li><code>&lt;h2&gt;Work History&lt;/h2&gt;</code>: <code>h2</code> heading for the section title.</li>
+<li><code>&lt;div class="line-break"&gt;&lt;/div&gt;</code>: A <code>div</code> with class <code>line-break</code> to create a visual separator line before each work experience entry.</li>
+<li><code>&lt;div class="card card--workhistory"&gt;</code>: <code>div</code> elements with classes <code>card</code> and <code>card--workhistory</code> to represent individual work history cards.</li>
+<li><code>&lt;strong&gt; ... &lt;/strong&gt;</code>: <code>strong</code> tag to emphasize the job title and company. <code>&lt;span style="opacity: 0.5;"&gt; ... &lt;/span&gt;</code> within the strong tag to display the employment period with reduced opacity.</li>
+<li><code>&lt;p&gt; ... &lt;/p&gt;</code>: Paragraph tag for a brief description of the role and responsibilities.</li>
+<li><code>&lt;ul&gt; ... &lt;/ul&gt;</code>: Unordered list to highlight key achievements and responsibilities, using checkmark emojis for visual emphasis.</li>
+</ul>
+<p><strong>7. Projects &amp; Accomplishments Section (Optional):</strong></p>
+<p>This section provides a space to showcase specific projects and accomplishments in more detail.</p>
+<pre><code class="language-html">&lt;section class=&quot;section--page&quot;&gt;
+    &lt;h2&gt;Projects &amp; Accomplishments&lt;/h2&gt;
+
+    &lt;div class=&quot;card card--project&quot;&gt;
+        &lt;a href=&quot;./project1.html&quot;&gt;Built a Laboratory Management System for a Forensics Lab  🏆 &lt;/a&gt;
+        &lt;p&gt;Developed a web-based laboratory management system to streamline workflows, manage samples, and generate reports for a forensics laboratory. &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Repeat the card structure for each project or accomplishment --&gt;
+
+&lt;/section&gt;
+</code></pre>
+<ul>
+<li><code>&lt;section class="section--page"&gt;</code>: Section element with general page section styling.</li>
+<li><code>&lt;h2&gt;Projects &amp; Accomplishments&lt;/h2&gt;</code>: <code>h2</code> heading for the section title.</li>
+<li><code>&lt;div class="card card--project"&gt;</code>: <code>div</code> elements with classes <code>card</code> and <code>card--project</code> to represent individual project cards.</li>
+<li><code>&lt;a href="./project1.html"&gt; ... &lt;/a&gt;</code>: Anchor tag linking to a separate project details page (<code>project1.html</code>). <code>🏆</code> trophy emoji added for visual emphasis of accomplishments.</li>
+<li><code>&lt;p&gt; ... &lt;/p&gt;</code>: Paragraph tag for a brief description of the project.</li>
+</ul>
+<p>This completes the basic HTML structure for the digital resume.  Save <code>index.html</code> and proceed to styling the resume with CSS.</p>
+<h2 id="styling-the-resume-with-css-maincss">Styling the Resume with CSS (main.css)</h2>
+<p>Now, let's style our digital resume using CSS in the <code>main.css</code> file. CSS will control the visual presentation of our HTML content, including layout, colors, fonts, and responsiveness.</p>
+<p>First, let's set up some global styles and CSS variables to manage our design system and theme switching.</p>
+<h3 id="global-styles-and-css-variables">Global Styles and CSS Variables</h3>
+<p>At the top of your <code>main.css</code> file, add the following:</p>
+<pre><code class="language-css">@import url('https://fonts.googleapis.com/css2?family=Redex+Pro:wght@200;300;400;500;600;700;800;900&amp;display=swap');
+
+:root {
+    --main-text-color-light: #000;
+    --secondary-text-color-light: #5c5c62;
+    --main-link-color-light: #1775ee;
+    --main-border-color-light: #cdd2d7;
+    --main-bg-color-light: #f8f8fa;
+
+    --main-text-color-dark: #fff;
+    --secondary-text-color-dark: #c5c6cb;
+    --main-link-color-dark: #4abfff;
+    --main-border-color-dark: #4d545d;
+    --main-bg-color-dark: #192734;
+
+    --main-text-color: var(--main-text-color-dark); /* Default to dark mode */
+    --secondary-text-color: var(--secondary-text-color-dark);
+    --main-link-color: var(--main-link-color-dark);
+    --main-border-color: var(--main-border-color-dark);
+    --main-bg-color: var(--main-bg-color-dark);
+}
+</code></pre>
+<ul>
+<li><code>@import url(...)</code>: Imports the "Redex Pro" font from Google Fonts. This line should be placed at the very top of your CSS file.</li>
+</ul>
+<blockquote>
+<p><strong>@import</strong>
+A CSS at-rule used to import style rules from other style sheets. It allows for modularization and reuse of CSS code.</p>
+</blockquote>
+<ul>
+<li><code>:root { ... }</code>: Defines CSS variables within the <code>:root</code> pseudo-class, making them globally accessible throughout the stylesheet.</li>
+</ul>
+<blockquote>
+<p><strong>CSS Variables (Custom Properties)</strong>
+Entities defined by CSS authors that contain specific values to be reused throughout a document. They enable greater control over styling and theme management.</p>
+</blockquote>
+<pre><code>*   `--main-text-color-light`, `--secondary-text-color-light`, etc.:  Variables defined for the light theme, specifying colors for text, links, borders, and background.
+*   `--main-text-color-dark`, `--secondary-text-color-dark`, etc.: Variables defined for the dark theme, similarly specifying colors for the dark theme.
+*   `--main-text-color: var(--main-text-color-dark);`: Sets the default color variables to use the dark theme variables initially.  To switch to light mode, you would change `-dark` to `-light` in these default variable assignments.
+</code></pre>
+<p>Next, define global styles that apply to the entire page:</p>
+<pre><code class="language-css">* {
+    font-family: 'Redex Pro', sans-serif;
+    line-height: 1.5em;
+    box-sizing: border-box;
+    color: var(--main-text-color);
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+p, span, li {
+    color: var(--secondary-text-color);
+    font-size: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-link-color);
+    font-weight: 500;
+}
+
+li {
+    line-height: 1.9em;
+}
+</code></pre>
+<ul>
+<li><code>* { ... }</code>:  The universal selector, applying styles to all elements on the page.<ul>
+<li><code>font-family: 'Redex Pro', sans-serif;</code>: Sets the font family to the imported "Redex Pro" font, with "sans-serif" as a fallback.</li>
+<li><code>line-height: 1.5em;</code>: Sets the default line height for text.</li>
+<li><code>box-sizing: border-box;</code>:  Changes the box-sizing model to <code>border-box</code>, which includes padding and border in the element's total width and height.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>box-sizing: border-box</strong>
+A CSS property that alters the default CSS box model. When set to <code>border-box</code>, the padding and border of an element are included in the element's total width and height, simplifying layout calculations.</p>
+</blockquote>
+<pre><code>*   `color: var(--main-text-color);`: Sets the default text color using the `--main-text-color` CSS variable.
+</code></pre>
+<ul>
+<li><code>body { ... }</code>: Styles for the <code>&lt;body&gt;</code> element.<ul>
+<li><code>background-color: var(--main-bg-color);</code>: Sets the background color of the body using the <code>--main-bg-color</code> CSS variable.</li>
+</ul>
+</li>
+<li><code>p, span, li { ... }</code>: Styles for paragraph (<code>&lt;p&gt;</code>), span (<code>&lt;span&gt;</code>), and list item (<code>&lt;li&gt;</code>) elements.<ul>
+<li><code>color: var(--secondary-text-color);</code>: Sets the text color to the <code>--secondary-text-color</code> variable.</li>
+<li><code>font-size: 1em;</code>: Sets the font size to 1em (equivalent to the default font size).</li>
+</ul>
+</li>
+<li><code>a { ... }</code>: Styles for anchor (<code>&lt;a&gt;</code>) elements (links).<ul>
+<li><code>text-decoration: none;</code>: Removes the default underline from links.</li>
+<li><code>color: var(--main-link-color);</code>: Sets the link color to the <code>--main-link-color</code> variable.</li>
+<li><code>font-weight: 500;</code>: Sets the font weight to 500 for slightly bolder links.</li>
+</ul>
+</li>
+<li><code>li { ... }</code>: Styles specifically for list items.<ul>
+<li><code>line-height: 1.9em;</code>: Increases the line height for list items to create more vertical spacing.</li>
+</ul>
+</li>
+</ul>
+<h3 id="section-specific-styling">Section-Specific Styling</h3>
+<p>Now, let's style the different sections of our resume using their IDs and classes.</p>
+<p><strong>1. Main Container Styling:</strong></p>
+<pre><code class="language-css">#container--main {
+    max-width: 700px;
+    margin: 0 auto; /* Centers the container horizontally */
+}
+</code></pre>
+<ul>
+<li><code>#container--main { ... }</code>: Styles for the main container <code>div</code> (with <code>id="container--main"</code>).<ul>
+<li><code>max-width: 700px;</code>: Sets the maximum width of the container to 700 pixels, limiting the content width on larger screens.</li>
+<li><code>margin: 0 auto;</code>: Centers the container horizontally within its parent element. <code>0</code> sets the top and bottom margins to zero, and <code>auto</code> distributes the remaining horizontal space equally on both sides.</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Page Section Styling:</strong></p>
+<pre><code class="language-css">.section--page {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+</code></pre>
+<ul>
+<li><code>.section--page { ... }</code>: Styles for elements with the class <code>section--page</code> (applied to all <code>&lt;section&gt;</code> elements).<ul>
+<li><code>padding-top: 1em;</code>: Adds padding at the top of each section.</li>
+<li><code>padding-bottom: 1em;</code>: Adds padding at the bottom of each section, creating vertical spacing between sections.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Hero Section Styling:</strong></p>
+<pre><code class="language-css">#wrapper--hero {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+}
+</code></pre>
+<ul>
+<li><code>#wrapper--hero { ... }</code>: Styles for the hero section wrapper (<code>id="wrapper--hero"</code>).<ul>
+<li><code>display: flex;</code>: Enables flexbox layout for the hero section, allowing for flexible arrangement of its child elements (image and text).</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Flexbox (Flexible Box Layout)</strong>
+A CSS layout module that provides an efficient way to lay out, align, and distribute space among items in a container, even when their size is unknown or dynamic.</p>
+</blockquote>
+<pre><code>*   `align-items: center;`: Vertically aligns items along the cross-axis (in this case, vertically) to the center of the flex container.
+*   `gap: 4em;`: Sets the gap (space) between flex items to 4em units.
+</code></pre>
+<p><strong>4. Bio Styling:</strong></p>
+<pre><code class="language-css">#bio {
+    font-weight: 300; /* Lighter font weight */
+}
+</code></pre>
+<ul>
+<li><code>#bio { ... }</code>: Styles for the bio paragraph (<code>id="bio"</code>).<ul>
+<li><code>font-weight: 300;</code>: Sets a lighter font weight for the bio text, making it visually distinct from headings and stronger text.</li>
+</ul>
+</li>
+</ul>
+<p><strong>5. User Name Styling:</strong></p>
+<pre><code class="language-css">#user-name {
+    font-size: 3em;
+    line-height: 1em;
+}
+</code></pre>
+<ul>
+<li><code>#user-name { ... }</code>: Styles for the user name heading (<code>id="user-name"</code>).<ul>
+<li><code>font-size: 3em;</code>: Sets a large font size (3 times the default font size) for the name.</li>
+<li><code>line-height: 1em;</code>: Adjusts the line height to 1em for tighter vertical spacing around the name.</li>
+</ul>
+</li>
+</ul>
+<p><strong>6. Profile Picture Styling:</strong></p>
+<pre><code class="language-css">#profile--pic {
+    border-radius: 50%; /* Makes the image circular */
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image covers the circular area without distortion */
+}
+</code></pre>
+<ul>
+<li><code>#profile--pic { ... }</code>: Styles for the profile picture (<code>id="profile--pic"</code>).<ul>
+<li><code>border-radius: 50%;</code>: Makes the image circular by setting the border radius to 50% of its width or height.</li>
+<li><code>width: 150px;</code>: Sets the width of the image to 150 pixels.</li>
+<li><code>height: 150px;</code>: Sets the height of the image to 150 pixels.</li>
+<li><code>object-fit: cover;</code>: Specifies how the image should be resized to fit its container. <code>cover</code> ensures the image covers the entire container, cropping if necessary to maintain aspect ratio.</li>
+</ul>
+</li>
+</ul>
+<p><strong>7. Email Styling:</strong></p>
+<pre><code class="language-css">#email {
+    color: var(--main-text-color); /* Ensures email color follows theme */
+}
+</code></pre>
+<ul>
+<li><code>#email { ... }</code>: Styles for the email paragraph (<code>id="email"</code>).<ul>
+<li><code>color: var(--main-text-color);</code>: Sets the email text color to the <code>--main-text-color</code> variable, ensuring it adapts to the chosen theme.</li>
+</ul>
+</li>
+</ul>
+<p><strong>8. Socials List Styling:</strong></p>
+<pre><code class="language-css">#socials--list {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1em;
+    flex-wrap: wrap; /* Allows links to wrap to the next line on smaller screens */
+}
+
+#socials--list a {
+    font-size: 0.9em;
+}
+
+#socials--list a:hover {
+    color: var(--secondary-text-color);
+    transition: 0.3s; /* Smooth color transition on hover */
+}
+</code></pre>
+<ul>
+<li><code>#socials--list { ... }</code>: Styles for the socials list container (<code>id="socials--list"</code>).<ul>
+<li><code>display: flex;</code>: Enables flexbox layout for the social links.</li>
+<li><code>justify-content: space-between;</code>: Distributes space evenly between links, pushing the first link to the start and the last link to the end of the container.</li>
+<li><code>column-gap: 1em;</code>: Sets a gap of 1em between columns (between links).</li>
+<li><code>flex-wrap: wrap;</code>: Allows the links to wrap to the next line if they exceed the container width.</li>
+</ul>
+</li>
+<li><code>#socials--list a { ... }</code>: Styles for anchor tags (<code>&lt;a&gt;</code>) within the socials list.<ul>
+<li><code>font-size: 0.9em;</code>: Sets a slightly smaller font size for social links.</li>
+</ul>
+</li>
+<li><code>#socials--list a:hover { ... }</code>: Styles for link hover state within the socials list.<ul>
+<li><code>color: var(--secondary-text-color);</code>: Changes the link color to <code>--secondary-text-color</code> on hover.</li>
+<li><code>transition: 0.3s;</code>: Applies a smooth color transition over 0.3 seconds on hover.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>CSS Transition</strong>
+A CSS feature that allows property changes in CSS values to occur smoothly over a specified duration. It enhances user experience by providing visual feedback for interactions.</p>
+</blockquote>
+<p><strong>9. Qualifications List Styling:</strong></p>
+<pre><code class="language-css">#qualifications--list {
+    list-style: none; /* Removes default bullet points */
+}
+</code></pre>
+<ul>
+<li><code>#qualifications--list { ... }</code>: Styles for the qualifications list (<code>id="qualifications--list"</code>).<ul>
+<li><code>list-style: none;</code>: Removes the default bullet points from the unordered list.</li>
+</ul>
+</li>
+</ul>
+<p><strong>10. Tech Stack Items Wrapper Styling:</strong></p>
+<pre><code class="language-css">#wrapper--techstack__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    font-size: 0.9em;
+}
+</code></pre>
+<ul>
+<li><code>#wrapper--techstack__items { ... }</code>: Styles for the tech stack items wrapper (<code>id="wrapper--techstack__items"</code>).<ul>
+<li><code>display: flex;</code>: Enables flexbox layout for tech stack items.</li>
+<li><code>flex-wrap: wrap;</code>: Allows tech stack cards to wrap to the next line if they exceed the container width.</li>
+<li><code>gap: 1em;</code>: Sets a gap of 1em between tech stack cards.</li>
+<li><code>font-size: 0.9em;</code>: Sets a slightly smaller font size for the tech stack section.</li>
+</ul>
+</li>
+</ul>
+<p><strong>11. Tech Stack Card Styling:</strong></p>
+<pre><code class="language-css">.card--techstack {
+    border: 1px solid var(--main-border-color);
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}
+</code></pre>
+<ul>
+<li><code>.card--techstack { ... }</code>: Styles for elements with the class <code>card--techstack</code> (tech stack cards).<ul>
+<li><code>border: 1px solid var(--main-border-color);</code>: Adds a 1-pixel solid border using the <code>--main-border-color</code> variable.</li>
+<li><code>padding: 0.5em 1em;</code>: Sets vertical padding to 0.5em and horizontal padding to 1em inside the card.</li>
+<li><code>border-radius: 5px;</code>: Rounds the corners of the card with a 5-pixel radius.</li>
+</ul>
+</li>
+</ul>
+<p><strong>12. Work History Card Styling:</strong></p>
+<pre><code class="language-css">.card--workhistory {
+    border-left: 1px solid var(--main-border-color);
+    margin-top: 3em;
+    margin-bottom: 3em;
+    padding-left: 2em;
+}
+</code></pre>
+<ul>
+<li><code>.card--workhistory { ... }</code>: Styles for elements with the class <code>card--workhistory</code> (work history cards).<ul>
+<li><code>border-left: 1px solid var(--main-border-color);</code>: Adds a 1-pixel solid border on the left side of the card, using the <code>--main-border-color</code> variable.</li>
+<li><code>margin-top: 3em;</code>: Adds top margin for vertical spacing.</li>
+<li><code>margin-bottom: 3em;</code>: Adds bottom margin for vertical spacing.</li>
+<li><code>padding-left: 2em;</code>: Adds left padding to create space between the left border and the content.</li>
+</ul>
+</li>
+</ul>
+<p><strong>13. Line Break Styling:</strong></p>
+<pre><code class="language-css">.line-break {
+    background-color: var(--main-border-color);
+    height: 1px;
+}
+</code></pre>
+<ul>
+<li><code>.line-break { ... }</code>: Styles for elements with the class <code>line-break</code> (separator lines).<ul>
+<li><code>background-color: var(--main-border-color);</code>: Sets the background color of the line using the <code>--main-border-color</code> variable.</li>
+<li><code>height: 1px;</code>: Sets the height of the line to 1 pixel, creating a thin horizontal line.</li>
+</ul>
+</li>
+</ul>
+<p><strong>14. Project Card Styling:</strong></p>
+<pre><code class="language-css">.card--project {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: 1px solid var(--main-border-color);
+}
+
+.card--project a {
+    color: var(--main-text-color);
+    transition: 0.3s;
+}
+
+.card--project a:hover {
+    color: var(--main-link-color);
+}
+</code></pre>
+<ul>
+<li><code>.card--project { ... }</code>: Styles for elements with the class <code>card--project</code> (project cards).<ul>
+<li><code>padding-top: 1em;</code>: Adds top padding to the card.</li>
+<li><code>padding-bottom: 1em;</code>: Adds bottom padding to the card.</li>
+<li><code>border-top: 1px solid var(--main-border-color);</code>: Adds a 1-pixel solid border at the top of the card, using the <code>--main-border-color</code> variable.</li>
+</ul>
+</li>
+<li><code>.card--project a { ... }</code>: Styles for anchor tags (<code>&lt;a&gt;</code>) within project cards.<ul>
+<li><code>color: var(--main-text-color);</code>: Sets the link color to <code>--main-text-color</code>.</li>
+<li><code>transition: 0.3s;</code>: Adds a transition effect.</li>
+</ul>
+</li>
+<li><code>.card--project a:hover { ... }</code>: Styles for link hover state in project cards.<ul>
+<li><code>color: var(--main-link-color);</code>: Changes the link color to <code>--main-link-color</code> on hover.</li>
+</ul>
+</li>
+</ul>
+<h3 id="responsive-design-with-media-queries">Responsive Design with Media Queries</h3>
+<p>To ensure our digital resume looks good on different screen sizes, we will implement responsive design using CSS media queries. We will adjust the layout for smaller screens (e.g., mobile devices).</p>
+<pre><code class="language-css">@media (max-width: 600px) {
+    #wrapper--hero {
+        flex-direction: column; /* Stack image and text vertically */
+        gap: 1em; /* Reduce gap in mobile view */
+    }
+
+    #profile--pic {
+        width: 200px; /* Increase image size on mobile */
+        height: 200px;
+    }
+
+    .section--page {
+        padding-top: 1em; /* Reduce padding on mobile */
+        padding-bottom: 1em;
+    }
+
+    .card--workhistory {
+        border-left: none; /* Remove left border on mobile */
+        padding-left: 0; /* Remove left padding on mobile */
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>Media Queries</strong>
+A CSS feature that allows conditional application of styles based on media type and media features, such as screen width, height, and orientation. It is crucial for creating responsive web designs.</p>
+</blockquote>
+<ul>
+<li><code>@media (max-width: 600px) { ... }</code>:  Applies the enclosed styles only when the screen width is 600 pixels or less.<ul>
+<li><code>#wrapper--hero { ... }</code>: Adjustments for the hero section on smaller screens.<ul>
+<li><code>flex-direction: column;</code>: Changes the flex direction to column, stacking the image and text vertically instead of horizontally.</li>
+<li><code>gap: 1em;</code>: Reduces the gap between flex items to 1em.</li>
+</ul>
+</li>
+<li><code>#profile--pic { ... }</code>: Adjustments for the profile picture on smaller screens.<ul>
+<li><code>width: 200px;</code>: Increases the width of the image to 200 pixels.</li>
+<li><code>height: 200px;</code>: Increases the height of the image to 200 pixels.</li>
+</ul>
+</li>
+<li><code>.section--page { ... }</code>: General page section padding adjustments for smaller screens.<ul>
+<li><code>padding-top: 1em;</code>: Reduces top padding.</li>
+<li><code>padding-bottom: 1em;</code>: Reduces bottom padding.</li>
+</ul>
+</li>
+<li><code>.card--workhistory { ... }</code>: Adjustments for work history cards on smaller screens.<ul>
+<li><code>border-left: none;</code>: Removes the left border.</li>
+<li><code>padding-left: 0;</code>: Removes left padding.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>These media query adjustments ensure that the digital resume layout adapts gracefully to smaller screens, providing a better viewing experience on mobile devices.</p>
+<h2 id="creating-the-project-details-page-project1html">Creating the Project Details Page (project1.html)</h2>
+<p>For the "Projects &amp; Accomplishments" section, we linked to a separate page, <code>project1.html</code>. Let's create this page to provide more details about a specific project.</p>
+<p>Create a new file named <code>project1.html</code> in the root directory of your <code>resume-website</code> project.</p>
+<p>Add the following HTML structure to <code>project1.html</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Project Details&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./styles/main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;container--main&quot;&gt;
+        &lt;a href=&quot;./index.html&quot; style=&quot;display:block; text-align:right;&quot;&gt;Go Back ⬅&lt;/a&gt;
+
+        &lt;h1&gt;Laboratory Management System for Forensics Lab&lt;/h1&gt;
+
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Source Code&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Live Demo&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;br&gt;
+
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+
+        &lt;p&gt;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+
+        &lt;br&gt;
+
+        &lt;ul&gt;
+            &lt;li&gt;Key Learnings:
+                &lt;ul&gt;
+                    &lt;li&gt;Improved workflow efficiency by 40%.&lt;/li&gt;
+                    &lt;li&gt;Reduced report generation time by 50%.&lt;/li&gt;
+                    &lt;li&gt;Enhanced data security and compliance.&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html lang="en"&gt;</code>, <code>&lt;head&gt;</code>:  Standard HTML boilerplate, similar to <code>index.html</code>.<ul>
+<li><code>&lt;title&gt;Project Details&lt;/title&gt;</code>: Sets the title for the project details page.</li>
+<li><code>&lt;link rel="stylesheet" href="./styles/main.css"&gt;</code>: Links to the same <code>main.css</code> stylesheet to maintain consistent styling.</li>
+</ul>
+</li>
+<li><code>&lt;body&gt;</code>: Contains the project details content.<ul>
+<li><code>&lt;div id="container--main"&gt;</code>:  Uses the same main container to center content and control width.<ul>
+<li><code>&lt;a href="./index.html" ...&gt;Go Back ⬅&lt;/a&gt;</code>: A link to navigate back to the main resume page (<code>index.html</code>).  <code>style="display:block; text-align:right;"</code> is added inline to position the "Go Back" link to the right.</li>
+<li><code>&lt;h1&gt;Laboratory Management System for Forensics Lab&lt;/h1&gt;</code>:  An <code>h1</code> heading for the project title.</li>
+<li><code>&lt;ul&gt; ... &lt;/ul&gt;</code>: An unordered list to provide links to the source code and live demo (replace <code>#</code> with actual URLs).</li>
+<li><code>&lt;p&gt; ... &lt;/p&gt;</code>: Paragraphs (<code>&lt;p&gt;</code>) with placeholder text (Lorem Ipsum) to describe the project in more detail. Replace this with your actual project description.</li>
+<li><code>&lt;ul&gt; ... &lt;/ul&gt;</code>: A nested unordered list to highlight key learnings or achievements from the project.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Remember to replace the placeholder content (URLs, project description, Lorem Ipsum) with your actual project details.</p>
+<h2 id="deploying-the-digital-resume-with-github-pages">Deploying the Digital Resume with GitHub Pages</h2>
+<p>Finally, let's deploy our digital resume online for free using GitHub Pages. GitHub Pages allows you to host static websites directly from your GitHub repository.</p>
+<blockquote>
+<p><strong>GitHub Pages</strong>
+A static site hosting service offered by GitHub that hosts websites directly from a GitHub repository. It's free to use for public repositories and is ideal for hosting personal websites, project documentation, and simple web applications.</p>
+</blockquote>
+<p><strong>Steps to Deploy:</strong></p>
+<ol>
+<li>
+<p><strong>Create a GitHub Repository:</strong> If you haven't already, create a new public repository on GitHub. Name it <code>resume-website</code> (or any name you prefer).</p>
+</li>
+<li>
+<p><strong>Initialize Git and Commit Files:</strong></p>
+<ul>
+<li>Open a terminal or command prompt and navigate to your <code>resume-website</code> project directory.</li>
+<li>Initialize a Git repository: <code>git init</code></li>
+<li>Add all project files to the repository: <code>git add .</code></li>
+<li>Commit the files: <code>git commit -m "Initial commit"</code></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Git</strong>
+A distributed version control system that tracks changes in source code during software development. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Connect to Remote Repository:</strong></p>
+<ul>
+<li>Add your GitHub repository as the remote origin: <code>git remote add origin &lt;repository_url&gt;</code> (Replace <code>&lt;repository_url&gt;</code> with the URL of your GitHub repository).</li>
+</ul>
+</li>
+<li>
+<p><strong>Push to GitHub:</strong></p>
+<ul>
+<li>Push your local repository to the remote GitHub repository: <code>git push -u origin master</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Enable GitHub Pages:</strong></p>
+<ul>
+<li>Go to your GitHub repository on the GitHub website.</li>
+<li>Click on the "Settings" tab.</li>
+<li>Scroll down to the "GitHub Pages" section in the left sidebar.</li>
+<li>Under "Source," select "Deploy from a branch."</li>
+<li>Choose "master" (or your main branch name) as the branch.</li>
+<li>Select "root" as the folder.</li>
+<li>Click "Save."</li>
+</ul>
+</li>
+<li>
+<p><strong>Access Your Live Resume:</strong></p>
+<ul>
+<li>GitHub Pages will provide you with a URL for your live website in the "GitHub Pages" section of your repository settings. It will typically be in the format <code>https://&lt;your_github_username&gt;.github.io/&lt;repository_name&gt;</code>.</li>
+</ul>
+</li>
+</ol>
+<p>It might take a few minutes for GitHub Pages to build and deploy your site after enabling it. Once deployed, your digital resume will be live and accessible via the provided URL, ready to be shared with the world.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully built and deployed a digital resume using HTML, CSS, and GitHub Pages. This project has covered essential web development concepts and provided a practical way to create an engaging and shareable online resume.</p>
+<p>By understanding HTML structure, CSS styling, and deployment with GitHub Pages, you have gained valuable skills that can be applied to various web development projects. You can further enhance this digital resume by adding more sections, features like a theme switcher, and deeper project details on individual pages. Remember to keep your digital resume updated and share your live URL to showcase your professional profile online.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a RAG Chatbot with Your Data: A Practical Guide for JavaScript Developers - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-rag-chatbot-with-your-data-a-practical-guide-for-javascript-developers">Building a RAG Chatbot with Your Data: A Practical Guide for JavaScript Developers</a></li>
+        <li><a href="#introduction-to-generative-ai-and-rag-chatbots">Introduction to Generative AI and RAG Chatbots</a></li><li><a href="#understanding-the-power-of-rag-retrieval-augmented-generation">Understanding the Power of RAG: Retrieval-Augmented Generation</a></li><li><a href="#course-prerequisites-and-technologies">Course Prerequisites and Technologies</a></li><li><a href="#understanding-vector-embeddings">Understanding Vector Embeddings</a></li><li><a href="#setting-up-your-environment-and-accounts">Setting Up Your Environment and Accounts</a></li><li><a href="#setting-up-your-project-environment">Setting Up Your Project Environment</a></li><li><a href="#loading-data-into-your-vector-database">Loading Data into Your Vector Database</a></li><li><a href="#building-the-chatbot-frontend-with-nextjs">Building the Chatbot Frontend with Next.js</a></li><li><a href="#running-your-rag-chatbot">Running Your RAG Chatbot</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-rag-chatbot-with-your-data-a-practical-guide-for-javascript-developers">Building a RAG Chatbot with Your Data: A Practical Guide for JavaScript Developers</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/d-VKYF4Zow0" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-generative-ai-and-rag-chatbots">Introduction to Generative AI and RAG Chatbots</h2>
+<p>Welcome to the exciting world of Generative AI for JavaScript developers! This chapter will guide you through the process of building and deploying your very own Retrieval-Augmented Generation (RAG) chatbot.  You will learn how to create a chatbot that is not limited by the knowledge cut-off dates of standard models like ChatGPT, but instead, is powered by data you provide, ensuring up-to-date and relevant answers.</p>
+<p>This chapter is perfect for beginners who want to understand core AI concepts like RAG chatbots and vector embeddings, and gain practical experience with technologies such as Langchain JS, Next.js, Vercel, and OpenAI.</p>
+<blockquote>
+<p><strong>Chatbot:</strong> A computer program designed to simulate conversation with human users, especially over the internet. Chatbots can understand and respond to user queries, providing information, assistance, or engaging in dialogue.</p>
+<p><strong>Generative AI:</strong> A type of artificial intelligence that focuses on creating new content, such as text, images, or code, rather than simply analyzing or acting on existing data. Generative AI models learn patterns from training data and use these patterns to generate novel outputs.</p>
+</blockquote>
+<h3 id="what-you-will-learn">What You Will Learn</h3>
+<p>By the end of this chapter, you will:</p>
+<ul>
+<li>Understand the fundamentals of AI development in JavaScript.</li>
+<li>Build a functional RAG chatbot capable of answering questions based on current data.</li>
+<li>Learn how to scrape data from the internet to keep your chatbot up-to-date.</li>
+<li>Implement vector embeddings to efficiently store and retrieve information.</li>
+<li>Utilize Langchain JS, Next.js, Vercel, and OpenAI in a practical project.</li>
+<li>Understand the cost-effectiveness of RAG chatbots compared to retraining large language models.</li>
+</ul>
+<h2 id="understanding-the-power-of-rag-retrieval-augmented-generation">Understanding the Power of RAG: Retrieval-Augmented Generation</h2>
+<h3 id="the-knowledge-cut-off-challenge">The Knowledge Cut-off Challenge</h3>
+<p>One of the limitations of even advanced chatbots like ChatGPT is their <strong>knowledge cut-off date</strong>.</p>
+<blockquote>
+<p><strong>Knowledge cut-off date:</strong> The point in time after which a language model's training data ceases to include new information.  This means the model's knowledge is limited to events and data available up to this date.</p>
+</blockquote>
+<p>As of September 2021, ChatGPT's training data collection ceased, meaning it lacks awareness of events and information that emerged after this date.  This limitation can be a significant drawback when you need a chatbot to provide answers based on the most current information.</p>
+<h3 id="rag-to-the-rescue-bridging-the-knowledge-gap">RAG to the Rescue: Bridging the Knowledge Gap</h3>
+<p><strong>Retriever Augmented Generation (RAG)</strong> offers a powerful solution to this problem.</p>
+<blockquote>
+<p><strong>Retriever Augmented Generation (RAG):</strong> A technique that enhances the output of a Large Language Model (LLM) by providing it with additional context relevant to the user's query. This allows the model to generate more accurate and up-to-date answers by leveraging both its pre-existing knowledge and the newly provided information.</p>
+<p><strong>Large Language Model (LLM):</strong> A sophisticated type of artificial intelligence model trained on massive datasets of text and code. LLMs are capable of understanding and generating human-like text for a wide range of tasks, including question answering, text completion, and language translation.</p>
+</blockquote>
+<p>Instead of relying solely on the LLM's pre-existing knowledge, RAG empowers the model to access and incorporate external data in real-time.</p>
+<p><strong>How RAG Works (Simplified):</strong></p>
+<ul>
+<li><strong>User Query:</strong> A user asks a question to the chatbot.</li>
+<li><strong>Data Retrieval:</strong> The RAG system retrieves relevant information from an external data source (e.g., the internet, a private database) based on the user's query.</li>
+<li><strong>Context Augmentation:</strong> This retrieved information is added as context to the original user query.</li>
+<li><strong>Generation with Context:</strong> The LLM uses both its internal knowledge and the augmented context to generate a more informed and accurate response.</li>
+</ul>
+<h3 id="benefits-of-using-rag">Benefits of Using RAG</h3>
+<ul>
+<li><strong>Up-to-Date Answers:</strong> RAG chatbots can provide answers based on the latest information by dynamically retrieving data from external sources, overcoming the knowledge cut-off limitation.</li>
+<li>
+<p><strong>Cost-Effectiveness:</strong> Retraining a foundation model is computationally and financially expensive. RAG offers a cost-effective alternative by augmenting existing models with new data without requiring retraining.</p>
+<blockquote>
+<p><strong>Foundation Model:</strong> A large, pre-trained AI model that is trained on a broad spectrum of data and serves as the base for more specialized models or applications. Foundation models can be adapted or fine-tuned for specific tasks, but in their original form, they possess general knowledge.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Access to Private Data:</strong> RAG can incorporate data that is not publicly available or part of the LLM's training dataset, such as information from your personal documents or internal company databases. This allows for highly customized and private chatbot applications.</p>
+</li>
+</ul>
+<p><strong>Example: Formula 1 Chatbot</strong></p>
+<p>Imagine you want to build a chatbot that answers questions about Formula 1 racing. With RAG, you can:</p>
+<ol>
+<li><strong>Scrape up-to-date data:</strong>  Collect the latest Formula 1 news, standings, and driver information from websites.</li>
+<li><strong>Feed data to the chatbot:</strong>  Use RAG to provide this scraped data as context when a user asks a question.</li>
+<li><strong>Get current answers:</strong> The chatbot can then answer questions like "Who is the current Formula 1 World Drivers' Champion?" with the most recent information, even if it's beyond ChatGPT's 2021 knowledge cut-off.</li>
+</ol>
+<h2 id="course-prerequisites-and-technologies">Course Prerequisites and Technologies</h2>
+<p>Before diving into building your RAG chatbot, let's review the prerequisites and technologies you will be using in this course.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><strong>Basic understanding of AI concepts:</strong> Familiarity with concepts like chatbots and AI is helpful but not strictly required. This chapter will explain the necessary concepts as we progress.</li>
+<li>
+<p><strong>Latest version of Node.js:</strong> Ensure you have Node.js installed and updated to the latest version. Node.js is a JavaScript runtime environment that allows you to run JavaScript code outside of a web browser.</p>
+<blockquote>
+<p><strong>Node.js:</strong> An open-source, cross-platform JavaScript runtime environment that executes JavaScript code server-side. Node.js enables developers to use JavaScript for backend development, creating dynamic web pages and applications.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>OpenAI Account:</strong> You will need an account with OpenAI to access their APIs, which are essential for leveraging powerful language models and embedding capabilities.</p>
+</li>
+<li>
+<p><strong>Knowledge of Next.js (Beneficial):</strong> While step-by-step instructions will be provided, a basic understanding of Next.js, a React framework for web development, will be advantageous.</p>
+<blockquote>
+<p><strong>Next.js:</strong> An open-source React framework that enables server-side rendering and the creation of full-stack web applications. Next.js simplifies web development with features like routing, API routes, and optimized performance.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="key-technologies">Key Technologies</h3>
+<ul>
+<li>
+<p><strong>Langchain JS:</strong> A JavaScript library designed to simplify the development of applications powered by language models. Langchain provides tools and abstractions for building complex LLM-based applications, including RAG systems.</p>
+<blockquote>
+<p><strong>Langchain JS:</strong> A framework for building applications using language models. It provides modules for model integration, prompt management, chains of operations, data augmentation, and agents, making it easier to develop sophisticated AI-powered applications.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Next.js:</strong> As mentioned, Next.js will be used to build the user interface and structure of your chatbot application.</p>
+</li>
+<li>
+<p><strong>Vercel:</strong> A cloud platform optimized for deploying frontend applications, particularly Next.js applications. Vercel offers easy deployment and hosting solutions.</p>
+<blockquote>
+<p><strong>Vercel:</strong> A cloud platform for frontend developers that provides serverless functions, global CDN, and automatic scaling. Vercel is popular for deploying modern web applications, especially those built with frameworks like Next.js.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>OpenAI:</strong> You will utilize OpenAI's APIs for:</p>
+<ul>
+<li>
+<p><strong>Large Language Models (LLMs):</strong> Specifically, models like GPT-4 for generating human-like text responses.</p>
+<blockquote>
+<p><strong>GPT-4:</strong> A highly advanced Large Language Model developed by OpenAI, known for its improved reasoning, creative capabilities, and ability to handle more complex and nuanced prompts compared to its predecessors.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Embeddings Models:</strong>  Models like <code>text-embedding-3-small</code> for creating vector embeddings of text data.</p>
+<blockquote>
+<p><strong>Embeddings Model:</strong> A type of AI model that converts text, images, or other data into numerical vector representations called embeddings. These embeddings capture the semantic meaning of the data and enable efficient comparison and similarity calculations.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DataStax Astra DB:</strong> A serverless vector database that will be used to store and efficiently query vector embeddings of your data.</p>
+<blockquote>
+<p><strong>Serverless Vector Database:</strong> A type of database designed to store and efficiently query vector embeddings, and which operates in a serverless computing environment.  <strong>Serverless</strong> means the cloud provider automatically manages the underlying infrastructure, allowing users to focus on the database itself. A <strong>Vector Database</strong> is optimized for storing and searching high-dimensional vector embeddings, enabling similarity searches crucial for RAG systems.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="understanding-vector-embeddings">Understanding Vector Embeddings</h2>
+<p><strong>Vector embeddings</strong> are a fundamental concept in modern AI and are crucial for implementing RAG effectively.</p>
+<blockquote>
+<p><strong>Vector Embedding:</strong> A numerical representation of information (text, images, audio, etc.) in the form of a vector (an array of numbers).  These vectors capture the semantic meaning and relationships between different pieces of information, allowing computers to understand similarity and context.</p>
+</blockquote>
+<p>Imagine turning words, sentences, or even entire documents into lists of numbers. These lists, or vectors, are designed in such a way that vectors representing similar concepts are located close to each other in a multi-dimensional space.</p>
+<p><strong>Why are Vector Embeddings Important?</strong></p>
+<ul>
+<li>
+<p><strong>Semantic Meaning:</strong> Vector embeddings capture the semantic meaning of text. Words with similar meanings (e.g., "dog" and "cat") will have embeddings that are closer together in the vector space than words with dissimilar meanings (e.g., "dog" and "car").</p>
+<blockquote>
+<p><strong>Semantic Meaning:</strong> The meaning or interpretation of words, phrases, sentences, and texts, taking into account context and relationships between words. Semantic meaning goes beyond literal definitions to understand the intended message and nuances of language.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Similarity Search:</strong>  Vector databases like Astra DB are optimized for performing similarity searches on vector embeddings. This means you can efficiently find vectors that are most similar to a query vector. In RAG, this allows you to quickly retrieve relevant chunks of text from your database based on the user's question, which is also converted into a vector embedding.</p>
+</li>
+<li>
+<p><strong>Processing by Algorithms:</strong>  Vector embeddings transform complex information into a format that can be easily processed by algorithms, especially <strong>deep learning models</strong>.</p>
+<blockquote>
+<p><strong>Deep Learning Models:</strong> A subset of machine learning models characterized by artificial neural networks with multiple layers (deep neural networks). Deep learning models are capable of learning complex patterns from large amounts of data and are particularly effective in tasks like image recognition, natural language processing, and speech recognition.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Example: Word Similarity</strong></p>
+<p>Consider the words "cat" and "dog."  If you convert these words into vector embeddings, a computer can analyze these numerical representations and determine that "cat" and "dog" are semantically similar.  This is because their embeddings will be closer to each other in the vector space compared to the embedding of a word like "dot" or "path," which, while sharing some letters, are not semantically related to "dog" in the same way.</p>
+<p>It's important to note that different <strong>Large Language Models (LLMs)</strong> will generate different vector embeddings for the same word.  Embeddings created by OpenAI's models are not directly comparable to embeddings created by other models. Each model has its own way of representing semantic meaning numerically.</p>
+<blockquote>
+<p><strong>Lexicographically similar:</strong>  Words that share similar letter patterns or sequences.  For example, "dot" and "dog" are lexicographically similar because they share the letters "do" and "og". This is different from semantic similarity, which focuses on meaning rather than letter patterns.</p>
+</blockquote>
+<h2 id="setting-up-your-environment-and-accounts">Setting Up Your Environment and Accounts</h2>
+<h3 id="datastax-astra-db-setup">DataStax Astra DB Setup</h3>
+<ol>
+<li>
+<p><strong>Sign Up for DataStax Astra DB:</strong> Navigate to the DataStax Astra DB website and sign up for a free account. No credit card is required for the free tier.</p>
+</li>
+<li>
+<p><strong>Create a Database:</strong> Once logged in, create a new database. Choose the <strong>Serverless Vector Database</strong> option to ensure compatibility with vector embeddings.</p>
+<blockquote>
+<p><strong>Serverless:</strong> A cloud computing execution model where the cloud provider dynamically manages the allocation and provisioning of servers. Users do not need to manage servers, and are typically billed based on actual usage.</p>
+<p><strong>Serverless vector database:</strong> A vector database that operates in a serverless environment, offering scalability and ease of use without the need for manual server management.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Name Your Database:</strong>  Give your database a descriptive name, such as "dbf1" for a Formula 1 chatbot.</p>
+</li>
+<li>
+<p><strong>Choose a Provider and Region:</strong> Select a cloud provider (e.g., Amazon Web Services, Google Cloud, Microsoft Azure) and a region that is geographically closest to you for optimal performance.</p>
+</li>
+<li>
+<p><strong>Create the Database:</strong> Click the "Create Database" button. Your database will be provisioned, which may take a few moments.</p>
+</li>
+<li>
+<p><strong>Gather Database Credentials:</strong> Once the database is active, you will need to collect the following credentials:</p>
+<ul>
+<li><strong>Database Endpoint:</strong>  Found on the "Overview" page of your database in the Astra DB dashboard. This is the address your application will use to connect to the database.</li>
+<li><strong>Application Token:</strong> Generate an application token from the "Overview" page. This token is used for authentication and authorization when accessing your database.</li>
+<li><strong>Namespace (Keyspace):</strong> The default keyspace name is "default_keyspace." This is the logical container for your data within the database.</li>
+</ul>
+</li>
+</ol>
+<h3 id="openai-account-and-api-key-setup">OpenAI Account and API Key Setup</h3>
+<ol>
+<li>
+<p><strong>Sign Up for OpenAI:</strong> Go to the OpenAI website (openai.com) and sign up for an account.</p>
+</li>
+<li>
+<p><strong>Access API Keys:</strong> After logging in, navigate to the "API" section (usually found under "Products").</p>
+</li>
+<li>
+<p><strong>Create a New Secret Key:</strong>  Go to the "API keys" section and create a new secret key. Give it a descriptive name for easy identification.</p>
+</li>
+<li>
+<p><strong>Copy and Secure Your API Key:</strong>  Copy the generated API key and store it securely. <strong>Treat your API key like a password and do not share it publicly.</strong>  You will use this key to authenticate your application with OpenAI's services.</p>
+</li>
+<li>
+<p><strong>Billing and Credits (Optional):</strong>  If you plan to use OpenAI's API extensively, you may need to set up billing and purchase credits.  Check your OpenAI account settings under "Billing" to manage your credits and payment information.</p>
+</li>
+<li>
+<p><strong>Identify Models:</strong> Note the models you will be using in this course:</p>
+<ul>
+<li><strong>Chat Model:</strong>  GPT-4 (for generating chatbot responses).</li>
+<li><strong>Embeddings Model:</strong> <code>text-embedding-3-small</code> (for creating vector embeddings).</li>
+</ul>
+</li>
+</ol>
+<h2 id="setting-up-your-project-environment">Setting Up Your Project Environment</h2>
+<h3 id="creating-a-nextjs-project">Creating a Next.js Project</h3>
+<ol>
+<li>
+<p><strong>Open Your Code Editor:</strong> Launch your preferred code editor (e.g., WebStorm, VS Code).</p>
+</li>
+<li>
+<p><strong>Create a New Next.js Project:</strong></p>
+<ul>
+<li><strong>Using WebStorm:</strong> Select "New Project," choose "Next.js," specify a project directory and name (e.g., "nextjs-f1-gpt"), and ensure "TypeScript" is selected. Click "Create."</li>
+<li>
+<p><strong>Using Terminal (for any editor):</strong> Open your terminal, navigate to your desired projects directory, and run the following command:</p>
+<p><code>bash
+npx create-next-app@latest nextjs-f1-gpt --typescript</code></p>
+<p>Replace "nextjs-f1-gpt" with your desired project name.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Answer Project Setup Questions:</strong> You will be prompted with a series of questions during project creation:</p>
+<ul>
+<li>"Would you like to use ESLint?" (Yes) - For code linting and quality.</li>
+<li>"Would you like to use Tailwind CSS?" (No) - We will use custom CSS.</li>
+<li>"Would you like to use <code>src/</code> directory?" (No) - We will use a different directory structure.</li>
+<li>"Would you like to use App Router?" (No) - We will use the Pages Router for simplicity.</li>
+<li>"Would you like to customize the default import alias?" (No) - Default settings are fine.</li>
+</ul>
+</li>
+<li>
+<p><strong>Wait for Project Creation:</strong>  Next.js will create the project structure and install necessary dependencies.</p>
+</li>
+</ol>
+<h3 id="project-directory-structure">Project Directory Structure</h3>
+<p>After project creation, organize your project directory as follows:</p>
+<pre><code>nextjs-f1-gpt/
+├── app/
+│   ├── api/
+│   │   └── chat/
+│   │       └── route.ts  (API route for chat)
+│   └── assets/
+│       ├── f1-gpt-logo.png (Logo image)
+│       └── background.jpg (Background image)
+├── scripts/
+│   └── load-db.ts         (Script to load data into Astra DB)
+├── public/
+│   └── ... (Optional public assets)
+├── styles/
+│   └── global.css        (Global CSS styles)
+├── .env                 (Environment variables file)
+├── package.json
+├── tsconfig.json
+└── ...
+</code></pre>
+<p><strong>Explanation of Key Directories and Files:</strong></p>
+<ul>
+<li>
+<p><strong><code>app/</code>:</strong>  Contains application-specific code.</p>
+<ul>
+<li>
+<p><strong><code>app/api/chat/route.ts</code>:</strong>  Defines the API route for handling chatbot requests.</p>
+<blockquote>
+<p><strong>API (Application Programming Interface):</strong> A set of rules and specifications that software programs can follow to communicate with each other. APIs allow different software components to interact and exchange data, enabling integration and functionality extension.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>app/assets/</code>:</strong>  Stores static assets like images and logos.</p>
+</li>
+<li><strong><code>scripts/</code>:</strong>  Contains scripts for database seeding and other utilities.</li>
+<li><strong><code>scripts/load-db.ts</code>:</strong>  A TypeScript script to scrape data, create vector embeddings, and load them into Astra DB.</li>
+<li><strong><code>styles/global.css</code>:</strong>  Holds global CSS styles for the entire application.</li>
+<li><strong><code>.env</code>:</strong>  Stores environment variables, including API keys and database credentials, keeping sensitive information separate from your code.</li>
+<li><strong><code>package.json</code>:</strong>  Defines project dependencies and scripts for running and managing your application.</li>
+<li><strong><code>tsconfig.json</code>:</strong>  Configuration file for TypeScript settings.</li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-essential-files">Creating Essential Files</h3>
+<p>Create the following files within your project directory as outlined in the structure above:</p>
+<ol>
+<li><strong><code>app/api/chat/route.ts</code>:</strong>  Create <code>route.ts</code> within <code>app/api/chat/</code>.</li>
+<li><strong><code>app/assets/f1-gpt-logo.png</code> and <code>app/assets/background.jpg</code>:</strong> Add your logo and background images to the <code>app/assets/</code> directory. You can use placeholder images initially and replace them later.</li>
+<li><strong><code>scripts/load-db.ts</code>:</strong> Create <code>load-db.ts</code> within <code>scripts/</code>.</li>
+<li><strong><code>styles/global.css</code>:</strong>  Create <code>global.css</code> within <code>styles/</code>.</li>
+<li><strong><code>app/layout.tsx</code>:</strong> Create <code>layout.tsx</code> within <code>app/</code>.</li>
+<li><strong><code>app/page.tsx</code>:</strong> Create <code>page.tsx</code> within <code>app/</code>.</li>
+<li><strong><code>app/components/</code>:</strong> Create a <code>components</code> directory within <code>app/</code>.</li>
+<li><strong><code>app/components/bubble.tsx</code>:</strong> Create <code>bubble.tsx</code> within <code>app/components/</code>.</li>
+<li><strong><code>app/components/prompt-suggestions-row.tsx</code>:</strong> Create <code>prompt-suggestions-row.tsx</code> within <code>app/components/</code>.</li>
+<li><strong><code>app/components/prompt-suggestion-button.tsx</code>:</strong> Create <code>prompt-suggestion-button.tsx</code> within <code>app/components/</code>.</li>
+<li><strong><code>app/components/loading-bubble.tsx</code>:</strong> Create <code>loading-bubble.tsx</code> within <code>app/components/</code>.</li>
+<li><strong><code>.env</code>:</strong> Create <code>.env</code> at the root of your project.</li>
+</ol>
+<h2 id="loading-data-into-your-vector-database">Loading Data into Your Vector Database</h2>
+<p>Now, let's focus on populating your Astra DB vector database with Formula 1 data. This is crucial for enabling your RAG chatbot to answer questions based on up-to-date information.</p>
+<h3 id="setting-up-environment-variables-in-env">Setting Up Environment Variables in <code>.env</code></h3>
+<p>Open the <code>.env</code> file you created and add the following environment variables, replacing the placeholder values with your actual credentials obtained from Astra DB and OpenAI:</p>
+<pre><code class="language-env">ASTRA_DB_NAMESPACE=default_keyspace
+ASTRA_DB_COLLECTION_NAME=f1gpt
+ASTRA_DB_API_ENDPOINT=YOUR_ASTRA_DB_ENDPOINT
+ASTRA_DB_APPLICATION_TOKEN=YOUR_ASTRA_DB_APPLICATION_TOKEN
+OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+</code></pre>
+<h3 id="installing-required-packages">Installing Required Packages</h3>
+<p>Open your terminal in the project directory and install the necessary npm packages:</p>
+<pre><code class="language-bash">npm install @datastax/astra-db-ts langchain openai dotenv puppeteer ts-node ai
+</code></pre>
+<blockquote>
+<p><strong>NPM (Node Package Manager):</strong> The default package manager for Node.js. NPM is used to install, manage, and share JavaScript packages and modules, simplifying dependency management for Node.js projects.</p>
+<p><strong>TS Node:</strong> A package that allows you to execute TypeScript files directly in Node.js without needing to compile them to JavaScript first. This is useful for running scripts during development.</p>
+</blockquote>
+<h3 id="modifying-tsconfigjson-for-ts-node">Modifying <code>tsconfig.json</code> for <code>ts-node</code></h3>
+<p>To ensure <code>ts-node</code> works correctly with your TypeScript configuration, modify your <code>tsconfig.json</code> file. Locate the <code>"compilerOptions"</code> section and add the following:</p>
+<pre><code class="language-json">{
+  &quot;compilerOptions&quot;: {
+    // ... other options
+    &quot;module&quot;: &quot;CommonJS&quot;
+  },
+  &quot;ts-node&quot;: {
+    &quot;compilerOptions&quot;: {
+      &quot;module&quot;: &quot;CommonJS&quot;
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p><strong>TypeScript:</strong> A superset of JavaScript that adds optional static typing. TypeScript enhances code maintainability and readability, especially in large projects, by catching type-related errors during development.</p>
+</blockquote>
+<h3 id="writing-the-load-dbts-script">Writing the <code>load-db.ts</code> Script</h3>
+<p>Open the <code>scripts/load-db.ts</code> file and paste the following code. This script will:</p>
+<ul>
+<li>Import necessary packages.</li>
+<li>Load environment variables from <code>.env</code>.</li>
+<li>Connect to Astra DB and OpenAI.</li>
+<li>Define URLs to scrape Formula 1 data from (Wikipedia, news sites, etc.).</li>
+<li>
+<p>Scrape content from these URLs using <strong>Puppeteer</strong>.</p>
+<blockquote>
+<p><strong>Puppeteer:</strong> A Node.js library that provides a high-level API to control Chrome or Chromium over the DevTools Protocol. Puppeteer is commonly used for web scraping, automated testing, and generating screenshots and PDFs of web pages.</p>
+</blockquote>
+</li>
+<li>
+<p>Chunk the scraped text into smaller pieces using <strong>RecursiveCharacterTextSplitter</strong> from Langchain.</p>
+<blockquote>
+<p><strong>Recursive Character Text Splitter:</strong> A text splitting method provided by Langchain that recursively splits text into smaller chunks based on specified separators (e.g., newlines, sentences, words). This method is designed to maintain semantic coherence by attempting to split at meaningful boundaries.</p>
+</blockquote>
+</li>
+<li>
+<p>Generate vector embeddings for each chunk using OpenAI's embeddings API (<code>text-embedding-3-small</code> model).</p>
+</li>
+<li>Insert these vector embeddings and their corresponding text chunks into your Astra DB collection.</li>
+</ul>
+<pre><code class="language-typescript">// Paste the code from the transcript's load-db.ts file here,
+// ensuring you have installed all the packages and set up environment variables.
+// ... (Code from transcript) ...
+</code></pre>
+<p><strong>Key parts of the <code>load-db.ts</code> script:</strong></p>
+<ul>
+<li><strong>Import Statements:</strong>  Imports necessary libraries for database interaction, web scraping, embedding generation, and environment variable handling.</li>
+<li><strong>Environment Variable Loading:</strong> Uses <code>dotenv</code> to load environment variables from your <code>.env</code> file.</li>
+<li><strong>Database and OpenAI Client Initialization:</strong> Establishes connections to Astra DB and OpenAI using your API keys and credentials.</li>
+<li><strong>URL List:</strong> Defines an array of URLs (<code>f1DataArray</code>) pointing to websites containing Formula 1 information. These URLs are scraped to gather data for your chatbot.</li>
+<li>
+<p><strong><code>scrapePage</code> Function:</strong> Uses Puppeteer to scrape the text content from a given URL. It launches a headless browser, navigates to the URL, waits for the DOM to load, extracts the inner HTML of the document body, and returns the text content after removing HTML tags using a regular expression.</p>
+<blockquote>
+<p><strong>DOM (Document Object Model):</strong> A programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as a tree structure where each node is an object representing a part of the document.</p>
+<p><strong>Regular Expression (Rex):</strong> A sequence of characters that define a search pattern. Regular expressions are used for string matching and manipulation, allowing for complex searches and replacements within text.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>splitter</code> Initialization:</strong> Creates a <code>RecursiveCharacterTextSplitter</code> instance to divide large text documents into smaller, manageable chunks.</p>
+</li>
+<li>
+<p><strong><code>createCollection</code> Function:</strong> Asynchronously creates a new collection in Astra DB named as defined in your environment variables (<code>ASTRA_DB_COLLECTION_NAME</code>). It sets up vector indexing with a dimension size of 1536 (matching OpenAI's <code>text-embedding-3-small</code> model) and uses the dot product similarity metric.</p>
+<blockquote>
+<p><strong>Similarity Metric:</strong> A function used to quantify the similarity between two vectors. Common similarity metrics for vector embeddings include dot product, cosine similarity, and Euclidean distance. These metrics help determine how closely related two pieces of information are in the vector space.</p>
+<p><strong>Dot product:</strong> A similarity metric used to calculate the similarity between two vectors. A higher dot product value generally indicates greater similarity, especially when vectors are normalized.</p>
+<p><strong>Cosine:</strong> A similarity metric that measures the cosine of the angle between two vectors. Cosine similarity ranges from -1 to 1, with 1 indicating perfect similarity, 0 indicating orthogonality (no similarity), and -1 indicating opposite similarity.</p>
+<p><strong>Euclidean similarity metrics:</strong>  Measures the straight-line distance between two vectors in a vector space. A smaller Euclidean distance indicates greater similarity between the vectors.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>loadSampleData</code> Function:</strong>  This asynchronous function orchestrates the data loading process:</p>
+<ul>
+<li>Retrieves the Astra DB collection.</li>
+<li>Iterates through each URL in <code>f1DataArray</code>.</li>
+<li>Calls <code>scrapePage</code> to get the text content for each URL.</li>
+<li>Splits the text content into chunks using the <code>splitter</code>.</li>
+<li>For each chunk:<ul>
+<li>Generates a vector embedding using OpenAI's embeddings API.</li>
+<li>Inserts the vector embedding and the original text chunk into the Astra DB collection.</li>
+</ul>
+</li>
+<li>Logs the insertion responses to the console.</li>
+</ul>
+</li>
+<li><strong>Script Execution:</strong> Calls <code>createCollection</code> followed by <code>loadSampleData</code> in a <code>.then()</code> chain to ensure the collection is created before data loading begins.</li>
+</ul>
+<h3 id="running-the-load-dbts-script">Running the <code>load-db.ts</code> Script</h3>
+<ol>
+<li><strong>Open your terminal</strong> in the project directory.</li>
+<li>
+<p><strong>Run the seeding script:</strong> Execute the following command to run the <code>load-db.ts</code> script using <code>ts-node</code>:</p>
+<p><code>bash
+npm run seed</code></p>
+<p>This command will execute the script, which will scrape the websites, generate vector embeddings, and populate your Astra DB database. <strong>This process may take some time</strong>, depending on the number of URLs and the amount of data being scraped. You can monitor the progress in your terminal console, as the script logs each insertion into the database.</p>
+</li>
+<li>
+<p><strong>Verify Data in Astra DB:</strong> After the script completes, go to your Astra DB dashboard and navigate to your database.  You should see the collection you created (e.g., "f1gpt") populated with documents. Each document will contain a vector embedding and the corresponding text chunk.</p>
+</li>
+</ol>
+<h2 id="building-the-chatbot-frontend-with-nextjs">Building the Chatbot Frontend with Next.js</h2>
+<p>With your data loaded into Astra DB, you can now build the frontend of your chatbot using Next.js.</p>
+<h3 id="setting-up-the-layout-applayouttsx">Setting Up the Layout (<code>app/layout.tsx</code>)</h3>
+<p>Open <code>app/layout.tsx</code> and paste the following code. This sets up the basic layout of your Next.js application, including:</p>
+<ul>
+<li>Importing global CSS styles.</li>
+<li>
+<p>Defining metadata (title and description) for SEO purposes.</p>
+<blockquote>
+<p><strong>SEO (Search Engine Optimization):</strong> The practice of improving the visibility of a website or a web page in a search engine's unpaid results—often referred to as "natural," "organic," or "earned" results. SEO involves optimizing website content and structure to rank higher in search engine results pages (SERPs) for relevant keywords.</p>
+</blockquote>
+</li>
+<li>
+<p>Creating a root layout component (<code>RootLayout</code>) that wraps your application content in HTML and body tags.</p>
+</li>
+</ul>
+<pre><code class="language-typescript">// Paste the code from the transcript's layout.tsx file here.
+// ... (Code from transcript) ...
+</code></pre>
+<h3 id="building-the-main-page-apppagetsx">Building the Main Page (<code>app/page.tsx</code>)</h3>
+<p>Open <code>app/page.tsx</code> and paste the code for the main page component. This component will handle:</p>
+<ul>
+<li>Importing necessary components and images.</li>
+<li>
+<p>Using the <code>useChat</code> hook from Vercel AI to manage chat state (messages, input, loading state).</p>
+<blockquote>
+<p><strong>Hook (React):</strong>  A special function in React that lets you "hook into" React state and lifecycle features from within functional components. Hooks enable functional components to manage state and perform side effects, which were previously only possible in class components.</p>
+<p><strong>State (React):</strong> Data that changes over time within a React component. State is used to manage dynamic content and user interactions in a React application. When state changes, React re-renders the component to reflect the updated data.</p>
+</blockquote>
+</li>
+<li>
+<p>Displaying the chatbot interface, including:</p>
+<ul>
+<li>Logo.</li>
+<li>Starter text and prompt suggestions when no messages exist.</li>
+<li>Chat message bubbles.</li>
+<li>Loading bubble indicator.</li>
+<li>Input form for user queries.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-typescript">// Paste the code from the transcript's page.tsx file here.
+// ... (Code from transcript) ...
+</code></pre>
+<p><strong>Key parts of the <code>app/page.tsx</code> component:</strong></p>
+<ul>
+<li><strong><code>'use client'</code> directive:</strong>  Specifies that this component is a client-side component, enabling the use of React hooks and browser APIs.</li>
+<li><strong>Import Statements:</strong> Imports <code>Image</code> from <code>next/image</code> for image rendering, <code>useChat</code> hook from <code>ai/vercel</code> for chat state management, and custom components (<code>Bubble</code>, <code>LoadingBubble</code>, <code>PromptSuggestionsRow</code>).</li>
+<li>
+<p><strong><code>Home</code> Component:</strong> The main functional component for the page.</p>
+<ul>
+<li>
+<p><strong><code>useChat</code> Hook:</strong>  Initializes the <code>useChat</code> hook to manage chat state. This hook returns functions and state variables like <code>messages</code>, <code>input</code>, <code>handleInputChange</code>, <code>handleSubmit</code>, <code>append</code>, and <code>isLoading</code>.</p>
+<blockquote>
+<p><strong><code>useChat</code> Hook:</strong> A React Hook provided by the <code>ai/vercel</code> library that simplifies the creation of chat interfaces. It manages chat message history, input state, loading state, and provides functions for sending messages and appending new messages to the chat.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>noMessages</code> Variable:</strong>  Determines if there are any messages in the chat history to conditionally render different UI elements.</p>
+</li>
+<li><strong>Conditional Rendering:</strong>  Uses conditional rendering to display either starter text and prompt suggestions (when <code>noMessages</code> is true) or chat messages and a loading indicator (when <code>noMessages</code> is false).</li>
+<li><strong>Message Mapping:</strong> Maps over the <code>messages</code> array to render a <code>Bubble</code> component for each message.</li>
+<li><strong><code>LoadingBubble</code> Component:</strong>  Conditionally renders the <code>LoadingBubble</code> component when <code>isLoading</code> is true, indicating that the chatbot is processing a request.</li>
+<li><strong><code>PromptSuggestionsRow</code> Component:</strong> Renders a row of prompt suggestion buttons.</li>
+<li><strong>Input Form:</strong>  Creates a form with an input field for user queries and a submit button. The input field is controlled by the <code>input</code> state and <code>handleInputChange</code> function from the <code>useChat</code> hook. The form submission is handled by the <code>handleSubmit</code> function from the <code>useChat</code> hook.</li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-chat-components-appcomponents">Creating Chat Components (<code>app/components/</code>)</h3>
+<p>Create the following components within the <code>app/components/</code> directory:</p>
+<ol>
+<li><strong><code>bubble.tsx</code>:</strong>  Represents a single chat message bubble.</li>
+</ol>
+<pre><code class="language-typescript">// Paste the code from the transcript's bubble.tsx file here.
+// ... (Code from transcript) ...
+</code></pre>
+<ol>
+<li><strong><code>loading-bubble.tsx</code>:</strong>  Displays a loading animation to indicate chatbot activity.</li>
+</ol>
+<pre><code class="language-typescript">// Paste the code from the transcript's loading-bubble.tsx file here.
+// ... (Code from transcript) ...
+</code></pre>
+<ol>
+<li><strong><code>prompt-suggestions-row.tsx</code>:</strong>  Renders a row of prompt suggestion buttons.</li>
+</ol>
+<pre><code class="language-typescript">// Paste the code from the transcript's prompt-suggestions-row.tsx file here.
+// ... (Code from transcript) ...
+</code></pre>
+<ol>
+<li><strong><code>prompt-suggestion-button.tsx</code>:</strong> Represents a single prompt suggestion button.</li>
+</ol>
+<pre><code class="language-typescript">// Paste the code from the transcript's prompt-suggestion-button.tsx file here.
+// ... (Code from transcript) ...
+</code></pre>
+<p><strong>Key aspects of the components:</strong></p>
+<ul>
+<li><strong><code>Bubble</code> Component:</strong>  Receives a <code>message</code> prop (containing <code>content</code> and <code>role</code>) and renders a chat bubble with the message content. The styling of the bubble is conditionally adjusted based on the <code>role</code> (user or assistant) using CSS classes.</li>
+<li>
+<p><strong><code>LoadingBubble</code> Component:</strong>  Renders a simple loading animation using CSS keyframes to indicate that the chatbot is processing.</p>
+<blockquote>
+<p><strong>Keyframes:</strong> In CSS animations, keyframes define specific points in time during an animation sequence. Each keyframe specifies the styles that an element should have at that particular time, allowing for precise control over animation transitions and effects.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>PromptSuggestionsRow</code> Component:</strong>  Renders a horizontal row of <code>PromptSuggestionButton</code> components. It defines an array of example prompts and maps over them to create buttons for each prompt. It also passes a <code>handlePrompt</code> function down as a prop to handle button clicks.</p>
+</li>
+<li><strong><code>PromptSuggestionButton</code> Component:</strong>  Renders a button element that displays a prompt text. It receives <code>text</code> and <code>onPromptClick</code> props. When clicked, it calls the <code>onPromptClick</code> function, passing the button's text as an argument. This triggers the prompt handling logic in the parent component (<code>page.tsx</code>).</li>
+</ul>
+<h3 id="styling-with-css-stylesglobalcss">Styling with CSS (<code>styles/global.css</code>)</h3>
+<p>Open <code>styles/global.css</code> and paste the CSS styles from the transcript. These styles provide basic styling for your chatbot application, including:</p>
+<ul>
+<li>Font family and base body styles.</li>
+<li>Styling for the main container, sections, text, form, input fields, buttons, bubbles, loading animation, and prompt suggestion buttons.</li>
+</ul>
+<pre><code class="language-css">/* Paste the code from the transcript's global.css file here. */
+/* ... (Code from transcript) ... */
+</code></pre>
+<h3 id="creating-the-chat-api-route-appapichatroutets">Creating the Chat API Route (<code>app/api/chat/route.ts</code>)</h3>
+<p>Finally, create the API route in <code>app/api/chat/route.ts</code>. This route will handle the backend logic for your chatbot:</p>
+<ul>
+<li>Import necessary packages (OpenAI, OpenAIStream, StreamingTextResponse, DataStax Astra DB).</li>
+<li>Load environment variables.</li>
+<li>Initialize OpenAI and Astra DB clients.</li>
+<li>
+<p>Define a <code>POST</code> route handler function (<code>POST</code>) to process incoming chat requests.</p>
+<blockquote>
+<p><strong>Post request:</strong> An HTTP request method used to send data to a server to create or update a resource. In the context of a chatbot, a POST request is typically used to send the user's message to the backend API for processing and response generation.</p>
+</blockquote>
+</li>
+<li>
+<p>Within the <code>POST</code> handler:</p>
+<ul>
+<li>Extract the latest message from the request body.</li>
+<li>Generate a vector embedding of the user's message using OpenAI's embeddings API.</li>
+<li>Query Astra DB to find the most similar documents (text chunks) based on the embedding.</li>
+<li>
+<p>Construct a prompt for OpenAI's chat completions API, including:</p>
+<ul>
+<li>
+<p>A system message defining the chatbot's role and instructions.</p>
+<blockquote>
+<p><strong>System Message:</strong> In the context of OpenAI's chat completions API, a system message is used to set the behavior and persona of the chatbot. It provides instructions and context to guide the model's responses.</p>
+</blockquote>
+</li>
+<li>
+<p>The retrieved context from Astra DB.</p>
+</li>
+<li>The user's original message.<ul>
+<li>Call OpenAI's chat completions API (<code>gpt-4</code> model) with the prompt and stream the response.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Stream (data):</strong> In the context of APIs and data transfer, streaming refers to the process of sending data in a continuous flow rather than in discrete chunks. This allows for real-time or near real-time data processing and delivery, improving responsiveness and user experience, especially in applications like chatbots where immediate feedback is desired.</p>
+</blockquote>
+</li>
+<li>
+<p>Return a <code>StreamingTextResponse</code> to send the streamed response back to the frontend.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-typescript">// Paste the code from the transcript's route.ts file here.
+// ... (Code from transcript) ...
+</code></pre>
+<p><strong>Key parts of the <code>app/api/chat/route.ts</code> file:</strong></p>
+<ul>
+<li><strong>Import Statements:</strong> Imports necessary libraries for OpenAI API interaction, streaming responses, and Astra DB interaction.</li>
+<li><strong>Environment Variable Loading:</strong> Loads environment variables from <code>.env</code>.</li>
+<li><strong>Client Initialization:</strong> Initializes OpenAI and Astra DB clients using your API keys and credentials.</li>
+<li>
+<p><strong><code>POST</code> Route Handler:</strong> Defines an asynchronous <code>POST</code> function to handle incoming API requests.</p>
+<ul>
+<li><strong>Request Processing:</strong> Extracts the latest message from the incoming request's JSON body.</li>
+<li><strong>Embedding Generation:</strong> Generates a vector embedding for the user's message using OpenAI's embeddings API.</li>
+<li>
+<p><strong>Database Query:</strong> Queries the Astra DB collection using the generated embedding to find semantically similar documents. It uses a <code>find</code> operation with a <code>$vector</code> sort to perform a similarity search and limits the results to 10 documents.</p>
+<blockquote>
+<p><strong>Cursor (database):</strong>  In database terms, a cursor is a control structure that enables traversal over the records in a database. Cursors are used to retrieve data row by row or in chunks, allowing for efficient processing of large datasets, especially when streaming results.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Prompt Construction:</strong> Creates a prompt for OpenAI's chat completions API. The prompt includes a system message defining the chatbot's persona as a Formula 1 expert, instructions to use provided context, and the user's original question.</p>
+</li>
+<li><strong>OpenAI Chat Completion API Call:</strong> Calls OpenAI's chat completions API (<code>openai.chat.completions.create</code>) with the constructed prompt and streaming enabled (<code>stream: true</code>). It uses the <code>gpt-4</code> model for response generation.</li>
+<li>
+<p><strong>Streaming Response:</strong>  Wraps the OpenAI API response stream in an <code>OpenAIStream</code> and then returns a <code>StreamingTextResponse</code>. This streams the chatbot's response back to the frontend in real-time.</p>
+<blockquote>
+<p><strong>Promise (JavaScript):</strong> An object representing the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises are used to handle asynchronous operations in JavaScript, such as API calls, in a more structured and manageable way.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Error Handling:</strong> Includes <code>try...catch</code> blocks to handle potential errors during database queries and API calls.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="running-your-rag-chatbot">Running Your RAG Chatbot</h2>
+<ol>
+<li>
+<p><strong>Start the Next.js Development Server:</strong> Open your terminal in the project directory and run:</p>
+<p><code>bash
+npm run dev</code></p>
+<p>This command starts the Next.js development server.</p>
+</li>
+<li>
+<p><strong>Access Your Chatbot:</strong> Open your web browser and navigate to <code>http://localhost:3000</code>. You should see your Formula 1 chatbot application running.</p>
+</li>
+<li>
+<p><strong>Test Your Chatbot:</strong> Try asking Formula 1 related questions in the input field or click on the prompt suggestion buttons. Observe how your chatbot responds with up-to-date answers powered by the data you loaded into Astra DB.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully built a functional RAG chatbot using JavaScript, Langchain JS, Next.js, Vercel, OpenAI, and DataStax Astra DB. You now have a solid understanding of:</p>
+<ul>
+<li>Retrieval-Augmented Generation (RAG) and its benefits.</li>
+<li>Vector embeddings and their role in semantic search.</li>
+<li>Building a full-stack chatbot application using modern JavaScript technologies.</li>
+<li>Integrating external data sources to enhance the knowledge of language models.</li>
+</ul>
+<p>This chapter provides a foundation for you to explore further possibilities with RAG chatbots. You can expand upon this project by:</p>
+<ul>
+<li>Adding more data sources to scrape from to broaden the chatbot's knowledge base.</li>
+<li>Fine-tuning the prompt template to improve response quality and style.</li>
+<li>Implementing user authentication and chat history persistence.</li>
+<li>Deploying your chatbot to Vercel for public access.</li>
+</ul>
+<p>Remember to handle your API keys and database credentials securely and explore the documentation of each technology to deepen your understanding and build even more sophisticated AI-powered applications. Happy coding!
+```</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

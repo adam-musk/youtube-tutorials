@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Deploying Django Projects on Digital Ocean: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#deploying-django-projects-on-digital-ocean-a-comprehensive-guide">Deploying Django Projects on Digital Ocean: A Comprehensive Guide</a></li>
+        <li><a href="#1-introduction-to-deployment">1. Introduction to Deployment</a></li><li><a href="#2-setting-up-your-digital-ocean-account-and-creating-a-droplet">2. Setting Up Your Digital Ocean Account and Creating a Droplet</a></li><li><a href="#3-initial-server-setup-and-software-installation">3. Initial Server Setup and Software Installation</a></li><li><a href="#4-setting-up-postgresql-database">4. Setting Up PostgreSQL Database</a></li><li><a href="#5-setting-up-virtual-environments-and-user-accounts-for-your-project">5. Setting Up Virtual Environments and User Accounts for Your Project</a></li><li><a href="#6-setting-up-requirements-files">6. Setting Up Requirements Files</a></li><li><a href="#7-setting-up-production-settings-file">7. Setting Up Production Settings File</a></li><li><a href="#8-sending-code-to-github">8. Sending Code to GitHub</a></li><li><a href="#9-getting-code-from-github-to-the-server">9. Getting Code from GitHub to the Server</a></li><li><a href="#10-setting-up-environment-variables-on-the-server">10. Setting Up Environment Variables on the Server</a></li><li><a href="#11-installing-requirements-on-the-server">11. Installing Requirements on the Server</a></li><li><a href="#12-initializing-the-database-migrations">12. Initializing the Database (Migrations)</a></li><li><a href="#13-configuring-gunicorn">13. Configuring Gunicorn</a></li><li><a href="#binbash">!/bin/bash</a></li>
+        <li><a href="#activate-the-virtual-environment">Activate the virtual environment</a></li>
+        <li><a href="#create-run-directory-if-it-doesnt-exist">Create run directory if it doesn't exist</a></li>
+        <li><a href="#start-gunicorn">Start Gunicorn</a></li>
+        <li><a href="#132-testing-gunicorn">13.2. Testing Gunicorn</a></li><li><a href="#133-setting-ownership">13.3. Setting Ownership</a></li><li><a href="#14-configuring-supervisor">14. Configuring Supervisor</a></li><li><a href="#15-configuring-nginx">15. Configuring Nginx</a></li><li><a href="#16-setting-up-ssl-with-lets-encrypt-certbot">16. Setting Up SSL with Let's Encrypt (Certbot)</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="deploying-django-projects-on-digital-ocean-a-comprehensive-guide">Deploying Django Projects on Digital Ocean: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/Td3lirXIeRI" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter provides a step-by-step guide to deploying Django projects on a Digital Ocean server. While the examples primarily focus on Django, the fundamental principles and techniques discussed can be adapted for deploying other types of web applications and frameworks. We will cover essential technologies and processes involved in setting up a production-ready server environment.</p>
+<h2 id="1-introduction-to-deployment">1. Introduction to Deployment</h2>
+<p>Deployment is the process of making a web application accessible to users over the internet. This typically involves setting up a server, configuring the necessary software, and transferring your application's code to that server.  This guide will walk you through these steps using Digital Ocean, a popular cloud hosting provider, and focusing on best practices for stability, security, and performance.</p>
+<p>We will utilize a range of technologies throughout this deployment process, including:</p>
+<ul>
+<li><strong>Digital Ocean:</strong> A cloud infrastructure provider that offers virtual servers (Droplets) for hosting applications.</li>
+<li><strong>Ubuntu 22.04 LTS:</strong> A popular and stable Linux distribution that will serve as the operating system for our server.</li>
+<li><strong>Nginx:</strong> A high-performance web server that will handle incoming requests and serve static files.</li>
+<li><strong>Gunicorn:</strong> A Python WSGI HTTP server that will serve our Django application.</li>
+<li><strong>PostgreSQL:</strong> A robust and feature-rich open-source relational database system for storing application data.</li>
+<li><strong>Supervisor:</strong> A process control system that ensures our Django application (via Gunicorn) runs reliably and restarts automatically if it crashes.</li>
+<li><strong>Let's Encrypt:</strong> A free, automated, and open certificate authority that provides SSL certificates for enabling HTTPS.</li>
+<li><strong>Git &amp; GitHub:</strong> Version control and code hosting platform for managing and transferring our application code.</li>
+</ul>
+<h2 id="2-setting-up-your-digital-ocean-account-and-creating-a-droplet">2. Setting Up Your Digital Ocean Account and Creating a Droplet</h2>
+<h3 id="21-creating-a-digital-ocean-account">2.1. Creating a Digital Ocean Account</h3>
+<p>If you don't already have a Digital Ocean account, you'll need to create one.</p>
+<ul>
+<li>Visit <a href="https://digitalocean.com">digitalocean.com</a> and sign up. New users often receive promotional credits for initial server usage (check the video description for potential referral links with credits).</li>
+<li>Once signed up, log in to your Digital Ocean account.</li>
+</ul>
+<h3 id="22-creating-a-droplet-virtual-server">2.2. Creating a Droplet (Virtual Server)</h3>
+<p>A <strong>Droplet</strong> in Digital Ocean terminology is a virtual private server (VPS). It's your isolated server instance in the cloud where you'll deploy your application.</p>
+<blockquote>
+<p><strong>Droplet:</strong> A virtual private server (VPS) offered by Digital Ocean. It provides a virtualized computing environment where users can install and run operating systems and applications.</p>
+</blockquote>
+<p>To create a Droplet:</p>
+<ol>
+<li>Click the <strong>Create</strong> button in the Digital Ocean dashboard and select <strong>Droplets</strong>.</li>
+<li><strong>Choose a Region:</strong> Select a data center region geographically closest to your target users. For example, if your users are primarily in Europe, Frankfurt or Amsterdam might be suitable choices.</li>
+<li>
+<p><strong>Choose an Operating System:</strong> Under the <strong>OS</strong> tab, select <strong>Ubuntu</strong>. For this guide, choose version <strong>22.04 LTS</strong>.</p>
+<blockquote>
+<p><strong>LTS (Long-Term Support):</strong> A designation for software releases that are supported for an extended period, typically five years for Ubuntu LTS versions. This ensures stability and security updates for a longer duration.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Choose a Plan (Size):</strong> Select a server size. For initial deployments and learning purposes, the <strong>Basic</strong> plan is usually sufficient. You can scale up later if needed. Consider the resources (CPU, RAM, SSD) offered at different price points.</p>
+</li>
+<li>
+<p><strong>Choose Authentication Method:</strong></p>
+<ul>
+<li><strong>Password (Simpler for beginners):</strong>  Select the "Password" tab and enter a strong password. <strong>Important:</strong> Store this password securely.</li>
+<li><strong>SSH Keys (More Secure):</strong>  For enhanced security, consider using SSH keys. This method involves generating a key pair and uploading the public key to Digital Ocean.</li>
+</ul>
+<blockquote>
+<p><strong>SSH Keys:</strong> A more secure method of authenticating to a server compared to passwords. It uses cryptographic key pairs (public and private) for verification.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Choose a Hostname:</strong>  Give your Droplet a descriptive hostname. This is for your internal management and can help identify the server easily. A hostname like <code>ubuntu-1vcpu-2gb-fra1</code> (indicating Ubuntu, 1 vCPU, 2GB RAM, Frankfurt region 1) can be informative.</p>
+</li>
+<li>Click <strong>Create Droplet</strong>.</li>
+</ol>
+<p>Digital Ocean will now provision your server. This process usually takes a few minutes. Once completed, you'll see your Droplet listed in your dashboard with its public IP address.</p>
+<h2 id="3-initial-server-setup-and-software-installation">3. Initial Server Setup and Software Installation</h2>
+<h3 id="31-connecting-to-your-server-via-ssh">3.1. Connecting to Your Server via SSH</h3>
+<p>To manage your server, you'll connect to it using <strong>SSH (Secure Shell)</strong>.</p>
+<blockquote>
+<p><strong>SSH (Secure Shell):</strong> A cryptographic network protocol that allows secure communication, especially for remote command-line login and command execution.</p>
+</blockquote>
+<ol>
+<li><strong>Obtain Droplet IP Address:</strong> Copy the IP address of your newly created Droplet from the Digital Ocean dashboard.</li>
+<li><strong>Open a Terminal:</strong><ul>
+<li><strong>macOS/Linux:</strong> Open the built-in Terminal application or a terminal emulator like iTerm2.</li>
+<li><strong>Windows:</strong> Use PuTTY or the built-in Windows Subsystem for Linux (WSL) terminal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Connect using SSH:</strong>  In your terminal, type the following command, replacing <code>your_droplet_ip</code> with your Droplet's IP address:</p>
+<p><code>bash
+ssh root@your_droplet_ip</code></p>
+<ul>
+<li>If you used a password, you'll be prompted to enter it.</li>
+<li>If you used SSH keys, your SSH client will use your private key for authentication.</li>
+</ul>
+<p>You might be asked to confirm adding the server's fingerprint to your known hosts file. Type <code>yes</code> and press Enter.</p>
+</li>
+</ol>
+<h3 id="32-updating-the-server">3.2. Updating the Server</h3>
+<p>It's crucial to update the server's package lists and upgrade existing packages to ensure you have the latest security patches and software versions.</p>
+<ol>
+<li>
+<p><strong>Update Package Lists:</strong> Run the following command:</p>
+<p><code>bash
+sudo apt update</code></p>
+<blockquote>
+<p><strong>sudo:</strong> A command that allows permitted users to execute commands as a superuser or another user, as defined by the security policy. It's often used to perform administrative tasks.</p>
+<p><strong>apt (Advanced Package Tool):</strong> A package management tool used in Debian-based Linux distributions like Ubuntu for installing, updating, and removing software packages.</p>
+</blockquote>
+<p>This command refreshes the package lists, ensuring your system knows about the latest available software versions.</p>
+</li>
+<li>
+<p><strong>Upgrade Packages:</strong> Run the following command to upgrade all outdated packages:</p>
+<p><code>bash
+sudo apt upgrade</code></p>
+<p>Confirm the upgrade by typing <code>Y</code> when prompted and pressing Enter. This process might take some time depending on the number of updates.</p>
+<p>During the upgrade, you might be prompted to make decisions about configuration files. In most cases, choosing to "keep the local version" is acceptable for initial setup.</p>
+</li>
+</ol>
+<h3 id="33-installing-essential-software">3.3. Installing Essential Software</h3>
+<p>We need to install several software packages that are essential for deploying our Django application: Python, pip, PostgreSQL, Nginx, Certbot, and Supervisor.</p>
+<p>Run the following command to install these packages:</p>
+<pre><code class="language-bash">sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx certbot python3-certbot-nginx supervisor
+</code></pre>
+<p>Let's break down what each package is:</p>
+<ul>
+<li>
+<p><code>python3-pip</code>: Installs <strong>pip</strong>, the package installer for Python.</p>
+<blockquote>
+<p><strong>pip (Pip Installs Packages):</strong> A package management system used to install and manage software packages written in Python.</p>
+</blockquote>
+</li>
+<li>
+<p><code>python3-dev</code>: Includes header files and libraries needed for compiling Python extensions, which are often required by Python packages that interact with system-level libraries (like <code>psycopg2</code> for PostgreSQL).</p>
+</li>
+<li><code>libpq-dev</code>: Development headers and libraries for <strong>libpq</strong>, the PostgreSQL client library, necessary for compiling Python PostgreSQL adapters.</li>
+<li><code>postgresql</code> and <code>postgresql-contrib</code>: Install the PostgreSQL database server and additional utilities.</li>
+<li>
+<p><code>nginx</code>: Installs the Nginx web server.</p>
+<blockquote>
+<p><strong>Nginx (engine x):</strong> A high-performance web server and reverse proxy server known for its efficiency and scalability. We'll use it to serve static files and proxy requests to Gunicorn.</p>
+</blockquote>
+</li>
+<li>
+<p><code>certbot</code> and <code>python3-certbot-nginx</code>: Install <strong>Certbot</strong>, a tool for obtaining free SSL certificates from Let's Encrypt, and its Nginx plugin.</p>
+<blockquote>
+<p><strong>Certbot:</strong> A free, open-source software tool for automatically using Let's Encrypt certificates to enable HTTPS on websites.</p>
+</blockquote>
+</li>
+<li>
+<p><code>supervisor</code>: Installs <strong>Supervisor</strong>, a process control system.</p>
+<blockquote>
+<p><strong>Supervisor:</strong> A process control system for Unix-like operating systems. It allows you to monitor and control processes, ensuring they run reliably and restart automatically if they fail.</p>
+</blockquote>
+</li>
+</ul>
+<p>Confirm the installation by typing <code>Y</code> when prompted and pressing Enter.</p>
+<h2 id="4-setting-up-postgresql-database">4. Setting Up PostgreSQL Database</h2>
+<p>PostgreSQL will be our database system. We need to create a database and a user specifically for our Django project.</p>
+<h3 id="41-accessing-postgresql-command-line">4.1. Accessing PostgreSQL Command Line</h3>
+<p>PostgreSQL creates a default user named <code>postgres</code>. We'll use this user initially to set up our database and user.</p>
+<p>Run the following command to switch to the <code>postgres</code> user and access the PostgreSQL command-line interface (<code>psql</code>):</p>
+<pre><code class="language-bash">sudo -u postgres psql
+</code></pre>
+<h3 id="42-creating-a-database">4.2. Creating a Database</h3>
+<p>Inside the <code>psql</code> prompt, create a new database for your Django project. Let's name it <code>project1</code>.</p>
+<pre><code class="language-sql">CREATE DATABASE project1;
+</code></pre>
+<h3 id="43-creating-a-database-user">4.3. Creating a Database User</h3>
+<p>Create a dedicated user for accessing the <code>project1</code> database. Let's name this user <code>project1_user</code> and set a password (remember to choose a strong password for production environments; for this tutorial, a simple password like <code>project1_password</code> is used for demonstration).</p>
+<pre><code class="language-sql">CREATE USER project1_user WITH PASSWORD 'project1_password';
+</code></pre>
+<h3 id="44-configuring-user-roles-and-privileges">4.4. Configuring User Roles and Privileges</h3>
+<p>We need to configure some settings for the <code>project1_user</code> to ensure proper database operation and grant it necessary privileges.</p>
+<ol>
+<li>
+<p><strong>Set Client Encoding to UTF8:</strong></p>
+<p><code>sql
+ALTER ROLE project1_user SET client_encoding TO 'utf8';</code></p>
+<p>This ensures that the database client communication uses UTF-8 encoding, which is essential for handling a wide range of characters.</p>
+</li>
+<li>
+<p><strong>Set Default Transaction Isolation Level:</strong></p>
+<p><code>sql
+ALTER ROLE project1_user SET default_transaction_isolation TO 'read committed';</code></p>
+<p>This sets the transaction isolation level to "read committed," a common and suitable level for most web applications. It ensures that transactions only see committed data, preventing dirty reads.</p>
+</li>
+<li>
+<p><strong>Set Default Time Zone to UTC:</strong></p>
+<p><code>sql
+ALTER ROLE project1_user SET timezone TO 'UTC';</code></p>
+<p>Setting the time zone to UTC (Coordinated Universal Time) is a best practice for server applications to avoid time zone-related issues.</p>
+</li>
+<li>
+<p><strong>Grant Database Privileges:</strong></p>
+<p>Grant all privileges on the <code>project1</code> database to the <code>project1_user</code>.</p>
+<p><code>sql
+GRANT ALL PRIVILEGES ON DATABASE project1 TO project1_user;</code></p>
+</li>
+</ol>
+<h3 id="45-exiting-postgresql-command-line">4.5. Exiting PostgreSQL Command Line</h3>
+<p>Type <code>\q</code> and press Enter to exit the <code>psql</code> prompt.</p>
+<h2 id="5-setting-up-virtual-environments-and-user-accounts-for-your-project">5. Setting Up Virtual Environments and User Accounts for Your Project</h2>
+<h3 id="51-creating-project-directory">5.1. Creating Project Directory</h3>
+<p>We will create a dedicated directory to house our Django project files. A common location is within <code>/webapps</code>.</p>
+<pre><code class="language-bash">sudo mkdir /webapps
+</code></pre>
+<p>Navigate into this directory:</p>
+<pre><code class="language-bash">cd /webapps
+</code></pre>
+<p>Create a directory for your first project, <code>project1</code>:</p>
+<pre><code class="language-bash">sudo mkdir project1
+</code></pre>
+<p>Navigate into the project directory:</p>
+<pre><code class="language-bash">cd project1
+</code></pre>
+<h3 id="52-creating-a-virtual-environment">5.2. Creating a Virtual Environment</h3>
+<p>It's best practice to isolate Python project dependencies within a <strong>virtual environment</strong>.</p>
+<blockquote>
+<p><strong>Virtual Environment:</strong> A self-contained directory that isolates Python dependencies for a specific project. This prevents conflicts between different project requirements.</p>
+</blockquote>
+<p>Create a virtual environment named <code>env</code> within the <code>project1</code> directory:</p>
+<pre><code class="language-bash">python3 -m venv env
+</code></pre>
+<h3 id="53-creating-a-system-user-group">5.3. Creating a System User Group</h3>
+<p>Create a system group named <code>webapps</code> to manage permissions for web applications.</p>
+<pre><code class="language-bash">sudo groupadd --system webapps
+</code></pre>
+<h3 id="54-creating-a-system-user-for-the-project">5.4. Creating a System User for the Project</h3>
+<p>Create a dedicated system user for your <code>project1</code> project. This user will own the project files and run the application.</p>
+<pre><code class="language-bash">sudo useradd -d /webapps/project1 -s /bin/bash -g webapps --system project1_user
+</code></pre>
+<p>Let's break down this command:</p>
+<ul>
+<li><code>sudo useradd</code>: Command to add a new user.</li>
+<li><code>-d /webapps/project1</code>: Sets the home directory for the user to <code>/webapps/project1</code>.</li>
+<li><code>-s /bin/bash</code>: Sets the default shell to Bash.</li>
+<li><code>-g webapps</code>: Adds the user to the <code>webapps</code> group.</li>
+<li><code>--system</code>: Creates a system user (typically used for services).</li>
+<li><code>project1_user</code>: The username for the new user.</li>
+</ul>
+<h2 id="6-setting-up-requirements-files">6. Setting Up Requirements Files</h2>
+<p>A <strong>requirements file</strong> lists all the Python packages your project depends on. This ensures that the server environment has the necessary packages installed.</p>
+<blockquote>
+<p><strong>Requirements File (requirements.txt):</strong> A text file that lists Python packages and their versions required for a project. It's used by <code>pip</code> to install all dependencies.</p>
+</blockquote>
+<h3 id="61-creating-requirementstxt-locally">6.1. Creating <code>requirements.txt</code> Locally</h3>
+<p>On your local development machine, navigate to your Django project's root directory (where <code>manage.py</code> is located).</p>
+<p>If you haven't already, generate a <code>requirements.txt</code> file using <code>pip freeze</code>:</p>
+<pre><code class="language-bash">pip freeze &gt; requirements.txt
+</code></pre>
+<p>This command captures all currently installed packages in your local environment and saves them to <code>requirements.txt</code>.</p>
+<h3 id="62-adding-necessary-packages-to-requirementstxt">6.2. Adding Necessary Packages to <code>requirements.txt</code></h3>
+<p>Edit the <code>requirements.txt</code> file and add the following packages, ensuring specific versions if necessary for compatibility:</p>
+<pre><code class="language-txt">Django==your_django_version  # Replace with your Django version
+gunicorn==21.2.0
+psycopg2-binary==2.9.9
+envparse==0.2.0
+</code></pre>
+<ul>
+<li><code>gunicorn</code>: The Gunicorn WSGI server we'll use in production.</li>
+<li><code>psycopg2-binary</code>: A PostgreSQL adapter for Python (binary version for easier installation).</li>
+<li><code>envparse</code>: A library for parsing environment variables. We'll use this to manage sensitive settings like secret keys and database passwords in production.</li>
+</ul>
+<h2 id="7-setting-up-production-settings-file">7. Setting Up Production Settings File</h2>
+<p>We'll create a separate settings file specifically for the production environment. This allows us to have different configurations for development and production.</p>
+<h3 id="71-creating-settings_prodpy">7.1. Creating <code>settings_prod.py</code></h3>
+<p>In your Django project's settings directory (e.g., <code>project1/project1/</code>), create a new file named <code>settings_prod.py</code>.</p>
+<p>Copy the contents of your main <code>settings.py</code> file (e.g., <code>project1/project1/settings.py</code>) into <code>settings_prod.py</code>.</p>
+<h3 id="72-modifying-settings_prodpy-for-production">7.2. Modifying <code>settings_prod.py</code> for Production</h3>
+<p>Make the following modifications in <code>settings_prod.py</code>:</p>
+<ol>
+<li>
+<p><strong>Import <code>os</code> and <code>envparse</code>:</strong></p>
+<p>```python
+import os
+from envparse import env</p>
+<p>env.read_envfile() # Optionally read from .env file
+```</p>
+</li>
+<li>
+<p><strong>Secret Key from Environment Variable:</strong></p>
+<p>Replace the hardcoded <code>SECRET_KEY</code> with:</p>
+<p><code>python
+SECRET_KEY = env('SECRET_KEY', default='') # Get from environment variable or default to empty string</code></p>
+</li>
+<li>
+<p><strong>Debug Mode Disabled:</strong></p>
+<p>Set <code>DEBUG = False</code> for production.</p>
+</li>
+<li>
+<p><strong>Allowed Hosts:</strong></p>
+<p>Configure <code>ALLOWED_HOSTS</code> to include your domain name:</p>
+<p><code>python
+ALLOWED_HOSTS = ['project1.codewithstein.com'] # Replace with your domain</code></p>
+</li>
+<li>
+<p><strong>Database Configuration for PostgreSQL:</strong></p>
+<p>Modify the <code>DATABASES</code> setting to use PostgreSQL. Read database credentials from environment variables for security:</p>
+<p><code>python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'project1', # Database name
+        'USER': 'project1_user', # Database user
+        'PASSWORD': env('DB_PASSWORD', default=''), # Database password from environment variable
+        'HOST': 'localhost',
+        'PORT': '', # Default PostgreSQL port
+    }
+}</code></p>
+</li>
+</ol>
+<h2 id="8-sending-code-to-github">8. Sending Code to GitHub</h2>
+<p>Using Git and GitHub is a recommended way to manage and transfer your code to the server.</p>
+<h3 id="81-creating-a-github-repository">8.1. Creating a GitHub Repository</h3>
+<ol>
+<li>Go to <a href="https://github.com">github.com</a> and log in to your account.</li>
+<li>Click the "+" button and select "New repository."</li>
+<li>Name your repository (e.g., <code>project1</code>).</li>
+<li>Choose "Public" or "Private" as desired.</li>
+<li>Initialize with a README file (optional).</li>
+<li>Click "Create repository."</li>
+</ol>
+<h3 id="82-initializing-git-locally-and-creating-gitignore">8.2. Initializing Git Locally and Creating <code>.gitignore</code></h3>
+<p>On your local machine, in your Django project's root directory:</p>
+<ol>
+<li>
+<p><strong>Initialize Git:</strong></p>
+<p><code>bash
+git init</code></p>
+</li>
+<li>
+<p><strong>Create <code>.gitignore</code> file:</strong></p>
+<p>Create a file named <code>.gitignore</code> in your project's root and add the following entries to exclude unnecessary files from version control:</p>
+<p><code>gitignore
+*.pyc
+__pycache__/
+env/
+db.sqlite3
+*.sqlite3
+*.log
+*.DS_Store # macOS specific</code></p>
+</li>
+<li>
+<p><strong>Add and Commit Initial Code:</strong></p>
+<p><code>bash
+git add .
+git commit -m "Initial commit"</code></p>
+</li>
+</ol>
+<h3 id="83-linking-local-repository-to-github-and-pushing-code">8.3. Linking Local Repository to GitHub and Pushing Code</h3>
+<ol>
+<li>
+<p><strong>Add Remote Origin:</strong></p>
+<p>Copy the repository URL from your GitHub repository page. Then, run:</p>
+<p><code>bash
+git remote add origin your_repository_url # Replace with your GitHub repository URL</code></p>
+</li>
+<li>
+<p><strong>Push Code to GitHub:</strong></p>
+<p><code>bash
+git push -u origin main</code></p>
+<p>You might be prompted for your GitHub username and a personal access token instead of your password (as password authentication is deprecated for Git operations). Generate a personal access token with <code>repo</code> scope in your GitHub settings (Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens (classic)).</p>
+</li>
+</ol>
+<h2 id="9-getting-code-from-github-to-the-server">9. Getting Code from GitHub to the Server</h2>
+<p>Now, we'll clone your GitHub repository onto your Digital Ocean server.</p>
+<ol>
+<li><strong>SSH into your server</strong> (if you're not already connected).</li>
+<li>
+<p><strong>Navigate to the project directory:</strong></p>
+<p><code>bash
+cd /webapps/project1</code></p>
+</li>
+<li>
+<p><strong>Clone the repository:</strong></p>
+<p><code>bash
+git clone your_repository_url . # Clone into the current directory (.)</code></p>
+<p>Replace <code>your_repository_url</code> with your GitHub repository URL.</p>
+</li>
+</ol>
+<h2 id="10-setting-up-environment-variables-on-the-server">10. Setting Up Environment Variables on the Server</h2>
+<p>We need to create a <code>.env</code> file on the server to store sensitive information like the <code>SECRET_KEY</code> and database password.</p>
+<ol>
+<li>
+<p><strong>Create <code>.env</code> file:</strong></p>
+<p><code>bash
+vi .env</code></p>
+</li>
+<li>
+<p><strong>Add Environment Variables:</strong></p>
+<p>Press <code>i</code> to enter insert mode in <code>vi</code> and add the following lines, replacing placeholders with your actual secret key and database password:</p>
+<p><code>env
+SECRET_KEY=your_very_long_and_secure_secret_key
+DB_PASSWORD=project1_password</code></p>
+<p>Press <code>Esc</code> to exit insert mode, then type <code>:wq</code> and press Enter to save and quit <code>vi</code>.</p>
+</li>
+</ol>
+<h2 id="11-installing-requirements-on-the-server">11. Installing Requirements on the Server</h2>
+<p>Now, install the Python packages listed in <code>requirements.txt</code> within the virtual environment on the server.</p>
+<ol>
+<li>
+<p><strong>Activate the virtual environment:</strong></p>
+<p><code>bash
+source env/bin/activate</code></p>
+<p>You should see <code>(env)</code> prepended to your terminal prompt, indicating the virtual environment is active.</p>
+</li>
+<li>
+<p><strong>Install requirements:</strong></p>
+<p><code>bash
+pip install -r requirements.txt</code></p>
+</li>
+</ol>
+<h2 id="12-initializing-the-database-migrations">12. Initializing the Database (Migrations)</h2>
+<p>Run Django migrations to create the database schema in PostgreSQL.</p>
+<pre><code class="language-bash">python manage.py migrate --settings=project1.settings_prod
+</code></pre>
+<p>This command applies migrations defined in your Django apps to the PostgreSQL database, creating the necessary tables.</p>
+<h2 id="13-configuring-gunicorn">13. Configuring Gunicorn</h2>
+<p>Gunicorn will serve our Django application. We need to create a Gunicorn start script.</p>
+<h3 id="131-creating-gunicorn_start-script">13.1. Creating <code>gunicorn_start</code> Script</h3>
+<ol>
+<li>
+<p><strong>Create the script file:</strong></p>
+<p><code>bash
+touch env/bin/gunicorn_start
+vi env/bin/gunicorn_start</code></p>
+</li>
+<li>
+<p><strong>Add Script Content:</strong></p>
+<p>Press <code>i</code> to enter insert mode and paste the following script into <code>gunicorn_start</code>:</p>
+<p>```bash</p>
+<h1 id="binbash">!/bin/bash</h1>
+<p>NAME="project1"                      # Name of the application
+DJANGO_DIR=/webapps/project1/project1   # Django project directory
+SOCKFILE=/webapps/project1/run/gunicorn.sock  # Socket file
+USER=project1_user                 # User to run as
+GROUP=webapps                      # Group to run as
+NUM_WORKERS=3                       # Number of worker processes
+DJANGO_SETTINGS_MODULE=project1.settings_prod # Django settings module
+DJANGO_WSGI_MODULE=project1.wsgi      # WSGI module name</p>
+<h1 id="activate-the-virtual-environment">Activate the virtual environment</h1>
+<p>cd $DJANGO_DIR
+source ../env/bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGO_DIR:$PYTHONPATH</p>
+<h1 id="create-run-directory-if-it-doesnt-exist">Create run directory if it doesn't exist</h1>
+<p>RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p  $RUNDIR</p>
+<h1 id="start-gunicorn">Start Gunicorn</h1>
+<p>exec env/bin/gunicorn \
+     --name $NAME \
+     --workers $NUM_WORKERS \
+     --user=$USER --group=$GROUP \
+     --bind=unix:$SOCKFILE \
+     --log-level=debug \
+     --log-file=- \
+     $DJANGO_WSGI_MODULE:application
+```</p>
+<p>Press <code>Esc</code>, then <code>:wq</code> and Enter to save and quit.</p>
+</li>
+<li>
+<p><strong>Make the script executable:</strong></p>
+<p><code>bash
+chmod +x env/bin/gunicorn_start</code></p>
+</li>
+</ol>
+<h3 id="132-testing-gunicorn">13.2. Testing Gunicorn</h3>
+<p>Try running the Gunicorn script to ensure it starts correctly:</p>
+<pre><code class="language-bash">env/bin/gunicorn_start
+</code></pre>
+<p>If it starts without errors, press <code>Ctrl+C</code> to stop it.</p>
+<h3 id="133-setting-ownership">13.3. Setting Ownership</h3>
+<p>Ensure the project files and directories are owned by the <code>project1_user</code>:</p>
+<pre><code class="language-bash">sudo chown -R project1_user:webapps /webapps/project1
+</code></pre>
+<h2 id="14-configuring-supervisor">14. Configuring Supervisor</h2>
+<p>Supervisor will manage our Gunicorn process, ensuring it runs continuously.</p>
+<h3 id="141-creating-supervisor-configuration-file">14.1. Creating Supervisor Configuration File</h3>
+<ol>
+<li>
+<p><strong>Create the configuration file:</strong></p>
+<p><code>bash
+sudo vi /etc/supervisor/conf.d/project1.conf</code></p>
+</li>
+<li>
+<p><strong>Add Configuration:</strong></p>
+<p>Press <code>i</code> to insert mode and add the following configuration:</p>
+<p>```ini
+[program:project1]
+command=/webapps/project1/env/bin/gunicorn_start
+user=project1_user
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/webapps/project1/log/supervisor.log</p>
+<p>environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
+```</p>
+<p>Press <code>Esc</code>, then <code>:wq</code> and Enter to save and quit.</p>
+</li>
+<li>
+<p><strong>Create Log Directory:</strong></p>
+<p><code>bash
+sudo mkdir /webapps/project1/log
+sudo chown project1_user:webapps /webapps/project1/log</code></p>
+</li>
+</ol>
+<h3 id="142-rereading-and-updating-supervisor">14.2. Rereading and Updating Supervisor</h3>
+<p>Tell Supervisor to reread its configuration and update the processes:</p>
+<pre><code class="language-bash">sudo supervisorctl reread
+sudo supervisorctl update
+</code></pre>
+<h3 id="143-checking-supervisor-status">14.3. Checking Supervisor Status</h3>
+<p>Verify that Supervisor is running your Gunicorn process:</p>
+<pre><code class="language-bash">sudo supervisorctl status project1
+</code></pre>
+<p>You should see the status as <code>RUNNING</code>.</p>
+<h2 id="15-configuring-nginx">15. Configuring Nginx</h2>
+<p>Nginx will act as a reverse proxy, handling incoming requests and forwarding them to Gunicorn. It will also serve static and media files.</p>
+<h3 id="151-creating-nginx-configuration-file">15.1. Creating Nginx Configuration File</h3>
+<ol>
+<li>
+<p><strong>Navigate to Nginx sites-available directory:</strong></p>
+<p><code>bash
+cd /etc/nginx/sites-available/</code></p>
+</li>
+<li>
+<p><strong>Create configuration file:</strong></p>
+<p><code>bash
+sudo vi project1.conf</code></p>
+</li>
+<li>
+<p><strong>Add Nginx Configuration:</strong></p>
+<p>Press <code>i</code> to insert mode and add the following configuration, replacing <code>project1.codewithstein.com</code> with your actual domain name:</p>
+<p>```nginx
+upstream project1_app_server {
+    server unix:/webapps/project1/run/gunicorn.sock fail_timeout=0;
+}</p>
+<p>server {
+    listen 80;
+    server_name project1.codewithstein.com; # Replace with your domain</p>
+<pre><code>access_log /webapps/project1/log/nginx_access.log;
+error_log /webapps/project1/log/nginx_error.log;
+
+location /static/ {
+    alias /webapps/project1/project1/static/; # Adjust path if needed
+}
+
+location /media/ {
+    alias /webapps/project1/project1/media/; # Adjust path if needed
+}
+
+location / {
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_pass http://project1_app_server;
+}
+</code></pre>
+<p>}
+```</p>
+<p>Press <code>Esc</code>, then <code>:wq</code> and Enter to save and quit.</p>
+</li>
+<li>
+<p><strong>Create Nginx Log Directory and Set Permissions:</strong></p>
+<p><code>bash
+sudo mkdir /webapps/project1/log
+sudo chown project1_user:webapps /webapps/project1/log</code></p>
+</li>
+</ol>
+<h3 id="152-enabling-nginx-site">15.2. Enabling Nginx Site</h3>
+<ol>
+<li>
+<p><strong>Create a symbolic link:</strong></p>
+<p><code>bash
+sudo ln -s /etc/nginx/sites-available/project1.conf /etc/nginx/sites-enabled/</code></p>
+</li>
+<li>
+<p><strong>Remove default Nginx configuration (optional):</strong></p>
+<p><code>bash
+sudo rm /etc/nginx/sites-enabled/default</code></p>
+</li>
+</ol>
+<h3 id="153-testing-nginx-configuration-and-restarting">15.3. Testing Nginx Configuration and Restarting</h3>
+<ol>
+<li>
+<p><strong>Test Nginx configuration:</strong></p>
+<p><code>bash
+sudo nginx -t</code></p>
+<p>If the test is successful ("test is successful"), proceed.</p>
+</li>
+<li>
+<p><strong>Restart Nginx:</strong></p>
+<p><code>bash
+sudo systemctl restart nginx</code></p>
+</li>
+</ol>
+<p>Now, your Django application should be accessible in your web browser using your domain name (e.g., <code>http://project1.codewithstein.com</code>).</p>
+<h2 id="16-setting-up-ssl-with-lets-encrypt-certbot">16. Setting Up SSL with Let's Encrypt (Certbot)</h2>
+<p>To enable HTTPS and secure your website, we'll use Let's Encrypt and Certbot.</p>
+<ol>
+<li>
+<p><strong>Run Certbot for Nginx:</strong></p>
+<p><code>bash
+sudo certbot --nginx -d project1.codewithstein.com # Replace with your domain</code></p>
+<p>Certbot will automatically configure Nginx to use the SSL certificate. Follow the prompts, providing your email address and agreeing to the terms of service.</p>
+</li>
+<li>
+<p><strong>Automatic Nginx Configuration:</strong></p>
+<p>Certbot will modify your Nginx configuration file (<code>/etc/nginx/sites-available/project1.conf</code>) to include SSL settings and redirect HTTP traffic to HTTPS.</p>
+</li>
+<li>
+<p><strong>Verify HTTPS:</strong></p>
+<p>Open your website in a browser using <code>https://project1.codewithstein.com</code>. You should see a padlock icon in the address bar, indicating a secure HTTPS connection.</p>
+</li>
+</ol>
+<p>Congratulations! You have successfully deployed your Django project on a Digital Ocean server with Nginx, Gunicorn, PostgreSQL, Supervisor, and SSL using Let's Encrypt. You can now adapt these steps for deploying multiple Django projects on the same server by repeating the process for each project, ensuring unique database names, users, project directories, Gunicorn configurations, Supervisor configurations, and Nginx configurations. Remember to adjust domain names and project-specific settings accordingly.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

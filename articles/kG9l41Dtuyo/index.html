@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a Variational Autoencoder (VAE) from Scratch with PyTorch: An Educational Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-variational-autoencoder-vae-from-scratch-with-pytorch-an-educational-guide">Building a Variational Autoencoder (VAE) from Scratch with PyTorch: An Educational Guide</a></li>
+        <li><a href="#1-introduction-to-variational-autoencoders-vaes">1. Introduction to Variational Autoencoders (VAEs)</a></li><li><a href="#2-understanding-the-vae-architecture-and-workflow">2. Understanding the VAE Architecture and Workflow</a></li><li><a href="#3-implementing-a-vae-in-pytorch">3. Implementing a VAE in PyTorch</a></li><li><a href="#4-training-the-vae">4. Training the VAE</a></li><li><a href="#5-integrating-custom-vae-into-stable-diffusion">5. Integrating Custom VAE into Stable Diffusion</a></li><li><a href="#6-conclusion">6. Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-variational-autoencoder-vae-from-scratch-with-pytorch-an-educational-guide">Building a Variational Autoencoder (VAE) from Scratch with PyTorch: An Educational Guide</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/kG9l41Dtuyo" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter provides a comprehensive guide to understanding, implementing, and training a Variational Autoencoder (VAE) using PyTorch. VAEs are powerful neural networks with significant applications, particularly in generative models like Stable Diffusion and DALL-E. This chapter will cover the theoretical foundations of VAEs, their architecture, implementation details, and training process.</p>
+<h2 id="1-introduction-to-variational-autoencoders-vaes">1. Introduction to Variational Autoencoders (VAEs)</h2>
+<p>Variational Autoencoders (VAEs) are a type of autoencoder and a powerful class of neural networks trained using unsupervised learning techniques. They have gained prominence in the field of image generation, especially within latent diffusion models and Generative Adversarial Networks (GANs).</p>
+<blockquote>
+<p><strong>Variational Autoencoder (VAE):</strong> A type of generative neural network that learns a probabilistic latent space representation of data. Unlike traditional autoencoders, VAEs learn a distribution over the latent space, enabling them to generate new data samples.</p>
+</blockquote>
+<h3 id="11-the-role-of-vaes-in-image-generation">1.1. The Role of VAEs in Image Generation</h3>
+<p>VAEs play a crucial role in modern image generation models such as Stable Diffusion and DALL-E. These models often operate on a compressed representation of images to reduce computational cost and improve efficiency. VAEs are instrumental in creating this compressed, feature-rich representation, known as the latent space.</p>
+<h3 id="12-from-autoencoders-to-vaes-addressing-limitations">1.2. From Autoencoders to VAEs: Addressing Limitations</h3>
+<p>To understand VAEs, it's essential to first grasp the concept of autoencoders, as VAEs build upon their foundation.</p>
+<h4 id="121-autoencoders-dimensionality-reduction-and-feature-extraction">1.2.1. Autoencoders: Dimensionality Reduction and Feature Extraction</h4>
+<p>Autoencoders are unsupervised learning neural networks primarily used for dimensionality reduction. In the context of image processing, training models like Stable Diffusion directly on high-resolution images (e.g., 4K images with millions of pixels) is computationally prohibitive. Autoencoders address this challenge by encoding high-dimensional image data into a lower-dimensional latent vector that retains essential features.</p>
+<blockquote>
+<p><strong>Autoencoder:</strong> A neural network architecture designed to learn compressed representations of data in an unsupervised manner. It consists of an encoder network that compresses the input data into a lower-dimensional latent space and a decoder network that reconstructs the original data from this latent representation.</p>
+</blockquote>
+<ul>
+<li><strong>Dimensionality Reduction:</strong> Autoencoders reduce the number of dimensions needed to represent data, making computations more efficient.</li>
+<li><strong>Feature Extraction:</strong>  The latent vector learned by an autoencoder encapsulates the most salient features of the input data.</li>
+</ul>
+<h4 id="122-limitations-of-traditional-autoencoders-for-generation">1.2.2. Limitations of Traditional Autoencoders for Generation</h4>
+<p>While autoencoders excel at compression and reconstruction, they have limitations when it comes to generating new, varied outputs. Traditional autoencoders are designed to memorize patterns and compress images into fixed latent vectors. They lack the inherent ability to generate diverse variations of the data they've been trained on.  If asked to generate a specific image, they tend to reproduce something very close to the training examples, rather than creating novel variations.</p>
+<h4 id="123-vaes-introducing-probability-and-variation">1.2.3. VAEs: Introducing Probability and Variation</h4>
+<p>VAEs overcome the generative limitations of autoencoders. Unlike autoencoders that memorize patterns and map data points to fixed latent vectors, VAEs learn and predict probability distributions over the latent space.</p>
+<ul>
+<li><strong>Probability Distribution:</strong> Instead of a single point in latent space, each data point is encoded as a distribution, characterized by a mean and variance.</li>
+<li><strong>Latent Space as Pools:</strong>  Imagine training a VAE on digits. Instead of each digit (e.g., '7', '2') being represented by a fixed point in latent space, VAEs create "pools" or distributions for each digit. This means that the latent representation for '7' is not a single vector, but a range of vectors defined by a mean and variance, forming a cluster in the latent space.</li>
+</ul>
+<p>By learning these probability distributions, VAEs gain the ability to generate variations of images. Because each class of images (like digits in the example) is represented by a distribution, sampling from these distributions allows the VAE to create new instances that are similar to, but not identical to, the training data.</p>
+<h2 id="2-understanding-the-vae-architecture-and-workflow">2. Understanding the VAE Architecture and Workflow</h2>
+<p>The VAE architecture involves two main components: an encoder and a decoder. The training process is driven by a specific loss function that combines reconstruction accuracy and a regularization term.</p>
+<h3 id="21-vae-architecture-components">2.1. VAE Architecture Components</h3>
+<ul>
+<li><strong>Encoder:</strong> The encoder network takes an input image and maps it to a probability distribution in the latent space.  Crucially, the encoder outputs two vectors: the mean (μ) and the standard deviation (σ) (or log variance, often used for numerical stability). These parameters define a Gaussian distribution for each input image.</li>
+<li><strong>Latent Space:</strong> The latent space is the compressed representation space learned by the VAE. In VAEs, this space is probabilistic. Instead of encoding each input to a single point, VAEs encode to a distribution in this space.</li>
+<li><strong>Decoder:</strong> The decoder network takes a sample from the latent distribution and attempts to reconstruct the original input image.</li>
+</ul>
+<h3 id="22-vae-workflow-encoding-sampling-and-decoding">2.2. VAE Workflow: Encoding, Sampling, and Decoding</h3>
+<ol>
+<li><strong>Input Image:</strong> An image is fed into the encoder.</li>
+<li><strong>Encoder Output (Mean and Log Variance):</strong> The encoder processes the image and outputs the mean (μ) and log variance (log(σ<sup>2</sup>)) vectors.</li>
+<li><strong>Latent Vector Sampling (Reparameterization Trick):</strong>  To enable backpropagation during training, a technique called the reparameterization trick is used. A latent vector (z) is sampled from the distribution defined by μ and σ.  This is typically done by sampling from a standard normal distribution (ε ~ N(0, 1)) and then transforming it:  z = μ + σ * ε.</li>
+<li><strong>Decoder Input (Latent Vector):</strong> The sampled latent vector (z) is passed to the decoder.</li>
+<li><strong>Reconstructed Image:</strong> The decoder attempts to reconstruct the original image from the latent vector.</li>
+</ol>
+<h3 id="23-training-the-vae-loss-function">2.3. Training the VAE: Loss Function</h3>
+<p>Training a VAE involves optimizing a loss function that encourages both accurate reconstruction and a well-structured latent space. The VAE loss function typically consists of two terms:</p>
+<ul>
+<li>
+<p><strong>Reconstruction Loss:</strong> This term measures how well the decoder reconstructs the original input image from the latent vector. Common reconstruction loss functions include Mean Squared Error (MSE) loss or Binary Cross-Entropy loss, depending on the nature of the input data.</p>
+<blockquote>
+<p><strong>Reconstruction Loss:</strong> A component of the VAE loss function that quantifies the difference between the original input data and the data reconstructed by the decoder. It encourages the VAE to learn to encode information necessary for accurate reconstruction.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>KL Divergence (Kullback-Leibler Divergence):</strong> This term acts as a regularizer. It measures the difference between the learned latent distribution (defined by μ and σ) and a prior distribution, typically a standard normal distribution N(0, 1). KL divergence encourages the learned latent distributions to be close to the prior, promoting a smooth and continuous latent space, which is crucial for generation.</p>
+<blockquote>
+<p><strong>KL Divergence (Kullback-Leibler Divergence):</strong> A measure of how one probability distribution diverges from a second, reference probability distribution. In VAEs, it is used to regularize the learned latent distribution, ensuring it is close to a chosen prior distribution (usually a standard Gaussian).</p>
+</blockquote>
+</li>
+</ul>
+<p>The total VAE loss is a weighted sum of the reconstruction loss and the KL divergence:</p>
+<p><strong>Total Loss = Reconstruction Loss + β * KL Divergence</strong></p>
+<p>Where β (beta) is a hyperparameter that controls the weight of the KL divergence term.</p>
+<h2 id="3-implementing-a-vae-in-pytorch">3. Implementing a VAE in PyTorch</h2>
+<p>This section details the implementation of a VAE using PyTorch, focusing on key modules like self-attention, attention blocks, visual blocks, encoder, and decoder.</p>
+<h3 id="31-setting-up-the-environment-and-importing-libraries">3.1. Setting up the Environment and Importing Libraries</h3>
+<p>To begin, ensure you have PyTorch and necessary libraries installed. A Google Colab notebook with GPU runtime is recommended for efficient training.</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from sklearn.model_selection import train_test_split
+import os
+</code></pre>
+<h3 id="32-self-attention-mechanism">3.2. Self-Attention Mechanism</h3>
+<p>Self-attention is a crucial component, particularly in advanced architectures. It allows the model to weigh the importance of different parts of the input when processing it.</p>
+<blockquote>
+<p><strong>Self-Attention:</strong> A mechanism in neural networks that allows a model to attend to different positions within the same input sequence to compute a representation of the sequence. It is particularly effective in capturing long-range dependencies and relationships within data.</p>
+</blockquote>
+<h4 id="321-understanding-self-attention">3.2.1. Understanding Self-Attention</h4>
+<p>Self-attention computes attention scores to determine the relationships between different elements within a sequence (e.g., pixels in an image, tokens in a sentence).  It's based on the "Attention is All You Need" paper and involves calculating Query (Q), Key (K), and Value (V) matrices.</p>
+<h4 id="322-implementing-self-attention-module">3.2.2. Implementing Self-Attention Module</h4>
+<pre><code class="language-python">class SelfAttention(nn.Module):
+    def __init__(self, embed_dim, num_heads):
+        super().__init__()
+        self.num_heads = num_heads
+        self.projection = nn.Linear(embed_dim, embed_dim * 3) # For Q, K, V
+        self.out_projection = nn.Linear(embed_dim, embed_dim)
+        self.d_heads = embed_dim // num_heads
+
+    def forward(self, x):
+        batch_size, seq_len, dim = x.shape
+        interim_shape = (batch_size, seq_len, self.num_heads, self.d_heads)
+
+        q, k, v = self.projection(x).chunk(3, dim=-1)
+        q, k, v = map(lambda t: t.reshape(interim_shape).transpose(1, 2), (q, k, v)) # Reshape for multi-head attention
+
+        weights = torch.matmul(q, k.transpose(-1, -2)) * (self.d_heads ** -0.5) # Scaled dot-product attention
+        weights = F.softmax(weights, dim=-1)
+        attention = torch.matmul(weights, v)
+
+        attention = attention.transpose(1, 2).reshape(batch_size, seq_len, dim) # Reshape back
+        return self.out_projection(attention)
+</code></pre>
+<ul>
+<li><strong><code>embed_dim</code></strong>:  The embedding dimension or feature dimension of the input.</li>
+<li><strong><code>num_heads</code></strong>: The number of attention heads for parallel processing.</li>
+<li><strong><code>projection</code> layer</strong>:  A linear layer to project the input into Q, K, and V matrices.</li>
+<li><strong><code>out_projection</code> layer</strong>: A linear layer to project the output back to the embedding dimension.</li>
+<li><strong><code>d_heads</code></strong>: Dimension per head, calculated as <code>embed_dim // num_heads</code>.</li>
+<li><strong>Forward Pass</strong>:<ul>
+<li>Projects input <code>x</code> to Q, K, V.</li>
+<li>Reshapes and transposes for multi-head processing.</li>
+<li>Calculates attention weights using scaled dot-product attention.</li>
+<li>Applies softmax to get attention scores.</li>
+<li>Combines weights and values to get attention output.</li>
+<li>Reshapes and projects back to the original dimension.</li>
+</ul>
+</li>
+</ul>
+<h3 id="33-attention-block">3.3. Attention Block</h3>
+<p>The attention block integrates the self-attention mechanism with residual connections and group normalization to create a more robust and effective layer.</p>
+<blockquote>
+<p><strong>Residual Connection (Skip Connection):</strong> A technique in deep neural networks where the input of a layer is added to its output. This helps to mitigate the vanishing gradient problem and enables the training of deeper networks.</p>
+<p><strong>Group Normalization:</strong> A normalization technique that divides channels into groups and normalizes within each group. It is less sensitive to batch size than batch normalization and often performs better in generative models.</p>
+</blockquote>
+<pre><code class="language-python">class AttentionBlock(nn.Module):
+    def __init__(self, channels, num_heads=4):
+        super().__init__()
+        self.groupnorm = nn.GroupNorm(32, channels) # Group normalization layer
+        self.attention = SelfAttention(channels, num_heads) # Self-attention module
+        self.residual_scale = nn.Parameter(torch.ones(1))
+
+    def forward(self, x):
+        residual = x.clone() # Residual connection
+        x = self.groupnorm(x)
+        batch_size, channels, height, width = x.shape
+        x = x.view(batch_size, channels, height * width).transpose(1, 2) # Reshape for attention (Batch, Sequence, Channels)
+        x = self.attention(x)
+        x = x.transpose(1, 2).view(batch_size, channels, height, width) # Reshape back
+        return x + residual * self.residual_scale # Add residual
+</code></pre>
+<ul>
+<li><strong><code>groupnorm</code></strong>: Group normalization layer for stabilizing training.</li>
+<li><strong><code>attention</code></strong>: Self-attention module.</li>
+<li><strong><code>residual_scale</code></strong>: Learnable parameter to scale the residual connection.</li>
+<li><strong>Forward Pass</strong>:<ul>
+<li>Applies group normalization.</li>
+<li>Reshapes input to (Batch, Sequence, Channels) format suitable for self-attention.</li>
+<li>Applies self-attention.</li>
+<li>Reshapes back to original image format.</li>
+<li>Adds residual connection with scaling.</li>
+</ul>
+</li>
+</ul>
+<h3 id="34-visual-block">3.4. Visual Block</h3>
+<p>The visual block is a fundamental building block used in both the encoder and decoder. It typically involves convolutional layers and normalization.</p>
+<pre><code class="language-python">class VisualBlock(nn.Module):
+    def __init__(self, in_channels, out_channels=None):
+        super().__init__()
+        if out_channels is None:
+            out_channels = in_channels
+        self.groupnorm1 = nn.GroupNorm(32, in_channels)
+        self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1) # Convolutional layer
+        self.groupnorm2 = nn.GroupNorm(32, out_channels)
+        self.conv2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, padding=1)
+        self.residual_scale = nn.Parameter(torch.ones(1))
+        self.identity = nn.Identity() if in_channels == out_channels else nn.Conv2d(in_channels, out_channels, kernel_size=1) # Identity or 1x1 Conv for residual
+
+    def forward(self, x):
+        residual = self.identity(x) # Identity mapping for residual if channels match, else 1x1 conv
+        x = self.groupnorm1(x)
+        x = F.silu(x) # Activation function (SiLU - Sigmoid Linear Unit)
+        x = self.conv1(x)
+        x = self.groupnorm2(x)
+        x = F.silu(x)
+        x = self.conv2(x)
+        return x + residual * self.residual_scale # Add residual
+</code></pre>
+<ul>
+<li><strong><code>groupnorm1</code>, <code>groupnorm2</code></strong>: Group normalization layers.</li>
+<li><strong><code>conv1</code>, <code>conv2</code></strong>: Convolutional layers with kernel size 3 and padding 1 (shape-preserving).</li>
+<li><strong><code>residual_scale</code></strong>: Learnable parameter for residual scaling.</li>
+<li><strong><code>identity</code></strong>: Identity layer or 1x1 convolution for residual path, to handle channel changes.</li>
+<li><strong>Forward Pass</strong>:<ul>
+<li>Applies group normalization, SiLU activation, and convolution twice.</li>
+<li>Adds residual connection, either identity or via 1x1 convolution if channel dimensions differ.</li>
+</ul>
+</li>
+</ul>
+<h3 id="35-encoder-implementation">3.5. Encoder Implementation</h3>
+<p>The encoder network progressively reduces the spatial dimensions of the input image while increasing the number of channels, extracting features and compressing the information into a latent representation.</p>
+<pre><code class="language-python">class Encoder(nn.Module):
+    def __init__(self, channels=3, latent_dim=4):
+        super().__init__()
+        self.conv_in = nn.Conv2d(channels, 32, kernel_size=3, padding=1) # Initial convolution
+        self.blocks = nn.ModuleList([
+            VisualBlock(32), # Residual blocks
+            VisualBlock(32),
+            nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1), # Strided convolution for downsampling (h/2, w/2)
+            VisualBlock(64),
+            VisualBlock(64),
+            nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1), # Downsampling (h/4, w/4)
+            VisualBlock(128),
+            VisualBlock(128),
+            nn.Conv2d(128, 128, kernel_size=3, stride=2, padding=1), # Downsampling (h/8, w/8)
+            VisualBlock(128),
+            AttentionBlock(128), # Attention block
+            VisualBlock(128),
+        ])
+        self.norm_out = nn.GroupNorm(32, 128) # Final normalization
+        self.conv_out = nn.Conv2d(128, 2 * latent_dim, kernel_size=3, padding=1) # Output convolution for mean and log variance
+
+    def forward(self, x):
+        x = self.conv_in(x)
+        for block in self.blocks:
+            x = block(x)
+        x = self.norm_out(x)
+        x = F.silu(x)
+        x = self.conv_out(x)
+        mean, log_var = x.chunk(2, dim=1) # Split output into mean and log variance
+        return mean, log_var
+</code></pre>
+<ul>
+<li><strong><code>conv_in</code></strong>: Initial convolutional layer to increase channels.</li>
+<li><strong><code>blocks</code></strong>: Sequential list of VisualBlocks, strided convolutions (for downsampling), and AttentionBlock.</li>
+<li><strong><code>norm_out</code></strong>: Final group normalization.</li>
+<li><strong><code>conv_out</code></strong>: Output convolution to produce mean and log variance (twice the latent dimension).</li>
+<li><strong>Forward Pass</strong>:<ul>
+<li>Applies initial convolution.</li>
+<li>Iterates through blocks, applying residual blocks, downsampling convolutions, and attention block.</li>
+<li>Applies normalization and final convolution.</li>
+<li>Chunks the output into mean and log variance tensors.</li>
+</ul>
+</li>
+</ul>
+<h3 id="36-decoder-implementation">3.6. Decoder Implementation</h3>
+<p>The decoder network performs the reverse operation of the encoder. It takes a latent vector and upsamples it back to the original image dimensions, reconstructing the image.</p>
+<pre><code class="language-python">class Decoder(nn.Module):
+    def __init__(self, channels=3, latent_dim=4):
+        super().__init__()
+        self.conv_in = nn.Conv2d(latent_dim, 128, kernel_size=3, padding=1) # Input convolution from latent space
+        self.blocks = nn.ModuleList([
+            VisualBlock(128), # Residual blocks
+            AttentionBlock(128), # Attention block
+            VisualBlock(128),
+            nn.Upsample(scale_factor=2), # Upsampling (x2) - h/8 -&gt; h/4
+            VisualBlock(128),
+            VisualBlock(128),
+            nn.Upsample(scale_factor=2), # Upsampling (x2) - h/4 -&gt; h/2
+            VisualBlock(128),
+            VisualBlock(64),
+            nn.Upsample(scale_factor=2), # Upsampling (x2) - h/2 -&gt; h
+            VisualBlock(64),
+            VisualBlock(32),
+            VisualBlock(32),
+        ])
+        self.norm_out = nn.GroupNorm(32, 32) # Final normalization
+        self.conv_out = nn.Conv2d(32, channels, kernel_size=3, padding=1) # Output convolution to original channels
+
+    def forward(self, x):
+        x = self.conv_in(x)
+        for block in self.blocks:
+            x = block(x)
+        x = self.norm_out(x)
+        x = F.silu(x)
+        x = self.conv_out(x)
+        return x
+</code></pre>
+<ul>
+<li><strong><code>conv_in</code></strong>: Initial convolution layer to increase channels from latent dimension.</li>
+<li><strong><code>blocks</code></strong>: Sequential list of VisualBlocks, AttentionBlock, and <code>nn.Upsample</code> layers (for upsampling).</li>
+<li><strong><code>norm_out</code></strong>: Final group normalization.</li>
+<li><strong><code>conv_out</code></strong>: Output convolution to produce the reconstructed image with original channels.</li>
+<li><strong>Forward Pass</strong>:<ul>
+<li>Applies initial convolution from latent space.</li>
+<li>Iterates through blocks, applying residual blocks, attention block, and upsampling layers to progressively increase spatial dimensions.</li>
+<li>Applies normalization and final convolution to reconstruct the image.</li>
+</ul>
+</li>
+</ul>
+<h3 id="37-vae-model-class">3.7. VAE Model Class</h3>
+<p>This class encapsulates the encoder and decoder and implements the reparameterization trick and the forward pass for the entire VAE.</p>
+<pre><code class="language-python">class VAE(nn.Module):
+    def __init__(self, channels=3, latent_dim=4):
+        super().__init__()
+        self.encoder = Encoder(channels, latent_dim) # Encoder module
+        self.decoder = Decoder(channels, latent_dim) # Decoder module
+        self.latent_dim = latent_dim
+
+    def reparameterize(self, mean, log_var):
+        std = torch.exp(0.5 * log_var) # Standard deviation from log variance
+        eps = torch.randn_like(std) # Sample from standard normal distribution
+        return mean + std * eps # Reparameterization trick
+
+    def forward(self, x):
+        mean, log_var = self.encoder(x) # Encode to get mean and log variance
+        z = self.reparameterize(mean, log_var) # Sample latent vector
+        x_recon = self.decoder(z) # Decode latent vector to reconstructed image
+        return x_recon, mean, log_var # Return reconstructed image, mean, and log variance
+</code></pre>
+<ul>
+<li><strong><code>encoder</code></strong>: Encoder module.</li>
+<li><strong><code>decoder</code></strong>: Decoder module.</li>
+<li><strong><code>latent_dim</code></strong>: Latent dimension.</li>
+<li><strong><code>reparameterize(mean, log_var)</code></strong>: Implements the reparameterization trick to sample latent vectors.</li>
+<li><strong><code>forward(x)</code></strong>:<ul>
+<li>Encodes input <code>x</code> to get mean and log variance.</li>
+<li>Reparameterizes to sample latent vector <code>z</code>.</li>
+<li>Decodes <code>z</code> to get reconstructed image <code>x_recon</code>.</li>
+<li>Returns reconstructed image, mean, and log variance.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-training-the-vae">4. Training the VAE</h2>
+<p>This section outlines the process of training the VAE, including data loading, loss function definition, optimization, and training loop implementation.</p>
+<h3 id="41-data-loading-and-preprocessing">4.1. Data Loading and Preprocessing</h3>
+<p>Download and preprocess the dataset. For example, a dataset of dog images can be used. Split the dataset into training and testing sets. Use <code>torch.utils.data.DataLoader</code> for efficient data loading.</p>
+<pre><code class="language-python">from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
+
+# Define data transformations
+transform = transforms.Compose([
+    transforms.Resize((256, 256)),
+    transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # Normalize to [-1, 1]
+])
+
+# Load dataset (replace with your dataset path)
+dataset = datasets.ImageFolder(root='./data/dogs', transform=transform) # Assuming dataset is in './data/dogs'
+
+# Split into training and validation
+train_size = int(0.8 * len(dataset))
+val_size = len(dataset) - train_size
+train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
+
+# Create data loaders
+batch_size = 64
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4)
+val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
+</code></pre>
+<h3 id="42-loss-function-definition">4.2. Loss Function Definition</h3>
+<p>Define the VAE loss function, combining reconstruction loss (e.g., MSE Loss) and KL divergence.</p>
+<pre><code class="language-python">def vae_loss_function(recon_x, x, mean, log_var, beta=1.0):
+    recon_loss = F.mse_loss(recon_x, x, reduction='mean') # Reconstruction loss (MSE)
+    kl_divergence = -0.5 * torch.mean(1 + log_var - mean.pow(2) - log_var.exp()) # KL Divergence
+    return recon_loss + beta * kl_divergence # Total VAE loss
+</code></pre>
+<ul>
+<li><strong><code>recon_loss</code></strong>: Mean Squared Error between reconstructed image and original image.</li>
+<li><strong><code>kl_divergence</code></strong>: KL divergence term to regularize latent space.</li>
+<li><strong><code>beta</code></strong>: Weight for KL divergence term.</li>
+</ul>
+<h3 id="43-optimizer-and-training-loop">4.3. Optimizer and Training Loop</h3>
+<p>Initialize the VAE model, optimizer (e.g., Adam), and implement the training loop.</p>
+<pre><code class="language-python"># Initialize model, optimizer, and device
+device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+model = VAE().to(device)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-4) # Adam optimizer
+
+num_epochs = 20
+train_losses = []
+
+for epoch in range(num_epochs):
+    model.train() # Set model to training mode
+    epoch_loss = 0
+    for batch_idx, (data, _) in enumerate(train_loader):
+        data = data.to(device) # Move data to device
+        optimizer.zero_grad() # Zero gradients
+        recon_batch, mean, log_var = model(data) # Forward pass
+        loss = vae_loss_function(recon_batch, data, mean, log_var) # Calculate loss
+        loss.backward() # Backward pass
+        optimizer.step() # Optimizer step
+        epoch_loss += loss.item()
+
+    avg_epoch_loss = epoch_loss / len(train_loader)
+    train_losses.append(avg_epoch_loss)
+    print(f'Epoch [{epoch+1}/{num_epochs}], Average Loss: {avg_epoch_loss:.4f}')
+
+    # (Optional) Save reconstructed images or model checkpoints here
+</code></pre>
+<ul>
+<li><strong>Device</strong>: Set to CUDA if available, otherwise CPU.</li>
+<li><strong>Model and Optimizer</strong>: Initialize VAE model and Adam optimizer.</li>
+<li><strong>Training Loop</strong>:<ul>
+<li>Iterate through epochs.</li>
+<li>Set model to train mode (<code>model.train()</code>).</li>
+<li>Iterate through data loader.</li>
+<li>Move data to device.</li>
+<li>Zero gradients (<code>optimizer.zero_grad()</code>).</li>
+<li>Forward pass (<code>model(data)</code>).</li>
+<li>Calculate loss (<code>vae_loss_function(...)</code>).</li>
+<li>Backward pass (<code>loss.backward()</code>).</li>
+<li>Optimizer step (<code>optimizer.step()</code>).</li>
+<li>Accumulate epoch loss.</li>
+<li>Print average epoch loss.</li>
+<li>(Optional) Save reconstructed images or model checkpoints.</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-integrating-custom-vae-into-stable-diffusion">5. Integrating Custom VAE into Stable Diffusion</h2>
+<p>This section briefly touches on how a trained custom VAE can be integrated into a Stable Diffusion pipeline.</p>
+<h3 id="51-creating-a-diffusers-compatible-vae">5.1. Creating a Diffusers-Compatible VAE</h3>
+<p>To integrate the custom VAE with libraries like Diffusers (used for Stable Diffusion), you might need to create a wrapper or a compatible class that conforms to the expected interface. This may involve defining specific functions like <code>encode</code>, <code>decode</code>, and <code>load_pretrained_weights</code> to align with the Diffusers pipeline requirements.</p>
+<h3 id="52-replacing-the-default-vae-in-stable-diffusion">5.2. Replacing the Default VAE in Stable Diffusion</h3>
+<p>Once you have a Diffusers-compatible VAE, you can replace the default VAE component in a Stable Diffusion pipeline with your custom-trained VAE. This typically involves loading the Stable Diffusion pipeline and then injecting your custom VAE into the pipeline's VAE component.</p>
+<h3 id="53-inference-with-custom-vae">5.3. Inference with Custom VAE</h3>
+<p>After integration, you can run inference with the modified Stable Diffusion pipeline using your custom VAE. This allows you to generate images using the Stable Diffusion model but with the latent space representation learned by your VAE.</p>
+<p><strong>Note:</strong>  Integrating a custom-trained VAE into a complex pipeline like Stable Diffusion can be intricate and might require adjustments to ensure compatibility and optimal performance. The provided transcript briefly touches on this and suggests further exploration and experimentation.</p>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>This chapter provided a detailed walkthrough of building a Variational Autoencoder from scratch using PyTorch.  It covered the theoretical underpinnings, architectural components, implementation of key modules like self-attention, and the training process.  While integrating a custom VAE into advanced models like Stable Diffusion requires further steps, this chapter lays a strong foundation for understanding and implementing VAEs for generative tasks. Further experimentation with training parameters, architectures, and datasets will lead to deeper insights and improved generative capabilities.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

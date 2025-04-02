@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Creating an API Proxy Server with Node.js: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#creating-an-api-proxy-server-with-nodejs-a-comprehensive-guide">Creating an API Proxy Server with Node.js: A Comprehensive Guide</a></li>
+        <li><a href="#introduction-the-need-for-api-proxy-servers">Introduction: The Need for API Proxy Servers</a></li><li><a href="#setting-up-the-server-environment">Setting Up the Server Environment</a></li><li><a href="#creating-the-api-proxy-server-with-express">Creating the API Proxy Server with Express</a></li><li><a href="#enhancing-the-proxy-server-rate-limiting-and-caching">Enhancing the Proxy Server: Rate Limiting and Caching</a></li><li><a href="#integrating-with-the-client-side-application">Integrating with the Client-Side Application</a></li><li><a href="#deployment-to-heroku">Deployment to Heroku</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="creating-an-api-proxy-server-with-nodejs-a-comprehensive-guide">Creating an API Proxy Server with Node.js: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/ZGymN8aFsv4" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-the-need-for-api-proxy-servers">Introduction: The Need for API Proxy Servers</h2>
+<p>In modern web development, utilizing third-party APIs (Application Programming Interfaces) is commonplace. These APIs, such as the GitHub API, Twitter API, or OpenWeatherMap API (as used in this example), provide access to valuable data and functionalities. However, a common security challenge arises when using these APIs: <strong>API keys</strong>.</p>
+<blockquote>
+<p><strong>API (Application Programming Interface)</strong>
+An API is a set of rules and specifications that software programs can follow to communicate with each other. It allows developers to access certain features or data of an application, service, or platform, without needing to know the underlying implementation.</p>
+<p><strong>API Key</strong>
+An API key is a code used to identify and authenticate an application or user making requests to an API. It's often required by API providers to track usage, manage access, and ensure security.</p>
+</blockquote>
+<p>Many APIs require you to include your API key directly in the URL when making requests. While seemingly straightforward, this practice poses a significant security risk, especially in client-side applications. Exposing API keys in client-side code, such as JavaScript in a web browser, makes them vulnerable to theft. Anyone inspecting the source code of your webpage can easily find and misuse your API key.</p>
+<p>This chapter will guide you through creating an <strong>API proxy server</strong> using Node.js. This server acts as an intermediary between your client-side application and the third-party API. By routing requests through your server, you can securely store your API key on the server-side, preventing direct exposure in client-side code. Furthermore, we will explore enhancing our proxy server with features like rate limiting and caching to improve performance and control API usage.</p>
+<blockquote>
+<p><strong>Proxy Server</strong>
+A proxy server acts as an intermediary for requests from clients seeking resources from other servers. In the context of APIs, a proxy server can receive requests from a client application, forward them to the target API, and then relay the API's response back to the client. This adds a layer of abstraction and control.</p>
+</blockquote>
+<h2 id="setting-up-the-server-environment">Setting Up the Server Environment</h2>
+<p>To begin building our API proxy server, we need to set up our development environment. This involves installing Node.js and initializing a new project.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before proceeding, ensure you have the following installed on your system:</p>
+<ul>
+<li><strong>Node.js:</strong>  A JavaScript runtime environment that allows you to run JavaScript code outside of a web browser. Node.js is essential for building our server-side application.</li>
+</ul>
+<h3 id="initializing-the-project">Initializing the Project</h3>
+<ol>
+<li><strong>Create a Project Folder:</strong> Start by creating a new directory for your project. For example, name it <code>node-api-proxy-server</code>.</li>
+<li><strong>Navigate to the Project Folder:</strong> Open your terminal or command prompt and navigate into the newly created project directory using the <code>cd</code> command (e.g., <code>cd node-api-proxy-server</code>).</li>
+<li>
+<p><strong>Initialize <code>package.json</code>:</strong>  Run the command <code>npm init -y</code>. This command initializes a new Node.js project and creates a <code>package.json</code> file in your project directory.</p>
+<blockquote>
+<p><strong>npm (Node Package Manager)</strong>
+npm is the default package manager for Node.js. It is used to install, manage, and share JavaScript packages (libraries and tools).</p>
+<p><strong>package.json</strong>
+A <code>package.json</code> file is a JSON file that resides in the root directory of a Node.js project. It contains metadata about the project, such as its name, version, dependencies, and scripts.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="installing-dependencies">Installing Dependencies</h3>
+<p>We will need several packages to build our API proxy server. Install them using <code>npm install</code>:</p>
+<pre><code class="language-bash">npm install express dotenv cors needle nodemon -D
+</code></pre>
+<p>This command installs the following packages:</p>
+<ul>
+<li><strong><code>express</code>:</strong> A minimalist and flexible Node.js web application framework that provides a robust set of features for building web applications and APIs.</li>
+<li><strong><code>dotenv</code>:</strong> A zero-dependency module that loads environment variables from a <code>.env</code> file into <code>process.env</code>. This is crucial for securely managing API keys and other configuration settings.</li>
+<li><strong><code>cors</code>:</strong>  (Cross-Origin Resource Sharing) A Node.js package that enables Cross-Origin Resource Sharing (CORS). CORS is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. This is often necessary when your client-side application and server are running on different domains or ports.</li>
+<li><strong><code>needle</code>:</strong> A lightweight HTTP client for Node.js. We will use <code>needle</code> to make requests from our server to the third-party API (OpenWeatherMap in this case).</li>
+<li>
+<p><strong><code>nodemon</code>:</strong> (Installed as a dev dependency using <code>-D</code>) A utility that monitors for any changes in your Node.js application and automatically restarts the server. This significantly improves the development workflow by eliminating the need to manually restart the server after each code modification.</p>
+<blockquote>
+<p><strong>Dev Dependency</strong>
+In <code>package.json</code>, dependencies listed under <code>devDependencies</code> are packages that are only needed for development and testing, not for the production application itself. <code>nodemon</code> is a typical example of a dev dependency.</p>
+</blockquote>
+</li>
+</ul>
+<p>After running this command, you should see a <code>node_modules</code> folder in your project directory containing the installed packages, and your <code>package.json</code> file will be updated with the dependencies and devDependencies.</p>
+<h3 id="setting-up-start-scripts">Setting Up Start Scripts</h3>
+<p>Open your <code>package.json</code> file and locate the <code>scripts</code> section. Modify it to include <code>start</code> and <code>dev</code> scripts:</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index.js&quot;,
+    &quot;dev&quot;: &quot;nodemon index.js&quot;
+},
+</code></pre>
+<p>These scripts define commands that you can run using <code>npm</code>.</p>
+<ul>
+<li><code>npm start</code>:  This command will run your server using <code>node index.js</code>. This is typically used for running the server in a production environment.</li>
+<li><code>npm run dev</code>: This command will run your server using <code>nodemon index.js</code>. <code>nodemon</code> will watch for file changes and automatically restart the server, making development more efficient.</li>
+</ul>
+<h2 id="creating-the-api-proxy-server-with-express">Creating the API Proxy Server with Express</h2>
+<p>Now, let's create the core of our API proxy server using Express.</p>
+<h3 id="setting-up-the-express-server-indexjs">Setting Up the Express Server ( <code>index.js</code> )</h3>
+<p>Create a file named <code>index.js</code> in your project root. This will be our main server file. Add the following code to <code>index.js</code>:</p>
+<pre><code class="language-javascript">const express = require('express');
+const cors = require('cors');
+require('dotenv').config(); // Load environment variables from .env
+
+const app = express();
+const port = process.env.PORT || 5000; // Use environment port or default to 5000
+
+// Enable CORS for all routes
+app.use(cors());
+
+// Define routes (routes will be handled in a separate file later)
+app.use('/api', require('./routes')); // Mount routes from ./routes/index.js under /api path
+
+app.listen(port, () =&gt; {
+    console.log(`Server running on port ${port}`);
+});
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ol>
+<li><strong><code>require('express')</code> and <code>require('cors')</code>:</strong>  Imports the <code>express</code> and <code>cors</code> modules.</li>
+<li><strong><code>require('dotenv').config()</code>:</strong> Loads environment variables from a <code>.env</code> file (which we will create shortly) into <code>process.env</code>.</li>
+<li><strong><code>const app = express()</code>:</strong> Creates an Express application instance.</li>
+<li><strong><code>const port = process.env.PORT || 5000;</code>:</strong>  Defines the port for the server to listen on. It first tries to use the port specified in the <code>PORT</code> environment variable (which is often used in deployment environments like Heroku). If the <code>PORT</code> environment variable is not set, it defaults to port 5000.</li>
+<li><strong><code>app.use(cors());</code>:</strong> Enables CORS middleware for all routes in the application. This allows your client-side application (potentially running on a different domain) to make requests to this server.</li>
+<li><strong><code>app.use('/api', require('./routes'));</code>:</strong> Mounts the routes defined in <code>routes/index.js</code> (which we will create next) under the <code>/api</code> path. This means that any request starting with <code>/api</code> will be handled by the routes defined in that file.</li>
+<li><strong><code>app.listen(port, ...)</code>:</strong> Starts the Express server and makes it listen for incoming requests on the specified port. The callback function logs a message to the console indicating that the server is running.</li>
+</ol>
+<h3 id="creating-environment-variables-env">Creating Environment Variables ( <code>.env</code> )</h3>
+<p>Create a file named <code>.env</code> in the root of your project directory. This file will store your API keys and other configuration settings as environment variables. Add the following lines to <code>.env</code>:</p>
+<pre><code>API_BASE_URL=https://api.openweathermap.org/data/2.5/weather
+API_KEY_NAME=appid
+API_KEY_VALUE=YOUR_OPENWEATHERMAP_API_KEY
+</code></pre>
+<p><strong>Replace <code>YOUR_OPENWEATHERMAP_API_KEY</code> with your actual OpenWeatherMap API key.</strong> You can obtain an API key by creating a free account on the OpenWeatherMap website (<a href="https://openweathermap.org/">https://openweathermap.org/</a>).</p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>API_BASE_URL</code>:</strong>  Stores the base URL for the OpenWeatherMap API. We extract the base URL, excluding query parameters, to make our proxy server more flexible and reusable with other APIs.</li>
+<li><strong><code>API_KEY_NAME</code>:</strong>  Specifies the name of the query parameter used for the API key in the OpenWeatherMap API. In this case, it's <code>appid</code>.</li>
+<li><strong><code>API_KEY_VALUE</code>:</strong> Stores your actual OpenWeatherMap API key. <strong>Crucially, never commit your <code>.env</code> file containing sensitive information like API keys to version control (e.g., Git).</strong> We will configure <code>.gitignore</code> shortly to prevent this.</li>
+</ul>
+<h3 id="setting-up-routes-routesindexjs">Setting Up Routes ( <code>routes/index.js</code> )</h3>
+<p>Create a folder named <code>routes</code> in your project root. Inside the <code>routes</code> folder, create a file named <code>index.js</code>. This file will handle the routing logic for our API proxy. Add the following code to <code>routes/index.js</code>:</p>
+<pre><code class="language-javascript">const express = require('express');
+const router = express.Router();
+const needle = require('needle');
+const url = require('url');
+
+// Environment variables
+const API_BASE_URL = process.env.API_BASE_URL;
+const API_KEY_NAME = process.env.API_KEY_NAME;
+const API_KEY_VALUE = process.env.API_KEY_VALUE;
+
+// Define a route to handle API requests
+router.get('/', async (req, res) =&gt; {
+    try {
+        const params = new URLSearchParams({
+            [API_KEY_NAME]: API_KEY_VALUE, // Add API key as a query parameter
+            ...url.parse(req.url, true).query, // Forward all query parameters from client request
+        });
+
+        const apiRes = await needle('get', `${API_BASE_URL}?${params}`); // Make request to OpenWeatherMap API
+        const data = apiRes.body;
+
+        // Log the request to the public API in development mode
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(`Request to public API: ${apiRes.url}`);
+        }
+
+        res.status(200).json(data); // Send back the API response to the client
+
+    } catch (error) {
+        res.status(500).json({ error }); // Handle errors and send a 500 status code
+    }
+});
+
+module.exports = router;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ol>
+<li><strong><code>require('express')</code>, <code>require('needle')</code>, <code>require('url')</code>:</strong> Imports necessary modules.</li>
+<li><strong><code>const router = express.Router()</code>:</strong> Creates an Express Router instance. Routers are used to create modular, mountable route handlers.</li>
+<li><strong>Environment Variables:</strong> Retrieves environment variables defined in <code>.env</code> using <code>process.env</code>.</li>
+<li><strong><code>router.get('/', async (req, res) =&gt; { ... })</code>:</strong> Defines a GET route for the root path (<code>/</code>) under the <code>/api</code> path (because we mounted this router at <code>/api</code> in <code>index.js</code>). This route will handle incoming requests to our API proxy.<ul>
+<li><strong><code>try...catch</code> block:</strong>  Encloses the asynchronous operation within a <code>try...catch</code> block for error handling.</li>
+<li><strong><code>const params = new URLSearchParams(...)</code>:</strong> Creates a <code>URLSearchParams</code> object to construct the query parameters for the request to the OpenWeatherMap API.<ul>
+<li><strong><code>[API_KEY_NAME]: API_KEY_VALUE</code>:</strong> Adds the API key as a query parameter. The <code>API_KEY_NAME</code> (e.g., <code>appid</code>) is used as the key, and <code>API_KEY_VALUE</code> (your actual API key) is used as the value.</li>
+<li><strong><code>...url.parse(req.url, true).query</code>:</strong>  Parses the query parameters from the incoming request (<code>req.url</code>) and spreads them into the <code>URLSearchParams</code> object. This ensures that any query parameters sent by the client to our proxy server are forwarded to the OpenWeatherMap API.</li>
+</ul>
+</li>
+<li><strong><code>const apiRes = await needle('get',</code>${API_BASE_URL}?${params}<code>);</code>:</strong> Uses <code>needle</code> to make a GET request to the OpenWeatherMap API. The URL is constructed by combining <code>API_BASE_URL</code> with the query parameters built in the <code>params</code> object. <code>await</code> is used because <code>needle</code> returns a promise.</li>
+<li><strong><code>const data = apiRes.body;</code>:</strong> Extracts the response body from the API response.</li>
+<li><strong><code>if (process.env.NODE_ENV !== 'production') { ... }</code>:</strong>  Conditionally logs the request URL to the public API in development environments (when <code>NODE_ENV</code> is not set to <code>production</code>). This is helpful for debugging and understanding the requests being made.</li>
+<li><strong><code>res.status(200).json(data);</code>:</strong> Sends a successful response (HTTP status code 200) back to the client with the data received from the OpenWeatherMap API in JSON format.</li>
+<li><strong><code>res.status(500).json({ error });</code>:</strong> In case of an error during the API request, sends an error response (HTTP status code 500 - Internal Server Error) back to the client with an error object in JSON format.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>module.exports = router;</code>:</strong> Exports the <code>router</code> so that it can be used in <code>index.js</code>.</p>
+<blockquote>
+<p><strong>REST API (Representational State Transfer API)</strong>
+REST is an architectural style for designing networked applications, particularly web services. REST APIs communicate via standard HTTP methods like GET, POST, PUT, DELETE and are often used for accessing and manipulating data. OpenWeatherMap API is a REST API.</p>
+<p><strong>HTTP Client</strong>
+An HTTP client is a software or library that allows applications to send HTTP requests to servers and receive responses. <code>needle</code> and <code>node-fetch</code> are examples of HTTP clients in Node.js.</p>
+<p><strong>Query Parameters</strong>
+Query parameters are parts of a URL that come after the question mark <code>?</code>. They are used to send additional information to the server, often for filtering, sorting, or specifying data to retrieve. They are key-value pairs, like <code>?key1=value1&amp;key2=value2</code>.</p>
+<p><strong>URL Search Params (URLSearchParams)</strong>
+<code>URLSearchParams</code> is a built-in JavaScript interface for working with the query string of a URL. It provides methods for easily creating, manipulating, and encoding URL query parameters.</p>
+<p><strong>Async/Await</strong>
+<code>async</code> and <code>await</code> are keywords in JavaScript that simplify working with asynchronous operations, such as promises. <code>async</code> marks a function as asynchronous, and <code>await</code> pauses the execution of an <code>async</code> function until a promise resolves, making asynchronous code look and behave more like synchronous code.</p>
+<p><strong>JSON (JavaScript Object Notation)</strong>
+JSON is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is commonly used for transmitting data in web applications and APIs.</p>
+<p><strong>Promises</strong>
+In JavaScript, a Promise is an object representing the eventual outcome of an asynchronous operation. It can be in one of three states: pending, fulfilled, or rejected. Promises are used to handle asynchronous operations in a more structured way than traditional callbacks.</p>
+<p><strong>HTTP Status Codes</strong>
+HTTP status codes are three-digit codes that servers send back in response to HTTP requests. They indicate the outcome of the request. Common status codes include:
+*   <strong>200 OK:</strong>  Indicates that the request was successful.
+*   <strong>401 Unauthorized:</strong> Indicates that the client is not authorized to access the requested resource (often due to missing or invalid credentials).
+*   <strong>404 Not Found:</strong> Indicates that the server cannot find the requested resource.
+*   <strong>500 Internal Server Error:</strong> Indicates that the server encountered an unexpected error while processing the request.</p>
+<p><strong>Error Handling</strong>
+Error handling is the process of anticipating, detecting, and resolving errors in a program. In web servers, proper error handling is crucial to gracefully manage unexpected situations, prevent crashes, and provide informative error responses to clients.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="ignoring-sensitive-files-gitignore">Ignoring Sensitive Files ( <code>.gitignore</code> )</h3>
+<p>Create a file named <code>.gitignore</code> in the root of your project directory. This file tells Git which files and directories to ignore when committing changes to version control. Add the following lines to <code>.gitignore</code>:</p>
+<pre><code>node_modules
+.env
+</code></pre>
+<p>This ensures that the <code>node_modules</code> folder (which can be large and is automatically generated) and the <code>.env</code> file (containing sensitive API keys) are not committed to your Git repository.</p>
+<h3 id="testing-the-server">Testing the Server</h3>
+<ol>
+<li><strong>Start the server:</strong> In your terminal, run <code>npm run dev</code>. This will start your server using <code>nodemon</code>. You should see the message "Server running on port 5000" (or the port you configured).</li>
+<li>
+<p><strong>Test with Postman or Browser:</strong> You can use Postman or any HTTP client (or even your web browser) to test your API proxy server. Send a GET request to <code>http://localhost:5000/api?q=London</code>. Replace <code>London</code> with any city you want to test.</p>
+<p>You should receive a JSON response containing weather data for the specified city from the OpenWeatherMap API. If you check your server console, you should also see a log message indicating the request made to the public OpenWeatherMap API (if <code>NODE_ENV</code> is not set to <code>production</code>).</p>
+</li>
+</ol>
+<p>If you receive the weather data successfully, your API proxy server is working correctly! You have successfully created a server that forwards requests to the OpenWeatherMap API, securely adding your API key on the server-side.</p>
+<h2 id="enhancing-the-proxy-server-rate-limiting-and-caching">Enhancing the Proxy Server: Rate Limiting and Caching</h2>
+<p>To further improve our API proxy server, we will implement rate limiting and caching.</p>
+<h3 id="rate-limiting">Rate Limiting</h3>
+<p>Rate limiting is a technique to control the number of requests a user or client can make to an API within a given time period. This helps prevent abuse, protect your server from overload, and manage API usage. We will use the <code>express-rate-limit</code> package for this.</p>
+<ol>
+<li><strong>Install <code>express-rate-limit</code>:</strong> If you haven't already, ensure <code>express-rate-limit</code> is installed (<code>npm install express-rate-limit</code>).</li>
+<li>
+<p><strong>Implement Rate Limiting in <code>index.js</code>:</strong> Modify your <code>index.js</code> file to include rate limiting middleware:</p>
+<p>```javascript
+const express = require('express');
+const cors = require('cors');
+const rateLimit = require('express-rate-limit'); // Import rate limiter
+require('dotenv').config();</p>
+<p>const app = express();
+const port = process.env.PORT || 5000;</p>
+<p>// Rate limiting configuration
+const limiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 minutes window
+    max: 100, // Max 100 requests per 10 minutes per IP
+    message: 'Too many requests, please try again later.',
+});</p>
+<p>// Apply rate limiting middleware to all routes
+app.use(limiter);
+app.set('trust proxy', 1); // Trust first proxy (for Heroku, etc.)</p>
+<p>app.use(cors());
+app.use('/api', require('./routes'));</p>
+<p>app.listen(port, () =&gt; {
+    console.log(<code>Server running on port ${port}</code>);
+});
+```</p>
+</li>
+</ol>
+<p><strong>Explanation of Rate Limiting Changes:</strong></p>
+<ul>
+<li><strong><code>const rateLimit = require('express-rate-limit');</code>:</strong> Imports the <code>express-rate-limit</code> module.</li>
+<li><strong><code>const limiter = rateLimit({ ... });</code>:</strong> Configures the rate limiter middleware.<ul>
+<li><strong><code>windowMs: 10 * 60 * 1000</code>:</strong> Sets the time window for rate limiting to 10 minutes (in milliseconds).</li>
+<li><strong><code>max: 100</code>:</strong>  Sets the maximum number of requests allowed within the <code>windowMs</code> to 100 per IP address.</li>
+<li><strong><code>message: 'Too many requests, please try again later.'</code>:</strong>  Sets the message to be sent back to the client when the rate limit is exceeded.</li>
+</ul>
+</li>
+<li><strong><code>app.use(limiter);</code>:</strong> Applies the <code>limiter</code> middleware to <em>all</em> routes in the application. This means that rate limiting will be enforced for every request to your server.</li>
+<li>
+<p><strong><code>app.set('trust proxy', 1);</code>:</strong>  If your server is behind a proxy (like Heroku's load balancer), you need to set <code>trust proxy</code> to <code>1</code> to make rate limiting work correctly based on the client's actual IP address.</p>
+<blockquote>
+<p><strong>Middleware</strong>
+In Express.js, middleware are functions that have access to the request object (<code>req</code>), the response object (<code>res</code>), and the next middleware function in the application's request-response cycle. Middleware functions can perform various tasks, such as logging, authentication, request parsing, and in our case, rate limiting. <code>app.use()</code> is used to apply middleware to the application.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Testing Rate Limiting:</strong></p>
+<p>Restart your server (<code>npm run dev</code>). Now, try sending requests to <code>http://localhost:5000/api?q=London</code> repeatedly in quick succession. After sending more than 100 requests within 10 minutes, you should start receiving the "Too many requests, please try again later." message with an HTTP status code of 429 (Too Many Requests).  You can observe the rate limit headers in the response, like <code>X-RateLimit-Limit</code>, <code>X-RateLimit-Remaining</code>, and <code>Retry-After</code>, which provide information about the rate limit status.</p>
+<pre><code>&gt; **429 Too Many Requests**
+&gt; The HTTP status code 429 Too Many Requests is returned by a server when the user has sent too many requests in a given amount of time ("rate limiting"). It indicates that the user should reduce the rate of requests and try again later, often after waiting for a specified duration provided in the `Retry-After` header.
+</code></pre>
+<h3 id="caching">Caching</h3>
+<p>Caching is a technique to store frequently accessed data in a temporary storage location (cache) so that future requests for the same data can be served faster. This reduces latency, improves performance, and reduces load on the upstream API. We will use the <code>apicache</code> package for caching API responses.</p>
+<ol>
+<li><strong>Install <code>apicache</code>:</strong> If you haven't already, ensure <code>apicache</code> is installed (<code>npm install apicache</code>).</li>
+<li>
+<p><strong>Implement Caching in <code>routes/index.js</code>:</strong> Modify your <code>routes/index.js</code> file to include caching middleware:</p>
+<p>```javascript
+const express = require('express');
+const router = express.Router();
+const needle = require('needle');
+const url = require('url');
+const apicache = require('apicache'); // Import apicache</p>
+<p>// Initialize cache
+let cache = apicache.middleware;</p>
+<p>// Environment variables (same as before)
+const API_BASE_URL = process.env.API_BASE_URL;
+const API_KEY_NAME = process.env.API_KEY_NAME;
+const API_KEY_VALUE = process.env.API_KEY_VALUE;</p>
+<p>// Define a route to handle API requests with caching
+router.get('/', cache('2 minutes'), async (req, res) =&gt; { // Apply caching middleware for 2 minutes
+    try {
+        const params = new URLSearchParams({
+            [API_KEY_NAME]: API_KEY_VALUE,
+            ...url.parse(req.url, true).query,
+        });</p>
+<pre><code>    const apiRes = await needle('get', `${API_BASE_URL}?${params}`);
+    const data = apiRes.body;
+
+    if (process.env.NODE_ENV !== 'production') {
+        console.log(`Request to public API: ${apiRes.url}`);
+    }
+
+    res.status(200).json(data);
+
+} catch (error) {
+    res.status(500).json({ error });
+}
+</code></pre>
+<p>});</p>
+<p>module.exports = router;
+```</p>
+</li>
+</ol>
+<p><strong>Explanation of Caching Changes:</strong></p>
+<ul>
+<li><strong><code>const apicache = require('apicache');</code>:</strong> Imports the <code>apicache</code> module.</li>
+<li><strong><code>let cache = apicache.middleware;</code>:</strong> Initializes the <code>apicache</code> middleware.</li>
+<li><strong><code>router.get('/', cache('2 minutes'), async (req, res) =&gt; { ... })</code>:</strong> Applies the <code>cache('2 minutes')</code> middleware as the second argument to the <code>router.get()</code> route handler. This configures <code>apicache</code> to cache the response for this route for 2 minutes. You can adjust the cache duration as needed (e.g., '5 minutes', '1 hour', '1 day').</li>
+</ul>
+<p><strong>Testing Caching:</strong></p>
+<p>Restart your server (<code>npm run dev</code>). Send a request to <code>http://localhost:5000/api?q=London</code>. The first request will fetch data from the OpenWeatherMap API and store it in the cache. Subsequent requests for the same city (within the 2-minute cache duration) will be served directly from the cache, without hitting the OpenWeatherMap API again. You can observe the <code>Cache-Control</code> header in the response, which will indicate the cache duration (e.g., <code>max-age=120</code> for 2 minutes in seconds).  After 2 minutes, the cache will expire, and the next request will again fetch fresh data from the OpenWeatherMap API and refresh the cache.</p>
+<h2 id="integrating-with-the-client-side-application">Integrating with the Client-Side Application</h2>
+<p>To utilize our API proxy server in a client-side application, you need to update the application to make requests to your server's endpoint instead of directly to the OpenWeatherMap API.</p>
+<p>Assuming you have a basic client-side JavaScript application (as mentioned in the transcript), you would typically have code similar to this (before using the proxy):</p>
+<pre><code class="language-javascript">async function fetchWeather(city) {
+    const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY'; // API key directly in client-side code (BAD PRACTICE!)
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&amp;appid=${apiKey}&amp;units=metric`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        // ... process weather data
+    } catch (error) {
+        console.error('Error fetching weather:', error);
+    }
+}
+</code></pre>
+<p><strong>Modify your client-side JavaScript code as follows to use the API proxy:</strong></p>
+<pre><code class="language-javascript">async function fetchWeather(city) {
+    const proxyApiUrl = `/api?q=${city}&amp;units=metric`; // Request to your proxy server's endpoint (/api)
+
+    try {
+        const response = await fetch(proxyApiUrl);
+        const data = await response.json();
+        // ... process weather data
+    } catch (error) {
+        console.error('Error fetching weather:', error);
+    }
+}
+</code></pre>
+<p><strong>Key Changes in Client-Side Code:</strong></p>
+<ul>
+<li><strong>Remove API Key from Client-Side:</strong>  The <code>apiKey</code> variable and its value are removed from the client-side JavaScript code.</li>
+<li><strong>Update API URL:</strong> The <code>apiUrl</code> is changed to <code>/api?q=${city}&amp;units=metric</code>. Now, the request is made to the <code>/api</code> endpoint of your own server (assuming your client-side application and server are served from the same domain or you have configured CORS appropriately). The query parameters (<code>q</code> for city and <code>units=metric</code>) are still included in the request to your proxy server, which will forward them to the OpenWeatherMap API.</li>
+</ul>
+<p><strong>Serving Static Files (Client-Side Application):</strong></p>
+<p>To serve your client-side application (HTML, CSS, JavaScript files) using your Express server, you can configure Express to serve static files from a designated directory (e.g., a <code>public</code> folder). Add the following to your <code>index.js</code> file, typically before defining routes:</p>
+<pre><code class="language-javascript">const express = require('express');
+// ... other requires
+
+const app = express();
+// ... other configurations
+
+// Set static folder to serve client-side application
+app.use(express.static('public')); // Assuming your client-side files are in a 'public' folder
+
+// ... rate limiting, cors, routes, etc.
+</code></pre>
+<p>Create a folder named <code>public</code> in your project root and place your <code>index.html</code>, <code>styles.css</code>, <code>main.js</code> (and any other client-side files) inside it. Now, when you run your server and access <code>http://localhost:5000</code> in your browser, Express will serve your <code>index.html</code> file from the <code>public</code> folder.</p>
+<pre><code>&gt; **Static Folder**
+&gt; In web servers, a static folder is a directory that contains static files, such as HTML files, CSS stylesheets, JavaScript files, images, and other assets that are served directly to the client without any server-side processing. `express.static()` middleware in Express.js is used to serve files from a specified static folder.
+</code></pre>
+<h2 id="deployment-to-heroku">Deployment to Heroku</h2>
+<p>Heroku is a popular Platform as a Service (PaaS) that makes it easy to deploy and run web applications. Here's a guide to deploy your API proxy server to Heroku:</p>
+<h3 id="prerequisites-for-heroku-deployment">Prerequisites for Heroku Deployment</h3>
+<ol>
+<li><strong>Heroku Account:</strong> Create a free Heroku account at <a href="https://www.heroku.com/">https://www.heroku.com/</a>.</li>
+<li><strong>Heroku CLI:</strong> Install the Heroku Command Line Interface (CLI) on your local machine. Instructions for installation can be found on the Heroku website.</li>
+<li><strong>Git:</strong> Ensure Git is installed on your system, as Heroku uses Git for deployment.</li>
+</ol>
+<h3 id="deployment-steps">Deployment Steps</h3>
+<ol>
+<li><strong>Login to Heroku CLI:</strong> Open your terminal and run <code>heroku login</code>. This will open a browser window where you can log in to your Heroku account.</li>
+<li><strong>Create a Heroku Application:</strong> In your terminal, navigate to your project directory and run <code>heroku create &lt;your-app-name&gt;</code> (replace <code>&lt;your-app-name&gt;</code> with a unique name for your application, or just run <code>heroku create</code> to let Heroku generate a name). This command creates a new Heroku application and associates it with your local Git repository.</li>
+<li><strong>Initialize Git Repository (if not already done):</strong> If you haven't already, initialize a Git repository in your project directory by running <code>git init</code>.</li>
+<li><strong>Add and Commit Changes:</strong> Add all your project files to the Git repository and commit them:
+    <code>bash
+    git add .
+    git commit -m "Initial commit"</code></li>
+<li><strong>Push to Heroku:</strong> Deploy your application to Heroku by pushing your Git repository to the Heroku remote:
+    <code>bash
+    git push heroku master</code>
+    Heroku will detect your Node.js application, install dependencies, and start your server.</li>
+<li>
+<p><strong>Set Environment Variables on Heroku:</strong>  You need to set your environment variables ( <code>API_BASE_URL</code>, <code>API_KEY_NAME</code>, <code>API_KEY_VALUE</code> ) on Heroku. You can do this through the Heroku dashboard:</p>
+<ul>
+<li>Go to your Heroku application dashboard in your browser.</li>
+<li>Navigate to the "Settings" tab.</li>
+<li>Click on "Reveal Config Vars".</li>
+<li>Add the environment variables and their values, just like you defined them in your <code>.env</code> file locally.</li>
+</ul>
+</li>
+<li>
+<p><strong>Open the Deployed Application:</strong> Once the deployment is complete, you can open your deployed application in your browser by running <code>heroku open</code> in your terminal or by clicking "Open app" on your Heroku application dashboard.</p>
+</li>
+</ol>
+<p>Your API proxy server should now be live and accessible on the Heroku-provided URL. You can test it by accessing your client-side application (if you deployed it as static files) or by sending requests to the Heroku application URL with appropriate query parameters.</p>
+<pre><code>&gt; **Git**
+&gt; Git is a distributed version control system that tracks changes in computer files and coordinates work on those files among multiple people. It is widely used for source code management in software development.
+
+&gt; **CLI (Command Line Interface)**
+&gt; A command-line interface (CLI) is a text-based interface used to interact with a computer system or application by typing commands. The Heroku CLI allows developers to manage Heroku applications from the terminal.
+
+&gt; **Environment Variables (in Deployment)**
+&gt; In deployment environments like Heroku, environment variables are used to configure applications without hardcoding sensitive information or configuration settings directly into the code. They are set outside of the application code and accessed by the application at runtime. This is essential for security and configuration management in production.
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully built a Node.js API proxy server that securely hides your API key, implements rate limiting, and utilizes caching. This setup not only enhances the security of your client-side applications by preventing API key exposure but also improves performance and manages API usage effectively.</p>
+<p>By understanding the principles and techniques outlined in this chapter, you can apply them to proxy and secure various third-party APIs in your web development projects, creating more robust and secure applications. You can further extend this proxy server with additional features like request logging, data transformation, and authentication to meet specific application requirements.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

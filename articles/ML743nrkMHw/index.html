@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a Desktop Application with Electron: A Step-by-Step Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-desktop-application-with-electron-a-step-by-step-guide">Building a Desktop Application with Electron: A Step-by-Step Guide</a></li>
+        <li><a href="#1-introduction-to-electron">1. Introduction to Electron</a></li><li><a href="#2-project-overview-image-resizer-application">2. Project Overview: Image Resizer Application</a></li><li><a href="#3-prerequisites">3. Prerequisites</a></li><li><a href="#4-setting-up-the-project">4. Setting Up the Project</a></li><li><a href="#5-structuring-the-application-main-and-renderer-processes">5. Structuring the Application: Main and Renderer Processes</a></li><li><a href="#6-creating-the-main-window">6. Creating the Main Window</a></li><li><a href="#7-boilerplate-code-for-application-lifecycle">7. Boilerplate Code for Application Lifecycle</a></li><li><a href="#8-development-enhancements-devtools-and-live-reloading">8. Development Enhancements: DevTools and Live Reloading</a></li><li><a href="#9-implementing-the-user-interface-ui">9. Implementing the User Interface (UI)</a></li><li><a href="#10-customizing-the-application-menu">10. Customizing the Application Menu</a></li><li><a href="#11-handling-user-input-and-image-selection-renderer-process">11. Handling User Input and Image Selection (Renderer Process)</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-desktop-application-with-electron-a-step-by-step-guide">Building a Desktop Application with Electron: A Step-by-Step Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/ML743nrkMHw" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will guide you through the process of creating a desktop application using Electron, a powerful framework for building cross-platform applications with web technologies. We will develop a simple image resizing application to illustrate key Electron concepts and functionalities. This project serves as an excellent starting point for understanding Electron and building more complex desktop applications.</p>
+<h2 id="1-introduction-to-electron">1. Introduction to Electron</h2>
+<p>Electron is a versatile framework that allows developers to build desktop applications for Windows, macOS, and Linux using web technologies such as HTML, CSS, and JavaScript.  This means you can leverage your existing web development skills to create native desktop applications. Many popular applications are built using Electron, demonstrating its capabilities and widespread adoption. Examples include:</p>
+<ul>
+<li><strong>VS Code:</strong> A widely used source code editor.</li>
+<li><strong>Atom:</strong> Another popular, customizable text editor.</li>
+<li><strong>Postman:</strong> A tool for API development and testing.</li>
+<li><strong>Slack:</strong> A popular communication platform for teams.</li>
+</ul>
+<blockquote>
+<p><strong>Electron:</strong> An open-source framework developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. It allows developers to use web technologies to create native-like applications that can run on Windows, macOS, and Linux.</p>
+</blockquote>
+<p>Electron is a favorite technology for many developers due to its cross-platform nature and the accessibility of web development skills. This chapter will guide you through building a practical project to get hands-on experience with Electron.</p>
+<h2 id="2-project-overview-image-resizer-application">2. Project Overview: Image Resizer Application</h2>
+<p>In this chapter, we will build an "Image Resizer" application. This application will allow users to:</p>
+<ul>
+<li>Select an image file from their computer.</li>
+<li>Specify desired width and height dimensions for the image.</li>
+<li>Resize the image and save the resized version to a designated output folder.</li>
+</ul>
+<p>This application offers simple yet fundamental functionality, making it an ideal project for beginners to grasp the core concepts of Electron development. It will cover essential aspects such as:</p>
+<ul>
+<li>The <strong>main process</strong> and <strong>renderer process</strong> architecture in Electron.</li>
+<li>Creating application menus.</li>
+<li>Handling user input and events.</li>
+<li>Inter-process communication (IPC).</li>
+</ul>
+<blockquote>
+<p><strong>Main Process:</strong> In Electron, the main process acts as the application's entry point and manages the application lifecycle. It is responsible for creating and managing browser windows (renderer processes), handling system events, and interacting with the operating system.</p>
+<p><strong>Renderer Process:</strong> Renderer processes are responsible for displaying the user interface of an Electron application. Each browser window in an Electron application runs in its own renderer process, which is essentially a Chromium instance rendering web content (HTML, CSS, and JavaScript).</p>
+</blockquote>
+<h2 id="3-prerequisites">3. Prerequisites</h2>
+<p>To follow along with this chapter, you will need:</p>
+<ul>
+<li><strong>Basic JavaScript knowledge:</strong>  A solid understanding of JavaScript is essential. Prior experience with Node.js is not strictly required for this project, although familiarity can be beneficial.</li>
+<li><strong>Node.js and npm (Node Package Manager) installed:</strong> Electron applications are built using Node.js, and npm is used to manage project dependencies. Ensure you have Node.js and npm installed on your system. You can download them from the official Node.js website.</li>
+<li><strong>A code editor:</strong>  VS Code is recommended, but you can use any code editor of your choice.</li>
+</ul>
+<p>It is recommended to set aside some dedicated time to focus on learning and building this application alongside the instructions provided.</p>
+<h2 id="4-setting-up-the-project">4. Setting Up the Project</h2>
+<p>Let's begin by setting up our project environment.</p>
+<h3 id="41-creating-the-project-folder">4.1. Creating the Project Folder</h3>
+<ol>
+<li>Create a new, empty folder on your computer named <code>image-resizer-electron</code>.</li>
+<li>Open this folder in your code editor (e.g., VS Code).</li>
+<li>Open the integrated terminal within your code editor.</li>
+</ol>
+<h3 id="42-initializing-packagejson">4.2. Initializing <code>package.json</code></h3>
+<p>We need to initialize a <code>package.json</code> file, which is essential for Node.js projects to manage dependencies and project information.</p>
+<ol>
+<li>In the terminal, run the command: <code>npm init</code></li>
+<li>You will be prompted to answer a series of questions. For this project, you can use the following:<ul>
+<li><strong>package name:</strong> <code>image-resizer-electron</code> (or as desired)</li>
+<li><strong>version:</strong> <code>1.0.0</code> (or as desired)</li>
+<li><strong>description:</strong> <code>App to resize image dimensions</code></li>
+<li><strong>entry point:</strong> <code>main.js</code> (Crucially, this file will be the entry point for the main process in Electron.)</li>
+<li><strong>author:</strong> Your Name (or as desired)</li>
+<li><strong>license:</strong> <code>MIT</code> (or as desired)</li>
+</ul>
+</li>
+<li>Confirm the details by typing <code>yes</code> and pressing Enter.</li>
+</ol>
+<p>This will generate a <code>package.json</code> file in your project directory.</p>
+<h3 id="43-adding-product-name">4.3. Adding Product Name</h3>
+<p>Open the <code>package.json</code> file in your code editor. Add a <code>productName</code> property to the JSON object. This name will be displayed in the application menu, especially on macOS.</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;image-resizer-electron&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;App to resize image dimensions&quot;,
+  &quot;main&quot;: &quot;main.js&quot;,
+  &quot;author&quot;: &quot;Your Name&quot;,
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;productName&quot;: &quot;Image Resizer&quot;
+}
+</code></pre>
+<h3 id="44-installing-dependencies">4.4. Installing Dependencies</h3>
+<p>We need to install the necessary packages for our Electron application.</p>
+<ol>
+<li>
+<p>In the terminal, run the following command to install Electron, <code>resize-img</code> (for image resizing functionality), and <code>toastify-js</code> (for user notifications):</p>
+<p><code>bash
+npm install electron resize-img toastify-js</code></p>
+<ul>
+<li><strong>electron:</strong> The core Electron framework.</li>
+<li><strong>resize-img:</strong> A Node.js package to handle image resizing.</li>
+<li><strong>toastify-js:</strong> A JavaScript library to create toast notifications for user feedback.</li>
+</ul>
+</li>
+</ol>
+<p>After installation, you will find these packages listed under <code>dependencies</code> in your <code>package.json</code> file.</p>
+<h2 id="5-structuring-the-application-main-and-renderer-processes">5. Structuring the Application: Main and Renderer Processes</h2>
+<p>Electron applications typically consist of two main processes: the main process and the renderer process.</p>
+<ul>
+<li><strong>Main Process (main.js):</strong>  This is the backend of your application. It manages the application lifecycle, creates windows, handles system events, and performs backend tasks like image resizing in our case.</li>
+<li><strong>Renderer Process (renderer/index.html, renderer/renderer.js):</strong> This is the frontend of your application, responsible for the user interface. It displays web pages and interacts with the user.</li>
+</ul>
+<h3 id="51-creating-mainjs-main-process">5.1. Creating <code>main.js</code> (Main Process)</h3>
+<ol>
+<li>Create a new file named <code>main.js</code> in the root of your project directory.</li>
+<li>
+<p>For now, let's add a simple <code>console.log</code> to verify it's running:</p>
+<p><code>javascript
+// main.js
+console.log("Hello from the main process!");</code></p>
+</li>
+</ol>
+<h3 id="52-modifying-packagejson-for-the-start-script">5.2. Modifying <code>package.json</code> for the Start Script</h3>
+<p>We need to configure the <code>start</code> script in <code>package.json</code> to launch our Electron application.</p>
+<ol>
+<li>Open <code>package.json</code>.</li>
+<li>
+<p>Modify the <code>scripts</code> section to include a <code>start</code> script that uses Electron to run <code>main.js</code>:</p>
+<p><code>json
+"scripts": {
+  "start": "electron ."
+},</code></p>
+<p>This script will execute Electron, using the current directory (<code>.</code>) as the path to your application, which will run <code>main.js</code> by default as specified in the <code>main</code> property.</p>
+</li>
+</ol>
+<h3 id="53-running-the-application-for-the-first-time">5.3. Running the Application for the First Time</h3>
+<ol>
+<li>
+<p>In the terminal, run the command: <code>npm start</code></p>
+<p>This command executes the <code>start</code> script we just defined. You should see "Hello from the main process!" logged in your terminal. This confirms that Electron is running and executing your <code>main.js</code> file as a Node.js process. To stop the running process, press <code>Ctrl+C</code> (or <code>Cmd+C</code> on macOS) in the terminal.</p>
+</li>
+</ol>
+<h2 id="6-creating-the-main-window">6. Creating the Main Window</h2>
+<p>Now let's create the main application window, which will be the user interface of our Image Resizer.</p>
+<h3 id="61-importing-modules-in-mainjs">6.1. Importing Modules in <code>main.js</code></h3>
+<ol>
+<li>Open <code>main.js</code>.</li>
+<li>
+<p>Import the <code>app</code> and <code>BrowserWindow</code> modules from Electron. We also need the <code>path</code> module for handling file paths.</p>
+<p><code>javascript
+// main.js
+const { app, BrowserWindow } = require('electron');
+const path = require('path');</code></p>
+<blockquote>
+<p><strong>require():</strong> In Node.js and Electron's main process, <code>require()</code> is a function used to import modules. It allows you to load and use external libraries, built-in modules, or other JavaScript files within your application.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="62-creating-the-createmainwindow-function">6.2. Creating the <code>createMainWindow</code> Function</h3>
+<p>Create a function named <code>createMainWindow</code> that will handle the creation of the main application window.</p>
+<pre><code class="language-javascript">// main.js
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+
+let mainWindow; // Declare mainWindow in the global scope
+
+function createMainWindow() {
+  mainWindow = new BrowserWindow({
+    title: 'Image Resizer',
+    width: 500,
+    height: 600,
+  });
+
+  mainWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
+}
+</code></pre>
+<ul>
+<li><strong><code>new BrowserWindow(options)</code>:</strong>  This creates a new application window. The <code>options</code> object allows you to configure various window properties like title, width, height, etc.</li>
+<li><strong><code>mainWindow.loadFile(filePath)</code>:</strong> This method loads an HTML file into the browser window. <code>path.join(__dirname, 'renderer', 'index.html')</code> constructs the absolute path to your <code>index.html</code> file located in the <code>renderer</code> folder. <code>__dirname</code> refers to the directory where <code>main.js</code> is located.</li>
+</ul>
+<h3 id="63-creating-rendererindexhtml-renderer-process-ui">6.3. Creating <code>renderer/index.html</code> (Renderer Process UI)</h3>
+<ol>
+<li>Create a new folder named <code>renderer</code> in the root of your project directory.</li>
+<li>Inside the <code>renderer</code> folder, create a new file named <code>index.html</code>.</li>
+<li>
+<p>Add basic HTML boilerplate code to <code>index.html</code>:</p>
+<p><code>html
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Image Resizer&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World from Renderer Process!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></p>
+</li>
+</ol>
+<h3 id="64-calling-createmainwindow-when-the-app-is-ready">6.4. Calling <code>createMainWindow</code> when the App is Ready</h3>
+<p>We need to call <code>createMainWindow</code> function when Electron is ready to launch the application.</p>
+<ol>
+<li>
+<p>In <code>main.js</code>, add the following code to call <code>createMainWindow</code> when the <code>app</code> emits the <code>ready</code> event:</p>
+<p>```javascript
+// main.js
+const { app, BrowserWindow } = require('electron');
+const path = require('path');</p>
+<p>let mainWindow;</p>
+<p>function createMainWindow() {
+  mainWindow = new BrowserWindow({
+    title: 'Image Resizer',
+    width: 500,
+    height: 600,
+  });</p>
+<p>mainWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
+}</p>
+<p>app.whenReady().then(createMainWindow);
+```</p>
+<ul>
+<li><strong><code>app.whenReady().then(callback)</code>:</strong> This ensures that <code>createMainWindow</code> is executed only after Electron has fully initialized and is ready to create windows.</li>
+</ul>
+</li>
+</ol>
+<h3 id="65-running-the-application-with-the-main-window">6.5. Running the Application with the Main Window</h3>
+<ol>
+<li>
+<p>Run <code>npm start</code> in the terminal.</p>
+<p>You should now see a desktop window titled "Image Resizer" displaying "Hello World from Renderer Process!". This confirms that your main window is successfully created and loading the <code>index.html</code> file.</p>
+</li>
+</ol>
+<h2 id="7-boilerplate-code-for-application-lifecycle">7. Boilerplate Code for Application Lifecycle</h2>
+<p>Electron applications require some standard boilerplate code to handle application lifecycle events correctly, especially across different operating systems (Windows, macOS).</p>
+<h3 id="71-handling-window-closure-macos-vs-windowslinux">7.1. Handling Window Closure (macOS vs. Windows/Linux)</h3>
+<p>macOS handles window closing differently than Windows and Linux. On macOS, closing all windows typically does not quit the application; it remains running in the background. On Windows and Linux, closing the last window usually quits the application. We need to replicate these platform-specific behaviors.</p>
+<ol>
+<li>
+<p>In <code>main.js</code>, add the following event listeners to the <code>app</code> object:</p>
+<p>```javascript
+// main.js
+const { app, BrowserWindow } = require('electron');
+const path = require('path');</p>
+<p>let mainWindow;
+const isMac = process.platform === 'darwin'; // Check if platform is macOS</p>
+<p>function createMainWindow() {
+  // ... (rest of createMainWindow function)
+}</p>
+<p>app.whenReady().then(createMainWindow);</p>
+<p>app.on('window-all-closed', () =&gt; {
+  if (!isMac) { // Quit app only if not on macOS
+    app.quit();
+  }
+});</p>
+<p>app.on('activate', () =&gt; {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createMainWindow(); // Re-create main window if none exist when activated (macOS dock icon click)
+  }
+});
+```</p>
+<ul>
+<li><strong><code>process.platform === 'darwin'</code>:</strong> This checks if the operating system is macOS (Darwin kernel).</li>
+<li><strong><code>app.on('window-all-closed', callback)</code>:</strong> This event is emitted when all application windows are closed.</li>
+<li><strong><code>app.quit()</code>:</strong>  This method quits the entire Electron application.</li>
+<li><strong><code>app.on('activate', callback)</code>:</strong> On macOS, this event is emitted when the application is activated, often by clicking the dock icon. We check if any windows are open and, if not, re-create the main window.</li>
+</ul>
+</li>
+</ol>
+<h3 id="72-declaring-ismac-variable">7.2. Declaring <code>isMac</code> Variable</h3>
+<p>To simplify platform checks throughout the code, let's declare a variable <code>isMac</code> at the top of <code>main.js</code>:</p>
+<pre><code class="language-javascript">// main.js
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+
+const isMac = process.platform === 'darwin'; // Variable to check if platform is macOS
+let mainWindow;
+
+// ... (rest of main.js code)
+</code></pre>
+<h2 id="8-development-enhancements-devtools-and-live-reloading">8. Development Enhancements: DevTools and Live Reloading</h2>
+<p>For a smoother development experience, we can enable DevTools to debug our renderer process and use a tool for live reloading to automatically restart the application on code changes.</p>
+<h3 id="81-opening-devtools-in-development-mode">8.1. Opening DevTools in Development Mode</h3>
+<p>Chromium DevTools is a powerful debugging tool for web technologies. We can automatically open DevTools when the application starts in development mode.</p>
+<ol>
+<li>
+<p>In <code>main.js</code>, add the following code inside the <code>createMainWindow</code> function, after loading the file:</p>
+<p>```javascript
+// main.js
+function createMainWindow() {
+  mainWindow = new BrowserWindow({
+    title: 'Image Resizer',
+    width: 500,
+    height: 600,
+  });</p>
+<p>mainWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));</p>
+<p>// Open DevTools if in development mode
+  if (process.env.NODE_ENV !== 'production') {
+    mainWindow.webContents.openDevTools();
+  }
+}
+```</p>
+<ul>
+<li><strong><code>process.env.NODE_ENV !== 'production'</code>:</strong> This checks if the <code>NODE_ENV</code> environment variable is not set to 'production'. By default, when you run <code>npm start</code>, <code>NODE_ENV</code> is typically not set, effectively putting you in development mode.</li>
+<li><strong><code>mainWindow.webContents.openDevTools()</code>:</strong> This method opens the DevTools panel for the associated browser window.</li>
+</ul>
+</li>
+<li>
+<p>Modify the <code>width</code> of the <code>BrowserWindow</code> to be wider in development mode to accommodate DevTools:</p>
+<p><code>javascript
+// main.js
+function createMainWindow() {
+  mainWindow = new BrowserWindow({
+    title: 'Image Resizer',
+    width: process.env.NODE_ENV !== 'production' ? 1000 : 500, // Wider window in dev mode
+    height: 600,
+  });
+  // ... (rest of createMainWindow function)
+}</code></p>
+<p>This uses a ternary operator to set the window width to 1000 pixels in development mode and 500 pixels in production mode.</p>
+</li>
+</ol>
+<h3 id="82-using-electronmon-for-live-reloading">8.2. Using <code>electronmon</code> for Live Reloading</h3>
+<p>Restarting the application manually every time you make a code change can be tedious. <code>electronmon</code> is a helpful tool that automatically restarts your Electron application whenever changes are detected in your code.</p>
+<ol>
+<li>
+<p>Install <code>electronmon</code> globally (or locally as a dev dependency if preferred):</p>
+<p><code>bash
+npm install -g electronmon</code></p>
+</li>
+<li>
+<p>Modify the <code>start</code> script in <code>package.json</code> to use <code>electronmon</code> instead of <code>electron</code>:</p>
+<p><code>json
+"scripts": {
+  "start": "electronmon ."
+},</code></p>
+</li>
+<li>
+<p>Run <code>npm start</code>.</p>
+<p>Now, when you make changes to <code>main.js</code> or files in the <code>renderer</code> folder, <code>electronmon</code> will automatically restart your Electron application, providing a faster development workflow.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>electronmon:</strong> A development utility that automatically restarts your Electron application when code changes are detected. It streamlines the development process by eliminating the need to manually restart the application after each modification.</p>
+</blockquote>
+<h2 id="9-implementing-the-user-interface-ui">9. Implementing the User Interface (UI)</h2>
+<p>Let's integrate the provided UI theme files to visually enhance our Image Resizer application.</p>
+<h3 id="91-obtaining-theme-files">9.1. Obtaining Theme Files</h3>
+<ol>
+<li>Download or clone the provided GitHub repository for theme files.</li>
+<li>Locate the <code>theme_files</code> folder within the repository.</li>
+<li>Copy the contents of the <code>theme_files</code> folder ( <code>index.html</code>, <code>about.html</code>, <code>css</code>, <code>img</code>, <code>js</code>) into your <code>renderer</code> folder, replacing the existing <code>index.html</code> file.</li>
+</ol>
+<h3 id="92-renaming-scriptjs-to-rendererjs">9.2. Renaming <code>script.js</code> to <code>renderer.js</code></h3>
+<p>For clarity and to better represent its role as the renderer process's JavaScript file, rename <code>script.js</code> to <code>renderer.js</code> within the <code>renderer/js</code> folder.  Remember to update the script tag in <code>index.html</code> to reflect this change:</p>
+<pre><code class="language-html">    &lt;!-- index.html --&gt;
+    &lt;script src=&quot;./js/renderer.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="93-clearing-rendererjs">9.3. Clearing <code>renderer.js</code></h3>
+<p>For this chapter, we will write the renderer process JavaScript from scratch. Open <code>renderer/js/renderer.js</code> and clear any existing content, leaving it as an empty file.</p>
+<h3 id="94-addressing-content-security-policy-csp-warning">9.4. Addressing Content Security Policy (CSP) Warning</h3>
+<p>When running the application with the new UI, you might see a warning message in the DevTools console related to Content Security Policy (CSP). This is a security feature of Chromium. To resolve this for development purposes, we can add a <code>&lt;meta&gt;</code> tag to both <code>index.html</code> and <code>about.html</code> files.</p>
+<ol>
+<li>Open <code>renderer/index.html</code> and <code>renderer/about.html</code>.</li>
+<li>
+<p>Add the following <code>&lt;meta&gt;</code> tag within the <code>&lt;head&gt;</code> section of both files:</p>
+<p><code>html
+&lt;meta http-equiv="Content-Security-Policy" content="script-src 'self'"&gt;</code></p>
+<blockquote>
+<p><strong>Content Security Policy (CSP):</strong> A security standard for web browsers that helps prevent cross-site scripting (XSS) attacks. It allows you to define a policy that controls the sources from which the browser is allowed to load resources such as scripts, stylesheets, and images.</p>
+</blockquote>
+</li>
+</ol>
+<p>This meta tag relaxes the CSP for scripts, allowing scripts from the same origin (<code>'self'</code>) to be executed. In a production application, a more restrictive CSP should be implemented for enhanced security.</p>
+<p>After these steps, running <code>npm start</code> should display the themed UI for the Image Resizer application.</p>
+<h2 id="10-customizing-the-application-menu">10. Customizing the Application Menu</h2>
+<p>Electron allows you to customize the default application menu, which appears at the top of the application window (on Windows and Linux) or at the top of the screen (on macOS). We will create a custom menu with "File" and "Help" menus.</p>
+<h3 id="101-creating-a-menu-template-in-mainjs">10.1. Creating a Menu Template in <code>main.js</code></h3>
+<ol>
+<li>
+<p>In <code>main.js</code>, import the <code>Menu</code> module from Electron:</p>
+<p><code>javascript
+// main.js
+const { app, BrowserWindow, Menu } = require('electron'); // Import Menu
+// ... (rest of main.js code)</code></p>
+</li>
+<li>
+<p>Below the <code>createMainWindow</code> function, create a <code>menuTemplate</code> array. This array will define the structure of our menu.</p>
+<p>```javascript
+// main.js
+const { app, BrowserWindow, Menu } = require('electron');
+const path = require('path');</p>
+<p>// ... (isMac and mainWindow variables, createMainWindow function, app event listeners)</p>
+<p>const menuTemplate = [
+  {
+    label: 'File', // File menu
+    submenu: [
+      {
+        label: 'Quit', // Quit menu item
+        accelerator: isMac ? 'Command+W' : 'Ctrl+W', // Shortcut for quit
+        click: () =&gt; {
+          app.quit(); // Quit application on click
+        },
+      },
+    ],
+  },
+];
+```</p>
+<ul>
+<li><strong><code>Menu</code> module:</strong> Provides functionality to create native application menus.</li>
+<li><strong><code>menuTemplate</code>:</strong> An array of menu items that defines the structure of the application menu. Each object in the array represents a top-level menu item (like "File").</li>
+<li><strong><code>label</code>:</strong> The text displayed for the menu item.</li>
+<li><strong><code>submenu</code>:</strong> An array of submenu items that appear when a top-level menu item is clicked or hovered.</li>
+<li><strong><code>accelerator</code>:</strong> Defines a keyboard shortcut for the menu item. <code>isMac ? 'Command+W' : 'Ctrl+W'</code> sets different shortcuts for macOS (Command+W) and Windows/Linux (Ctrl+W).</li>
+<li><strong><code>click</code>:</strong> A function that is executed when the menu item is clicked. <code>app.quit()</code> terminates the application.</li>
+</ul>
+</li>
+</ol>
+<h3 id="102-implementing-the-menu">10.2. Implementing the Menu</h3>
+<ol>
+<li>
+<p>In <code>main.js</code>, inside the <code>app.whenReady().then()</code> block, after calling <code>createMainWindow()</code>, add the following code to build and set the application menu:</p>
+<p>```javascript
+// main.js
+app.whenReady().then(() =&gt; {
+  createMainWindow();</p>
+<p>// Implement Menu
+  const mainMenu = Menu.buildFromTemplate(menuTemplate); // Build menu from template
+  Menu.setApplicationMenu(mainMenu); // Set the application menu
+});
+```</p>
+<ul>
+<li><strong><code>Menu.buildFromTemplate(template)</code>:</strong> Creates a <code>Menu</code> object from the provided <code>menuTemplate</code>.</li>
+<li><strong><code>Menu.setApplicationMenu(menu)</code>:</strong> Sets the application menu for the entire application.</li>
+</ul>
+</li>
+<li>
+<p>Run <code>npm start</code>. You should now see a "File" menu in your application's menu bar with a "Quit" option.</p>
+</li>
+</ol>
+<h3 id="103-using-menu-roles">10.3. Using Menu Roles</h3>
+<p>Electron provides pre-defined "roles" for common menu items like "File," "Edit," and "View." Using roles can simplify menu creation and ensure platform-consistent behavior. Let's modify the "File" menu to use the <code>fileMenu</code> role.</p>
+<ol>
+<li>
+<p>Modify the <code>menuTemplate</code> in <code>main.js</code> as follows:</p>
+<p><code>javascript
+// main.js
+const menuTemplate = [
+  {
+    role: 'fileMenu', // Use 'fileMenu' role for File menu
+  },
+];</code></p>
+<ul>
+<li><strong><code>role: 'fileMenu'</code>:</strong> This replaces the manual "File" menu definition with Electron's built-in "fileMenu" role, which provides standard file-related menu items like "Close Window" (instead of "Quit" in this simplified example).</li>
+</ul>
+</li>
+<li>
+<p>Run <code>npm start</code>. The "File" menu will now display items appropriate for the platform, such as "Close Window" on macOS.</p>
+</li>
+</ol>
+<h3 id="104-adding-platform-specific-menu-items-about-menu">10.4. Adding Platform-Specific Menu Items (About Menu)</h3>
+<p>On macOS, it's customary to have an "About" menu item under the application name menu. On Windows and Linux, "About" is typically placed under a "Help" menu. We need to create platform-specific menu structures to accommodate this.</p>
+<ol>
+<li>
+<p>Modify the <code>menuTemplate</code> in <code>main.js</code> to include platform-specific "About" menus:</p>
+<p><code>javascript
+// main.js
+const menuTemplate = [
+  ...(isMac
+    ? [
+        {
+          label: app.name, // Application name menu on macOS
+          submenu: [{ role: 'about' }], // About item under app name menu
+        },
+      ]
+    : []), // Empty array if not macOS
+  {
+    role: 'fileMenu',
+  },
+  ...(isMac
+    ? []
+    : [
+        {
+          label: 'Help', // Help menu on Windows/Linux
+          submenu: [{ role: 'about' }], // About item under Help menu
+        },
+      ]), // Empty array if macOS
+];</code></p>
+<ul>
+<li><strong><code>...(isMac ? [...] : [])</code>:</strong> This uses the spread syntax (<code>...</code>) and a ternary operator to conditionally include menu items based on the <code>isMac</code> variable.</li>
+<li><strong><code>app.name</code>:</strong>  Electron provides <code>app.name</code> to get the application name, which is useful for the macOS application menu.</li>
+<li><strong><code>role: 'about'</code>:</strong>  Electron's built-in 'about' role provides a standard "About" dialog.</li>
+</ul>
+</li>
+<li>
+<p>Run <code>npm start</code>. On macOS, you should see an application name menu with an "About" item. On Windows/Linux, you should see a "Help" menu with an "About" item.</p>
+</li>
+</ol>
+<h3 id="105-creating-a-custom-about-window">10.5. Creating a Custom "About" Window</h3>
+<p>Instead of using the default "About" dialog provided by the <code>'about'</code> role, let's create a custom "About" window that displays our own content from <code>renderer/about.html</code>.</p>
+<ol>
+<li>
+<p>Create a new function <code>createAboutWindow</code> in <code>main.js</code>:</p>
+<p>```javascript
+// main.js
+let aboutWindow; // Declare aboutWindow in global scope</p>
+<p>function createAboutWindow() {
+  aboutWindow = new BrowserWindow({
+    title: 'About Image Resizer',
+    width: 300,
+    height: 300,
+    resizable: false, // Prevent window resizing
+    parent: mainWindow, // Make aboutWindow a child of mainWindow
+    modal: true, // Make aboutWindow modal (blocks interaction with mainWindow)
+  });</p>
+<p>aboutWindow.loadFile(path.join(__dirname, 'renderer', 'about.html'));
+}
+```</p>
+<ul>
+<li><strong><code>resizable: false</code>:</strong>  Disables window resizing for the "About" window.</li>
+<li><strong><code>parent: mainWindow</code>:</strong> Makes <code>aboutWindow</code> a child window of <code>mainWindow</code>.</li>
+<li><strong><code>modal: true</code>:</strong> Makes <code>aboutWindow</code> modal, meaning the user must interact with it before interacting with the main window.</li>
+</ul>
+</li>
+<li>
+<p>Modify the <code>menuTemplate</code> to use <code>createAboutWindow</code> for the "About" menu items instead of the <code>'about'</code> role:</p>
+<p><code>javascript
+// main.js
+const menuTemplate = [
+  ...(isMac
+    ? [
+        {
+          label: app.name,
+          submenu: [
+            {
+              label: 'About', // Custom About menu item
+              click: createAboutWindow, // Call createAboutWindow on click
+            },
+          ],
+        },
+      ]
+    : []),
+  {
+    role: 'fileMenu',
+  },
+  ...(isMac
+    ? []
+    : [
+        {
+          label: 'Help',
+          submenu: [
+            {
+              label: 'About', // Custom About menu item
+              click: createAboutWindow, // Call createAboutWindow on click
+            },
+          ],
+        },
+      ]),
+];</code></p>
+<ul>
+<li><strong><code>click: createAboutWindow</code>:</strong> Sets the <code>click</code> handler for the "About" menu items to call the <code>createAboutWindow</code> function.</li>
+</ul>
+</li>
+<li>
+<p>Run <code>npm start</code>. Now, clicking the "About" menu item (under the application name on macOS or under "Help" on Windows/Linux) should open a custom "About" window displaying the content from <code>renderer/about.html</code>.</p>
+</li>
+</ol>
+<h2 id="11-handling-user-input-and-image-selection-renderer-process">11. Handling User Input and Image Selection (Renderer Process)</h2>
+<p>Now let's start implementing the core functionality of the Image Resizer application by handling user input in the renderer process.</p>
+<h3 id="111-selecting-ui-elements-in-rendererjs">11.1. Selecting UI Elements in <code>renderer.js</code></h3>
+<ol>
+<li>Create a new file <code>renderer.js</code> in the <code>renderer/js</code> folder (if it doesn't already exist).</li>
+<li>Open <code>renderer/js/renderer.js</code>.</li>
+<li>
+<p>Select the necessary UI elements using their IDs from <code>index.html</code>. Add the following JavaScript code to <code>renderer.js</code>:</p>
+<p><code>javascript
+// renderer/js/renderer.js
+const form = document.getElementById('img-form');
+const img = document.getElementById('img');
+const outputPath = document.getElementById('output-path');
+const filename = document.getElementById('filename');
+const heightInput = document.getElementById('height');
+const widthInput = document.getElementById('width');</code></p>
+<p>This code uses <code>document.getElementById()</code> to retrieve references to the HTML elements we'll be interacting with, such as the form, image input, output path display, filename display, and width/height input fields.</p>
+</li>
+</ol>
+<h3 id="112-adding-event-listener-for-image-input-change">11.2. Adding Event Listener for Image Input Change</h3>
+<p>We need to add an event listener to the image input (<code>img</code>) to detect when the user selects an image file.</p>
+<ol>
+<li>
+<p>In <code>renderer/js/renderer.js</code>, add the following event listener code:</p>
+<p>```javascript
+// renderer/js/renderer.js
+const form = document.getElementById('img-form');
+const img = document.getElementById('img');
+const outputPath = document.getElementById('output-path');
+const filename = document.getElementById('filename');
+const heightInput = document.getElementById('height');
+const widthInput = document.getElementById('width');</p>
+<p>img.addEventListener('change', loadImage); // Event listener for image input change
+```</p>
+<p>This line adds an event listener to the <code>img</code> element that listens for the 'change' event. When the user selects a file in the image input, the <code>loadImage</code> function will be executed.</p>
+</li>
+</ol>
+<h3 id="113-implementing-loadimage-function">11.3. Implementing <code>loadImage</code> Function</h3>
+<p>Now, let's implement the <code>loadImage</code> function to handle the image selection process.</p>
+<ol>
+<li>
+<p>In <code>renderer/js/renderer.js</code>, add the <code>loadImage</code> function:</p>
+<p>```javascript
+// renderer/js/renderer.js
+const form = document.getElementById('img-form');
+const img = document.getElementById('img');
+const outputPath = document.getElementById('output-path');
+const filename = document.getElementById('filename');
+const heightInput = document.getElementById('height');
+const widthInput = document.getElementById('width');</p>
+<p>img.addEventListener('change', loadImage);</p>
+<p>function loadImage(e) {
+  const file = e.target.files[0]; // Get selected file
+  if (!file) {
+    return; // No file selected, exit function
+  }</p>
+<p>// Check if file is an image
+  if (!isFileImage(file)) {
+    alertError('Please select an image'); // Alert error if not an image
+    return;
+  }</p>
+<p>// Display form and filename
+  form.style.display = 'block'; // Show the form
+  filename.innerText = file.name; // Display filename</p>
+<p>// Get original dimensions and set input values
+  const image = new Image();
+  image.src = URL.createObjectURL(file); // Create object URL for image</p>
+<p>image.onload = function () {
+    widthInput.value = this.width; // Set width input value to original width
+    heightInput.value = this.height; // Set height input value to original height
+  };
+}
+```</p>
+<ul>
+<li><strong><code>e.target.files[0]</code>:</strong>  Gets the first file from the <code>files</code> array of the input element. Even if it's a single file input, the files are still stored in an array.</li>
+<li><strong><code>isFileImage(file)</code>:</strong> A function (to be defined later) to check if the selected file is a valid image type.</li>
+<li><strong><code>alertError('Please select an image')</code>:</strong> A function (to be defined later) to display an error message to the user.</li>
+<li><strong><code>form.style.display = 'block'</code>:</strong> Makes the image resizing form visible. Initially, it's hidden using CSS class <code>hidden</code>.</li>
+<li><strong><code>filename.innerText = file.name</code>:</strong> Displays the selected image filename in the <code>filename</code> span.</li>
+<li><strong><code>new Image()</code>:</strong> Creates a new <code>Image</code> object in JavaScript.</li>
+<li><strong><code>URL.createObjectURL(file)</code>:</strong> Creates a temporary URL that represents the selected image file in memory. This URL can be used as the <code>src</code> of an <code>Image</code> object.</li>
+<li><strong><code>image.onload = function() { ... }</code>:</strong>  An event handler that is executed when the image has fully loaded. Inside this handler, we set the <code>value</code> of the <code>widthInput</code> and <code>heightInput</code> fields to the <code>width</code> and <code>height</code> of the loaded image using <code>this.width</code> and <code>this.height</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="114-implementing-isfileimage-function">11.4. Implementing <code>isFileImage</code> Function</h3>
+<p>We need to implement the <code>isFileImage</code> function to verify that the selected file is indeed an image (GIF, PNG, or JPEG).</p>
+<ol>
+<li>
+<p>In <code>renderer/js/renderer.js</code>, add the <code>isFileImage</code> function:</p>
+<p>```javascript
+// renderer/js/renderer.js
+// ... (UI element selections, event listener, loadImage function)</p>
+<p>function isFileImage(file) {
+  const acceptedImageTypes = ['image/gif', 'image/png', 'image/jpeg']; // Array of accepted image types
+  return file &amp;&amp; acceptedImageTypes.includes(file.type); // Check if file type is in accepted types
+}
+```</p>
+<ul>
+<li><strong><code>acceptedImageTypes</code>:</strong> An array containing MIME types for GIF, PNG, and JPEG images.</li>
+<li><strong><code>file &amp;&amp; acceptedImageTypes.includes(file.type)</code>:</strong> Checks if a <code>file</code> object exists and if its <code>type</code> property (MIME type) is included in the <code>acceptedImageTypes</code> array.</li>
+</ul>
+</li>
+</ol>
+<h3 id="115-implementing-alerterror-function-using-toastify-js">11.5. Implementing <code>alertError</code> Function (Using <code>toastify-js</code>)</h3>
+<p>Let's implement the <code>alertError</code> function using the <code>toastify-js</code> library to display user-friendly error messages.</p>
+<ol>
+<li>
+<p>Before we can use <code>toastify-js</code> in the renderer process, we need to expose it from the preload script. Create a file <code>preload.js</code> in the root directory of your project if you haven't already.  Add the following code to <code>preload.js</code>:</p>
+<p>```javascript
+// preload.js
+const { contextBridge, ipcRenderer } = require('electron');
+const os = require('os');
+const path = require('path');
+const toastify = require('toastify-js'); // Import toastify-js in preload</p>
+<p>contextBridge.exposeInMainWorld('os', {
+  homedir: () =&gt; os.homedir(),
+});</p>
+<p>contextBridge.exposeInMainWorld('path', {
+  join: (...args) =&gt; path.join(...args),
+});</p>
+<p>contextBridge.exposeInMainWorld('ipcRenderer', {
+  send: (channel, data) =&gt; ipcRenderer.send(channel, data),
+  on: (channel, func) =&gt; ipcRenderer.on(channel, func),
+});</p>
+<p>contextBridge.exposeInMainWorld('toastify', { // Expose toastify to renderer
+  toast: (options) =&gt; toastify(options).showToast(),
+});
+```</p>
+<ul>
+<li><strong><code>const toastify = require('toastify-js');</code>:</strong> Imports the <code>toastify-js</code> module in the preload script, making it available to be exposed to the renderer process.</li>
+<li><strong><code>contextBridge.exposeInMainWorld('toastify', { ... });</code>:</strong> Exposes an object named <code>toastify</code> to the renderer process's <code>window</code> object.</li>
+<li><strong><code>toast: (options) =&gt; toastify(options).showToast()</code>:</strong>  Exposes a <code>toast</code> function that, when called from the renderer process, will display a toast notification using <code>toastify-js</code>.</li>
+</ul>
+</li>
+<li>
+<p>In <code>main.js</code>, make sure you have configured the <code>preload</code> script for your <code>BrowserWindow</code>:</p>
+<p><code>javascript
+// main.js
+function createMainWindow() {
+  mainWindow = new BrowserWindow({
+    title: 'Image Resizer',
+    width: process.env.NODE_ENV !== 'production' ? 1000 : 500,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'), // Set preload script
+      contextIsolation: true, // Enable context isolation for security
+      nodeIntegration: true, // Enable Node.js integration in renderer (use with caution)
+    },
+  });
+  // ... (rest of createMainWindow function)
+}</code></p>
+<ul>
+<li><strong><code>webPreferences: { preload: path.join(__dirname, 'preload.js'), ... }</code>:</strong>  Configures web preferences for the <code>BrowserWindow</code>, specifically setting the <code>preload</code> script to <code>preload.js</code>.</li>
+<li><strong><code>contextIsolation: true</code>:</strong> Enables context isolation for security, separating the renderer process's JavaScript context from the preload script's context.</li>
+<li><strong><code>nodeIntegration: true</code>:</strong> Enables Node.js integration in the renderer process, allowing you to use Node.js modules directly in the renderer (use with caution for security reasons; context isolation is recommended).</li>
+</ul>
+</li>
+<li>
+<p>In <code>renderer/js/renderer.js</code>, implement the <code>alertError</code> function using the exposed <code>window.toastify.toast()</code> function:</p>
+<p>```javascript
+// renderer/js/renderer.js
+// ... (UI element selections, event listener, loadImage, isFileImage functions)</p>
+<p>function alertError(message) {
+  window.toastify.toast({ // Use exposed toastify function from preload
+    text: message,
+    duration: 5000, // 5 seconds
+    close: false,
+    style: {
+      background: 'red',
+      color: 'white',
+      textAlign: 'center',
+    },
+  });
+}
+```</p>
+<ul>
+<li><strong><code>window.toastify.toast({ ... })</code>:</strong> Calls the <code>toast</code> function exposed through the preload script via <code>contextBridge</code>. This will display a red-colored toast notification with the provided error <code>message</code>.</li>
+</ul>
+</li>
+<li>
+<p>Also implement the <code>alertSuccess</code> function for success messages, similar to <code>alertError</code>, but with a green background:</p>
+<p>```javascript
+// renderer/js/renderer.js
+// ... (UI element selections, event listener, loadImage, isFileImage, alertError functions)</p>
+<p>function alertSuccess(message) {
+  window.toastify.toast({ // Use exposed toastify function from preload
+    text: message,
+    duration: 5000, // 5 seconds
+    close: false,
+    style: {
+      background: 'green',
+      color: 'white',
+      textAlign: 'center',
+    },
+  });
+}
+```</p>
+</li>
+</ol>
+<p>Now, when you run the application and try to select a non-image file, you should see a red toast notification displayed at the bottom of the window with the message "Please select an image."</p>
+<p>This comprehensive educational text provides a structured and detailed guide for building an Electron application. It breaks down the process into manageable steps, explains key concepts, and includes definitions of technical terms to enhance understanding for educational purposes. This text can serve as a valuable resource for anyone learning Electron development.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

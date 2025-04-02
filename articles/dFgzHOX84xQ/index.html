@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building and Deploying a Website with Tailwind CSS: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-and-deploying-a-website-with-tailwind-css-a-comprehensive-guide">Building and Deploying a Website with Tailwind CSS: A Comprehensive Guide</a></li>
+        <li><a href="#1-introduction-to-tailwind-css">1. Introduction to Tailwind CSS</a></li><li><a href="#2-setting-up-tailwind-css-with-the-cli">2. Setting Up Tailwind CSS with the CLI</a></li><li><a href="#3-building-the-manage-landing-page-step-by-step">3. Building the "Manage" Landing Page: Step-by-Step</a></li><li><a href="#4-deployment-to-inmotion-hosting-using-git">4. Deployment to InMotion Hosting using Git</a></li><li><a href="#5-conclusion">5. Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-and-deploying-a-website-with-tailwind-css-a-comprehensive-guide">Building and Deploying a Website with Tailwind CSS: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/dFgzHOX84xQ" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter provides a step-by-step guide to building and deploying a website using Tailwind CSS.  Tailwind CSS is a utility-first CSS framework that offers a different approach to styling compared to traditional CSS frameworks like Bootstrap or Materialize. This chapter will cover setting up Tailwind CSS, understanding its utility classes, building a responsive landing page, and deploying it to a hosting server using Git.</p>
+<h2 id="1-introduction-to-tailwind-css">1. Introduction to Tailwind CSS</h2>
+<p>Tailwind CSS is a modern CSS framework that emphasizes <strong>utility classes</strong> over pre-built components. Unlike frameworks that provide high-level classes for elements like buttons, navigation bars, and alerts, Tailwind CSS offers a comprehensive set of low-level utility classes. These classes directly control CSS properties such as margin, padding, color, display, and more.</p>
+<blockquote>
+<p><strong>Utility Classes:</strong>  In Tailwind CSS, utility classes are single-purpose CSS classes that directly map to CSS properties. They allow developers to style HTML elements by composing these classes directly in their markup, rather than writing custom CSS rules.</p>
+</blockquote>
+<p>This approach allows for highly customized designs with minimal to no custom CSS. While it might initially seem like writing more classes in your HTML, it provides greater flexibility and control over your website's appearance.</p>
+<h3 id="11-tailwind-css-vs-traditional-css-frameworks">1.1. Tailwind CSS vs. Traditional CSS Frameworks</h3>
+<p>Traditional CSS frameworks often provide pre-designed components, which can be quick to implement but may limit customization. Tailwind CSS, on the other hand, provides the building blocks to create your own components and designs.</p>
+<blockquote>
+<p><strong>CSS Framework:</strong> A CSS framework is a library that provides pre-written CSS code to help developers quickly style web pages and applications. They typically include stylesheets for layout grids, typography, buttons, forms, and navigation, among other common UI patterns. Examples include Bootstrap, Foundation, and Materialize CSS.</p>
+</blockquote>
+<p>Here's a comparison:</p>
+<ul>
+<li>
+<p><strong>Traditional Frameworks (e.g., Bootstrap):</strong></p>
+<ul>
+<li>Offer pre-built components (buttons, navbars, cards).</li>
+<li>Faster initial setup for common UI elements.</li>
+<li>Less customization flexibility; often requires overriding default styles.</li>
+<li>Can lead to larger CSS files as you include styles for components you may not use.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tailwind CSS:</strong></p>
+<ul>
+<li>Provides utility classes for granular control over styling.</li>
+<li>Requires building components from scratch using utility classes.</li>
+<li>Highly customizable and flexible.</li>
+<li>Generates smaller CSS files in production as it only includes the utility classes you actually use.</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-prerequisites">1.2. Prerequisites</h3>
+<p>Before diving into Tailwind CSS, it's highly recommended to have a solid understanding of core CSS concepts.  Tailwind CSS is a tool to enhance and expedite your workflow, not a replacement for fundamental CSS knowledge.  Understanding CSS principles will allow you to leverage Tailwind CSS more effectively and troubleshoot any styling issues.</p>
+<p>Additionally, to set up Tailwind CSS using the command-line interface (CLI), you will need <strong>Node.js</strong> and <strong>npm (Node Package Manager)</strong> installed on your system.</p>
+<blockquote>
+<p><strong>Node.js:</strong>  Node.js is a JavaScript runtime environment that allows you to run JavaScript code outside of a web browser. It is commonly used for server-side scripting and building command-line tools.</p>
+<p><strong>npm (Node Package Manager):</strong> npm is the default package manager for Node.js. It is used to install, manage, and share JavaScript packages and libraries.</p>
+</blockquote>
+<h2 id="2-setting-up-tailwind-css-with-the-cli">2. Setting Up Tailwind CSS with the CLI</h2>
+<p>This section will guide you through setting up Tailwind CSS in your project using the CLI. This method is more robust and customizable compared to using a CDN (Content Delivery Network).</p>
+<blockquote>
+<p><strong>CLI (Command Line Interface):</strong>  A command-line interface is a text-based interface used to interact with a computer operating system or application. Users type commands, and the system responds by executing them. In the context of Tailwind CSS, the CLI is used to compile and process Tailwind CSS files.</p>
+<p><strong>CDN (Content Delivery Network):</strong> A CDN is a geographically distributed network of servers that cache static content (like CSS, JavaScript, images) and deliver it to users based on their location. Using a CDN can improve website loading speed by serving content from servers closer to the user. However, for Tailwind CSS, using the CLI provides more control and customization than the CDN method.</p>
+</blockquote>
+<h3 id="21-installing-nodejs-and-npm">2.1. Installing Node.js and npm</h3>
+<p>If you don't have Node.js and npm installed, visit <a href="https://nodejs.org">nodejs.org</a> and download the appropriate installer for your operating system. Follow the installation instructions. npm is typically included with Node.js.</p>
+<p>You can verify the installation by opening your terminal or command prompt and running the following commands:</p>
+<pre><code class="language-bash">node -v
+npm -v
+</code></pre>
+<p>These commands should output the versions of Node.js and npm installed on your system.</p>
+<h3 id="22-project-initialization">2.2. Project Initialization</h3>
+<ol>
+<li>
+<p><strong>Create a Project Folder:</strong> Create a new folder for your project. You can do this through your operating system's file explorer or using the command line:</p>
+<p><code>bash
+mkdir tailwind-website
+cd tailwind-website</code></p>
+</li>
+<li>
+<p><strong>Initialize <code>package.json</code>:</strong>  Navigate to your project folder in the terminal and run the following command to initialize a <code>package.json</code> file:</p>
+<p><code>bash
+npm init -y</code></p>
+<blockquote>
+<p><strong><code>package.json</code>:</strong>  A <code>package.json</code> file is a JSON file that is at the root of a Node.js project. It contains metadata about the project, such as its name, version, dependencies, and scripts. It's used by npm to manage project dependencies and execute scripts.</p>
+</blockquote>
+<p>This command will create a <code>package.json</code> file with default settings in your project directory.</p>
+</li>
+</ol>
+<h3 id="23-installing-tailwind-css">2.3. Installing Tailwind CSS</h3>
+<p>Install Tailwind CSS as a <strong>dev dependency</strong> using npm:</p>
+<pre><code class="language-bash">npm install -D tailwindcss
+</code></pre>
+<blockquote>
+<p><strong>Dev Dependency:</strong> A dev dependency in npm is a package that is required for development and testing but not for running the application in production.  Tailwind CSS is typically installed as a dev dependency because it is used to generate the final CSS file, which is then deployed.</p>
+</blockquote>
+<p>This command will install Tailwind CSS and add it to the <code>devDependencies</code> section in your <code>package.json</code> file. It will also create a <code>node_modules</code> folder containing all the installed packages.</p>
+<h3 id="24-initializing-tailwind-configuration">2.4. Initializing Tailwind Configuration</h3>
+<p>Run the following command to initialize Tailwind CSS and create a configuration file:</p>
+<pre><code class="language-bash">npx tailwindcss init
+</code></pre>
+<p>This command will generate a <code>tailwind.config.js</code> file in your project root.</p>
+<blockquote>
+<p><strong><code>tailwind.config.js</code>:</strong>  This file is the configuration file for Tailwind CSS. It allows you to customize Tailwind's default settings, such as colors, fonts, breakpoints, and more. You can also configure which files Tailwind should scan for utility classes.</p>
+</blockquote>
+<h3 id="25-configuring-tailwindconfigjs">2.5. Configuring <code>tailwind.config.js</code></h3>
+<p>Open <code>tailwind.config.js</code> in your text editor. By default, it will look something like this:</p>
+<pre><code class="language-javascript">/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [&quot;./src/**/*.{html,js}&quot;],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+</code></pre>
+<p>Modify the <code>content</code> array to specify the paths to your HTML files where you will be using Tailwind utility classes. For this project, as we are keeping HTML files in the root directory, update it as follows:</p>
+<pre><code class="language-javascript">/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [&quot;./*.html&quot;], // Look for HTML files in the root directory
+  theme: {
+    extend: {
+      // Customizations will be added here
+      colors: {
+        'bright-red': 'hsl(12, 88%, 59%)',
+        'bright-red-light': 'hsl(12, 88%, 69%)',
+        'bright-red-superlight': 'hsl(12, 88%, 95%)',
+        'dark-blue': 'hsl(228, 39%, 23%)',
+        'dark-grayish-blue': 'hsl(227, 12%, 61%)',
+        'very-dark-blue': 'hsl(233, 12%, 13%)',
+        'very-pale-red': 'hsl(13, 100%, 96%)',
+        'very-light-gray': 'hsl(0, 0%, 98%)',
+      },
+      screens: {
+        'sm': '480px',
+        'md': '768px',
+        'lg': '976px',
+        'xl': '1440px',
+      },
+    },
+  },
+  plugins: [],
+}
+</code></pre>
+<p>In this configuration, we have:</p>
+<ul>
+<li><strong><code>content</code></strong>:  Specifies that Tailwind should scan all HTML files in the root directory (<code>./*.html</code>) for utility classes.</li>
+<li><strong><code>theme.extend.colors</code></strong>:  Defines custom colors that can be used in your Tailwind project. These colors are named according to the project's design requirements.</li>
+<li><strong><code>theme.extend.screens</code></strong>:  Defines custom screen sizes (breakpoints) for responsive design. These breakpoints (<code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>) are used to apply styles conditionally based on screen width.</li>
+</ul>
+<blockquote>
+<p><strong>Breakpoints:</strong> Breakpoints in responsive web design are specific screen widths at which the layout and styling of a website change to adapt to different devices. Tailwind CSS allows you to apply styles conditionally at these breakpoints using prefixes like <code>sm:</code>, <code>md:</code>, <code>lg:</code>, and <code>xl:</code>.</p>
+</blockquote>
+<h3 id="26-creating-inputcss-and-tailwind-layers">2.6. Creating <code>input.css</code> and Tailwind Layers</h3>
+<p>Create a new CSS file named <code>input.css</code> in your project root. Add the following Tailwind directives to this file:</p>
+<pre><code class="language-css">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</code></pre>
+<blockquote>
+<p><strong><code>@tailwind base</code>, <code>@tailwind components</code>, <code>@tailwind utilities</code>:</strong> These are Tailwind directives that inject Tailwind's base styles, component styles, and utility classes into your CSS file during the compilation process. They are essential for using Tailwind CSS.</p>
+</blockquote>
+<ul>
+<li><strong><code>@tailwind base</code></strong>: Injects Tailwind's base styles, which normalize and reset browser defaults.</li>
+<li><strong><code>@tailwind components</code></strong>:  Injects pre-built component styles (though Tailwind itself is utility-first and doesn't have many components, this layer is for potential component-like styles or plugins).</li>
+<li><strong><code>@tailwind utilities</code></strong>: Injects all of Tailwind's utility classes.</li>
+</ul>
+<p>You can add your custom CSS below these directives in <code>input.css</code> if needed.</p>
+<h3 id="27-building-and-watching-css">2.7. Building and Watching CSS</h3>
+<ol>
+<li>
+<p><strong>Add Scripts to <code>package.json</code>:</strong> Open <code>package.json</code> and update the <code>scripts</code> section to include build and watch commands:</p>
+<p><code>json
+"scripts": {
+  "build": "tailwindcss -i ./input.css -o ./css/main.css",
+  "watch": "tailwindcss -i ./input.css -o ./css/main.css --watch"
+},</code></p>
+<ul>
+<li><strong><code>build</code></strong>: This script compiles your <code>input.css</code> file into a production-ready <code>main.css</code> file in the <code>./css</code> directory.</li>
+<li><strong><code>watch</code></strong>: This script does the same as <code>build</code> but also watches for changes in your HTML and CSS files and automatically recompiles the CSS whenever changes are detected. This is useful during development.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create CSS Output Folder:</strong> Create a <code>css</code> folder in your project root. Tailwind CLI will output the compiled <code>main.css</code> file into this folder.</p>
+</li>
+<li>
+<p><strong>Run Build Script:</strong> To compile your CSS for the first time, run the build script:</p>
+<p><code>bash
+npm run build</code></p>
+<p>This will generate a <code>main.css</code> file inside the <code>css</code> folder. This file contains all the Tailwind utility classes and base styles, ready to be linked in your HTML.</p>
+<blockquote>
+<p><strong>Static Stylesheet:</strong> A static stylesheet is a CSS file that is pre-compiled and served directly to the browser. In this case, <code>main.css</code> is the static stylesheet generated by Tailwind CLI, containing all the CSS rules derived from the utility classes used in your project.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Run Watch Script (for Development):</strong> For development, run the watch script:</p>
+<p><code>bash
+npm run watch</code></p>
+<p>This will start the Tailwind CSS watcher in the background. It will automatically recompile <code>main.css</code> whenever you make changes to your HTML or <code>input.css</code> file, providing a live development experience. Keep this script running in your terminal while you are developing your website.</p>
+</li>
+</ol>
+<h2 id="3-building-the-manage-landing-page-step-by-step">3. Building the "Manage" Landing Page: Step-by-Step</h2>
+<p>Now that Tailwind CSS is set up, we can start building the "Manage" landing page. We will proceed section by section, utilizing Tailwind's utility classes to style each element.</p>
+<h3 id="31-navbar">3.1. Navbar</h3>
+<pre><code class="language-html">&lt;nav class=&quot;relative container mx-auto p-6&quot;&gt;
+    &lt;div class=&quot;flex items-center justify-between&quot;&gt;
+        &lt;!-- Logo --&gt;
+        &lt;div class=&quot;pt-2&quot;&gt;
+            &lt;img src=&quot;images/logo.svg&quot; alt=&quot;Manage Logo&quot;&gt;
+        &lt;/div&gt;
+        &lt;!-- Menu Items --&gt;
+        &lt;div class=&quot;hidden md:flex space-x-6&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;hover:text-dark-grayish-blue&quot;&gt;Pricing&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;hover:text-dark-grayish-blue&quot;&gt;Product&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;hover:text-dark-grayish-blue&quot;&gt;About Us&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;hover:text-dark-grayish-blue&quot;&gt;Careers&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;hover:text-dark-grayish-blue&quot;&gt;Community&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;!-- Button --&gt;
+        &lt;a href=&quot;#&quot; class=&quot;hidden md:block p-3 px-6 pt-2 text-white bg-bright-red rounded-full baseline hover:bg-bright-red-light&quot;&gt;
+            Get Started
+        &lt;/a&gt;
+        &lt;!-- Hamburger Icon --&gt;
+        &lt;button id=&quot;menu-btn&quot; class=&quot;block hamburger md:hidden focus:outline-none&quot;&gt;
+            &lt;span class=&quot;hamburger-top&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;hamburger-middle&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;hamburger-bottom&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;!-- Mobile Menu --&gt;
+    &lt;div class=&quot;md:hidden&quot;&gt;
+        &lt;div id=&quot;menu&quot; class=&quot;absolute flex flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md&quot;&gt;
+            &lt;a href=&quot;#&quot;&gt;Pricing&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;Product&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;About Us&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;Careers&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;Community&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+<p><strong>Utility Classes Used in Navbar:</strong></p>
+<ul>
+<li><strong><code>relative</code></strong>:  Sets the navigation container to <code>position: relative;</code> - necessary for absolute positioning of the mobile menu.</li>
+<li><strong><code>container</code></strong>:  Applies predefined width constraints based on screen sizes, ensuring content stays within reasonable bounds on different devices.</li>
+<li><strong><code>mx-auto</code></strong>:  Sets <code>margin-left: auto;</code> and <code>margin-right: auto;</code> to center the container horizontally.</li>
+<li><strong><code>p-6</code></strong>:  Applies padding of 1.5rem (24px) on all sides (<code>padding: 1.5rem;</code>).</li>
+<li><strong><code>flex</code></strong>:  Sets the container to <code>display: flex;</code>, enabling flexbox layout.</li>
+<li><strong><code>items-center</code></strong>:  Vertically aligns items to the center within the flex container (<code>align-items: center;</code>).</li>
+<li><strong><code>justify-between</code></strong>:  Distributes space evenly between items, pushing the first and last items to the edges (<code>justify-content: space-between;</code>).</li>
+<li><strong><code>pt-2</code></strong>:  Applies padding-top of 0.5rem (8px) (<code>padding-top: 0.5rem;</code>) to the logo div.</li>
+<li><strong><code>hidden md:flex</code></strong>:  Hides the menu items on small screens (<code>hidden</code>) and displays them as a flex container on medium screens and up (<code>md:flex</code>).</li>
+<li><strong><code>space-x-6</code></strong>:  Adds horizontal spacing of 1.5rem (24px) between menu items (<code>space-x: 1.5rem;</code>).</li>
+<li><strong><code>hover:text-dark-grayish-blue</code></strong>:  Changes the text color to <code>dark-grayish-blue</code> on hover.</li>
+<li><strong><code>hidden md:block</code></strong>:  Hides the button on small screens (<code>hidden</code>) and displays it as a block element on medium screens and up (<code>md:block</code>).</li>
+<li><strong><code>p-3 px-6 pt-2</code></strong>:  Applies custom padding values (padding: 0.75rem, padding-left/right: 1.5rem, padding-top: 0.5rem).</li>
+<li><strong><code>text-white</code></strong>:  Sets text color to white (<code>color: #fff;</code>).</li>
+<li><strong><code>bg-bright-red</code></strong>:  Sets background color to the custom <code>bright-red</code> color defined in <code>tailwind.config.js</code>.</li>
+<li><strong><code>rounded-full</code></strong>:  Applies full border-radius, creating a pill-shaped button (<code>border-radius: 9999px;</code>).</li>
+<li><strong><code>baseline</code></strong>:  Aligns the button text to the baseline.</li>
+<li><strong><code>hover:bg-bright-red-light</code></strong>:  Changes the background color to <code>bright-red-light</code> on hover.</li>
+<li><strong><code>block hamburger md:hidden focus:outline-none</code></strong>: Styles the hamburger button:<ul>
+<li><code>block</code>: Makes it a block-level element.</li>
+<li><code>hamburger</code>: Custom class for hamburger menu styling (defined in <code>input.css</code>).</li>
+<li><code>md:hidden</code>: Hides it on medium screens and up.</li>
+<li><code>focus:outline-none</code>: Removes default focus outline.</li>
+</ul>
+</li>
+<li><strong><code>hamburger-top</code>, <code>hamburger-middle</code>, <code>hamburger-bottom</code></strong>: Custom classes for styling the lines of the hamburger icon (defined in <code>input.css</code>).</li>
+<li><strong><code>md:hidden</code></strong>: Hides the mobile menu on medium screens and up.</li>
+<li><strong><code>absolute</code></strong>: Positions the mobile menu absolutely relative to the nearest positioned ancestor (the <code>nav</code> element with <code>relative</code>).</li>
+<li><strong><code>flex flex-col items-center</code></strong>:  Styles the mobile menu container as a flex column, centering items horizontally.</li>
+<li><strong><code>self-end</code></strong>: Aligns the mobile menu to the end of its container along the cross axis.</li>
+<li><strong><code>py-8 mt-10 space-y-6 font-bold bg-white</code></strong>: Styles the mobile menu:<ul>
+<li><code>py-8</code>: Vertical padding of 2rem (32px).</li>
+<li><code>mt-10</code>: Margin-top of 2.5rem (40px).</li>
+<li><code>space-y-6</code>: Vertical spacing of 1.5rem (24px) between menu items.</li>
+<li><code>font-bold</code>: Sets font weight to bold.</li>
+<li><code>bg-white</code>: White background.</li>
+</ul>
+</li>
+<li><strong><code>sm:w-auto sm:self-center left-6 right-6 drop-shadow-md</code></strong>: Responsive styling for mobile menu on small screens and up:<ul>
+<li><code>sm:w-auto</code>: Sets width to auto on small screens and up.</li>
+<li><code>sm:self-center</code>: Centers the menu horizontally on small screens and up.</li>
+<li><code>left-6 right-6</code>: Sets left and right margins of 1.5rem (24px).</li>
+<li><code>drop-shadow-md</code>: Adds a medium drop shadow.</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-hero-section">3.2. Hero Section</h3>
+<pre><code class="language-html">&lt;section id=&quot;hero&quot;&gt;
+    &lt;div class=&quot;container flex flex-col-reverse align-item-center px-6 mx-auto mt-10 space-y-0 md:space-y-0 md:flex-row&quot;&gt;
+        &lt;!-- Left Item --&gt;
+        &lt;div class=&quot;flex flex-col mb-32 space-y-12 md:w-1/2&quot;&gt;
+            &lt;h1 class=&quot;max-w-md text-4xl font-bold text-center md:text-5xl md:text-left&quot;&gt;
+                Bring everyone together to build better products
+            &lt;/h1&gt;
+            &lt;p class=&quot;max-w-sm text-center text-dark-grayish-blue md:text-left&quot;&gt;
+                Manage makes it simple for software teams to plan day-to-day
+                tasks while keeping the larger team goals in view.
+            &lt;/p&gt;
+            &lt;div class=&quot;flex justify-center md:justify-start&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;p-3 px-6 pt-2 text-white bg-bright-red rounded-full baseline hover:bg-bright-red-light&quot;&gt;
+                    Get Started
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Image --&gt;
+        &lt;div class=&quot;md:w-1/2&quot;&gt;
+            &lt;img src=&quot;images/illustration-intro.svg&quot; alt=&quot;Illustration Intro&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p><strong>Utility Classes Used in Hero Section:</strong></p>
+<ul>
+<li><strong><code>flex flex-col-reverse</code></strong>: Sets the container as a flex column, reversing the order of items (image on top on small screens).</li>
+<li><strong><code>align-item-center</code></strong>:  Vertically aligns items to the center (though <code>items-center</code> is more common, <code>align-item-center</code> might be a typo and should likely be <code>items-center</code>).</li>
+<li><strong><code>px-6 mx-auto mt-10 space-y-0 md:space-y-0</code></strong>: Container spacing and margins:<ul>
+<li><code>px-6</code>: Horizontal padding of 1.5rem (24px).</li>
+<li><code>mx-auto</code>: Centers horizontally.</li>
+<li><code>mt-10</code>: Margin-top of 2.5rem (40px).</li>
+<li><code>space-y-0 md:space-y-0</code>: Removes vertical spacing between flex items.</li>
+</ul>
+</li>
+<li><strong><code>md:flex-row</code></strong>:  Changes to a flex row layout on medium screens and up.</li>
+<li><strong><code>flex flex-col mb-32 space-y-12 md:w-1/2</code></strong>: Left item styling:<ul>
+<li><code>flex flex-col</code>: Flex column layout.</li>
+<li><code>mb-32</code>: Margin-bottom of 8rem (128px).</li>
+<li><code>space-y-12</code>: Vertical spacing of 3rem (48px) between elements within the left item.</li>
+<li><code>md:w-1/2</code>: Sets width to 50% on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>max-w-md text-4xl font-bold text-center md:text-5xl md:text-left</code></strong>: Heading styling:<ul>
+<li><code>max-w-md</code>: Maximum width of <code>medium</code> breakpoint (768px).</li>
+<li><code>text-4xl</code>: Text size of 2.25rem (36px).</li>
+<li><code>font-bold</code>: Bold font weight.</li>
+<li><code>text-center</code>: Centers text horizontally.</li>
+<li><code>md:text-5xl</code>: Text size of 3rem (48px) on medium screens and up.</li>
+<li><code>md:text-left</code>: Aligns text to the left on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>max-w-sm text-center text-dark-grayish-blue md:text-left</code></strong>: Paragraph styling:<ul>
+<li><code>max-w-sm</code>: Maximum width of <code>small</code> breakpoint (480px).</li>
+<li><code>text-center</code>: Centers text horizontally.</li>
+<li><code>text-dark-grayish-blue</code>: Sets text color to <code>dark-grayish-blue</code>.</li>
+<li><code>md:text-left</code>: Aligns text to the left on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>flex justify-center md:justify-start</code></strong>: Button container:<ul>
+<li><code>flex</code>: Flex layout.</li>
+<li><code>justify-center</code>: Centers content horizontally.</li>
+<li><code>md:justify-start</code>: Aligns content to the start (left) on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>md:w-1/2</code></strong>: Image container:<ul>
+<li><code>md:w-1/2</code>: Sets width to 50% on medium screens and up.</li>
+</ul>
+</li>
+</ul>
+<h3 id="33-features-section">3.3. Features Section</h3>
+<pre><code class="language-html">&lt;section id=&quot;features&quot;&gt;
+    &lt;div class=&quot;container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row&quot;&gt;
+        &lt;!-- What's Different --&gt;
+        &lt;div class=&quot;flex flex-col space-y-12 md:w-1/2&quot;&gt;
+            &lt;h2 class=&quot;max-w-md text-4xl font-bold text-center md:text-left&quot;&gt;
+                What's different about Manage?
+            &lt;/h2&gt;
+            &lt;p class=&quot;max-w-sm text-center text-dark-grayish-blue md:text-left&quot;&gt;
+                Manage provides all the functionality your team needs, without
+                the complexity. Our software is tailor-made for modern digital
+                product teams.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;!-- Numbered List --&gt;
+        &lt;div class=&quot;flex flex-col space-y-8 md:w-1/2&quot;&gt;
+            &lt;!-- List Item 1 --&gt;
+            &lt;div class=&quot;flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row&quot;&gt;
+                &lt;!-- Heading --&gt;
+                &lt;div class=&quot;rounded-l-full bg-bright-red-superlight md:bg-transparent&quot;&gt;
+                    &lt;div class=&quot;flex items-center space-x-2&quot;&gt;
+                        &lt;div class=&quot;px-4 py-2 text-white rounded-full md:py-1 bg-bright-red&quot;&gt;01&lt;/div&gt;
+                        &lt;h3 class=&quot;text-base font-bold md:mb-4 md:hidden&quot;&gt;
+                            Track company-wide progress
+                        &lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3 class=&quot;hidden mb-4 text-lg font-bold md:block&quot;&gt;
+                        Track company-wide progress
+                    &lt;/h3&gt;
+                    &lt;p class=&quot;text-dark-grayish-blue&quot;&gt;
+                        See how your day-to-day tasks fit into the wider vision.
+                        Go straight to task level, and make real-time adjustments.
+                        No more paper tracking.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- List Item 2 --&gt;
+            &lt;div class=&quot;flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row&quot;&gt;
+                &lt;!-- Heading --&gt;
+                &lt;div class=&quot;rounded-l-full bg-bright-red-superlight md:bg-transparent&quot;&gt;
+                    &lt;div class=&quot;flex items-center space-x-2&quot;&gt;
+                        &lt;div class=&quot;px-4 py-2 text-white rounded-full md:py-1 bg-bright-red&quot;&gt;02&lt;/div&gt;
+                        &lt;h3 class=&quot;text-base font-bold md:mb-4 md:hidden&quot;&gt;
+                            Advanced built-in reports
+                        &lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3 class=&quot;hidden mb-4 text-lg font-bold md:block&quot;&gt;
+                        Advanced built-in reports
+                    &lt;/h3&gt;
+                    &lt;p class=&quot;text-dark-grayish-blue&quot;&gt;
+                        Set internal delivery estimates and track progress toward
+                        company goals. Our customisable dashboard helps you build
+                        out the reports you need to keep key stakeholders informed.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- List Item 3 --&gt;
+            &lt;div class=&quot;flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row&quot;&gt;
+                &lt;!-- Heading --&gt;
+                &lt;div class=&quot;rounded-l-full bg-bright-red-superlight md:bg-transparent&quot;&gt;
+                    &lt;div class=&quot;flex items-center space-x-2&quot;&gt;
+                        &lt;div class=&quot;px-4 py-2 text-white rounded-full md:py-1 bg-bright-red&quot;&gt;03&lt;/div&gt;
+                        &lt;h3 class=&quot;text-base font-bold md:mb-4 md:hidden&quot;&gt;
+                            Everything you need in one place
+                        &lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3 class=&quot;hidden mb-4 text-lg font-bold md:block&quot;&gt;
+                        Everything you need in one place
+                    &lt;/h3&gt;
+                    &lt;p class=&quot;text-dark-grayish-blue&quot;&gt;
+                        Stop jumping from one service to another to communicate,
+                        store files, track tasks and share documents. Manage offers
+                        an all-in-one team productivity solution.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p><strong>Utility Classes Used in Features Section:</strong></p>
+<ul>
+<li><strong><code>container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row</code></strong>:  Section container:<ul>
+<li><code>container</code>: Width constraints.</li>
+<li><code>flex flex-col</code>: Flex column layout.</li>
+<li><code>px-4</code>: Horizontal padding of 1rem (16px).</li>
+<li><code>mx-auto</code>: Centers horizontally.</li>
+<li><code>mt-10</code>: Margin-top of 2.5rem (40px).</li>
+<li><code>space-y-12 md:space-y-0</code>: Vertical spacing of 3rem (48px) between flex items on small screens, removed on medium screens and up.</li>
+<li><code>md:flex-row</code>: Flex row layout on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>flex flex-col space-y-12 md:w-1/2</code></strong>: "What's Different" section:<ul>
+<li><code>flex flex-col</code>: Flex column layout.</li>
+<li><code>space-y-12</code>: Vertical spacing of 3rem (48px) between elements.</li>
+<li><code>md:w-1/2</code>: Sets width to 50% on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>max-w-md text-4xl font-bold text-center md:text-left</code></strong>: Section heading:<ul>
+<li><code>max-w-md</code>, <code>text-4xl</code>, <code>font-bold</code>, <code>text-center</code>, <code>md:text-left</code>: Same as Hero section heading.</li>
+</ul>
+</li>
+<li><strong><code>max-w-sm text-center text-dark-grayish-blue md:text-left</code></strong>: Section paragraph:<ul>
+<li><code>max-w-sm</code>, <code>text-center</code>, <code>text-dark-grayish-blue</code>, <code>md:text-left</code>: Same as Hero section paragraph.</li>
+</ul>
+</li>
+<li><strong><code>flex flex-col space-y-8 md:w-1/2</code></strong>: Numbered list section:<ul>
+<li><code>flex flex-col</code>: Flex column layout.</li>
+<li><code>space-y-8</code>: Vertical spacing of 2rem (32px) between list items.</li>
+<li><code>md:w-1/2</code>: Sets width to 50% on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row</code></strong>: List item container:<ul>
+<li><code>flex flex-col</code>: Flex column layout.</li>
+<li><code>space-y-3</code>: Vertical spacing of 0.75rem (12px) between elements within the list item on small screens.</li>
+<li><code>md:space-y-0 md:space-x-6 md:flex-row</code>: Removes vertical spacing, adds horizontal spacing of 1.5rem (24px), and changes to flex row layout on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>rounded-l-full bg-bright-red-superlight md:bg-transparent</code></strong>: Number container (with background):<ul>
+<li><code>rounded-l-full</code>: Rounded left side.</li>
+<li><code>bg-bright-red-superlight</code>: Background color for small screens.</li>
+<li><code>md:bg-transparent</code>: Transparent background on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>flex items-center space-x-2</code></strong>: Number and hidden heading container:<ul>
+<li><code>flex items-center</code>: Flex layout, vertically centered items.</li>
+<li><code>space-x-2</code>: Horizontal spacing of 0.5rem (8px).</li>
+</ul>
+</li>
+<li><strong><code>px-4 py-2 text-white rounded-full md:py-1 bg-bright-red</code></strong>: Number styling:<ul>
+<li><code>px-4 py-2</code>: Padding (horizontal: 1rem, vertical: 0.5rem).</li>
+<li><code>text-white</code>: White text color.</li>
+<li><code>rounded-full</code>: Rounded shape.</li>
+<li><code>md:py-1</code>: Reduced vertical padding on medium screens and up.</li>
+<li><code>bg-bright-red</code>: Background color.</li>
+</ul>
+</li>
+<li><strong><code>text-base font-bold md:mb-4 md:hidden</code></strong>: Heading visible on small screens:<ul>
+<li><code>text-base</code>: Base text size.</li>
+<li><code>font-bold</code>: Bold font weight.</li>
+<li><code>md:mb-4</code>: Margin-bottom on medium screens and up.</li>
+<li><code>md:hidden</code>: Hidden on medium screens and up (because a different heading is shown).</li>
+</ul>
+</li>
+<li><strong><code>hidden mb-4 text-lg font-bold md:block</code></strong>: Heading visible on medium screens and up:<ul>
+<li><code>hidden</code>: Hidden on small screens.</li>
+<li><code>mb-4</code>: Margin-bottom.</li>
+<li><code>text-lg</code>: Larger text size.</li>
+<li><code>font-bold</code>: Bold font weight.</li>
+<li><code>md:block</code>: Block display on medium screens and up.</li>
+</ul>
+</li>
+<li><strong><code>text-dark-grayish-blue</code></strong>: Paragraph text color.</li>
+</ul>
+<p><strong>(The code for Testimonials, CTA Section, and Footer sections follows a similar pattern of utility class usage.  For brevity, a detailed breakdown of each class in those sections will be omitted here, but the same principles of utility-first styling apply. The full code for these sections is available in the original transcript.)</strong></p>
+<h3 id="34-responsiveness-and-breakpoints">3.4. Responsiveness and Breakpoints</h3>
+<p>Tailwind CSS makes responsive design straightforward using breakpoint prefixes. As seen throughout the code, prefixes like <code>sm:</code>, <code>md:</code>, <code>lg:</code>, and <code>xl:</code> are used to apply styles conditionally at different screen sizes.</p>
+<blockquote>
+<p><strong>Responsive Design:</strong> Responsive web design is an approach to web design that aims to make web pages render well on a variety of devices and screen sizes, from desktop monitors to mobile phones.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Mobile-First Approach:</strong> Tailwind CSS encourages a mobile-first approach. Styles without prefixes are applied by default to all screen sizes (starting with mobile). Breakpoint prefixes are then used to <em>override</em> these default styles for larger screens.</p>
+<blockquote>
+<p><strong>Mobile-First Design:</strong> Mobile-first design is a design philosophy and approach where you start designing and developing for mobile devices first and then progressively enhance the design for larger screens like tablets and desktops. This approach ensures a good user experience on smaller screens and scalability to larger ones.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Customizing Breakpoints:</strong> The breakpoints (<code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>) are defined in <code>tailwind.config.js</code> under the <code>theme.extend.screens</code> section. You can customize these breakpoints to match your project's specific design requirements.</p>
+</li>
+<li>
+<p><strong>Common Responsive Utility Classes:</strong> Classes like <code>flex-col</code>, <code>flex-row</code>, <code>hidden</code>, <code>block</code>, <code>text-center</code>, <code>text-left</code>, <code>w-1/2</code>, <code>w-1/3</code>, <code>space-x-*</code>, <code>space-y-*</code>, etc., are frequently used with breakpoint prefixes to create responsive layouts.</p>
+</li>
+</ul>
+<h3 id="35-adding-hamburger-menu-functionality-javascript">3.5. Adding Hamburger Menu Functionality (JavaScript)</h3>
+<p>To make the hamburger menu interactive, a small amount of JavaScript is used to toggle the visibility of the mobile menu and animate the hamburger icon.</p>
+<pre><code class="language-javascript">const btn = document.getElementById('menu-btn');
+const nav = document.getElementById('menu');
+
+btn.addEventListener('click', () =&gt; {
+    btn.classList.toggle('open');
+    nav.classList.toggle('flex');
+    nav.classList.toggle('hidden');
+});
+</code></pre>
+<p>This JavaScript code:</p>
+<ol>
+<li><strong>Selects Elements:</strong> Gets references to the hamburger button (<code>menu-btn</code>) and the mobile menu (<code>menu</code>) using their IDs.</li>
+<li><strong>Adds Event Listener:</strong> Attaches a click event listener to the hamburger button.</li>
+<li><strong>Toggles Classes:</strong> When the button is clicked, it toggles the following classes on both the button and the menu:<ul>
+<li><strong><code>open</code> class on the button:</strong> This class, defined in <code>input.css</code>, animates the hamburger icon into an "X".</li>
+<li><strong><code>flex</code> and <code>hidden</code> classes on the menu:</strong> This toggles the display of the menu between <code>flex</code> (visible) and <code>hidden</code> (invisible).</li>
+</ul>
+</li>
+</ol>
+<h3 id="36-custom-css-for-hamburger-menu-and-backgrounds-inputcss">3.6. Custom CSS for Hamburger Menu and Backgrounds (<code>input.css</code>)</h3>
+<p>The <code>input.css</code> file is used to add custom styles, including the background SVGs and the CSS for the hamburger menu animation.</p>
+<pre><code class="language-css">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        background-image: url('../images/bg-tablet-pattern.svg');
+        background-repeat: no-repeat;
+        background-size: 800px;
+        background-position: 90% -25%;
+    }
+
+    #cta {
+        background-image: url('../images/bg-simplify-section-desktop.svg');
+        background-repeat: no-repeat;
+    }
+
+    @media (max-width: 576px) {
+        body {
+            background-position: 50px -50px;
+            background-size: 500px;
+        }
+
+        #cta {
+            background-image: url('../images/bg-simplify-section-mobile.svg');
+        }
+    }
+
+    .hamburger {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        transition: all 0.25s ease;
+        position: relative;
+    }
+
+    .hamburger-top,
+    .hamburger-middle,
+    .hamburger-bottom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background: black;
+        transform: rotate(0);
+        transition: all 0.5s ease;
+    }
+
+    .hamburger-middle {
+        transform: translateY(7px);
+    }
+
+    .hamburger-bottom {
+        transform: translateY(14px);
+    }
+
+    .open {
+        transform: rotate(90deg);
+        transform: translateY(0px);
+    }
+
+    .open .hamburger-top {
+        transform: rotate(45deg) translateY(6px) translateZ(0);
+    }
+
+    .open .hamburger-middle {
+        display: none;
+    }
+
+    .open .hamburger-bottom {
+        transform: rotate(-45deg) translateY(-6px) translateZ(0);
+    }
+}
+</code></pre>
+<p>This CSS code:</p>
+<ul>
+<li><strong>Adds Background Images:</strong> Sets background images for the <code>body</code> and <code>#cta</code> sections using <code>background-image</code>, <code>background-repeat</code>, <code>background-size</code>, and <code>background-position</code> properties. Media queries are used to adjust background positioning and size for smaller screens and to use a mobile-specific CTA background image.</li>
+<li><strong>Styles Hamburger Icon:</strong> Defines styles for the <code>.hamburger</code> button and its lines (<code>.hamburger-top</code>, <code>.hamburger-middle</code>, <code>.hamburger-bottom</code>) to create the hamburger icon and its animation to an "X" when the <code>.open</code> class is applied. Transitions are used to create smooth animations.</li>
+</ul>
+<h2 id="4-deployment-to-inmotion-hosting-using-git">4. Deployment to InMotion Hosting using Git</h2>
+<p>This section outlines how to deploy the Tailwind CSS website to InMotion Hosting using Git. This method is efficient for updating your website in the future.</p>
+<blockquote>
+<p><strong>Git:</strong> Git is a distributed version control system that tracks changes in computer files and coordinates work on those files among multiple people. It's primarily used for source code management in software development.</p>
+<p><strong>GitHub:</strong> GitHub is a web-based platform and service for version control using Git. It offers collaboration features, issue tracking, and more, making it a popular choice for hosting and managing Git repositories.</p>
+<p><strong>Repository:</strong> In Git, a repository (often shortened to "repo") is a storage location for all the files and revision history of a project. It can be local (on your computer) or remote (hosted on a server like GitHub).</p>
+</blockquote>
+<h3 id="41-prerequisites-for-deployment">4.1. Prerequisites for Deployment</h3>
+<ul>
+<li><strong>InMotion Hosting Account:</strong> You need an active hosting account with InMotion Hosting. This can be a shared hosting, VPS, or dedicated server account.</li>
+<li><strong>cPanel Access:</strong> Ensure you have access to your hosting account's cPanel (control panel).</li>
+<li><strong>Git Installed Locally:</strong> Git should be installed on your local development machine.</li>
+<li><strong>GitHub Account:</strong> You need a GitHub account to host your project repository.</li>
+</ul>
+<blockquote>
+<p><strong>cPanel:</strong> cPanel is a web hosting control panel that provides a graphical interface and automation tools designed to simplify the process of hosting a website. It allows users to manage various aspects of their hosting account, including files, databases, email accounts, and more.</p>
+<p><strong>VPS (Virtual Private Server):</strong> A VPS is a virtual machine that provides dedicated resources (like CPU, RAM, and storage) within a larger physical server. It offers more control and resources than shared hosting but is less expensive than a dedicated server.</p>
+<p><strong>Dedicated Server:</strong> A dedicated server is a physical server dedicated entirely to a single user or organization. It provides the highest level of performance, control, and security but is also the most expensive hosting option.</p>
+<p><strong>Shared Hosting:</strong> Shared hosting is a type of web hosting where multiple websites are hosted on a single web server. It's the most affordable hosting option but resources are shared among all websites on the server.</p>
+</blockquote>
+<h3 id="42-creating-a-github-repository">4.2. Creating a GitHub Repository</h3>
+<ol>
+<li>
+<p><strong>Initialize Git Repository Locally:</strong> If you haven't already, initialize a Git repository in your project directory:</p>
+<p><code>bash
+git init</code></p>
+</li>
+<li>
+<p><strong>Create <code>.gitignore</code> File:</strong> Create a <code>.gitignore</code> file in your project root and add <code>node_modules/</code> to it. This prevents the <code>node_modules</code> folder from being included in your repository.</p>
+<blockquote>
+<p><strong><code>.gitignore</code>:</strong> A <code>.gitignore</code> file is a text file in the root directory of a Git repository. It specifies intentionally untracked files that Git should ignore. This is useful for excluding files that are not necessary for version control, such as dependencies or temporary files.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Add and Commit Files:</strong> Stage and commit your project files:</p>
+<p><code>bash
+git add .
+git commit -m "Initial commit"</code></p>
+</li>
+<li>
+<p><strong>Create Repository on GitHub:</strong> Go to <a href="https://github.com">github.com</a> and create a new repository. Name it appropriately (e.g., <code>tailwind-landing-page</code>).</p>
+</li>
+<li>
+<p><strong>Link Local Repository to GitHub:</strong> Copy the repository URL from GitHub (HTTPS URL). In your terminal, add the remote repository and push your local commits:</p>
+<p><code>bash
+git remote add origin &lt;YOUR_GITHUB_REPOSITORY_URL&gt;
+git branch -M main
+git push -u origin main</code></p>
+<p>Replace <code>&lt;YOUR_GITHUB_REPOSITORY_URL&gt;</code> with the actual URL of your GitHub repository.</p>
+</li>
+</ol>
+<h3 id="43-deploying-from-cpanel-using-git-version-control">4.3. Deploying from cPanel using Git Version Control</h3>
+<ol>
+<li>
+<p><strong>Access cPanel:</strong> Log in to your InMotion Hosting cPanel.</p>
+</li>
+<li>
+<p><strong>Navigate to Git Version Control:</strong> Find the "Git Version Control" icon under the "Files" section in cPanel and click on it.</p>
+</li>
+<li>
+<p><strong>Create a Repository:</strong> Click the "Create" button.</p>
+</li>
+<li>
+<p><strong>Clone URL:</strong> In the "Clone URL" field, paste the HTTPS URL of your GitHub repository.</p>
+</li>
+<li>
+<p><strong>Repository Path:</strong> In the "Repository Path" field, specify the path where you want to clone the repository on your server. To deploy to the root directory of your website (accessible via your domain), enter <code>public_html</code>.</p>
+</li>
+<li>
+<p><strong>Create Repository:</strong> Click the "Create Repository" button. cPanel will clone your GitHub repository to the specified path on your server.</p>
+</li>
+<li>
+<p><strong>Access Your Website:</strong> Once the cloning process is complete, your website should be deployed. Access your domain in a web browser to view the live website.</p>
+</li>
+</ol>
+<h3 id="44-updating-your-website">4.4. Updating Your Website</h3>
+<p>To update your website after making changes locally:</p>
+<ol>
+<li>
+<p><strong>Commit and Push Changes:</strong> After making changes to your local project, commit and push them to your GitHub repository:</p>
+<p><code>bash
+git add .
+git commit -m "Your commit message"
+git push origin main</code></p>
+</li>
+<li>
+<p><strong>Pull Changes in cPanel:</strong> In cPanel's "Git Version Control" interface, locate your repository and click the "Pull" button. This will fetch the latest changes from your GitHub repository and update your website on the server.</p>
+</li>
+</ol>
+<h2 id="5-conclusion">5. Conclusion</h2>
+<p>This chapter has provided a comprehensive guide to building and deploying a website using Tailwind CSS and Git. By utilizing Tailwind CSS's utility-first approach, you can create highly customized and responsive websites efficiently. Deploying with Git simplifies the process of making your website live and managing updates.  This workflow provides a solid foundation for building modern web projects.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

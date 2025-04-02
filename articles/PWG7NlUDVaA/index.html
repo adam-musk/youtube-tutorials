@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>The FARM Stack: A Modern Web Development Toolkit - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#the-farm-stack-a-modern-web-development-toolkit">The FARM Stack: A Modern Web Development Toolkit</a></li>
+        <li><a href="#introduction-to-the-farm-stack">Introduction to the FARM Stack</a></li><li><a href="#components-of-the-farm-stack">Components of the FARM Stack</a></li><li><a href="#advantages-of-using-the-farm-stack">Advantages of Using the FARM Stack</a></li><li><a href="#docker-and-containerization-in-the-farm-stack">Docker and Containerization in the FARM Stack</a></li><li><a href="#building-a-to-do-application-with-the-farm-stack">Building a To-Do Application with the FARM Stack</a></li><li><a href="#project-setup-and-backend-configuration">Project Setup and Backend Configuration</a></li><li><a href="#frontend-react-application-setup">Frontend (React Application) Setup</a></li><li><a href="#running-the-farm-stack-application">Running the FARM Stack Application</a></li><li><a href="#verifying-data-in-mongodb-atlas">Verifying Data in MongoDB Atlas</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="the-farm-stack-a-modern-web-development-toolkit">The FARM Stack: A Modern Web Development Toolkit</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/PWG7NlUDVaA" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-the-farm-stack">Introduction to the FARM Stack</h2>
+<p>Welcome to this educational resource on the FARM stack, a contemporary web development stack designed for building robust and scalable web applications. This stack combines four key technologies: <strong>FastAPI</strong>, <strong>React</strong>, and <strong>MongoDB</strong>, providing a full-stack solution for developers.</p>
+<blockquote>
+<p>The <strong>FARM stack</strong> is an acronym representing the combination of <strong>FastAPI</strong>, <strong>React</strong>, and <strong>MongoDB</strong>. It is a modern web development stack that leverages the strengths of each technology to build efficient and scalable web applications.</p>
+</blockquote>
+<p>This educational material will introduce each of these technologies and guide you through building a project using the FARM stack and <strong>Docker</strong> to illustrate their practical application and integration. Feel free to navigate directly to sections of particular interest.</p>
+<p>The FARM stack is structured to leverage the unique advantages of each component, enabling the creation of feature-rich applications with a streamlined development experience.</p>
+<h2 id="components-of-the-farm-stack">Components of the FARM Stack</h2>
+<p>Let's delve into each component of the FARM stack individually:</p>
+<h3 id="fastapi-the-backend-api-framework">FastAPI: The Backend API Framework</h3>
+<p><strong>FastAPI</strong> is a modern, high-performance Python web framework specifically designed for building APIs. It prioritizes ease of use, speed of development, and production readiness.</p>
+<blockquote>
+<p><strong>FastAPI</strong> is a Python web framework for building APIs that emphasizes speed, efficiency, and ease of use. It is built upon Starlette and Pydantic, leveraging their capabilities for web handling and data validation.</p>
+</blockquote>
+<p>FastAPI is built upon two powerful underlying libraries:</p>
+<ul>
+<li><strong>Starlette:</strong>  Provides the foundation for the web-related aspects of FastAPI, handling HTTP requests and responses efficiently.</li>
+<li><strong>Pydantic:</strong> Manages data validation and serialization, ensuring data integrity and type safety within the API.</li>
+</ul>
+<p>FastAPI is an excellent choice for building robust backend services due to its performance and developer-friendly features.</p>
+<h3 id="react-the-frontend-user-interface-library">React: The Frontend User Interface Library</h3>
+<p><strong>React</strong> is a widely adopted JavaScript library for constructing user interfaces (UIs). It excels at building reusable UI components that efficiently update and render in response to data changes.</p>
+<blockquote>
+<p><strong>React</strong> is a JavaScript library used for building interactive user interfaces, particularly single-page applications. It emphasizes component reusability and efficient UI updates through a virtual DOM.</p>
+</blockquote>
+<p>Key features of React include:</p>
+<ul>
+<li><strong>Component-Based Architecture:</strong> React promotes the creation of modular and reusable UI components. Each component manages its own state and logic, making applications easier to develop, maintain, and test. These components can be composed together to build complex UIs.</li>
+<li>
+<p><strong>Virtual DOM (Document Object Model):</strong> React utilizes a virtual DOM to optimize performance. Instead of directly manipulating the real DOM whenever data changes, React updates the virtual DOM first. It then efficiently calculates the minimal changes needed and updates only those parts in the real DOM, leading to faster and smoother UI updates.</p>
+<blockquote>
+<p>The <strong>DOM (Document Object Model)</strong> is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as a tree of objects.</p>
+<p>The <strong>Virtual DOM</strong> is a lightweight in-memory representation of the real DOM. React uses it to batch updates and efficiently render changes to the actual browser DOM, improving performance.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Declarative UI:</strong> React allows developers to describe the desired UI for each state of the application. React then takes care of updating and rendering only the necessary components when the data changes, simplifying the development of interactive UIs.</p>
+</li>
+<li>
+<p><strong>JSX (JavaScript XML):</strong> React uses JSX, a syntax extension that allows embedding HTML-like structures directly within JavaScript code. This syntax enhances code readability and simplifies the process of defining UI components.</p>
+<blockquote>
+<p><strong>JSX</strong> is a syntax extension for JavaScript that allows you to write HTML-like code within your JavaScript. It is used in React to describe the structure of UI components.</p>
+</blockquote>
+</li>
+</ul>
+<p>React's component-based structure and virtual DOM make it ideal for creating dynamic and responsive frontend applications.</p>
+<h3 id="mongodb-the-nosql-database">MongoDB: The NoSQL Database</h3>
+<p><strong>MongoDB</strong> is a document-oriented <strong>NoSQL</strong> database designed to handle large data volumes with high performance, scalability, and flexibility. Unlike traditional relational databases, MongoDB stores data in flexible, JSON-like documents.</p>
+<blockquote>
+<p><strong>NoSQL (Not Only SQL)</strong> databases are a type of database that diverge from the traditional relational database model. They are designed to handle large volumes of unstructured or semi-structured data and offer flexibility in data schemas.</p>
+<p><strong>Document-oriented database</strong> is a type of NoSQL database that stores data in documents, which are typically JSON-like structures. This allows for flexible schemas and easier handling of complex data.</p>
+</blockquote>
+<p>Key characteristics of MongoDB:</p>
+<ul>
+<li><strong>Document Storage:</strong> MongoDB stores data in collections of documents. These documents are similar to JSON objects, meaning fields can vary from document to document within the same collection, and the data structure can evolve over time.</li>
+<li>
+<p><strong>Flexible Schema:</strong>  MongoDB collections do not enforce a fixed schema. This schema-less nature allows for greater flexibility in data modeling and accommodates evolving data requirements, especially beneficial for unstructured or semi-structured data.</p>
+<blockquote>
+<p>A <strong>schema</strong> in database context refers to the structure of the data, including the types of data that can be stored and the relationships between different data elements. Relational databases typically enforce a strict schema, while NoSQL databases like MongoDB are more flexible.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Collections:</strong> In MongoDB, data is organized into collections, which are analogous to tables in relational databases. However, unlike tables, collections do not require a predefined schema.</p>
+</li>
+<li>
+<p><strong>BSON (Binary JSON):</strong> While documents are conceptually JSON-like, MongoDB stores data in <strong>BSON</strong>, a binary serialized format of JSON. BSON extends JSON to include additional data types like integers, floats, dates, and binary data, optimized for performance and storage efficiency.</p>
+<blockquote>
+<p><strong>BSON (Binary JSON)</strong> is a binary-encoded serialization of JSON-like documents. MongoDB uses BSON for data storage and network transfer because it is more efficient in terms of space and parsing speed compared to plain text JSON.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Horizontal Scalability:</strong> MongoDB is designed for horizontal scalability, allowing data to be distributed across multiple servers (sharding). This facilitates handling large datasets and ensures high availability and fault tolerance.</p>
+<blockquote>
+<p><strong>Horizontal scalability</strong> is the ability to increase the capacity of a system by adding more servers or nodes to distribute the workload. MongoDB's architecture supports horizontal scalability through sharding.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Rich Query Language and Indexing:</strong> MongoDB supports a powerful query language, indexing, and aggregation framework, making it suitable for a wide range of applications requiring complex data retrieval and analysis.</p>
+</li>
+</ul>
+<p>MongoDB's flexibility and scalability make it a strong choice for modern applications dealing with diverse and dynamic data.</p>
+<h2 id="advantages-of-using-the-farm-stack">Advantages of Using the FARM Stack</h2>
+<p>Combining FastAPI, React, and MongoDB into the FARM stack offers several significant advantages for web development:</p>
+<ul>
+<li><strong>High Performance:</strong> Each component of the FARM stack is designed for high performance. FastAPI is one of the fastest Python frameworks, React's virtual DOM ensures efficient UI rendering, and MongoDB's document model allows for rapid read and write operations.</li>
+<li><strong>Scalability:</strong> All technologies within the FARM stack are built to scale. FastAPI can handle concurrent requests efficiently, React applications manage complex user interfaces effectively, and MongoDB can distribute data across multiple servers for increased capacity.</li>
+<li><strong>Community and Ecosystem:</strong> FastAPI, React, and MongoDB all benefit from large, active communities and rich ecosystems. This means access to extensive libraries, tools, and community support, facilitating development and problem-solving.</li>
+<li>
+<p><strong>Flexibility:</strong> The FARM stack is versatile enough to accommodate a wide range of web application types, from simple CRUD (Create, Read, Update, Delete) applications to complex, data-intensive systems. It is particularly well-suited for applications requiring real-time updates, complex data models, and high performance.</p>
+<blockquote>
+<p><strong>CRUD (Create, Read, Update, Delete)</strong> is an acronym that refers to the four basic operations that can be performed on data in a database. It represents the fundamental functions of persistent storage.</p>
+</blockquote>
+</li>
+</ul>
+<p>By integrating these technologies, the FARM stack provides a comprehensive and powerful solution for building modern web applications.</p>
+<h2 id="docker-and-containerization-in-the-farm-stack">Docker and Containerization in the FARM Stack</h2>
+<p>While not strictly part of the FARM stack acronym, <strong>Docker</strong> is an invaluable tool for simplifying the development, deployment, and management of FARM stack applications. Docker enables <strong>containerization</strong>, packaging applications and their dependencies into isolated units called containers.</p>
+<blockquote>
+<p><strong>Docker</strong> is a platform that uses containerization to package, distribute, and run applications. It allows developers to encapsulate an application and its dependencies into a container, ensuring consistency across different environments.</p>
+<p><strong>Containerization</strong> is a form of operating system virtualization. Containers package up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</p>
+</blockquote>
+<p>Benefits of using Docker:</p>
+<ul>
+<li><strong>Consistency:</strong> Docker ensures consistent application behavior across different environments (development, testing, production). It eliminates the "it works on my machine" problem by packaging the application with its exact runtime environment.</li>
+<li><strong>Isolation:</strong> Each Docker container runs in isolation from other containers and the host system. This prevents dependency conflicts between applications and enhances security.</li>
+<li><strong>Efficiency:</strong> Docker containers are lightweight and share the host operating system's kernel, making them more resource-efficient compared to traditional virtual machines.</li>
+<li><strong>Scalability:</strong> Docker simplifies application scaling. You can easily scale applications by creating and deploying more containers as needed to handle increased load.</li>
+</ul>
+<p>Key Docker Concepts:</p>
+<ul>
+<li>
+<p><strong>Docker Image:</strong> A read-only template that contains instructions for creating a Docker container. It's like a blueprint that includes the application code, runtime environment, system libraries, and settings.</p>
+<blockquote>
+<p>A <strong>Docker image</strong> is a read-only template used to create containers. It contains the application code, libraries, tools, and settings needed to run a specific application.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Docker Container:</strong> A running instance of a Docker image. Containers are isolated environments where applications run. You can start, stop, and manage containers independently.</p>
+<blockquote>
+<p>A <strong>Docker container</strong> is a runnable instance of a Docker image. It is a lightweight, isolated environment where an application can run along with its dependencies.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Docker Hub:</strong> A public registry for finding and sharing Docker images. It acts as a repository where developers can upload and download pre-built images.</p>
+<blockquote>
+<p><strong>Docker Hub</strong> is a cloud-based registry service provided by Docker. It is used for storing and distributing Docker images, both public and private.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Docker Compose:</strong> A tool for defining and running multi-container Docker applications. It uses a YAML file to configure application services, networks, and volumes and allows starting all services with a single command. Docker Compose is particularly useful for orchestrating FARM stack applications, which typically involve multiple containers (frontend, backend, database).</p>
+<blockquote>
+<p><strong>Docker Compose</strong> is a Docker tool used to define and manage multi-container Docker applications. It uses a YAML file to configure all the application's services, networks, and volumes, allowing you to start and stop the entire stack with a single command.</p>
+</blockquote>
+</li>
+</ul>
+<p>Elements of Docker Compose:</p>
+<ul>
+<li><strong>YAML File (docker-compose.yml):</strong> Configuration is defined in a YAML file, specifying services, images, ports, volumes, and networks for the application.</li>
+<li><strong>Single Command Start:</strong> Docker Compose allows starting all defined services with a single command (<code>docker-compose up</code>).</li>
+<li><strong>Environment Management:</strong> Docker Compose can manage different environments (development, testing, production) through configuration files and environment variables.</li>
+<li><strong>Network Creation:</strong> Docker Compose automatically creates a network for the application's containers, facilitating communication between them.</li>
+</ul>
+<p>In the context of the FARM stack to-do application, Docker will be used to containerize the FastAPI backend, React frontend, and MongoDB database, ensuring consistency across environments, simplifying dependency management, and facilitating deployment and scaling.</p>
+<h2 id="building-a-to-do-application-with-the-farm-stack">Building a To-Do Application with the FARM Stack</h2>
+<p>This educational resource will guide you through building a practical to-do application using the FARM stack. This project will showcase how the different components of the FARM stack work together to create a functional web application.</p>
+<p>Key features of the to-do application will include:</p>
+<ul>
+<li><strong>Multiple To-Do Lists:</strong> Users can create, view, update, and delete multiple to-do lists. Each list will have a name and contain multiple to-do items.</li>
+<li><strong>To-Do Items within Lists:</strong> Users can add, view, update, and delete to-do items within each list. Each item will have a label, a checked/unchecked status, and belong to a specific list.</li>
+<li><strong>Real-time Updates:</strong> The user interface will update in real time when changes are made to lists or items, providing a dynamic user experience.</li>
+<li><strong>Responsive Design:</strong> The application will be designed to be responsive and function well on both desktop and mobile devices.</li>
+</ul>
+<h3 id="data-model-for-the-to-do-application">Data Model for the To-Do Application</h3>
+<p>The MongoDB data model will consist of two primary structures:</p>
+<ul>
+<li>
+<p><strong>To-Do List Document:</strong></p>
+<p><code>json
+{
+  "_id": ObjectId,
+  "name": "Shopping List",
+  "items": [
+    {
+      "_id": ObjectId,
+      "label": "Milk",
+      "checked": false
+    },
+    {
+      "_id": ObjectId,
+      "label": "Eggs",
+      "checked": true
+    }
+  ]
+}</code></p>
+</li>
+<li>
+<p><strong>List Summary Document:</strong> (Used for displaying lists in overview)</p>
+<p><code>json
+{
+  "_id": ObjectId,
+  "name": "Shopping List",
+  "itemCount": 2
+}</code></p>
+</li>
+</ul>
+<h3 id="fastapi-backend-endpoints">FastAPI Backend Endpoints</h3>
+<p>The FastAPI backend will expose <strong>RESTful</strong> endpoints for interacting with to-do lists and items.</p>
+<blockquote>
+<p><strong>RESTful (Representational State Transfer)</strong> is an architectural style for designing networked applications. REST relies on a stateless, client-server, cacheable communications protocol -- and in virtually all cases, the HTTP protocol is used. RESTful APIs are designed to be simple and scalable.</p>
+</blockquote>
+<p><strong>To-Do List Endpoints:</strong></p>
+<ul>
+<li><code>GET /api/lists</code>: Retrieve all to-do lists (summaries).</li>
+<li><code>POST /api/lists</code>: Create a new to-do list (requires list name in request body).</li>
+<li><code>GET /api/lists/{list_id}</code>: Retrieve a specific to-do list (including items).</li>
+<li><code>DELETE /api/lists/{list_id}</code>: Delete a to-do list.</li>
+</ul>
+<p><strong>To-Do Item Endpoints:</strong></p>
+<ul>
+<li><code>POST /api/lists/{list_id}/items</code>: Add a new item to a to-do list (requires item label in request body).</li>
+<li><code>DELETE /api/lists/{list_id}/items/{item_id}</code>: Delete a to-do item from a list.</li>
+<li><code>PUT /api/lists/{list_id}/items/{item_id}/check</code>: Update the checked status of a to-do item.</li>
+</ul>
+<p>This project will provide a strong foundation in FARM stack development and Docker containerization, serving as a stepping stone for building more complex applications in the future.</p>
+<h2 id="project-setup-and-backend-configuration">Project Setup and Backend Configuration</h2>
+<p>Let's begin setting up the project structure and configuring the backend environment.</p>
+<h3 id="project-structure">Project Structure</h3>
+<ol>
+<li>Create a new directory for the project, for example, <code>farm-todo</code>.</li>
+<li>Navigate into the project directory: <code>cd farm-todo</code>.</li>
+<li>Create subdirectories for the backend and frontend:
+    <code>bash
+    mkdir backend frontend</code></li>
+</ol>
+<h3 id="backend-environment-setup">Backend Environment Setup</h3>
+<ol>
+<li>Navigate to the backend directory: <code>cd backend</code>.</li>
+<li>
+<p>Create a <strong>virtual environment</strong>:
+    <code>bash
+    python3 -m venv venv</code></p>
+<blockquote>
+<p>A <strong>virtual environment</strong> is a tool to create isolated Python environments. It allows you to have different dependencies for different projects, avoiding conflicts between project requirements.</p>
+</blockquote>
+</li>
+<li>
+<p>Activate the virtual environment:</p>
+<ul>
+<li>On Linux/macOS: <code>source venv/bin/activate</code></li>
+<li>On Windows: <code>venv\Scripts\activate</code></li>
+</ul>
+</li>
+<li>Create the following files in the <code>backend</code> directory:<ul>
+<li><code>Dockerfile</code>: For Docker container configuration.</li>
+<li><code>pyproject.toml</code>: For Python project configuration.</li>
+</ul>
+</li>
+<li>
+<p>Install required Python packages:
+    <code>bash
+    pip install "fastapi[all]" motor[srv] beanie aio-stream</code></p>
+<ul>
+<li>
+<p><code>fastapi[all]</code>: Installs FastAPI with all optional dependencies, including Uvicorn (ASGI server).</p>
+<blockquote>
+<p><strong>ASGI (Asynchronous Server Gateway Interface)</strong> is a standard for Python asynchronous web servers and applications. Uvicorn is an ASGI server used to run FastAPI applications.</p>
+</blockquote>
+</li>
+<li>
+<p><code>motor[srv]</code>: An asynchronous MongoDB driver for Python with SRV connection string support.</p>
+<blockquote>
+<p><strong>MongoDB driver</strong> is a library that allows applications written in a specific programming language to interact with a MongoDB database. Motor is the asynchronous driver for Python.
+<strong>SRV connection string</strong> is a MongoDB connection string format that allows automatic discovery of MongoDB server addresses from DNS SRV records.</p>
+</blockquote>
+</li>
+<li>
+<p><code>beanie</code>: An object-document mapper (ODM) for MongoDB built on top of Motor.</p>
+<blockquote>
+<p><strong>ODM (Object-Document Mapper)</strong> is a software layer that provides object-oriented access to a document database, similar to how ORMs work for relational databases. Beanie is an ODM for MongoDB in Python.</p>
+</blockquote>
+</li>
+<li>
+<p><code>aio-stream</code>: Tools for working with asynchronous streams in Python.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Generate <code>requirements.txt</code> file:
+    <code>bash
+    pip freeze &gt; requirements.txt</code>
+    This file lists all installed Python packages and their versions, useful for replicating the environment.</p>
+</li>
+</ol>
+<h3 id="dockerfile-for-backend">Dockerfile for Backend</h3>
+<p>Create a file named <code>Dockerfile</code> in the <code>backend</code> directory and add the following content:</p>
+<pre><code class="language-dockerfile">FROM python:3
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+EXPOSE 3001
+
+COPY . .
+
+CMD [&quot;uvicorn&quot;, &quot;src.server:app&quot;, &quot;--reload&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--port&quot;, &quot;3001&quot;]
+</code></pre>
+<p><strong>Explanation of Dockerfile Instructions:</strong></p>
+<ul>
+<li><code>FROM python:3</code>: Specifies the base Docker image as the official Python 3 image from Docker Hub.</li>
+<li><code>WORKDIR /app</code>: Sets the working directory inside the Docker container to <code>/app</code>.</li>
+<li><code>COPY requirements.txt .</code>: Copies the <code>requirements.txt</code> file from the local backend directory to the container's current directory (<code>/app</code>).</li>
+<li><code>RUN pip install -r requirements.txt</code>: Executes the <code>pip install</code> command within the container to install Python packages listed in <code>requirements.txt</code>.</li>
+<li><code>EXPOSE 3001</code>: Informs Docker that the container will listen on port 3001 at runtime.</li>
+<li><code>COPY . .</code>: Copies all files from the local backend directory to the container's working directory (<code>/app</code>).</li>
+<li><code>CMD ["uvicorn", "src.server:app", "--reload", "--host", "0.0.0.0", "--port", "3001"]</code>: Defines the command to be executed when the container starts. It runs the FastAPI application using Uvicorn, specifying the server file (<code>src.server:app</code>), enabling reload for development, and setting the host and port.</li>
+</ul>
+<h3 id="pyprojecttoml-for-backend">pyproject.toml for Backend</h3>
+<p>Create a file named <code>pyproject.toml</code> in the <code>backend</code> directory and add the following content:</p>
+<pre><code class="language-toml">[tool.pytest.ini_options]
+pythonpath = [&quot;src&quot;]
+</code></pre>
+<p><code>pyproject.toml</code> is a configuration file for Python projects, standardized in PEP 518. In this case, it is used to configure pytest, a testing framework.</p>
+<blockquote>
+<p><strong>PEP (Python Enhancement Proposal)</strong> documents are design documents for the Python community. PEP 518 standardized the <code>pyproject.toml</code> file for Python project configuration.</p>
+</blockquote>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>[tool.pytest.ini_options]</code>:  Indicates configuration options for the <code>pytest</code> tool.</li>
+<li><code>pythonpath = ["src"]</code>:  Tells pytest to add the <code>src</code> directory to the Python path when running tests. This is useful for importing modules from the <code>src</code> directory during testing.</li>
+</ul>
+<h3 id="setting-up-the-data-access-layer-dal">Setting up the Data Access Layer (DAL)</h3>
+<ol>
+<li>Inside the <code>backend</code> directory, create a subdirectory named <code>src</code>: <code>mkdir src</code>.</li>
+<li>Navigate to the <code>src</code> directory: <code>cd src</code>.</li>
+<li>Create a file named <code>dal.py</code> (Data Access Layer) and add the provided code from the transcript. This file encapsulates database interactions.</li>
+<li>Create a file named <code>server.py</code> and add the provided code from the transcript. This file defines the FastAPI application and its endpoints.</li>
+</ol>
+<h3 id="mongodb-atlas-setup-and-connection">MongoDB Atlas Setup and Connection</h3>
+<ol>
+<li>Navigate to <a href="https://www.mongodb.com/">mongodb.com</a> and sign up for a MongoDB Atlas account or sign in if you already have one.</li>
+<li>Create a new project in MongoDB Atlas.</li>
+<li>Create a free-tier MongoDB cluster.</li>
+<li>Set up a username and password for database access.</li>
+<li>Configure network access to allow connections from your IP address or allow access from all IPs for development purposes (less secure for production).</li>
+<li>Obtain the MongoDB URI connection string. You'll find this in the "Connect" section of your cluster in MongoDB Atlas.</li>
+<li>Create a <code>.env</code> file in the root directory of your <code>farm-todo</code> project (at the same level as <code>backend</code> and <code>frontend</code> directories).</li>
+<li>
+<p>Add the following line to the <code>.env</code> file, replacing <code>&lt;your_mongodb_uri&gt;</code> with the URI you copied from MongoDB Atlas, and replace <code>&lt;your_password&gt;</code> with the password you set up. Also, append <code>/to-do</code> to the URI before the <code>?</code> to specify the database name as "to-do":</p>
+<p><code>env
+MONGODB_URL="mongodb+srv://&lt;your_username&gt;:&lt;your_password&gt;@&lt;your_cluster_address&gt;/to-do?retryWrites=true&amp;w=majority"</code></p>
+<p><strong>Important:</strong> Ensure you replace placeholders with your actual MongoDB credentials and database name. Remember to secure your <code>.env</code> file and not commit it to version control in real projects, especially if it contains sensitive information.</p>
+</li>
+</ol>
+<h3 id="docker-compose-configuration">Docker Compose Configuration</h3>
+<ol>
+<li>In the root directory of your <code>farm-todo</code> project, create a file named <code>docker-compose.yml</code> and add the provided Docker Compose configuration from the transcript.</li>
+</ol>
+<h3 id="engine-x-configuration">Engine X Configuration</h3>
+<ol>
+<li>In the root directory of your <code>farm-todo</code> project, create a directory named <code>nginx</code>: <code>mkdir nginx</code>.</li>
+<li>Navigate to the <code>nginx</code> directory: <code>cd nginx</code>.</li>
+<li>Create a file named <code>nginx.conf</code> and add the provided Engine X configuration from the transcript. This configuration sets up Engine X as a reverse proxy to route requests to the frontend and backend services.</li>
+</ol>
+<h2 id="frontend-react-application-setup">Frontend (React Application) Setup</h2>
+<ol>
+<li>Navigate to the <code>frontend</code> directory: <code>cd ../frontend</code>.</li>
+<li>Create a new React application using Create React App:
+    <code>bash
+    npx create-react-app .</code>
+    This command creates a new React app in the current directory (<code>.</code>).</li>
+<li>Install additional dependencies:
+    <code>bash
+    npm install axios react-icons</code><ul>
+<li><code>axios</code>: An HTTP client for making API requests from the frontend.</li>
+<li><code>react-icons</code>: A library of icons for React applications.</li>
+</ul>
+</li>
+<li>Replace the content of <code>src/App.js</code> with the provided code from the transcript for the main application component.</li>
+<li>Create a new file <code>src/ListTodoList.js</code> and add the provided code for the list of to-do lists component.</li>
+<li>Create a new file <code>src/ListTodoList.css</code> and add the provided CSS styling for the list component.</li>
+<li>Create a new file <code>src/TodoList.js</code> and add the provided code for the individual to-do list component.</li>
+<li>Create a new file <code>src/TodoList.css</code> and add the provided CSS styling for the to-do list component.</li>
+<li>Update <code>src/index.css</code> with the provided basic styling from the transcript.</li>
+</ol>
+<h2 id="running-the-farm-stack-application">Running the FARM Stack Application</h2>
+<ol>
+<li>Open a terminal in the root directory of your <code>farm-todo</code> project.</li>
+<li>Run the following command to build and start the Docker containers:
+    <code>bash
+    docker-compose up --build</code>
+    This command will:<ul>
+<li>Build Docker images for the backend and frontend services if they don't exist or have changed.</li>
+<li>Start all services defined in <code>docker-compose.yml</code> (Engine X, frontend, backend, MongoDB - if you chose to include a local one, though Atlas is used in this tutorial).</li>
+<li>Stream logs from all containers to your terminal.</li>
+</ul>
+</li>
+<li>Once the application is running (indicated by logs showing the frontend and backend servers started), open your web browser and navigate to <code>http://localhost:8000</code>.</li>
+<li>You should see the to-do application running in your browser. You can now interact with the application, create to-do lists, add items, check items off, and delete lists and items.</li>
+</ol>
+<h2 id="verifying-data-in-mongodb-atlas">Verifying Data in MongoDB Atlas</h2>
+<ol>
+<li>Go to your MongoDB Atlas dashboard in your web browser.</li>
+<li>Navigate to your cluster and then to "Collections".</li>
+<li>Browse the collections in your "to-do" database. You should see data being created and updated in real-time as you interact with the to-do application in your browser.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations on completing this comprehensive guide to the FARM stack! By building this to-do application, you've gained practical experience with FastAPI, React, MongoDB, and Docker. You have learned how to create a backend API, a dynamic frontend, a NoSQL database, and how to containerize your application for consistent deployment. This project serves as a solid foundation for further exploration and development of more complex web applications using the FARM stack. Happy coding!</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

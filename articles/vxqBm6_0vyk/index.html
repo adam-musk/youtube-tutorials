@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>PyScript: Running Python in the Browser - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#pyscript-running-python-in-the-browser">PyScript: Running Python in the Browser</a></li>
+        <li><a href="#introduction-to-pyscript">Introduction to PyScript</a></li><li><a href="#setting-up-pyscript">Setting Up PyScript</a></li><li><a href="#exploring-pyscript-in-practice">Exploring PyScript in Practice</a></li><li><a href="#hands-on-demonstration-building-a-simple-array-shuffler">Hands-on Demonstration: Building a Simple Array Shuffler</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="pyscript-running-python-in-the-browser">PyScript: Running Python in the Browser</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/vxqBm6_0vyk" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-pyscript">Introduction to PyScript</h2>
+<p>This chapter explores PyScript, a novel framework that empowers developers to execute Python code and utilize Python packages directly within web browsers using HTML. This capability opens exciting new possibilities, particularly in fields like data science, by bringing the power of Python's extensive ecosystem to the front-end.</p>
+<p>It is crucial to understand that PyScript is not intended to replace JavaScript for traditional front-end development tasks such as DOM manipulation or fetching data for display. Instead, PyScript shines when integrating powerful Python libraries, like Pandas and NumPy, into browser-based applications.</p>
+<blockquote>
+<p><strong>Framework:</strong> In software development, a framework is a foundational structure that simplifies the development of applications by providing reusable components, libraries, and tools. It sets a standard way to build and deploy applications.</p>
+</blockquote>
+<p>Currently in its alpha stage, PyScript is a very new technology with limited readily available learning resources. This chapter serves as an introductory exploration, demonstrating its core functionalities and potential.</p>
+<h2 id="setting-up-pyscript">Setting Up PyScript</h2>
+<h3 id="minimal-installation">Minimal Installation</h3>
+<p>One of PyScript's key advantages is its ease of setup. Unlike traditional software installations, PyScript requires no local installation. To integrate PyScript into your HTML project, you simply need to include two files via CDN links in the <code>&lt;head&gt;</code> section of your HTML document: <code>pi-script.js</code> and <code>pi-script.css</code>.</p>
+<blockquote>
+<p><strong>CDN (Content Delivery Network):</strong> A geographically distributed network of servers that caches static content (like JavaScript and CSS files) to deliver it to users from the server closest to them, resulting in faster loading times.</p>
+</blockquote>
+<p>The <code>pi-script.js</code> file is the core JavaScript library that enables Python execution, while <code>pi-script.css</code> provides default styling, based on Tailwind CSS, for PyScript components.  You can also choose to download these files and host them locally if preferred.</p>
+<h3 id="core-components-webassembly-and-pyodide">Core Components: WebAssembly and Pyodide</h3>
+<p>PyScript's functionality is built upon two key technologies: WebAssembly (WASM) and Pyodide.</p>
+<blockquote>
+<p><strong>WebAssembly (WASM):</strong> A binary instruction format for a stack-based virtual machine. It is designed as a portable compilation target for programming languages, enabling high-performance applications on the web.</p>
+<p><strong>Pyodide:</strong> A Python distribution for the browser and Node.js that is based on WebAssembly. It allows running Python and installing Python packages within these environments.</p>
+</blockquote>
+<p>Pyodide, leveraging WebAssembly, compiles Python and its standard libraries to run efficiently in the browser environment. This makes it possible to execute Python code and install Python packages directly within the browser, without server-side Python installations.  Pyodide also incorporates Micropip, a Python package installer designed for use within the browser environment.</p>
+<blockquote>
+<p><strong>Micropip:</strong> A Python package installer specifically designed for Pyodide and browser-based Python environments. It allows installing Python packages directly in the browser without needing a traditional Python installation.</p>
+</blockquote>
+<h3 id="key-features-of-pyscript">Key Features of PyScript</h3>
+<p>PyScript boasts several compelling features that make it a valuable tool for specific web development scenarios:</p>
+<ul>
+<li><strong>Python in the Browser:</strong> Enables the execution of Python code directly within the browser environment.</li>
+<li><strong>Python Ecosystem Access:</strong> Grants access to the vast Python ecosystem and allows the use of various Python packages.</li>
+<li>
+<p><strong>Python-JavaScript Interoperability:</strong> Facilitates bi-directional communication between Python and JavaScript, allowing for seamless integration of both languages within a single project. This includes accessing browser Web APIs from Python code.</p>
+<blockquote>
+<p><strong>Web APIs (Web Application Programming Interfaces):</strong>  A set of programming interfaces provided by web browsers that allow web developers to interact with browser functionalities and the surrounding computing environment, such as the DOM, geolocation, and more.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Environment Management:</strong> Allows developers to define project dependencies, including Python packages and external files, directly within the HTML.</p>
+</li>
+<li>
+<p><strong>Visual Application Development:</strong> Provides UI components like buttons, lists, and containers for building interactive user interfaces.</p>
+<blockquote>
+<p><strong>UI Components (User Interface Components):</strong> Reusable building blocks for constructing user interfaces. They include elements like buttons, input fields, dropdown menus, and containers, providing pre-built functionality and structure.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="exploring-pyscript-in-practice">Exploring PyScript in Practice</h2>
+<p>To understand PyScript in action, examining practical examples is beneficial. The official PyScript GitHub repository provides a wealth of examples demonstrating various functionalities. Cloning this repository and exploring the examples, particularly those utilizing libraries like Bokeh, D3, and NumPy, is a valuable learning exercise.</p>
+<p>The <code>to-do.html</code> example within the repository is particularly instructive. It demonstrates how to interact with the Document Object Model (DOM) using Python within PyScript.</p>
+<blockquote>
+<p><strong>DOM (Document Object Model):</strong> A programming interface for HTML and XML documents. It represents the page structure as a tree of objects, allowing programs to dynamically access and update the content, structure, and style of a website.</p>
+</blockquote>
+<p>This example showcases event handling using the <code>pys-on-click</code> attribute, which links HTML elements to Python functions. It also illustrates how to select elements from the DOM and manipulate them using Python code, taking user inputs and dynamically updating the webpage content.</p>
+<h2 id="hands-on-demonstration-building-a-simple-array-shuffler">Hands-on Demonstration: Building a Simple Array Shuffler</h2>
+<p>Let's delve into a practical example to solidify our understanding of PyScript. We will build a simple application that displays a NumPy array and allows users to shuffle its elements using a button.</p>
+<h3 id="setting-up-the-html-structure">Setting up the HTML Structure</h3>
+<ol>
+<li><strong>Create <code>index.html</code>:</strong>  Start by creating an <code>index.html</code> file in your project directory.</li>
+<li><strong>Basic HTML Boilerplate:</strong> Add the basic HTML structure, including the PyScript CSS and JS links in the <code>&lt;head&gt;</code> section as discussed earlier. Set the title to "PyScript Demo".</li>
+<li>
+<p><strong>Disable Prettier Formatting (Optional):</strong> If using VS Code with Prettier and "Format on Save" enabled, create a <code>.vscode</code> folder and a <code>settings.json</code> file within it. Add the following JSON to disable formatting for HTML files to prevent conflicts with Python indentation within <code>&lt;pi-script&gt;</code> tags:</p>
+<p><code>json
+{
+    "editor.formatOnSave": false
+}</code></p>
+</li>
+<li>
+<p><strong>Add PyScript Tag:</strong> In the <code>&lt;body&gt;</code> section, add a <code>&lt;pi-script&gt;</code> tag. This is where you will embed your Python code directly within the HTML.</p>
+</li>
+<li>
+<p><strong>Basic Python Code:</strong> Inside the <code>&lt;pi-script&gt;</code> tag, write a simple Python script to print a variable to the webpage:</p>
+<p><code>html
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;PyScript Demo&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /&gt;
+    &lt;script defer src="https://pyscript.net/latest/pyscript.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;pi-script&gt;
+        name = "Brad"
+        print(name)
+    &lt;/pi-script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></p>
+<blockquote>
+<p><strong>Prettier:</strong> A popular code formatter that automatically formats code to maintain consistent style. While helpful for languages like JavaScript and HTML, its default formatting rules can conflict with Python's indentation requirements when used within <code>&lt;pi-script&gt;</code> tags.</p>
+</blockquote>
+<p>Open <code>index.html</code> with a live server (or your preferred method to view HTML files in a browser). You should see "Brad" displayed on the webpage.</p>
+</li>
+</ol>
+<h3 id="defining-python-functions-and-variables">Defining Python Functions and Variables</h3>
+<p>You can define Python functions and variables directly within the <code>&lt;pi-script&gt;</code> tag. For instance, to create a function that adds two numbers and displays the sum:</p>
+<pre><code class="language-html">    &lt;pi-script&gt;
+        def get_sum(x, y):
+            return x + y
+
+        sum_result = get_sum(5, 5)
+        print(sum_result)
+    &lt;/pi-script&gt;
+</code></pre>
+<p>This will output "10" on the webpage.</p>
+<h3 id="interacting-with-the-dom">Interacting with the DOM</h3>
+<p>To dynamically update elements on the page, you can use <code>pi.write()</code>. First, create a <code>&lt;div&gt;</code> element with an <code>id</code> where you want to display output:</p>
+<pre><code class="language-html">    &lt;div id=&quot;output&quot; class=&quot;text-3xl&quot;&gt;&lt;/div&gt;
+    &lt;pi-script&gt;
+        # ... Python code ...
+        pi.write(&quot;output&quot;, sum_result)
+    &lt;/pi-script&gt;
+</code></pre>
+<p>This will place the value of <code>sum_result</code> (which is 10) inside the <code>&lt;div&gt;</code> with the <code>id</code> "output".  The <code>class="text-3xl"</code> is a Tailwind CSS class applied due to the inclusion of <code>pi-script.css</code>, making the text larger.</p>
+<h3 id="exploring-the-python-repl">Exploring the Python REPL</h3>
+<p>PyScript provides a <code>&lt;pi-repl&gt;</code> tag that embeds a Python Read-Eval-Print Loop (REPL) directly in your webpage.</p>
+<blockquote>
+<p><strong>REPL (Read-Eval-Print Loop):</strong> An interactive programming environment that takes user input (Read), evaluates it (Eval), prints the result (Print), and loops back to read more input. It provides an immediate way to test code snippets and explore language features.</p>
+</blockquote>
+<pre><code class="language-html">    &lt;pi-repl&gt;&lt;/pi-repl&gt;
+</code></pre>
+<p>Adding this tag will display an interactive Python interpreter on your webpage, allowing you to execute Python code directly in the browser and see immediate results.  This is useful for experimentation and debugging.</p>
+<h3 id="utilizing-python-modules-math-and-numpy">Utilizing Python Modules: Math and NumPy</h3>
+<p>PyScript allows you to import and use Python modules. For example, to use the <code>math</code> module:</p>
+<pre><code class="language-html">    &lt;pi-script&gt;
+        import math
+        pi.write(&quot;output&quot;, math.sqrt(10))
+    &lt;/pi-script&gt;
+</code></pre>
+<p>This will calculate and display the square root of 10 in the "output" div.</p>
+<p>To use external packages like NumPy, you need to declare them in the <code>&lt;pi-env&gt;</code> tag within the <code>&lt;head&gt;</code> section of your HTML.</p>
+<pre><code class="language-html">    &lt;head&gt;
+        &lt;title&gt;PyScript Demo&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://pyscript.net/latest/pyscript.css&quot; /&gt;
+        &lt;script defer src=&quot;https://pyscript.net/latest/pyscript.js&quot;&gt;&lt;/script&gt;
+        &lt;pi-env&gt;
+            - numpy
+        &lt;/pi-env&gt;
+    &lt;/head&gt;
+</code></pre>
+<p>Now you can import and use NumPy:</p>
+<pre><code class="language-html">    &lt;pi-script&gt;
+        import numpy as np
+        array = np.array([1, 5, 2, 8, 3])
+        pi.write(&quot;output&quot;, array)
+    &lt;/pi-script&gt;
+</code></pre>
+<p>If you encounter an error like "No module named numpy" before adding <code>&lt;pi-env&gt;</code>, it indicates that you need to declare the package in the environment.</p>
+<p>Using f-strings in Python allows for formatted string output:</p>
+<blockquote>
+<p><strong>f-string (Formatted String Literal):</strong> A way to embed expressions inside string literals in Python, making string formatting more readable and concise. They are denoted by an <code>f</code> prefix before the opening quote.</p>
+</blockquote>
+<pre><code class="language-python">pi.write(&quot;output&quot;, f&quot;My array is: {array}&quot;)
+</code></pre>
+<h3 id="separating-python-code-into-external-files">Separating Python Code into External Files</h3>
+<p>For larger applications, it's best practice to separate Python code into external <code>.py</code> files, similar to how JavaScript code is often placed in <code>.js</code> files.</p>
+<ol>
+<li><strong>Create <code>main.py</code>:</strong> Create a new file named <code>main.py</code> in the same directory as your <code>index.html</code>.</li>
+<li><strong>Move Python Code:</strong> Move the Python code from within the <code>&lt;pi-script&gt;</code> tag in <code>index.html</code> into <code>main.py</code>.</li>
+<li><strong>Link <code>main.py</code> in HTML:</strong> In your <code>index.html</code> file, replace the <code>&lt;pi-script&gt;</code> tag with a <code>&lt;pi-script src="./main.py"&gt;&lt;/pi-script&gt;</code> tag, specifying the path to your <code>main.py</code> file using the <code>src</code> attribute.</li>
+</ol>
+<p>You should see the same output as before, but now your Python code is organized in a separate file.</p>
+<h3 id="building-the-array-shuffler-adding-interactivity">Building the Array Shuffler: Adding Interactivity</h3>
+<p>Let's enhance our example by adding a button to shuffle the NumPy array.</p>
+<ol>
+<li>
+<p><strong>HTML Structure for Shuffling:</strong> Modify the <code>index.html</code> body to include a <code>main</code> container for styling and center the output and a button below it:</p>
+<p><code>html
+&lt;body class="bg-gray-100"&gt;
+    &lt;main class="container h-screen flex flex-col items-center justify-center"&gt;
+        &lt;div id="output" class="text-3xl"&gt;&lt;/div&gt;
+        &lt;button id="shuffle" pys-on-click="shuffle_array()" class="mt-4 px-2 py-1 text-white bg-blue-600 rounded"&gt;Shuffle&lt;/button&gt;
+    &lt;/main&gt;
+    &lt;pi-script src="./main.py"&gt;&lt;/pi-script&gt;
+    &lt;pi-env&gt;
+        - numpy
+    &lt;/pi-env&gt;
+&lt;/body&gt;</code></p>
+<p>The <code>pys-on-click="shuffle_array()"</code> attribute on the button links the button's click event to a Python function named <code>shuffle_array</code>.</p>
+</li>
+<li>
+<p><strong>Implement <code>shuffle_array()</code> in <code>main.py</code>:</strong> In your <code>main.py</code> file, define the <code>shuffle_array()</code> function. This function will shuffle the NumPy array and update the "output" div with the shuffled array.  We will use the <code>random</code> module from Python's standard library for shuffling.</p>
+<p>```python
+import numpy as np
+import random</p>
+<p>array = np.array([1, 5, 2, 8, 3])</p>
+<p>def shuffle_array(<em>args): # </em>args to accept potential event arguments
+    shuffled_array = sorted(array, key=lambda k: random.random())
+    pi.write("output", shuffled_array)</p>
+<p>pi.write("output", array) # Initial display of the array
+```</p>
+<p>The <code>sorted(array, key=lambda k: random.random())</code> line uses Python's <code>sorted()</code> function along with a <code>lambda</code> function and <code>random.random()</code> to effectively shuffle the array elements randomly.</p>
+<blockquote>
+<p><strong>Lambda function:</strong> A small anonymous function defined using the <code>lambda</code> keyword in Python. They are often used for short, simple operations and can be used wherever function objects are required.</p>
+</blockquote>
+<p>Clicking the "Shuffle" button now should update the displayed array with a shuffled version.</p>
+</li>
+</ol>
+<h3 id="accessing-dom-elements-directly">Accessing DOM Elements Directly</h3>
+<p>Instead of <code>pi.write()</code>, you can access DOM elements more directly using <code>Element()</code>.</p>
+<pre><code class="language-python">output_element = Element(&quot;output&quot;)
+# ... later ...
+output_element.element.innerHTML = f&quot;{shuffled_array}&quot;
+</code></pre>
+<p><code>Element("output")</code> creates a proxy object representing the DOM element with the ID "output". To access the actual DOM element, you use <code>.element</code>. Then, you can use standard JavaScript DOM properties like <code>innerHTML</code> to modify the element's content.</p>
+<blockquote>
+<p><strong>Proxy Object:</strong> In programming, a proxy object acts as an intermediary or surrogate for another object. It provides a way to control access to the original object and can add additional functionality or behavior. In PyScript, <code>Element()</code> returns a proxy that allows interaction with the DOM from Python.</p>
+</blockquote>
+<h3 id="importing-utility-functions-from-separate-files">Importing Utility Functions from Separate Files</h3>
+<p>To further organize your code, you can create utility functions in separate <code>.py</code> files and import them into your main Python file.</p>
+<ol>
+<li><strong>Create <code>utils.py</code>:</strong> Create a new file named <code>utils.py</code>.</li>
+<li>
+<p><strong>Define Utility Function:</strong> In <code>utils.py</code>, define a function, for example, <code>add_class()</code>, to add a CSS class to a DOM element:</p>
+<p><code>python
+def add_class(element, class_name):
+    element.element.classList.add(class_name)</code></p>
+</li>
+<li>
+<p><strong>Declare <code>utils.py</code> in <code>&lt;pi-env&gt;</code>:</strong> In <code>index.html</code>, add <code>utils.py</code> to the <code>&lt;pi-env&gt;</code> section under <code>paths</code>:</p>
+<p><code>html
+&lt;pi-env&gt;
+    - numpy
+    paths:
+        - utils.py
+&lt;/pi-env&gt;</code></p>
+</li>
+<li>
+<p><strong>Import in <code>main.py</code>:</strong> In <code>main.py</code>, import the <code>add_class</code> function from <code>utils.py</code>:</p>
+<p><code>python
+from utils import add_class</code></p>
+</li>
+<li>
+<p><strong>Use the Utility Function:</strong> You can now use the <code>add_class</code> function in your <code>shuffle_array()</code> function to, for example, change the color of the shuffled array:</p>
+<p><code>python
+def shuffle_array(*args):
+    shuffled_array = sorted(array, key=lambda k: random.random())
+    output_element.element.innerHTML = f"{shuffled_array}"
+    add_class(output_element, "text-blue-500") # Add Tailwind CSS class for blue text</code></p>
+</li>
+</ol>
+<p>This demonstrates how to structure larger PyScript applications by separating code into modules and utility files, improving organization and maintainability.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>PyScript offers a compelling approach to integrating Python's power into web applications. While not intended to replace JavaScript for all front-end tasks, its ability to run Python and leverage its extensive package ecosystem within the browser opens significant possibilities, especially in data science and related fields. By understanding its setup, key features, and practical usage, as demonstrated through the array shuffler example, developers can begin to explore and harness the potential of PyScript for their web projects. Further exploration of the official examples and continued experimentation are encouraged to fully grasp the capabilities and nuances of this emerging framework.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>React Fundamentals: A Crash Course for Beginners - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#react-fundamentals-a-crash-course-for-beginners">React Fundamentals: A Crash Course for Beginners</a></li>
+        <li><a href="#introduction-to-react">Introduction to React</a></li><li><a href="#what-is-react">What is React?</a></li><li><a href="#why-learn-react">Why Learn React?</a></li><li><a href="#setting-up-your-development-environment">Setting Up Your Development Environment</a></li><li><a href="#creating-your-first-react-application">Creating Your First React Application</a></li><li><a href="#understanding-the-application-folder-structure">Understanding the Application Folder Structure</a></li><li><a href="#components-the-building-blocks-of-react-ui">Components: The Building Blocks of React UI</a></li><li><a href="#jsx-javascript-xml">JSX: JavaScript XML</a></li><li><a href="#props-passing-data-to-components">Props: Passing Data to Components</a></li><li><a href="#state-managing-component-local-data">State: Managing Component-Local Data</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="react-fundamentals-a-crash-course-for-beginners">React Fundamentals: A Crash Course for Beginners</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/jLS0TkAHvRg" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-react">Introduction to React</h2>
+<p>Welcome to the React Fundamentals Crash Course, designed for individuals with no prior experience in React. This course aims to equip complete beginners with a solid understanding of React's core concepts, enabling you to embark on your journey as a front-end web developer. React is a highly sought-after JavaScript library in the web development industry, making this a valuable skill to acquire.</p>
+<p>This course is a continuation of HTML, CSS, and JavaScript crash courses. Therefore, familiarity with these foundational web technologies is essential before proceeding.  A basic understanding of modern JavaScript (ES2015+) features will also be beneficial but not strictly required.</p>
+<p>This crash course will focus on fundamental concepts relevant to beginners. React is a vast library with advanced topics that can be overwhelming initially.  We will concentrate on the essential knowledge needed to get started and build a foundation for further exploration.</p>
+<p>We will be using <strong>React version 18</strong>, the latest stable release as of March 29th, 2022. While version 18 introduces new features, we will only cover those pertinent to beginners, ensuring the focus remains on core fundamentals without unnecessary complexity.</p>
+<p>This is a comprehensive crash course, and its length reflects the depth of content covered. It is recommended to learn at your own pace, pausing and practicing as needed.  <strong>Coding along with the examples is strongly encouraged</strong> as it is the most effective way to learn and solidify your understanding.</p>
+<p>By the end of this course, you will have a robust grasp of React fundamentals, setting you up for further learning and practical application.</p>
+<h2 id="what-is-react">What is React?</h2>
+<p>React is defined as:</p>
+<blockquote>
+<p>React is an <strong>open-source JavaScript library</strong> for building user interfaces.
+It is specifically designed for creating interactive and dynamic web UIs.</p>
+</blockquote>
+<p>Let's break down this definition into key components:</p>
+<ul>
+<li>
+<p><strong>JavaScript Library, Not a Framework:</strong> React is specifically a library, focusing on a singular purpose: building user interfaces (UIs). It excels at this task, offering tools and patterns for efficient UI development. Unlike frameworks, which provide a more comprehensive structure for entire applications, React concentrates on the view layer.</p>
+<blockquote>
+<p><strong>Library vs. Framework:</strong> A <strong>library</strong> is a collection of pre-written code that provides specific functionalities, allowing developers to pick and choose what they need. A <strong>framework</strong> is a more comprehensive structure that dictates the architecture of an application and provides a complete set of tools and guidelines.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Building User Interfaces:</strong> React's primary focus is on creating rich and interactive user interfaces for web applications. It manages the view layer of your application, handling how users interact with and perceive your web application.</p>
+</li>
+</ul>
+<p>While React excels at UI development, it does not inherently handle other aspects of web application development such as routing or HTTP requests. However, React boasts a vibrant <strong>ecosystem</strong>:</p>
+<blockquote>
+<p><strong>Ecosystem:</strong> In the context of software, an <strong>ecosystem</strong> refers to a collection of related tools, libraries, frameworks, and community resources that work together harmoniously and extend the functionality of a core technology.</p>
+</blockquote>
+<p>This ecosystem ensures React integrates seamlessly with other libraries to build comprehensive, enterprise-scale web applications.</p>
+<h2 id="why-learn-react">Why Learn React?</h2>
+<p>There are compelling reasons to learn React, both practical and technical:</p>
+<ul>
+<li>
+<p><strong>Job Market Demand:</strong> React is one of the most popular UI libraries in the web development industry. Proficiency in React significantly enhances your employability and opens doors to numerous front-end developer roles.</p>
+</li>
+<li>
+<p><strong>Strong Community Support:</strong> React benefits from a large and active community. This vast community provides abundant resources, including articles, tutorials, and solutions on platforms like Stack Overflow, ensuring you can find help and guidance when facing challenges.</p>
+</li>
+<li>
+<p><strong>Component-Based Architecture:</strong> React employs a <strong>component-based architecture</strong>:</p>
+<blockquote>
+<p><strong>Component-Based Architecture:</strong> A software design approach that structures an application as a collection of independent, reusable, and encapsulated modules called <strong>components</strong>. Each component is responsible for a specific part of the UI and functionality.</p>
+</blockquote>
+<p>This architecture offers several advantages:
+*   <strong>Modularity:</strong> Applications are broken down into smaller, manageable, and encapsulated parts (components), simplifying development and maintenance.
+*   <strong>Composability:</strong> Components can be combined and nested to create complex user interfaces from simpler building blocks.
+*   <strong>Reusability:</strong> Components are designed to be reusable across different parts of an application or even in different projects, promoting code efficiency and consistency.</p>
+</li>
+<li>
+<p><strong>Declarative Nature:</strong> React is <strong>declarative</strong>:</p>
+<blockquote>
+<p><strong>Declarative Programming:</strong> A programming paradigm where you express <em>what</em> you want to achieve without explicitly describing <em>how</em> to achieve it. You describe the desired outcome, and the system figures out the steps to get there.</p>
+</blockquote>
+<p>In React, you describe the desired UI state in your code, and React, along with <strong>React DOM</strong>:</p>
+<blockquote>
+<p><strong>React DOM:</strong> A package that serves as the entry point to the DOM and server renderers for React. It is responsible for rendering React components in the web browser's Document Object Model (DOM).</p>
+</blockquote>
+<p>abstracts away the complexities of directly manipulating the browser's Document Object Model (DOM). React handles the intricate updates and rendering processes, making UI creation more intuitive and less error-prone.</p>
+</li>
+</ul>
+<p>In essence, learning React is a valuable investment, enhancing your skillset and opening opportunities in the dynamic field of web development.</p>
+<h2 id="setting-up-your-development-environment">Setting Up Your Development Environment</h2>
+<p>To begin developing React applications, you need to set up your development environment. This involves installing three essential tools:</p>
+<ol>
+<li>
+<p><strong>Web Browser:</strong> A modern web browser is necessary to view and interact with your React applications. Google Chrome is recommended, but any modern browser such as Firefox, Safari, or Edge will suffice.</p>
+</li>
+<li>
+<p><strong>Node.js:</strong> Node.js is a JavaScript runtime environment that is crucial for React development.</p>
+<ul>
+<li><strong>Installation:</strong><ul>
+<li>Navigate to <a href="https://nodejs.org/">nodejs.org</a>.</li>
+<li>Download and install the <strong>LTS (Long-Term Support)</strong> version, which is the recommended stable release.</li>
+<li>Follow the installation prompts, typically accepting the default settings.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Code Editor:</strong> A code editor provides a user-friendly environment for writing and managing code. <strong>Visual Studio Code (VS Code)</strong> is a highly recommended and popular choice for React development.</p>
+<ul>
+<li><strong>Installation:</strong><ul>
+<li>Navigate to <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.</li>
+<li>Download and install VS Code for your operating system.</li>
+<li>After installation, open VS Code and install the <strong>Prettier</strong> extension from the Extensions panel. Prettier automatically formats your code, improving readability and consistency.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Once these tools are installed, create a new folder on your computer to house your React projects (e.g., "react-crash-course"). Open this folder in VS Code.</p>
+<h2 id="creating-your-first-react-application">Creating Your First React Application</h2>
+<p>React applications are often created using <strong>Create React App</strong>:</p>
+<blockquote>
+<p><strong>Create React App (CRA):</strong> A command-line interface tool provided by Facebook (now Meta) that simplifies the process of setting up a new React project. It automatically configures the build process, development server, and other essential tools, allowing developers to start building React applications quickly without complex configurations.</p>
+</blockquote>
+<p>Create React App streamlines the setup process, allowing you to focus on writing React code rather than configuration.</p>
+<p>Follow these steps to create your first React application:</p>
+<ol>
+<li>
+<p><strong>Open Integrated Terminal:</strong> In VS Code, open the integrated terminal by selecting <strong>View &gt; Terminal</strong>.</p>
+</li>
+<li>
+<p><strong>Run Create React App Command:</strong> In the terminal, execute the following command:</p>
+<p><code>bash
+npx create-react-app react-demo</code></p>
+<blockquote>
+<p><strong>npx:</strong> <strong>npx</strong> is a package runner tool that comes with <strong>npm</strong> (Node Package Manager). It allows you to execute Node.js packages without installing them globally. In this case, it runs <code>create-react-app</code> directly from the npm registry.</p>
+</blockquote>
+<p>This command will create a new folder named "react-demo" containing a pre-configured React application. This process may take a few moments as it sets up the project structure and installs necessary dependencies.</p>
+</li>
+<li>
+<p><strong>Navigate to Project Folder:</strong> Once the command completes, navigate into the newly created project folder:</p>
+<p><code>bash
+cd react-demo</code></p>
+</li>
+<li>
+<p><strong>Start the Development Server:</strong> Start the React development server with the command:</p>
+<p><code>bash
+npm start</code></p>
+<blockquote>
+<p><strong>npm (Node Package Manager):</strong> <strong>npm</strong> is the default package manager for Node.js. It is used to install, manage, and share JavaScript packages. The <code>npm start</code> command typically runs a script defined in the <code>package.json</code> file to start the development server for a React application.</p>
+</blockquote>
+<p>This command will compile your React application and automatically open it in your default web browser, usually at <strong><code>localhost:3000</code></strong>:</p>
+<blockquote>
+<p><strong>localhost:</strong> <strong>localhost</strong> is a hostname that refers to the computer you are currently using. In web development, <strong>localhost:3000</strong> typically indicates that a web server is running on your local machine, and port <strong>3000</strong> is the specific port number being used to access the application.</p>
+</blockquote>
+<p>You should see the default React application running, displaying the message "Edit <code>src/App.js</code> and save to reload."</p>
+</li>
+<li>
+<p><strong>Modify <code>App.js</code>:</strong> In VS Code, expand the "src" folder in your project and open the <code>App.js</code> file.  Locate the text within the <code>return</code> statement and change it to "Hello World". Save the file (Ctrl+S or Cmd+S).</p>
+</li>
+<li>
+<p><strong>Observe Changes in Browser:</strong>  As soon as you save <code>App.js</code>, the browser will automatically refresh, and you should now see "Hello World" displayed in the browser window.</p>
+</li>
+</ol>
+<p>Congratulations! You have successfully created and run your first React application.</p>
+<h2 id="understanding-the-application-folder-structure">Understanding the Application Folder Structure</h2>
+<p>Let's explore the structure of a React application created with Create React App. At the root level, you'll find several folders and files:</p>
+<h3 id="key-files">Key Files</h3>
+<ul>
+<li>
+<p><strong><code>package.json</code>:</strong> This file is the heart of your Node.js project and, therefore, your React application. It contains:</p>
+<ul>
+<li><strong>Dependencies:</strong> Lists the libraries your project relies on, including <code>react</code> and <code>react-dom</code> (version 18 in this case). These are essential for building React applications.</li>
+<li><strong>Scripts:</strong> Defines commands you can run using <code>npm</code>, such as <code>start</code> (to run the development server), <code>build</code> (to create a production build), and <code>test</code> (to run tests).</li>
+<li>
+<p><strong><code>eslintConfig</code>:</strong> Configuration for <strong>ESLint</strong>:</p>
+<blockquote>
+<p><strong>ESLint:</strong> A popular <strong>linting</strong> tool for JavaScript and JSX. <strong>Linting</strong> is the process of statically analyzing code to identify potential errors, stylistic inconsistencies, and code quality issues. ESLint helps maintain code consistency and catch potential bugs early in development.</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>browserslist</code>:</strong> Specifies the browsers your application should support, ensuring compatibility across different browser environments.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>package-lock.json</code> or <code>yarn.lock</code>:</strong> These files (one will be present depending on whether you use npm or Yarn package manager) ensure consistent dependency installation across different environments. They lock down the specific versions of dependencies used, preventing unexpected issues due to dependency updates. You generally don't need to directly interact with these files.</p>
+</li>
+<li>
+<p><strong><code>.gitignore</code>:</strong>  This file specifies intentionally untracked files that Git should ignore. This commonly includes dependency folders (<code>node_modules</code>), build output, and other non-essential files.</p>
+</li>
+<li>
+<p><strong><code>README.md</code>:</strong> A standard <strong>readme</strong> file:</p>
+<blockquote>
+<p><strong>Readme File:</strong> A text file, typically named <code>README.md</code> (using Markdown formatting), that provides essential information about a project. It usually includes a project description, instructions for setup and usage, and other relevant details for users and developers.</p>
+</blockquote>
+<p>It usually contains basic information about your React application.</p>
+</li>
+</ul>
+<h3 id="key-folders">Key Folders</h3>
+<ul>
+<li>
+<p><strong><code>node_modules</code>:</strong> This folder houses all the <strong>dependencies</strong>:</p>
+<blockquote>
+<p><strong>Dependencies:</strong> In software development, <strong>dependencies</strong> are external libraries, packages, or modules that a project relies on to function correctly. These are typically installed and managed using package managers like npm or Yarn.</p>
+</blockquote>
+<p>listed in <code>package.json</code>. It's created when you run <code>npx create-react-app</code> or <code>npm install</code>. This folder can be quite large and is usually ignored by version control (as specified in <code>.gitignore</code>).</p>
+</li>
+<li>
+<p><strong><code>public</code>:</strong> The <strong>public folder</strong>:</p>
+<blockquote>
+<p><strong>Public Folder:</strong> In web applications, the <strong>public folder</strong> is a directory that contains static assets that are directly served to the web browser without any processing. This typically includes HTML files, images, and other assets that don't require server-side rendering or compilation.</p>
+</blockquote>
+<p>contains static assets for your application.
+*   <strong><code>index.html</code>:</strong> This is the <strong>single HTML file</strong> for your entire single-page application (SPA).</p>
+<pre><code>&gt; **Single Page Application (SPA):** A web application that loads a single HTML page and dynamically updates the content within that page as the user interacts with the application. SPAs provide a more fluid and responsive user experience compared to traditional multi-page applications.
+
+In React SPAs, you will typically only have one `index.html` file.  The UI dynamically changes within this page, but it's this single file that is served to the browser. You generally won't modify this file extensively, mainly making adjustments in the `&lt;head&gt;` section if needed.  Crucially, within the `&lt;body&gt;` tag, you'll find a `&lt;div&gt;` element with the `id="root"`.
+
+```html
+&lt;div id="root"&gt;&lt;/div&gt;
+```
+This `&lt;div&gt;` is the **root DOM node**:
+
+&gt; **Root DOM Node:** The **root DOM node** is a specific HTML element in the `index.html` file that serves as the container where React will render and manage the entire user interface of your application. In Create React App, this is typically a `&lt;div&gt;` element with the `id="root"`.
+
+React will take control of this `&lt;div&gt;` at runtime and render your application's UI inside it.
+</code></pre>
+<ul>
+<li>
+<p><strong><code>manifest.json</code>, <code>favicon.ico</code>, <code>logo*.png</code>:</strong> These files are related to <strong>Progressive Web Apps (PWAs)</strong>:</p>
+<blockquote>
+<p><strong>Progressive Web App (PWA):</strong> A type of web application that is designed to provide a user experience similar to native mobile applications, but delivered through web technologies. PWAs offer features like offline capabilities, push notifications, and installability on users' devices.</p>
+</blockquote>
+<p>PWAs are beyond the scope of this beginner course.
+    *   <strong><code>robots.txt</code>:</strong> This file is used for <strong>search engine optimization (SEO)</strong>:</p>
+<blockquote>
+<p><strong>Search Engine Optimization (SEO):</strong> The practice of optimizing a website or web page to improve its visibility in search engine results pages (SERPs). This involves various techniques to make it easier for search engines to find, crawl, and index a website's content.</p>
+</blockquote>
+<p>and is not specific to React.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>src</code>:</strong> The <strong>source folder</strong>:</p>
+<blockquote>
+<p><strong>Source Folder:</strong> In software projects, the <strong>source folder</strong> (often named <code>src</code> or <code>source</code>) is the directory where the source code files of the application are stored. This includes JavaScript files, CSS files, and other assets that are essential for building the application's logic and user interface.</p>
+</blockquote>
+<p>is where you will spend most of your development time. It contains the source code of your React application.
+*   <strong><code>index.js</code>:</strong> This is the <strong>entry point</strong> of your React application.</p>
+<pre><code>&gt; **Entry Point:** The **entry point** of an application is the starting point where the execution of the program begins. In a React application created with Create React App, `index.js` is the file that initializes the React application and renders the root component into the DOM.
+
+It's the first JavaScript file that gets executed.  Within `index.js`, you'll find:
+*   The **root component**, which is the `App` component (from `App.js`).
+*   The **DOM element** that React will control, identified by `id="root"` in `index.html`. React renders the `App` component into this **root DOM node**.
+</code></pre>
+<ul>
+<li>
+<p><strong><code>App.js</code>:</strong> This file contains the <strong><code>App</code> component</strong>:</p>
+<blockquote>
+<p><strong>App Component:</strong> In React applications created with Create React App, the <strong>App component</strong> is the root component of the application. It serves as the starting point for building the user interface and typically contains or orchestrates other components to create the overall application structure.</p>
+</blockquote>
+<p>which is the main component of your application. It's responsible for the initial HTML displayed in the browser.  <code>App.js</code> typically includes:
+*   <strong>JSX</strong>: The code that defines the structure and content of the UI.
+*   <strong>CSS Import</strong>:  An import statement to include styling from <code>App.css</code>.
+*   <strong>Test File Import</strong>: Potentially, an import for <code>App.test.js</code> for unit testing.
+*   <strong>Logo Import</strong>: An import for <code>logo.svg</code> if used in the component.</p>
+</li>
+<li>
+<p><strong><code>App.css</code>:</strong>  Contains CSS styles specifically for the <code>App</code> component.</p>
+</li>
+<li>
+<p><strong><code>App.test.js</code>:</strong>  A file for writing <strong>unit tests</strong>:</p>
+<blockquote>
+<p><strong>Unit Test:</strong> A type of software testing where individual units or components of a software application are tested in isolation. In React, unit tests typically focus on testing individual components to ensure they function correctly and produce the expected output.</p>
+</blockquote>
+<p>for the <code>App</code> component.</p>
+</li>
+<li>
+<p><strong><code>index.css</code>:</strong>  Contains global CSS styles that are applied to the <code>&lt;body&gt;</code> tag and are referenced in <code>index.js</code>.</p>
+</li>
+<li>
+<p><strong><code>logo.svg</code>:</strong>  The React logo in SVG format, often referenced in the <code>App</code> component.</p>
+</li>
+<li>
+<p><strong><code>reportWebVitals.js</code> &amp; <code>setupTests.js</code>:</strong> These files are related to performance analytics and testing setup, respectively. As a beginner, you can generally ignore these initially.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="application-startup-flow">Application Startup Flow</h3>
+<p>When you run <code>npm start</code>, the following sequence of events occurs:</p>
+<ol>
+<li>
+<p><strong><code>index.html</code> is served:</strong> The <code>index.html</code> file from the <code>public</code> folder is served to the browser. This file contains the <strong>root DOM node</strong> (<code>&lt;div id="root"&gt;&lt;/div&gt;</code>).</p>
+</li>
+<li>
+<p><strong><code>index.js</code> takes control:</strong> The browser executes <code>index.js</code>. This script uses the <strong>React DOM library</strong> to:</p>
+<ul>
+<li>Identify the <strong>root DOM node</strong> in <code>index.html</code>.</li>
+<li>Render the <strong><code>App</code> component</strong> into this <strong>root DOM node</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>App</code> component renders UI:</strong> The <code>App</code> component, defined in <code>App.js</code>, contains the JSX that describes the UI. React renders this JSX into the <strong>root DOM node</strong>, making it visible in the browser.</p>
+</li>
+</ol>
+<h3 id="react-18-update-in-indexjs">React 18 Update in <code>index.js</code></h3>
+<p>The transcript mentions a necessary update in <code>index.js</code> for React 18 compatibility.  Create React App might install version 18, but the default <code>index.js</code> might still use an older API. To ensure you're using React 18 features, make the following changes in <code>src/index.js</code>:</p>
+<pre><code class="language-javascript">import React from 'react';
+// Comment out the following line:
+// import ReactDOM from 'react-dom';
+// Replace it with:
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+// Comment out:
+// ReactDOM.render(
+//   &lt;React.StrictMode&gt;
+//     &lt;App /&gt;
+//   &lt;/React.StrictMode&gt;,
+//   document.getElementById('root')
+// );
+
+// Replace with:
+const container = document.getElementById('root');
+const root = createRoot(container); // Create a root.
+root.render(
+  &lt;React.StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;
+);
+</code></pre>
+<p>This modification updates the root API to use <code>createRoot</code> from <code>react-dom/client</code>, enabling React 18 features in your application.  If you are following this tutorial some time after the video's publication, Create React App might have already been updated, and this step might not be necessary.</p>
+<h2 id="components-the-building-blocks-of-react-ui">Components: The Building Blocks of React UI</h2>
+<p>React applications are built using <strong>components</strong>.</p>
+<blockquote>
+<p><strong>Component (in React):</strong> A <strong>component</strong> is a reusable and independent building block of a React user interface. It is a self-contained unit that encapsulates its own logic, styling, and rendering. Components can be composed together to create complex UIs.</p>
+</blockquote>
+<p>Think of components as modular, reusable pieces of your UI.  A website can be decomposed into sections like:</p>
+<ul>
+<li>Header</li>
+<li>Navigation Bar (Site Nav)</li>
+<li>Main Content</li>
+<li>Footer</li>
+</ul>
+<p>Each of these sections can be represented as a React component.  Components can be nested within each other to build complex UIs.  The top-level component that encompasses the entire application is often called the <strong>root component</strong>, typically named <code>App</code> in Create React App projects.</p>
+<p>Components promote code reusability. For example, a navigation component can be reused for both the left and right side navigation, potentially with different content but the same UI structure.</p>
+<h3 id="types-of-components-function-vs-class">Types of Components: Function vs. Class</h3>
+<p>In React, there are two main types of components:</p>
+<ol>
+<li>
+<p><strong>Function Components:</strong>  These are simpler and more modern. They are essentially JavaScript functions that return JSX (which we'll discuss shortly) to describe the UI.  Function components are the primary type used in modern React development and are the focus of this crash course.</p>
+</li>
+<li>
+<p><strong>Class Components:</strong> These are older, more complex components defined using JavaScript classes. While still functional, they are generally less favored for new development in 2022 and beyond.  This crash course will primarily focus on function components.</p>
+</li>
+</ol>
+<h3 id="examining-the-app-component">Examining the <code>App</code> Component</h3>
+<p>Let's look at the default <code>App</code> component in <code>App.js</code>.</p>
+<pre><code class="language-javascript">import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    &lt;div className=&quot;App&quot;&gt;
+      &lt;header className=&quot;App-header&quot;&gt;
+        &lt;img src={logo} className=&quot;App-logo&quot; alt=&quot;logo&quot; /&gt;
+        &lt;p&gt;
+          Edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload.
+        &lt;/p&gt;
+        &lt;a
+          className=&quot;App-link&quot;
+          href=&quot;https://reactjs.org&quot;
+          target=&quot;_blank&quot;
+          rel=&quot;noopener noreferrer&quot;
+        &gt;
+          Learn React
+        &lt;/a&gt;
+      &lt;/header&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code></pre>
+<p>Key observations:</p>
+<ul>
+<li><strong><code>.js</code> Extension:</strong> <code>App.js</code> is a JavaScript file, signifying it contains JavaScript code.</li>
+<li><strong>JavaScript Function <code>App</code>:</strong>  The code defines a JavaScript function named <code>App</code>. This is a function component.</li>
+<li><strong>JSX Return Value:</strong> The <code>App</code> function returns JSX (HTML-like syntax). This JSX describes the structure of the UI. In this case, it returns:<ul>
+<li>A wrapping <code>&lt;div&gt;</code> tag.</li>
+<li>A <code>&lt;header&gt;</code> tag.</li>
+<li>An <code>&lt;img&gt;</code> tag for the React logo.</li>
+<li>A <code>&lt;p&gt;</code> (paragraph) tag with instructions.</li>
+<li>An <code>&lt;a&gt;</code> (link) tag.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>export default App;</code>:</strong> The component is exported as the <strong>default export</strong>:</p>
+<blockquote>
+<p><strong>Default Export:</strong> In JavaScript modules, a <strong>default export</strong> is the primary export from a module. Each module can have at most one default export. When importing a default export, you can choose any name for the import.</p>
+</blockquote>
+<p>This allows <code>index.js</code> to import and use the <code>App</code> component.</p>
+</li>
+</ul>
+<p>Real-world applications can have numerous components, ranging from tens to thousands, especially in large applications like Facebook, which reportedly uses over 30,000 components.</p>
+<h3 id="creating-a-function-component-greet-component">Creating a Function Component: <code>Greet</code> Component</h3>
+<p>Let's create a simple function component to illustrate the concept. We'll create a component named <code>Greet</code> that displays the message "Hello Vishwas".</p>
+<ol>
+<li>
+<p><strong>Create <code>Greet.js</code>:</strong> Inside the <code>src</code> folder, create a new folder named "components". Within the "components" folder, create a new file named <code>Greet.js</code>.</p>
+</li>
+<li>
+<p><strong>Define <code>Greet</code> Component:</strong> In <code>Greet.js</code>, add the following code:</p>
+<p>```javascript
+import React from 'react';</p>
+<p>// Function Component using function declaration
+function Greet() {
+  return <h1>Hello Vishwas</h1>;
+}</p>
+<p>export default Greet;
+```
+Alternatively, you can use an <strong>arrow function</strong>:</p>
+<blockquote>
+<p><strong>Arrow Function:</strong> A concise syntax for writing functions in JavaScript, introduced in ES6 (ECMAScript 2015). Arrow functions are often more compact and have lexical <code>this</code> binding, which can simplify certain JavaScript patterns.</p>
+</blockquote>
+<p>```javascript
+import React from 'react';</p>
+<p>// Function Component using arrow function
+const Greet = () =&gt; {
+  return <h1>Hello Vishwas</h1>;
+}</p>
+<p>export default Greet;
+```</p>
+</li>
+<li>
+<p><strong>Import and Use <code>Greet</code> in <code>App.js</code>:</strong></p>
+<ul>
+<li>In <code>App.js</code>, remove the existing JSX within the main <code>&lt;div&gt;</code> (keep the outer <code>&lt;div&gt;</code> with <code>className="App"</code>).</li>
+<li>
+<p>At the top of <code>App.js</code>, import the <code>Greet</code> component:</p>
+<p><code>javascript
+import Greet from './components/Greet';</code></p>
+</li>
+<li>
+<p>Within the <code>App</code> component's JSX, add the <code>&lt;Greet&gt;</code> component tag:</p>
+<p><code>javascript
+function App() {
+  return (
+    &lt;div className="App"&gt;
+      &lt;Greet /&gt;
+    &lt;/div&gt;
+  );
+}</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>View in Browser:</strong> Save both <code>Greet.js</code> and <code>App.js</code>. In the browser, you should now see "Hello Vishwas" displayed. Your first custom function component is rendered!</p>
+</li>
+</ol>
+<h3 id="exporting-and-importing-components-default-vs-named-exports">Exporting and Importing Components: Default vs. Named Exports</h3>
+<ul>
+<li>
+<p><strong>Default Export (used in <code>Greet.js</code>):</strong> <code>export default Greet;</code></p>
+<ul>
+<li>Allows you to import the component with any name in the importing file. For example, in <code>App.js</code>, we imported it as <code>import Greet from './components/Greet';</code>. We could have named it <code>MyComponent</code> and used <code>&lt;MyComponent /&gt;</code> instead, and it would still work because it's the default export.</li>
+</ul>
+</li>
+<li>
+<p><strong>Named Export:</strong>  Let's modify <code>Greet.js</code> to use a <strong>named export</strong>:</p>
+<p>```javascript
+import React from 'react';</p>
+<p>export const Greet = () =&gt; { // Notice 'export' keyword
+  return <h1>Hello Vishwas</h1>;
+}
+<code>``
+*   To import a **named export**, you must use the exact same name within curly braces in the import statement in</code>App.js`:</p>
+<pre><code>```javascript
+import { Greet } from './components/Greet'; // Curly braces and 'Greet' name
+```
+</code></pre>
+<ul>
+<li>If you try to import it with a different name without curly braces (like with default exports), it will result in an error.</li>
+</ul>
+</li>
+</ul>
+<p>This course will primarily use <strong>named exports</strong> for component examples, but understanding both default and named exports is crucial for working with React codebases.</p>
+<h2 id="jsx-javascript-xml">JSX: JavaScript XML</h2>
+<p><strong>JSX</strong>:</p>
+<blockquote>
+<p><strong>JSX (JavaScript XML):</strong> A syntax extension to JavaScript that allows you to write HTML-like code within JavaScript files. JSX is primarily used in React to describe the structure of user interfaces in a declarative manner. It gets transformed into regular JavaScript function calls by tools like Babel during the build process.</p>
+</blockquote>
+<p>JSX is a core concept in React.  It may look like HTML, but it's a syntax extension to JavaScript. JSX allows you to embed HTML-like structures directly within your JavaScript code, making it easier to define the UI of your React components.</p>
+<h3 id="jsx-features-and-differences-from-html">JSX Features and Differences from HTML</h3>
+<ul>
+<li>
+<p><strong>JavaScript Expressions:</strong> JSX allows you to embed JavaScript expressions within your HTML-like code using curly braces <code>{}</code>. For example:</p>
+<p><code>jsx
+&lt;div&gt;{2 + 2}&lt;/div&gt; {/* Renders '4' */}</code></p>
+<p>You can evaluate expressions, call functions, and perform conditional logic within JSX using curly braces.</p>
+</li>
+<li>
+<p><strong>Attribute Naming Conventions:</strong> JSX has some differences in attribute naming compared to standard HTML:</p>
+<ul>
+<li>
+<p><strong><code>class</code> becomes <code>className</code>:</strong>  In HTML, you use <code>class</code> to define CSS classes. In JSX, you must use <code>className</code> because <code>class</code> is a reserved keyword in JavaScript.</p>
+<p>```jsx
+// HTML
+<div class="my-class"></div></p>
+<p>// JSX
+<div className="my-class"></div>
+```</p>
+</li>
+<li>
+<p><strong><code>for</code> becomes <code>htmlFor</code>:</strong> Similarly, <code>for</code> attribute (used with <code>&lt;label&gt;</code>) becomes <code>htmlFor</code> in JSX due to <code>for</code> being a JavaScript keyword.</p>
+<p>```jsx
+// HTML
+<label for="name">Name:</label>
+<input type="text" id="name" /></p>
+<p>// JSX
+<label htmlFor="name">Name:</label>
+<input type="text" id="name" />
+```</p>
+</li>
+<li>
+<p><strong>CamelCase Property Naming:</strong> JSX uses camelCase for HTML attribute names that are composed of multiple words. For example:</p>
+<ul>
+<li><code>onclick</code> becomes <code>onClick</code></li>
+<li><code>tabindex</code> becomes <code>tabIndex</code></li>
+</ul>
+</li>
+</ul>
+<p>You will encounter these differences as you work with JSX.</p>
+</li>
+</ul>
+<h3 id="react-elements-jsx-under-the-hood">React Elements: JSX Under the Hood</h3>
+<p>While JSX looks like HTML, React doesn't directly work with HTML strings in the browser.  Under the hood, JSX is transformed into <strong>React elements</strong>:</p>
+<blockquote>
+<p><strong>React Element:</strong> A <strong>React element</strong> is the smallest unit of a React application's UI. It is a plain JavaScript object that describes a DOM node or another component. React elements are lightweight descriptions of what should be rendered on the screen.</p>
+</blockquote>
+<p>When your React component returns JSX, it's actually creating React elements. These elements are then processed by React DOM to efficiently update the actual DOM and render the UI in the browser.</p>
+<p>For beginners, it's sufficient to understand that JSX is a convenient syntax for writing UI structures, and React handles the underlying conversion to React elements and DOM updates.</p>
+<h2 id="props-passing-data-to-components">Props: Passing Data to Components</h2>
+<p><strong>Props</strong>, short for "properties":</p>
+<blockquote>
+<p><strong>Props (Properties):</strong> In React, <strong>props</strong> are inputs passed down from parent components to child components. They are read-only objects that allow parent components to configure and control the behavior and appearance of their children. Props are a primary mechanism for data flow in React.</p>
+</blockquote>
+<p>are a fundamental mechanism for passing data from parent components to child components. They make components dynamic and reusable.</p>
+<h3 id="passing-props">Passing Props</h3>
+<p>To pass props to a component, you specify them as attributes when you use the component tag in JSX.</p>
+<p>Let's modify our <code>Greet</code> component to accept a <code>name</code> prop and display a personalized greeting.</p>
+<ol>
+<li>
+<p><strong>Modify <code>Greet.js</code> to Accept Props:</strong></p>
+<p>```javascript
+import React from 'react';</p>
+<p>const Greet = (props) =&gt; { // Add 'props' parameter
+  return (
+    <div>
+      <h1>Hello {props.name}</h1> {/<em> Access 'name' prop </em>/}
+    </div>
+  );
+}</p>
+<p>export default Greet;
+```</p>
+<ul>
+<li>We added a <code>props</code> parameter to the <code>Greet</code> function component.</li>
+<li>Inside the JSX, we use <code>{props.name}</code> to access the value of the <code>name</code> prop.  <code>props</code> is an object, and <code>props.name</code> accesses the property named "name" within that object.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pass Props from <code>App.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import Greet from './components/Greet';</p>
+<p>function App() {
+  return (
+    <div className="App">
+      <Greet name="Bruce" /> {/<em> Pass 'name' prop with value "Bruce" </em>/}
+      <Greet name="Clark" /> {/<em> Pass 'name' prop with value "Clark" </em>/}
+      <Greet name="Diana" /> {/<em> Pass 'name' prop with value "Diana" </em>/}
+    </div>
+  );
+}</p>
+<p>export default App;
+```</p>
+<ul>
+<li>In <code>App.js</code>, when we use the <code>&lt;Greet&gt;</code> tag, we add attributes like <code>name="Bruce"</code>, <code>name="Clark"</code>, and <code>name="Diana"</code>. These attributes become props passed to the <code>Greet</code> component.</li>
+</ul>
+</li>
+<li>
+<p><strong>View in Browser:</strong> Save and view in the browser. You should see:</p>
+<p><code>Hello Bruce
+Hello Clark
+Hello Diana</code></p>
+<p>The <code>Greet</code> component is now reusable. By passing different <code>name</code> props, we can greet different people using the same component.</p>
+</li>
+</ol>
+<h3 id="multiple-props">Multiple Props</h3>
+<p>You can pass multiple props to a component. Let's add a <code>heroName</code> prop to our <code>Greet</code> component.</p>
+<ol>
+<li>
+<p><strong>Modify <code>Greet.js</code> to Accept <code>heroName</code> Prop:</strong></p>
+<p>```javascript
+import React from 'react';</p>
+<p>const Greet = (props) =&gt; {
+  return (
+    <div>
+      <h1>Hello {props.name} also known as {props.heroName}</h1> {/<em> Access 'heroName' prop </em>/}
+    </div>
+  );
+}</p>
+<p>export default Greet;
+```</p>
+</li>
+<li>
+<p><strong>Pass <code>heroName</code> Props from <code>App.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import Greet from './components/Greet';</p>
+<p>function App() {
+  return (
+    <div className="App">
+      <Greet name="Bruce" heroName="Batman" /> {/<em> Pass 'heroName' prop </em>/}
+      <Greet name="Clark" heroName="Superman" /> {/<em> Pass 'heroName' prop </em>/}
+      <Greet name="Diana" heroName="Wonder Woman" /> {/<em> Pass 'heroName' prop </em>/}
+    </div>
+  );
+}</p>
+<p>export default App;
+```</p>
+</li>
+<li>
+<p><strong>View in Browser:</strong> Save and view in the browser. You should see:</p>
+<p><code>Hello Bruce also known as Batman
+Hello Clark also known as Superman
+Hello Diana also known as Wonder Woman</code></p>
+</li>
+</ol>
+<h3 id="propschildren-rendering-dynamic-content"><code>props.children</code>: Rendering Dynamic Content</h3>
+<p>The <code>props</code> object also has a special property called <code>children</code>. <strong><code>props.children</code></strong>:</p>
+<blockquote>
+<p><strong><code>props.children</code>:</strong> A special prop in React that represents the content passed between the opening and closing tags of a component. It allows a component to render dynamic content that is provided by its parent component.</p>
+</blockquote>
+<p>allows you to pass content between the opening and closing tags of a component and render that content within the component.</p>
+<ol>
+<li>
+<p><strong>Modify <code>Greet.js</code> to Render <code>props.children</code>:</strong></p>
+<p>```javascript
+import React from 'react';</p>
+<p>const Greet = (props) =&gt; {
+  return (
+    <div>
+      <h1>Hello {props.name}</h1>
+      {props.children} {/<em> Render 'children' prop </em>/}
+    </div>
+  );
+}</p>
+<p>export default Greet;
+```</p>
+</li>
+<li>
+<p><strong>Pass Children Content in <code>App.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import Greet from './components/Greet';</p>
+<p>function App() {
+  return (
+    <div className="App">
+      <Greet name="Bruce" heroName="Batman">
+        <p>This is children props</p> {/<em> Content between tags becomes 'children' </em>/}
+      </Greet>
+      <Greet name="Clark" heroName="Superman">
+        <button>Action</button> {/<em> Button as children </em>/}
+      </Greet>
+      <Greet name="Diana" heroName="Wonder Woman" /> {/<em> No children content </em>/}
+    </div>
+  );
+}</p>
+<p>export default App;
+```</p>
+<ul>
+<li>For the first two <code>&lt;Greet&gt;</code> components, we've added content between the opening and closing tags: a <code>&lt;p&gt;</code> tag and a <code>&lt;button&gt;</code> tag, respectively. For the third, there's no content between the tags.</li>
+</ul>
+</li>
+<li>
+<p><strong>View in Browser:</strong> Save and view in the browser. You should see:</p>
+<ul>
+<li>For "Bruce/Batman", the paragraph "This is children props" will be rendered below the greeting.</li>
+<li>For "Clark/Superman", the "Action" button will be rendered below the greeting.</li>
+<li>For "Diana/Wonder Woman", no additional content will be rendered below the greeting because no children were passed.</li>
+</ul>
+</li>
+</ol>
+<h3 id="immutability-of-props">Immutability of Props</h3>
+<p><strong>Props are immutable</strong>:</p>
+<blockquote>
+<p><strong>Immutable (in programming):</strong>  <strong>Immutable</strong> data means that once an object is created, its state cannot be changed. Any operation that appears to modify an immutable object actually creates a new object with the modified state, leaving the original object unchanged.</p>
+</blockquote>
+<p>This means you <strong>cannot</strong> modify the value of props within a component. Props are read-only from the perspective of the component receiving them.  If you attempt to modify a prop, React will throw an error.</p>
+<pre><code class="language-javascript">// Example of trying to modify a prop (will cause an error)
+const Greet = (props) =&gt; {
+  props.name = &quot;Vishwas&quot;; // This is NOT allowed - will cause an error!
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello {props.name}&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>Props are controlled by the parent component that passes them down. Child components should not attempt to alter props.</p>
+<h2 id="state-managing-component-local-data">State: Managing Component-Local Data</h2>
+<p><strong>State</strong>:</p>
+<blockquote>
+<p><strong>State (in React):</strong> <strong>State</strong> is a JavaScript object that represents the internal data of a component. Unlike props, which are passed down from parent components, state is managed within the component itself. State is mutable, meaning its values can be changed, and when state changes, React automatically re-renders the component and its children to reflect the updated data in the UI.</p>
+</blockquote>
+<p>is another crucial concept in React. It's used to manage data that can change within a component over time, triggering UI updates.</p>
+<h3 id="props-vs-state-a-comparison">Props vs. State: A Comparison</h3>
+<p>| Feature          | Props                                     | State                                       |
+| </p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

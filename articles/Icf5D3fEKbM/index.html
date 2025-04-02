@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>CSS Crash Course for Beginners: An Educational Text - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#css-crash-course-for-beginners-an-educational-text">CSS Crash Course for Beginners: An Educational Text</a></li>
+        <li><a href="#introduction-to-css">Introduction to CSS</a></li><li><a href="#setting-up-your-environment">Setting Up Your Environment</a></li><li><a href="#what-is-css">What is CSS?</a></li><li><a href="#ways-to-apply-css">Ways to Apply CSS</a></li><li><a href="#css-selectors">CSS Selectors</a></li><li><a href="#style-declarations-color-background-color-and-text-styling">Style Declarations: Color, Background Color, and Text Styling</a></li><li><a href="#styling-lists-and-css-box-model">Styling Lists and CSS Box Model</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="css-crash-course-for-beginners-an-educational-text">CSS Crash Course for Beginners: An Educational Text</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/Icf5D3fEKbM" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-css">Introduction to CSS</h2>
+<p>Welcome to the CSS crash course designed for complete beginners. This chapter will guide you through the fundamentals of Cascading Style Sheets (CSS), assuming no prior knowledge. If you are already familiar with CSS basics, this material might be too introductory for you.</p>
+<p>This chapter is a continuation of an HTML crash course (referenced in the original transcript). Therefore, it is recommended to have a basic understanding of HTML before proceeding.</p>
+<blockquote>
+<p><strong>HTML (HyperText Markup Language)</strong>
+HTML is the standard markup language for creating web pages. It provides the structure and content of a webpage, using elements to define different parts of the content.</p>
+</blockquote>
+<p>Our focus will be on the essential CSS concepts necessary for getting started with web development. CSS encompasses a wide range of topics, from basic syntax to advanced techniques. This chapter will concentrate on the foundational knowledge required to style web pages effectively.  Think of it as learning the basic chords on a guitar – once you grasp the fundamentals, you can apply them creatively to style any webpage you envision.</p>
+<blockquote>
+<p><strong>Web Development</strong>
+Web development is the process of creating and maintaining websites and web applications. It encompasses various tasks, including web design, web content development, client-side/server-side scripting, and network security configuration, among others.</p>
+</blockquote>
+<p>It's important to note that advanced CSS topics like Flexbox and CSS Grid will be covered in separate, dedicated chapters. This chapter will solely concentrate on CSS fundamentals.</p>
+<blockquote>
+<p><strong>Flexbox (Flexible Box Layout)</strong>
+Flexbox is a CSS layout module that provides an efficient way to arrange, align, and distribute space among items in a container, even when their size is unknown or dynamic. It is particularly useful for one-dimensional layouts.</p>
+<p><strong>CSS Grid (Grid Layout)</strong>
+CSS Grid Layout is a powerful two-dimensional layout system for CSS. It enables developers to create complex and responsive web page layouts more easily by dividing web pages into rows and columns.</p>
+</blockquote>
+<p>This chapter is designed as a comprehensive crash course, which means it is longer than typical educational videos. It is advisable to learn at your own pace, taking breaks as needed, and most importantly, to code along with the examples provided. Hands-on coding is the most effective way to learn and solidify your understanding of CSS. By the end of this chapter, you will have a solid grasp of CSS fundamentals, enabling you to style your web pages effectively.</p>
+<h2 id="setting-up-your-environment">Setting Up Your Environment</h2>
+<p>To begin working with CSS, similar to HTML, you need two essential tools: a browser and a code editor.</p>
+<ul>
+<li>
+<p><strong>Browser:</strong> For this chapter, Google Chrome will be used as the primary browser. However, most modern browsers will work similarly for CSS development.</p>
+<blockquote>
+<p><strong>Browser</strong>
+A web browser is a software application for retrieving, presenting, and traversing information resources on the World Wide Web. Examples include Chrome, Firefox, Safari, and Edge.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Code Editor:</strong> Visual Studio Code (VS Code) will be used as the code editor. It is a popular and versatile editor suitable for web development. You can download VS Code from <a href="code.visualstudio.com">code.visualstudio.com</a>.</p>
+<blockquote>
+<p><strong>Code Editor</strong>
+A code editor is a text editor program specifically designed for editing source code of computer programs. It often includes features like syntax highlighting, auto-completion, and debugging tools to assist programmers.
+<strong>Visual Studio Code (VS Code)</strong>
+Visual Studio Code is a free source code editor made by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring.</p>
+</blockquote>
+</li>
+</ul>
+<p>After installing VS Code, it is highly recommended to install the "Prettier - Code formatter" extension. This extension automatically formats your code, making it cleaner and more readable. To install it, open VS Code, navigate to the Extensions sidebar (usually the fifth icon down on the left), and search for "Prettier". Click install to add it to your editor.</p>
+<blockquote>
+<p><strong>Prettier</strong>
+Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.</p>
+</blockquote>
+<p>Once your editor is set up, create a new folder for this CSS crash course. Open VS Code, and then open this newly created folder within VS Code. Inside this folder, create a new HTML file named <code>index.html</code>.</p>
+<blockquote>
+<p><strong>HTML File</strong>
+An HTML file is a file containing HyperText Markup Language code. It is the basic building block of a webpage, and is typically opened and rendered by a web browser to display a webpage.</p>
+</blockquote>
+<p>In <code>index.html</code>, type <code>!</code> and press the <code>Tab</code> key. This shortcut in VS Code will generate a basic HTML document structure.</p>
+<blockquote>
+<p><strong>HTML Document</strong>
+An HTML document is a file written in HTML that is displayed by a web browser. It contains the content and structure of a web page, and is the foundational file for any website.</p>
+</blockquote>
+<p>Within the <code>&lt;body&gt;</code> tags of your <code>index.html</code> file, add an <code>&lt;h1&gt;</code> tag with the text "CSS Crash Course".</p>
+<blockquote>
+<p><strong>h1 Tag</strong>
+The <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> HTML tags are heading tags. <code>&lt;h1&gt;</code> represents the most important heading and <code>&lt;h6&gt;</code> the least. They are used to define headings in an HTML document, structuring content hierarchically.</p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;CSS Crash Course&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>To view this in your browser, right-click on <code>index.html</code> in the VS Code sidebar and select "Reveal in File Explorer" (or "Reveal in Finder" on macOS). Double-click the <code>index.html</code> file to open it in your browser. You should see the text "CSS Crash Course" displayed on the page.</p>
+<blockquote>
+<p><strong>File Explorer</strong>
+File Explorer (on Windows) or Finder (on macOS) is a file manager application that is used to browse and manage files and folders on a computer. It allows users to navigate their file system, create folders, open files, and perform other file-related operations.</p>
+</blockquote>
+<p>With this setup complete, you are now ready to start learning CSS.</p>
+<h2 id="what-is-css">What is CSS?</h2>
+<p>CSS stands for <strong>Cascading Style Sheets</strong>. It is the language used to style an HTML document, controlling how elements are displayed on the screen.</p>
+<blockquote>
+<p><strong>Cascading Style Sheets (CSS)</strong>
+CSS is a style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS describes how HTML elements should be displayed on screen, paper, or in other media.</p>
+</blockquote>
+<p>It is crucial to understand that CSS is a <strong>style sheet language</strong>, not a programming language in the traditional sense.</p>
+<blockquote>
+<p><strong>Style Sheet Language</strong>
+A style sheet language is a computer language that describes the style and presentation of a document written in a markup language. It focuses on visual aspects like colors, fonts, layouts, and responsiveness.</p>
+<p><strong>Programming Language</strong>
+A programming language is a formal language used to communicate instructions to a computer. It allows programmers to create software applications, scripts, or other sets of instructions for a computer to execute.</p>
+</blockquote>
+<p>With CSS, you can control various aspects of a web page's appearance, including:</p>
+<ul>
+<li>
+<p><strong>Layout:</strong>  Positioning and arrangement of elements on the page.</p>
+<blockquote>
+<p><strong>Layout</strong>
+In web design, layout refers to the arrangement of visual elements on a page. It involves structuring content using elements to create a visually appealing and user-friendly interface.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Spacing:</strong>  Controlling the space between and around elements.</p>
+<blockquote>
+<p><strong>Spacing</strong>
+Spacing in web design refers to the visual distance between elements on a webpage. It can be adjusted using CSS properties like margin, padding, and line-height to improve readability and aesthetics.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Text Color:</strong> Setting the color of text.</p>
+<blockquote>
+<p><strong>Elements</strong>
+In HTML, elements are the building blocks of web pages. They are defined by tags and can contain text, attributes, and other elements. Examples include headings (<code>&lt;h1&gt;</code>), paragraphs (<code>&lt;p&gt;</code>), and divs (<code>&lt;div&gt;</code>).</p>
+</blockquote>
+</li>
+</ul>
+<p>Essentially, CSS works by <strong>selecting HTML elements</strong> and applying <strong>styles</strong> to those selected elements.</p>
+<blockquote>
+<p><strong>Styles</strong>
+In CSS, styles are rules that specify how HTML elements should be rendered in a browser. Styles are defined using properties and values, and can control aspects like color, font, size, and layout.</p>
+</blockquote>
+<p>Learning CSS, from a beginner's perspective, boils down to understanding two key questions:</p>
+<ol>
+<li><strong>How do I select an HTML element?</strong></li>
+<li><strong>What styles can I apply to that selected element?</strong></li>
+</ol>
+<p>Answering these questions effectively means learning CSS. Let's begin with an example.</p>
+<h2 id="ways-to-apply-css">Ways to Apply CSS</h2>
+<p>There are three primary methods to add CSS styles to an HTML document:</p>
+<ol>
+<li><strong>Inline Styles</strong></li>
+<li><strong>Internal Style Sheet</strong></li>
+<li><strong>External Style Sheet</strong></li>
+</ol>
+<h3 id="inline-styles">Inline Styles</h3>
+<p><strong>Inline styles</strong> are CSS declarations applied directly to individual HTML elements using the <code>style</code> attribute. They affect only the single element to which they are applied.</p>
+<blockquote>
+<p><strong>Inline Styles</strong>
+Inline styles are CSS styles applied directly to an HTML element using the <code>style</code> attribute. They have the highest specificity and affect only the element to which they are applied, overriding external and internal stylesheets.</p>
+</blockquote>
+<p>To use inline styles, add the <code>style</code> attribute to the desired HTML element. For example, to apply an orange color to the <code>&lt;h1&gt;</code> tag, you would add the <code>style</code> attribute as follows:</p>
+<pre><code class="language-html">&lt;h1 style=&quot;color: orange;&quot;&gt;CSS Crash Course&lt;/h1&gt;
+</code></pre>
+<p>This code snippet demonstrates a <strong>CSS declaration</strong>.</p>
+<blockquote>
+<p><strong>CSS Declaration</strong>
+A CSS declaration is a single style rule that consists of a CSS property and its corresponding value. Declarations are used within CSS rules to specify how elements should be styled.</p>
+</blockquote>
+<p>A CSS declaration is always a pair of a <strong>property</strong> and its <strong>value</strong>, separated by a colon <code>:</code>.</p>
+<blockquote>
+<p><strong>Property (CSS)</strong>
+In CSS, a property is a characteristic you can change to style an element. Examples include <code>color</code>, <code>font-size</code>, and <code>background-color</code>.</p>
+<p><strong>Value (CSS)</strong>
+In CSS, a value is assigned to a property to define the specific style. For example, in <code>color: blue;</code>, <code>blue</code> is the value assigned to the <code>color</code> property.</p>
+</blockquote>
+<p>In our example, <code>color</code> is the property, and <code>orange</code> is the value.</p>
+<p>If you save <code>index.html</code> and refresh your browser, you will see the text "CSS Crash Course" displayed in orange.</p>
+<p>While inline styles are straightforward, they are generally <strong>not recommended</strong> for best practices in CSS development.</p>
+<p><strong>Disadvantages of Inline Styles:</strong></p>
+<ul>
+<li><strong>Maintenance Difficulty:</strong> If you need to apply the same style to multiple elements or change a style, you have to modify each element individually. Imagine changing the color from orange to blue across ten different elements – you would need to edit ten separate <code>style</code> attributes.</li>
+<li><strong>Mixing Content and Presentation:</strong> Inline styles mix HTML content (structure) with CSS presentation (style). This makes the code harder to read, understand, and maintain. Separating content and presentation is a core principle of good web development.</li>
+</ul>
+<p><strong>Use Cases for Inline Styles:</strong></p>
+<p>Despite the drawbacks, inline styles have limited use cases, particularly in scenarios such as:</p>
+<ul>
+<li><strong>Styling HTML templates for emails:</strong> Email clients often have limited CSS support, making inline styles a more reliable option.</li>
+<li><strong>Content Management Systems (CMS):</strong> In some CMS platforms, you might be restricted from modifying external CSS files, making inline styles a quick workaround for content styling.</li>
+</ul>
+<p>However, for most web development projects, especially for beginners, it is best to avoid inline styles and use more maintainable methods.</p>
+<h3 id="internal-style-sheet">Internal Style Sheet</h3>
+<p>An <strong>internal style sheet</strong> is defined within the <code>&lt;style&gt;</code> HTML element, placed inside the <code>&lt;head&gt;</code> section of your HTML document.</p>
+<blockquote>
+<p><strong>Internal Style Sheet</strong>
+An internal style sheet is a method of embedding CSS styles directly within an HTML document. It is defined inside <code>&lt;style&gt;</code> tags within the <code>&lt;head&gt;</code> section of the HTML file, and applies styles only to that specific HTML document.</p>
+</blockquote>
+<p>To use an internal style sheet, open the <code>index.html</code> file and add <code>&lt;style&gt;</code> tags within the <code>&lt;head&gt;</code> section:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        /* CSS rules will go here */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;CSS Crash Course&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Inside the <code>&lt;style&gt;</code> tags, you define <strong>CSS rules</strong>.</p>
+<blockquote>
+<p><strong>CSS Rule</strong>
+A CSS rule is a set of style instructions that tell the browser how to display a particular HTML element or a group of elements. It consists of a selector and a declaration block.</p>
+</blockquote>
+<p>A CSS rule consists of two main parts:</p>
+<ol>
+<li><strong>Selector:</strong>  Specifies which HTML element(s) the style should be applied to.</li>
+<li>
+<p><strong>Declaration Block:</strong> Contains one or more style declarations, enclosed in curly braces <code>{}</code>.</p>
+<blockquote>
+<p><strong>Selector (CSS)</strong>
+A CSS selector is a pattern used to select the HTML elements you want to style. Selectors can target elements by tag name, class, ID, attributes, and more.</p>
+<p><strong>Declaration Block (CSS)</strong>
+In CSS, a declaration block is a set of CSS declarations enclosed in curly braces <code>{}</code>. It follows a selector and contains one or more property-value pairs that define the styles to be applied to the selected elements.</p>
+</blockquote>
+</li>
+</ol>
+<p>Each declaration within the declaration block is separated by a semicolon <code>;</code>. Each declaration itself is a property-value pair, separated by a colon <code>:</code>.</p>
+<p>To color the <code>&lt;h1&gt;</code> text orange using an internal style sheet, you would add the following CSS rule within the <code>&lt;style&gt;</code> tags:</p>
+<pre><code class="language-html">&lt;style&gt;
+    h1 {
+        color: orange;
+    }
+&lt;/style&gt;
+</code></pre>
+<p>In this rule:</p>
+<ul>
+<li><code>h1</code> is the <strong>selector</strong>. It targets all <code>&lt;h1&gt;</code> elements in the document.</li>
+<li><code>{ color: orange; }</code> is the <strong>declaration block</strong>.</li>
+<li><code>color: orange;</code> is the <strong>declaration</strong>. <code>color</code> is the property, and <code>orange</code> is the value.</li>
+</ul>
+<p>Remove the inline style from the <code>&lt;h1&gt;</code> tag in <code>index.html</code>:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;h1&gt;CSS Crash Course&lt;/h1&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Save <code>index.html</code> and refresh your browser. The "CSS Crash Course" text should still be orange, but now the style is applied through the internal style sheet.</p>
+<p>If you add another <code>&lt;h1&gt;</code> tag in the <code>&lt;body&gt;</code>:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;h1&gt;CSS Crash Course&lt;/h1&gt;
+    &lt;h1&gt;Another h1 Element&lt;/h1&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Refresh the browser. You will see that both <code>&lt;h1&gt;</code> elements are now orange. This is because the <code>h1</code> selector in the CSS rule applies to <strong>all</strong> <code>&lt;h1&gt;</code> tags in the HTML document.</p>
+<p><strong>Disadvantages of Internal Style Sheets:</strong></p>
+<p>Similar to inline styles, internal style sheets are also not the most recommended approach for larger websites. While better than inline styles, they still have limitations:</p>
+<ul>
+<li><strong>Maintenance for Multi-Page Websites:</strong> If your website has multiple HTML pages and you want to apply the same styles across all of them, you would need to copy the entire <code>&lt;style&gt;</code> block into the <code>&lt;head&gt;</code> of each HTML file.</li>
+<li><strong>Inefficiency:</strong> For websites with many pages, maintaining consistency and making site-wide style changes becomes cumbersome. You would have to edit the <code>&lt;style&gt;</code> section in every HTML file.</li>
+</ul>
+<p>Internal style sheets are somewhat useful for single-page websites or when you are restricted from modifying external CSS files (like in some CMS scenarios), but for most modern web development, <strong>external style sheets</strong> are the preferred method.</p>
+<h3 id="external-style-sheet">External Style Sheet</h3>
+<p>An <strong>external style sheet</strong> is the most common and recommended way to add CSS to an HTML document. It involves creating a separate file with a <code>.css</code> extension to contain your CSS rules. The HTML page then links to this external CSS file.</p>
+<blockquote>
+<p><strong>External Style Sheet</strong>
+An external style sheet is a CSS file (.css extension) that contains CSS rules. It is linked to HTML documents using the <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> section, allowing styles to be applied to multiple HTML pages from a single CSS file.</p>
+</blockquote>
+<p><strong>Steps to use an external style sheet:</strong></p>
+<ol>
+<li>
+<p><strong>Create a CSS File:</strong> In your <code>css-crash-course</code> folder, create a new file named <code>styles.css</code>. The <code>.css</code> extension is crucial. "styles" is a common convention for naming CSS files, but you can choose other names as well.</p>
+</li>
+<li>
+<p><strong>Move CSS Rules:</strong> Copy the CSS rule from the <code>&lt;style&gt;</code> block in <code>index.html</code> and paste it into <code>styles.css</code>. Your <code>styles.css</code> file should now look like this:</p>
+<p><code>css
+h1 {
+    color: orange;
+}</code></p>
+<p>Remove the <code>&lt;style&gt;</code> block from your <code>index.html</code> file completely, as the styles are now in <code>styles.css</code>.</p>
+</li>
+<li>
+<p><strong>Link CSS File to HTML:</strong> In the <code>&lt;head&gt;</code> section of your <code>index.html</code> file, add a <code>&lt;link&gt;</code> tag to link the HTML document to your <code>styles.css</code> file.</p>
+<blockquote>
+<p><strong>link Tag</strong>
+The <code>&lt;link&gt;</code> tag in HTML is used to define the relationship between the current document and an external resource. It is most commonly used to link to external stylesheets, but can also be used for favicons, preloading resources, and more.</p>
+</blockquote>
+<p>The <code>&lt;link&gt;</code> tag requires two essential attributes for linking CSS:</p>
+<ul>
+<li>
+<p><code>rel="stylesheet"</code>: Specifies the relationship between the linked file and the HTML document. In this case, it indicates that the linked file is a stylesheet.</p>
+<blockquote>
+<p><strong>rel Attribute</strong>
+The <code>rel</code> attribute in the <code>&lt;link&gt;</code> tag specifies the relationship between the current document and the linked resource. For stylesheets, it is set to <code>stylesheet</code>.</p>
+</blockquote>
+</li>
+<li>
+<p><code>href="styles.css"</code>: Specifies the path to the CSS file. If <code>styles.css</code> is in the same folder as <code>index.html</code>, you can simply use the filename.</p>
+<blockquote>
+<p><strong>href Attribute</strong>
+The <code>href</code> attribute in the <code>&lt;link&gt;</code> tag specifies the URL of the linked resource. For stylesheets, it points to the location of the CSS file.</p>
+</blockquote>
+</li>
+</ul>
+<p>Your <code>&lt;head&gt;</code> section in <code>index.html</code> should now look like this:</p>
+<p><code>html
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></p>
+<p>Save both <code>index.html</code> and <code>styles.css</code> files. Refresh your browser, and you should still see the "CSS Crash Course" text in orange.</p>
+</li>
+</ol>
+<p><strong>Advantages of External Style Sheets:</strong></p>
+<ul>
+<li><strong>Maintainability:</strong>  Changes to styles are made in one central CSS file, which automatically updates the styling across all linked HTML pages. This makes website maintenance much easier.</li>
+<li><strong>Consistency:</strong> Ensures consistent styling across multiple pages of a website.</li>
+<li><strong>Reusability:</strong> The same CSS file can be linked to multiple HTML documents, promoting code reuse and reducing redundancy.</li>
+<li><strong>Performance:</strong> Browsers can cache external CSS files, meaning that once a user loads a page with an external stylesheet, subsequent pages that use the same stylesheet can load faster.</li>
+<li><strong>Separation of Concerns:</strong> Keeps HTML structure and CSS presentation separate, making code cleaner, more organized, and easier to manage for both designers and developers.</li>
+</ul>
+<p><strong>Example: Styling Multiple Pages:</strong></p>
+<p>To demonstrate the reusability of external style sheets, create a new HTML file named <code>about.html</code> in the same folder. Copy and paste all the content from <code>index.html</code> into <code>about.html</code>. Change the <code>&lt;h1&gt;</code> text in <code>about.html</code> to "About CSS".</p>
+<p>Open <code>about.html</code> in your browser. You will notice that the "About CSS" heading is also orange, even though you only wrote the CSS rule in <code>styles.css</code> once and linked it to both <code>index.html</code> and <code>about.html</code>. If you change the color in <code>styles.css</code> (e.g., from orange to blue), both <code>index.html</code> and <code>about.html</code> will reflect the change after refreshing them in the browser.</p>
+<p><strong>Conclusion on CSS Application Methods:</strong></p>
+<p>External style sheets are the most efficient, maintainable, and widely used method for applying CSS styles to web pages. For any project beyond the simplest single-page website, external style sheets are the recommended approach.</p>
+<h2 id="css-selectors">CSS Selectors</h2>
+<p>Now that we understand how to apply CSS, let's delve deeper into <strong>CSS selectors</strong>. As mentioned earlier, a CSS rule starts with a selector, which determines which HTML element(s) the styles will be applied to.</p>
+<blockquote>
+<p><strong>CSS Selectors</strong>
+CSS selectors are patterns used to select the HTML elements you want to style. They are the first part of a CSS rule and can target elements based on tag name, class, ID, attributes, and relationships in the document tree.</p>
+</blockquote>
+<p>So far, we have seen the <strong>type selector</strong> (or <strong>element selector</strong>), like <code>h1</code>, which selects all <code>&lt;h1&gt;</code> elements.</p>
+<blockquote>
+<p><strong>Type Selector (Element Selector)</strong>
+A type selector, also known as an element selector, selects all HTML elements of a specific type. For example, <code>p</code> selects all <code>&lt;p&gt;</code> elements, and <code>div</code> selects all <code>&lt;div&gt;</code> elements.</p>
+</blockquote>
+<p>However, web pages often contain many different HTML tags, and you need more precise ways to target specific elements for styling. This is where various CSS selectors come into play. We will explore some of the most fundamental and commonly used selectors.</p>
+<h3 id="universal-selector">Universal Selector</h3>
+<p>The <strong>universal selector</strong> is denoted by an asterisk <code>*</code>. It selects <strong>every</strong> HTML element on the page.</p>
+<blockquote>
+<p><strong>Universal Selector</strong>
+The universal selector (<code>*</code>) is a CSS selector that matches all elements in an HTML document. It is often used to apply styles that should be globally applied or to reset default styles.</p>
+</blockquote>
+<p>To use the universal selector, replace the <code>h1</code> selector in your <code>styles.css</code> file with <code>*</code>:</p>
+<pre><code class="language-css">* {
+    color: blue;
+}
+</code></pre>
+<p>In your <code>index.html</code> file, add a paragraph tag <code>&lt;p&gt;</code> with some text:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;h1&gt;CSS Crash Course&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Refresh your browser. You will see that both the <code>&lt;h1&gt;</code> heading and the <code>&lt;p&gt;</code> paragraph are now blue. The universal selector has applied the <code>color: blue;</code> style to all elements on the page.</p>
+<p><strong>Use Cases for Universal Selector:</strong></p>
+<p>The universal selector is primarily used for:</p>
+<ul>
+<li>
+<p><strong>CSS Reset:</strong>  To reset or normalize default browser styles. Browsers often have default styles for elements (e.g., margins, paddings, fonts). A CSS reset uses the universal selector to set these properties to a consistent baseline, ensuring a more predictable starting point for styling.</p>
+<blockquote>
+<p><strong>CSS Reset</strong>
+A CSS reset is a set of CSS rules designed to reset the default styling of HTML elements across different browsers. It aims to reduce inconsistencies by setting common properties like margins, paddings, and font sizes to a more neutral or uniform starting point.</p>
+</blockquote>
+<p>You can search online for "CSS reset" to find popular CSS reset stylesheets and understand more about this concept.
+*   <strong>Global Styling:</strong> To apply certain styles globally across the entire webpage, although this is less common than CSS resets for the universal selector.</p>
+</li>
+</ul>
+<p>Generally, the universal selector should be used sparingly, mainly for CSS resets or very broad, global styles. For most styling tasks, more specific selectors are preferred.</p>
+<h3 id="class-selector">Class Selector</h3>
+<p>The <strong>class selector</strong> is one of the most frequently used selectors in CSS. It allows you to select HTML elements based on their <code>class</code> attribute.</p>
+<blockquote>
+<p><strong>Class Selector</strong>
+A class selector in CSS selects HTML elements that have a specific class attribute. It is denoted by a dot (<code>.</code>) followed by the class name.</p>
+</blockquote>
+<p>Often, you will want to style certain elements differently, even if they are the same HTML tag type. For example, you might have two paragraph elements, but you want one to be styled as an "error" message (red text) and the other as a "success" message (green text). In such cases, you can use class selectors.</p>
+<p>In your <code>index.html</code> file, replace the existing content in the <code>&lt;body&gt;</code> with two paragraph elements:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;p&gt;Red text&lt;/p&gt;
+    &lt;p&gt;Green text&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<p>If you were to use the element selector <code>p</code> in <code>styles.css</code>, it would apply the same style to both paragraphs. To style them differently, you can use the <code>class</code> attribute.</p>
+<p>Add the <code>class</code> attribute to both paragraph tags:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;p class=&quot;error&quot;&gt;Red text&lt;/p&gt;
+    &lt;p class=&quot;success&quot;&gt;Green text&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Here, we have assigned the class name "error" to the first paragraph and "success" to the second. "error" and "success" are arbitrary class names, but they should be descriptive of the style or purpose.</p>
+<blockquote>
+<p><strong>Class Attribute</strong>
+The <code>class</code> attribute in HTML is a global attribute that specifies one or more class names for an HTML element. Class names are used by CSS and JavaScript to select and manipulate elements with a common characteristic or style.</p>
+</blockquote>
+<p>To select elements with a specific class in CSS, you use a <strong>dot <code>.</code></strong> followed by the class name.</p>
+<p>In your <code>styles.css</code> file, add the following CSS rules:</p>
+<pre><code class="language-css">.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+</code></pre>
+<ul>
+<li><code>.error</code> is the class selector for elements with the class "error".</li>
+<li><code>.success</code> is the class selector for elements with the class "success".</li>
+</ul>
+<p>Refresh your browser. You should see "Red text" in red and "Green text" in green. The class selectors have applied the respective styles to the paragraphs based on their class names.</p>
+<p><strong>Key Points about Class Selectors:</strong></p>
+<ul>
+<li>Class names are case-sensitive.</li>
+<li>Multiple classes can be assigned to a single HTML element, separated by spaces (e.g., <code>&lt;p class="error important"&gt;</code>).</li>
+<li>The same class can be applied to multiple HTML elements across your website, allowing you to reuse styles efficiently.</li>
+<li>Class selectors are a fundamental and highly versatile way to style elements in CSS.</li>
+</ul>
+<h3 id="id-selector">ID Selector</h3>
+<p>The <strong>ID selector</strong> is similar to the class selector, but it is used to select a <strong>single, unique element</strong> on the page based on its <code>id</code> attribute. IDs should be unique within an HTML document.</p>
+<blockquote>
+<p><strong>ID Selector</strong>
+An ID selector in CSS selects a single HTML element that has a specific <code>id</code> attribute. It is denoted by a hash symbol or pound sign (<code>#</code>) followed by the ID name.</p>
+</blockquote>
+<p>In your <code>index.html</code> file, add a new paragraph tag with an <code>id</code> attribute:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;p class=&quot;error&quot;&gt;Red text&lt;/p&gt;
+    &lt;p class=&quot;success&quot;&gt;Green text&lt;/p&gt;
+    &lt;p id=&quot;test&quot;&gt;ID selector text&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Here, we have assigned the ID "test" to the third paragraph.</p>
+<blockquote>
+<p><strong>ID Attribute</strong>
+The <code>id</code> attribute in HTML is a global attribute that defines a unique identifier for an HTML element. IDs must be unique within the HTML document and are used by CSS and JavaScript to target specific elements.</p>
+</blockquote>
+<p>To select an element with a specific ID in CSS, you use a <strong>hash symbol <code>#</code></strong> (or <strong>pound symbol</strong>) followed by the ID name.</p>
+<p>In your <code>styles.css</code> file, add the following CSS rule:</p>
+<pre><code class="language-css">#test {
+    color: maroon;
+}
+</code></pre>
+<ul>
+<li><code>#test</code> is the ID selector for the element with the ID "test".</li>
+</ul>
+<p>Refresh your browser. You should see "ID selector text" in maroon.</p>
+<p><strong>Use Cases for ID Selectors:</strong></p>
+<ul>
+<li><strong>Targeting a Unique Element:</strong> When you need to style a very specific, unique element on a page, and you know there will only ever be one such element.</li>
+<li><strong>JavaScript Interaction:</strong> IDs are often used by JavaScript to uniquely identify and manipulate specific elements on a webpage.</li>
+<li><strong>Specificity in CSS:</strong> ID selectors have a higher specificity than class selectors, which can be useful in certain situations (discussed later in this chapter).</li>
+</ul>
+<p>However, IDs are <strong>less commonly used for styling</strong> compared to classes. Over-reliance on IDs for styling can sometimes lead to less reusable and more rigid CSS. Classes are generally preferred for styling because they promote reusability and maintainability.</p>
+<p><strong>Example Use Case for ID Selector:</strong></p>
+<p>One situation where ID selectors might be useful is when you need to override styles applied from an <strong>external library</strong> or CSS framework to a specific element.</p>
+<blockquote>
+<p><strong>External Library</strong>
+In web development, an external library is a collection of pre-written code (often JavaScript or CSS) that provides functionalities that developers can use in their projects. Libraries save time and effort by offering ready-made solutions for common tasks.</p>
+</blockquote>
+<p>For instance, if you are using a CSS framework that applies a certain style to all paragraph elements, and you want to make one specific paragraph have a different style, using an ID selector for that paragraph can be a quick way to override the framework's style due to the higher specificity of ID selectors.</p>
+<h3 id="advanced-selectors-and-combinators">Advanced Selectors and Combinators</h3>
+<p>Besides the basic selectors (type, universal, class, ID), CSS offers more advanced selectors and <strong>combinators</strong> to create more sophisticated selection patterns.</p>
+<blockquote>
+<p><strong>Combinators (CSS)</strong>
+Combinators are CSS selectors that define the relationship between selectors. They are used to select elements based on their position in the document tree, such as descendants, children, siblings, and adjacent siblings.</p>
+</blockquote>
+<p>Combinators allow you to select elements based on their relationships to other elements in the HTML document structure. For example, you can select:</p>
+<ul>
+<li>A paragraph element only if it is inside a <code>&lt;div&gt;</code> element.</li>
+<li>A paragraph element only if it is immediately after another paragraph element (adjacent sibling).</li>
+</ul>
+<p>Examples of CSS combinators include:</p>
+<ul>
+<li><strong>Descendant Combinator (space):</strong> Selects elements that are descendants of another element.</li>
+<li><strong>Child Combinator (<code>&gt;</code>):</strong> Selects elements that are direct children of another element.</li>
+<li><strong>Adjacent Sibling Combinator (<code>+</code>):</strong> Selects elements that are immediately preceded by another element (siblings).</li>
+<li><strong>General Sibling Combinator (<code>~</code>):</strong> Selects elements that are siblings of another element (not necessarily immediately adjacent).</li>
+</ul>
+<p>Learning about combinators and advanced selectors can significantly enhance your CSS styling capabilities and allow you to target elements with greater precision. For beginners, it's essential to master the basic selectors (type, universal, class, ID) first. Once you have a solid understanding of these fundamentals, you can explore combinators and advanced selectors to further refine your CSS skills. Resources like <strong>Mozilla Developer Network (MDN)</strong> (often referred to as "mozilla docs") are excellent for learning more about advanced CSS selectors and combinators.</p>
+<blockquote>
+<p><strong>Mozilla Developer Network (MDN)</strong>
+Mozilla Developer Network (MDN) is a comprehensive online resource for web developers. It provides documentation, tutorials, and guides on web technologies including HTML, CSS, JavaScript, and web APIs.</p>
+</blockquote>
+<h2 id="style-declarations-color-background-color-and-text-styling">Style Declarations: Color, Background Color, and Text Styling</h2>
+<p>Once you have a grasp of CSS selectors, the next step is to learn about <strong>style declarations</strong>. These are the properties and values you use within CSS rules to actually style the selected elements. Let's explore some commonly used properties, starting with color and text styling.</p>
+<blockquote>
+<p><strong>Style Declarations</strong>
+Style declarations are the property-value pairs within a CSS rule's declaration block that specify how selected HTML elements should be styled. Each declaration sets the value of a specific CSS property.</p>
+</blockquote>
+<h3 id="color-property">Color Property</h3>
+<p>The <code>color</code> property is used to set the text color of an element. CSS offers various ways to specify color values. We will focus on two common methods:</p>
+<ol>
+<li>
+<p><strong>Hex Value:</strong> A hexadecimal color code, often referred to as a "hex value", is a way of specifying color using hexadecimal numbers. It starts with a hash symbol <code>#</code> followed by a 6-digit hexadecimal number (0-9 and A-F).</p>
+<blockquote>
+<p><strong>Hex Value</strong>
+A hex value, or hexadecimal color code, is a way to represent colors in CSS using a six-digit hexadecimal number preceded by a hash symbol (<code>#</code>). The six digits represent the red, green, and blue components of the color (RR, GG, BB).</p>
+</blockquote>
+<ul>
+<li><code>#000000</code> represents black (all color components are 0).</li>
+<li><code>#FFFFFF</code> represents white (all color components are at their maximum value, F=15 in hexadecimal).</li>
+<li><code>#FF0000</code> is red, <code>#00FF00</code> is green, and <code>#0000FF</code> is blue.</li>
+</ul>
+</li>
+<li>
+<p><strong>RGBA:</strong>  RGBA stands for Red, Green, Blue, Alpha. It allows you to specify a color using red, green, and blue components, as well as an alpha (opacity) component.</p>
+<blockquote>
+<p><strong>RGBA (Red, Green, Blue, Alpha)</strong>
+RGBA is a color model in CSS that allows you to specify colors using red, green, and blue components, and an alpha value for opacity. The syntax is <code>rgba(red, green, blue, alpha)</code>, where red, green, and blue are integers from 0 to 255, and alpha is a number from 0.0 (fully transparent) to 1.0 (fully opaque).</p>
+</blockquote>
+<ul>
+<li><code>rgba(0, 0, 0, 1)</code> is black (RGB components are 0, alpha is 1, fully opaque).</li>
+<li><code>rgba(255, 255, 255, 1)</code> is white.</li>
+<li><code>rgba(255, 0, 0, 1)</code> is red, <code>rgba(0, 255, 0, 1)</code> is green, and <code>rgba(0, 0, 255, 1)</code> is blue.</li>
+<li>
+<p><strong>Opacity:</strong> The alpha value controls the <strong>opacity</strong> of the color, making it partially transparent. An alpha value of <code>0.5</code> makes the color 50% transparent, and <code>0</code> makes it fully transparent.</p>
+<blockquote>
+<p><strong>Opacity</strong>
+Opacity in CSS refers to the degree to which content behind an element is hidden. It is controlled by the <code>opacity</code> property, which takes a value from 0.0 (fully transparent) to 1.0 (fully opaque).</p>
+</blockquote>
+<p>For example, <code>rgba(0, 0, 0, 0.5)</code> is a semi-transparent black color.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Example using Hex and RGBA:</strong></p>
+<pre><code class="language-css">.error {
+    color: red; /* Using color name */
+}
+
+.success {
+    color: #008000; /* Using hex value for green */
+}
+
+#test {
+    color: rgba(128, 0, 0, 0.7); /* Using RGBA for semi-transparent maroon */
+}
+</code></pre>
+<h3 id="background-color-property">Background Color Property</h3>
+<p>The <code>background-color</code> property sets the background color of an element. You can use the same color value formats (hex, RGBA, color names) as with the <code>color</code> property.</p>
+<blockquote>
+<p><strong>Background Color Property</strong>
+The <code>background-color</code> property in CSS sets the background color of an HTML element. It can accept various color values, including color names, hex values, RGB, RGBA, HSL, and HSLA.</p>
+</blockquote>
+<p>In your <code>index.html</code> file, add two new elements: a <code>&lt;div&gt;</code> and a <code>&lt;span&gt;</code>, both with class attributes:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;p class=&quot;error&quot;&gt;Red text&lt;/p&gt;
+    &lt;p class=&quot;success&quot;&gt;Green text&lt;/p&gt;
+    &lt;p id=&quot;test&quot;&gt;ID selector text&lt;/p&gt;
+    &lt;div class=&quot;orange-bg&quot;&gt;Orange background&lt;/div&gt;
+    &lt;span class=&quot;yellow-bg&quot;&gt;Yellow background&lt;/span&gt;
+&lt;/body&gt;
+</code></pre>
+<p>In <code>styles.css</code>, add rules for <code>.orange-bg</code> and <code>.yellow-bg</code>:</p>
+<pre><code class="language-css">.orange-bg {
+    background-color: orange;
+}
+
+.yellow-bg {
+    background-color: yellow;
+}
+</code></pre>
+<p>Refresh your browser. You will see the "Orange background" <code>&lt;div&gt;</code> with an orange background and the "Yellow background" <code>&lt;span&gt;</code> with a yellow background.</p>
+<p>Notice that the <code>&lt;div&gt;</code> takes up the full width of its container (it is a <strong>block-level</strong> element), while the <code>&lt;span&gt;</code> only takes up the space needed for its content (it is an <strong>inline</strong> element).</p>
+<blockquote>
+<p><strong>Block-Level Element</strong>
+A block-level element in HTML starts on a new line and takes up the full width available to it. Examples include <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>, and <code>&lt;ul&gt;</code>.</p>
+<p><strong>Inline Element</strong>
+An inline element in HTML does not start on a new line and only takes up as much width as necessary to contain its content. Examples include <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>, and <code>&lt;strong&gt;</code>.</p>
+</blockquote>
+<h3 id="text-styling">Text Styling</h3>
+<p>CSS provides numerous properties for styling text. These properties can be broadly categorized into <strong>font styles</strong> and <strong>text layout styles</strong>.</p>
+<blockquote>
+<p><strong>Text Styling</strong>
+Text styling in CSS involves using various properties to control the appearance of text content on a webpage. This includes font styles (like family, size, weight, style) and text layout styles (like alignment, line height, spacing).</p>
+</blockquote>
+<h4 id="font-styles">Font Styles</h4>
+<p><strong>Font styles</strong> control aspects related to the typeface and appearance of the font itself.</p>
+<p><strong>1. <code>font-family</code> Property:</strong> Sets the font family for the text.</p>
+<blockquote>
+<p><strong>Font Family Property</strong>
+The <code>font-family</code> property in CSS specifies the typeface or font family to be used for text in an element. It can list multiple font families as fallbacks in case the primary font is not available on the user's system.</p>
+</blockquote>
+<p>By default, browsers use a default font (e.g., Times New Roman on Windows Chrome). You can change this using <code>font-family</code>.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-css">.font-styles {
+    font-family: Verdana;
+}
+</code></pre>
+<p>In <code>index.html</code>, add two <code>&lt;h1&gt;</code> elements:</p>
+<pre><code class="language-html">&lt;body&gt;
+    ...
+    &lt;h1 &gt;CSS Text&lt;/h1&gt;
+    &lt;h1 class=&quot;font-styles&quot;&gt;CSS Text with Font Style&lt;/h1&gt;
+&lt;/body&gt;
+</code></pre>
+<p>In <code>styles.css</code>, add the <code>.font-styles</code> rule:</p>
+<pre><code class="language-css">.font-styles {
+    font-family: Verdana;
+}
+</code></pre>
+<p>Refresh your browser. The second "CSS Text" heading will appear in the Verdana font.</p>
+<p><strong>Web Safe Fonts and Fallbacks:</strong></p>
+<p>Not every font is available on every user's computer and browser. Therefore, it's a good practice to use <strong>web-safe fonts</strong> and provide <strong>fallback fonts</strong>.</p>
+<blockquote>
+<p><strong>Web Safe Font</strong>
+Web safe fonts are fonts that are widely available across different operating systems and browsers. Using web safe fonts ensures that your text will be displayed consistently for most users, without relying on custom font files.</p>
+<p><strong>Sans-serif</strong>
+Sans-serif is a category of fonts that do not have extending features called "serifs" at the end of strokes. Common sans-serif fonts include Arial, Helvetica, and Verdana.</p>
+</blockquote>
+<p>When you specify <code>font-family</code>, you can list multiple font families, separated by commas. The browser will try to use the first font in the list. If it's not available, it will try the next, and so on. The last font in the list is often a generic font family like <code>sans-serif</code> or <code>serif</code>, which are guaranteed to be available on almost all systems.</p>
+<p><strong>Example with Fallback:</strong></p>
+<pre><code class="language-css">.font-styles {
+    font-family: Verdana, Arial, sans-serif; /* Verdana, then Arial, then any sans-serif font */
+}
+</code></pre>
+<p><strong>2. <code>font-style</code> Property:</strong> Sets the font style (e.g., italic, normal).</p>
+<blockquote>
+<p><strong>Font Style Property</strong>
+The <code>font-style</code> property in CSS is used to set the font style of text, such as normal, italic, or oblique. It is commonly used to apply italic styling to text.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>font-style: italic;</code> makes the text italicized.</p>
+<blockquote>
+<p><strong>Italic</strong>
+Italic is a font style that slants the letters to the right. It is often used for emphasis, titles of works, or foreign words.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>3. <code>font-weight</code> Property:</strong> Sets the boldness or weight of the font.</p>
+<blockquote>
+<p><strong>Font Weight Property</strong>
+The <code>font-weight</code> property in CSS specifies the weight or boldness of the font. Common values include <code>normal</code>, <code>bold</code>, <code>lighter</code>, <code>bolder</code>, and numerical values from 100 to 900.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>font-weight: bold;</code> makes the text bold.</p>
+<blockquote>
+<p><strong>Bold</strong>
+Bold is a font weight that makes text appear thicker and darker. It is often used for headings, emphasis, or important text.</p>
+</blockquote>
+</li>
+</ul>
+<p><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> headings are bold by default. You can use <code>font-weight: normal;</code> to make them not bold.</p>
+<p><strong>4. <code>text-decoration</code> Property:</strong> Adds decorations to text (e.g., underline, line-through, overline).</p>
+<blockquote>
+<p><strong>Text Decoration Property</strong>
+The <code>text-decoration</code> property in CSS is used to add or remove decorations from text, such as underlines, overlines, and line-throughs. It is commonly used to remove underlines from links or to add underlines for emphasis.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>text-decoration: underline;</code> underlines the text.</p>
+<blockquote>
+<p><strong>Underline</strong>
+Underline is a text decoration that draws a line beneath the text. It is often used to emphasize text or to indicate hyperlinks (though underlines are less common for hyperlinks in modern web design).</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>5. <code>font-size</code> Property:</strong> Sets the size of the font.</p>
+<blockquote>
+<p><strong>Font Size Property</strong>
+The <code>font-size</code> property in CSS specifies the size of the font of text content. It can be defined using various units, such as pixels (<code>px</code>), ems (<code>em</code>), rems (<code>rem</code>), and percentages (<code>%</code>).</p>
+</blockquote>
+<ul>
+<li>
+<p><code>font-size: 50px;</code> sets the font size to 50 <strong>pixels</strong>. Pixels (<code>px</code>) are a common unit for font sizes.</p>
+<blockquote>
+<p><strong>Pixels (px)</strong>
+Pixels (px) are absolute units in CSS that represent tiny dots on a screen. They are a common unit for specifying font sizes, element dimensions, and spacing in web design.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Example combining font styles:</strong></p>
+<pre><code class="language-css">.font-styles {
+    font-family: Verdana, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 30px;
+}
+</code></pre>
+<h4 id="text-layout-styles">Text Layout Styles</h4>
+<p><strong>Text layout styles</strong> control how text is positioned and spaced within its <strong>containing box</strong>.</p>
+<blockquote>
+<p><strong>Containing Box</strong>
+In CSS, the containing box of an element is the box within which the element is rendered and laid out. For inline elements, the containing box is typically the line box. For block-level elements, it is the content box of its parent element.</p>
+</blockquote>
+<p><strong>1. <code>text-align</code> Property:</strong> Controls the horizontal alignment of text within its container.</p>
+<blockquote>
+<p><strong>Text Align Property</strong>
+The <code>text-align</code> property in CSS specifies the horizontal alignment of text within an element. Common values include <code>left</code>, <code>right</code>, <code>center</code>, and <code>justify</code>.</p>
+</blockquote>
+<ul>
+<li><code>text-align: center;</code> centers the text horizontally.</li>
+<li><code>text-align: right;</code> aligns text to the right.</li>
+<li><code>text-align: left;</code> (default) aligns text to the left.</li>
+<li><code>text-align: justify;</code> justifies the text (spreads it out to fill the line, creating even left and right edges).</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-css">.orange-bg {
+    background-color: orange;
+    text-align: center; /* Center the text in the orange div */
+}
+</code></pre>
+<p><strong>2. <code>line-height</code> Property:</strong> Sets the height of each line of text.</p>
+<blockquote>
+<p><strong>Line Height Property</strong>
+The <code>line-height</code> property in CSS specifies the height of a line box. It is commonly used to adjust the vertical spacing between lines of text to improve readability.</p>
+</blockquote>
+<ul>
+<li><code>line-height: 2;</code> sets the line height to twice the normal line height (relative to the font size). You can also use pixel values (e.g., <code>line-height: 30px;</code>).</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-css">.orange-bg {
+    background-color: orange;
+    text-align: center;
+    line-height: 2; /* Double line height */
+}
+</code></pre>
+<p><strong>3. <code>letter-spacing</code> Property:</strong> Controls the spacing between letters (characters).</p>
+<blockquote>
+<p><strong>Letter Spacing Property</strong>
+The <code>letter-spacing</code> property in CSS specifies the space between characters in text. It is used to adjust the horizontal spacing between letters, making text more or less spaced out.</p>
+</blockquote>
+<ul>
+<li><code>letter-spacing: 4px;</code> adds 4 pixels of space between each letter.</li>
+</ul>
+<p><strong>4. <code>word-spacing</code> Property:</strong> Controls the spacing between words.</p>
+<blockquote>
+<p><strong>Word Spacing Property</strong>
+The <code>word-spacing</code> property in CSS specifies the space between words in text. It is used to adjust the horizontal spacing between words, making text more or less spaced out at the word level.</p>
+</blockquote>
+<ul>
+<li><code>word-spacing: 20px;</code> adds 20 pixels of space between each word.</li>
+</ul>
+<p><strong>Example combining text layout styles:</strong></p>
+<pre><code class="language-css">.font-styles {
+    font-family: Verdana, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 30px;
+    text-align: justify;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+}
+</code></pre>
+<p><strong>Inspecting Computed Styles:</strong></p>
+<p>Browsers' developer tools are invaluable for understanding CSS. In your browser, right-click on an element (e.g., the "CSS Text with Font Style" <code>&lt;h1&gt;</code> element) and select "Inspect" or "Inspect Element". In the developer tools panel, you will typically find tabs like "Elements" or "Inspector" and "Styles" or "Computed".</p>
+<blockquote>
+<p><strong>Inspect Element (Developer Tools)</strong>
+Inspect Element is a feature in web browsers' developer tools that allows users to examine the HTML and CSS of a webpage. It provides a way to view and modify the source code and styles of elements in real-time.</p>
+</blockquote>
+<p>Navigate to the "Computed" tab. Here, you can see the <strong>rendered font</strong> and all the computed styles applied to the selected element.</p>
+<blockquote>
+<p><strong>Computed Styles (Developer Tools)</strong>
+In web browsers' developer tools, the Computed tab (or pane) displays the final, calculated styles applied to an HTML element. It shows the values of CSS properties after inheritance, specificity, and cascading rules have been applied.</p>
+</blockquote>
+<p>Scroll down in the "Computed" styles to find font-related properties like "font-family", "font-size", "font-weight", etc. You can see the <strong>rendered font</strong> (the actual font the browser is using to display the text).</p>
+<blockquote>
+<p><strong>Rendered Font</strong>
+The rendered font is the actual typeface that a web browser uses to display text on a webpage. It is the result of the browser's font selection process, taking into account the <code>font-family</code> property, font availability on the user's system, and font fallback mechanisms.</p>
+</blockquote>
+<p>For example, if you inspect the "CSS Text with Font Style" <code>&lt;h1&gt;</code> element, you should see that the "rendered font" is indeed Verdana (if it's available on your system), or a fallback sans-serif font if Verdana is not available.</p>
+<h2 id="styling-lists-and-css-box-model">Styling Lists and CSS Box Model</h2>
+<h3 id="styling-lists">Styling Lists</h3>
+<p>CSS provides properties to style HTML lists (<code>&lt;ul&gt;</code> - unordered list, <code>&lt;ol&gt;</code> - ordered list, <code>&lt;li&gt;</code> - list item).</p>
+<p><strong>1. <code>list-style-type</code> Property:</strong> Sets the type of bullet point (for <code>&lt;ul&gt;</code>) or numbering (for <code>&lt;ol&gt;</code>).</p>
+<blockquote>
+<p><strong>List Style Type Property</strong>
+The <code>list-style-type</code> property in CSS specifies the marker style for list items in ordered (<code>&lt;ol&gt;</code>) and unordered (<code>&lt;ul&gt;</code>) lists. Common values include <code>disc</code>, <code>circle</code>, <code>square</code>, <code>decimal</code>, <code>lower-alpha</code>, <code>upper-roman</code>, and <code>none</code>.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>list-style-type: disc;</code> (default for <code>&lt;ul&gt;</code>) - solid circle bullet.</p>
+<blockquote>
+<p><strong>Disc</strong>
+In the context of CSS <code>list-style-type</code>, <code>disc</code> is a value that specifies a filled circle as the marker for list items in an unordered list (<code>&lt;ul&gt;</code>). It is the default marker style for unordered lists.</p>
+</blockquote>
+</li>
+<li>
+<p><code>list-style-type: circle;</code> - hollow circle bullet.</p>
+<blockquote>
+<p><strong>Circle</strong>
+In the context of CSS <code>list-style-type</code>, <code>circle</code> is a value that specifies a hollow circle as the marker for list items in an unordered list (<code>&lt;ul&gt;</code>).</p>
+</blockquote>
+</li>
+<li>
+<p><code>list-style-type: square;</code> - square bullet.</p>
+<blockquote>
+<p><strong>Square</strong>
+In the context of CSS <code>list-style-type</code>, <code>square</code> is a value that specifies a filled square as the marker for list items in an unordered list (<code>&lt;ul&gt;</code>).</p>
+</blockquote>
+</li>
+<li>
+<p><code>list-style-type: none;</code> - removes bullets or numbers.</p>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>In <code>index.html</code>, add an unordered list:</p>
+<pre><code class="language-html">&lt;body&gt;
+    ...
+    &lt;ul&gt;
+        &lt;li&gt;Bread&lt;/li&gt;
+        &lt;li&gt;Milk&lt;/li&gt;
+        &lt;li&gt;Eggs&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+</code></pre>
+<p>In <code>styles.css</code>, add styles for <code>ul</code> and <code>li</code>:</p>
+<pre><code class="language-css">ul {
+    list-style-type: square; /* Square bullets */
+}
+</code></pre>
+<p>Refresh your browser. The list items will now have square bullets.</p>
+<p><strong>2. <code>margin</code> and <code>padding</code> for Lists:</strong></p>
+<p>Lists often have default <strong>margins</strong> and <strong>paddings</strong> applied by browsers. To remove these default spacings and have more control over list layout, you can set <code>margin</code> and <code>padding</code> to zero for the <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element.</p>
+<blockquote>
+<p><strong>Margin</strong>
+In the CSS box model, margin is the space outside the border of an element, used to create space between the element and its neighbors.</p>
+<p><strong>Padding</strong>
+In the CSS box model, padding is the space inside the border of an element, between the border and the content.</p>
+</blockquote>
+<p><strong>Example removing default list spacing:</strong></p>
+<pre><code class="language-css">ul {
+    list-style-type: none; /* Remove bullets */
+    margin: 0;          /* Remove default margin */
+    padding: 0;         /* Remove default padding */
+}
+</code></pre>
+<p>With <code>list-style-type: none;</code>, you can remove the default bullets or numbers entirely, which is common in modern web design where lists are often styled without markers.</p>
+<h3 id="css-box-model">CSS Box Model</h3>
+<p>The <strong>CSS Box Model</strong> is a fundamental concept in CSS layout. It describes how HTML elements are rendered as rectangular boxes on a webpage. Understanding the box model is crucial for controlling element sizing, spacing, and layout.</p>
+<blockquote>
+<p><strong>CSS Box Model</strong>
+The CSS box model is a conceptual model that describes how HTML elements are rendered as rectangular boxes in web browsers. Each box consists of four areas: content, padding, border, and margin, which determine the element's size and spacing in the layout.</p>
+</blockquote>
+<p>Every HTML element is considered a box, and this box consists of four main parts (layers), from innermost to outermost:</p>
+<ol>
+<li>
+<p><strong>Content Box:</strong> The innermost part, which contains the actual content of the element (text, images, etc.). The size of the content box is determined by properties like <code>width</code> and <code>height</code>.</p>
+<blockquote>
+<p><strong>Content Box</strong>
+The content box is the innermost part of the CSS box model, containing the actual content of an element, such as text, images, or other HTML elements. Its size is determined by the <code>width</code> and <code>height</code> properties.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Padding Box:</strong>  The space surrounding the content box, inside the border. Padding is used to create space between the content and the border. The size of the padding box is controlled by the <code>padding</code> properties.</p>
+<blockquote>
+<p><strong>Padding Box</strong>
+The padding box is the area surrounding the content box, inside the border. Padding creates space between the content and the border of an element.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Border Box:</strong>  The border itself, which surrounds the padding and content. The style, thickness, and color of the border are controlled by the <code>border</code> properties.</p>
+<blockquote>
+<p><strong>Border Box</strong>
+The border box is the area surrounding the padding box, outside the content and padding. It is defined by the border of an element and can be styled using properties like <code>border-width</code>, <code>border-style</code>, and <code>border-color</code>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Margin Box:</strong> The outermost layer, representing the space outside the border. Margin is used to create space between the element's border and other elements around it. The size of the margin box is controlled by the <code>margin</code> properties.</p>
+<blockquote>
+<p><strong>Margin Box</strong>
+The margin box is the outermost area of the CSS box model, surrounding the border box. Margin creates space between the element and its neighboring elements.</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>Visualizing the Box Model:</strong></p>
+<p>Imagine each HTML element as a box with these layers stacked around the content:</p>
+<p>```
++</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

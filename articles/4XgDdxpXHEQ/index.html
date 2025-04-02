@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Vision Transformers: Embedding Images with Self-Attention - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#vision-transformers-embedding-images-with-self-attention">Vision Transformers: Embedding Images with Self-Attention</a></li>
+        <li><a href="#introduction-to-vision-transformers">Introduction to Vision Transformers</a></li><li><a href="#how-vision-transformers-work-an-overview">How Vision Transformers Work: An Overview</a></li><li><a href="#clip-contrastive-languageimage-pre-training">CLIP: Contrastive Language–Image Pre-training</a></li><li><a href="#sigl-sigmoid-loss-for-language-image-pre-training">SIGL: Sigmoid Loss for Language Image pre-training</a></li><li><a href="#coding-a-sigl-vision-transformer-from-scratch-conceptual-explanation">Coding a SIGL Vision Transformer from Scratch: Conceptual Explanation</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="vision-transformers-embedding-images-with-self-attention">Vision Transformers: Embedding Images with Self-Attention</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/4XgDdxpXHEQ" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-vision-transformers">Introduction to Vision Transformers</h2>
+<p>Vision Transformers (ViTs) represent a significant advancement in the field of computer vision. Inspired by the success of Transformers in Natural Language Processing (NLP), ViTs adapt the self-attention mechanism to process images directly. This chapter will guide you through the fundamental concepts of Vision Transformers, exploring their architecture, functionality, and advantages, particularly in comparison to earlier models. We will delve into the practical aspects by conceptually building a Vision Transformer from scratch, mirroring the approach taken in the transcript this chapter is based upon.</p>
+<p>Vision Transformers enable the transformation of images into rich, informative embeddings.</p>
+<blockquote>
+<p><strong>Embedding:</strong> In machine learning, an embedding is a lower-dimensional vector representation of an object, such as an image or word, that captures its essential features and relationships to other objects.</p>
+</blockquote>
+<p>These embeddings are crucial because they allow vision models to be seamlessly integrated with language models, creating powerful multimodal systems known as Vision Language Models (VLMs). VLMs empower language models to "see" and interpret visual information, enabling them to answer questions about images, generate image descriptions, and perform more complex vision-language tasks.</p>
+<h2 id="how-vision-transformers-work-an-overview">How Vision Transformers Work: An Overview</h2>
+<p>Traditional Transformer models, primarily used in NLP, process sequential data like text by breaking it down into tokens (words or sub-word units). Vision Transformers adapt this approach by treating images as a sequence of patches.</p>
+<blockquote>
+<p><strong>Token:</strong> In the context of Transformers, a token is the basic unit of input that the model processes. In NLP, tokens are typically words or sub-word units. In Vision Transformers, tokens are image patches.</p>
+</blockquote>
+<p>Here’s a simplified breakdown of how Vision Transformers process visual data:</p>
+<ul>
+<li><strong>Image Patching:</strong>  An input image is divided into smaller, non-overlapping patches. Imagine a puzzle where each piece is an image patch. Each patch is considered analogous to a token in NLP.</li>
+<li><strong>Patch Embedding:</strong> Each image patch is then linearly transformed into an embedding vector. This embedding captures the visual information contained within the patch.</li>
+<li>
+<p><strong>Position Embeddings:</strong> To retain spatial information, position embeddings are added to the patch embeddings. This step informs the model about the location of each patch within the original image, as Transformers, by nature, are permutation invariant and do not inherently understand order.</p>
+<blockquote>
+<p><strong>Position Embedding:</strong> A vector added to the input embeddings in Transformer models to provide information about the position of each token in the sequence. This is essential because the self-attention mechanism is order-agnostic.
+*   <strong>Self-Attention Mechanism:</strong> The core of the Vision Transformer is the self-attention mechanism. This allows each image patch embedding to interact with and attend to all other patch embeddings in the image. Through self-attention, the model learns the relationships between different parts of the image, making each patch "context-aware."
+*   <strong>CLS Token:</strong>  A special classification token, often referred to as <code>[CLS]</code> token (though not explicitly mentioned in the transcript as such in ViTs, the concept is analogous), is prepended to the sequence of patch embeddings. This token is designed to aggregate information from all patches through self-attention layers. It acts as a global representation of the entire image.
+*   <strong>Transformer Encoder Layers:</strong> The sequence of patch embeddings (including position embeddings and the CLS token) is then passed through multiple layers of a Transformer encoder. Each encoder layer typically consists of:
+*   <strong>Multi-Head Self-Attention:</strong> Multiple parallel self-attention mechanisms operating in parallel to capture diverse relationships.
+*   <strong>Feed-Forward Network (Multi-Layer Perceptron - MLP):</strong> Processes the output of the self-attention layer.
+*   <strong>Output Representation:</strong> After passing through the encoder layers, the CLS token's output embedding is often used as the final, high-level representation of the entire image. This embedding can then be used for various downstream tasks such as image classification, object detection, or as input to a Vision Language Model.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="clip-contrastive-languageimage-pre-training">CLIP: Contrastive Language–Image Pre-training</h2>
+<p>To understand the nuances of more advanced Vision Transformers like SIGL, it's beneficial to first grasp the fundamentals of CLIP (Contrastive Language–Image Pre-training), a foundational model developed by OpenAI. CLIP is designed to learn joint representations of images and text, enabling it to understand the semantic relationship between visual and textual content.</p>
+<h3 id="image-and-text-encoders">Image and Text Encoders</h3>
+<p>CLIP employs two separate encoders:</p>
+<ul>
+<li><strong>Image Encoder:</strong> Typically a Vision Transformer or a Convolutional Neural Network (CNN), the image encoder processes input images and transforms them into image embeddings.</li>
+<li><strong>Text Encoder:</strong> A Transformer-based text encoder processes input text descriptions and converts them into text embeddings.</li>
+</ul>
+<h3 id="image-and-text-embeddings-and-contrastive-learning">Image and Text Embeddings and Contrastive Learning</h3>
+<p>CLIP is trained using a contrastive learning approach. It is provided with batches of images and corresponding text descriptions.</p>
+<ol>
+<li><strong>Embedding Generation:</strong> For each image in the batch, the image encoder generates an image embedding. Similarly, for each text description, the text encoder generates a text embedding.</li>
+<li>
+<p><strong>Dot Product Calculation:</strong> The dot product between all pairs of image embeddings and text embeddings within the batch is computed. This results in a similarity matrix where each cell (i, j) represents the similarity score between the i-th image embedding and the j-th text embedding.</p>
+<blockquote>
+<p><strong>Dot Product:</strong>  In linear algebra, the dot product of two vectors is a scalar value that represents the cosine similarity between the vectors when they are normalized. In this context, a higher dot product indicates greater similarity between embeddings.
+3.  <strong>Contrastive Loss (Cross-entropy with Softmax):</strong>  CLIP is trained to maximize the dot product between embeddings of correctly paired images and text descriptions, while minimizing the dot product between embeddings of non-corresponding pairs.  The loss function used is typically cross-entropy loss applied in conjunction with the softmax function.</p>
+<p><strong>Cross-entropy Loss:</strong> A common loss function used in classification and contrastive learning tasks. It measures the difference between the predicted probability distribution and the true probability distribution. In CLIP, it encourages high similarity for correct pairs and low similarity for incorrect pairs.</p>
+<p><strong>Softmax Function:</strong> A function that converts a vector of raw scores into a probability distribution. In CLIP, it's used to normalize the similarity scores and create probabilities for each image-text pair within the batch.</p>
+</blockquote>
+</li>
+</ol>
+<p>Specifically, for each image, CLIP aims to assign a high probability to its corresponding text description and low probabilities to all other text descriptions in the batch. The same process is applied in reverse for each text description, aiming for a high probability for its corresponding image and low probabilities for others.</p>
+<h3 id="limitations-of-softmax-loss-in-clip">Limitations of Softmax Loss in CLIP</h3>
+<p>While effective, the softmax loss function used in the original CLIP model has a computational bottleneck.  It forces the model to compare every image with <em>all</em> text descriptions in the batch to calculate the loss and update gradients. This process is computationally expensive and not easily parallelizable.</p>
+<ul>
+<li><strong>Batch Dependency:</strong> Softmax loss is inherently batch-dependent. The probability distribution is calculated relative to all items within the current batch.</li>
+<li><strong>Computational Cost:</strong>  Calculating softmax across the entire batch for each image and text pair becomes increasingly expensive as the batch size grows.</li>
+<li><strong>Limited Parallelization:</strong> The batch-wise nature of softmax makes it challenging to parallelize the training process efficiently across multiple devices.</li>
+</ul>
+<h2 id="sigl-sigmoid-loss-for-language-image-pre-training">SIGL: Sigmoid Loss for Language Image pre-training</h2>
+<p>SIGL (Sigmoid Loss for Language Image pre-training) addresses the limitations of CLIP’s softmax loss by introducing a more efficient and flexible loss function: sigmoid loss. SIGL, developed by Google, is presented as an improvement over CLIP, particularly in terms of training efficiency and scalability.</p>
+<h3 id="motivation-for-sigl-efficiency-and-flexibility">Motivation for SIGL: Efficiency and Flexibility</h3>
+<p>The primary motivation behind SIGL is to overcome the computational inefficiencies and inflexibility associated with softmax loss in CLIP. SIGL aims to achieve:</p>
+<ul>
+<li><strong>Improved Training Efficiency:</strong> By eliminating the need for batch-wise comparisons, SIGL significantly reduces the computational cost of training, especially with large batch sizes.</li>
+<li><strong>Enhanced Parallelizability:</strong> SIGL’s formulation allows for easier parallelization of training across multiple GPUs or TPUs, leading to faster training times.</li>
+<li><strong>Increased Flexibility:</strong> SIGL is more flexible in handling diverse datasets and training scenarios as it is less constrained by batch composition.</li>
+</ul>
+<h3 id="sigmoid-loss-vs-softmax-loss">Sigmoid Loss vs. Softmax Loss</h3>
+<p>The key difference lies in how the loss is calculated:</p>
+<ul>
+<li><strong>Softmax Loss (CLIP):</strong>  Forces the model to compare each image with all other text descriptions in the batch to determine the correct pairing. The loss is calculated based on the probability distribution across all pairs in the batch.</li>
+<li>
+<p><strong>Sigmoid Loss (SIGL):</strong>  Treats each image-text pair independently. For each pair, it predicts a score (ideally close to 1 for correct pairs and 0 for incorrect pairs) and calculates the loss based on this individual prediction using a sigmoid function and binary cross-entropy loss.</p>
+<blockquote>
+<p><strong>Sigmoid Loss:</strong> In the context of SIGL, sigmoid loss refers to the use of a sigmoid activation function followed by a binary cross-entropy loss. The sigmoid function squashes the output to a range between 0 and 1, making it suitable for binary classification tasks (correct pair vs. incorrect pair).</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="advantages-of-sigl-parallelization-and-efficiency">Advantages of SIGL: Parallelization and Efficiency</h3>
+<p>By adopting sigmoid loss, SIGL gains several advantages:</p>
+<ul>
+<li><strong>Pair-wise Independence:</strong> SIGL processes each image-text pair independently, removing the batch dependency of softmax.</li>
+<li><strong>Enhanced Parallelization:</strong> This pair-wise independence allows for straightforward parallelization. Different image-text pairs (or matrices of pairs) can be processed and their losses calculated independently on different devices.</li>
+<li><strong>Computational Efficiency:</strong> SIGL avoids the all-pairs comparison required by softmax, leading to significant computational savings, especially with large batches.</li>
+<li><strong>Scalability:</strong> SIGL's efficiency and parallelizability make it more scalable for training on massive datasets and with large models.</li>
+</ul>
+<p>SIGL is notably used in Google's VLMs like PaLI-X and PaLM-E as the vision encoder, showcasing its practical effectiveness in real-world applications.</p>
+<h2 id="coding-a-sigl-vision-transformer-from-scratch-conceptual-explanation">Coding a SIGL Vision Transformer from Scratch: Conceptual Explanation</h2>
+<p>The transcript provides a conceptual walkthrough of building a SIGL Vision Transformer from scratch using Python and the Hugging Face Transformers library. While the transcript doesn't present fully executable code within the video itself, it meticulously explains each step, from setting up the environment to validating the implementation against pre-trained Hugging Face models. The following section summarizes the key coding steps and concepts explained in the transcript.</p>
+<h3 id="setting-up-the-environment-and-loading-resources">Setting up the Environment and Loading Resources</h3>
+<p>The process begins by importing necessary libraries from the Hugging Face <code>transformers</code> library:</p>
+<ul>
+<li><code>AutoProcessor</code>: For preprocessing input images to the model's expected format.</li>
+<li><code>SigVisionModel</code>: Holds the pre-trained weights of the SIGL Vision Transformer model.</li>
+<li><code>SigVisionConfig</code>:  Defines the architecture and configuration parameters of the SIGL Vision Transformer.</li>
+</ul>
+<p>The code then loads a pre-trained SIGL model and its processor from a Hugging Face checkpoint: <code>"google/siglip-base-patch16-224"</code>. This checkpoint specifies a SIGL base model with a patch size of 16 and trained on 224x224 images.</p>
+<h3 id="exploring-model-architecture">Exploring Model Architecture</h3>
+<p>The transcript highlights exploring the structure of the loaded pre-trained model. It points out key components like:</p>
+<ul>
+<li><code>SigVisionEmbeddings</code>:  The embedding layer responsible for patch and position embeddings.</li>
+<li><code>SigVisionEncoder</code>: The Transformer encoder consisting of multiple layers.</li>
+<li>Layers within the encoder: Layer Normalization (<code>LayerNorm</code>), Multi-Head Attention (<code>ScaleDotProductAttention</code>, <code>MultiAttention</code>), and Multi-Layer Perceptron (<code>MLP</code>).</li>
+</ul>
+<p>This exploration provides a roadmap for building the model from scratch, mirroring the architecture of the pre-trained model.</p>
+<h3 id="image-preprocessing">Image Preprocessing</h3>
+<p>Before feeding images into the model, they need to be preprocessed. The <code>AutoProcessor</code> is used to:</p>
+<ul>
+<li><strong>Resize Images:</strong>  Resizes input images to 224x224 pixels, as specified by the model configuration.</li>
+<li><strong>Convert to Tensor:</strong> Transforms images into PyTorch tensors, the numerical data structure used by PyTorch models.</li>
+<li>
+<p><strong>Normalize Pixels:</strong> Normalizes pixel values using mean and standard deviation values derived from the ImageNet dataset. This normalization is a common practice in computer vision to improve model performance and training stability.</p>
+<blockquote>
+<p><strong>Tensor:</strong>  A multi-dimensional array, similar to a NumPy array, but optimized for numerical computation, especially on GPUs. Tensors are the fundamental data structure used in deep learning frameworks like PyTorch.</p>
+</blockquote>
+</li>
+</ul>
+<p>The preprocessed image is then "unsqueeze" to add a batch dimension, even when processing a single image. Transformers expect input in batches.</p>
+<pre><code>&gt; **Batch Dimension:** The first dimension of a tensor that represents a collection of independent input samples processed together. Even when processing a single image, a batch dimension of size 1 is typically added.
+</code></pre>
+<h3 id="patch-embeddings">Patch Embeddings</h3>
+<p>The transcript explains how patch embeddings are created using a convolutional layer (<code>nn.Conv2d</code>).</p>
+<ul>
+<li>
+<p><strong>Convolutional Layer for Patching:</strong> A 2D convolutional layer with a kernel size and stride equal to the patch size (16x16 in this case) is used to divide the input image into non-overlapping patches.</p>
+<blockquote>
+<p><strong>Convolutional 2D (Conv2d):</strong> A type of neural network layer that performs convolution operations on 2D input data, such as images. In ViTs, it's used initially to divide the image into patches.</p>
+<p><strong>Kernel Size:</strong> The size of the convolutional filter that slides across the input image. In patch embedding, the kernel size is equal to the desired patch size.</p>
+<p><strong>Stride:</strong> The step size at which the convolutional filter moves across the input image. In patch embedding with non-overlapping patches, the stride is also equal to the patch size.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Linear Projection:</strong> The convolutional layer also performs a linear projection, transforming each patch into an embedding vector of the desired embedding dimension (768 in this example).</p>
+</li>
+</ul>
+<h3 id="position-embeddings">Position Embeddings</h3>
+<p>Position embeddings are crucial for Vision Transformers to understand the spatial arrangement of patches. The transcript describes:</p>
+<ul>
+<li><strong>Creating Position IDs:</strong>  A sequence of numbers from 0 to the number of patches minus 1 (196 in this case for a 224x224 image with 16x16 patches) is created to represent the position of each patch.</li>
+<li><strong>Position Embedding Layer:</strong> An embedding layer (<code>nn.Embedding</code>) is used to map each position ID to a position embedding vector.</li>
+<li><strong>Adding Position Embeddings:</strong> The position embeddings are added element-wise to the patch embeddings.  Before addition, the patch embeddings are flattened and transposed to ensure compatible dimensions.</li>
+</ul>
+<h3 id="combining-patch-and-position-embeddings">Combining Patch and Position Embeddings</h3>
+<p>The combination of patch and position embeddings forms the input to the Transformer encoder layers.  The resulting embeddings now contain both visual information from the patches and spatial information about their location in the image.</p>
+<h3 id="visualizing-embeddings">Visualizing Embeddings</h3>
+<p>The transcript demonstrates visualizing the patch embeddings to illustrate the difference between untrained (randomly initialized) embeddings and trained embeddings (from the Hugging Face checkpoint). Trained embeddings exhibit smoother, more structured patterns, indicating that they have learned meaningful representations from the training data.</p>
+<h3 id="structuring-code-into-classes">Structuring Code into Classes</h3>
+<p>To organize the code, the transcript demonstrates encapsulating the embedding process within classes:</p>
+<ul>
+<li><code>SigVisionConfig</code>: A data class to store configuration parameters like embedding dimension, patch size, and image size.</li>
+<li><code>SigVisionEmbeddings</code>: A class inheriting from <code>nn.Module</code> that implements the patch embedding and position embedding layers, and the forward pass to combine them.</li>
+</ul>
+<h3 id="multi-head-attention">Multi-Head Attention</h3>
+<p>The core of the Transformer encoder is the multi-head attention mechanism. The transcript explains two implementations:</p>
+<ul>
+<li>
+<p><strong>Single-Head Attention (Conceptual):</strong>  Explains the fundamental concepts of attention:</p>
+<ul>
+<li>
+<p><strong>Key, Query, Value Projections:</strong> Linear transformations (<code>nn.Linear</code>) are used to project input embeddings into key, query, and value vectors.</p>
+<blockquote>
+<p><strong>Key, Query, Value:</strong>  The three core components of the attention mechanism in Transformers. Keys and queries are used to calculate attention weights, while values are aggregated based on these weights.
+    *   <strong>Attention Score Calculation:</strong>  Dot product between queries and keys (transpose of keys) is computed to determine the attention scores, representing the affinity between patches.
+    *   <strong>Scaling and Softmax:</strong> Attention scores are scaled down (divided by the square root of the head size) and then passed through a softmax function to create attention weights (probabilities).
+    *   <strong>Value Aggregation:</strong> Attention weights are multiplied with value vectors, and the results are summed to produce the output of the attention head.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Vectorized Multi-Head Attention (Hugging Face Style):</strong>  Implements multi-head attention in a more efficient, vectorized manner, aligning with the Hugging Face implementation:</p>
+<ul>
+<li><strong>Combined Key, Query, Value Projections:</strong>  Instead of separate projections for each head, single projection layers are used for keys, queries, and values.</li>
+<li><strong>Reshaping for Heads:</strong> The output of these projections is reshaped to split the embedding dimension into multiple heads, processing all heads in parallel.</li>
+<li><strong>Parallel Attention Calculation:</strong> Attention scores, softmax, and value aggregation are performed in parallel across all heads.</li>
+<li><strong>Concatenation and Output Projection:</strong>  The outputs from all heads are concatenated back together, and a final linear projection is applied to match the output dimension to the input dimension.</li>
+<li><strong>Dropout:</strong> Dropout regularization is applied after the attention weights calculation to prevent overfitting.</li>
+</ul>
+<blockquote>
+<p><strong>Dropout:</strong> A regularization technique used in neural networks where randomly selected neurons are ignored during training. This helps prevent overfitting and improves generalization.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="mlp-layer">MLP Layer</h3>
+<p>The Multi-Layer Perceptron (MLP) layer, also known as the feed-forward network, is another crucial component of the Transformer encoder.  The transcript describes a typical MLP implementation:</p>
+<ul>
+<li><strong>Two Linear Layers:</strong>  Consists of two fully connected linear layers (<code>nn.Linear</code>).</li>
+<li><strong>Intermediate Dimension:</strong> The first linear layer projects the input embedding dimension (hidden size) to a higher intermediate dimension.</li>
+<li>
+<p><strong>Non-linearity (GELU):</strong> A non-linear activation function, specifically GELU (Gaussian Error Linear Unit), is applied after the first linear layer.</p>
+<blockquote>
+<p><strong>GELU (Gaussian Error Linear Unit):</strong> A non-linear activation function often used in Transformers and other deep learning models. It is known for its good performance in various tasks.
+*   <strong>Projection Back to Hidden Size:</strong> The second linear layer projects the intermediate dimension back to the original hidden size, ensuring the output dimension matches the input dimension.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="encoder-layer">Encoder Layer</h3>
+<p>The encoder layer combines the multi-head attention and MLP layers with layer normalization and residual connections:</p>
+<ul>
+<li>
+<p><strong>Layer Normalization:</strong> Layer normalization (<code>nn.LayerNorm</code>) is applied before both the multi-head attention and MLP layers.</p>
+<blockquote>
+<p><strong>Layer Normalization:</strong> A normalization technique that normalizes the activations within each layer of a neural network. It helps stabilize training and often improves performance.
+*   <strong>Residual Connections:</strong> Residual connections (skip connections) are used to add the original input embeddings to the output of both the multi-head attention and MLP layers. This helps with gradient flow and allows for training deeper networks.</p>
+<p><strong>Residual Connection (Skip Connection):</strong> A connection that bypasses one or more layers in a neural network, adding the input of the bypassed layers to their output. Residual connections are crucial for training deep networks effectively.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="vision-transformer-model-putting-it-all-together">Vision Transformer Model (Putting it all together)</h3>
+<p>Finally, the transcript demonstrates assembling the complete Vision Transformer model:</p>
+<ul>
+<li><code>SigVisionEncoder</code>: A class that stacks multiple encoder layers (<code>SigVisionEncoderLayer</code>). The number of layers is a configurable parameter.</li>
+<li><code>SigVisionTransformer</code>: The main Vision Transformer class that integrates:<ul>
+<li><code>SigVisionEmbeddings</code>: Embedding layer.</li>
+<li><code>SigVisionEncoder</code>: Encoder layers.</li>
+<li><code>nn.LayerNorm</code>: Post-layer normalization applied after the encoder.</li>
+</ul>
+</li>
+<li><strong>Forward Pass:</strong> The forward pass of the <code>SigVisionTransformer</code> class takes pixel values as input, passes them through the embedding layer, encoder, and post-layer normalization, and returns the final image embeddings.</li>
+</ul>
+<h3 id="sanity-checks-and-validation">Sanity Checks and Validation</h3>
+<p>Throughout the coding process, the transcript emphasizes sanity checks and validation:</p>
+<ul>
+<li><strong>Shape Verification:</strong> Checking the shapes of tensors at each stage to ensure they match expectations.</li>
+<li><strong>Parameter Matching with Hugging Face:</strong>  Comparing the initialized weights and biases of the scratch-built model with those of the pre-trained Hugging Face model to verify correct implementation.</li>
+<li><strong>Output Comparison:</strong>  Comparing the output of the scratch-built model with the output of the Hugging Face model for the same input to ensure numerical correctness.</li>
+<li><strong>Key Matching:</strong> Validating that the keys in the state dictionaries of both models match, confirming that the weights are being loaded into the correct layers.</li>
+</ul>
+<p>These rigorous checks ensure that the scratch-built model is functionally equivalent to the pre-trained Hugging Face model.</p>
+<h3 id="applications-of-vision-transformers">Applications of Vision Transformers</h3>
+<p>The transcript concludes by briefly mentioning the applications of Vision Transformers:</p>
+<ul>
+<li><strong>Image Classification:</strong> ViTs can be used as image classifiers by training a classification head on top of the image embeddings.</li>
+<li><strong>Vision Language Models (VLMs):</strong> ViTs serve as powerful vision encoders in VLMs, enabling models to understand and process both visual and textual information for tasks like image captioning, visual question answering, and more.</li>
+<li><strong>Other Vision and Vision-Language Tasks:</strong> ViTs are versatile and can be adapted for a wide range of computer vision and multimodal tasks.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>This chapter has provided a comprehensive overview of Vision Transformers, starting from their fundamental principles to a conceptual walkthrough of building a SIGL Vision Transformer from scratch. By understanding the concepts of patch embeddings, position embeddings, self-attention, and the overall Transformer architecture, and by contrasting CLIP and SIGL loss functions, you gain a solid foundation for further exploration into the exciting field of Vision Transformers and their applications in computer vision and multimodal AI. The conceptual coding walkthrough, though not fully executable code, provides valuable insights into the implementation details and validation strategies essential for building and verifying such models.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>
