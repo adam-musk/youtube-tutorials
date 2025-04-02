@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Git Merge and Git Rebase: A Practical Guide to Branch Integration - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#git-merge-and-git-rebase-a-practical-guide-to-branch-integration">Git Merge and Git Rebase: A Practical Guide to Branch Integration</a></li>
+        <li><a href="#introduction-to-branch-integration-in-git">Introduction to Branch Integration in Git</a></li><li><a href="#git-merge-combining-branch-histories">Git Merge: Combining Branch Histories</a></li><li><a href="#git-rebase-rewriting-branch-history">Git Rebase: Rewriting Branch History</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="git-merge-and-git-rebase-a-practical-guide-to-branch-integration">Git Merge and Git Rebase: A Practical Guide to Branch Integration</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/CRlGDDprdOQ" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter explores two fundamental Git commands, <code>git merge</code> and <code>git rebase</code>, used for integrating changes from one branch into another. We will examine their functionalities, illustrate their usage with a practical example, and discuss the scenarios where each command is most appropriate.</p>
+<h2 id="introduction-to-branch-integration-in-git">Introduction to Branch Integration in Git</h2>
+<p>In collaborative software development, it is common practice to work on new features or bug fixes in separate branches, isolating changes from the main codebase until they are ready for integration. Git, a distributed version control system, provides powerful branching and merging capabilities to manage this workflow effectively.</p>
+<p>This chapter focuses on two primary methods for integrating branches back into the main branch (often <code>master</code> or <code>main</code>): <code>git merge</code> and <code>git rebase</code>. Understanding the nuances of these commands is crucial for maintaining a clean and understandable project history.</p>
+<h3 id="scenario-feature-branch-development">Scenario: Feature Branch Development</h3>
+<p>Let's consider a common development scenario:</p>
+<ul>
+<li>You start with a <code>master</code> branch, representing the main, stable version of your project.</li>
+<li>A <code>feature</code> branch is created from the <code>master</code> branch to develop a new feature. This allows for isolated development without directly impacting the main codebase.</li>
+<li>While you are working on the <code>feature</code> branch, the <code>master</code> branch continues to evolve as other developers contribute changes.</li>
+<li>The goal is to eventually incorporate the completed feature from the <code>feature</code> branch back into the <code>master</code> branch, while also integrating any changes that have occurred in <code>master</code> since the <code>feature</code> branch was created.</li>
+</ul>
+<p>This scenario presents the challenge of combining changes from two diverging branches. Git offers <code>git merge</code> and <code>git rebase</code> as solutions to this challenge. Let's explore each of these methods in detail.</p>
+<h2 id="git-merge-combining-branch-histories">Git Merge: Combining Branch Histories</h2>
+<p><code>git merge</code> is a command used to integrate changes from one branch into another. It creates a new commit in the target branch that represents the combined changes from both branches.</p>
+<blockquote>
+<p><strong>Git:</strong> A distributed version control system that tracks changes in files over time, allowing for collaboration and version management in software development and other projects.</p>
+</blockquote>
+<p>In our scenario, we have a <code>master</code> branch with commits <code>m1</code>, <code>m2</code>, and <code>m3</code>, and a <code>feature</code> branch branched off from <code>m2</code> with commit <code>f1</code>. We aim to integrate the <code>feature</code> branch into <code>master</code>.</p>
+<h3 id="demonstration-git-merge">Demonstration: Git Merge</h3>
+<p>Let's walk through a practical example using the command line.</p>
+<ol>
+<li>
+<p><strong>Project Setup:</strong> Assume you have a Git repository with <code>master</code> and <code>feature</code> branches as described.</p>
+<blockquote>
+<p><strong>Repository:</strong> A directory containing all project files and the complete history of changes tracked by Git.</p>
+</blockquote>
+<p>You can verify your current branch and the branch structure using the following command in your terminal:</p>
+<p><code>bash
+git branch</code></p>
+<p>This command will list all branches, with an asterisk (*) indicating the currently active branch.</p>
+</li>
+<li>
+<p><strong>Examining Commit History:</strong> To visualize the commit history of a branch, use the <code>git log</code> command.</p>
+<p><code>bash
+git log</code></p>
+<blockquote>
+<p><strong>Commit:</strong> A snapshot of the repository at a specific point in time, representing a set of changes. Each commit has a unique identifier and metadata like author and timestamp.</p>
+</blockquote>
+<ul>
+<li>On the <code>master</code> branch, <code>git log</code> will show commits <code>m3</code>, <code>m2</code>, and <code>m1</code>.</li>
+<li>On the <code>feature</code> branch, <code>git log</code> will show commits <code>f1</code> and <code>m2</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Branch:</strong> A lightweight, movable pointer to a commit. Branches are used to isolate development work and manage different versions of the codebase. In this example, <code>master</code> and <code>feature</code> are branches.</p>
+<p><strong>Master Branch:</strong> The primary branch in a Git repository, traditionally representing the main, stable development line.  It is increasingly being referred to as the 'main' branch.</p>
+<p><strong>Feature Branch:</strong> A branch created specifically for developing a new feature, branched off from another branch (often <code>master</code> or <code>main</code>).</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Adding a New Feature Commit:</strong> Switch back to the <code>feature</code> branch using <code>git checkout</code>:</p>
+<p><code>bash
+git checkout feature</code></p>
+<blockquote>
+<p><strong>Checkout:</strong> The operation of switching between branches or commits in Git, making the selected branch or commit the current working state.</p>
+</blockquote>
+<p>Make changes to your project files to implement the feature. For demonstration purposes, let's assume you add content related to "f2".</p>
+</li>
+<li>
+<p><strong>Committing the Feature Changes:</strong> Stage and commit your changes with <code>git add</code> and <code>git commit</code>:</p>
+<p><code>bash
+git add .
+git commit -m "f2"</code></p>
+<blockquote>
+<p><strong>Add:</strong>  In Git, the process of staging changes, preparing them to be included in the next commit. <code>git add .</code> stages all changes in the current directory and its subdirectories.</p>
+<p><strong>Commit (command):</strong> The command used to save staged changes to the repository's history, creating a new commit. The <code>-m</code> flag allows you to add a commit message directly in the command line.</p>
+</blockquote>
+<p>Now, <code>git log</code> on the <code>feature</code> branch will show commits <code>f2</code>, <code>f1</code>, and <code>m2</code>.</p>
+</li>
+<li>
+<p><strong>Merging the Feature Branch into Master (Squash Merge):</strong> To integrate the feature into <code>master</code>, first switch back to the <code>master</code> branch:</p>
+<p><code>bash
+git checkout master</code></p>
+<p>Then, use the <code>git merge</code> command with the <code>--squash</code> option:</p>
+<p><code>bash
+git merge --squash feature</code></p>
+<blockquote>
+<p><strong>Squash Merge:</strong> A type of merge operation that combines all changes from a branch into a single new commit in the target branch, simplifying the history.</p>
+</blockquote>
+<p>The <code>--squash</code> option is used here to consolidate all commits from the <code>feature</code> branch into a single commit on the <code>master</code> branch. Without <code>--squash</code>, <code>git merge feature</code> would merge all commits from the feature branch, preserving the entire feature branch history in the master branch.</p>
+</li>
+<li>
+<p><strong>Completing the Merge Commit:</strong> After the squash merge, Git stages the changes but does not automatically create a commit. You need to create a commit manually:</p>
+<p><code>bash
+git commit -m "Feature and master merged"</code></p>
+<p>This creates a new commit on the <code>master</code> branch that includes all changes from the <code>feature</code> branch, effectively merging the feature into master in a single commit.</p>
+</li>
+<li>
+<p><strong>Verifying the Merge Result:</strong> Use <code>git log</code> on the <code>master</code> branch to see the updated commit history. You will see the new merge commit on top, followed by <code>m3</code>, <code>m2</code>, and <code>m1</code>. The changes from the feature branch are now incorporated into the <code>master</code> branch's codebase.</p>
+</li>
+</ol>
+<h3 id="advantages-and-considerations-of-squash-merge">Advantages and Considerations of Squash Merge</h3>
+<ul>
+<li><strong>Simplified History:</strong> Squash merge creates a cleaner and simpler history in the <code>master</code> branch by condensing all feature branch commits into one. This can be beneficial for readability and understanding the high-level evolution of the project in the main branch.</li>
+<li><strong>Loss of Feature Branch History in Master:</strong>  While simplifying the <code>master</code> branch history, squash merge loses the individual commit history of the feature branch within the <code>master</code> branch. If detailed tracking of feature development within the main branch history is desired, a regular merge without <code>--squash</code> might be preferred.</li>
+</ul>
+<h2 id="git-rebase-rewriting-branch-history">Git Rebase: Rewriting Branch History</h2>
+<p><code>git rebase</code> is another command for integrating changes, but it operates differently from <code>git merge</code>. Instead of creating a merge commit, <code>git rebase</code> reapplies commits from one branch onto another. It essentially "moves" the starting point of your branch to a different commit.</p>
+<blockquote>
+<p><strong>Rebase:</strong> In Git, the process of changing the base commit of a branch. It reapplies commits from one branch onto another, creating a linear history.</p>
+</blockquote>
+<h3 id="demonstration-git-rebase">Demonstration: Git Rebase</h3>
+<p>Let's rewind our project to the state before the merge and demonstrate <code>git rebase</code>.</p>
+<ol>
+<li>
+<p><strong>Project Reset:</strong> Assume you are back in the state where <code>master</code> has commits <code>m1</code>, <code>m2</code>, <code>m3</code> and <code>feature</code> (branched from <code>m2</code>) has commit <code>f1</code>.</p>
+</li>
+<li>
+<p><strong>Rebasing Feature Branch onto Master:</strong> Ensure you are on the <code>feature</code> branch:</p>
+<p><code>bash
+git checkout feature</code></p>
+<p>Execute the rebase command:</p>
+<p><code>bash
+git rebase master</code></p>
+<p>This command tells Git to rebase the <code>feature</code> branch onto the <code>master</code> branch.</p>
+</li>
+<li>
+<p><strong>Understanding Rebase Operation:</strong> Git performs the following steps during rebase:</p>
+<ul>
+<li><strong>Finds Common Ancestor:</strong> Git identifies the last common commit between the <code>feature</code> and <code>master</code> branches, which is <code>m2</code> in our case.</li>
+<li><strong>Saves Feature Branch Commits:</strong> Git temporarily saves the commits unique to the <code>feature</code> branch (in this case, <code>f1</code>).</li>
+<li><strong>Replays Master Branch Commits:</strong> Git resets the <code>feature</code> branch to be based on the latest commit of the <code>master</code> branch (<code>m3</code>). Now, the <code>feature</code> branch effectively starts from <code>m3</code>.</li>
+<li><strong>Applies Saved Commits:</strong> Git then reapplies the saved <code>feature</code> branch commits (<code>f1</code>) on top of the new base (<code>m3</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Examining Rebased Branch:</strong> After rebasing, <code>git log</code> on the <code>feature</code> branch will show a modified history. You will see commits <code>f1</code> and <code>m3</code>, effectively making <code>m3</code> the new base for the <code>feature</code> branch. The <code>master</code> branch remains unchanged at this point.</p>
+</li>
+<li>
+<p><strong>Adding Another Feature Commit (f2):</strong> Continue working on the <code>feature</code> branch and add another commit:</p>
+<p><code>bash
+git add .
+git commit -m "f2"</code></p>
+<p>Now, <code>git log</code> on the <code>feature</code> branch shows <code>f2</code>, <code>f1</code>, and <code>m3</code>.</p>
+</li>
+<li>
+<p><strong>Rebasing Master onto Feature (Fast-Forward Merge):</strong> To integrate the rebased feature into <code>master</code>, switch to the <code>master</code> branch:</p>
+<p><code>bash
+git checkout master</code></p>
+<p>Now, rebase <code>master</code> onto <code>feature</code>:</p>
+<p><code>bash
+git rebase feature</code></p>
+<p>In this case, because the <code>feature</code> branch is now directly ahead of the <code>master</code> branch in terms of history (due to the earlier rebase of feature onto master), Git performs a "fast-forward" rebase.</p>
+<blockquote>
+<p><strong>Fast-Forward Merge/Rebase:</strong> A merge or rebase operation where the target branch's head can simply move forward to the head of the source branch because there are no diverging changes to reconcile.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Verifying Rebase Result:</strong> After the rebase, <code>git log</code> on the <code>master</code> branch will show the commits in a linear sequence: <code>f2</code>, <code>f1</code>, <code>m3</code>, <code>m2</code>, <code>m1</code>. Both <code>master</code> and <code>feature</code> branches now point to the same commit (<code>f2</code>).</p>
+</li>
+</ol>
+<h3 id="advantages-and-disadvantages-of-git-rebase">Advantages and Disadvantages of Git Rebase</h3>
+<ul>
+<li><strong>Linear History:</strong> Rebase creates a linear, cleaner project history without merge commits. This can make the project history easier to follow and understand, particularly for complex projects.</li>
+<li><strong>Rewritten History:</strong> Rebase modifies the commit history. This can be problematic in collaborative environments, especially in public repositories. Rebasing public branches can cause confusion and conflicts for collaborators who have already based their work on the original commits.</li>
+</ul>
+<h3 id="important-caution-rebasing-public-branches">Important Caution: Rebasing Public Branches</h3>
+<p><strong>Do not rebase commits that have been pushed to a public repository or shared with collaborators.</strong></p>
+<p>Rebasing changes the commit history, effectively creating new commits with the same changes but different commit IDs. If others have based their work on the original commits that you rebase, their history will diverge from the rewritten history, leading to conflicts and potential data loss.</p>
+<p><strong>Rebase is generally safe and beneficial for local feature branches that have not been shared.</strong> It is a powerful tool for maintaining a clean and linear history in your personal workflow.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Both <code>git merge</code> and <code>git rebase</code> are valuable tools for integrating changes in Git.</p>
+<ul>
+<li><strong><code>git merge</code></strong> is a non-destructive operation that preserves the entire history of all branches, creating merge commits to explicitly show branch integrations. Squash merge offers a way to simplify the history in the target branch by collapsing feature branch commits.</li>
+<li><strong><code>git rebase</code></strong> rewrites history to create a linear sequence of commits, making the project history cleaner but potentially causing issues if used on public branches.</li>
+</ul>
+<p>The choice between <code>git merge</code> and <code>git rebase</code> depends on the desired project history and the collaboration workflow. Understanding the implications of each command is crucial for effective Git usage and team collaboration. For collaborative projects, especially with public repositories, it is generally safer and more conventional to use <code>git merge</code> to avoid rewriting shared history. <code>git rebase</code> can be a powerful tool for personal workflows and maintaining clean, linear history in local feature branches before merging them.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a React and Stripe Shopping Cart Application: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-react-and-stripe-shopping-cart-application-a-comprehensive-guide">Building a React and Stripe Shopping Cart Application: A Comprehensive Guide</a></li>
+        <li><a href="#introduction">Introduction</a></li><li><a href="#project-overview-e-commerce-store-functionality">Project Overview: E-commerce Store Functionality</a></li><li><a href="#setting-up-the-react-front-end">Setting Up the React Front-End</a></li><li><a href="#building-front-end-components">Building Front-End Components</a></li><li><a href="#implementing-cart-functionality-with-context">Implementing Cart Functionality with Context</a></li><li><a href="#integrating-stripe-for-payment-processing">Integrating Stripe for Payment Processing</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-react-and-stripe-shopping-cart-application-a-comprehensive-guide">Building a React and Stripe Shopping Cart Application: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/_8M-YVY76O8" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will guide you through the process of building a fully functional e-commerce shopping cart application using React for the front-end and Stripe for payment processing. We will explore how to create a dynamic user interface, manage cart state, and integrate with the Stripe API to handle secure online transactions. This project is designed to be a valuable learning experience, covering essential concepts in modern web development.</p>
+<h2 id="introduction">Introduction</h2>
+<p>This project aims to create an e-commerce platform where users can browse products, add them to a cart, view their cart summary, and securely checkout using Stripe.  This chapter will walk you through each step, from setting up the React front-end to integrating a basic Express.js back-end for handling Stripe API interactions.</p>
+<h2 id="project-overview-e-commerce-store-functionality">Project Overview: E-commerce Store Functionality</h2>
+<p>The application we will build will feature the following functionalities:</p>
+<ul>
+<li><strong>Product Catalog:</strong> Display a list of available products with names, prices, and "Add to Cart" buttons.</li>
+<li><strong>Shopping Cart:</strong><ul>
+<li>A cart icon in the navigation bar that visually indicates the number of items in the cart.</li>
+<li>A modal (pop-up window) that displays the items currently in the cart, including quantities and individual item prices.</li>
+<li>Functionality to increase, decrease, and remove items from the cart.</li>
+<li>A dynamic cart total that updates as items are added or removed.</li>
+</ul>
+</li>
+<li><strong>Stripe Integration:</strong><ul>
+<li>Upon clicking a "Purchase Items" button, users will be redirected to Stripe's secure checkout page.</li>
+<li>The Stripe checkout will reflect the items and quantities in the user's cart.</li>
+<li>Successful payments will be processed through Stripe, and a confirmation message will be displayed.</li>
+<li>A Stripe dashboard will demonstrate successful payment processing and transaction details.</li>
+</ul>
+</li>
+<li><strong>Routing:</strong> Utilizing React Router to handle navigation between different "pages" such as the store, success, and cancel pages.</li>
+<li><strong>Styling:</strong> Implementing React Bootstrap and Bootstrap CSS for visually appealing and responsive components.</li>
+</ul>
+<h2 id="setting-up-the-react-front-end">Setting Up the React Front-End</h2>
+<h3 id="creating-a-new-react-application">Creating a New React Application</h3>
+<p>To begin, we will create a new React application. This provides the foundation for our user interface and component structure.</p>
+<ol>
+<li><strong>Open your terminal.</strong></li>
+<li><strong>Navigate to your desired project directory.</strong></li>
+<li>
+<p><strong>Use <code>create-react-app</code> to generate a new React project:</strong></p>
+<p><code>bash
+npx create-react-app store</code></p>
+<blockquote>
+<p><code>npx create-react-app</code>: This command utilizes <code>npx</code>, the Node Package eXecutor, to run the <code>create-react-app</code> package, a tool for quickly setting up a new React project with a pre-configured build process and development environment.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Navigate into the newly created project directory:</strong></p>
+<p><code>bash
+cd store</code></p>
+</li>
+</ol>
+<h3 id="installing-dependencies">Installing Dependencies</h3>
+<p>Our React application will require several packages to implement the desired features and styling.</p>
+<ol>
+<li>
+<p><strong>Install necessary npm packages:</strong></p>
+<p><code>bash
+npm install bootstrap react-bootstrap react-router-dom</code></p>
+<ul>
+<li><code>bootstrap</code>: A popular CSS framework for responsive and mobile-first front-end development.</li>
+<li><code>react-bootstrap</code>: A library of React components built using Bootstrap, providing pre-styled and functional UI elements.</li>
+<li><code>react-router-dom</code>: A library for declarative routing in React applications, enabling navigation between different views or pages.</li>
+</ul>
+</li>
+<li>
+<p><strong>Start the React development server to verify setup:</strong></p>
+<p><code>bash
+npm start</code></p>
+<p>This command will compile your React application and open it in your default web browser, typically at <code>http://localhost:3000</code>. You should see the default React boilerplate application running.</p>
+</li>
+</ol>
+<h3 id="structuring-components">Structuring Components</h3>
+<p>To organize our React application effectively, we will create dedicated folders for components and pages within the <code>src</code> directory.</p>
+<ol>
+<li><strong>Create a <code>components</code> folder inside the <code>src</code> folder.</strong> This folder will house reusable UI components such as the Navbar and Product Cards.</li>
+<li><strong>Create a <code>pages</code> folder inside the <code>src</code> folder.</strong> This folder will contain components representing different routes or views of our application, like the Store page, Success page, and Cancel page.</li>
+</ol>
+<h2 id="building-front-end-components">Building Front-End Components</h2>
+<h3 id="navbar-component">Navbar Component</h3>
+<p>The navigation bar, or Navbar, is a crucial element for user navigation and displaying essential information like the shopping cart.</p>
+<ol>
+<li><strong>Create <code>Navbar.js</code> inside the <code>components</code> folder.</strong></li>
+<li>
+<p><strong>Initialize a functional component named <code>NavbarComponent</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import { Button, Container, Navbar, Modal } from 'react-bootstrap';</p>
+<p>function NavbarComponent() {
+  return (
+    // Navbar content will be added here
+    <div>Navbar</div>
+  );
+}</p>
+<p>export default NavbarComponent;
+```</p>
+</li>
+<li>
+<p><strong>Import necessary components from <code>react-bootstrap</code>:</strong> <code>Button</code>, <code>Container</code>, <code>Navbar</code>, and <code>Modal</code>. The <code>Modal</code> component will be used for the shopping cart display.</p>
+</li>
+<li>
+<p><strong>Implement the Navbar structure using React Bootstrap components:</strong></p>
+<p>```javascript
+import React, { useState } from 'react'; // Import useState hook
+import { Button, Container, Navbar, Modal } from 'react-bootstrap';</p>
+<p>function NavbarComponent() {
+  const [showCart, setShowCart] = useState(false); // State to control modal visibility
+  const handleCloseCart = () =&gt; setShowCart(false);
+  const handleShowCart = () =&gt; setShowCart(true);</p>
+<p>return (
+    &lt;&gt; {/<em> React Fragment to group elements without extra DOM node </em>/}
+      <Navbar expand="sm" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="/">E-commerce Store</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Button onClick={handleShowCart}>Cart (0 Items)</Button> {/<em> Cart Button to trigger modal </em>/}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Modal show={showCart} onHide={handleCloseCart}> {/<em> Modal component for cart </em>/}
+        <Modal.Header closeButton>
+          <Modal.Title>Shopping Cart</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h1>This is the modal body</h1> {/<em> Placeholder for cart content </em>/}
+        </Modal.Body>
+      </Modal>
+  <br />
+  );
+}</p>
+<p>export default NavbarComponent;
+```</p>
+<ul>
+<li><code>useState</code>: A React Hook used to manage state within functional components. In this case, it controls the visibility of the cart modal (<code>showCart</code>).</li>
+<li><code>Navbar</code>: The main navigation bar component.</li>
+<li><code>Navbar.Brand</code>:  The title or logo of the website, often a link to the homepage.</li>
+<li><code>Navbar.Toggle</code>:  A button that appears on smaller screens to collapse and expand the navigation menu.</li>
+<li><code>Navbar.Collapse</code>:  The collapsible section of the navbar, containing navigation links or buttons.</li>
+<li><code>Button</code>: A standard button component, used here for the "Cart" button.</li>
+<li><code>Modal</code>:  A component to create a pop-up window that overlays the main content, used for displaying the shopping cart.</li>
+<li><code>Modal.Header</code>, <code>Modal.Title</code>, <code>Modal.Body</code>:  Sub-components of <code>Modal</code> to structure its content.</li>
+<li><code>expand="sm"</code>:  Navbar property to determine when the navbar collapses (on small screens and below).</li>
+<li><code>className="justify-content-end"</code>: Bootstrap class to align content to the right within the Navbar Collapse.</li>
+<li><code>onClick={handleShowCart}</code> and <code>onClick={handleCloseCart}</code>: Event handlers to control the modal visibility state.</li>
+<li><code>show={showCart}</code> and <code>onHide={handleCloseCart}</code>: Modal properties to bind the modal's visibility to the <code>showCart</code> state and handle closing events.</li>
+</ul>
+</li>
+<li>
+<p><strong>Import and use <code>NavbarComponent</code> in <code>App.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import NavbarComponent from './components/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS</p>
+<p>function App() {
+  return (
+    <Container> {/<em> Container for centering content </em>/}
+      <NavbarComponent />
+      {/<em> Application content will be added below Navbar </em>/}
+      <div>
+        {/<em> ... </em>/}
+      </div>
+    </Container>
+  );
+}</p>
+<p>export default App;
+```</p>
+<ul>
+<li><code>import 'bootstrap/dist/css/bootstrap.min.css';</code>:  Crucially import Bootstrap CSS in <code>App.js</code> to apply Bootstrap styling to React Bootstrap components.</li>
+<li><code>Container</code>: A React Bootstrap component used to center and constrain content within a page.</li>
+</ul>
+</li>
+</ol>
+<h3 id="implementing-react-router-for-navigation">Implementing React Router for Navigation</h3>
+<p>To handle different pages within our application, we will utilize React Router.</p>
+<ol>
+<li><strong>Import necessary components from <code>react-router-dom</code> in <code>App.js</code>:</strong> <code>BrowserRouter</code>, <code>Routes</code>, and <code>Route</code>.</li>
+<li>
+<p><strong>Structure the <code>App.js</code> component with routing:</strong></p>
+<p>```javascript
+import React from 'react';
+import NavbarComponent from './components/Navbar';
+import Store from './pages/Store'; // Import Store page component
+import Success from './pages/Success'; // Import Success page component
+import Cancel from './pages/Cancel';   // Import Cancel page component
+import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';</p>
+<p>function App() {
+  return (
+    <Container>
+      <BrowserRouter> {/<em> BrowserRouter to enable routing </em>/}
+        <NavbarComponent />
+        <Routes> {/<em> Routes component to define different paths </em>/}
+          <Route index element={\<Store />} /> {/<em> Route for the home page (index path) </em>/}
+          <Route path="success" element={\<Success />} /> {/<em> Route for /success path </em>/}
+          <Route path="cancel" element={\<Cancel />} />   {/<em> Route for /cancel path </em>/}
+        </Routes>
+      </BrowserRouter>
+    </Container>
+  );
+}</p>
+<p>export default App;
+```</p>
+<ul>
+<li><code>BrowserRouter</code>:  Provides the routing context to the application, enabling navigation using URLs.</li>
+<li><code>Routes</code>:  A container for defining individual <code>Route</code> components.</li>
+<li><code>Route</code>:  Defines a mapping between a URL path and a component to render.</li>
+<li><code>index</code>:  A property of <code>Route</code> that specifies this route should match the base path (<code>/</code>).</li>
+<li><code>path</code>:  A property of <code>Route</code> that defines the URL path to match.</li>
+<li><code>element</code>:  A property of <code>Route</code> that specifies the React component to render when the path is matched.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create basic page components in the <code>pages</code> folder:</strong> <code>Store.js</code>, <code>Success.js</code>, and <code>Cancel.js</code>.</p>
+<ul>
+<li>
+<p><strong><code>Store.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';</p>
+<p>function Store() {
+  return (
+    <h1>Welcome to the store</h1>
+  );
+}</p>
+<p>export default Store;
+```</p>
+</li>
+<li>
+<p><strong><code>Cancel.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';</p>
+<p>function Cancel() {
+  return (
+    <h1>Sorry to see you canceled your Stripe payment!</h1>
+  );
+}</p>
+<p>export default Cancel;
+```</p>
+</li>
+<li>
+<p><strong><code>Success.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';</p>
+<p>function Success() {
+  return (
+    <h1>Thank you for your purchase!</h1>
+  );
+}</p>
+<p>export default Success;
+```</p>
+</li>
+</ul>
+<p>These basic page components are placeholders and will be expanded upon later.</p>
+</li>
+</ol>
+<h3 id="displaying-products-in-the-store">Displaying Products in the Store</h3>
+<p>To dynamically display products, we will create product data and use it to render product cards in the <code>Store</code> page.</p>
+<ol>
+<li>
+<p><strong>Create <code>productsStore.js</code> in the <code>src</code> folder.</strong> This file will store product data and helper functions.</p>
+</li>
+<li>
+<p><strong>Define product data as an array of objects:</strong></p>
+<p>```javascript
+const productsArray = [
+  { id: "1", title: "Coffee", price: 4.99 },
+  { id: "2", title: "Sunglasses", price: 9.99 },
+  { id: "3", title: "Camera", price: 39.99 },
+];</p>
+<p>function getProductData(id) {
+  let productData = productsArray.find(product =&gt; product.id === id);
+  if (productData === undefined) {
+    console.log("Product data does not exist for ID: " + id);
+    return undefined;
+  }
+  return productData;
+}</p>
+<p>export { productsArray, getProductData };
+```</p>
+<ul>
+<li><code>productsArray</code>: An array holding objects, each representing a product with <code>id</code>, <code>title</code>, and <code>price</code> properties.</li>
+<li><code>getProductData(id)</code>: A function that searches <code>productsArray</code> for a product with a matching <code>id</code> and returns the product object. If no product is found, it logs an error and returns <code>undefined</code>.</li>
+<li><code>export { productsArray, getProductData }</code>: Exports the <code>productsArray</code> and <code>getProductData</code> function to be used in other components.</li>
+</ul>
+</li>
+<li>
+<p><strong>Import <code>productsArray</code> and <code>Row</code>, <code>Col</code> from <code>react-bootstrap</code> in <code>Store.js</code>.</strong></p>
+</li>
+<li>
+<p><strong>Render product columns using <code>productsArray.map</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import { productsArray } from '../productsStore';</p>
+<p>function Store() {
+  return (
+    &lt;&gt; {/<em> React Fragment </em>/}
+      <h1>Welcome to the store</h1>
+      <Row xs={1} md={3} className="g-4"> {/<em> Row to arrange columns </em>/}
+        {productsArray.map((product, index) =&gt; (
+          <Col align="center" key={index}> {/<em> Column for each product </em>/}
+            <h1>{product.title}</h1> {/<em> Display product title </em>/}
+          </Col>
+        ))}
+      </Row>
+  <br />
+  );
+}</p>
+<p>export default Store;
+```</p>
+<ul>
+<li><code>Row xs={1} md={3} className="g-4"</code>: React Bootstrap <code>Row</code> component to structure products in a grid layout.<ul>
+<li><code>xs={1}</code>:  Specifies one column on extra-small screens.</li>
+<li><code>md={3}</code>:  Specifies three columns on medium screens and larger.</li>
+<li><code>className="g-4"</code>: Bootstrap class to add gutters (spacing) between columns.</li>
+</ul>
+</li>
+<li><code>productsArray.map((product, index) =&gt; ...)</code>:  Iterates over each product in <code>productsArray</code> using the <code>map</code> function to render a <code>Col</code> component for each product.</li>
+<li><code>key={index}</code>:  A unique key prop is important when rendering lists in React, using the index is acceptable in this case as the product array order is not changing dynamically.</li>
+</ul>
+</li>
+</ol>
+<h3 id="creating-product-card-components">Creating Product Card Components</h3>
+<p>To enhance the visual representation of products, we will create a dedicated <code>ProductCard</code> component.</p>
+<ol>
+<li><strong>Create <code>ProductCard.js</code> in the <code>components</code> folder.</strong></li>
+<li>
+<p><strong>Initialize a functional component named <code>ProductCard</code> that accepts <code>props</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import { Card, Button, Form, Row, Col } from 'react-bootstrap';</p>
+<p>function ProductCard(props) {
+  const product = props.product; // Access product data from props</p>
+<p>return (
+    <Card>
+      <Card.Body>
+        <Card.Title>{product.title}</Card.Title> {/<em> Display product title </em>/}
+        <Card.Text>${product.price}</Card.Text> {/<em> Display product price </em>/}
+        <Button variant="primary">Add to cart</Button> {/<em> Add to cart button </em>/}
+      </Card.Body>
+    </Card>
+  );
+}</p>
+<p>export default ProductCard;
+```</p>
+<ul>
+<li><code>props</code>:  Short for "properties," props are input values passed to React components, allowing them to be configured and rendered dynamically.</li>
+<li><code>props.product</code>: Accesses the <code>product</code> prop passed to the <code>ProductCard</code> component.</li>
+<li><code>Card</code>, <code>Card.Body</code>, <code>Card.Title</code>, <code>Card.Text</code>, <code>Button</code>: React Bootstrap components used to create a styled product card.</li>
+<li><code>variant="primary"</code>:  Bootstrap button variant to set the button color to primary (typically blue).</li>
+</ul>
+</li>
+<li>
+<p><strong>Import and use <code>ProductCard</code> in <code>Store.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import { productsArray } from '../productsStore';
+import ProductCard from '../components/ProductCard'; // Import ProductCard component</p>
+<p>function Store() {
+  return (
+    &lt;&gt;
+      <h1>Welcome to the store</h1>
+      <Row xs={1} md={3} className="g-4">
+        {productsArray.map((product, index) =&gt; (
+          <Col align="center" key={index}>
+            <ProductCard product={product} /> {/<em> Render ProductCard component </em>/}
+          </Col>
+        ))}
+      </Row>
+  <br />
+  );
+}</p>
+<p>export default Store;
+```</p>
+<ul>
+<li><code>&lt;ProductCard product={product} /&gt;</code>:  Renders the <code>ProductCard</code> component, passing the current <code>product</code> object from the <code>map</code> iteration as a prop. This makes product-specific data available within the <code>ProductCard</code> component.</li>
+</ul>
+</li>
+</ol>
+<h2 id="implementing-cart-functionality-with-context">Implementing Cart Functionality with Context</h2>
+<p>To manage the shopping cart state across the application, we will use React Context.</p>
+<h3 id="creating-cart-context">Creating Cart Context</h3>
+<p>React Context provides a way to share values like cart data and cart management functions between components without explicitly passing props through every level of the component tree.</p>
+<ol>
+<li>
+<p><strong>Create <code>CartContext.js</code> in the <code>src</code> folder.</strong></p>
+</li>
+<li>
+<p><strong>Import <code>createContext</code> and <code>useState</code> from React.</strong></p>
+</li>
+<li>
+<p><strong>Create a cart context using <code>createContext</code>:</strong></p>
+<p>```javascript
+import React, { createContext, useState } from 'react';
+import { productsArray, getProductData } from './productsStore'; // Import product data</p>
+<p>export const CartContext = createContext({
+  items: [],
+  getProductQuantity: () =&gt; {},
+  addOneToCart: () =&gt; {},
+  removeOneFromCart: () =&gt; {},
+  deleteFromCart: () =&gt; {},
+  getTotalCost: () =&gt; {}
+});</p>
+<p>export function CartProvider({ children }) {
+  // Cart Provider implementation will be added here
+}</p>
+<p>export default CartProvider;
+```</p>
+<ul>
+<li><code>createContext</code>: A React function to create a context object.</li>
+<li><code>CartContext</code>: The created context object. It is initialized with a default value object containing:<ul>
+<li><code>items</code>: An array to store cart items.</li>
+<li>Cart management functions: <code>getProductQuantity</code>, <code>addOneToCart</code>, <code>removeOneFromCart</code>, <code>deleteFromCart</code>, and <code>getTotalCost</code>. These are initially empty functions as placeholders.</li>
+</ul>
+</li>
+<li><code>CartProvider</code>: A functional component that will provide the cart context to its children components.</li>
+<li><code>{ children }</code>:  Destructuring props to access the <code>children</code> prop, which represents the components wrapped by <code>CartProvider</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Implement <code>CartProvider</code> to manage cart state and functions:</strong></p>
+<p>```javascript
+import React, { createContext, useState } from 'react';
+import { productsArray, getProductData } from './productsStore';</p>
+<p>export const CartContext = createContext({ /<em> ... (context definition from above) ... </em>/ });</p>
+<p>export function CartProvider({ children }) {
+  const [cartProducts, setCartProducts] = useState([]); // State to hold cart items</p>
+<p>function getProductQuantity(id) {
+    const quantity = cartProducts.find(product =&gt; product.id === id)?.quantity;
+    if (quantity === undefined) {
+      return 0;
+    }
+    return quantity;
+  }</p>
+<p>function addOneToCart(id) {
+    const quantity = getProductQuantity(id);</p>
+<pre><code>if (quantity === 0) { // Item not in cart
+  setCartProducts(
+    [
+      ...cartProducts, // Spread operator to include existing cart items
+      {
+        id: id,
+        quantity: 1
+      }
+    ]
+  )
+} else { // Item in cart
+  setCartProducts(
+    cartProducts.map(
+      product =&gt; product.id === id // If condition to find the item
+      ? { ...product, quantity: product.quantity + 1 } // Update quantity if item found
+      : product // Otherwise return the original product
+    )
+  )
+}
+</code></pre>
+<p>}</p>
+<p>function removeOneFromCart(id) {
+    const quantity = getProductQuantity(id);</p>
+<pre><code>if(quantity === 1) {
+  deleteFromCart(id);
+} else {
+  setCartProducts(
+    cartProducts.map(
+      product =&gt; product.id === id
+      ? { ...product, quantity: product.quantity - 1 }
+      : product
+    )
+  )
+}
+</code></pre>
+<p>}</p>
+<p>function deleteFromCart(id) {
+    setCartProducts(
+      cartProducts =&gt;
+      cartProducts.filter(currentProduct =&gt; {
+        return currentProduct.id !== id;
+      })
+    )
+  }</p>
+<p>function getTotalCost() {
+    let totalCost = 0;
+    cartProducts.map((cartItem) =&gt; {
+      const productData = getProductData(cartItem.id);
+      totalCost += productData.price * cartItem.quantity;
+      return null; // Added return null as map expects a return value, but we are not using it here.
+    });
+    return totalCost;
+  }</p>
+<p>const contextValue = { // Value object passed to context provider
+    items: cartProducts,
+    getProductQuantity,
+    addOneToCart,
+    removeOneFromCart,
+    deleteFromCart,
+    getTotalCost
+  };</p>
+<p>return (
+    <CartContext.Provider value={contextValue}> {/<em> Context Provider component </em>/}
+      {children} {/<em> Render child components </em>/}
+    </CartContext.Provider>
+  );
+}</p>
+<p>export default CartProvider;
+```</p>
+<ul>
+<li><code>const [cartProducts, setCartProducts] = useState([])</code>:  Uses <code>useState</code> to create a state variable <code>cartProducts</code> (initialized as an empty array) to store cart items and a setter function <code>setCartProducts</code> to update it.</li>
+<li><code>getProductQuantity(id)</code>:  Retrieves the quantity of a product in the cart based on its <code>id</code>. It uses <code>cartProducts.find()</code> to locate the product and returns its <code>quantity</code> or <code>0</code> if not found.</li>
+<li><code>addOneToCart(id)</code>:  Adds one unit of a product to the cart. If the product is not already in the cart, it adds a new item with a quantity of 1. If it is in the cart, it increments the quantity.<ul>
+<li><code>...cartProducts</code>: The spread syntax is used to create a new array that includes all existing <code>cartProducts</code> items, ensuring immutability.</li>
+<li><code>cartProducts.map(...)</code>: The <code>map</code> function iterates over <code>cartProducts</code> to update the quantity of an existing product.</li>
+<li>Ternary operator (<code>condition ? valueIfTrue : valueIfFalse</code>) is used within <code>map</code> for concise conditional logic.</li>
+</ul>
+</li>
+<li><code>removeOneFromCart(id)</code>:  Removes one unit of a product from the cart. If the quantity is 1, it calls <code>deleteFromCart</code> to remove the item entirely. Otherwise, it decrements the quantity.</li>
+<li><code>deleteFromCart(id)</code>:  Removes a product entirely from the cart based on its <code>id</code>. It uses <code>cartProducts.filter()</code> to create a new array excluding the product with the matching <code>id</code>.<ul>
+<li><code>cartProducts.filter(...)</code>: The <code>filter</code> function creates a new array containing only elements that pass a provided condition.</li>
+</ul>
+</li>
+<li><code>getTotalCost()</code>: Calculates the total cost of all items in the cart. It iterates over <code>cartProducts</code>, retrieves product data using <code>getProductData</code>, and sums up the cost based on price and quantity.</li>
+<li><code>contextValue</code>: An object containing all the cart-related values and functions that will be provided by the context.</li>
+<li><code>&lt;CartContext.Provider value={contextValue}&gt;</code>: The <code>CartContext.Provider</code> component makes the <code>contextValue</code> available to all child components wrapped within it.</li>
+<li><code>{children}</code>: Renders the child components that will have access to the cart context.</li>
+</ul>
+</li>
+<li>
+<p><strong>Wrap the <code>App</code> component with <code>CartProvider</code> in <code>index.js</code>:</strong></p>
+<p>```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import CartProvider from './CartContext'; // Import CartProvider</p>
+<p>const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <CartProvider> {/<em> Wrap App with CartProvider </em>/}
+    <App />
+  </CartProvider>
+);
+```</p>
+<p>This step ensures that the cart context is available throughout your entire application.</p>
+</li>
+</ol>
+<h3 id="using-cart-context-in-components">Using Cart Context in Components</h3>
+<p>Now that the cart context is set up, we can access and use it in various components, such as <code>ProductCard</code> and <code>NavbarComponent</code>.</p>
+<ol>
+<li>
+<p><strong>Import <code>CartContext</code> and <code>useContext</code> in <code>ProductCard.js</code> and <code>NavbarComponent.js</code>.</strong></p>
+</li>
+<li>
+<p><strong>Access the cart context using <code>useContext(CartContext)</code>:</strong></p>
+<ul>
+<li>
+<p><strong>In <code>ProductCard.js</code>:</strong></p>
+<p>```javascript
+import React, { useContext } from 'react'; // Import useContext hook
+import { Card, Button, Form, Row, Col } from 'react-bootstrap';
+import { CartContext } from '../CartContext'; // Import CartContext</p>
+<p>function ProductCard(props) {
+  const product = props.product;
+  const cart = useContext(CartContext); // Access cart context
+  const productQuantity = cart.getProductQuantity(product.id); // Get quantity from context</p>
+<p>return (
+    <Card>
+      <Card.Body>
+        <Card.Title>{product.title}</Card.Title>
+        <Card.Text>${product.price}</Card.Text>
+        { productQuantity &gt; 0 ? // Conditional rendering based on quantity
+          &lt;&gt;
+            <Form as={Row}>
+              <Form.Label column sm="6">In Cart: </Form.Label>
+              <Col sm="6">
+                {productQuantity}
+              </Col>
+            </Form>
+            <Button variant="outline-danger" size="sm" onClick={() => cart.removeOneFromCart(product.id)}&gt;-</Button> {/<em> Remove one button </em>/}
+            <Button variant="outline-success" size="sm" onClick={() => cart.addOneToCart(product.id)} className="ms-2"&gt;+</Button> {/<em> Add one button </em>/}
+            <Button variant="danger" size="sm" onClick={() => cart.deleteFromCart(product.id)} className="my-2"&gt;Remove from cart</Button> {/<em> Delete from cart button </em>/}
+        <br />
+          :
+          <Button variant="primary" onClick={() => cart.addOneToCart(product.id)}&gt;Add to cart</Button> {/<em> Add to cart button if quantity is zero </em>/}
+        }
+      </Card.Body>
+    </Card>
+  );
+}</p>
+<p>export default ProductCard;
+```</p>
+<ul>
+<li><code>useContext(CartContext)</code>:  A React Hook that consumes the <code>CartContext</code> value, providing access to the <code>cart</code> object containing cart data and functions.</li>
+<li><code>cart.getProductQuantity(product.id)</code>:  Calls the <code>getProductQuantity</code> function from the context to get the current quantity of the product in the cart.</li>
+<li>Conditional rendering (<code>productQuantity &gt; 0 ? ... : ...</code>) is used to display different UI elements based on whether the product is in the cart or not.</li>
+<li><code>onClick={() =&gt; cart.addOneToCart(product.id)}</code>, <code>onClick={() =&gt; cart.removeOneFromCart(product.id)}</code>, <code>onClick={() =&gt; cart.deleteFromCart(product.id)}</code>:  Event handlers attached to buttons that call the respective cart management functions from the context, passing the product <code>id</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>In <code>NavbarComponent.js</code>:</strong></p>
+<p>```javascript
+import React, { useState, useContext } from 'react';
+import { Button, Container, Navbar, Modal } from 'react-bootstrap';
+import { CartContext } from '../CartContext'; // Import CartContext
+import CartProduct from './CartProduct'; // Import CartProduct component</p>
+<p>function NavbarComponent() {
+  const [showCart, setShowCart] = useState(false);
+  const handleCloseCart = () =&gt; setShowCart(false);
+  const handleShowCart = () =&gt; setShowCart(true);
+  const cart = useContext(CartContext); // Access cart context
+  const productsCount = cart.items.reduce((sum, product) =&gt; sum + product.quantity, 0); // Calculate total product count</p>
+<p>return (
+    &lt;&gt;
+      <Navbar expand="sm" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="/">E-commerce Store</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Button onClick={handleShowCart}>Cart ({productsCount} Items)</Button> {/<em> Dynamic cart item count </em>/}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Modal show={showCart} onHide={handleCloseCart}>
+        <Modal.Header closeButton>
+          <Modal.Title>Shopping Cart</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {productsCount &gt; 0 ? // Conditional rendering for cart items
+            &lt;&gt;
+              <h1>Items in your cart:</h1>
+              {cart.items.map((currentProduct, index) =&gt; (
+                <CartProduct key={index} id={currentProduct.id} quantity={currentProduct.quantity}></CartProduct> // Render CartProduct components
+              ))}
+              <h1>Total: {cart.getTotalCost().toFixed(2)}</h1> {/<em> Display total cost </em>/}
+              <Button variant="success">Purchase items!</Button> {/<em> Purchase button </em>/}
+          <br />
+            :
+            <h1>There are no items in your cart!</h1> // Message if cart is empty
+          }
+        </Modal.Body>
+      </Modal>
+  <br />
+  );
+}</p>
+<p>export default NavbarComponent;
+```</p>
+<ul>
+<li><code>useContext(CartContext)</code>: Accesses the cart context.</li>
+<li><code>const productsCount = cart.items.reduce((sum, product) =&gt; sum + product.quantity, 0);</code>:  Calculates the total number of items in the cart using the <code>reduce</code> function.<ul>
+<li><code>reduce((sum, product) =&gt; sum + product.quantity, 0)</code>: A JavaScript array method that iterates through an array and accumulates a single value.<ul>
+<li><code>(sum, product) =&gt; sum + product.quantity</code>:  The reducer function, which takes the current sum and the current product, and returns the sum plus the product's quantity.</li>
+<li><code>0</code>: The initial value of the sum.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>CartProduct key={index} id={currentProduct.id} quantity={currentProduct.quantity}</code>: Renders <code>CartProduct</code> components for each item in the cart, passing <code>id</code> and <code>quantity</code> as props.</li>
+<li><code>cart.getTotalCost().toFixed(2)</code>:  Calls <code>getTotalCost</code> from the context to get the cart total and uses <code>toFixed(2)</code> to format it to two decimal places.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>CartProduct.js</code> component in <code>components</code> folder:</strong></p>
+<p>```javascript
+import React, { useContext } from 'react';
+import { Button } from 'react-bootstrap';
+import { CartContext } from '../CartContext';
+import { getProductData } from '../productsStore';</p>
+<p>function CartProduct(props) {
+  const cart = useContext(CartContext);
+  const id = props.id;
+  const quantity = props.quantity;
+  const productData = getProductData(id);</p>
+<p>return (
+    &lt;&gt;
+      <h3>{productData.title}</h3>
+      <p>Quantity: {quantity}</p>
+      <p>Total: ${(quantity * productData.price).toFixed(2)}</p>
+      <Button size="sm" variant="danger" onClick={() => cart.deleteFromCart(id)}&gt;Remove</Button>
+      <hr></hr>
+  <br />
+  )
+}</p>
+<p>export default CartProduct;
+```</p>
+<ul>
+<li><code>getProductData(id)</code>:  Uses the imported <code>getProductData</code> function to retrieve product details based on the <code>id</code> prop.</li>
+<li>Displays product <code>title</code>, <code>quantity</code>, and total price.</li>
+<li><code>&lt;Button size="sm" variant="danger" onClick={() =&gt; cart.deleteFromCart(id)}&gt;Remove&lt;/Button&gt;</code>: A button to remove the entire product item from the cart using <code>cart.deleteFromCart(id)</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="integrating-stripe-for-payment-processing">Integrating Stripe for Payment Processing</h2>
+<p>To enable secure online payments, we will integrate Stripe into our application. This involves setting up a Stripe account, creating products in Stripe, and implementing a basic back-end server to handle Stripe API calls.</p>
+<h3 id="setting-up-stripe-account-and-products">Setting up Stripe Account and Products</h3>
+<ol>
+<li><strong>Create a Stripe account at <a href="https://stripe.com">stripe.com</a>.</strong></li>
+<li><strong>Obtain your Stripe Secret Key:</strong><ul>
+<li>Log in to your Stripe dashboard.</li>
+<li>Navigate to the "Developers" section, then "API keys".</li>
+<li>Reveal and copy your "Secret key". <strong>Keep this key secure and do not expose it in your front-end code.</strong></li>
+</ul>
+</li>
+<li><strong>Create Products in Stripe:</strong><ul>
+<li>Navigate to the "Products" section in your Stripe dashboard.</li>
+<li>Click "+ Add product".</li>
+<li>Create products corresponding to your e-commerce items (e.g., Coffee, Sunglasses, Camera).</li>
+<li>Set the price and other product details.</li>
+<li><strong>Crucially, copy the "Price ID" for each product.</strong> These Price IDs will be used in your application to reference the Stripe products.</li>
+</ul>
+</li>
+</ol>
+<h3 id="creating-a-basic-expressjs-back-end">Creating a Basic Express.js Back-End</h3>
+<p>We need a back-end server to securely handle communication with the Stripe API. We will use Express.js for this purpose.</p>
+<ol>
+<li><strong>Create a new folder outside your React project directory (e.g., <code>stripe-backend</code>).</strong></li>
+<li><strong>Navigate into the back-end folder in your terminal.</strong></li>
+<li>
+<p><strong>Initialize a Node.js project:</strong></p>
+<p><code>bash
+npm init -y</code></p>
+</li>
+<li>
+<p><strong>Install required npm packages:</strong></p>
+<p><code>bash
+npm install express cors stripe</code></p>
+<ul>
+<li><code>express</code>:  A minimal and flexible Node.js web application framework.</li>
+<li><code>cors</code>:  A middleware for Express.js to enable Cross-Origin Resource Sharing (CORS), allowing requests from different origins (like your React front-end).</li>
+<li><code>stripe</code>:  The official Stripe Node.js library for interacting with the Stripe API.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>server.js</code> in your back-end folder and implement the Express server:</strong></p>
+<p>```javascript
+const express = require('express');
+const cors = require('cors');
+const stripe = require('stripe')('YOUR_STRIPE_SECRET_KEY'); // Replace with your actual secret key</p>
+<p>const app = express();
+app.use(cors()); // Enable CORS for all origins
+app.use(express.json()); // Parse JSON request bodies</p>
+<p>app.post('/checkout', async (req, res) =&gt; {
+  const items = req.body.items; // Get items from request body
+  let lineItems = [];
+  items.forEach((item) =&gt; {
+    lineItems.push(
+      {
+        price: item.id, // Use product Price ID from Stripe
+        quantity: item.quantity
+      }
+    )
+  });</p>
+<p>const session = await stripe.checkout.sessions.create({
+    line_items: lineItems,
+    mode: 'payment',
+    success_url: 'http://localhost:3000/success', // Redirect URL on success
+    cancel_url: 'http://localhost:3000/cancel',   // Redirect URL on cancellation
+  });</p>
+<p>res.send(JSON.stringify({ url: session.url })); // Send session URL back to front-end
+});</p>
+<p>app.listen(4000, () =&gt; console.log("Listening on port 4000!")); // Start the server
+```</p>
+<ul>
+<li><code>require('stripe')('YOUR_STRIPE_SECRET_KEY')</code>:  Initializes the Stripe library with your secret key. <strong>Replace <code>'YOUR_STRIPE_SECRET_KEY'</code> with your actual Stripe Secret Key.</strong></li>
+<li><code>app.use(cors())</code>: Enables CORS to allow requests from your React front-end (typically running on <code>http://localhost:3000</code>).</li>
+<li><code>app.use(express.json())</code>:  Middleware to parse incoming requests with JSON payloads.</li>
+<li><code>app.post('/checkout', async (req, res) =&gt; { ... })</code>: Defines a POST route at <code>/checkout</code> to handle checkout requests.<ul>
+<li><code>const items = req.body.items</code>:  Extracts the <code>items</code> array from the request body, which will contain product IDs and quantities from the front-end.</li>
+<li><code>let lineItems = [];</code>: Initializes an empty array <code>lineItems</code> to format the items for Stripe's checkout session.</li>
+<li><code>items.forEach((item) =&gt; { ... })</code>:  Iterates over the <code>items</code> array and transforms each item into a format Stripe expects (<code>price</code> and <code>quantity</code>). <strong>Crucially, it uses <code>item.id</code> as the <code>price</code>, assuming <code>item.id</code> in your front-end data now holds the Stripe Price ID.</strong></li>
+<li><code>stripe.checkout.sessions.create({ ... })</code>:  Uses the Stripe API to create a checkout session.<ul>
+<li><code>line_items: lineItems</code>:  Passes the formatted <code>lineItems</code> array to the session.</li>
+<li><code>mode: 'payment'</code>:  Specifies the session mode as "payment" for one-time payments.</li>
+<li><code>success_url: 'http://localhost:3000/success'</code>, <code>cancel_url: 'http://localhost:3000/cancel'</code>:  Sets the URLs to redirect users to after successful payment or cancellation, respectively. These should match your React application's routes.</li>
+</ul>
+</li>
+<li><code>res.send(JSON.stringify({ url: session.url }))</code>: Sends the session URL generated by Stripe back to the front-end as a JSON response.</li>
+</ul>
+</li>
+<li><code>app.listen(4000, () =&gt; console.log("Listening on port 4000!"))</code>: Starts the Express server on port 4000.</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the back-end server:</strong></p>
+<p><code>bash
+node server.js</code></p>
+<p>You should see "Listening on port 4000!" in your terminal, indicating the server is running.</p>
+</li>
+</ol>
+<h3 id="connecting-front-end-to-back-end-for-checkout">Connecting Front-End to Back-End for Checkout</h3>
+<p>Finally, we need to connect the "Purchase items!" button in the <code>NavbarComponent</code> to our back-end server to initiate the Stripe checkout process.</p>
+<ol>
+<li>
+<p><strong>Update <code>productsStore.js</code> to use Stripe Price IDs for product IDs:</strong></p>
+<p>Replace the placeholder IDs in <code>productsArray</code> with the actual Stripe Price IDs you copied earlier. For example:</p>
+<p><code>javascript
+const productsArray = [
+  { id: "price_1N...", title: "Coffee", price: 4.99 }, // Replace "price_1N..." with your Coffee Price ID
+  { id: "price_1O...", title: "Sunglasses", price: 9.99 }, // Replace "price_1O..." with your Sunglasses Price ID
+  { id: "price_1P...", title: "Camera", price: 39.99 },   // Replace "price_1P..." with your Camera Price ID
+];</code></p>
+<p>This ensures that when you send product IDs from your front-end to the back-end, they directly correspond to the Stripe Price IDs needed for checkout.</p>
+</li>
+<li>
+<p><strong>Modify the "Purchase items!" button in <code>NavbarComponent.js</code> to trigger a checkout function:</strong></p>
+<ul>
+<li>Add an <code>onClick</code> handler to the "Purchase items!" button that calls a new function, <code>checkout</code>.</li>
+<li>Implement the <code>checkout</code> function within <code>NavbarComponent.js</code> to make a fetch request to your back-end <code>/checkout</code> route.</li>
+</ul>
+<p>```javascript
+import React, { useState, useContext } from 'react';
+import { Button, Container, Navbar, Modal } from 'react-bootstrap';
+import { CartContext } from '../CartContext';
+import CartProduct from './CartProduct';</p>
+<p>function NavbarComponent() {
+  // ... (existing state and context access) ...</p>
+<p>const checkout = async () =&gt; { // Asynchronous checkout function
+    await fetch('http://localhost:4000/checkout', { // Fetch request to back-end
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ items: cart.items }) // Send cart items in request body
+    }).then((response) =&gt; {
+      return response.json(); // Parse JSON response
+    }).then((response) =&gt; {
+      if(response.url) {
+        window.location.assign(response.url); // Redirect to Stripe checkout URL
+      }
+    });
+  }</p>
+<p>return (
+    // ... (Navbar and Modal structure) ...
+    <Button variant="success" onClick={checkout}>Purchase items!</Button> {/<em> Checkout button with onClick handler </em>/}
+    // ... (Modal closing tags) ...
+  );
+}</p>
+<p>export default NavbarComponent;
+```</p>
+<ul>
+<li><code>const checkout = async () =&gt; { ... }</code>:  Defines an asynchronous function <code>checkout</code> to handle the checkout process.</li>
+<li><code>await fetch('http://localhost:4000/checkout', { ... })</code>:  Makes an asynchronous <code>fetch</code> request to your back-end server's <code>/checkout</code> route.<ul>
+<li><code>method: 'POST'</code>: Specifies the request method as POST.</li>
+<li><code>headers: { 'Content-Type': 'application/json' }</code>: Sets the <code>Content-Type</code> header to <code>application/json</code>, indicating that the request body will be in JSON format.</li>
+<li><code>body: JSON.stringify({ items: cart.items })</code>:  Stringifies the <code>cart.items</code> array (containing product IDs and quantities) and sends it in the request body.</li>
+</ul>
+</li>
+<li><code>.then((response) =&gt; { return response.json(); })</code>:  Parses the JSON response from the back-end server.</li>
+<li><code>.then((response) =&gt; { if(response.url) { window.location.assign(response.url); } })</code>:  If the response contains a <code>url</code> property (which should be the Stripe checkout URL), it redirects the user to that URL using <code>window.location.assign(response.url)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the complete application:</strong></p>
+<ul>
+<li>Ensure both your React front-end (using <code>npm start</code> in the <code>store</code> directory) and Express back-end (using <code>node server.js</code> in the <code>stripe-backend</code> directory) are running.</li>
+<li>Add items to your cart in the React application.</li>
+<li>Click "Purchase items!" in the cart modal.</li>
+<li>You should be redirected to Stripe's secure checkout page.</li>
+<li>Use Stripe's test credit card details to complete a test payment.</li>
+<li>After successful payment, you should be redirected to the <code>/success</code> route in your React application.</li>
+<li>Check your Stripe dashboard to verify the test payment was processed.</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully built a React and Stripe shopping cart application. This project demonstrates key concepts in front-end and back-end web development, including component-based UI design, state management with React Context, routing, API integration, and secure payment processing with Stripe. This foundation can be expanded upon to create more complex and feature-rich e-commerce platforms.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

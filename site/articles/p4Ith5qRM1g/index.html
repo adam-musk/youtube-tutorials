@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>CSS Grid Layout: A Crash Course for Beginners - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#css-grid-layout-a-crash-course-for-beginners">CSS Grid Layout: A Crash Course for Beginners</a></li>
+        <li><a href="#introduction-to-css-grid">Introduction to CSS Grid</a></li><li><a href="#understanding-css-grid-terminology">Understanding CSS Grid Terminology</a></li><li><a href="#grid-container-properties">Grid Container Properties</a></li><li><a href="#grid-item-properties">Grid Item Properties</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="css-grid-layout-a-crash-course-for-beginners">CSS Grid Layout: A Crash Course for Beginners</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/p4Ith5qRM1g" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-css-grid">Introduction to CSS Grid</h2>
+<p>Welcome to this crash course on CSS Grid, a powerful layout tool for web design. This chapter is designed for complete beginners who are new to CSS Grid or those who want to solidify their understanding. If you are already an expert in CSS Grid, this might not be the best use of your time.</p>
+<p>This chapter builds upon the knowledge gained in HTML and CSS fundamentals, as well as concepts from Flexbox. While familiarity with Flexbox is not strictly required, understanding Flexbox will make learning CSS Grid significantly easier.  It's highly recommended to follow along with the examples provided throughout this chapter to maximize your learning.</p>
+<p>By the end of this chapter, you will have a solid foundation in creating various webpage layouts using CSS Grid.</p>
+<h3 id="what-is-css-grid">What is CSS Grid?</h3>
+<p>The <strong>CSS Grid Layout Module</strong>, often referred to as <strong>CSS Grid</strong> or simply <strong>Grid</strong>, is a two-dimensional layout system for the web. It allows you to arrange elements in rows and columns, making it ideal for designing complex and responsive webpage layouts.</p>
+<blockquote>
+<p><strong>CSS Grid Layout Module (CSS Grid or Grid):</strong> A powerful CSS module that enables two-dimensional layouts on web pages using a grid system of rows and columns. This allows for precise control over element placement and spacing in both horizontal and vertical directions.</p>
+</blockquote>
+<p>While Flexbox excels at one-dimensional layouts (either rows or columns), CSS Grid truly shines when you need to control element placement in two dimensions simultaneously.  It simplifies the creation of intricate layouts that might be challenging to achieve with other CSS layout techniques. If you're already comfortable with HTML, CSS, and Flexbox, CSS Grid is the natural next step in mastering web layout design.</p>
+<h2 id="understanding-css-grid-terminology">Understanding CSS Grid Terminology</h2>
+<p>Before we dive into the properties of CSS Grid, it's crucial to understand the terminology. Grasping these terms will make learning and applying CSS Grid properties much easier.</p>
+<h3 id="key-terminology">Key Terminology</h3>
+<ul>
+<li>
+<p><strong>Grid Container:</strong> The parent element on which CSS Grid is applied. It becomes the grid, and its direct children become grid items.</p>
+<blockquote>
+<p><strong>Grid Container:</strong> The HTML element to which the <code>display: grid</code> or <code>display: inline-grid</code> property is applied, making it the parent of all grid items and defining the grid layout.</p>
+</blockquote>
+<p>In HTML, this is typically a <code>div</code> element that wraps around other elements you want to arrange in a grid.</p>
+</li>
+<li>
+<p><strong>Grid Items:</strong> The direct child elements of the grid container. These are the elements that are positioned and sized within the grid.</p>
+<blockquote>
+<p><strong>Grid Items:</strong> The direct children of a grid container. These elements are placed and arranged within the grid according to the grid layout rules and properties.</p>
+</blockquote>
+<p>In the example structure, each of the child <code>div</code> elements within the parent container is a grid item.</p>
+</li>
+<li>
+<p><strong>Grid Line:</strong> The horizontal or vertical dividing lines in the grid. These lines define the boundaries of rows and columns.</p>
+<blockquote>
+<p><strong>Grid Line:</strong> The horizontal or vertical lines that form the structure of the CSS Grid, defining the boundaries of rows and columns. Grid lines are numbered starting from 1, and can be referenced when positioning grid items.</p>
+</blockquote>
+<p>Grid lines are numbered, starting from 1. Vertical grid lines are column grid lines, and horizontal grid lines are row grid lines.</p>
+</li>
+<li>
+<p><strong>Grid Cell:</strong> The smallest unit in a CSS Grid. It is the space created by the intersection of four grid lines (two horizontal and two vertical).</p>
+<blockquote>
+<p><strong>Grid Cell:</strong> The smallest rectangular unit of space in a CSS Grid, formed by the intersection of row and column grid lines. It is the basic building block within which grid items are placed.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Grid Track:</strong> The space between two adjacent grid lines. Tracks can be either columns (vertical) or rows (horizontal).</p>
+<blockquote>
+<p><strong>Grid Track:</strong> The space between two adjacent grid lines, either horizontally (row track) or vertically (column track). It represents a single row or column in the grid layout.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Grid Area:</strong> The total space surrounded by four grid lines. It can be composed of one or more grid cells.</p>
+<blockquote>
+<p><strong>Grid Area:</strong> A rectangular area on the grid defined by four grid lines, and can consist of one or more grid cells. Grid items can be placed and sized to occupy specific grid areas.</p>
+</blockquote>
+</li>
+</ul>
+<p>While memorizing these terms immediately isn't essential, understanding them is crucial for effectively using CSS Grid properties and referring to documentation.  The most fundamental concepts to grasp initially are <strong>grid container</strong> and <strong>grid items</strong>.</p>
+<h2 id="grid-container-properties">Grid Container Properties</h2>
+<p>Working with CSS Grid primarily involves understanding the properties associated with the grid container and grid items. By mastering these properties, you can create sophisticated and flexible layouts.</p>
+<p>This section will focus on the properties applied to the <strong>grid container</strong>. There are a total of 18 grid container properties, and this chapter will cover 16 of the most essential ones for beginners. The remaining two, while powerful, can be more complex for beginners and are recommended for later exploration.</p>
+<h3 id="essential-grid-container-properties">Essential Grid Container Properties</h3>
+<p>Here is a list of the grid container properties we will explore:</p>
+<ul>
+<li><code>display</code></li>
+<li><code>grid-template-columns</code></li>
+<li><code>grid-template-rows</code></li>
+<li><code>grid-template</code></li>
+<li><code>column-gap</code></li>
+<li><code>row-gap</code></li>
+<li><code>gap</code></li>
+<li><code>justify-items</code></li>
+<li><code>align-items</code></li>
+<li><code>place-items</code></li>
+<li><code>justify-content</code></li>
+<li><code>align-content</code></li>
+<li><code>place-content</code></li>
+<li><code>grid-auto-flow</code></li>
+<li><code>grid-auto-columns</code></li>
+<li><code>grid-auto-rows</code></li>
+</ul>
+<p>Let's delve into each of these properties with practical examples.</p>
+<h3 id="1-display-property">1. <code>display</code> Property</h3>
+<p>The <code>display</code> property is fundamental and <strong>mandatory</strong> for creating a grid container. It defines an element as a grid container and enables the use of other CSS Grid properties on its children (grid items).</p>
+<ul>
+<li>
+<p><strong><code>display: grid;</code></strong>:  Creates a <strong>block-level grid container</strong>. This means the grid container behaves like a block element, taking up the full width available in its parent container and starting on a new line.</p>
+<p>By default, when you set <code>display: grid;</code>, grid items are arranged in a single column and span the full width of the grid container.</p>
+</li>
+<li>
+<p><strong><code>display: inline-grid;</code></strong>: Creates an <strong>inline-level grid container</strong>. This makes the grid container behave like an inline element, only taking up the space necessary to contain its content. The width of the container will shrink to fit its children.</p>
+</li>
+</ul>
+<h3 id="2-grid-template-columns-property">2. <code>grid-template-columns</code> Property</h3>
+<p>The <code>grid-template-columns</code> property specifies the number and width of columns in your grid layout.  You define column widths as a space-separated list of values.</p>
+<ul>
+<li>
+<p><strong>Fixed Width Columns:</strong> You can define column widths using fixed units like pixels (<code>px</code>), points (<code>pt</code>), or centimeters (<code>cm</code>).</p>
+<p><code>css
+grid-template-columns: 100px 200px 300px;</code></p>
+<p>This creates three columns with widths of 100px, 200px, and 300px respectively. If you have more grid items than defined columns, they will wrap to the next row, maintaining the same column widths for subsequent rows.</p>
+</li>
+<li>
+<p><strong>Equal Width Columns with <code>repeat()</code> function:</strong> For creating multiple columns of the same width, the <code>repeat()</code> function is highly efficient.</p>
+<p><code>css
+grid-template-columns: repeat(3, 200px);</code></p>
+<p>This is equivalent to <code>grid-template-columns: 200px 200px 200px;</code> and creates three columns, each 200px wide. You can easily change the number of columns by modifying the first value in the <code>repeat()</code> function.</p>
+</li>
+<li>
+<p><strong>Fractional Units (<code>fr</code>):</strong> The <code>fr</code> unit represents a fraction of the available free space in the grid container. It's a flexible way to create responsive grid layouts.</p>
+<p><code>css
+grid-template-columns: 1fr 2fr 1fr;</code></p>
+<p>In this example, the available space is divided into four fractions (1 + 2 + 1). The first and third columns will each take up 1/4 of the space, while the second column will take up 2/4 (or 1/2) of the space.</p>
+</li>
+<li>
+<p><strong><code>minmax()</code> function:</strong> The <code>minmax()</code> function allows you to set a minimum and maximum size for a grid track. This is useful for creating columns that are responsive within a certain range.</p>
+<p><code>css
+grid-template-columns: repeat(3, minmax(200px, 1fr));</code></p>
+<p>This creates three columns. Each column will be at least 200px wide, but will grow to take up an equal fraction of the available space if there's more space than needed for the minimum width. If the content requires more than the minimum width, the column will expand up to the fractional unit.</p>
+</li>
+</ul>
+<p>The <code>grid-template-columns</code> property provides a versatile way to define the column structure of your grid layout using various length units and functions.</p>
+<h3 id="3-grid-template-rows-property">3. <code>grid-template-rows</code> Property</h3>
+<p>The <code>grid-template-rows</code> property is analogous to <code>grid-template-columns</code>, but it defines the number and height of rows in your grid layout. The values you can use are similar to those for <code>grid-template-columns</code>.</p>
+<ul>
+<li>
+<p><strong>Fixed Height Rows:</strong> Define row heights using fixed units.</p>
+<p><code>css
+grid-template-rows: 100px 150px 200px;</code></p>
+<p>This creates three rows with heights of 100px, 150px, and 200px respectively.</p>
+</li>
+<li>
+<p><strong>Equal Height Rows with <code>repeat()</code> function:</strong> Use <code>repeat()</code> for multiple rows of the same height.</p>
+<p><code>css
+grid-template-rows: repeat(3, 100px);</code></p>
+<p>This creates three rows, each 100px tall.</p>
+</li>
+<li>
+<p><strong>Fractional Units (<code>fr</code>):</strong>  Use <code>fr</code> units to make rows take up a fraction of the available vertical space within the grid container. This is particularly useful when the grid container has a defined height.</p>
+<p><code>css
+grid-template-rows: repeat(3, 1fr);
+height: 400px; /* Ensure grid container has a height */</code></p>
+<p>With a container height of 400px, this will create three rows that equally divide the 400px height.</p>
+</li>
+</ul>
+<p>The <code>grid-template-rows</code> property offers the same flexibility as <code>grid-template-columns</code> for defining the row structure of your grid.</p>
+<h3 id="4-grid-template-property">4. <code>grid-template</code> Property</h3>
+<p>The <code>grid-template</code> property is a shorthand for setting both <code>grid-template-rows</code> and <code>grid-template-columns</code> in a single declaration.</p>
+<p>The syntax is:</p>
+<pre><code class="language-css">grid-template: &lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;;
+</code></pre>
+<ul>
+<li>
+<p><strong>Defining Rows and Columns Together:</strong></p>
+<p><code>css
+grid-template: repeat(3, 1fr) / repeat(3, minmax(200px, 1fr));</code></p>
+<p>This sets <code>grid-template-rows</code> to <code>repeat(3, 1fr)</code> (three rows, each taking an equal fraction of vertical space) and <code>grid-template-columns</code> to <code>repeat(3, minmax(200px, 1fr))</code> (three columns, each at least 200px wide and growing to fill available space).</p>
+</li>
+</ul>
+<p>Using <code>grid-template</code> can streamline your CSS and make it easier to define both row and column structures in one place.</p>
+<h3 id="5-column-gap-property">5. <code>column-gap</code> Property</h3>
+<p>The <code>column-gap</code> property specifies the size of the gap (gutter) between columns in the grid.</p>
+<ul>
+<li>
+<p><strong>Setting Column Gaps:</strong></p>
+<p><code>css
+column-gap: 20px;</code></p>
+<p>This creates a 20-pixel gap between all columns in the grid.</p>
+</li>
+</ul>
+<h3 id="6-row-gap-property">6. <code>row-gap</code> Property</h3>
+<p>The <code>row-gap</code> property specifies the size of the gap between rows in the grid.</p>
+<ul>
+<li>
+<p><strong>Setting Row Gaps:</strong></p>
+<p><code>css
+row-gap: 30px;</code></p>
+<p>This creates a 30-pixel gap between all rows in the grid.</p>
+</li>
+</ul>
+<h3 id="7-gap-property">7. <code>gap</code> Property</h3>
+<p>The <code>gap</code> property is a shorthand for setting both <code>row-gap</code> and <code>column-gap</code> in a single declaration.</p>
+<p>The syntax is:</p>
+<pre><code class="language-css">gap: &lt;row-gap&gt; &lt;column-gap&gt;;
+</code></pre>
+<p>If you provide only one value, it applies to both row and column gaps.</p>
+<ul>
+<li>
+<p><strong>Setting Both Row and Column Gaps:</strong></p>
+<p><code>css
+gap: 40px 20px; /* row-gap: 40px; column-gap: 20px; */</code></p>
+<p>This sets a 40-pixel gap between rows and a 20-pixel gap between columns.</p>
+<p><code>css
+gap: 30px; /* row-gap: 30px; column-gap: 30px; */</code></p>
+<p>This sets a 30-pixel gap for both rows and columns.</p>
+</li>
+</ul>
+<p>The <code>gap</code> shorthand provides a convenient way to manage spacing between grid tracks.</p>
+<h3 id="8-justify-items-property">8. <code>justify-items</code> Property</h3>
+<p>The <code>justify-items</code> property controls the alignment of grid items along the <strong>row axis</strong> (horizontally) within their grid cells. This property is applied to the grid container and affects all grid items within it.</p>
+<p>Possible values for <code>justify-items</code>:</p>
+<ul>
+<li><strong><code>stretch</code> (default):</strong> Grid items stretch to fill the entire width of their grid cell.</li>
+<li><strong><code>start</code>:</strong> Grid items align to the start edge of their grid cell (left side in left-to-right languages).</li>
+<li><strong><code>end</code>:</strong> Grid items align to the end edge of their grid cell (right side in left-to-right languages).</li>
+<li><strong><code>center</code>:</strong> Grid items are centered horizontally within their grid cell.</li>
+</ul>
+<h3 id="9-align-items-property">9. <code>align-items</code> Property</h3>
+<p>The <code>align-items</code> property controls the alignment of grid items along the <strong>column axis</strong> (vertically) within their grid cells. This property is also applied to the grid container and affects all grid items.</p>
+<p>Possible values for <code>align-items</code>:</p>
+<ul>
+<li><strong><code>stretch</code> (default):</strong> Grid items stretch to fill the entire height of their grid cell.</li>
+<li><strong><code>start</code>:</strong> Grid items align to the start edge of their grid cell (top side).</li>
+<li><strong><code>end</code>:</strong> Grid items align to the end edge of their grid cell (bottom side).</li>
+<li><strong><code>center</code>:</strong> Grid items are centered vertically within their grid cell.</li>
+</ul>
+<h3 id="10-place-items-property">10. <code>place-items</code> Property</h3>
+<p>The <code>place-items</code> property is a shorthand for setting both <code>align-items</code> and <code>justify-items</code> in a single declaration.</p>
+<p>The syntax is:</p>
+<pre><code class="language-css">place-items: &lt;align-items&gt; &lt;justify-items&gt;;
+</code></pre>
+<p>If you provide only one value, it applies to both <code>align-items</code> and <code>justify-items</code>.</p>
+<ul>
+<li>
+<p><strong>Setting Both Vertical and Horizontal Alignment within Cells:</strong></p>
+<p><code>css
+place-items: start end; /* align-items: start; justify-items: end; */</code></p>
+<p>This aligns grid items to the top (start of column axis) and right (end of row axis) of their cells.</p>
+<p><code>css
+place-items: center; /* align-items: center; justify-items: center; */</code></p>
+<p>This centers grid items both vertically and horizontally within their cells.</p>
+</li>
+</ul>
+<p>The <code>place-items</code> shorthand simplifies the process of controlling item alignment within grid cells.</p>
+<h3 id="11-justify-content-property">11. <code>justify-content</code> Property</h3>
+<p>The <code>justify-content</code> property controls the alignment of the <strong>entire grid</strong> along the <strong>row axis</strong> (horizontally) within the grid container when the total size of the grid is less than the size of the container along this axis.</p>
+<p>Possible values for <code>justify-content</code>:</p>
+<ul>
+<li><strong><code>start</code> (default):</strong> The grid is aligned to the start edge of the grid container (left side).</li>
+<li><strong><code>end</code>:</strong> The grid is aligned to the end edge of the grid container (right side).</li>
+<li><strong><code>center</code>:</strong> The grid is centered horizontally within the grid container.</li>
+<li><strong><code>stretch</code>:</strong>  Grid tracks are resized to fill the width of the grid container. (Note: This may not always be visually apparent if tracks are already flexible).</li>
+<li><strong><code>space-between</code>:</strong> Extra space is distributed evenly between grid columns. The first column is at the start edge, and the last column is at the end edge.</li>
+<li><strong><code>space-around</code>:</strong> Extra space is distributed evenly around each grid column, including space before the first and after the last column. The space before the first and after the last column is half the size of the space between columns.</li>
+<li><strong><code>space-evenly</code>:</strong> Extra space is distributed evenly between grid columns, and also before the first and after the last column. All spaces are of equal size.</li>
+</ul>
+<h3 id="12-align-content-property">12. <code>align-content</code> Property</h3>
+<p>The <code>align-content</code> property controls the alignment of the <strong>entire grid</strong> along the <strong>column axis</strong> (vertically) within the grid container when the total size of the grid is less than the size of the container along this axis.</p>
+<p>Possible values for <code>align-content</code>: These are the same as <code>justify-content</code>:</p>
+<ul>
+<li><strong><code>start</code> (default):</strong> The grid is aligned to the start edge of the grid container (top side).</li>
+<li><strong><code>end</code>:</strong> The grid is aligned to the end edge of the grid container (bottom side).</li>
+<li><strong><code>center</code>:</strong> The grid is centered vertically within the grid container.</li>
+<li><strong><code>stretch</code>:</strong> Grid tracks are resized to fill the height of the grid container.</li>
+<li><strong><code>space-between</code>:</strong> Extra space is distributed evenly between grid rows. The first row is at the start edge, and the last row is at the end edge.</li>
+<li><strong><code>space-around</code>:</strong> Extra space is distributed evenly around each grid row.</li>
+<li><strong><code>space-evenly</code>:</strong> Extra space is distributed evenly between grid rows, and also before the first and after the last row.</li>
+</ul>
+<h3 id="13-place-content-property">13. <code>place-content</code> Property</h3>
+<p>The <code>place-content</code> property is a shorthand for setting both <code>align-content</code> and <code>justify-content</code> in a single declaration.</p>
+<p>The syntax is:</p>
+<pre><code class="language-css">place-content: &lt;align-content&gt; &lt;justify-content&gt;;
+</code></pre>
+<p>If you provide only one value, it applies to both <code>align-content</code> and <code>justify-content</code>.</p>
+<ul>
+<li>
+<p><strong>Setting Both Vertical and Horizontal Alignment of the Grid within the Container:</strong></p>
+<p><code>css
+place-content: start end; /* align-content: start; justify-content: end; */</code></p>
+<p>This aligns the grid to the top (start of column axis) and right (end of row axis) of the grid container.</p>
+<p><code>css
+place-content: center; /* align-content: center; justify-content: center; */</code></p>
+<p>This centers the grid both vertically and horizontally within the grid container.</p>
+</li>
+</ul>
+<p><code>place-content</code> offers a concise way to manage the overall alignment of the grid within its container.</p>
+<h3 id="14-grid-auto-flow-property">14. <code>grid-auto-flow</code> Property</h3>
+<p>The <code>grid-auto-flow</code> property controls how auto-placed grid items are inserted into the grid. Auto-placement happens when you haven't explicitly placed all grid items using grid item properties.</p>
+<p>Possible values for <code>grid-auto-flow</code>:</p>
+<ul>
+<li><strong><code>row</code> (default):</strong> Auto-placed items are inserted row by row. The grid fills in each row completely before moving to the next row.</li>
+<li><strong><code>column</code>:</strong> Auto-placed items are inserted column by column. The grid fills in each column completely before moving to the next column.</li>
+<li><strong><code>row dense</code>:</strong>  Uses the "row" auto-placement algorithm but attempts to fill in holes earlier in the grid if smaller items become available later. This can lead to items appearing out of order but can make the grid denser.</li>
+<li><strong><code>column dense</code>:</strong> Uses the "column" auto-placement algorithm with the same "dense" packing behavior as <code>row dense</code>, but fills columns first.</li>
+</ul>
+<p>For basic grid layouts, <code>row</code> and <code>column</code> are the most commonly used values. The <code>dense</code> values are more relevant for complex layouts where you need to optimize space utilization, potentially at the cost of visual order.</p>
+<h3 id="15-grid-auto-columns-property">15. <code>grid-auto-columns</code> Property</h3>
+<p>The <code>grid-auto-columns</code> property specifies the default width of <strong>implicitly created columns</strong>. Implicit columns are created when you place a grid item outside of the explicitly defined grid (e.g., using <code>grid-column-start</code> or <code>grid-column-end</code> to place an item in a column that hasn't been defined by <code>grid-template-columns</code>).</p>
+<p>If you don't set <code>grid-auto-columns</code>, the width of implicit columns is determined by the content of the grid items within them.</p>
+<ul>
+<li>
+<p><strong>Setting a Default Column Width:</strong></p>
+<p><code>css
+grid-auto-columns: 100px;</code></p>
+<p>This sets the default width of any implicitly created columns to 100px. This value will be overridden if you have explicitly defined column widths using <code>grid-template-columns</code>.</p>
+</li>
+</ul>
+<h3 id="16-grid-auto-rows-property">16. <code>grid-auto-rows</code> Property</h3>
+<p>The <code>grid-auto-rows</code> property is similar to <code>grid-auto-columns</code>, but it specifies the default height of <strong>implicitly created rows</strong>. Implicit rows are created when you place a grid item outside of the explicitly defined grid rows.</p>
+<p>If you don't set <code>grid-auto-rows</code>, the height of implicit rows is determined by the content of the grid items within them.</p>
+<ul>
+<li>
+<p><strong>Setting a Default Row Height:</strong></p>
+<p><code>css
+grid-auto-rows: 200px;</code></p>
+<p>This sets the default height of any implicitly created rows to 200px. This value is overridden by explicitly defined row heights in <code>grid-template-rows</code>.</p>
+</li>
+</ul>
+<p>These <code>grid-auto-columns</code> and <code>grid-auto-rows</code> properties are useful for controlling the size of tracks created implicitly by item placement.</p>
+<h3 id="further-exploration-grid-template-areas-and-grid-properties">Further Exploration: <code>grid-template-areas</code> and <code>grid</code> Properties</h3>
+<p>Once you are comfortable with the 16 properties discussed above, you can explore two more advanced grid container properties:</p>
+<ul>
+<li><strong><code>grid-template-areas</code></strong>: This property allows you to define grid areas by name and then assign grid items to those areas. It provides a more visual and semantic way to define grid layouts.</li>
+<li><strong><code>grid</code></strong>: This is a very comprehensive shorthand property that can set <code>grid-template-rows</code>, <code>grid-template-columns</code>, <code>grid-template-areas</code>, <code>grid-auto-rows</code>, <code>grid-auto-columns</code>, and <code>grid-auto-flow</code> in a single declaration. While powerful, it can be complex for beginners.</li>
+</ul>
+<p>Understanding these 16 properties provides a strong foundation for working with CSS Grid and creating a wide range of layouts.</p>
+<h2 id="grid-item-properties">Grid Item Properties</h2>
+<p>Now, let's shift our focus to the properties that are applied to <strong>grid items</strong>. These properties allow you to control the placement and alignment of individual grid items within the grid container.</p>
+<h3 id="essential-grid-item-properties">Essential Grid Item Properties</h3>
+<p>Here's a list of the grid item properties we will cover:</p>
+<ul>
+<li><code>grid-column-start</code></li>
+<li><code>grid-column-end</code></li>
+<li><code>grid-row-start</code></li>
+<li><code>grid-row-end</code></li>
+<li><code>grid-column</code></li>
+<li><code>grid-row</code></li>
+<li><code>justify-self</code></li>
+<li><code>align-self</code></li>
+<li><code>place-self</code></li>
+</ul>
+<p>Let's examine each of these properties in detail.</p>
+<h3 id="1-grid-column-start-and-grid-column-end-properties">1. <code>grid-column-start</code> and <code>grid-column-end</code> Properties</h3>
+<p>These properties control the starting and ending column grid lines for a grid item, determining its horizontal placement and span within the grid.</p>
+<ul>
+<li><strong><code>grid-column-start</code></strong>: Specifies the column grid line where the grid item starts.</li>
+<li><strong><code>grid-column-end</code></strong>: Specifies the column grid line where the grid item ends.</li>
+</ul>
+<p>You can use grid line numbers to specify these values. Grid lines are numbered starting from 1.</p>
+<ul>
+<li>
+<p><strong>Example:</strong></p>
+<p><code>css
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}</code></p>
+<p>This makes <code>item1</code> start at column line 1 and end at column line 3, effectively spanning two columns.</p>
+</li>
+</ul>
+<p>You can also use the <code>span</code> keyword to indicate how many columns an item should span from its starting line:</p>
+<ul>
+<li>
+<p><strong>Using <code>span</code>:</strong></p>
+<p><code>css
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: span 2; /* Spans 2 columns from line 1 */
+}</code></p>
+<p>This achieves the same result as the previous example, making <code>item1</code> span two columns starting from column line 1.</p>
+</li>
+</ul>
+<h3 id="2-grid-row-start-and-grid-row-end-properties">2. <code>grid-row-start</code> and <code>grid-row-end</code> Properties</h3>
+<p>These properties are analogous to <code>grid-column-start</code> and <code>grid-column-end</code>, but they control the starting and ending <strong>row</strong> grid lines for a grid item, determining its vertical placement and span.</p>
+<ul>
+<li><strong><code>grid-row-start</code></strong>: Specifies the row grid line where the grid item starts.</li>
+<li><strong><code>grid-row-end</code></strong>: Specifies the row grid line where the grid item ends.</li>
+</ul>
+<p>Similar to column properties, you can use grid line numbers or the <code>span</code> keyword.</p>
+<ul>
+<li>
+<p><strong>Example:</strong></p>
+<p><code>css
+.item1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}</code></p>
+<p>This makes <code>item1</code> start at row line 1 and end at row line 3, spanning two rows.</p>
+</li>
+<li>
+<p><strong>Using <code>span</code>:</strong></p>
+<p><code>css
+.item1 {
+  grid-row-start: 1;
+  grid-row-end: span 2; /* Spans 2 rows from line 1 */
+}</code></p>
+<p>This also makes <code>item1</code> span two rows starting from row line 1.</p>
+</li>
+</ul>
+<h3 id="3-grid-column-property">3. <code>grid-column</code> Property</h3>
+<p>The <code>grid-column</code> property is a shorthand for setting both <code>grid-column-start</code> and <code>grid-column-end</code> in a single declaration.</p>
+<p>The syntax is:</p>
+<pre><code class="language-css">grid-column: &lt;grid-column-start&gt; / &lt;grid-column-end&gt;;
+</code></pre>
+<ul>
+<li>
+<p><strong>Setting Column Start and End in Shorthand:</strong></p>
+<p><code>css
+.item1 {
+  grid-column: 1 / span 2; /* grid-column-start: 1; grid-column-end: span 2; */
+}</code></p>
+<p>This is equivalent to setting <code>grid-column-start: 1;</code> and <code>grid-column-end: span 2;</code>.</p>
+</li>
+</ul>
+<h3 id="4-grid-row-property">4. <code>grid-row</code> Property</h3>
+<p>The <code>grid-row</code> property is a shorthand for setting both <code>grid-row-start</code> and <code>grid-row-end</code> in a single declaration.</p>
+<p>The syntax is:</p>
+<pre><code class="language-css">grid-row: &lt;grid-row-start&gt; / &lt;grid-row-end&gt;;
+</code></pre>
+<ul>
+<li>
+<p><strong>Setting Row Start and End in Shorthand:</strong></p>
+<p><code>css
+.item1 {
+  grid-row: 1 / span 2; /* grid-row-start: 1; grid-row-end: span 2; */
+}</code></p>
+<p>This is equivalent to setting <code>grid-row-start: 1;</code> and <code>grid-row-end: span 2;</code>.</p>
+</li>
+</ul>
+<p>The <code>grid-column</code> and <code>grid-row</code> shorthands provide a more concise way to control the placement and span of grid items.</p>
+<h3 id="5-justify-self-property">5. <code>justify-self</code> Property</h3>
+<p>The <code>justify-self</code> property overrides the <code>justify-items</code> property for a <strong>specific grid item</strong>. It controls the alignment of a single grid item along the <strong>row axis</strong> (horizontally) within its grid cell.</p>
+<p>Possible values for <code>justify-self</code>:</p>
+<ul>
+<li><strong><code>stretch</code> (default):</strong> The grid item stretches to fill the width of its grid cell.</li>
+<li><strong><code>start</code>:</strong> The grid item aligns to the start edge of its grid cell.</li>
+<li><strong><code>end</code>:</strong> The grid item aligns to the end edge of its grid cell.</li>
+<li>
+<p><strong><code>center</code>:</strong> The grid item is centered horizontally within its grid cell.</p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<p><code>css
+.item2 {
+  justify-self: end; /* Aligns item2 to the right of its cell */
+}</code></p>
+</li>
+</ul>
+<h3 id="6-align-self-property">6. <code>align-self</code> Property</h3>
+<p>The <code>align-self</code> property overrides the <code>align-items</code> property for a <strong>specific grid item</strong>. It controls the alignment of a single grid item along the <strong>column axis</strong> (vertically) within its grid cell.</p>
+<p>Possible values for <code>align-self</code>:</p>
+<ul>
+<li><strong><code>stretch</code> (default):</strong> The grid item stretches to fill the height of its grid cell.</li>
+<li><strong><code>start</code>:</strong> The grid item aligns to the start edge of its grid cell.</li>
+<li><strong><code>end</code>:</strong> The grid item aligns to the end edge of its grid cell.</li>
+<li>
+<p><strong><code>center</code>:</strong> The grid item is centered vertically within its grid cell.</p>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+<p><code>css
+.item2 {
+  align-self: start; /* Aligns item2 to the top of its cell */
+}</code></p>
+</li>
+</ul>
+<h3 id="7-place-self-property">7. <code>place-self</code> Property</h3>
+<p>The <code>place-self</code> property is a shorthand for setting both <code>align-self</code> and <code>justify-self</code> for a specific grid item.</p>
+<p>The syntax is:</p>
+<pre><code class="language-css">place-self: &lt;align-self&gt; &lt;justify-self&gt;;
+</code></pre>
+<p>If you provide only one value, it applies to both <code>align-self</code> and <code>justify-self</code>.</p>
+<ul>
+<li>
+<p><strong>Setting Both Vertical and Horizontal Self-Alignment:</strong></p>
+<p><code>css
+.item2 {
+  place-self: start end; /* align-self: start; justify-self: end; */
+}</code></p>
+<p>This aligns <code>item2</code> to the top (start of column axis) and right (end of row axis) of its cell.</p>
+<p><code>css
+.item2 {
+  place-self: center; /* align-self: center; justify-self: center; */
+}</code></p>
+<p>This centers <code>item2</code> both vertically and horizontally within its cell.</p>
+</li>
+</ul>
+<p>The <code>place-self</code> shorthand offers a convenient way to customize the alignment of individual grid items within their cells, overriding the container-level alignment properties.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This crash course has provided a comprehensive introduction to CSS Grid layout. By understanding the terminology and mastering the properties discussed for both grid containers and grid items, you are now equipped to create a wide variety of web layouts with precision and flexibility.</p>
+<p>Continue practicing and experimenting with these properties to solidify your understanding and unlock the full potential of CSS Grid in your web development projects. This knowledge serves as a strong foundation for further exploration into more advanced CSS Grid concepts and techniques.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

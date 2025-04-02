@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Encore: A Comprehensive Backend Development Platform - An Educational Overview - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#encore-a-comprehensive-backend-development-platform-an-educational-overview">Encore: A Comprehensive Backend Development Platform - An Educational Overview</a></li>
+        <li><a href="#introduction-to-encore">Introduction to Encore</a></li><li><a href="#encore-ts-and-encore-go">Encore TS and Encore Go</a></li><li><a href="#key-features-of-encore">Key Features of Encore</a></li><li><a href="#core-components">Core Components</a></li><li><a href="#getting-started-with-encore">Getting Started with Encore</a></li><li><a href="#project-structure-and-api-endpoints">Project Structure and API Endpoints</a></li><li><a href="#building-a-url-shortener-service">Building a URL Shortener Service</a></li><li><a href="#deployment-and-conclusion">Deployment and Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="encore-a-comprehensive-backend-development-platform-an-educational-overview">Encore: A Comprehensive Backend Development Platform - An Educational Overview</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/tL01EzN2-xA" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-encore">Introduction to Encore</h2>
+<p>In today's fast-paced digital world, efficient backend development is crucial for building robust and scalable applications.  This chapter introduces Encore, a novel backend development platform designed to streamline the entire development lifecycle, from local setup and testing to cloud deployment and operations.  Encore aims to abstract away much of the complexity traditionally associated with backend infrastructure and DevOps, allowing developers to focus primarily on writing application logic.</p>
+<h3 id="what-is-encore">What is Encore?</h3>
+<p>Encore is described as more than just a <strong>backend framework</strong>. It is a comprehensive <strong>development platform</strong> that offers a complete toolset tailored for backend development.</p>
+<blockquote>
+<p><strong>Backend framework:</strong> A software framework designed to simplify the development of the server-side components of web applications, APIs, and mobile backends. These frameworks typically provide tools and libraries for handling routing, database interactions, and other server-side functionalities.</p>
+<p><strong>Development platform:</strong> A suite of tools and services designed to support the complete software development lifecycle. This can include tools for coding, testing, debugging, deployment, and management of applications.</p>
+</blockquote>
+<p>Encore distinguishes itself by handling everything from local development and testing environments to cloud infrastructure management and <strong>DevOps</strong>.</p>
+<blockquote>
+<p><strong>DevOps:</strong> A set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.</p>
+</blockquote>
+<p>A key aspect of Encore is its use of <strong>infrastructure as code</strong>.</p>
+<blockquote>
+<p><strong>Infrastructure as code (IaC):</strong>  The practice of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools. This approach allows for automation and version control of infrastructure.</p>
+</blockquote>
+<p>This approach significantly reduces the amount of manual configuration and <strong>boilerplate</strong> code typically required for cloud infrastructure setup.</p>
+<blockquote>
+<p><strong>Boilerplate code:</strong> Sections of code that are repeated in many contexts with little to no alteration. It is often used to set up basic functionalities or configurations.</p>
+</blockquote>
+<h3 id="core-features-of-encore">Core Features of Encore</h3>
+<p>Encore boasts a range of features designed to enhance developer productivity and application performance:</p>
+<ul>
+<li>
+<p><strong>Simplified Infrastructure:</strong> With a single line of code, developers can spin up a <strong>Docker container</strong> containing a fully functional <strong>Postgres database</strong>.</p>
+<blockquote>
+<p><strong>Docker container:</strong> A standardized unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</p>
+<p><strong>Postgres database:</strong> An open-source relational database management system (RDBMS) known for its reliability, feature robustness, and extensibility.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>One-Command Deployment:</strong> Deploying APIs or services to the cloud is achieved with a single command, further simplifying the <strong>API</strong> lifecycle management.</p>
+<blockquote>
+<p><strong>API (Application Programming Interface):</strong> A set of definitions and protocols used for building and integrating application software. APIs allow different software components to communicate and exchange data.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Built-in Type Validation:</strong> Encore incorporates inherent <strong>type validation</strong> to ensure data integrity and security.</p>
+<blockquote>
+<p><strong>Type validation:</strong> The process of verifying that data conforms to a defined data type, ensuring that the data being processed is of the expected format and structure.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>High-Performance Runtime:</strong>  It leverages a <strong>Rust multi-threaded runtime</strong> for optimized performance and efficiency.</p>
+<blockquote>
+<p><strong>Rust multi-threaded runtime:</strong> A runtime environment written in the Rust programming language that supports concurrent execution of multiple threads. Rust is known for its performance, reliability, and safety features, making it suitable for building high-performance systems.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Integrated Developer Dashboard:</strong>  Encore provides a built-in <strong>developer dashboard</strong>, offering a visual interface for managing and monitoring applications.</p>
+<blockquote>
+<p><strong>Developer dashboard:</strong> A web-based user interface that provides developers with a centralized view of their projects, services, logs, and other relevant information, facilitating monitoring and management.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Performance Advantages:</strong> Encore is presented as being faster than <strong>Express</strong> and most other <strong>JavaScript-based backend frameworks</strong>.</p>
+<blockquote>
+<p><strong>Express:</strong> A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</p>
+<p><strong>JavaScript-based backend frameworks:</strong> Backend frameworks built using the JavaScript programming language, commonly used with Node.js for server-side development.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="encore-ts-and-encore-go">Encore TS and Encore Go</h2>
+<h3 id="two-flavors-of-encore">Two Flavors of Encore</h3>
+<p>Encore offers two primary flavors to cater to different developer preferences and project requirements:</p>
+<ul>
+<li>
+<p><strong>Encore TS:</strong> A <strong>TypeScript</strong> backend framework. TypeScript, being a superset of JavaScript, adds static typing, which enhances code maintainability and reduces runtime errors. This is the version primarily discussed and used in the context of the original transcript.</p>
+<blockquote>
+<p><strong>TypeScript:</strong> A strongly typed programming language that builds on JavaScript, giving you better tooling at any scale. TypeScript is often preferred for large projects due to its enhanced code organization and error detection capabilities.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Encore Go:</strong> A <strong>Go</strong> backend framework. Go is a statically typed, compiled programming language designed at Google. It is known for its efficiency, concurrency features, and suitability for building scalable and high-performance applications.</p>
+<blockquote>
+<p><strong>Go:</strong>  Also known as Golang, is a statically typed, compiled programming language designed at Google. It is known for its simplicity, efficiency, and built-in concurrency, making it well-suited for backend development and system programming.</p>
+</blockquote>
+</li>
+</ul>
+<p>Both Encore TS and Encore Go are designed to build robust and type-safe applications, sharing largely the same feature set, differing mainly in the underlying programming language.</p>
+<h3 id="performance-benchmarks">Performance Benchmarks</h3>
+<p>Encore emphasizes performance as a key differentiator. While acknowledging that performance can vary based on specific project needs, Encore provides benchmark data indicating significant speed advantages compared to other popular frameworks. According to their benchmarks, Encore outperforms:</p>
+<ul>
+<li><strong>Express:</strong>  Claiming to be up to nine times faster.</li>
+<li>
+<p><strong>Fastify:</strong>  Reportedly twice as fast as Fastify.</p>
+<blockquote>
+<p><strong>Fastify:</strong> A web framework highly focused on providing the best developer experience with a focus on speed and low overhead.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Bun JS:</strong>  Even surpassing the performance of Bun JS, a relatively new JavaScript runtime environment known for its speed.</p>
+<blockquote>
+<p><strong>Bun JS:</strong> A fast, all-in-one JavaScript runtime, bundler, transpiler, and package manager, designed to be a drop-in replacement for Node.js.</p>
+</blockquote>
+</li>
+</ul>
+<p>This performance boost is attributed, in part, to Encore's Rust runtime, which is explored further in subsequent sections.</p>
+<h2 id="key-features-of-encore">Key Features of Encore</h2>
+<h3 id="built-in-type-validation">Built-in Type Validation</h3>
+<p>Encore's type validation system is a core feature designed for both developer convenience and application security. It operates in a <strong>declarative</strong> manner.</p>
+<blockquote>
+<p><strong>Declarative:</strong> A programming paradigm that expresses the logic of a computation without describing its control flow. In the context of type validation, it means defining the expected data types and structures in a way that the system automatically enforces them.</p>
+</blockquote>
+<p>This declarative approach enables Encore to automatically parse and validate incoming requests, ensuring they conform to the defined schema. This automated validation happens before the request even reaches the application's JavaScript code layer, providing a robust layer of protection against attacks and data inconsistencies. This proactive validation removes the need for manual validation boilerplate, streamlining development and enhancing security.</p>
+<h3 id="infrastructure-as-code-simplified-devops">Infrastructure as Code: Simplified DevOps</h3>
+<p>One of the most compelling aspects of Encore is its <strong>infrastructure as code</strong> approach, which significantly simplifies <strong>DevOps</strong> tasks.  For developers accustomed to the complexities of deploying applications to cloud platforms like AWS using frameworks like Express, Encore offers a streamlined alternative.</p>
+<p>Traditionally, deploying an Express application often involves intricate configurations and substantial boilerplate to set up cloud infrastructure. Encore is specifically architected for building <strong>cloud-native applications</strong>, abstracting away much of this infrastructure complexity.</p>
+<blockquote>
+<p><strong>Cloud-native applications:</strong> Applications designed and built to take full advantage of cloud computing architectures. They are typically composed of microservices, packaged in containers, and dynamically orchestrated to optimize scalability, resilience, and agility.</p>
+</blockquote>
+<p>This abstraction allows developers to concentrate more on core business logic rather than getting bogged down in infrastructure details.  Encore simplifies common infrastructure tasks:</p>
+<ul>
+<li><strong>Databases:</strong> Creating a Postgres database is reduced to a single line of code.</li>
+<li>
+<p><strong>Messaging:</strong> Setting up <strong>publish-subscribe topics</strong> for asynchronous communication is similarly straightforward.</p>
+<blockquote>
+<p><strong>Publish-subscribe topics:</strong> A messaging pattern where publishers send messages to a topic, and subscribers who are interested in that topic receive the messages. This enables decoupled communication between different parts of an application.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Scheduled Tasks:</strong> Defining <strong>cron jobs</strong> for scheduled tasks becomes simple and declarative.</p>
+<blockquote>
+<p><strong>Cron jobs:</strong> Scheduled tasks that run automatically at specified intervals. They are commonly used for automating routine operations, such as backups, maintenance, or sending periodic reports.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Future Integrations:</strong>  Encore plans to integrate with services like <strong>Redis</strong> for caching and data management in the near future.</p>
+<blockquote>
+<p><strong>Redis:</strong> An open-source, in-memory data structure store, used as a database, cache, and message broker. It is known for its high performance and versatility.</p>
+</blockquote>
+</li>
+</ul>
+<p>Encore achieves this simplification in local development environments by leveraging <strong>Docker</strong>.  By running a <strong>migration file</strong>, Encore automatically sets up a Docker container with the necessary database and other specified infrastructure components.</p>
+<blockquote>
+<p><strong>Migration file:</strong> A script that defines changes to a database schema. Migration files are used to track and apply database schema updates in a controlled and versioned manner.</p>
+</blockquote>
+<p>Developers only need to have Docker installed; Encore handles the creation and management of containers automatically.  Deployment to the cloud is equally streamlined, accomplished with a single command, further emphasizing Encore's commitment to simplifying the DevOps workflow.</p>
+<h2 id="core-components">Core Components</h2>
+<h3 id="high-performance-rust-runtime">High-Performance Rust Runtime</h3>
+<p>Encore's architecture comprises two key parts:</p>
+<ol>
+<li>
+<p><strong>TypeScript/Go SDK:</strong>  A Software Development Kit (<strong>SDK</strong>) in either TypeScript or Go, used for building backend services and APIs.</p>
+<blockquote>
+<p><strong>SDK (Software Development Kit):</strong> A set of software development tools that allows the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar development platform.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>High-Performance Rust Runtime:</strong> A multi-threaded runtime environment written in Rust. This runtime is crucial for Encore's performance advantages.</p>
+</li>
+</ol>
+<p>This Rust runtime is designed to integrate seamlessly with the <strong>Node.js runtime</strong> for executing JavaScript code, ensuring 100% compatibility with the <strong>Node.js ecosystem</strong>.</p>
+<blockquote>
+<p><strong>Node.js runtime:</strong> A JavaScript runtime environment that executes JavaScript code server-side. Node.js is built on Chrome's V8 JavaScript engine and is popular for building scalable network applications.</p>
+<p><strong>Node.js ecosystem:</strong> The collection of libraries, frameworks, tools, and community resources available for Node.js development. It is known for its vast and active community support.</p>
+</blockquote>
+<p>The use of Rust provides a significant performance boost compared to the traditional Node.js runtime. Benchmarks indicate:</p>
+<ul>
+<li><strong>Throughput Increase:</strong> Throughput is increased by up to seven times.</li>
+<li><strong>Latency Reduction:</strong> Response latency is reduced by as much as 85%.</li>
+</ul>
+<p>Furthermore, Encore boasts zero <strong>npm dependencies</strong>, which also contributes to improved performance and enhanced security.</p>
+<blockquote>
+<p><strong>npm dependencies:</strong> External libraries or packages that a Node.js project relies on, managed by npm (Node Package Manager). Reducing dependencies can improve performance and security by minimizing the codebase and potential vulnerabilities.</p>
+</blockquote>
+<p><strong>How it works:</strong></p>
+<ol>
+<li><strong>Initialization:</strong> Node.js initializes the Rust runtime.</li>
+<li>
+<p><strong>Request Handling:</strong> The Rust runtime listens for incoming requests, parsing and validating them against the <strong>API schema</strong>.</p>
+<blockquote>
+<p><strong>API schema:</strong> A formal specification that defines the structure and constraints of an API, including the data types, request formats, and response formats.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Code Execution:</strong> Valid requests are passed to the application code running in Node.js.</p>
+</li>
+<li><strong>Resource Management:</strong> When the application interacts with infrastructure resources (e.g., database queries), these operations are offloaded to the Rust runtime for faster execution.</li>
+</ol>
+<p>This architecture allows the single-threaded <strong>Node.js event loop</strong> to focus on executing business logic, while resource-intensive tasks are handled concurrently by Encore's multi-threaded Rust runtime.</p>
+<blockquote>
+<p><strong>Node.js event loop:</strong> A single-threaded loop in Node.js that handles asynchronous operations. It allows Node.js to perform non-blocking I/O operations efficiently.</p>
+</blockquote>
+<h3 id="developer-dashboard">Developer Dashboard</h3>
+<p>Encore provides a built-in <strong>developer dashboard</strong>, a web-based tool accessible on a separate port. This dashboard offers a visual interface for interacting with and managing APIs and services. Key features include:</p>
+<ul>
+<li>
+<p><strong>Built-in Request Client:</strong>  Enables making API requests directly from the dashboard, eliminating the need for external tools like <strong>Postman</strong>.</p>
+<blockquote>
+<p><strong>Postman:</strong> A popular API client used for testing, developing, and documenting APIs by sending HTTP requests and viewing responses.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Tracing and Logging:</strong> Provides comprehensive <strong>tracing</strong> and <strong>logging</strong> capabilities for monitoring application behavior and debugging issues.</p>
+<blockquote>
+<p><strong>Tracing:</strong> A method of monitoring and visualizing the flow of requests and operations through a distributed system, helping to understand performance bottlenecks and dependencies.</p>
+<p><strong>Logging:</strong> The process of recording events and information about an application's execution, used for monitoring, debugging, and auditing.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Service Visualization:</strong> Visual representation of <strong>publish-subscribe</strong> flows, providing insights into message flows within the application.</p>
+</li>
+<li><strong>Code Snippets:</strong> Access to code snippets for common tasks, such as database schema creation.</li>
+<li><strong>Documentation:</strong>  Integrated documentation for easy reference.</li>
+<li><strong>AI Lab:</strong> An experimental feature for exploring AI-powered development assistance.</li>
+</ul>
+<p>The developer dashboard serves as a central hub for development, testing, and monitoring, significantly enhancing the developer experience.</p>
+<h2 id="getting-started-with-encore">Getting Started with Encore</h2>
+<h3 id="encore-cloud-account">Encore Cloud Account</h3>
+<p>To fully leverage Encore's capabilities, creating an Encore <strong>cloud account</strong> is recommended.</p>
+<blockquote>
+<p><strong>Cloud account:</strong> An account with a cloud service provider that grants access to cloud computing resources and services. In the context of Encore, it provides access to Encore's cloud platform for deployment and management.</p>
+</blockquote>
+<p>Upon installing Encore and creating a new project, users are prompted to create a cloud account. This account is essential for utilizing Encore's built-in infrastructure and one-command deployment features. The account setup process typically involves a simple registration, potentially redirecting users to a browser to complete the process.</p>
+<h3 id="installation">Installation</h3>
+<p>Encore provides straightforward installation instructions for various operating systems:</p>
+<ul>
+<li>
+<p><strong>macOS:</strong>  Installation is simplified using <strong>Homebrew</strong>, a popular package manager for macOS. If Homebrew is not installed, users are directed to <strong>brew.sh</strong> to obtain the installation command.</p>
+<blockquote>
+<p><strong>Homebrew:</strong> A free and open-source software package management system that simplifies the installation of software on macOS and Linux.</p>
+<p><strong>brew.sh:</strong> The official website for Homebrew, providing installation instructions and documentation.</p>
+</blockquote>
+<p><code>bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install encore</code></p>
+</li>
+<li>
+<p><strong>Windows:</strong>  Installation on Windows is facilitated via a <strong>PowerShell</strong> command.</p>
+<blockquote>
+<p><strong>PowerShell:</strong> A task automation and configuration management framework from Microsoft, consisting of a command-line shell and associated scripting language.</p>
+</blockquote>
+<p><code>powershell
+iwr -useb https://storage.googleapis.com/encore-cli/install.ps1 | iex</code></p>
+</li>
+<li>
+<p><strong>Linux:</strong>  Linux users can install Encore using <strong>Curl</strong>, a command-line tool for transferring data with URLs.</p>
+<blockquote>
+<p><strong>Curl:</strong> A command-line tool and library for transferring data with URLs. It supports various protocols, including HTTP, HTTPS, FTP, and more.</p>
+</blockquote>
+<p><code>bash
+curl -sfL https://storage.googleapis.com/encore-cli/install.sh | sh</code></p>
+</li>
+</ul>
+<p>After successful installation, the <strong>Encore CLI</strong> (Command Line Interface) becomes accessible.</p>
+<blockquote>
+<p><strong>Encore CLI (Command Line Interface):</strong> A text-based interface for interacting with the Encore platform. It provides commands for creating projects, running local development servers, deploying applications, and managing Encore resources.</p>
+</blockquote>
+<p>Executing the <code>encore</code> command in the terminal displays a list of available commands and options.  The <code>encore version</code> command can be used to check the installed Encore CLI version.</p>
+<h3 id="creating-a-new-project">Creating a New Project</h3>
+<p>To initiate a new Encore project, the <code>encore app create</code> command is used. This command may prompt users to log in or create a cloud account if not already done.</p>
+<pre><code class="language-bash">encore app create
+</code></pre>
+<p>During project creation, users are asked to choose between <strong>Go</strong> or <strong>TypeScript</strong> for their project.  They are also presented with a selection of project <strong>templates</strong>, including:</p>
+<blockquote>
+<p><strong>Templates:</strong> Pre-configured project structures that provide a starting point for different types of applications.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>REST API:</strong> A template for building <strong>RESTful APIs</strong>.</p>
+<blockquote>
+<p><strong>REST API (Representational State Transfer API):</strong> An architectural style for designing networked applications. REST relies on a stateless, client-server, cacheable communications protocol -- and in virtually all cases, the HTTP protocol is used.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Uptime Monitor:</strong> A template for creating an <strong>uptime monitoring</strong> service.</p>
+<blockquote>
+<p><strong>Uptime monitor:</strong> A service that periodically checks the availability and responsiveness of a website or application.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>URL Shortener:</strong> A template for building a <strong>URL shortening</strong> service, similar to the project example in the transcript.</p>
+</li>
+<li><strong>Empty App:</strong> A basic template with minimal pre-configured settings, offering a blank canvas for custom application development.</li>
+</ul>
+<p>Choosing the <strong>empty app</strong> template allows for building projects from scratch, providing maximum flexibility.  Users are then prompted to provide an <strong>app name</strong> for their project.</p>
+<blockquote>
+<p><strong>App name:</strong> The identifier for an Encore application, used for organization and management within the Encore platform.</p>
+</blockquote>
+<p>After specifying the app name and template, Encore proceeds to create the project directory, install necessary dependencies, and provide a web URL for accessing the project's dashboard.</p>
+<p>Upon opening the project directory in a code editor like VS Code, the project structure is revealed. The <code>package.json</code> file contains project dependencies, including <code>encore.dev</code>. The project dashboard, accessible via the provided URL, displays services, <strong>publish-subscribe topics</strong>, <strong>cron jobs</strong>, and other project-related information.</p>
+<blockquote>
+<p><strong>package.json:</strong> A file in the root of a Node.js project that describes the project's dependencies, scripts, and other metadata.</p>
+</blockquote>
+<p>The dashboard also provides features like a <strong>service catalog flow</strong>, code <strong>snippets</strong>, an <strong>AI lab</strong>, and <strong>tracing and logging</strong> interfaces, offering a comprehensive development and management environment.</p>
+<h2 id="project-structure-and-api-endpoints">Project Structure and API Endpoints</h2>
+<h3 id="project-dashboard-overview">Project Dashboard Overview</h3>
+<p>The Encore project dashboard serves as a central control panel for managing and interacting with your application. It provides a visual interface for:</p>
+<ul>
+<li><strong>Services:</strong> Viewing and managing the services that make up your application.</li>
+<li>
+<p><strong>Endpoints:</strong> Inspecting and testing API <strong>endpoints</strong>.</p>
+<blockquote>
+<p><strong>Endpoints:</strong> Specific URLs or routes in an API that correspond to different functionalities or resources.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Publish/Subscribe Topics:</strong> Monitoring and managing asynchronous message queues.</p>
+</li>
+<li><strong>Cron Jobs:</strong> Scheduling and reviewing automated tasks.</li>
+<li><strong>Service Catalog Flow:</strong> Visualizing the relationships and dependencies between services.</li>
+<li><strong>Code Snippets:</strong> Accessing pre-written code snippets for common tasks.</li>
+<li><strong>AI Lab:</strong> Exploring experimental AI-powered development tools.</li>
+<li><strong>Tracing and Logging:</strong> Analyzing request flows and application logs for debugging and monitoring.</li>
+</ul>
+<p>The dashboard effectively acts as a built-in <strong>Postman</strong>-like tool, allowing developers to test API endpoints directly without needing external applications.</p>
+<h3 id="creating-a-basic-endpoint">Creating a Basic Endpoint</h3>
+<p>Encore simplifies the creation of API endpoints.  Endpoints are typically organized within a folder structure that mirrors the desired API URL structure.  For example, to create an endpoint at <code>/greeting</code>, a folder named <code>greeting</code> would be created. Within this folder, a file (e.g., <code>greeting.ts</code>) would define the endpoint logic.</p>
+<p>To define an endpoint, the <code>API</code> function is imported from <code>encore.dev/api</code>.</p>
+<pre><code class="language-typescript">import { API } from 'encore.dev/api';
+</code></pre>
+<p>An endpoint is then defined by exporting a function and assigning it to <code>API()</code>, configuring the endpoint's properties within the <code>API()</code> call.</p>
+<pre><code class="language-typescript">export const greeting = API({
+    method: 'GET',
+    path: '/greeting',
+    expose: true,
+}, async () =&gt; {
+    // Endpoint logic here
+});
+</code></pre>
+<ul>
+<li>
+<p><strong>method:</strong> Specifies the HTTP <strong>method</strong> for the endpoint (e.g., 'GET', 'POST').</p>
+<blockquote>
+<p><strong>Method (HTTP method):</strong>  Indicates the desired action to be performed for a given resource in an HTTP request. Common methods include GET (retrieve data), POST (create new data), PUT (update existing data), and DELETE (remove data).</p>
+</blockquote>
+</li>
+<li>
+<p><strong>path:</strong> Defines the URL <strong>path</strong> for the endpoint.</p>
+<blockquote>
+<p><strong>Path (URL path):</strong> The part of a URL that identifies a specific resource within a web server.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>expose:</strong> A boolean value indicating whether the endpoint should be publicly <strong>exposed</strong>.</p>
+<blockquote>
+<p><strong>Expose:</strong> To make an API endpoint publicly accessible over the internet.</p>
+</blockquote>
+</li>
+</ul>
+<p>The second argument to <code>API()</code> is an <strong>async function</strong> that contains the endpoint's business logic.</p>
+<blockquote>
+<p><strong>Async function:</strong> A function that allows asynchronous operations using the <code>async</code> and <code>await</code> keywords, enabling non-blocking execution.</p>
+</blockquote>
+<p>This function should return a <strong>Promise</strong> that resolves to the desired response type.</p>
+<blockquote>
+<p><strong>Promise:</strong> An object representing the eventual completion (or failure) of an asynchronous operation and its resulting value.</p>
+</blockquote>
+<p><strong>TypeScript Interfaces for Type Safety:</strong></p>
+<p>To leverage TypeScript's type safety, interfaces are often defined to specify the structure of request and response data.</p>
+<pre><code class="language-typescript">interface Response {
+    data: string;
+}
+</code></pre>
+<p>The endpoint function is then typed to return a <code>Promise</code> of the defined response interface.</p>
+<pre><code class="language-typescript">async (): Promise&lt;Response&gt; =&gt; {
+    return { data: 'Hello, world!' };
+}
+</code></pre>
+<p>After saving the endpoint file, the Encore development server may need to be restarted (<code>encore run</code>) for the new endpoint to be registered and visible in the dashboard.</p>
+<h3 id="handling-path-parameters">Handling Path Parameters</h3>
+<p>To capture dynamic segments in the URL path, <strong>path parameters</strong> are used.</p>
+<blockquote>
+<p><strong>Path parameters:</strong>  Dynamic segments within a URL path that are used to identify specific resources. They are typically denoted by colons in route definitions (e.g., <code>/users/:userId</code>).</p>
+</blockquote>
+<p>Path parameters are defined in the <code>path</code> property using a colon prefix (e.g., <code>/greeting/:name</code>).  The parameter name (e.g., <code>name</code>) is then accessible as an argument to the endpoint function.</p>
+<pre><code class="language-typescript">export const greeting = API({
+    method: 'GET',
+    path: '/greeting/:name',
+    expose: true,
+}, async ({ name }: { name: string }): Promise&lt;Response&gt; =&gt; {
+    return { data: `Hello, ${name}!` };
+});
+</code></pre>
+<h3 id="handling-query-parameters">Handling Query Parameters</h3>
+<p><strong>Query parameters</strong> are used to pass optional data to an endpoint via the URL.</p>
+<blockquote>
+<p><strong>Query parameters:</strong>  Key-value pairs appended to the end of a URL after a question mark (?). They are used to pass additional information to the server, often for filtering, sorting, or pagination.</p>
+</blockquote>
+<p>To access query parameters, the <code>query</code> function is imported from <code>encore.dev/api</code>.</p>
+<pre><code class="language-typescript">import { API, query } from 'encore.dev/api';
+</code></pre>
+<p>An interface is defined to specify the expected query parameters, using <code>query&lt;string&gt;</code> to indicate that the <code>filter</code> query parameter is expected to be a string.</p>
+<pre><code class="language-typescript">interface SearchParams {
+    filter: query&lt;string&gt;;
+}
+</code></pre>
+<p>The endpoint function is then defined to accept the query parameters interface using <strong>generics</strong>.</p>
+<blockquote>
+<p><strong>Generics:</strong>  A feature in programming languages that allows types to be parameters to type definitions. Generics enable writing code that can work with different types while maintaining type safety.</p>
+</blockquote>
+<pre><code class="language-typescript">export const search = API&lt;SearchParams, SearchResponse&gt;({
+    method: 'GET',
+    path: '/greeting/search',
+    expose: true,
+}, async ({ filter }): Promise&lt;SearchResponse&gt; =&gt; {
+    return { matches: `Matched: ${filter}` };
+});
+</code></pre>
+<p>The query parameters are then accessible within the endpoint function's arguments. The Encore dashboard provides input fields for specifying query parameter values when testing endpoints.</p>
+<h2 id="building-a-url-shortener-service">Building a URL Shortener Service</h2>
+<h3 id="endpoint-1-shortening-a-url-post-url">Endpoint 1: Shortening a URL (POST /url)</h3>
+<p>To build a URL shortener service, the first endpoint required is one that accepts a long URL and returns a shortened URL. This endpoint will use the POST method at the <code>/url</code> path.</p>
+<p><strong>Functionality:</strong></p>
+<ol>
+<li><strong>Receive Long URL:</strong> The endpoint receives a long URL in the request body.</li>
+<li>
+<p><strong>Generate Short ID:</strong> It generates a unique short ID for the URL. <strong>Random bytes</strong> from the <strong>crypto</strong> module are used to create a cryptographically secure random ID.</p>
+<blockquote>
+<p><strong>Random bytes:</strong>  A sequence of bytes generated randomly or pseudo-randomly, often used for cryptographic purposes, such as generating unique IDs or keys.</p>
+<p><strong>crypto:</strong> A Node.js core module that provides cryptographic functionality, including generating random numbers, hashing, and encryption.</p>
+</blockquote>
+<p>This ID is then encoded into a <strong>base64 URL</strong> string for URL-safe characters.</p>
+<blockquote>
+<p><strong>Base64 URL:</strong> A URL-safe variant of Base64 encoding, which is a binary-to-text encoding scheme that represents binary data in an ASCII string format. Base64 URL encoding replaces characters that are not URL-safe with URL-safe alternatives.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Store in Database:</strong> The long URL and its corresponding short ID are stored in a <strong>database schema</strong>. A <strong>migration file</strong> is used to define the database schema.</p>
+<blockquote>
+<p><strong>Database schema:</strong> The structure of a database, defining tables, columns, relationships, and constraints.</p>
+<p><strong>Migration file:</strong> A script that defines changes to a database schema. Migration files are used to track and apply database schema updates in a controlled and versioned manner.</p>
+</blockquote>
+<p>Encore simplifies database operations through the <strong>SQL database utility</strong>.</p>
+<blockquote>
+<p><strong>SQL database utility:</strong> A feature provided by Encore that simplifies interaction with SQL databases, including setup, schema migration, and querying.</p>
+</blockquote>
+<p>Encore automatically sets up a <strong>Docker container</strong> running a Postgres database when a database resource is defined in the code.</p>
+<blockquote>
+<p><strong>Docker container:</strong> A standardized unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</p>
+</blockquote>
+<p>A <strong>database instance</strong> is created using <code>SQLDatabase</code> from <code>encore.storage.sqldb</code>.</p>
+<blockquote>
+<p><strong>Database instance:</strong> A running instance of a database server.</p>
+</blockquote>
+<p>The <code>migrations</code> option points to the directory containing <strong>migration files</strong>.</p>
+<blockquote>
+<p><strong>Migrations folder:</strong> A directory within an Encore project that contains SQL migration files for managing database schema changes.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Return Short ID:</strong> The endpoint returns the generated short ID and the original URL in the response.</p>
+</li>
+</ol>
+<p><strong>Code Implementation:</strong></p>
+<pre><code class="language-typescript">import { API } from 'encore.dev/api';
+import { SQLDatabase } from 'encore.dev/storage/sqldb';
+import { randomBytes } from 'node:crypto';
+
+const db = new SQLDatabase('url_shortener', {
+    migrations: './migrations',
+});
+
+interface URLResponse {
+    id: string;
+    url: string;
+}
+
+interface URLParams {
+    url: string;
+}
+
+export const shorten = API&lt;URLParams, URLResponse&gt;({
+    method: 'POST',
+    path: '/url',
+    expose: true,
+}, async ({ url }): Promise&lt;URLResponse&gt; =&gt; {
+    const id = randomBytes(6).toString('base64url');
+
+    await db.exec`
+        INSERT INTO url (id, original_url)
+        VALUES (${id}, ${url})
+    `;
+
+    return { id, url };
+});
+</code></pre>
+<p><strong>Migration File (<code>migrations/encore_create_url_tables.up.sql</code>):</strong></p>
+<pre><code class="language-sql">CREATE TABLE url (
+    id TEXT PRIMARY KEY,
+    original_url TEXT NOT NULL
+);
+</code></pre>
+<ul>
+<li><strong>CREATE TABLE:</strong> SQL command to create a new table named <code>url</code>.</li>
+<li>
+<p><strong>id TEXT PRIMARY KEY:</strong> Defines a column named <code>id</code> of type TEXT as the <strong>primary key</strong>.</p>
+<blockquote>
+<p><strong>Primary key:</strong> A column or set of columns in a database table that uniquely identifies each row in the table. Primary keys enforce uniqueness and are used for efficient data retrieval.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>original_url TEXT NOT NULL:</strong> Defines a column named <code>original_url</code> of type TEXT that <strong>cannot be null</strong>.</p>
+<blockquote>
+<p><strong>NOT NULL:</strong> A constraint in database schema design that ensures a column cannot contain null values.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="endpoint-2-redirecting-with-short-id-get-urlid">Endpoint 2: Redirecting with Short ID (GET /url/:id)</h3>
+<p>The second endpoint handles redirection from a short URL to the original long URL. This endpoint uses the GET method at the <code>/url/:id</code> path, where <code>:id</code> is the short ID.</p>
+<p><strong>Functionality:</strong></p>
+<ol>
+<li><strong>Receive Short ID:</strong> The endpoint receives the short ID as a path parameter.</li>
+<li>
+<p><strong>Retrieve Long URL:</strong> It queries the database to retrieve the original long URL associated with the provided short ID using the <code>queryRow</code> method.</p>
+<blockquote>
+<p><strong>queryRow method:</strong> A method provided by Encore's SQL database utility to execute a SQL query and retrieve a single row of results.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Handle Not Found:</strong> If no matching short ID is found in the database, an <strong>API error</strong> with a "not found" status is thrown using <code>APIError.notFound()</code>.</p>
+<blockquote>
+<p><strong>API error:</strong> An error response returned by an API to indicate that something went wrong during request processing.</p>
+<p><strong>Not found (404):</strong> An HTTP status code indicating that the requested resource could not be found on the server.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Return Long URL:</strong> If a matching short ID is found, the endpoint returns the corresponding long URL.</p>
+</li>
+</ol>
+<p><strong>Code Implementation:</strong></p>
+<pre><code class="language-typescript">export const getShortenedURL = API&lt;{ id: string }, URLResponse&gt;({
+    method: 'GET',
+    path: '/url/:id',
+    expose: true,
+}, async ({ id }): Promise&lt;URLResponse&gt; =&gt; {
+    const row = await db.queryRow&lt;{ original_url: string }&gt;`
+        SELECT original_url FROM url WHERE id = ${id}
+    `;
+
+    if (!row) {
+        throw APIError.notFound('URL not found');
+    }
+
+    return { id, url: row.original_url };
+});
+</code></pre>
+<h2 id="deployment-and-conclusion">Deployment and Conclusion</h2>
+<h3 id="deployment-to-encore-cloud">Deployment to Encore Cloud</h3>
+<p>Deploying an Encore application to the Encore Cloud platform is remarkably simple. After initializing a Git repository and committing the code, deployment is achieved with a single <strong>Git</strong> command:</p>
+<blockquote>
+<p><strong>Git:</strong> A distributed version control system for tracking changes in source code during software development.</p>
+</blockquote>
+<pre><code class="language-bash">git push encore
+</code></pre>
+<p>This command triggers a deployment process, pushing the application code to Encore's <strong>staging environment</strong>.</p>
+<blockquote>
+<p><strong>Staging environment:</strong> A deployment environment that mirrors the production environment and is used for testing and quality assurance before deploying to production.</p>
+</blockquote>
+<p>The deployment status can be monitored on the Encore Cloud dashboard, accessible via <code>app.encore.dev</code>. The dashboard displays deployment logs and progress.</p>
+<h3 id="staging-environment">Staging Environment</h3>
+<p>Once deployed, the application is accessible in the <strong>staging environment</strong>. Encore provides a staging URL for testing and verification.  The staging environment allows developers to test the application in a cloud environment that closely resembles the <strong>production environment</strong>.</p>
+<blockquote>
+<p><strong>Production environment:</strong> The live environment where the application is deployed and accessible to end-users.</p>
+</blockquote>
+<h3 id="production-deployment">Production Deployment</h3>
+<p>While the transcript primarily focuses on staging deployment, Encore also supports deployment to <strong>production environments</strong>.  Details on production deployment, including scaling and <strong>pricing structure</strong>, can be found in Encore's official documentation.</p>
+<blockquote>
+<p><strong>Production environment:</strong> The live environment where the application is deployed and accessible to end-users.</p>
+<p><strong>Pricing structure:</strong> The cost model for using a service or platform, typically outlining different pricing tiers and features.</p>
+</blockquote>
+<h3 id="further-exploration">Further Exploration</h3>
+<p>Encore presents a compelling platform for backend development, offering significant advantages in terms of developer productivity, performance, and simplified DevOps. This chapter provides an introductory overview. Further exploration of Encore's documentation and experimentation with its features are recommended for a deeper understanding and appreciation of its capabilities.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

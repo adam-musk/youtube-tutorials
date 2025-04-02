@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building an AI-Powered Keyword Extractor with React and OpenAI: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-an-ai-powered-keyword-extractor-with-react-and-openai-a-comprehensive-guide">Building an AI-Powered Keyword Extractor with React and OpenAI: A Comprehensive Guide</a></li>
+        <li><a href="#1-introduction-the-need-for-ai-powered-keyword-extraction">1. Introduction: The Need for AI-Powered Keyword Extraction</a></li><li><a href="#2-setting-up-the-development-environment">2. Setting Up the Development Environment</a></li><li><a href="#3-integrating-chakra-ui-for-styling-and-components">3. Integrating Chakra UI for Styling and Components</a></li><li><a href="#4-building-ui-components-header-footer-and-text-input">4. Building UI Components: Header, Footer, and Text Input</a></li><li><a href="#5-integrating-openai-api-for-keyword-extraction">5. Integrating OpenAI API for Keyword Extraction</a></li><li><a href="#6-creating-the-keywords-modal-component-keywordsmodaljsx">6. Creating the Keywords Modal Component (KeywordsModal.jsx)</a></li><li><a href="#7-deployment-with-hostinger">7. Deployment with Hostinger</a></li><li><a href="#8-conclusion-and-further-exploration">8. Conclusion and Further Exploration</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-an-ai-powered-keyword-extractor-with-react-and-openai-a-comprehensive-guide">Building an AI-Powered Keyword Extractor with React and OpenAI: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/jJNPPP2YEdM" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will guide you through the process of building and deploying an AI-powered keyword extractor application. We will utilize React, a popular JavaScript library for building user interfaces, along with Vite, a fast build tool and development server.  For styling and pre-built components, we will leverage the Chakra UI library.  The core functionality of keyword extraction will be powered by the OpenAI Completions API, a powerful tool for natural language processing.</p>
+<p>This project serves as an excellent example of how to customize prompts for the OpenAI API to achieve specific tasks. While we focus on keyword extraction, the principles and techniques learned here can be applied to a wide range of projects by simply modifying the prompt sent to the API.</p>
+<h2 id="1-introduction-the-need-for-ai-powered-keyword-extraction">1. Introduction: The Need for AI-Powered Keyword Extraction</h2>
+<p>For content creators, marketers, and researchers, identifying relevant keywords from text is a crucial task. Manually selecting keywords can be time-consuming and subjective. This application automates this process, allowing users to input any text, such as blog posts or articles, and receive a list of the most relevant keywords extracted by AI.</p>
+<p>As a practical demonstration, consider the following example: inputting the descriptive text of a JavaScript course into our keyword extractor. The application, leveraging the OpenAI API, accurately identifies key topics such as "JavaScript," "data types," "functions," "loops," and "DOM manipulations," demonstrating its effectiveness in extracting pertinent keywords.</p>
+<p>The application not only extracts keywords but also formats them according to our specifications.  Instead of simply returning an array of words, we instruct the API to provide a comma-separated list with each word capitalized. This highlights the power of prompt engineering in controlling the output format of the OpenAI API.</p>
+<p>Beyond keyword extraction, this project showcases additional features for a polished user experience.  It includes:</p>
+<ul>
+<li>
+<p><strong>Input Validation:</strong>  A "toast" notification appears if the user attempts to extract keywords without entering any text, providing immediate feedback and guiding user interaction.</p>
+<blockquote>
+<p><strong>Toast:</strong> In user interface design, a toast is a small, non-disruptive notification that appears briefly to provide feedback or information to the user without interrupting their current action.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Deployment Ready:</strong>  The tutorial emphasizes deploying the application from scratch, utilizing Hostinger, a web hosting provider known for its ease of use and comprehensive services.</p>
+</li>
+</ul>
+<h2 id="2-setting-up-the-development-environment">2. Setting Up the Development Environment</h2>
+<p>Before diving into the code, we need to set up our development environment. This involves installing necessary tools and creating the project structure.</p>
+<h3 id="21-prerequisites">2.1 Prerequisites</h3>
+<p>Ensure you have the following installed on your system:</p>
+<ul>
+<li>
+<p><strong>Node.js:</strong>  A JavaScript runtime environment that allows you to run JavaScript code outside of a web browser. Node.js includes npm, the Node Package Manager.
+    &gt; <strong>Node.js:</strong> An open-source, cross-platform JavaScript runtime environment that executes JavaScript code server-side. It allows developers to use JavaScript for backend development and build scalable network applications.</p>
+</li>
+<li>
+<p><strong>npm (Node Package Manager):</strong> A package manager for JavaScript, included with Node.js. npm is used to install and manage project dependencies.
+    &gt; <strong>npm (Node Package Manager):</strong> A package manager for JavaScript. It is the default package manager for Node.js and is used to install, share, and manage dependencies for JavaScript projects.</p>
+</li>
+</ul>
+<h3 id="22-creating-a-react-project-with-vite">2.2 Creating a React Project with Vite</h3>
+<p>We will use Vite to create a new React project. Vite offers a faster and more streamlined development experience compared to traditional tools like Create React App.</p>
+<ol>
+<li>
+<p><strong>Open your terminal</strong> and navigate to the directory where you want to create your project.</p>
+</li>
+<li>
+<p><strong>Run the following command:</strong></p>
+<p><code>bash
+npm create vite@latest ai-keyword-extractor</code></p>
+<p>This command uses <code>npm create vite@latest</code> to scaffold a new Vite project named <code>ai-keyword-extractor</code>.</p>
+<blockquote>
+<p><strong>Vite:</strong> A build tool and development server for modern web projects. It's known for its speed and efficiency, especially in development, due to its use of native ES modules.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Select the framework:</strong> You will be prompted to select a framework. Choose <strong>React</strong>.</p>
+</li>
+<li>
+<p><strong>Select the variant:</strong> Choose <strong>JavaScript</strong>. (You can also choose TypeScript if you prefer type-safe JavaScript).</p>
+</li>
+<li>
+<p><strong>Navigate into the project directory:</strong></p>
+<p><code>bash
+cd ai-keyword-extractor</code></p>
+</li>
+<li>
+<p><strong>Open the project in your code editor:</strong>  Visual Studio Code (VS Code) is recommended, but you can use any code editor you prefer.</p>
+<p><code>bash
+code .</code></p>
+</li>
+</ol>
+<h3 id="23-configuring-the-development-server-port-optional">2.3 Configuring the Development Server Port (Optional)</h3>
+<p>By default, Vite runs the development server on port 5173.  To change this to port 3000 (as in the tutorial), modify the <code>vite.config.js</code> file in the project root:</p>
+<pre><code class="language-javascript">import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000,
+  },
+})
+</code></pre>
+<h3 id="24-installing-dependencies">2.4 Installing Dependencies</h3>
+<p>Before running the development server, install the project dependencies, including React itself and other necessary packages.</p>
+<ol>
+<li>
+<p><strong>Open your terminal within the project directory.</strong></p>
+</li>
+<li>
+<p><strong>Run the command:</strong></p>
+<p><code>bash
+npm install</code></p>
+<p>This command reads the <code>package.json</code> file and installs all listed dependencies into the <code>node_modules</code> folder.</p>
+</li>
+</ol>
+<h3 id="25-running-the-development-server">2.5 Running the Development Server</h3>
+<p>Start the development server to preview your application in the browser.</p>
+<ol>
+<li>
+<p><strong>Run the command:</strong></p>
+<p><code>bash
+npm run dev</code></p>
+</li>
+<li>
+<p><strong>Open your browser</strong> and navigate to <code>http://localhost:3000</code> (or <code>http://localhost:5173</code> if you did not change the port). You should see the default Vite + React landing page.</p>
+</li>
+</ol>
+<h3 id="26-cleaning-up-boilerplate-code">2.6 Cleaning Up Boilerplate Code</h3>
+<p>Vite projects come with minimal boilerplate code compared to Create React App, making cleanup straightforward.</p>
+<ol>
+<li>
+<p><strong>Delete <code>src/App.css</code>:</strong>  We will be using Chakra UI for styling, so this CSS file is not needed.</p>
+</li>
+<li>
+<p><strong>Clear <code>src/index.css</code>:</strong> Remove all default styles from this file, but keep the file itself as a potential place for global styles if needed.</p>
+</li>
+<li>
+<p><strong>Optionally delete <code>src/assets/react.svg</code>:</strong> This is the React logo, which is not used in this project.</p>
+</li>
+</ol>
+<h3 id="27-adding-assets">2.7 Adding Assets</h3>
+<p>For visual enhancements, you can add images to the <code>src/assets</code> folder. In this project, a light bulb icon (<code>light-bulb.svg</code>) and the OpenAI logo (<code>openai.png</code>) are used.  You can download these from the project's GitHub repository or use your own images.</p>
+<h2 id="3-integrating-chakra-ui-for-styling-and-components">3. Integrating Chakra UI for Styling and Components</h2>
+<p>Chakra UI is a React UI library that provides a set of accessible, reusable, and composable UI components, making it easy to build visually appealing and functional user interfaces with minimal code.</p>
+<blockquote>
+<p><strong>UI Library (User Interface Library):</strong> A collection of pre-built user interface components (like buttons, modals, forms, etc.) and styling utilities that developers can use to quickly build the front-end of web applications, ensuring consistency and saving development time.</p>
+<p><strong>Material UI:</strong> Another popular React UI library, similar to Chakra UI, offering a wide range of components based on Google's Material Design principles.</p>
+<p><strong>Tailwind CSS:</strong> A utility-first CSS framework that provides a large set of pre-defined CSS classes that can be composed to style HTML elements directly in the markup, offering a different approach to UI development compared to component libraries like Chakra UI or Material UI.</p>
+</blockquote>
+<h3 id="31-installing-chakra-ui-and-dependencies">3.1 Installing Chakra UI and Dependencies</h3>
+<p>Install Chakra UI and its required dependencies:</p>
+<ol>
+<li>
+<p><strong>Stop the development server</strong> (if it's running) by pressing <code>Ctrl + C</code> in the terminal.</p>
+</li>
+<li>
+<p><strong>Run the following command:</strong></p>
+<p><code>bash
+npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion</code></p>
+<p>This command installs:
+*   <code>@chakra-ui/react</code>: The core Chakra UI library.
+*   <code>@emotion/react</code> and <code>@emotion/styled</code>:  Libraries for CSS-in-JS styling, used by Chakra UI.
+*   <code>framer-motion</code>: An animation library, also used by Chakra UI for component animations.</p>
+</li>
+</ol>
+<h3 id="32-setting-up-chakraprovider">3.2 Setting up ChakraProvider</h3>
+<p>To use Chakra UI components throughout your application, you need to wrap your root component (<code>App</code>) with the <code>ChakraProvider</code>.</p>
+<ol>
+<li>
+<p><strong>Open <code>src/main.jsx</code>.</strong></p>
+</li>
+<li>
+<p><strong>Import <code>ChakraProvider</code>:</strong></p>
+<p><code>javascript
+import { ChakraProvider } from '@chakra-ui/react'</code></p>
+</li>
+<li>
+<p><strong>Wrap the <code>App</code> component with <code>ChakraProvider</code>:</strong></p>
+<p>```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
+import { ChakraProvider } from '@chakra-ui/react' // Import ChakraProvider</p>
+<p>ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <ChakraProvider> {/<em> Wrap App with ChakraProvider </em>/}
+      <App />
+    </ChakraProvider> {/<em> End ChakraProvider </em>/}
+  </React.StrictMode>
+)
+```</p>
+</li>
+</ol>
+<h3 id="33-creating-basic-layout-components-in-appjsx">3.3 Creating Basic Layout Components in <code>App.jsx</code></h3>
+<p>Modify <code>src/App.jsx</code> to set up the basic layout using Chakra UI components: <code>Box</code> and <code>Container</code>.</p>
+<ol>
+<li>
+<p><strong>Open <code>src/App.jsx</code>.</strong></p>
+</li>
+<li>
+<p><strong>Import necessary Chakra UI components:</strong></p>
+<p><code>javascript
+import { Box, Container } from '@chakra-ui/react';</code></p>
+</li>
+<li>
+<p><strong>Modify the <code>App</code> component:</strong></p>
+<p>```jsx
+import { Box, Container } from '@chakra-ui/react'; // Import Box and Container</p>
+<p>function App() {
+  return (
+    <Box bg="blue.600" color="white" height="100vh" pt={30}> {/<em> Box for background and styling </em>/}
+      <Container maxW="3xl" centerContent> {/<em> Container for centering content </em>/}
+        <h1>My App</h1> {/<em> Placeholder H1 </em>/}
+      </Container>
+    </Box>
+  );
+}</p>
+<p>export default App;
+```</p>
+<blockquote>
+<p><strong>Props (in React):</strong> Short for "properties," props are inputs to React components. They are read-only values passed from parent components to child components to customize their behavior and appearance. In Chakra UI, props are used extensively to style and configure components.</p>
+<p><strong>Fragment (in React):</strong>  Represented as <code>&lt;&gt;</code> and <code>`, or</code><React.Fragment><code>and</code></React.Fragment>`, a fragment is a way to group multiple React elements without adding an extra node to the DOM. It is used when you need to return multiple elements from a component's render method but don't want to introduce unnecessary divs or other wrapper elements.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="4-building-ui-components-header-footer-and-text-input">4. Building UI Components: Header, Footer, and Text Input</h2>
+<p>To structure the application, we will create separate React components for the header, footer, and text input area. These components will be placed in a <code>components</code> folder within the <code>src</code> directory.</p>
+<h3 id="41-creating-the-header-component-headerjsx">4.1 Creating the Header Component (<code>Header.jsx</code>)</h3>
+<ol>
+<li>
+<p><strong>Create a folder named <code>components</code> in <code>src</code>:</strong> <code>src/components</code>.</p>
+</li>
+<li>
+<p><strong>Create a file named <code>Header.jsx</code> inside <code>src/components</code>.</strong></p>
+</li>
+<li>
+<p><strong>Add the following code to <code>Header.jsx</code>:</strong></p>
+<p>```jsx
+import React from 'react';
+import { Heading, Image, Text, Box } from '@chakra-ui/react'; // Import Chakra UI components
+import logo from '../assets/light-bulb.svg'; // Import logo image</p>
+<p>function Header() {
+  return (
+    &lt;&gt; {/<em> React Fragment </em>/}
+      <Image src={logo} alt="logo" width="100px" mb="1rem" /> {/<em> Image component for logo </em>/}
+      <Heading color="white" mb="1rem" textAlign="center">AI Keyword Extractor</Heading> {/<em> Heading component </em>/}
+      <Text fontSize="25px" textAlign="center">Paste in your text below and we'll extract the keywords for you</Text> {/<em> Text component </em>/}
+  <br />
+  );
+}</p>
+<p>export default Header;
+```</p>
+</li>
+</ol>
+<h3 id="42-creating-the-footer-component-footerjsx">4.2 Creating the Footer Component (<code>Footer.jsx</code>)</h3>
+<ol>
+<li>
+<p><strong>Create a file named <code>Footer.jsx</code> inside <code>src/components</code>.</strong></p>
+</li>
+<li>
+<p><strong>Add the following code to <code>Footer.jsx</code>:</strong></p>
+<p>```jsx
+import React from 'react';
+import { Box, Image, Text, Flex } from '@chakra-ui/react'; // Import Chakra UI components
+import logo from '../assets/openai.png'; // Import OpenAI logo</p>
+<p>function Footer() {
+  return (
+    <Box mt={50}> {/<em> Box component for footer container </em>/}
+      <Flex justifyContent="center" alignItems="center"> {/<em> Flex component for layout </em>/}
+        <Image src={logo} alt="OpenAI Logo" mr={1} width="30px" /> {/<em> Image component for OpenAI logo </em>/}
+        <Text>Powered by OpenAI</Text> {/<em> Text component </em>/}
+      </Flex>
+    </Box>
+  );
+}</p>
+<p>export default Footer;
+```</p>
+<blockquote>
+<p><strong>Flexbox:</strong> A CSS layout module that provides an efficient way to arrange, align, and distribute space among items in a container, even when their size is unknown or dynamic. Chakra UI's <code>Flex</code> component is a convenient way to use flexbox layouts.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="43-creating-the-text-input-component-textinputjsx">4.3 Creating the Text Input Component (<code>TextInput.jsx</code>)</h3>
+<ol>
+<li>
+<p><strong>Create a file named <code>TextInput.jsx</code> inside <code>src/components</code>.</strong></p>
+</li>
+<li>
+<p><strong>Add the following code to <code>TextInput.jsx</code>:</strong></p>
+<p>```jsx
+import React, { useState } from 'react'; // Import useState hook
+import { Textarea, Button, useToast } from '@chakra-ui/react'; // Import Chakra UI components</p>
+<p>function TextInput({ extractKeywords }) { // Receive extractKeywords function as prop
+  const [text, setText] = useState(''); // State for text input
+  const toast = useToast(); // Initialize toast hook</p>
+<p>const submitText = () =&gt; {
+    if (text === '') {
+      toast({ // Show toast notification if text is empty
+        title: 'Text field is empty',
+        description: 'Please enter some text to extract keywords.',
+        status: 'error',
+        duration: 5000,
+        isClosable: false,
+      });
+      return;
+    }
+    extractKeywords(text); // Call extractKeywords function with input text
+  };</p>
+<p>return (
+    &lt;&gt; {/<em> React Fragment </em>/}
+      <Textarea
+        bg="blue.400"
+        color="white"
+        padding={4}
+        marginTop={6}
+        height="200px"
+        value={text}
+        onChange={(e) => setText(e.target.value)} // Update text state on input change
+        placeholder="Paste your text here..."
+      /&gt; {/<em> Textarea component for text input </em>/}
+      <Button
+        bg="blue.500"
+        color="white"
+        marginTop={4}
+        width="100%"
+        _hover={{ bg: 'blue.700' }} // Hover style
+        onClick={submitText} // Call submitText function on button click
+      >
+        Extract Keywords
+      </Button> {/<em> Button component </em>/}
+  <br />
+  );
+}</p>
+<p>export default TextInput;
+```</p>
+<blockquote>
+<p><strong>State (in React):</strong> A JavaScript object that represents the dynamic data that controls the behavior and rendering of a React component. State is mutable, and changes to state trigger re-renders of the component and its children. The <code>useState</code> hook is the primary way to manage state in functional React components.</p>
+<p><strong>Hook (in React):</strong> Functions in React that let you "hook into" React state and lifecycle features from within functional components. Hooks were introduced in React 16.8 and allow functional components to have state and other features previously only available in class components. <code>useState</code> and <code>useToast</code> are examples of React Hooks.</p>
+<p><strong>useToast (Chakra UI Hook):</strong> A hook provided by Chakra UI to create and manage toast notifications within your application. It simplifies the process of displaying temporary messages to the user.</p>
+<p><strong>useState (React Hook):</strong> A React Hook that allows functional components to have state. It returns an array with two elements: the current state value and a function to update it.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="5-integrating-openai-api-for-keyword-extraction">5. Integrating OpenAI API for Keyword Extraction</h2>
+<p>Now we will connect our application to the OpenAI Completions API to perform keyword extraction. This involves setting up API keys, environment variables, and making API requests from our React application.</p>
+<h3 id="51-obtaining-an-openai-api-key">5.1 Obtaining an OpenAI API Key</h3>
+<ol>
+<li>
+<p><strong>Go to the OpenAI Platform website:</strong> <a href="https://platform.openai.com/">https://platform.openai.com/</a> and sign up or log in to your account.</p>
+</li>
+<li>
+<p><strong>Navigate to "View API keys"</strong> under your profile menu.</p>
+</li>
+<li>
+<p><strong>Click "Create new secret key"</strong> to generate a new API key.</p>
+</li>
+<li>
+<p><strong>Copy the API key</strong> and store it securely.  <strong>Important:</strong> Treat your API key like a password and do not expose it in your client-side code or commit it to version control.</p>
+</li>
+</ol>
+<h3 id="52-setting-up-environment-variables">5.2 Setting up Environment Variables</h3>
+<p>To securely store your API key and API URL, we will use environment variables.</p>
+<ol>
+<li>
+<p><strong>Create a file named <code>.env</code> in the root of your project</strong> (not inside the <code>src</code> folder).</p>
+</li>
+<li>
+<p><strong>Add the following lines to <code>.env</code>, replacing <code>YOUR_OPENAI_API_KEY</code> with your actual API key:</strong></p>
+<p><code>VITE_OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+VITE_OPENAI_API_URL=https://api.openai.com/v1/completions</code></p>
+<blockquote>
+<p><strong>API Key:</strong> A unique identifier used to authenticate and authorize access to an Application Programming Interface (API). It acts like a password for your application to interact with the API service.</p>
+<p><strong>Environment Variables:</strong>  Variables set outside the application code, typically in the operating system or a <code>.env</code> file, to configure application behavior without modifying the code directly. They are often used to store sensitive information like API keys or database credentials, and to differentiate settings between development and production environments.</p>
+<p><strong>.env file:</strong> A file used to store environment variables for an application, especially in development environments. It is commonly used to keep configuration settings separate from the codebase and avoid hardcoding sensitive information.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Restart your development server</strong> after creating or modifying the <code>.env</code> file to ensure the environment variables are loaded.</p>
+</li>
+<li>
+<p><strong>Add <code>.env</code> to <code>.gitignore</code>:</strong> To prevent accidentally committing your API key to version control, add <code>.env</code> to your <code>.gitignore</code> file. If you don't have a <code>.gitignore</code> file, create one in the root of your project and add <code>.env</code> to it.</p>
+<blockquote>
+<p><strong>.gitignore:</strong> A file in Git repositories that specifies intentionally untracked files that Git should ignore. It's commonly used to exclude temporary files, build artifacts, and sensitive information like <code>.env</code> files from being committed to the repository.</p>
+</blockquote>
+<p><strong>Security Note:</strong> While <code>.env</code> files are helpful in development, storing API keys directly in front-end applications is generally not recommended for production applications with many users. For production, consider using a back-end server to handle API requests and keep your API key secure on the server-side.</p>
+<blockquote>
+<p><strong>Front-end/Back-end (in Web Development):</strong> The front-end is the client-side part of a web application that users interact with directly (e.g., the user interface in a browser). The back-end is the server-side part that handles data storage, processing, and API logic, often hidden from direct user interaction. In a more secure setup, the front-end would send requests to a back-end server, which would then securely interact with the OpenAI API, keeping the API key server-side.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="53-implementing-the-extractkeywords-function-in-appjsx">5.3 Implementing the <code>extractKeywords</code> Function in <code>App.jsx</code></h3>
+<p>Modify <code>App.jsx</code> to include the <code>extractKeywords</code> function that will make the API request to OpenAI.</p>
+<ol>
+<li>
+<p><strong>Open <code>src/App.jsx</code>.</strong></p>
+</li>
+<li>
+<p><strong>Import <code>useState</code> Hook:</strong> Ensure <code>useState</code> is imported from React.</p>
+</li>
+<li>
+<p><strong>Add State Variables:</strong> Inside the <code>App</code> component, add state variables for keywords, modal open state, and loading state:</p>
+<p>```javascript
+import React, { useState } from 'react'; // Ensure useState is imported
+import { Box, Container } from '@chakra-ui/react';
+import Header from './components/Header';
+import TextInput from './components/TextInput';
+import Footer from './components/Footer';
+import KeywordsModal from './components/KeywordsModal'; // Import KeywordsModal</p>
+<p>function App() {
+  const [keywords, setKeywords] = useState(''); // State for extracted keywords
+  const [isOpen, setIsOpen] = useState(false); // State for modal visibility
+  const [loading, setLoading] = useState(false); // State for loading indicator</p>
+<p>// ... rest of your component code
+}
+```</p>
+</li>
+<li>
+<p><strong>Implement the <code>extractKeywords</code> function:</strong> Add the <code>extractKeywords</code> function within the <code>App</code> component:</p>
+<p>```javascript
+function App() {
+  // ... state variables</p>
+<p>const extractKeywords = async (text) =&gt; { // Async function for API request
+    setLoading(true); // Set loading state to true
+    setIsOpen(true); // Open the modal
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: <code>Bearer ${import.meta.env.VITE_OPENAI_API_KEY}</code>, // API key from environment variable
+      },
+      body: JSON.stringify({ // Request body as JSON
+        model: 'text-davinci-003',
+        prompt: <code>Extract keywords from this text:\n\n${text}\n\nMake the first letter of each word uppercase and separate with commas.</code>, // Prompt for keyword extraction
+        temperature: 0.5,
+        max_tokens: 60,
+        frequency_penalty: 0.8,
+      }),
+    };</p>
+<pre><code>try {
+  const response = await fetch(import.meta.env.VITE_OPENAI_API_URL, options); // Fetch API request
+  const json = await response.json(); // Parse JSON response
+  const data = json.choices[0].text.trim(); // Extract keywords from response
+  setKeywords(data); // Update keywords state
+  setLoading(false); // Set loading state to false
+} catch (error) {
+  console.error("Error fetching keywords:", error);
+  setLoading(false); // Ensure loading is set to false even on error
+  // Handle error appropriately, e.g., display an error toast
+}
+</code></pre>
+<p>};</p>
+<p>const closeModal = () =&gt; {
+    setIsOpen(false); // Function to close the modal
+  };</p>
+<p>return (
+    // ... JSX structure (Header, TextInput, Footer, KeywordsModal)
+  );
+}
+```</p>
+<blockquote>
+<p><strong>Context API/Redux:</strong> State management solutions for React applications, especially useful for complex applications with shared state across many components. Context API is built into React and suitable for simpler state management needs, while Redux is a more robust library often used for larger, more complex applications. In this project, <code>useState</code> within <code>App.jsx</code> serves as a simple form of "global state" for demonstration purposes.</p>
+<p><strong>Global State (in React):</strong>  State that is accessible and modifiable by multiple components throughout the application. In simpler applications, state can be lifted up to a common ancestor component (like <code>App</code> in this case) and passed down as props. For more complex applications, dedicated state management solutions like Context API or Redux are often used to manage global state more effectively.</p>
+<p><strong>JSON (JavaScript Object Notation):</strong> A lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is commonly used for transmitting data in web applications, especially between a server and a client, and is often used as the format for API requests and responses.</p>
+<p><strong>Asynchronous Function/Async-Await:</strong> Asynchronous functions in JavaScript allow you to write promise-based code as if it were synchronous, making asynchronous operations more readable and manageable. The <code>async</code> keyword marks a function as asynchronous, and the <code>await</code> keyword pauses the execution of the function until a promise resolves (e.g., an API request completes).</p>
+<p><strong>Fetch API:</strong> A modern JavaScript interface for making network requests, such as fetching resources from a server or sending data to an API. It provides a more powerful and flexible alternative to older methods like <code>XMLHttpRequest</code>.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="54-passing-extractkeywords-as-a-prop-to-textinput">5.4 Passing <code>extractKeywords</code> as a Prop to <code>TextInput</code></h3>
+<p>Pass the <code>extractKeywords</code> function down to the <code>TextInput</code> component as a prop so that the text input can trigger the keyword extraction process when the button is clicked.</p>
+<ol>
+<li>
+<p><strong>In <code>App.jsx</code>, within the <code>TextInput</code> component instantiation, pass <code>extractKeywords</code> as a prop:</strong></p>
+<p><code>jsx
+&lt;TextInput extractKeywords={extractKeywords} /&gt; {/* Pass extractKeywords function as prop */}</code></p>
+</li>
+</ol>
+<h3 id="55-embedding-components-in-appjsx">5.5 Embedding Components in <code>App.jsx</code></h3>
+<p>Embed the <code>Header</code>, <code>TextInput</code>, <code>Footer</code>, and <code>KeywordsModal</code> components into the <code>App</code> component's JSX structure.</p>
+<ol>
+<li>
+<p><strong>In <code>App.jsx</code>, within the <code>return</code> statement, structure the components:</strong></p>
+<p><code>jsx
+return (
+  &lt;Box bg="blue.600" color="white" height="100vh" pt={30}&gt;
+    &lt;Container maxW="3xl" centerContent&gt;
+      &lt;Header /&gt; {/* Header component */}
+      &lt;TextInput extractKeywords={extractKeywords} /&gt; {/* TextInput component */}
+      &lt;Footer /&gt; {/* Footer component */}
+      &lt;KeywordsModal // KeywordsModal component
+        isOpen={isOpen}
+        keywords={keywords}
+        loading={loading}
+        closeModal={closeModal}
+      /&gt;
+    &lt;/Container&gt;
+  &lt;/Box&gt;
+);</code></p>
+</li>
+</ol>
+<h2 id="6-creating-the-keywords-modal-component-keywordsmodaljsx">6. Creating the Keywords Modal Component (<code>KeywordsModal.jsx</code>)</h2>
+<p>The <code>KeywordsModal</code> component will display the extracted keywords in a modal window. It will also show a loading spinner while the API request is in progress.</p>
+<ol>
+<li>
+<p><strong>Create a file named <code>KeywordsModal.jsx</code> inside <code>src/components</code>.</strong></p>
+</li>
+<li>
+<p><strong>Add the following code to <code>KeywordsModal.jsx</code>:</strong></p>
+<p>```jsx
+import React from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  Text,
+  CircularProgress,
+} from '@chakra-ui/react'; // Import Chakra UI modal components</p>
+<p>function KeywordsModal({ isOpen, keywords, loading, closeModal }) { // Receive props
+  return (
+    <Modal isOpen={isOpen} onClose={closeModal}> {/<em> Modal component </em>/}
+      <ModalOverlay /> {/<em> Modal overlay </em>/}
+      <ModalContent> {/<em> Modal content container </em>/}
+        <ModalHeader>Keywords</ModalHeader> {/<em> Modal header </em>/}
+        <ModalCloseButton /> {/<em> Close button in modal header </em>/}
+        <ModalBody display="flex" alignItems="center" justifyContent="center"> {/<em> Modal body </em>/}
+          {loading ? ( // Conditional rendering based on loading state
+            <CircularProgress isIndeterminate color="blue.300" /> // Circular progress indicator
+          ) : (
+            <Text>{keywords}</Text> // Display keywords if not loading
+          )}
+        </ModalBody></p>
+<pre><code>    &lt;ModalFooter&gt; {/* Modal footer */}
+      &lt;Button colorScheme="blue" mr={3} onClick={closeModal}&gt; {/* Close button in modal footer */}
+        Close
+      &lt;/Button&gt;
+    &lt;/ModalFooter&gt;
+  &lt;/ModalContent&gt;
+&lt;/Modal&gt;
+</code></pre>
+<p>);
+}</p>
+<p>export default KeywordsModal;
+```</p>
+<blockquote>
+<p><strong>Modal:</strong> A UI element that appears on top of the application's main content, temporarily blocking user interaction with the main content until the modal is closed. Modals are often used for dialogs, alerts, or to display focused content.</p>
+<p><strong>Modal Overlay:</strong> A semi-transparent layer that covers the background content when a modal is open, visually separating the modal from the rest of the application.</p>
+<p><strong>Modal Content:</strong> The main container within a modal that holds the header, body, and footer of the modal.</p>
+<p><strong>Circular Progress (Chakra UI Component):</strong> A component that displays a circular loading indicator, often used to indicate that a process is ongoing or data is being fetched. The <code>isIndeterminate</code> prop makes the progress indicator spin continuously, useful when the exact progress is unknown.</p>
+<p><strong>Ternary Operator:</strong> A concise conditional operator in JavaScript (and many other languages) written as <code>condition ? expressionIfTrue : expressionIfFalse</code>. It provides a shorthand for writing simple if-else statements.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="7-deployment-with-hostinger">7. Deployment with Hostinger</h2>
+<p>Hostinger is a web hosting provider that offers easy deployment options. We will use Hostinger's hPanel to deploy our React application.</p>
+<h3 id="71-building-the-production-application">7.1 Building the Production Application</h3>
+<p>Before deploying, you need to build a production-ready version of your React application.</p>
+<ol>
+<li>
+<p><strong>Stop the development server</strong> (if it's running).</p>
+</li>
+<li>
+<p><strong>Run the build command:</strong></p>
+<p><code>bash
+npm run build</code></p>
+<p>This command uses Vite to build your application, creating optimized production files in the <code>dist</code> folder in your project root.</p>
+<blockquote>
+<p><strong>Production Files:</strong> Optimized and minified files that are ready to be deployed to a production server. These files typically include bundled JavaScript, CSS, and assets, optimized for performance and reduced file size.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="72-deploying-to-hostinger-via-file-manager">7.2 Deploying to Hostinger via File Manager</h3>
+<p>Hostinger's hPanel provides a file manager that allows you to upload files directly to your web hosting account.</p>
+<ol>
+<li>
+<p><strong>Log in to your Hostinger account</strong> and access your hosting panel (hPanel).</p>
+</li>
+<li>
+<p><strong>Navigate to "Files"</strong> and then <strong>"File Manager."</strong></p>
+</li>
+<li>
+<p><strong>Access the file directory for your domain.</strong> This is typically the <code>public_html</code> folder.</p>
+<blockquote>
+<p><strong>Public HTML Folder:</strong> The root directory on a web server where website files are stored. Files placed in this directory are publicly accessible via the website's domain.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Open the <code>dist</code> folder</strong> in your local project directory.</p>
+</li>
+<li>
+<p><strong>Drag and drop the <em>contents</em> of the <code>dist</code> folder</strong> (not the folder itself) into the <code>public_html</code> folder in Hostinger's file manager. This includes <code>index.html</code> and the <code>assets</code> folder.</p>
+<blockquote>
+<p><strong>Finder (macOS):</strong> The file manager application in macOS, used to browse and manage files and folders. Windows has "File Explorer," and Linux distributions have various file managers.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="73-accessing-your-deployed-application">7.3 Accessing Your Deployed Application</h3>
+<p>Once the files are uploaded, your application should be live on your domain.</p>
+<ol>
+<li>
+<p><strong>Open your web browser</strong> and go to your domain name (e.g., <code>yourdomain.com</code>).</p>
+</li>
+<li>
+<p><strong>Test your keyword extractor</strong> to ensure it is working correctly in the deployed environment.</p>
+<p>If you encounter a "403 Forbidden" error when accessing your domain, it might indicate that there is no <code>index.html</code> file in the <code>public_html</code> directory, or there might be file permission issues. Ensure that the <code>index.html</code> file from your <code>dist</code> folder is correctly placed in <code>public_html</code>.</p>
+<blockquote>
+<p><strong>403 Error (HTTP 403 Forbidden):</strong> An HTTP status code indicating that the server understood the request, but is refusing to authorize it. In web hosting contexts, it often occurs when there is no <code>index.html</code> file in the website's root directory, or when file permissions are incorrectly configured, preventing access to the website.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="74-alternative-deployment-methods-git">7.4 Alternative Deployment Methods (Git)</h3>
+<p>Hostinger also supports deployment via Git. This method is more suitable for ongoing development and continuous deployment.</p>
+<ol>
+<li>
+<p><strong>In Hostinger's hPanel, navigate to "Advanced"</strong> and then <strong>"Git."</strong></p>
+</li>
+<li>
+<p><strong>Initialize a Git repository</strong> in your hosting account.</p>
+</li>
+<li>
+<p><strong>Connect your local Git repository</strong> to the remote repository on Hostinger.</p>
+</li>
+<li>
+<p><strong>Push your code</strong> to the remote repository. Hostinger can be configured to automatically deploy your application whenever you push changes to the repository.</p>
+<p>For Git-based deployment, you may need to set up an SSH key for secure authentication between your local machine and the Hostinger server.</p>
+<blockquote>
+<p><strong>Repository (Git Repository):</strong> A storage location for a software project, tracking all changes made to the code over time. Git repositories contain the project's files, history of changes (commits), branches, and other metadata.</p>
+<p><strong>SSH Key (Secure Shell Key):</strong> A cryptographic key pair used for secure authentication, often used to access remote servers or Git repositories without needing to enter passwords repeatedly. SSH keys provide a more secure and convenient way to authenticate compared to password-based authentication.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="8-conclusion-and-further-exploration">8. Conclusion and Further Exploration</h2>
+<p>Congratulations! You have successfully built and deployed an AI-powered keyword extractor using React, Chakra UI, and the OpenAI Completions API. This project demonstrates the power of combining front-end technologies with AI APIs to create practical and intelligent applications.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ul>
+<li><strong>Prompt Engineering is Crucial:</strong> The effectiveness of the OpenAI API heavily relies on well-crafted prompts. Experiment with different prompts to customize the output and explore various functionalities beyond keyword extraction.</li>
+<li><strong>Component-Based UI with Chakra UI:</strong> Chakra UI simplifies UI development by providing reusable and accessible components, allowing you to focus on application logic rather than writing extensive CSS.</li>
+<li><strong>API Integration:</strong>  Integrating front-end applications with powerful APIs like OpenAI opens up endless possibilities for creating intelligent and automated solutions.</li>
+<li><strong>Deployment is Streamlined:</strong> Platforms like Hostinger make deploying web applications straightforward, even for complex projects.</li>
+</ul>
+<p><strong>Further Exploration:</strong></p>
+<ul>
+<li><strong>Expand Functionality:</strong>  Enhance the keyword extractor by adding features like:<ul>
+<li>Keyword frequency analysis.</li>
+<li>Keyword suggestion based on context.</li>
+<li>Integration with SEO tools.</li>
+</ul>
+</li>
+<li><strong>Explore Different OpenAI API Models:</strong> Experiment with other OpenAI models beyond <code>text-davinci-003</code> to see how they affect keyword extraction results.</li>
+<li><strong>Build Different Applications:</strong>  Apply the learned principles to build other AI-powered applications using the OpenAI API, such as:<ul>
+<li>Virtual assistants.</li>
+<li>Content summarizers.</li>
+<li>Code generators.</li>
+<li>Creative writing tools.</li>
+</ul>
+</li>
+</ul>
+<p>By continuing to explore and experiment with these technologies, you can unlock even more potential and build innovative applications that leverage the power of AI.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

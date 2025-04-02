@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a Multimodal App with Gemini AI: An Educational Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-multimodal-app-with-gemini-ai-an-educational-guide">Building a Multimodal App with Gemini AI: An Educational Guide</a></li>
+        <li><a href="#introduction-to-gemini-ai-and-multimodal-models">Introduction to Gemini AI and Multimodal Models</a></li><li><a href="#what-is-gemini-understanding-multimodal-generative-ai">What is Gemini? Understanding Multimodal Generative AI</a></li><li><a href="#getting-started-accessing-the-gemini-app-and-api">Getting Started: Accessing the Gemini App and API</a></li><li><a href="#recap-of-gemini-api-capabilities-and-course-focus">Recap of Gemini API Capabilities and Course Focus</a></li><li><a href="#setting-up-your-development-environment">Setting Up Your Development Environment</a></li><li><a href="#project-setup-creating-a-react-application">Project Setup: Creating a React Application</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-multimodal-app-with-gemini-ai-an-educational-guide">Building a Multimodal App with Gemini AI: An Educational Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/vXjOywyMBN8" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-gemini-ai-and-multimodal-models">Introduction to Gemini AI and Multimodal Models</h2>
+<p>Welcome to this comprehensive guide on developing applications using Gemini AI, Google's powerful multimodal model. In this educational resource, you will learn step-by-step how to build an application capable of analyzing images and answering questions about their content. This course, developed by Ana Kubo, will take you from understanding the fundamentals of Gemini to implementing a fully functional image-query application. This educational initiative is made possible through a grant from Google, ensuring high-quality, accessible learning.</p>
+<p>This guide will focus on utilizing the Gemini multimodal model to create an application that allows users to upload images and pose questions about them. For instance, if a user uploads a picture of an octopus wearing a hat, the application should be able to answer questions like "What is the creature in the picture wearing?" with a text response such as "hat."  Furthermore, we will incorporate a feature that suggests random questions, such as "Does the image have puppies?" to inspire user interaction.</p>
+<p>Throughout this guide, we will cover a range of topics, including:</p>
+<ul>
+<li>Understanding Gemini AI and its capabilities.</li>
+<li>Setting up your development environment and necessary tools.</li>
+<li>Authentication and accessing the Gemini API.</li>
+<li>Exploring the different Gemini models available.</li>
+<li>Building a practical application that can "see" images and answer questions.</li>
+</ul>
+<p>Let's begin our journey into the world of Gemini AI and multimodal application development!</p>
+<h2 id="what-is-gemini-understanding-multimodal-generative-ai">What is Gemini? Understanding Multimodal Generative AI</h2>
+<p>In simple terms, Gemini represents a suite of <strong>multimodal generative AI models</strong> developed by Google.</p>
+<blockquote>
+<p><strong>Multimodal:</strong>  Refers to the ability of a system to process and understand multiple types of data input, such as text and images, simultaneously. In the context of AI, it means the model can handle and integrate information from various modalities.</p>
+<p><strong>Generative AI models:</strong>  A type of artificial intelligence model that can generate new content, such as text, images, or code. These models learn patterns from existing data and use this knowledge to create original outputs.</p>
+</blockquote>
+<p>Gemini models are designed to accept both text and image inputs, depending on the specific model variation chosen, and produce text-based responses. This capability opens up exciting possibilities for interacting with AI in intuitive and versatile ways.</p>
+<p>Consider these examples to illustrate Gemini's functionality:</p>
+<ul>
+<li><strong>Text-based Prompts:</strong> You can provide a text prompt like "What day of the week is it today?" and Gemini will respond with text, such as "It is Wednesday."</li>
+<li><strong>Image-based Prompts:</strong>  You can input an image, for example, a picture of a cat wearing a hat, and ask "What's in the photo?" Gemini can analyze the image and provide a text response describing the content, such as "a cat wearing a hat."</li>
+</ul>
+<h3 id="interacting-with-gemini-gemini-app-and-gemini-api">Interacting with Gemini: Gemini App and Gemini API</h3>
+<p>There are two primary ways to interact with Gemini models: through the Gemini app and through the Gemini API.</p>
+<h4 id="gemini-app">Gemini App</h4>
+<p>The Gemini app provides a user-friendly <strong>UI (User Interface)</strong> for direct interaction with Gemini models.</p>
+<blockquote>
+<p><strong>UI (User Interface):</strong> The visual part of an application or system that allows users to interact with it. It includes elements like buttons, menus, and input fields, designed to make the system easy to use.</p>
+</blockquote>
+<p>Using the Gemini app, you can:</p>
+<ul>
+<li>Type text prompts and receive text responses, engaging in conversational exchanges.</li>
+<li>Upload images and ask questions about them, leveraging Gemini's multimodal capabilities.</li>
+<li>Review your <strong>chat history</strong>, allowing for context-aware conversations where the model remembers previous interactions.</li>
+</ul>
+<blockquote>
+<p><strong>Chat history:</strong> A record of past conversations with an AI model. This history allows the model to understand the context of current prompts and provide more relevant and coherent responses in ongoing interactions.</p>
+</blockquote>
+<h4 id="gemini-api">Gemini API</h4>
+<p>For developers who want to integrate Gemini's capabilities into their own applications, the <strong>Gemini API (Application Programming Interface)</strong> is the key.</p>
+<blockquote>
+<p><strong>API (Application Programming Interface):</strong> A set of rules and specifications that software programs can follow to communicate with each other. APIs allow developers to use functionalities of one application within another, enabling integration and interoperability.</p>
+</blockquote>
+<p>The Gemini API allows you to programmatically access Gemini models and replicate the functionalities available in the Gemini app.  This includes:</p>
+<ul>
+<li>
+<p><strong>Text-to-Text Interactions:</strong> Sending text prompts and receiving text responses using the <strong><code>generateContent</code> method</strong>.</p>
+<blockquote>
+<p><strong><code>generateContent</code> method:</strong> A function provided by the Gemini API that allows developers to send prompts (text or images) to a Gemini model and receive generated text responses. It is the core method for interacting with Gemini's generative capabilities.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Multimodal Prompts:</strong> Utilizing the <code>generateContent</code> method with the <strong>Gemini provision model</strong> (specifically, the Gemini Flash model in this guide) to input both text and images as prompts and receive text-based answers. This enables building applications like the image-query app we are developing.</p>
+<blockquote>
+<p><strong>Gemini provision model:</strong>  Refers to specific variations or versions of the Gemini model that are made available for developers through the API. In this context, "Gemini Flash" is highlighted as the model being used for its balance of speed and capability.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Multi-turn Conversations:</strong> Building applications that can maintain conversational context, remembering previous interactions within a session.</p>
+</li>
+<li>
+<p><strong>Advanced Configuration:</strong> Customizing model behavior and parameters for specific application needs.</p>
+</li>
+<li>
+<p><strong>Embeddings (Advanced Topic):</strong>  For more advanced use cases, Gemini offers the ability to create <strong>embeddings</strong> using the <code>embedding-001</code> model and the <strong><code>embedContent</code> method</strong>.</p>
+<blockquote>
+<p><strong>Embeddings:</strong>  Numerical representations of data, like text or images, in a vector space. These representations capture the semantic meaning of the data and are useful for tasks like semantic search, clustering, and recommendation systems.  Creating embeddings allows for advanced semantic analysis, but is beyond the scope of this introductory guide.</p>
+</blockquote>
+</li>
+</ul>
+<p>While other Gemini models and methods exist, this guide will primarily focus on the Gemini Flash model and the <code>generateContent</code> method for building our image-query application.</p>
+<p><strong>In Summary:</strong> Gemini is a powerful suite of multimodal generative AI models accessible through both a user-friendly app and a developer-focused API. The API empowers developers to integrate Gemini's text and image understanding capabilities into custom applications.</p>
+<h2 id="getting-started-accessing-the-gemini-app-and-api">Getting Started: Accessing the Gemini App and API</h2>
+<h3 id="accessing-the-gemini-app">Accessing the Gemini App</h3>
+<p>To begin exploring Gemini, navigate to <a href="https://gemini.com">gemini.com</a>.  The webpage interface may evolve over time, so be aware of potential changes if you are viewing this guide in the future.</p>
+<ol>
+<li><strong>Sign In:</strong> Click the "Sign In" button.</li>
+<li><strong>Google Account:</strong> You will be prompted to sign in using your Google account. Proceed to log in with your Google credentials.</li>
+<li>
+<p><strong>Gemini Dashboard:</strong> Upon successful login, you will be directed to the Gemini app <strong>dashboard</strong>.</p>
+<blockquote>
+<p><strong>Dashboard:</strong> A central interface that provides an overview and access to the main features and functionalities of an application or system. In the Gemini app, the dashboard is the primary screen for interacting with the model.</p>
+</blockquote>
+</li>
+</ol>
+<p>From the dashboard, you can start interacting with Gemini immediately. You can type text prompts, select from pre-made questions, or upload images to begin exploring its capabilities.</p>
+<h3 id="accessing-the-gemini-api-and-obtaining-an-api-key">Accessing the Gemini API and Obtaining an API Key</h3>
+<p>To utilize Gemini in your own applications, you need to access the Gemini API and obtain an <strong>API key</strong>.</p>
+<blockquote>
+<p><strong>API key:</strong> A unique identifier that authenticates a user or application when making requests to an API. It serves as a security measure, verifying that the request is authorized and allowing the API provider to track usage.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Navigate to API Documentation:</strong> Go to <a href="https://ai.google.dev/gemini-api/docs">ai.google.dev/gemini-api/docs</a>. This page provides comprehensive <strong>API documentation</strong> for the Gemini API.</p>
+<blockquote>
+<p><strong>API documentation:</strong>  A set of documents that describe how to use an API. It includes details about available endpoints, methods, parameters, request formats, and response structures, guiding developers on how to interact with the API effectively.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Get an API Key:</strong> In the left-hand menu of the API documentation, select "Get an API key."</p>
+</li>
+<li>
+<p><strong>AI Studio:</strong> Clicking "Get an API key" will redirect you to <strong>AI Studio</strong> (<a href="https://aistudio.google.com">aistudio.google.com</a>).</p>
+<blockquote>
+<p><strong>AI Studio:</strong> Google's platform for developing and experimenting with AI models, including Gemini. It provides tools for generating API keys, managing projects, and exploring AI functionalities.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Create API Key:</strong> In AI Studio, click "Get API key." If this is your first time, you may be prompted to create an API key in a new project. Follow the on-screen instructions to create a new project and generate your API key.</p>
+</li>
+<li><strong>Copy and Secure Your API Key:</strong> Once generated, your API key will be displayed. <strong>Copy this key and store it securely.</strong></li>
+</ol>
+<p><strong>Important Security Considerations for API Keys:</strong></p>
+<ul>
+<li>
+<p><strong>Keep Your API Key Secret:</strong>  Never share your API key publicly or embed it directly in <strong>client-side code</strong>.</p>
+<blockquote>
+<p><strong>Client-side code:</strong>  Code that runs in the user's web browser, as opposed to server-side code which runs on a server.  Exposing API keys in client-side code is a security risk because it is easily accessible to anyone inspecting the webpage's source code.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Security Risks of Exposure:</strong> If your API key is compromised, others could use it in their own projects, potentially depleting your <strong>free tokens</strong> or incurring unexpected charges if you have a credit card linked to your account.</p>
+<blockquote>
+<p><strong>Free tokens:</strong>  A limited amount of usage credits provided by API providers, often for free, to allow developers to explore and test their APIs. Once the free tokens are exhausted, further usage may require payment.</p>
+<p><strong>Credit card bill:</strong>  Charges incurred when API usage exceeds free token limits and is billed to a linked credit card.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Secure API Key Management:</strong> To use your API key safely in applications, especially web applications, it is crucial to route API requests through your own <strong>backend server</strong>.</p>
+<blockquote>
+<p><strong>Backend server:</strong>  The server-side portion of a web application that handles data processing, business logic, and database interactions. It runs on a server and is not directly accessible to users, making it a secure place to store API keys.</p>
+</blockquote>
+<p>On your backend server, you should securely load your API key from:
+*   An <strong>environment variable</strong>.
+*   A <strong>Key Management Service</strong>.</p>
+<blockquote>
+<p><strong>Environment variable:</strong> A variable whose value is set outside the application code, typically in the operating system environment. They are often used to store configuration settings and secrets like API keys, keeping them separate from the codebase.</p>
+<p><strong>Key Management Service (KMS):</strong> A secure system for managing cryptographic keys and sensitive data, like API keys. KMS solutions provide features like encryption, access control, and auditing to protect keys from unauthorized access and misuse.</p>
+</blockquote>
+</li>
+</ul>
+<p>By following these security best practices, you can ensure the safe and responsible use of your Gemini API key.</p>
+<h2 id="recap-of-gemini-api-capabilities-and-course-focus">Recap of Gemini API Capabilities and Course Focus</h2>
+<p>As a recap, the Gemini API provides access to Google's generative AI models, enabling a range of functionalities:</p>
+<ul>
+<li><strong>Text-only input and text output</strong> using the <code>generateContent</code> method.</li>
+<li><strong>Text and/or image input and text output</strong> using the <code>generateContent</code> method with the Gemini Flash model. This supports multimodal prompts and responses.</li>
+<li><strong>Building multi-turn conversations</strong> with Gemini models, maintaining context across interactions.</li>
+<li><strong>Creating embeddings</strong> using the <code>embedding-001</code> model and <code>embedContent</code> method for advanced semantic tasks (beyond the scope of this guide).</li>
+</ul>
+<p><strong>Focus of this Course:</strong></p>
+<p>In this course, we will concentrate on utilizing the <strong>Gemini Flash model</strong> to build our image-query application. We will specifically focus on prompting Gemini with text and/or images and receiving text-based responses.</p>
+<h2 id="setting-up-your-development-environment">Setting Up Your Development Environment</h2>
+<p>Before we begin building our application, ensure you have the necessary tools and environment set up.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>
+<p><strong>Node.js (Version 18 or higher):</strong> Node.js is a JavaScript runtime environment that allows you to run JavaScript code outside of a web browser. We will be using Node.js for our backend development. Download and install Node.js from <a href="https://nodejs.org">nodejs.org</a>.</p>
+<blockquote>
+<p><strong>Node.js:</strong> A JavaScript runtime environment that executes JavaScript code server-side. It's built on Chrome's V8 JavaScript engine and enables developers to use JavaScript for backend development, creating web servers and network applications.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>npm (Node Package Manager):</strong> npm is the default package manager for Node.js. It is used to install and manage project dependencies (libraries and tools). npm is typically installed automatically with Node.js.</p>
+<blockquote>
+<p><strong>npm (Node Package Manager):</strong> A package manager for Node.js that allows developers to easily install, share, and manage project dependencies (libraries and tools). It simplifies the process of incorporating external modules into Node.js projects.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Gemini SDK (Software Development Kit):</strong> The Gemini SDK provides libraries and tools specifically designed to interact with the Gemini API from your Node.js application. We will install this shortly.</p>
+<blockquote>
+<p><strong>SDK (Software Development Kit):</strong> A collection of software development tools in one installable package. SDKs often include libraries, documentation, code samples, processes, and guides that aid developers in creating software applications for a specific platform or API. In this case, the Gemini SDK facilitates interaction with the Gemini API.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Verifying Node.js and npm Installation:</strong></p>
+<p>Open your terminal or command prompt and run the following commands to verify that Node.js and npm are installed correctly and are the required versions:</p>
+<pre><code class="language-bash">node -v
+npm -v
+</code></pre>
+<p>Ensure that the Node.js version is 18 or higher.</p>
+<p><strong>Installing the Gemini SDK:</strong></p>
+<p>We will install the Gemini SDK as a project dependency in the next step when we set up our project.</p>
+<p>With Node.js and npm installed, you are now ready to set up your project and begin building the image-query application with Gemini AI!</p>
+<h2 id="project-setup-creating-a-react-application">Project Setup: Creating a React Application</h2>
+<p>For this project, we will use React, a popular JavaScript library for building user interfaces. We will create a React application to handle the frontend user interface and interact with our backend server, which will communicate with the Gemini API.</p>
+<p><strong>Creating a React Application:</strong></p>
+<ol>
+<li><strong>Open your terminal or command prompt.</strong></li>
+<li><strong>Navigate to your desired project directory.</strong> Use the <code>cd</code> command to change directories to where you want to create your project.</li>
+<li>
+<p><strong>Use <code>create-react-app</code>:</strong> Run the following command to create a new React application named "react-gemini-vision-app":</p>
+<p><code>bash
+npx create-react-app react-gemini-vision-app</code></p>
+<blockquote>
+<p><strong><code>npx create-react-app</code>:</strong> A command-line tool used to quickly set up a new React project with a pre-configured development environment. It automates the process of setting up build tools, project structure, and basic configurations, allowing developers to start building React applications immediately.</p>
+</blockquote>
+<p>This command uses <code>npx</code>, the Node Package Runner, to execute <code>create-react-app</code>, which sets up a new React project with all the necessary configurations and dependencies.
+4.  <strong>Navigate into the Project Directory:</strong> Once the project is created, navigate into the newly created directory:</p>
+<p><code>bash
+cd react-gemini-vision-app</code></p>
+</li>
+</ol>
+<p><strong>Project File Structure and Cleanup:</strong></p>
+<p>The <code>create-react-app</code> tool generates a project with a predefined file structure.  Let's examine and clean up some of the default files:</p>
+<ul>
+<li>
+<p><strong><code>src</code> directory:</strong> This directory contains the source code for your React application.</p>
+<ul>
+<li><strong><code>App.js</code>:</strong> The main component of your React application.</li>
+<li><strong><code>index.js</code>:</strong> The entry point of your React application, responsible for rendering the <code>App</code> component.</li>
+<li><strong><code>index.css</code>:</strong>  CSS file for global styles.</li>
+<li><strong><code>App.css</code>:</strong> CSS file for styling the <code>App</code> component.</li>
+<li><strong><code>App.test.js</code>:</strong>  File for unit testing the <code>App</code> component.</li>
+<li><strong><code>logo.svg</code>:</strong>  React logo (we won't need this).</li>
+<li><strong><code>reportWebVitals.js</code></strong> and <strong><code>setupTests.js</code></strong>: Files related to web vitals reporting and test setup (we won't need these for this basic project).</li>
+</ul>
+<blockquote>
+<p><strong><code>source directory</code>:</strong> In software development, particularly in web projects, the <code>src</code> directory typically houses all the source code files – including code written by developers, assets, and components – which form the core of the application.</p>
+</blockquote>
+<p>We will delete some of the default files to simplify our project structure:</p>
+<ul>
+<li>
+<p><strong>Delete the following files from the <code>src</code> directory:</strong></p>
+<ul>
+<li><code>logo.svg</code></li>
+<li><code>reportWebVitals.js</code></li>
+<li><code>setupTests.js</code></li>
+<li><code>App.test.js</code></li>
+<li><code>App.css</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Modify <code>index.js</code>:</strong> Open <code>src/index.js</code> and remove the lines that import <code>reportWebVitals</code> and call <code>reportWebVitals()</code>. Also, remove the import for <code>logo.svg</code>.</p>
+</li>
+<li>
+<p><strong>Modify <code>App.js</code>:</strong> Open <code>src/App.js</code>. Delete all the boilerplate code inside the <code>App</code> component function and the import for <code>App.css</code>.  Modify the component to be a <strong>functional expression</strong> for cleaner syntax.</p>
+<blockquote>
+<p><strong>Functional expression:</strong> In JavaScript, a way to define a function using a concise syntax. In React, functional components are often written as functional expressions, emphasizing their role in rendering UI based on props.</p>
+</blockquote>
+<p>Your <code>App.js</code> should now look similar to this:</p>
+<p>```javascript
+import React from 'react';
+import './index.css';</p>
+<p>function App() {
+  return (
+    <div className="app">
+      {/<em> Your application content will go here </em>/}
+    </div>
+  );
+}</p>
+<p>export default App;
+```</p>
+</li>
+<li>
+<p><strong>Modify <code>index.css</code>:</strong> Open <code>src/index.css</code> and delete all the default styles. We will add our custom styles later.</p>
+</li>
+<li>
+<p><strong>Modify <code>index.html</code>:</strong> Open <code>public/index.html</code> and remove any unnecessary content within the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> sections if desired. Ensure the basic structure with <code>&lt;div id="root"&gt;&lt;/div&gt;</code> remains.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>With the project set up and cleaned, we are ready to start building the backend and frontend components of our image-query application. We will begin by setting up the backend server in the next section.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Getting Started with the macOS Terminal: A Beginner's Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#getting-started-with-the-macos-terminal-a-beginners-guide">Getting Started with the macOS Terminal: A Beginner's Guide</a></li>
+        <li><a href="#introduction-to-the-macos-terminal">Introduction to the macOS Terminal</a></li><li><a href="#understanding-the-shell-the-communicator">Understanding the Shell: The Communicator</a></li><li><a href="#the-macos-terminal-and-zsh-shell">The macOS Terminal and Zsh Shell</a></li><li><a href="#navigating-the-file-system-with-basic-commands">Navigating the File System with Basic Commands</a></li><li><a href="#managing-files-and-folders">Managing Files and Folders</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="getting-started-with-the-macos-terminal-a-beginners-guide">Getting Started with the macOS Terminal: A Beginner's Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/ogWoUU2DXBU" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-the-macos-terminal">Introduction to the macOS Terminal</h2>
+<p>This chapter serves as an introductory guide to the macOS Terminal, a powerful tool that provides a command-line interface to interact with your Mac operating system. We will explore the fundamental concepts of the Terminal, differentiate it from the graphical user interface (GUI) you are likely familiar with, and learn basic commands to navigate your file system, manage files and folders, and understand core functionalities. This knowledge will empower you to control your Mac with greater precision and efficiency, opening up new possibilities for software development, system administration, and advanced computer usage.</p>
+<h2 id="understanding-the-shell-the-communicator">Understanding the Shell: The Communicator</h2>
+<p>At the heart of the Terminal lies the concept of a <strong>shell</strong>.</p>
+<blockquote>
+<p><strong>Shell:</strong> In the context of operating systems, a shell is a software program that acts as an intermediary between the user and the operating system kernel. It interprets user commands and instructs the operating system to perform the desired actions. Think of it as a translator between human language and machine language for your computer.</p>
+</blockquote>
+<p>Imagine your computer as a machine and yourself as the user. To interact with the machine, you need a way to communicate your instructions. The shell acts as this communication bridge. It receives commands from you, interprets them, and then instructs the computer to execute those commands.</p>
+<h3 id="types-of-shells-gui-vs-cli">Types of Shells: GUI vs. CLI</h3>
+<p>There are two primary ways to interact with a computer's shell:</p>
+<ul>
+<li>
+<p><strong>Graphical User Interface (GUI):</strong> This is the visual environment you are accustomed to, characterized by icons, windows, menus, and a mouse or trackpad for interaction.</p>
+<blockquote>
+<p><strong>Graphical User Interface (GUI):</strong> A user interface that allows users to interact with electronic devices through visual indicators and graphical elements such as icons, menus, and windows. GUIs are designed to be user-friendly and intuitive, especially for users who are not technically proficient.</p>
+</blockquote>
+<ul>
+<li>
+<p>Examples of GUIs include:</p>
+<ul>
+<li>macOS Finder: Navigating files and folders using windows and icons.</li>
+<li>Smartphone interfaces: Interacting with apps and settings using touch and visual elements.</li>
+<li>Video games: Controlling game actions through visual menus and on-screen controls.</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages of GUIs:</strong></p>
+<ul>
+<li><strong>User-friendly:</strong>  Intuitive and easy to learn, especially for beginners.</li>
+<li><strong>Visually Exploratory:</strong> Makes it simple to browse files and folders without specific commands.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Command Line Interface (CLI):</strong> This is a text-based interface where you interact with the computer by typing commands. The macOS Terminal provides a CLI.</p>
+<blockquote>
+<p><strong>Command Line Interface (CLI):</strong> A user interface in which users interact with a computer by typing commands as lines of text. CLIs offer a direct and powerful way to control the operating system and are often favored by developers and system administrators for their efficiency and flexibility.</p>
+</blockquote>
+<ul>
+<li>
+<p>Examples of CLIs:</p>
+<ul>
+<li>macOS Terminal (using shells like Zsh or Bash)</li>
+<li>Linux terminal</li>
+<li>Windows Command Prompt or PowerShell</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages of CLIs:</strong></p>
+<ul>
+<li><strong>Potentially Faster for Experienced Users:</strong>  Once commands are learned, tasks can be executed quickly.</li>
+<li><strong>Increased Possibilities:</strong>  CLIs unlock advanced functionalities not always available in GUIs, such as:<ul>
+<li><strong>Server Management:</strong> Starting and managing servers (e.g., Node.js servers).</li>
+<li><strong>Software Installation:</strong> Downloading and installing tools and packages.</li>
+<li><strong>Code Execution:</strong> Running code directly (e.g., Python scripts).</li>
+<li><strong>File Execution:</strong> Executing programs and scripts.</li>
+</ul>
+</li>
+<li><strong>Automation and Scripting:</strong>  CLIs are ideal for automating repetitive tasks through scripts.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-macos-terminal-and-zsh-shell">The macOS Terminal and Zsh Shell</h2>
+<p>On macOS, the <strong>Terminal</strong> application provides the text input environment, acting as the hardware interface for the shell.</p>
+<blockquote>
+<p><strong>Terminal:</strong> In macOS (and other Unix-like systems), Terminal is an application that provides a text-based interface to the operating system. It acts as a window into which you can interact with the shell. Think of it as the physical window or frame through which you access the shell software.</p>
+</blockquote>
+<p>Think of the Terminal as the window or frame on your screen where you type commands.  The <strong>shell</strong>, on the other hand, is the software that runs within the Terminal and interprets those commands.</p>
+<blockquote>
+<p><strong>Zsh (Z Shell):</strong> A powerful and customizable shell program for Unix-like operating systems, including macOS. It is known for its extensive features, plugins, and themes, offering improvements over older shells like Bash. Zsh is the default shell on macOS starting from Catalina.</p>
+</blockquote>
+<p>macOS uses <strong>Zsh (Z Shell)</strong> as its default shell.  Previously, <strong>Bash shell</strong> was the default.  You can identify that you are using Zsh by the <code>zsh</code> indicator often displayed in the terminal prompt.</p>
+<blockquote>
+<p><strong>Bash Shell:</strong>  (Bourne Again Shell) Another popular shell program widely used in Unix-like systems. It was the default shell on macOS before Zsh. While still functional, Zsh has become the preferred default due to its enhanced features and modern capabilities.</p>
+</blockquote>
+<h2 id="navigating-the-file-system-with-basic-commands">Navigating the File System with Basic Commands</h2>
+<p>Let's start using the Terminal to navigate your Mac's file system.</p>
+<h3 id="opening-finder-and-terminal-windows">Opening Finder and Terminal Windows</h3>
+<ol>
+<li>
+<p><strong>Finder Window:</strong> Open a new Finder window by clicking on the Finder icon in your Dock or by selecting "File" &gt; "New Finder Window" from the menu bar.</p>
+<ul>
+<li>Navigate to "Locations" in the Finder sidebar.</li>
+<li>Select your Apple device (e.g., "MacBook Pro").</li>
+<li>Choose your hard disk drive (typically named "Macintosh HD").</li>
+</ul>
+</li>
+<li>
+<p><strong>Terminal Window:</strong> Open a new Terminal window by:</p>
+<ul>
+<li>Pressing <strong>Command + Space</strong> to open Spotlight search.</li>
+<li>Typing "Terminal" and pressing <strong>Enter</strong>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="understanding-directories-root-users-and-home">Understanding Directories: Root, Users, and Home</h3>
+<p>Before navigating, it's crucial to understand the directory structure in macOS:</p>
+<ul>
+<li><strong>Root Directory (<code>/</code>):</strong> The top-level directory of your file system. It contains essential system folders and is represented by a single forward slash <code>/</code>. In Finder, this is the "Macintosh HD" level.</li>
+<li><strong>Users Directory (<code>/Users</code>):</strong>  Located within the root directory, this folder contains individual user accounts and their respective home directories.</li>
+<li><strong>Home Directory (<code>~</code> or <code>/Users/YourUsername</code>):</strong>  Each user has a home directory, which is their personal space for documents, downloads, pictures, etc. It is often represented by the tilde symbol <code>~</code> in the Terminal prompt and in paths. In Finder, this is the folder with your username under the "Users" directory.</li>
+</ul>
+<h3 id="basic-navigation-commands">Basic Navigation Commands</h3>
+<ul>
+<li>
+<p><strong><code>pwd</code> (Print Working Directory):</strong> Displays the current directory you are in within the Terminal.</p>
+<p><code>bash
+pwd</code></p>
+<p>This command will output the absolute path of your current location. For example: <code>/Users/lawrencem</code>.</p>
+</li>
+<li>
+<p><strong><code>ls</code> (List Items):</strong> Lists the files and folders within the current directory.</p>
+<p><code>bash
+ls</code></p>
+<p>This will show the contents of your current directory.</p>
+</li>
+<li>
+<p><strong><code>clear</code>:</strong> Clears the Terminal screen, removing previous commands and output for a cleaner view.</p>
+<p><code>bash
+clear</code></p>
+<p>This only clears the display; it doesn't erase your command history. You can still scroll up to see previous commands.</p>
+</li>
+<li>
+<p><strong><code>cd</code> (Change Directory):</strong>  Used to navigate to different directories.</p>
+<ul>
+<li>
+<p><strong><code>cd /</code></strong>: Navigates to the root directory.</p>
+</li>
+<li>
+<p><strong><code>cd ~</code></strong>: Navigates to your home directory.</p>
+</li>
+<li>
+<p><strong><code>cd /Users</code></strong>: Navigates to the Users directory (using an <strong>absolute path</strong>).</p>
+</li>
+<li>
+<p><strong><code>cd directory_name</code></strong>: Navigates to a subdirectory named <code>directory_name</code> within the current directory (using a <strong>relative path</strong>).</p>
+</li>
+<li>
+<p><strong><code>cd ..</code></strong>: Navigates one level up in the directory hierarchy (to the parent directory).</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Absolute Path:</strong> A path that specifies the exact location of a file or directory starting from the root directory (<code>/</code>). It provides a complete and unambiguous address, regardless of the current working directory. For example: <code>/Users/lawrencem/Documents</code>.</p>
+<p><strong>Relative Path:</strong> A path that specifies the location of a file or directory relative to the current working directory. It is a shorter way to access files and directories within or near the current location. For example, if you are in <code>/Users/lawrencem/Documents</code>, a relative path to a folder named "Projects" within "Documents" would simply be <code>Projects</code>.</p>
+</blockquote>
+<ul>
+<li><strong>Auto-completion with Tab:</strong> When typing directory or file names after <code>cd</code>, you can use the <strong>Tab</strong> key for auto-completion. If there's only one matching name, it will complete automatically. If there are multiple options, pressing <strong>Tab</strong> twice will display a list of possible completions.</li>
+</ul>
+</li>
+</ul>
+<h3 id="navigating-to-specific-directories">Navigating to Specific Directories</h3>
+<ul>
+<li><strong>Root Directory (<code>/</code>):</strong> <code>cd /</code></li>
+<li><strong>Home Directory (<code>~</code>):</strong> <code>cd ~</code> or <code>cd</code> (without any arguments)</li>
+<li><strong>Users Directory (<code>/Users</code>):</strong> <code>cd /Users</code></li>
+<li><strong>Subdirectories:</strong> <code>cd subdirectory_name</code> (e.g., <code>cd Documents</code> if you are in your home directory and want to go to the "Documents" folder).</li>
+<li><strong>Parent Directory:</strong> <code>cd ..</code></li>
+</ul>
+<h3 id="absolute-vs-relative-paths">Absolute vs. Relative Paths</h3>
+<ul>
+<li>
+<p><strong>Absolute Paths:</strong> Always start from the root directory (<code>/</code>). They provide a fixed and unambiguous path to a location.</p>
+<ul>
+<li>Example: <code>cd /Users/lawrencem/Documents/Projects</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Relative Paths:</strong>  Start from your current working directory. They are shorter and more convenient for navigating within the current directory structure.</p>
+<ul>
+<li>Example: If you are in <code>/Users/lawrencem/Documents</code>, then <code>cd Projects</code> is a relative path to the "Projects" folder within "Documents."</li>
+</ul>
+</li>
+</ul>
+<p><strong>Recommendation:</strong> While both absolute and relative paths are valid, <strong>relative paths are generally recommended</strong>, especially within projects. This is because relative paths are less prone to breaking if the project is moved to a different location or user account, as they are defined in relation to the project's structure, not a fixed absolute location.</p>
+<h2 id="managing-files-and-folders">Managing Files and Folders</h2>
+<p>Now let's learn how to create, delete, copy, and move files and folders using the Terminal.</p>
+<h3 id="creating-files-and-folders">Creating Files and Folders</h3>
+<ul>
+<li>
+<p><strong><code>touch</code> (Create Files):</strong>  While primarily designed to update file timestamps, <code>touch</code> is commonly used to create empty files.</p>
+<p><code>bash
+touch filename.extension</code></p>
+<ul>
+<li>Example: <code>touch index.html</code> creates an empty HTML file named <code>index.html</code> in the current directory.</li>
+<li>You can create multiple files at once: <code>touch file1.txt file2.txt file3.txt</code>.</li>
+<li>You can create files in specific directories using paths: <code>touch path/to/directory/newfile.txt</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>mkdir</code> (Make Directory):</strong> Creates new folders (directories).</p>
+<p><code>bash
+mkdir directory_name</code></p>
+<ul>
+<li>Example: <code>mkdir webdev</code> creates a new folder named <code>webdev</code> in the current directory.</li>
+<li>You can create folders in specific directories using paths: <code>mkdir path/to/directory/new_folder</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Handling Spaces in Filenames or Foldernames:</strong> If a filename or folder name contains spaces, you need to escape the space using a backslash <code>\</code>.</p>
+<ul>
+<li>Example: <code>mkdir "folder with spaces"</code> will create a folder named "folder with spaces" in Finder, but in the terminal, you should use <code>mkdir folder\ with\ spaces</code> or enclose the entire name in quotes: <code>mkdir "folder with spaces"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="deleting-files-and-folders">Deleting Files and Folders</h3>
+<p><strong>Caution:</strong> Deleting files and folders from the Terminal is <strong>permanent</strong>. There is no "Trash" or "Recycle Bin" involved. Once deleted, the data is gone. <strong>Exercise extreme caution</strong> when using delete commands, especially as a beginner.</p>
+<ul>
+<li>
+<p><strong><code>rm</code> (Remove Files):</strong> Deletes files.</p>
+<p><code>bash
+rm filename</code></p>
+<ul>
+<li>Example: <code>rm index.html</code> deletes the <code>index.html</code> file in the current directory.</li>
+<li>You can delete multiple files at once: <code>rm file1.txt file2.txt file3.txt</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>rmdir</code> (Remove Directory):</strong> Deletes empty directories only.</p>
+<p><code>bash
+rmdir directory_name</code></p>
+<ul>
+<li>Example: <code>rmdir empty_folder</code> deletes the folder <code>empty_folder</code> if it is empty.</li>
+<li><code>rmdir</code> will fail if the directory is not empty and display an error message like "directory not empty".</li>
+</ul>
+</li>
+<li>
+<p><strong><code>rm -r</code> or <code>rm -R</code> (Remove Directories and Contents - Recursive):</strong> Deletes directories and all their contents (files and subfolders). <strong>Use with extreme caution!</strong></p>
+<p><code>bash
+rm -r directory_name</code></p>
+<blockquote>
+<p><strong>Flag (or Option):</strong> In command-line interfaces, flags (also known as options or switches) are arguments that modify the behavior of a command. They are typically preceded by a hyphen <code>-</code> (or sometimes two hyphens <code>--</code>) and provide additional instructions or parameters to the command.</p>
+</blockquote>
+<ul>
+<li>
+<p>The <code>-r</code> or <code>-R</code> flag in the <code>rm</code> command stands for "recursive." It instructs <code>rm</code> to delete the specified directory and all its contents recursively, meaning it will go into subdirectories and delete their contents as well. <strong>This is a powerful and potentially dangerous command if misused.</strong></p>
+</li>
+<li>
+<p>Example: <code>rm -r paths</code> will delete the folder <code>paths</code> and everything inside it. <strong>Double-check before executing this command!</strong></p>
+</li>
+<li>
+<p>To understand flags for any command, you can use the <code>man</code> (manual) command followed by the command name: <code>man rm</code>. This will open the manual page for the <code>rm</code> command, detailing all available flags and options. Press <code>q</code> to exit the manual.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="copying-and-moving-files-and-folders">Copying and Moving Files and Folders</h3>
+<ul>
+<li>
+<p><strong><code>cp</code> (Copy):</strong> Copies files and folders.</p>
+<p><code>bash
+cp source_path target_path</code></p>
+<ul>
+<li>
+<p><strong>Copying a file:</strong> <code>cp source_file.txt destination_directory/</code></p>
+<ul>
+<li>Example: <code>cp index.html webdev/</code> copies <code>index.html</code> to the <code>webdev</code> folder in the current directory.</li>
+<li>To copy to the current directory, use <code>./</code> as the target path: <code>cp index.html ./</code> (though this is less common as it essentially copies to the same location).</li>
+</ul>
+</li>
+<li>
+<p><strong>Copying a folder recursively:</strong> <code>cp -r source_folder destination_directory/</code></p>
+<ul>
+<li>The <code>-r</code> flag is necessary to copy folders and their contents.</li>
+<li>Example: <code>cp -r webdev ~/</code> copies the <code>webdev</code> folder and all its contents to your home directory.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>mv</code> (Move):</strong> Moves (or renames) files and folders.</p>
+<p><code>bash
+mv source_path target_path</code></p>
+<ul>
+<li>
+<p><strong>Moving a file:</strong> <code>mv source_file.txt destination_directory/</code></p>
+<ul>
+<li>Example: <code>mv index.html webdev/</code> moves <code>index.html</code> to the <code>webdev</code> folder.</li>
+</ul>
+</li>
+<li>
+<p><strong>Moving a folder:</strong> <code>mv source_folder destination_directory/</code></p>
+<ul>
+<li>Example: <code>mv webdev ~/</code> moves the <code>webdev</code> folder to your home directory.</li>
+</ul>
+</li>
+<li>
+<p><strong>Renaming a file:</strong> <code>mv old_filename.txt new_filename.txt</code></p>
+<ul>
+<li>Example: <code>mv index.html index2.html</code> renames <code>index.html</code> to <code>index2.html</code> within the same directory.</li>
+</ul>
+</li>
+<li>
+<p><strong>Renaming a file and moving it:</strong> <code>mv old_filename.txt destination_directory/new_filename.txt</code></p>
+<ul>
+<li>Example: <code>mv index2.html webdev/index.html</code> renames <code>index2.html</code> to <code>index.html</code> and moves it to the <code>webdev</code> folder.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>This chapter has provided a foundational understanding of the macOS Terminal, covering essential concepts like shells, GUIs vs. CLIs, basic navigation commands, and fundamental file and folder management operations. By mastering these basics, you've taken your first steps towards harnessing the power and efficiency of the command line.</p>
+<p>Continue practicing these commands and exploring further functionalities of the Terminal. Experiment with different commands and flags, and consult the manual pages (<code>man command_name</code>) to deepen your understanding. The command line interface offers a vast landscape of possibilities for controlling your macOS system and enhancing your computing workflow.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

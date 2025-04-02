@@ -2,4 +2,5 @@ nav:
 - Home: index.md
 site_name: YouTube Courses - Learn Smarter
 site_description: YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized.
+site_url: https://adam-musk.github.io/youtube-tutorials/
 theme: terminal

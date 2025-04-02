@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a Product Filtering UI with Vanilla JavaScript and Tailwind CSS: An Educational Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-product-filtering-ui-with-vanilla-javascript-and-tailwind-css-an-educational-guide">Building a Product Filtering UI with Vanilla JavaScript and Tailwind CSS: An Educational Guide</a></li>
+        <li><a href="#project-overview">Project Overview</a></li><li><a href="#setting-up-the-development-environment">Setting Up the Development Environment</a></li><li><a href="#html-structure-with-tailwind-css">HTML Structure with Tailwind CSS</a></li><li><a href="#javascript-functionality">JavaScript Functionality</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-product-filtering-ui-with-vanilla-javascript-and-tailwind-css-an-educational-guide">Building a Product Filtering UI with Vanilla JavaScript and Tailwind CSS: An Educational Guide</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/Hwyyk1Ueoig" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter provides a step-by-step guide to building a dynamic product filtering user interface (UI) using vanilla JavaScript and Tailwind CSS. This project is excellent for beginner to intermediate web developers looking to enhance their JavaScript skills and explore the utility-first CSS framework, Tailwind CSS. We will cover building the layout with Tailwind CSS, implementing "Add to Cart" functionality, category filtering, and product search.</p>
+<h2 id="project-overview">Project Overview</h2>
+<p>This project focuses on creating an interactive product display with the following features:</p>
+<ul>
+<li><strong>Product Display:</strong>  Visually appealing product cards displaying images, names, and prices.</li>
+<li><strong>Add/Remove from Cart:</strong>  Functionality to add products to a virtual cart, indicated by a dynamic cart count.</li>
+<li><strong>Category Filtering:</strong>  Allow users to filter products based on predefined categories (e.g., cameras, smartphones, games, televisions).</li>
+<li><strong>Product Search:</strong>  Enable users to search for products by name.</li>
+<li><strong>Combined Filtering and Search:</strong>  When categories are selected, the search functionality will only apply to the products within the chosen categories.</li>
+<li><strong>Responsive Design:</strong>  The UI will adapt to different screen sizes, ensuring optimal viewing on desktops and mobile devices.</li>
+</ul>
+<p>This project is designed to improve your understanding of:</p>
+<ul>
+<li><strong>Vanilla JavaScript:</strong>  Working with core JavaScript without relying on external libraries or frameworks for DOM manipulation and event handling.</li>
+<li><strong>Tailwind CSS:</strong>  Utilizing a utility-first CSS framework to rapidly style web elements with pre-defined classes.</li>
+<li><strong>DOM Manipulation:</strong>  Dynamically creating, modifying, and updating HTML elements using JavaScript.</li>
+<li><strong>Event Handling:</strong>  Responding to user interactions such as clicks and input changes.</li>
+<li><strong>Array Methods:</strong>  Employing higher-order array methods like <code>forEach</code>, <code>filter</code>, and <code>map</code> for data manipulation and filtering.</li>
+</ul>
+<h2 id="setting-up-the-development-environment">Setting Up the Development Environment</h2>
+<p>To begin, you will need a basic development environment. This includes:</p>
+<ul>
+<li><strong>Text Editor:</strong> A code editor like VS Code, Sublime Text, or Atom. VS Code is recommended and will be used in this guide.</li>
+<li><strong>Web Browser:</strong> A modern web browser such as Chrome, Firefox, or Safari to view your project.</li>
+<li><strong>Live Server (Optional but Recommended):</strong> A local development server that automatically refreshes your browser when you save changes to your code.  VS Code has a Live Server extension that is easy to install and use.</li>
+</ul>
+<h3 id="project-structure">Project Structure</h3>
+<p>Create a new project folder named <code>product-filtering-ui</code>. Inside this folder, create the following files and folders:</p>
+<ul>
+<li><code>index.html</code>:  The main HTML file to structure the UI.</li>
+<li><code>script.js</code>:  The JavaScript file for adding interactivity.</li>
+<li><code>images/</code>: A folder to store product images. You can obtain these images from the provided resources or use your own.</li>
+</ul>
+<h2 id="html-structure-with-tailwind-css">HTML Structure with Tailwind CSS</h2>
+<p>We will begin by structuring the HTML for our product filtering UI and styling it using Tailwind CSS.</p>
+<h3 id="including-tailwind-css">Including Tailwind CSS</h3>
+<p>Tailwind CSS is included in this project using its Play CDN (Content Delivery Network). This is a quick way to get started with Tailwind without needing a complex build process. Add the following script tag within the <code>&lt;head&gt;</code> section of your <code>index.html</code> file:</p>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;title&gt;Text Store&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+<blockquote>
+<p><strong>CDN (Content Delivery Network)</strong>
+A CDN is a geographically distributed network of servers that caches static content like CSS, JavaScript, and images. Using a CDN allows users to load content faster as it is served from a server closer to their location.</p>
+</blockquote>
+<h3 id="basic-html-boilerplate-and-body-styling">Basic HTML Boilerplate and Body Styling</h3>
+<p>Start with a basic HTML boilerplate in <code>index.html</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Text Store&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gray-800 text-white&quot;&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Here, we've styled the <code>&lt;body&gt;</code> element using Tailwind CSS classes:</p>
+<ul>
+<li><code>bg-gray-800</code>: Sets the background color to a dark gray (Tailwind's gray-800 shade).</li>
+<li><code>text-white</code>: Sets the default text color to white.</li>
+</ul>
+<h3 id="navigation-bar-nav">Navigation Bar (Nav)</h3>
+<p>The navigation bar will contain a search input and a cart icon.</p>
+<pre><code class="language-html">&lt;nav class=&quot;bg-gray-900 p-4 mb-6&quot;&gt;
+    &lt;div class=&quot;container max-w-6xl mx-auto flex flex-col gap-8 items-center sm:flex-row&quot;&gt;
+        &lt;div class=&quot;relative w-full&quot;&gt;
+            &lt;input type=&quot;text&quot; id=&quot;search&quot; class=&quot;bg-gray-700 rounded-full p-2 pl-10 focus:w-full&quot; placeholder=&quot;Search products&quot;&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke-width=&quot;1.5&quot; stroke=&quot;currentColor&quot; class=&quot;w-5 h-5 absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400&quot;&gt;
+                &lt;!-- SVG Path for Search Icon --&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z&quot; /&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;relative text-center&quot;&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke-width=&quot;1.5&quot; stroke=&quot;currentColor&quot; class=&quot;w-6 h-6&quot;&gt;
+                &lt;!-- SVG Path for Cart Icon --&gt;
+                &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3 3 3 0 106 0 3 3 0 00-3-3zM15.75 14.25a3 3 0 00-3 3 3 3 0 106 0 3 3 0 00-3-3zM2.25 3l.5-2c.087-.35-.291-.8-.675-.8H2.25zm6.5 4.25l7.75-3.333.262.975-7.75 3.333-.262-.975z&quot; /&gt;
+            &lt;/svg&gt;
+            &lt;small id=&quot;cart-count&quot; class=&quot;bg-red-500 rounded-full text-xs text-white absolute -top-2 -right-2 w-4 h-4 flex items-center justify-center&quot;&gt;0&lt;/small&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+<p><strong>Tailwind CSS Classes Explained:</strong></p>
+<ul>
+<li><code>bg-gray-900</code>: Navigation bar background color (darker gray).</li>
+<li><code>p-4</code>: Padding on all sides (Tailwind's padding scale, 4 units).</li>
+<li><code>mb-6</code>: Margin bottom (Tailwind's margin scale, 6 units).</li>
+<li><code>container</code>: Centers content and sets maximum width.</li>
+<li><code>max-w-6xl</code>: Maximum width of the container (Tailwind's maximum width scale, 6xl).</li>
+<li><code>mx-auto</code>: Centers the container horizontally by setting left and right margins to auto.</li>
+<li><code>flex</code>: Enables flexbox layout for the container.</li>
+<li><code>flex-col</code>: Sets flex direction to column (for mobile view).</li>
+<li><code>gap-8</code>: Spacing between flex items (Tailwind's gap scale, 8 units).</li>
+<li><code>items-center</code>: Aligns flex items vertically to the center.</li>
+<li><code>sm:flex-row</code>:  Applies <code>flex-row</code> (flex direction to row) for small screens and above (responsive breakpoint).</li>
+<li><code>relative</code>: Positions the div relatively, enabling absolute positioning of child elements.</li>
+<li><code>w-full</code>: Sets width to 100% of the parent container.</li>
+<li><code>bg-gray-700</code>: Input background color (slightly lighter gray).</li>
+<li><code>rounded-full</code>:  Rounds the input's corners to create a pill shape.</li>
+<li><code>p-2</code>: Padding for the input.</li>
+<li><code>pl-10</code>: Left padding for the input to accommodate the search icon.</li>
+<li><code>focus:w-full</code>: When the input is focused, set width to 100%.</li>
+<li><code>absolute</code>: Positions the search icon absolutely within the relative parent.</li>
+<li><code>left-2</code>: Positions the icon 2 units from the left.</li>
+<li><code>top-1/2</code>: Positions the icon at 50% from the top.</li>
+<li><code>transform -translate-y-1/2</code>: Vertically centers the icon precisely.</li>
+<li><code>text-gray-400</code>: Sets the color of the search icon to a light gray.</li>
+<li><code>text-center</code>: Centers text within the div.</li>
+<li><code>bg-red-500</code>: Background color for the cart count circle (red).</li>
+<li><code>rounded-full</code>: Makes the cart count circle round.</li>
+<li><code>text-xs</code>: Text size extra small.</li>
+<li><code>text-white</code>: Text color white.</li>
+<li><code>absolute -top-2 -right-2</code>: Positions the cart count circle at the top-right corner, slightly outside.</li>
+<li><code>w-4 h-4</code>: Sets width and height to 4 units for the cart count circle.</li>
+<li><code>flex items-center justify-center</code>: Centers the number within the cart count circle.</li>
+</ul>
+<blockquote>
+<p><strong>Flexbox</strong>
+Flexbox is a CSS layout module that provides an efficient way to arrange, align, and distribute space among items in a container, even when their size is unknown or dynamic. It is particularly useful for designing one-dimensional layouts.</p>
+<p><strong>Responsive Design</strong>
+Responsive design is an approach to web design that aims to make web pages render well on a variety of devices and screen sizes, from desktop monitors to mobile phones. Tailwind CSS uses breakpoints to apply different styles at different screen sizes.</p>
+</blockquote>
+<h3 id="main-content-area">Main Content Area</h3>
+<p>The main content area will house the category filters sidebar and the product display grid.</p>
+<pre><code class="language-html">&lt;main class=&quot;flex flex-col mx-auto container max-w-6xl md:flex-row&quot;&gt;
+    &lt;div class=&quot;space-y-4 p-2 w-full max-w-[10rem]&quot;&gt;
+        &lt;h2&gt;Filters&lt;/h2&gt;
+        &lt;h3&gt;Category&lt;/h3&gt;
+        &lt;div id=&quot;filters-container&quot; class=&quot;text-xl space-y-2&quot;&gt;
+            &lt;div&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;check&quot; id=&quot;cameras&quot;&gt;
+                &lt;label for=&quot;cameras&quot;&gt;Cameras&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;check&quot; id=&quot;smartphones&quot;&gt;
+                &lt;label for=&quot;smartphones&quot;&gt;Smartphones&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;check&quot; id=&quot;games&quot;&gt;
+                &lt;label for=&quot;games&quot;&gt;Games&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;check&quot; id=&quot;televisions&quot;&gt;
+                &lt;label for=&quot;televisions&quot;&gt;Televisions&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&quot;products-wrapper&quot; class=&quot;w-full max-w-4xl mx-auto grid grid-cols-2 gap-6 place-content-center p-4 sm:grid-cols-3 xl:grid-cols-4&quot;&gt;
+        &lt;!-- Products will be dynamically inserted here by JavaScript --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<p><strong>Tailwind CSS Classes Explained (Main Content Area):</strong></p>
+<ul>
+<li><code>flex flex-col</code>: Enables flexbox and sets direction to column (stacking sidebar and product area).</li>
+<li><code>mx-auto container max-w-6xl</code>: Centers and sets maximum width for the main container, similar to the nav.</li>
+<li><code>md:flex-row</code>: Changes flex direction to row for medium screens and above, creating a sidebar layout.</li>
+<li><code>space-y-4</code>: Adds vertical spacing between elements within the filters div.</li>
+<li><code>p-2</code>: Padding for the filters div.</li>
+<li><code>w-full</code>: Filters div takes full width initially.</li>
+<li><code>max-w-[10rem]</code>: Sets a maximum width for the filters sidebar (using arbitrary value syntax in Tailwind CSS).</li>
+<li><code>text-xl</code>: Sets text size for category labels to extra-large.</li>
+<li><code>space-y-2</code>: Adds vertical spacing between category checkboxes.</li>
+<li><code>w-full max-w-4xl mx-auto</code>:  Sets width, maximum width, and centers the products wrapper.</li>
+<li><code>grid</code>: Enables CSS Grid layout for the products.</li>
+<li><code>grid-cols-2</code>: Sets initial grid columns to 2.</li>
+<li><code>gap-6</code>: Spacing between grid items (products).</li>
+<li><code>place-content-center</code>: Centers grid content if there's extra space.</li>
+<li><code>p-4</code>: Padding for the products wrapper.</li>
+<li><code>sm:grid-cols-3</code>: Changes grid columns to 3 for small screens and above.</li>
+<li><code>xl:grid-cols-4</code>: Changes grid columns to 4 for extra-large screens and above.</li>
+</ul>
+<blockquote>
+<p><strong>CSS Grid</strong>
+CSS Grid Layout is a powerful CSS layout module that allows for two-dimensional layouts, meaning it can handle both columns and rows. It provides a grid-based system for arranging elements on a page, offering more control and flexibility than flexbox for complex layouts.</p>
+</blockquote>
+<p>At this point, you have the basic HTML structure styled with Tailwind CSS. The product display area is currently empty, and we will populate it dynamically using JavaScript in the next section.</p>
+<h2 id="javascript-functionality">JavaScript Functionality</h2>
+<p>Now, we will add JavaScript code to <code>script.js</code> to bring our UI to life. This includes:</p>
+<ol>
+<li><strong>Product Data:</strong>  Defining an array of product objects.</li>
+<li><strong>DOM Element Selection:</strong>  Selecting HTML elements that we need to interact with.</li>
+<li><strong>Dynamic Product Rendering:</strong>  Creating and appending product elements to the product wrapper.</li>
+<li><strong>Add/Remove from Cart Functionality:</strong>  Implementing the "Add to Cart" and "Remove from Cart" button behavior and updating the cart count.</li>
+<li><strong>Category Filtering:</strong>  Implementing filtering based on selected categories.</li>
+<li><strong>Product Search:</strong>  Implementing product search functionality.</li>
+<li><strong>Combining Filtering and Search:</strong>  Ensuring search operates within selected categories.</li>
+</ol>
+<h3 id="product-data">Product Data</h3>
+<p>First, define an array of product objects in <code>script.js</code>. This data will represent our products and their details. You can copy this data from the provided resources:</p>
+<pre><code class="language-javascript">const products = [
+    {
+        &quot;name&quot;: &quot;PlayStation 5&quot;,
+        &quot;category&quot;: &quot;games&quot;,
+        &quot;price&quot;: 499,
+        &quot;url&quot;: &quot;images/playstation.webp&quot;
+    },
+    {
+        &quot;name&quot;: &quot;Samsung Galaxy S23&quot;,
+        &quot;category&quot;: &quot;smartphones&quot;,
+        &quot;price&quot;: 799,
+        &quot;url&quot;: &quot;images/samsung-galaxy.webp&quot;
+    },
+    {
+        &quot;name&quot;: &quot;Sony A7 IV&quot;,
+        &quot;category&quot;: &quot;cameras&quot;,
+        &quot;price&quot;: 2499,
+        &quot;url&quot;: &quot;images/sony-a7.webp&quot;
+    },
+    // ... (rest of the product data)
+];
+</code></pre>
+<p>This <code>products</code> array contains objects, each representing a product with properties like <code>name</code>, <code>category</code>, <code>price</code>, and <code>url</code> (image URL).</p>
+<h3 id="dom-element-selection">DOM Element Selection</h3>
+<p>Select the necessary DOM elements using JavaScript selectors:</p>
+<pre><code class="language-javascript">const productsWrapper = document.getElementById('products-wrapper');
+const checkboxes = document.querySelectorAll('.check');
+const filtersContainer = document.getElementById('filters-container');
+const searchInput = document.getElementById('search');
+const cartCountElement = document.getElementById('cart-count');
+</code></pre>
+<ul>
+<li><code>document.getElementById()</code>: Selects a single element by its <code>id</code>.</li>
+<li><code>document.querySelectorAll()</code>: Selects all elements that match a CSS selector (in this case, elements with the class <code>check</code>).</li>
+</ul>
+<blockquote>
+<p><strong>DOM (Document Object Model)</strong>
+The DOM is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as a tree of objects, where each object represents a part of the document. JavaScript uses the DOM to interact with HTML elements.</p>
+</blockquote>
+<h3 id="dynamic-product-rendering">Dynamic Product Rendering</h3>
+<p>Create a function <code>createProductElement</code> to generate the HTML for each product dynamically:</p>
+<pre><code class="language-javascript">let cartItemCount = 0;
+let productElements = [];
+
+function createProductElement(product) {
+    const productElement = document.createElement('div');
+    productElement.className = 'item space-y-2';
+    productElement.innerHTML = `
+        &lt;div class=&quot;bg-gray-100 flex justify-center relative overflow-hidden border rounded-xl group cursor-pointer&quot;&gt;
+            &lt;img src=&quot;images/${product.url}&quot; alt=&quot;${product.name}&quot; class=&quot;w-full h-full object-cover&quot;&gt;
+            &lt;button class=&quot;status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition-transform group-hover:translate-y-0&quot;&gt;Add to cart&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;text-xl&quot;&gt;${product.name}&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;$${product.price.toLocaleString()}&lt;/strong&gt;&lt;/p&gt;
+    `;
+
+    const statusButton = productElement.querySelector('.status');
+    statusButton.addEventListener('click', updateCart);
+
+    productElements.push(productElement);
+    return productElement;
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>createProductElement(product)</code>: This function takes a product object as input.</li>
+<li><code>document.createElement('div')</code>: Creates a new <code>div</code> element.</li>
+<li><code>productElement.className = 'item space-y-2'</code>: Sets the CSS classes for the product container.</li>
+<li><code>productElement.innerHTML = \``...\``: Sets the inner HTML of the product element using a template literal, dynamically inserting product data (</code>product.url<code>,</code>product.name<code>,</code>product.price`).</li>
+<li><code>${product.url}</code>, <code>${product.name}</code>, <code>${product.price.toLocaleString()}</code>:  These are template literals used to embed JavaScript expressions within the HTML string. <code>toLocaleString()</code> formats the price with commas for thousands separators.</li>
+<li><code>productElement.querySelector('.status')</code>: Selects the "Add to cart" button within the product element.</li>
+<li><code>statusButton.addEventListener('click', updateCart)</code>: Attaches a click event listener to the button, calling the <code>updateCart</code> function when clicked.</li>
+<li><code>productElements.push(productElement)</code>: Adds the created product element to the <code>productElements</code> array.</li>
+<li><code>return productElement</code>: Returns the created product element.</li>
+</ul>
+<blockquote>
+<p><strong>Template Literals</strong>
+Template literals (backtick-quoted strings) are string literals allowing embedded expressions. You can embed expressions using <code>${expression}</code>. They can also span multiple lines and allow string interpolation and tagged templates.</p>
+<p><strong>Event Listener</strong>
+An event listener is a procedure or function in JavaScript that waits for an event to occur. In web development, events can be user actions like clicks, key presses, or page loading. When a specified event occurs on a particular HTML element, the event listener executes a predefined function.</p>
+</blockquote>
+<p>Loop through the <code>products</code> array and append each product element to the <code>productsWrapper</code>:</p>
+<pre><code class="language-javascript">products.forEach(product =&gt; {
+    const productElement = createProductElement(product);
+    productsWrapper.appendChild(productElement);
+});
+</code></pre>
+<ul>
+<li><code>products.forEach(...)</code>: Iterates over each product in the <code>products</code> array.</li>
+<li><code>createProductElement(product)</code>: Calls the function to create a product element for each product.</li>
+<li><code>productsWrapper.appendChild(productElement)</code>: Appends the created product element as a child to the <code>productsWrapper</code> element, displaying it on the page.</li>
+</ul>
+<blockquote>
+<p><strong>Array Methods (forEach)</strong>
+<code>forEach</code> is a higher-order array method that executes a provided function once for each element in an array. It's used to iterate over array elements and perform operations on them.</p>
+</blockquote>
+<h3 id="addremove-from-cart-functionality">Add/Remove from Cart Functionality</h3>
+<p>Implement the <code>updateCart</code> function to handle adding and removing items from the cart:</p>
+<pre><code class="language-javascript">function updateCart(event) {
+    const statusElement = event.target;
+
+    if (statusElement.classList.contains('added')) {
+        // Remove from cart
+        statusElement.classList.remove('added');
+        statusElement.innerText = 'Add to cart';
+        statusElement.classList.remove('bg-red-600');
+        statusElement.classList.add('bg-black');
+        cartItemCount--;
+    } else {
+        // Add to cart
+        statusElement.classList.add('added');
+        statusElement.innerText = 'Remove from cart';
+        statusElement.classList.remove('bg-black');
+        statusElement.classList.add('bg-red-600');
+        cartItemCount++;
+    }
+    updateCartItemCountDisplay();
+}
+
+function updateCartItemCountDisplay() {
+    cartCountElement.innerText = cartItemCount.toString();
+}
+
+updateCartItemCountDisplay(); // Initialize cart count display
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>updateCart(event)</code>: This function is called when the "Add to cart" or "Remove from cart" button is clicked. It receives the <code>event</code> object.</li>
+<li><code>const statusElement = event.target</code>: Gets the button element that was clicked (<code>event.target</code>).</li>
+<li><code>statusElement.classList.contains('added')</code>: Checks if the button already has the class <code>added</code> (which we'll add when an item is in the cart).</li>
+<li><strong>Remove from cart (if <code>added</code> class exists):</strong><ul>
+<li><code>statusElement.classList.remove('added')</code>: Removes the <code>added</code> class.</li>
+<li><code>statusElement.innerText = 'Add to cart'</code>: Changes the button text back to "Add to cart".</li>
+<li><code>statusElement.classList.remove('bg-red-600')</code>: Removes the red background color.</li>
+<li><code>statusElement.classList.add('bg-black')</code>: Adds the black background color back.</li>
+<li><code>cartItemCount--</code>: Decrements the <code>cartItemCount</code>.</li>
+</ul>
+</li>
+<li><strong>Add to cart (if <code>added</code> class does not exist):</strong><ul>
+<li><code>statusElement.classList.add('added')</code>: Adds the <code>added</code> class.</li>
+<li><code>statusElement.innerText = 'Remove from cart'</code>: Changes the button text to "Remove from cart".</li>
+<li><code>statusElement.classList.remove('bg-black')</code>: Removes the black background color.</li>
+<li><code>statusElement.classList.add('bg-red-600')</code>: Adds the red background color.</li>
+<li><code>cartItemCount++</code>: Increments the <code>cartItemCount</code>.</li>
+</ul>
+</li>
+<li><code>updateCartItemCountDisplay()</code>: Calls the function to update the cart count display in the navigation bar.</li>
+<li><code>updateCartItemCountDisplay()</code>: This function updates the <code>cartCountElement</code>'s text content with the current <code>cartItemCount</code>.</li>
+<li><code>updateCartItemCountDisplay()</code> (initial call): Initializes the cart count display to "0" when the page loads.</li>
+</ul>
+<blockquote>
+<p><strong>classList Property</strong>
+The <code>classList</code> property in JavaScript is a read-only property that returns a live <code>DOMTokenList</code> collection of the class attributes of the element. It provides methods like <code>add()</code>, <code>remove()</code>, <code>contains()</code>, and <code>toggle()</code> to manipulate the CSS classes of an element dynamically.</p>
+</blockquote>
+<h3 id="category-filtering">Category Filtering</h3>
+<p>Implement the <code>filterProducts</code> function to filter products based on selected categories and the search term. Also, add event listeners for the category checkboxes and the search input:</p>
+<pre><code class="language-javascript">filtersContainer.addEventListener('change', filterProducts);
+searchInput.addEventListener('input', filterProducts);
+
+function filterProducts() {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    const checkedCategories = Array.from(checkboxes)
+        .filter(checkbox =&gt; checkbox.checked)
+        .map(checkbox =&gt; checkbox.id);
+
+    productElements.forEach((productElement, index) =&gt; {
+        const product = products[index];
+        const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm);
+        const isInCheckedCategory = checkedCategories.length === 0 || checkedCategories.includes(product.category);
+
+        if (matchesSearchTerm &amp;&amp; isInCheckedCategory) {
+            productElement.classList.remove('hidden');
+        } else {
+            productElement.classList.add('hidden');
+        }
+    });
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>filtersContainer.addEventListener('change', filterProducts)</code>: Adds a <code>change</code> event listener to the <code>filtersContainer</code>. When any checkbox within the container changes its state (checked or unchecked), <code>filterProducts</code> is called.</li>
+<li><code>searchInput.addEventListener('input', filterProducts)</code>: Adds an <code>input</code> event listener to the <code>searchInput</code>.  As the user types in the search input, <code>filterProducts</code> is called.</li>
+<li><code>function filterProducts()</code>: This function performs the product filtering logic.</li>
+<li><code>const searchTerm = searchInput.value.trim().toLowerCase()</code>: Gets the search term from the input, removes leading/trailing whitespace (<code>trim()</code>), and converts it to lowercase.</li>
+<li><code>const checkedCategories = ...</code>:  Gets an array of IDs (category names) of the checked checkboxes:<ul>
+<li><code>Array.from(checkboxes)</code>: Converts the <code>NodeList</code> of checkboxes to an array.</li>
+<li><code>.filter(checkbox =&gt; checkbox.checked)</code>: Filters the array to keep only checked checkboxes.</li>
+<li><code>.map(checkbox =&gt; checkbox.id)</code>: Maps the filtered array to an array of checkbox IDs (which are category names).</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Array Methods (filter, map)</strong>
+<code>filter</code> is a higher-order array method that creates a new array with all elements that pass the test implemented by the provided function.
+<code>map</code> is a higher-order array method that creates a new array by calling a provided function on every element in the calling array.</p>
+</blockquote>
+<ul>
+<li><code>productElements.forEach((productElement, index) =&gt; { ... })</code>: Iterates through each product element and its corresponding product data.</li>
+<li><code>const product = products[index]</code>: Gets the product object from the <code>products</code> array using the index.</li>
+<li><code>const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm)</code>: Checks if the product name (converted to lowercase) includes the <code>searchTerm</code>.</li>
+<li><code>const isInCheckedCategory = checkedCategories.length === 0 || checkedCategories.includes(product.category)</code>: Checks if the product's category is in the <code>checkedCategories</code> array, or if no categories are checked (in which case <code>checkedCategories.length === 0</code> is true, and all categories are considered).</li>
+<li><strong>Conditional Display (<code>if (matchesSearchTerm &amp;&amp; isInCheckedCategory)</code>)</strong>:<ul>
+<li>If both <code>matchesSearchTerm</code> and <code>isInCheckedCategory</code> are true (product matches search term AND is in a checked category OR no categories are checked), then:<ul>
+<li><code>productElement.classList.remove('hidden')</code>: Removes the <code>hidden</code> class from the product element, making it visible.</li>
+</ul>
+</li>
+<li><code>else</code>: Otherwise (product does not match search term OR is not in a checked category):<ul>
+<li><code>productElement.classList.add('hidden')</code>: Adds the <code>hidden</code> class to the product element, hiding it (using Tailwind CSS's <code>hidden</code> utility class which sets <code>display: none;</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Higher-Order Array Methods</strong>
+Higher-order array methods are functions that operate on arrays and can take other functions as arguments or return functions.  Examples include <code>forEach</code>, <code>map</code>, <code>filter</code>, <code>reduce</code>, and <code>sort</code>. They are powerful tools for functional programming in JavaScript and make array manipulation more concise and readable.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully built a product filtering UI using vanilla JavaScript and Tailwind CSS. This project demonstrates fundamental web development concepts such as DOM manipulation, event handling, and responsive design using a utility-first CSS framework.</p>
+<p>This educational guide has covered:</p>
+<ul>
+<li>Setting up the development environment.</li>
+<li>Structuring the HTML with Tailwind CSS for styling and responsiveness.</li>
+<li>Writing JavaScript to dynamically render products, implement "Add to Cart" functionality, category filtering, and product search.</li>
+<li>Utilizing higher-order array methods for efficient data manipulation.</li>
+</ul>
+<p>This project serves as a solid foundation for further exploration into more complex front-end development topics and frameworks. You can extend this project by adding features like persistent cart storage (using localStorage), more advanced filtering options (price range, ratings), or integrating with a backend API to fetch product data dynamically.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Creating an Interactive Developer Portfolio as a 2D Game - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#creating-an-interactive-developer-portfolio-as-a-2d-game">Creating an Interactive Developer Portfolio as a 2D Game</a></li>
+        <li><a href="#introduction-to-the-project">Introduction to the Project</a></li><li><a href="#setting-up-the-development-environment">Setting up the Development Environment</a></li><li><a href="#loading-assets-and-setting-up-the-game-scene">Loading Assets and Setting up the Game Scene</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="creating-an-interactive-developer-portfolio-as-a-2d-game">Creating an Interactive Developer Portfolio as a 2D Game</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/wy_fSStEgMs" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will guide you through the process of building a unique and engaging developer portfolio by transforming it into a 2D interactive game. This approach offers a refreshing alternative to traditional, static portfolios, allowing potential employers and collaborators to explore your skills and projects in an immersive and memorable way.</p>
+<h2 id="introduction-to-the-project">Introduction to the Project</h2>
+<p>This project demonstrates how to create a 2D developer portfolio designed as a game environment.  Instead of presenting information through standard web pages, users can navigate a virtual space and interact with objects to learn more about the developer's qualifications and experience.</p>
+<h3 id="project-overview">Project Overview</h3>
+<p>The core idea is to create a 2D game world, in this case, a house, which represents the developer's portfolio. Within this world, different objects are linked to specific aspects of the developer's profile.  For example:</p>
+<ul>
+<li>A diploma on the wall represents a Computer Science degree.</li>
+<li>A resume placed on a table links to an online resume document.</li>
+<li>Text displays provide additional information about the developer.</li>
+</ul>
+<p>This interactive approach aims to be more engaging than a typical portfolio website.  While some developers have explored 3D portfolios, this project focuses on a 2D implementation, leveraging the simplicity and accessibility of 2D game development.</p>
+<h3 id="technology-stack">Technology Stack</h3>
+<p>This project utilizes the following technologies:</p>
+<ul>
+<li>
+<p><strong>JavaScript:</strong> The primary programming language for building the game logic and interactivity.</p>
+<blockquote>
+<p><strong>JavaScript</strong></p>
+<p>A high-level, interpreted programming language primarily used to make web pages interactive. It is also used server-side with Node.js and in other environments.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Kaboom.js:</strong> A JavaScript library specifically designed for creating 2D games in a simple and intuitive manner.</p>
+<blockquote>
+<p><strong>Kaboom.js</strong></p>
+<p>A fast and fun JavaScript library for making 2D games. It prioritizes ease of use and rapid prototyping, making it suitable for beginners and experienced developers alike.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>HTML (HyperText Markup Language) and CSS (Cascading Style Sheets):</strong>  Used for creating the user interface (UI) elements, particularly the text boxes and interactive text within the game.</p>
+<blockquote>
+<p><strong>HTML (HyperText Markup Language)</strong></p>
+<p>The standard markup language for documents designed to be displayed in a web browser. It provides the structure and content of a webpage.</p>
+<p><strong>CSS (Cascading Style Sheets)</strong></p>
+<p>A style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS controls the visual appearance of web pages.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Responsive Design Principles:</strong> Employed to ensure the portfolio game is accessible and functional across various screen sizes and devices, including mobile devices.</p>
+<blockquote>
+<p><strong>Responsive Design</strong></p>
+<p>An approach to web design that aims to make web pages render well on a variety of devices and screen sizes by using flexible grids and layouts, images and CSS media queries.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="user-interaction-and-responsiveness">User Interaction and Responsiveness</h3>
+<p>A key consideration is making the portfolio game interactive and responsive to user input, particularly for mobile devices.</p>
+<ul>
+<li><strong>Mouse and Touch Input:</strong> The game is designed to be interacted with using both mouse clicks and touch input on touchscreens.</li>
+<li><strong>HTML and CSS for UI Responsiveness:</strong> Utilizing HTML and CSS for the UI elements ensures that text boxes and other interactive elements are responsive and adapt to different screen aspect ratios, crucial for mobile compatibility.</li>
+</ul>
+<h2 id="setting-up-the-development-environment">Setting up the Development Environment</h2>
+<p>To begin developing this portfolio game, you will need to set up your development environment. This involves installing necessary software and initializing a project structure.</p>
+<h3 id="software-requirements">Software Requirements</h3>
+<ul>
+<li>
+<p><strong>VS Code (Visual Studio Code):</strong> A popular and versatile code editor, recommended for this project.</p>
+<blockquote>
+<p><strong>VS Code (Visual Studio Code)</strong></p>
+<p>A source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Node.js:</strong> A JavaScript runtime environment required for using development tools and package managers.</p>
+<blockquote>
+<p><strong>Node.js</strong></p>
+<p>An open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js is often used for building server-side and networking applications.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="project-initialization-with-vite">Project Initialization with Vite</h3>
+<p>This project utilizes Vite, a build tool that streamlines JavaScript development and offers several advantages over traditional script tag inclusion.</p>
+<ul>
+<li>
+<p><strong>Vite (Vit):</strong> A fast and opinionated web dev build tool that serves your code via native ES modules during development and bundles it with Rollup for production.</p>
+<blockquote>
+<p><strong>Vite (Vit)</strong></p>
+<p>A build tool that aims to provide a faster and leaner development experience for modern web projects. It leverages native ES modules and other modern web technologies to achieve this speed.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Bundler:</strong> Vite acts as a bundler, which processes and prepares your JavaScript code for the browser.</p>
+<blockquote>
+<p><strong>Bundler</strong></p>
+<p>A tool that takes JavaScript and related assets and bundles them together into a smaller number of files, often optimized for browser performance. Bundlers handle module resolution, code transformation, and optimization.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Steps to Initialize the Project:</strong></p>
+<ol>
+<li><strong>Open VS Code:</strong> Launch VS Code and open a new folder where you want to create your project.</li>
+<li><strong>Open Terminal:</strong> Open the integrated terminal within VS Code (usually by going to <code>View &gt; Terminal</code>).</li>
+<li>
+<p><strong>Run Vite Project Creation Command:</strong> In the terminal, type the following command and press Enter:</p>
+<p><code>bash
+npm create vite@latest .</code></p>
+<blockquote>
+<p><strong>npm install</strong></p>
+<p>A command used by the Node Package Manager (npm) to install packages and dependencies for a Node.js project. These packages are typically listed in the <code>package.json</code> file.</p>
+</blockquote>
+<p>This command uses <code>npm</code>, the Node Package Manager, to execute <code>create-vite</code>, Vite's project scaffolding tool. The <code>.</code> specifies that the project should be created in the current folder.</p>
+</li>
+<li>
+<p><strong>Framework Selection:</strong>  Vite will prompt you to select a framework. Choose "vanilla" for vanilla JavaScript, meaning no specific framework like React or Vue.js will be used.</p>
+</li>
+<li>
+<p><strong>Install Kaboom.js:</strong> Once the project is created, navigate into the project directory in the terminal (if you aren't already there) and run the following command to install the Kaboom.js library:</p>
+<p><code>bash
+npm install kaboom</code></p>
+<p>This command adds Kaboom.js as a dependency to your project.  You can verify this by checking the <code>package.json</code> file, which lists your project's dependencies.</p>
+<blockquote>
+<p><strong>package.json</strong></p>
+<p>A JSON file that is the heart of a Node.js project. It records important metadata about a project such as the name, version, dependencies, and scripts.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="project-structure-and-file-setup">Project Structure and File Setup</h3>
+<p>After initializing the project and installing Kaboom.js, you'll need to organize your project files and remove unnecessary boilerplate code.</p>
+<ul>
+<li><strong>Boilerplate:</strong> Pre-written code or templates that are automatically generated when starting a new project. Boilerplate is meant to be customized and form the foundation of your application.</li>
+</ul>
+<p><strong>Steps to Structure the Project:</strong></p>
+<ol>
+<li>
+<p><strong>Remove Boilerplate Files:</strong> Delete the following files generated by Vite as they are not needed for this project:</p>
+<ul>
+<li><code>main.js</code> (in the <code>src</code> folder, you will create a new one later)</li>
+<li><code>counter.js</code> (in the <code>src</code> folder)</li>
+<li><code>vite.svg</code> (in the <code>public</code> folder)</li>
+<li><code>style.css</code> (in the <code>src</code> folder)</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Folders:</strong> Create the following folders at the root of your project directory:</p>
+<ul>
+<li>
+<p><code>src</code>: This folder will house your JavaScript source code.</p>
+<blockquote>
+<p><strong>Source Folder (SRC)</strong></p>
+<p>A common directory in software projects that contains the source code files. In web development, this often includes JavaScript, CSS, and other assets that are processed by build tools.
+    *   <code>public</code>: This folder will store public assets like images, fonts, and the game map data.</p>
+<p><strong>Public Folder</strong></p>
+<p>A directory in a web project that contains static assets that are served directly to the browser without processing. This includes images, fonts, and other files that don't need to be bundled.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>vite.config.js</code>:</strong> Create a file named <code>vite.config.js</code> at the root of your project. This file will contain Vite configuration settings.</p>
+<blockquote>
+<p><strong>v config.js</strong></p>
+<p>A configuration file for Vite projects. It allows developers to customize Vite's behavior, such as setting up plugins, defining build options, and configuring server settings.</p>
+</blockquote>
+<p>Add the following code to <code>vite.config.js</code>:</p>
+<p>```javascript
+import { defineConfig } from 'vite'</p>
+<p>export default defineConfig({
+  base: './',
+  build: {
+    minify: 'terser',
+  },
+})
+```</p>
+<p>This configuration does the following:</p>
+<ul>
+<li><strong><code>import { defineConfig } from 'vite'</code></strong>: Imports the <code>defineConfig</code> function from Vite, which is used to define the configuration object.</li>
+<li><strong><code>export default defineConfig({...})</code></strong>: Exports the configuration object as the default export, making it accessible to Vite.</li>
+<li><strong><code>base: './'</code></strong>: Specifies the base URL for public assets. Setting it to <code>'./'</code> ensures assets are referenced relative to the HTML file, which is important for deployment.</li>
+<li>
+<p><strong><code>build: { minify: 'terser' }</code></strong>: Configures the build process to use <code>terser</code> for code minification.</p>
+<blockquote>
+<p><strong>Transpile/Compile</strong></p>
+<p>The process of converting code from one language or language version to another. In web development, this often refers to converting modern JavaScript code (ES6+) into code that can run in older browsers (ES5).</p>
+<p><strong>Optimizations/Minification</strong></p>
+<p>Techniques used to reduce the size and improve the performance of code. Minification specifically involves removing unnecessary characters (like whitespace and comments) from code without changing its functionality.</p>
+<p><strong>Import statements</strong></p>
+<p>A feature in modern JavaScript (ES modules) that allows you to include and use code from other modules or files. This promotes modularity and code organization.</p>
+<p><strong>Export default</strong></p>
+<p>A way to export a single value, such as a function, class, or object, as the main export from a JavaScript module. It's commonly used when a module primarily exports one thing.</p>
+<p><strong>Define config</strong></p>
+<p>A function provided by Vite to help define the configuration object in <code>vite.config.js</code>. It provides type hinting and autocompletion for configuration options.</p>
+<p><strong>Base (in vite config)</strong></p>
+<p>In Vite's configuration, the <code>base</code> option specifies the base URL for all public assets. It affects how paths are generated when building the project, especially important for deployment in subdirectories.</p>
+<p><strong>npm run build</strong></p>
+<p>A command used to build a production-ready version of a project using npm scripts defined in <code>package.json</code>. For Vite projects, this command typically bundles and optimizes the code for deployment.</p>
+<p><strong>Assets</strong></p>
+<p>Static files required by a web application, such as images, fonts, and other non-code resources. Vite handles assets in the <code>public</code> directory, making them directly accessible in the browser.</p>
+<p><strong>Minification (turer, esbuild)</strong></p>
+<p>Code minification is the process of removing unnecessary characters from code to reduce its size and improve loading times. <code>terser</code> and <code>esbuild</code> are different JavaScript minifiers; <code>terser</code> is chosen here due to compatibility with Kaboom.js.</p>
+<p><strong>Dev dependency</strong></p>
+<p>In <code>package.json</code>, dev dependencies are packages that are only needed during development and not in the final production build. <code>terser</code> is added as a dev dependency because it's used for building the project, not for running it in the browser.</p>
+</blockquote>
+<p>The <code>minify: 'terser'</code> option is crucial because of a known issue with Kaboom.js and the default minifier (<code>esbuild</code>) in Vite. Using <code>terser</code> ensures that the built game functions correctly. You will need to install <code>terser</code> as a development dependency by running:</p>
+<p><code>bash
+npm install -D terser</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>main.js</code> in <code>src</code>:</strong> Create a new file named <code>main.js</code> inside the <code>src</code> folder. This will be your main JavaScript file where you will write the game logic.</p>
+<blockquote>
+<p><strong>main.js</strong></p>
+<p>A common name for the primary JavaScript file in a project. It often serves as the entry point for the application's logic and is where execution begins.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Modify <code>index.html</code>:</strong> Open the <code>index.html</code> file at the root of your project and make the following modifications:</p>
+<ul>
+<li>
+<p><strong>Add Style Tag:</strong> Inside the <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code> tag (ideally in <code>&lt;body&gt;</code> for clarity in this project), add a <code>&lt;style&gt;</code> tag. This is where you will write your CSS styles for the game.</p>
+<blockquote>
+<p><strong>index.html</strong></p>
+<p>The main HTML file of a web project, typically the entry point that is loaded when a user accesses the website or application. It structures the content and links to other resources like JavaScript and CSS files.</p>
+<p><strong>style tag</strong></p>
+<p>An HTML tag used to embed Cascading Style Sheets (CSS) directly within an HTML document. Styles defined within <code>&lt;style&gt;</code> tags apply to the elements in the HTML document.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Modify Script Tag:</strong> Locate the <code>&lt;script&gt;</code> tag in <code>index.html</code> that imports <code>main.js</code>. Change the <code>src</code> attribute to point to the correct path within the <code>src</code> folder:</p>
+<p><code>html
+&lt;script type="module" src="./src/main.js"&gt;&lt;/script&gt;</code></p>
+<blockquote>
+<p><strong>script tag</strong></p>
+<p>An HTML tag used to embed or link to executable scripts, typically JavaScript, within an HTML document. The <code>src</code> attribute specifies the path to an external script file, and <code>type="module"</code> indicates it's a JavaScript module.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Canvas Element:</strong> Inside the <code>&lt;body&gt;</code> tag, add a <code>&lt;canvas&gt;</code> element with the ID "game". This is where Kaboom.js will render the game. Also, create a <code>&lt;div&gt;</code> element with the ID "ui" to contain HTML-based UI elements.</p>
+<p><code>html
+&lt;body&gt;
+  &lt;canvas id="game"&gt;&lt;/canvas&gt;
+  &lt;div id="ui"&gt;&lt;/div&gt;
+  &lt;script type="module" src="./src/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></p>
+<blockquote>
+<p><strong>canvas</strong></p>
+<p>An HTML element that provides a resolution-dependent bitmap canvas which can be used for rendering graphics, game visuals, or other visual images on the fly via scripting (usually JavaScript).</p>
+<p><strong>ID (of elements)</strong></p>
+<p>In HTML, the <code>id</code> attribute is used to uniquely identify an element within a document. It's used by CSS and JavaScript to target and manipulate specific elements.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>KaboomCtx.js</code> in <code>src</code>:</strong> Create a new file named <code>KaboomCtx.js</code> (or <code>KaboomContext.js</code>) inside the <code>src</code> folder. This file will be dedicated to setting up the Kaboom.js context.</p>
+<blockquote>
+<p><strong>Kaboom context.js (CTX)</strong></p>
+<p>A dedicated JavaScript file (often named <code>KaboomCtx.js</code> or similar) used to initialize and configure the Kaboom.js game engine. It encapsulates the Kaboom.js context and makes it easily accessible throughout the project.</p>
+</blockquote>
+<p>Add the following code to <code>KaboomCtx.js</code>:</p>
+<p>```javascript
+import kaboom from 'kaboom';</p>
+<p>export const K = kaboom({
+  global: false,
+  touchToMouse: true,
+  canvas: document.getElementById('game'),
+});
+```</p>
+<p>This code initializes Kaboom.js with the following configurations:</p>
+<ul>
+<li><strong><code>import kaboom from 'kaboom';</code></strong>: Imports the Kaboom.js library.</li>
+<li><strong><code>export const K = kaboom({...});</code></strong>: Initializes Kaboom.js and exports the context object as <code>K</code>.</li>
+<li><strong><code>global: false</code></strong>: Prevents Kaboom.js functions from being globally available, promoting better code organization and preventing naming conflicts.</li>
+<li><strong><code>touchToMouse: true</code></strong>: Enables touch input to be translated into mouse events, making the game playable on touch devices.</li>
+<li>
+<p><strong><code>canvas: document.getElementById('game')</code></strong>:  Tells Kaboom.js to use the <code>&lt;canvas&gt;</code> element with the ID "game" for rendering.</p>
+<blockquote>
+<p><strong>Global property (in Kaboom config)</strong></p>
+<p>A configuration option in Kaboom.js that determines whether Kaboom.js functions are made globally available in the JavaScript environment. Setting <code>global: false</code> restricts them to the exported context, improving code organization.</p>
+<p><strong>Touch to Mouse property</strong></p>
+<p>A Kaboom.js configuration option (<code>touchToMouse: true</code>) that automatically translates touch events on touch devices into mouse events. This allows developers to write code primarily for mouse input while ensuring compatibility with touchscreens.</p>
+<p><strong>Canvas property</strong></p>
+<p>A Kaboom.js configuration option that specifies which HTML <code>&lt;canvas&gt;</code> element Kaboom.js should use for rendering the game. It's set using <code>canvas: document.getElementById('yourCanvasId')</code>.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>constants.js</code> in <code>src</code>:</strong> Create a new file named <code>constants.js</code> inside the <code>src</code> folder. This file will store project-wide constants, such as scale factors and dialogue data.</p>
+<blockquote>
+<p><strong>Constant.js</strong></p>
+<p>A JavaScript file dedicated to storing constant values used throughout a project. This improves code maintainability by centralizing configuration values like scale factors, game settings, or dialogue data.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Create <code>utils.js</code> in <code>src</code>:</strong> Create a new file named <code>utils.js</code> inside the <code>src</code> folder. This file will house utility functions, such as the dialogue display function.</p>
+<blockquote>
+<p><strong>Utils.js</strong></p>
+<p>A JavaScript file used to store utility functions that are used across different parts of a project. These functions are typically reusable and perform common tasks, such as displaying dialogues or handling game logic.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Public Assets:</strong> Create a folder named <code>assets</code> inside the <code>public</code> folder. This folder will contain game assets like fonts and sprite sheets.</p>
+<blockquote>
+<p><strong>assets</strong></p>
+<p>In web development, the <code>assets</code> directory within the <code>public</code> folder (or similar) is commonly used to store static files like images, fonts, and sounds that are directly served to the browser without processing by build tools.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Font File:</strong> Download the <code>monogram.ttf</code> font file (link provided in the video description) and place it inside the <code>public/assets</code> folder.</p>
+<blockquote>
+<p><strong>monogram.ttf</strong></p>
+<p>A TrueType Font (TTF) file named "monogram". In this context, it's used as the font for text elements within the developer portfolio game, providing a pixel-art style.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Sprite Sheet:</strong> Download the <code>SpriteSheet.png</code> sprite sheet image (link provided in the video description) and place it inside the <code>public/assets</code> folder.</p>
+<blockquote>
+<p><strong>Sprite sheet</strong></p>
+<p>A single image file that contains multiple smaller images, called sprites, arranged in a grid. Sprite sheets are commonly used in 2D game development to efficiently load and manage game graphics.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Tiled Map Files:</strong> Download the <code>map.json</code> and <code>map.png</code> files (links provided in the video description) and place them directly inside the <code>public</code> folder. These files represent the game map created with Tiled.</p>
+<blockquote>
+<p><strong>tiled</strong></p>
+<p>A popular open-source tile map editor used for creating 2D game levels. Tiled allows developers to visually design game maps and export them in formats that can be used by game engines like Kaboom.js.</p>
+<p><strong>map.json</strong></p>
+<p>A JSON file that stores the data for a tile map created with Tiled. It contains information about layers, tilesets, objects, and other map properties, used by game engines to render and interact with the map.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<p>With these steps completed, your project environment is set up, and you are ready to begin implementing the game logic and content.</p>
+<h2 id="loading-assets-and-setting-up-the-game-scene">Loading Assets and Setting up the Game Scene</h2>
+<p>With the project structure in place, the next step is to load the necessary assets (sprites and map) and set up the initial game scene in Kaboom.js.</p>
+<h3 id="loading-sprites">Loading Sprites</h3>
+<p>Sprites are essential visual components in 2D games. Kaboom.js provides functions to easily load and manage sprites.</p>
+<ol>
+<li><strong>Open <code>main.js</code>:</strong> Navigate to and open the <code>main.js</code> file in your <code>src</code> folder.</li>
+<li>
+<p><strong>Import Kaboom Context:</strong> Import the Kaboom context (<code>K</code>) that you exported from <code>KaboomCtx.js</code>:</p>
+<p><code>javascript
+import { K } from './KaboomCtx.js';</code></p>
+</li>
+<li>
+<p><strong>Load Sprite Sheet:</strong> Use the <code>loadSprite</code> function from Kaboom.js to load the <code>SpriteSheet.png</code> image. Add this code within your <code>main.js</code> file:</p>
+<p><code>javascript
+K.loadSprite('spriteSheet', 'assets/SpriteSheet.png', {
+  sliceX: 39,
+  sliceY: 27,
+  anims: {
+    'idleDown': { from: 536, to: 536 },
+    'walkDown': { from: 536, to: 539, loop: true, speed: 8 },
+    'walkUp': { from: 563, to: 566, loop: true, speed: 8 },
+    'walkSide': { from: 550, to: 553, loop: true, speed: 8 },
+  },
+});</code></p>
+<blockquote>
+<p><strong>Sprite</strong></p>
+<p>A 2D image or graphic that is used as a building block in 2D games. Sprites can represent characters, objects, or elements of the game environment.</p>
+<p><strong>Frames</strong></p>
+<p>Individual images within a sprite sheet that, when played in sequence, create animation. In Kaboom.js, frames are referenced by their index in the sprite sheet.</p>
+<p><strong>Slice X, Slice Y</strong></p>
+<p>Parameters in Kaboom.js's <code>loadSprite</code> function that define how a sprite sheet should be divided into individual frames. <code>sliceX</code> specifies the number of frames horizontally, and <code>sliceY</code> vertically.</p>
+<p><strong>anims property</strong></p>
+<p>An option within Kaboom.js's <code>loadSprite</code> function used to define animations for a sprite. It maps animation names (like 'idleDown', 'walkUp') to frame sequences and animation properties.</p>
+<p><strong>Idle down animation</strong></p>
+<p>An animation state for a character when they are stationary and facing downwards. In this project, it consists of a single frame (frame 536).</p>
+<p><strong>Frame number</strong></p>
+<p>An index that identifies a specific frame within a sprite sheet. Frame numbers are used in Kaboom.js to specify which frame to display or include in an animation sequence.</p>
+</blockquote>
+<p><strong>Explanation of the <code>loadSprite</code> function call:</strong></p>
+<ul>
+<li><strong><code>'spriteSheet'</code></strong>:  This is the key or name you assign to the loaded sprite sheet. You will use this key to reference the sprite sheet later in your code.</li>
+<li><strong><code>'assets/SpriteSheet.png'</code></strong>: This is the path to the <code>SpriteSheet.png</code> file in your <code>public/assets</code> folder. Vite allows you to access files in the <code>public</code> folder directly by their path from the root.</li>
+<li><strong><code>{ ... }</code></strong>: This is an options object that configures how Kaboom.js should interpret the sprite sheet:<ul>
+<li><strong><code>sliceX: 39</code></strong>: Specifies that the sprite sheet is divided into 39 columns of frames horizontally.</li>
+<li><strong><code>sliceY: 27</code></strong>: Specifies that the sprite sheet is divided into 27 rows of frames vertically.</li>
+<li><strong><code>anims: { ... }</code></strong>: Defines animation sequences for the sprite sheet:<ul>
+<li><strong><code>'idleDown': { from: 536, to: 536 }</code></strong>: Defines the 'idleDown' animation, which uses only frame 536 (meaning it's a static image).</li>
+<li><strong><code>'walkDown': { from: 536, to: 539, loop: true, speed: 8 }</code></strong>: Defines the 'walkDown' animation, using frames 536 to 539, set to loop continuously (<code>loop: true</code>) at a speed of 8 frames per second (<code>speed: 8</code>).</li>
+<li><strong><code>'walkUp'</code>, <code>'walkSide'</code></strong>: Similar animation definitions for walking up and sideways, using different frame ranges from the sprite sheet.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The frame numbers (e.g., 536, 539, 563) were determined using the <strong>Tiled editor</strong>.</p>
+<blockquote>
+<p><strong>Tiled editor</strong></p>
+<p>A cross-platform tile map editor, often simply referred to as "Tiled". It is used to create tile-based levels for games and provides tools for drawing maps, placing objects, and setting properties.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="creating-the-game-scene">Creating the Game Scene</h3>
+<p>Kaboom.js uses scenes to organize different parts of your game, such as menus, levels, or in this case, the main game environment.</p>
+<ol>
+<li>
+<p><strong>Define the Main Scene:</strong>  Use the <code>scene</code> function from Kaboom.js to define a scene named "main". Make this function asynchronous (<code>async</code>) as it will load the map data.</p>
+<p><code>javascript
+K.scene('main', async () =&gt; {
+  // Scene code will go here
+});</code></p>
+</li>
+<li>
+<p><strong>Set the Default Scene:</strong> Use the <code>go</code> function to set "main" as the default scene that Kaboom.js should load when the game starts.</p>
+<p><code>javascript
+K.go('main');</code></p>
+</li>
+<li>
+<p><strong>Set Background Color:</strong> Within the "main" scene function, set the background color using <code>setBackground</code>.</p>
+<p><code>javascript
+K.scene('main', async () =&gt; {
+  K.setBackground(K.Color.fromHex('#300b47'));
+  // ... rest of scene code
+});</code></p>
+</li>
+<li>
+<p><strong>Load Map Data:</strong> Fetch the <code>map.json</code> file using the <code>fetch</code> API and parse it as JSON.</p>
+<p>```javascript
+K.scene('main', async () =&gt; {
+  K.setBackground(K.Color.fromHex('#300b47'));</p>
+<p>const mapData = await fetch('map.json').then((res) =&gt; res.json());
+  const layers = mapData.layers;</p>
+<p>// ... rest of scene code
+});
+```</p>
+<blockquote>
+<p><strong>Fetch API</strong></p>
+<p>A modern JavaScript interface for making network requests. It provides a way to retrieve resources from servers, such as JSON data or images, and is commonly used for loading game assets.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Load Map Sprite:</strong> Load the <code>map.png</code> image as a sprite using <code>loadSprite</code>.</p>
+<p>```javascript
+K.scene('main', async () =&gt; {
+  K.setBackground(K.Color.fromHex('#300b47'));</p>
+<p>const mapData = await fetch('map.json').then((res) =&gt; res.json());
+  const layers = mapData.layers;</p>
+<p>K.loadSprite('map', 'map.png');</p>
+<p>// ... rest of scene code
+});
+```</p>
+</li>
+<li>
+<p><strong>Add Map Game Object:</strong> Create and add the map game object to the scene using <code>K.add</code>.</p>
+<p>```javascript
+K.scene('main', async () =&gt; {
+  K.setBackground(K.Color.fromHex('#300b47'));</p>
+<p>const mapData = await fetch('map.json').then((res) =&gt; res.json());
+  const layers = mapData.layers;</p>
+<p>K.loadSprite('map', 'map.png');</p>
+<p>const map = K.add([
+    K.sprite('map'),
+    K.pos(0, 0),
+    K.scale(4), // Assuming scale factor is 4
+  ]);</p>
+<p>// ... rest of scene code
+});
+```</p>
+<blockquote>
+<p><strong>Game object (in Kaboom JS)</strong></p>
+<p>The fundamental building block in Kaboom.js for creating game entities. Game objects are composed of components that define their behavior and properties, such as sprite, position, area, and body.</p>
+<p><strong>Components (in Kaboom JS)</strong></p>
+<p>Reusable modules that define specific behaviors and properties of game objects in Kaboom.js. Components are added to game objects as an array and include built-in components like <code>sprite</code>, <code>pos</code>, <code>area</code>, <code>body</code>, and custom components.</p>
+<p><strong>Entity Component System</strong></p>
+<p>A design pattern used in game development where game entities (objects) are composed of reusable components. Each component provides specific functionality, and entities are created by combining different components. Kaboom.js uses an ECS architecture.</p>
+<p><strong>Make function (Kaboom JS)</strong></p>
+<p>A Kaboom.js function used to create a game object without immediately adding it to the scene. It's useful for pre-configuring game objects before adding them to the active scene.</p>
+<p><strong>Add function (Kaboom JS)</strong></p>
+<p>A Kaboom.js function used to add a game object to the current scene. It takes an array of components as input and returns the created game object instance.</p>
+<p><strong>Sprite component</strong></p>
+<p>A Kaboom.js component that renders a sprite (image) for a game object. It's added using <code>K.sprite('spriteName')</code>, where 'spriteName' is the key of a sprite loaded with <code>loadSprite</code>.</p>
+<p><strong>Positional component</strong></p>
+<p>A Kaboom.js component that defines the position of a game object in the game world. It's added using <code>K.pos(x, y)</code> and allows you to set and manipulate the object's 2D coordinates.</p>
+<p><strong>Scale component</strong></p>
+<p>A Kaboom.js component that scales a game object. It's added using <code>K.scale(factor)</code> or <code>K.scale(xFactor, yFactor)</code> and allows you to resize the object visually.</p>
+<p><strong>Scale factor</strong></p>
+<p>A numerical value used to multiply the size of an object. In this project, a scale factor of 4 is used to enlarge the pixel art graphics to a more visible size.</p>
+</blockquote>
+<p><strong>Explanation of the Map Game Object Creation:</strong></p>
+<ul>
+<li><strong><code>K.add([...])</code></strong>: Adds a new game object to the scene.</li>
+<li><strong><code>K.sprite('map')</code></strong>: Adds the Sprite component, using the sprite named 'map' (loaded from <code>map.png</code>). This makes the map image visible.</li>
+<li><strong><code>K.pos(0, 0)</code></strong>: Adds the Positional component, setting the map's position to the top-left corner of the canvas (coordinates 0, 0).</li>
+<li><strong><code>K.scale(4)</code></strong>: Adds the Scale component, scaling the map up by a factor of 4 in both dimensions. This makes the pixel art map larger and more visible.</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the Development Server:</strong>  In your terminal, run the command <code>npm run dev</code>. This will start the Vite development server. Open the provided local URL in your web browser (usually <code>http://localhost:5173/</code>) to view your game. You should now see the map background displayed.</p>
+</li>
+</ol>
+<p>With these steps, you have successfully loaded the map sprite and displayed it in your Kaboom.js game scene. The next chapter will focus on adding the player character and implementing movement.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Creating Desktop Games with JavaScript: A Practical Guide Using Capl and Tori - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#creating-desktop-games-with-javascript-a-practical-guide-using-capl-and-tori">Creating Desktop Games with JavaScript: A Practical Guide Using Capl and Tori</a></li>
+        <li><a href="#introduction-bridging-web-and-desktop-game-development-with-javascript">Introduction: Bridging Web and Desktop Game Development with JavaScript</a></li><li><a href="#1-setting-up-your-development-environment-prerequisites-and-installation">1. Setting Up Your Development Environment: Prerequisites and Installation</a></li><li><a href="#2-project-initialization-setting-up-a-tori-project-with-capl">2. Project Initialization: Setting Up a Tori Project with Capl</a></li><li><a href="#3-core-game-structure-scenes-assets-and-utilities">3. Core Game Structure: Scenes, Assets, and Utilities</a></li><li><a href="#4-building-the-start-menu-scene">4. Building the Start Menu Scene</a></li><li><a href="#5-implementing-game-saving-and-loading">5. Implementing Game Saving and Loading</a></li><li><a href="#6-building-the-main-game-scene">6. Building the Main Game Scene</a></li><li><a href="#7-building-and-distributing-your-game">7. Building and Distributing Your Game</a></li><li><a href="#conclusion-your-first-desktop-game-in-javascript">Conclusion: Your First Desktop Game in JavaScript</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="creating-desktop-games-with-javascript-a-practical-guide-using-capl-and-tori">Creating Desktop Games with JavaScript: A Practical Guide Using Capl and Tori</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/fyqRSaSJf0I" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-bridging-web-and-desktop-game-development-with-javascript">Introduction: Bridging Web and Desktop Game Development with JavaScript</h2>
+<p>JavaScript, traditionally known as the language of the web, is rapidly expanding its horizons. While primarily used for creating interactive websites and web applications, advancements in technology now allow JavaScript to venture into desktop application development, including game creation. This chapter will guide you through the process of developing a desktop game using JavaScript, leveraging the power of the <strong>Tori</strong> framework and the <strong>Capl</strong> game library.</p>
+<blockquote>
+<p><strong>Tori:</strong> Tori is a framework that enables developers to build desktop applications using web technologies like JavaScript, HTML, and CSS. It allows you to package web applications as native desktop applications for various operating systems.</p>
+</blockquote>
+<p>We will explore how to utilize Tori to create installable games for Windows PCs, overcoming the limitations of web-based game storage and distribution.  This approach offers unique advantages, particularly for games requiring robust save systems and distribution outside of the browser environment.</p>
+<p>This chapter assumes a foundational understanding of JavaScript. No prior experience with Tori or Capl is necessary, as we will comprehensively explain each concept as we progress. By the end of this chapter, you will have a functional desktop game built in JavaScript, equipped with saving capabilities and ready for distribution.</p>
+<h2 id="1-setting-up-your-development-environment-prerequisites-and-installation">1. Setting Up Your Development Environment: Prerequisites and Installation</h2>
+<p>Before diving into game development, it's essential to set up your development environment. This section outlines the necessary prerequisites and installation steps, primarily focused on a Windows environment, which is often the target platform for desktop game distribution.</p>
+<h3 id="11-essential-prerequisites">1.1 Essential Prerequisites</h3>
+<p>To follow along with this chapter, ensure you have the following software installed on your system:</p>
+<ul>
+<li>
+<p><strong>Node.js and npm (Node Package Manager):</strong> These are fundamental for JavaScript development, enabling you to manage project dependencies and run development tools. Ensure Node.js is installed and that <code>npm</code> is available in your command line.</p>
+<blockquote>
+<p><strong>npm (Node Package Manager):</strong> npm is a package manager for Node.js. It is used to install, manage, and share JavaScript packages and libraries, simplifying the process of incorporating external tools and functionalities into your projects.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Rust:</strong> Although we won't be writing Rust code directly in this tutorial, Tori itself is built with Rust.  Rust is required as part of the Tori development toolchain.</p>
+</li>
+<li>
+<p><strong>Webview2 Runtime:</strong> Tori utilizes the system's web view to render applications, offering a lightweight alternative to embedding a full browser like Electron. On Windows, Tori relies on Webview2.</p>
+<blockquote>
+<p><strong>Webview2 Runtime:</strong> Webview2 Runtime is a Microsoft component that allows applications to embed web technologies (HTML, CSS, JavaScript) within native applications. It uses the Microsoft Edge (Chromium-based) rendering engine and is essential for Tori applications on Windows.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="12-installing-prerequisites-on-windows">1.2 Installing Prerequisites on Windows</h3>
+<p>Follow the official Tori documentation for detailed instructions on setting up your Windows environment. Key steps include:</p>
+<ul>
+<li><strong>Installing Node.js:</strong> Download and install Node.js from the official website (<a href="https://nodejs.org/">https://nodejs.org/</a>). This installation typically includes npm.</li>
+<li><strong>Installing Rust:</strong> Follow the instructions on the official Rust website (<a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a>) to install Rust using <code>rustup</code>.</li>
+<li><strong>Ensuring Webview2 Runtime is Available:</strong> On newer Windows versions (Windows 11 and some Windows 10 versions), Webview2 Runtime may be pre-installed. If not, the Tori installer will handle its installation when you build your game for distribution.</li>
+</ul>
+<blockquote>
+<p><strong>Electron:</strong> Electron is another popular framework for building desktop applications with web technologies. Unlike Tori, Electron packages a full Chromium browser with each application, leading to larger application sizes but ensuring consistent rendering across platforms.</p>
+</blockquote>
+<p><strong>Note:</strong> While this tutorial primarily focuses on Windows, you can adapt the principles and code for macOS or Linux, though the final executable will be platform-specific.</p>
+<h2 id="2-project-initialization-setting-up-a-tori-project-with-capl">2. Project Initialization: Setting Up a Tori Project with Capl</h2>
+<p>With the prerequisites in place, we can now initialize our Tori project and integrate the Capl game library.</p>
+<h3 id="21-creating-the-tori-project">2.1 Creating the Tori Project</h3>
+<ol>
+<li><strong>Open your terminal or command prompt.</strong></li>
+<li><strong>Navigate to the directory where you want to create your project.</strong></li>
+<li>
+<p><strong>Run the following command:</strong></p>
+<p><code>bash
+npm create t-a@latest .</code></p>
+<p>The <code>.</code> at the end specifies that the project files should be created in the current directory.</p>
+</li>
+<li>
+<p><strong>Follow the prompts:</strong></p>
+<ul>
+<li><strong>Package name:</strong> Choose a name for your project (e.g., <code>creby-game</code>).</li>
+<li><strong>Choose your frontend framework:</strong> Select <code>React</code>. (We will remove React later, but it provides a convenient project structure with Vite).</li>
+<li><strong>Choose your frontend language:</strong> Select <code>JavaScript</code>.</li>
+<li><strong>Choose your package manager:</strong> Select <code>npm</code>.</li>
+</ul>
+</li>
+</ol>
+<p>This command uses <code>create-tori-app</code>, the official Tori project initializer, to set up a basic Tori project structure with React and JavaScript.</p>
+<h3 id="22-removing-react-dependencies">2.2 Removing React Dependencies</h3>
+<p>Since we are focusing on a simpler game structure and won't be utilizing React's component-based architecture for this project, we can remove the React dependencies to streamline our project.</p>
+<ol>
+<li><strong>Navigate to your project directory in the terminal.</strong></li>
+<li>
+<p><strong>Run the following commands to uninstall React and related packages:</strong></p>
+<p><code>bash
+npm uninstall react react-dom
+npm uninstall @vitejs/plugin-react</code></p>
+</li>
+<li>
+<p><strong>Modify <code>vite.config.js</code>:</strong> Open the <code>vite.config.js</code> file in your project's root directory and remove or comment out any lines related to React plugins. The <code>plugins</code> array in <code>vite.config.js</code> should be empty or removed.</p>
+</li>
+</ol>
+<h3 id="23-installing-capl">2.3 Installing Capl</h3>
+<p>Now, install the Capl game library as a project dependency.</p>
+<ol>
+<li>
+<p><strong>In your project directory in the terminal, run:</strong></p>
+<p><code>bash
+npm install capl@0.1.7-u3000</code></p>
+<p>We are installing a specific version (<code>0.1.7-u3000</code>) to ensure consistency with this tutorial. Pinning versions is good practice to avoid unexpected issues due to library updates.</p>
+</li>
+<li>
+<p><strong>Verify Installation:</strong> Check your <code>package.json</code> file. Under <code>dependencies</code>, you should now see <code>capl</code> with the specified version.</p>
+</li>
+</ol>
+<h3 id="24-configuring-packagejson-scripts">2.4 Configuring <code>package.json</code> Scripts</h3>
+<p>For convenience, modify the scripts in your <code>package.json</code> file to align with common development workflows for Tori projects.</p>
+<ol>
+<li><strong>Open <code>package.json</code> in your project directory.</strong></li>
+<li>
+<p><strong>Modify the <code>scripts</code> section to the following:</strong></p>
+<p><code>json
+"scripts": {
+  "dev": "tori dev",
+  "dev:browser": "vite",
+  "build": "tori build",
+  "build:browser": "vite build",
+  "preview": "vite preview"
+},</code></p>
+<ul>
+<li><code>dev</code>:  Runs the Tori development environment, launching your application as a desktop window.</li>
+<li><code>dev:browser</code>: Runs the Vite development server, allowing you to view your application in a web browser.</li>
+<li><code>build</code>: Builds the desktop application executable.</li>
+<li><code>build:browser</code>: Builds the web application bundle using Vite.</li>
+<li><code>preview</code>:  Previews the built web application in a browser.</li>
+</ul>
+</li>
+</ol>
+<h3 id="25-setting-up-indexhtml-and-mainjs">2.5 Setting up <code>index.html</code> and <code>main.js</code></h3>
+<p>Prepare your entry point files for the game logic.</p>
+<ol>
+<li>
+<p><strong>Clean up <code>index.html</code>:</strong> Open <code>public/index.html</code>. Remove the existing content within the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags.  A minimal <code>index.html</code> might look like this:</p>
+<p><code>html
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Creby Game&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script type="module" src="/src/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></p>
+</li>
+<li>
+<p><strong>Create <code>main.js</code>:</strong> Create a new file named <code>main.js</code> in the <code>src</code> directory. This file will be the main entry point for your game logic.</p>
+</li>
+<li>
+<p><strong>Basic Capl Initialization in <code>main.js</code>:</strong> Add the following code to <code>src/main.js</code> to initialize Capl and create a basic canvas:</p>
+<p>```javascript
+import kaboom from 'capl' // Note: kaboom is still the import name</p>
+<p>kaboom({
+  width: 1280,
+  height: 720,
+  letterbox: true,
+  global: false,
+  scale: 2,
+});</p>
+<p>// Your game code will go here
+```</p>
+<blockquote>
+<p><strong>Canvas:</strong> In web and game development, a canvas is an HTML element that acts as a drawing surface. JavaScript can be used to dynamically render graphics, animations, and games onto the canvas.</p>
+<p><strong>Letterbox:</strong> Letterbox is a technique used to maintain the aspect ratio of a game or video when displayed on a screen with a different aspect ratio. It adds black bars at the top and bottom or sides to prevent distortion.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Run the Development Server:</strong> In your terminal, run:</p>
+<p><code>bash
+npm run dev</code></p>
+<p>This should launch your Tori application. You should see a window with a black background (due to default canvas styling) representing your Capl canvas. Pressing F12 will open the developer console, useful for debugging.</p>
+</li>
+</ol>
+<h2 id="3-core-game-structure-scenes-assets-and-utilities">3. Core Game Structure: Scenes, Assets, and Utilities</h2>
+<p>With the project set up, we can start building the game's core structure. This involves organizing our game logic into scenes, loading assets, and creating utility functions.</p>
+<h3 id="31-game-scenes-start-menu-and-main-game">3.1 Game Scenes: Start Menu and Main Game</h3>
+<p>Organize your game into distinct scenes to manage different game states (e.g., menu, gameplay, game over).</p>
+<ol>
+<li>
+<p><strong>Define Scenes in <code>main.js</code>:</strong> In <code>main.js</code>, define two scenes: <code>start</code> (for the menu) and <code>main</code> (for the actual game).</p>
+<p>```javascript
+import kaboom from 'capl'; // Ensure this import remains
+// ... (Capl initialization) ...</p>
+<p>scene("start", () =&gt; {
+  // Logic for the start menu scene
+});</p>
+<p>scene("main", () =&gt; {
+  // Logic for the main game scene
+});</p>
+<p>go("start"); // Start the game with the 'start' scene
+```</p>
+<blockquote>
+<p><strong>Scene:</strong> In game development, a scene represents a distinct part of the game, such as a menu screen, a gameplay level, or a cutscene. Scenes help organize game logic and assets, allowing for a modular and manageable game structure.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Create Utility Functions in <code>utils.js</code>:</strong> Create a new file named <code>utils.js</code> in the <code>src</code> directory to house reusable utility functions. For now, create a function to set a background color.</p>
+<p>```javascript
+// src/utils.js
+export function makeBackground(k, hexColor) {
+  k.add([
+    k.rect(k.width(), k.height()),
+    k.color(k.hex(hexColor)),
+    k.fixed(), // Optional: Make background fixed relative to camera
+    k.layer('bg'), // Optional: Assign to a background layer
+  ]);
+}</p>
+<p>export function goToGame(k) {
+    k.go("main");
+}</p>
+<p>export function computeRank(score) {
+    if (score &gt; 30) return "S";
+    if (score &gt; 20) return "A";
+    if (score &gt; 10) return "B";
+    if (score &gt; 2) return "C";
+    return "D";
+}
+```</p>
+</li>
+<li>
+<p><strong>Implement Background in <code>start</code> Scene:</strong> In <code>main.js</code>, import <code>makeBackground</code> from <code>utils.js</code> and use it in your <code>start</code> scene to set a background color.</p>
+<p>```javascript
+// main.js
+import kaboom from 'capl';
+import { makeBackground, goToGame } from './utils'; // Import utils</p>
+<p>// ... (Capl initialization) ...</p>
+<p>scene("start", () =&gt; {
+  makeBackground(k, "#87CEEB"); // Example: Light blue background
+  // ... rest of start scene logic ...
+});</p>
+<p>// ... (main scene definition and go("start")) ...
+```</p>
+<blockquote>
+<p><strong>Hexadecimal Color:</strong> Hexadecimal color codes are a way to represent colors using a six-digit combination of numbers and letters (0-9 and A-F). Each pair of digits represents the intensity of red, green, and blue, respectively.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Style Body Background (Optional):</strong> To remove white bars around the canvas, add a style tag in <code>public/index.html</code> to set the body background color to black:</p>
+<p><code>html
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;/head&gt;
+&lt;body&gt;
+    &lt;style&gt;
+      body { background-color: black; }
+    &lt;/style&gt;
+    &lt;script type="module" src="/src/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></p>
+</li>
+</ol>
+<h3 id="32-loading-game-assets">3.2 Loading Game Assets</h3>
+<p>Game assets like sprites (images) and sounds are crucial for creating engaging games. Capl provides functions to easily load these assets.</p>
+<ol>
+<li>
+<p><strong>Create an <code>assets</code> folder:</strong> Create a folder named <code>assets</code> in the <code>public</code> directory of your project. Place all your game assets (images and sounds) inside this folder. For this Flappy Bird style game, you'll need:</p>
+<ul>
+<li><code>background.png</code></li>
+<li><code>clouds.png</code></li>
+<li><code>creby.png</code> (or your player sprite)</li>
+<li><code>obstacles.png</code></li>
+<li><code>confirm.wav</code> (or your confirm sound)</li>
+<li><code>hit.wav</code></li>
+<li><code>jump.wav</code></li>
+<li><code>colliders_data.json</code></li>
+<li><code>icon.png</code> (optional for Windows icon)</li>
+</ul>
+</li>
+<li>
+<p><strong>Load Assets in <code>main.js</code>:</strong> In <code>main.js</code>, within the Capl initialization block, use <code>loadSprite()</code> and <code>loadSound()</code> to load your assets.</p>
+<p>```javascript
+import kaboom from 'capl';
+// ... (import utils etc.) ...</p>
+<p>kaboom({
+  // ... (Capl initialization options) ...
+  loadSprite: {
+    "creby": "/assets/creby.png",
+    "obstacles": "/assets/obstacles.png",
+    "background": "/assets/background.png",
+    "clouds": "/assets/clouds.png",
+  },
+  loadSound: {
+    "jump": "/assets/jump.wav",
+    "hit": "/assets/hit.wav",
+    "confirm": "/assets/confirm.wav",
+  }
+});</p>
+<p>// ... (scene definitions and go("start")) ...
+```</p>
+<blockquote>
+<p><strong>Sprite:</strong> A sprite is a 2D image or animation used in games, often representing characters, objects, or background elements. Game engines efficiently render and manipulate sprites to create visual game content.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Implement Fullscreen Toggle (F11):</strong> To enable fullscreen functionality using the F11 key, you'll need to interact with the Tori API.</p>
+<ul>
+<li>
+<p><strong>Modify <code>tori.conf.json</code>:</strong> Open <code>tori.conf.json</code> in your project's root. Under the <code>tori.allowlist</code> section, add permissions for <code>fs</code> (file system) and <code>window</code> with <code>setFullscreen</code>:</p>
+<p><code>json
+"allowlist": {
+  "fs": {
+    "readFile": true,
+    "writeFile": true,
+    "scope": ["$APP_LOCALDATA/*"]
+  },
+  "window": {
+    "setFullscreen": true
+  }
+},</code></p>
+</li>
+<li>
+<p><strong>Add Event Listener in <code>main.js</code>:</strong> In <code>main.js</code>, import <code>appWindow</code> from <code>@tori.js/api</code> and add an event listener for the "keydown" event to toggle fullscreen on F11 press. Place this outside of any scene definition, at the top level of your <code>main.js</code> file.</p>
+<p>```javascript
+import kaboom from 'capl';
+import { appWindow } from '@tori.js/api'; // Import appWindow
+// ... (import utils etc.) ...</p>
+<p>document.addEventListener('keydown', async (event) =&gt; {
+  if (event.code === 'F11') {
+    if (await appWindow.isFullscreen()) {
+      await appWindow.setFullscreen(false);
+    } else {
+      await appWindow.setFullscreen(true);
+    }
+  }
+});</p>
+<p>kaboom({
+  // ... (Capl initialization options) ...
+});</p>
+<p>// ... (scene definitions and go("start")) ...
+```</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-building-the-start-menu-scene">4. Building the Start Menu Scene</h2>
+<p>The start menu scene is the first screen players see when launching the game. It typically includes the game title, a play button, and potentially other options.</p>
+<h3 id="41-creating-the-background-and-map">4.1 Creating the Background and Map</h3>
+<ol>
+<li>
+<p><strong>Implement Background in <code>start</code> Scene (if not already done):</strong> Ensure you have the <code>makeBackground</code> function called in your <code>start</code> scene to set a background color.</p>
+</li>
+<li>
+<p><strong>Create a <code>map</code> Game Object:</strong> In the <code>start</code> scene's function in <code>main.js</code>, create a parent game object named <code>map</code>. This will serve as a container for background elements like the background sprite and clouds.</p>
+<p>```javascript
+scene("start", () =&gt; {
+  makeBackground(k, "#87CEEB");</p>
+<p>const map = k.add([
+    k.sprite("background"),
+    k.pos(0, 0),
+    k.scale(4), // Example scale factor
+    k.fixed(), // Optional: Make map fixed relative to camera
+  ]);</p>
+<p>// ... (rest of start scene logic) ...
+});
+```</p>
+<blockquote>
+<p><strong>Game Object:</strong> In Capl (and other game engines), a game object is a fundamental entity in a game scene. It can represent characters, objects, backgrounds, or any element that interacts within the game world. Game objects are composed of components that define their properties and behaviors.</p>
+<p><strong>Components:</strong> Components in Capl are reusable modules that define specific functionalities or properties of game objects. Examples include <code>sprite</code> (for rendering images), <code>pos</code> (for position), <code>area</code> (for collision detection), and <code>body</code> (for physics). Components are added to game objects using the <code>add</code> function.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Add Clouds as a Child of <code>map</code>:</strong> Create clouds as a child game object of the <code>map</code> to make their movement relative to the background.</p>
+<p>```javascript
+scene("start", () =&gt; {
+  // ... (makeBackground and map creation) ...</p>
+<p>const clouds = map.add([
+    k.sprite("clouds"),
+    k.pos(0, 0),
+    k.scale(4),
+    k.pos(), // Positional component for setting position later
+    { speed: 5 }, // Custom speed property
+  ]);</p>
+<p>clouds.onUpdate(() =&gt; {
+    clouds.move(clouds.speed, 0);
+    if (clouds.pos().x &gt; 700) {
+      clouds.pos = k.vec2(-500, 0);
+    }
+  });</p>
+<p>// ... (rest of start scene logic) ...
+});
+```</p>
+<blockquote>
+<p><strong><code>onUpdate()</code>:</strong> <code>onUpdate()</code> is a Capl method that is called every frame (typically 60 times per second). It allows you to execute code that updates game object properties or performs actions based on game logic, creating animations and dynamic behavior.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="42-creating-the-player-character">4.2 Creating the Player Character</h3>
+<p>We'll create a reusable player character component that can be used in both the start menu and the main game scene.</p>
+<ol>
+<li>
+<p><strong>Create <code>player.js</code>:</strong> Create a new file named <code>player.js</code> in the <code>src</code> directory.</p>
+</li>
+<li>
+<p><strong>Implement <code>makePlayer</code> Function:</strong> In <code>player.js</code>, export a function <code>makePlayer(k)</code> that defines the player game object.</p>
+<p>```javascript
+// src/player.js
+import kaboom from 'capl';</p>
+<p>export function makePlayer(k) {
+  const player = k.make([
+    k.sprite("creby"),
+    k.area({ shape: k.rect(8, 5), offset: k.vec2(0, 1.5) }),
+    k.anchor("center"),
+    k.scale(4),
+    k.body(),
+    {
+      isDead: false,
+      speed: 600,
+      inputControllers: [],
+      setControls() {
+        const jumpLogic = () =&gt; {
+          k.play("jump");
+          player.jump(player.jumpForce);
+        };</p>
+<pre><code>    this.inputControllers.push(k.onKeyPress("space", jumpLogic));
+    this.inputControllers.push(k.onClick(jumpLogic));
+    this.inputControllers.push(k.onGamepadButtonPress("south", jumpLogic));
+  },
+  disableControls() {
+    this.inputControllers.forEach(controller =&gt; controller.cancel());
+    this.inputControllers = [];
+  }
+}
+</code></pre>
+<p>]);</p>
+<p>player.jumpForce = 600;
+  player.setControls(); // Initially set controls</p>
+<p>return player;
+}
+```</p>
+<blockquote>
+<p><strong><code>make()</code> vs. <code>add()</code>:</strong> <code>make()</code> and <code>add()</code> are both Capl functions for creating game objects. <code>make()</code> creates a game object but does not immediately add it to the current scene. <code>add()</code> creates and adds a game object to the scene, making it visible and active. <code>make()</code> is useful for creating reusable game object templates or for objects that need to be added to the scene later.</p>
+<p><strong><code>area()</code> Component:</strong> The <code>area()</code> component in Capl enables collision detection for game objects. It defines a hitbox, which is a shape that represents the object's collision boundaries. The <code>shape</code> property defines the hitbox shape (e.g., rectangle, circle), and <code>offset</code> allows you to adjust the hitbox position relative to the sprite.</p>
+<p><strong><code>anchor()</code> Component:</strong> The <code>anchor()</code> component in Capl defines the point around which a game object is positioned and scaled. By default, the anchor is at the top-left corner. Setting <code>anchor("center")</code> makes the center of the sprite the origin point.</p>
+<p><strong><code>body()</code> Component:</strong> The <code>body()</code> component in Capl adds physics properties to a game object, enabling it to be affected by gravity, collisions, and other physics forces. It provides methods like <code>jump()</code> for implementing jumping behavior.</p>
+<p><strong><code>onKeyPress()</code>, <code>onClick()</code>, <code>onGamepadButtonPress()</code>:</strong> These are Capl input event handlers. <code>onKeyPress()</code> triggers a function when a specific key is pressed. <code>onClick()</code> triggers a function when the canvas is clicked. <code>onGamepadButtonPress()</code> triggers a function when a specific gamepad button (like "south") is pressed.</p>
+<p><strong>Gamepad "South Button":</strong> In Capl, "south" refers to the bottom button on a standard gamepad controller layout. This naming convention allows for controller-agnostic input handling, as button labels may vary between Xbox, PlayStation, and other controllers.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Add Player to <code>start</code> Scene:</strong> In <code>main.js</code>, import <code>makePlayer</code> from <code>player.js</code> and add the player to the <code>start</code> scene.</p>
+<p>```javascript
+// main.js
+import kaboom from 'capl';
+import { makeBackground, goToGame } from './utils';
+import { makePlayer } from './player'; // Import makePlayer</p>
+<p>// ... (Capl initialization and scene("start") logic) ...</p>
+<p>scene("start", () =&gt; {
+  // ... (makeBackground, map, clouds) ...</p>
+<p>const player = k.add(makePlayer(k));
+  player.pos = k.vec2(k.center().x - 100, k.center().y + 50); // Example position</p>
+<p>// ... (rest of start scene logic) ...
+});</p>
+<p>// ... (main scene definition and go("start")) ...
+```</p>
+</li>
+</ol>
+<h3 id="43-creating-the-play-button-and-scene-transition">4.3 Creating the Play Button and Scene Transition</h3>
+<ol>
+<li>
+<p><strong>Create the Play Button:</strong> In the <code>start</code> scene in <code>main.js</code>, create a play button game object.</p>
+<p>```javascript
+scene("start", () =&gt; {
+  // ... (makeBackground, map, clouds, player) ...</p>
+<p>const playButton = k.add([
+    k.rect(120, 40, { radius: 3 }),
+    k.color(k.rgb(50, 50, 50)),
+    k.pos(k.center().x + 100, k.center().y + 50),
+    k.anchor("center"),
+    k.area(),
+    k.outline(2, k.rgb(100, 100, 100)),
+  ]);</p>
+<p>playButton.add([
+    k.text("Play", { size: 24 }),
+    k.color(k.rgb(200, 200, 200)),
+    k.anchor("center"),
+  ]);</p>
+<p>// ... (rest of start scene logic) ...
+});
+```</p>
+<blockquote>
+<p><strong><code>rect()</code> Component:</strong> The <code>rect()</code> component in Capl renders a rectangle shape. You can customize its width, height, color, and other properties. The <code>radius</code> option allows you to create rounded rectangles.</p>
+<p><strong><code>text()</code> Component:</strong> The <code>text()</code> component in Capl renders text on the canvas. You can customize the text content, size, font, color, and other text properties.</p>
+<p><strong><code>outline()</code> Component:</strong> The <code>outline()</code> component in Capl adds an outline (border) to a game object. You can customize the outline width and color.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Implement Scene Transition Logic:</strong> Add input event handlers to the play button to transition to the <code>main</code> scene when clicked, or when specific keys or gamepad buttons are pressed.</p>
+<p>```javascript
+scene("start", () =&gt; {
+  // ... (makeBackground, map, clouds, player, playButton) ...</p>
+<p>const startGame = () =&gt; {
+    k.play("confirm");
+    goToGame(k); // Use the goToGame utility function
+  };</p>
+<p>playButton.onClick(startGame);
+  k.onKeyPress("enter", startGame);
+  k.onGamepadButtonPress("south", startGame);</p>
+<p>// ... (rest of start scene logic) ...
+});
+```</p>
+</li>
+</ol>
+<h2 id="5-implementing-game-saving-and-loading">5. Implementing Game Saving and Loading</h2>
+<p>Desktop games often benefit from save systems, allowing players to preserve their progress. We'll implement a simple save system to store the player's best score.</p>
+<h3 id="51-creating-the-save-system-utility">5.1 Creating the Save System Utility</h3>
+<ol>
+<li>
+<p><strong>Create <code>save.js</code>:</strong> Create a new file named <code>save.js</code> in the <code>src</code> directory.</p>
+</li>
+<li>
+<p><strong>Implement <code>makeSaveSystem</code> Function:</strong> In <code>save.js</code>, export a function <code>makeSaveSystem(saveFileName)</code> that encapsulates the save system logic.</p>
+<p>```javascript
+// src/save.js
+import { writeTextFile, readTextFile, BaseDirectory } from '@tori.js/api';</p>
+<p>export function makeSaveSystem(saveFileName) {
+  return {
+    data: {},
+    async save() {
+      try {
+        await writeTextFile(saveFileName, JSON.stringify(this.data), {
+          dir: BaseDirectory.AppDataLocal,
+        });
+      } catch (e) {
+        console.error("Save failed:", e);
+      }
+    },
+    async load() {
+      try {
+        const contents = await readTextFile(saveFileName, {
+          dir: BaseDirectory.AppDataLocal,
+        });
+        this.data = JSON.parse(contents);
+      } catch (e) {
+        console.warn("Save file not found or corrupted, using default data.");
+        this.data = {}; // Default data if loading fails
+      }
+    },
+  };
+}
+```</p>
+<blockquote>
+<p><strong><code>@tori.js/api</code>:</strong> <code>@tori.js/api</code> is the Tori JavaScript API package. It provides access to native system functionalities from JavaScript code within a Tori application, including file system operations, window management, and more.</p>
+<p><strong><code>writeTextFile()</code>, <code>readTextFile()</code>, <code>BaseDirectory</code>:</strong> These are functions and enums from <code>@tori.js/api</code> for interacting with the file system. <code>writeTextFile()</code> writes text content to a file. <code>readTextFile()</code> reads text content from a file. <code>BaseDirectory.AppDataLocal</code> specifies the application's local data directory as the storage location.</p>
+<p><strong><code>JSON.stringify()</code>, <code>JSON.parse()</code>:</strong> <code>JSON.stringify()</code> converts a JavaScript object into a JSON string, which is suitable for saving in text files. <code>JSON.parse()</code> converts a JSON string back into a JavaScript object when loading data.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="52-integrating-save-system-into-start-scene">5.2 Integrating Save System into <code>start</code> Scene</h3>
+<ol>
+<li>
+<p><strong>Import <code>makeSaveSystem</code> in <code>main.js</code>:</strong> In <code>main.js</code>, import <code>makeSaveSystem</code> from <code>save.js</code>.</p>
+</li>
+<li>
+<p><strong>Initialize Save System in <code>start</code> Scene:</strong> In the <code>start</code> scene's function, initialize the save system and load existing data.</p>
+<p>```javascript
+// main.js
+import kaboom from 'capl';
+import { makeBackground, goToGame } from './utils';
+import { makePlayer } from './player';
+import { makeSaveSystem } from './save'; // Import makeSaveSystem</p>
+<p>// ... (Capl initialization and scene("start") logic) ...</p>
+<p>scene("start", async () =&gt; { // Make scene function async
+  // ... (makeBackground, map, clouds, player, playButton) ...</p>
+<p>const saveSystem = makeSaveSystem("save.json");
+  await saveSystem.load(); // Load saved data</p>
+<p>if (saveSystem.data.maxScore === undefined) {
+    saveSystem.data.maxScore = 0;
+    await saveSystem.save(); // Save initial maxScore
+  }</p>
+<p>// ... (rest of start scene logic, potentially display maxScore from saveSystem.data) ...
+});</p>
+<p>// ... (main scene definition and go("start")) ...
+```</p>
+<blockquote>
+<p><strong>Asynchronous Functions (<code>async</code>, <code>await</code>):</strong> <code>async</code> functions in JavaScript are functions that can perform asynchronous operations, such as file I/O or network requests. <code>await</code> is used inside <code>async</code> functions to pause execution until a Promise (representing an asynchronous operation) resolves, making asynchronous code easier to read and write.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="53-displaying-max-score-in-start-menu-optional">5.3 Displaying Max Score in Start Menu (Optional)</h3>
+<p>You can display the player's max score in the start menu by retrieving it from <code>saveSystem.data</code> and using the <code>text()</code> component.</p>
+<h2 id="6-building-the-main-game-scene">6. Building the Main Game Scene</h2>
+<p>The main game scene contains the core gameplay logic. For our Flappy Bird style game, this involves obstacle generation, player movement, collision detection, and scoring.</p>
+<h3 id="61-scene-initialization-and-assets">6.1 Scene Initialization and Assets</h3>
+<ol>
+<li>
+<p><strong>Basic Structure of <code>main</code> Scene:</strong> In <code>main.js</code>, define the basic structure of the <code>main</code> scene function.</p>
+<p>```javascript
+scene("main", async () =&gt; { // Make main scene async
+  makeBackground(k, "#7ac0ee"); // Different background color for game</p>
+<p>// ... (rest of main scene logic) ...
+});
+```</p>
+</li>
+<li>
+<p><strong>Load Collider Data:</strong> Fetch and parse the <code>colliders_data.json</code> file to get obstacle hitbox information.</p>
+<p>```javascript
+scene("main", async () =&gt; {
+  makeBackground(k, "#7ac0ee");</p>
+<p>const response = await fetch("/assets/colliders_data.json");
+  const collidersDataJson = await response.json();
+  const collidersData = collidersDataJson.data; // Access the 'data' array</p>
+<p>// ... (rest of main scene logic) ...
+});
+```</p>
+</li>
+</ol>
+<h3 id="62-implementing-game-objects-map-platforms-and-walls">6.2 Implementing Game Objects: Map, Platforms, and Walls</h3>
+<ol>
+<li>
+<p><strong>Create <code>map</code> and <code>platforms</code> Game Objects:</strong> Similar to the start menu, create a <code>map</code> game object and add platforms (obstacles) as its child.</p>
+<p>```javascript
+scene("main", async () =&gt; {
+  // ... (makeBackground and collider data loading) ...</p>
+<p>const map = k.add([
+    k.sprite("background"),
+    k.pos(0, 0),
+    k.scale(4),
+    k.fixed(),
+  ]);</p>
+<p>const platforms = map.add([
+    k.sprite("obstacles"),
+    k.pos(k.width(), 0), // Start off-screen to the right
+    k.scale(4),
+    k.pos(), // Positional component for setting position later
+    { speed: -200 }, // Move to the left
+  ]);</p>
+<p>platforms.onUpdate(() =&gt; {
+    platforms.move(platforms.speed, 0);
+    if (platforms.pos().x &lt; -1200) {
+      platforms.pos = k.vec2(k.width(), 0);
+      platforms.speed -= 10; // Increase speed over time
+    }
+  });</p>
+<p>// ... (rest of main scene logic) ...
+});
+```</p>
+</li>
+<li>
+<p><strong>Add Hitboxes to Platforms:</strong> Iterate through the <code>collidersData</code> and create child game objects for each hitbox, adding them to the <code>platforms</code> game object.</p>
+<p>```javascript
+scene("main", async () =&gt; {
+  // ... (makeBackground, collider data loading, map, platforms) ...</p>
+<p>for (const collider of collidersData) {
+    platforms.add([
+      k.rect(collider.width, collider.height),
+      k.pos(collider.x, collider.y),
+      k.area(),
+      k.body({ isStatic: true }),
+      k.color(k.rgba(0, 0, 0, 0)), // Make hitbox invisible
+      k.layer('obstacle'), // Assign to obstacle layer
+      k.tag('obstacle'), // Tag for collision detection
+    ]);
+  }</p>
+<p>// ... (rest of main scene logic) ...
+});
+```</p>
+<blockquote>
+<p><strong><code>body({ isStatic: true })</code>:</strong> The <code>body()</code> component with <code>isStatic: true</code> creates a static physics body. Static bodies do not move in response to forces or collisions, making them suitable for obstacles and platforms in games.</p>
+<p><strong><code>tag()</code> Component:</strong> The <code>tag()</code> component allows you to assign tags (string identifiers) to game objects. Tags are used for grouping game objects and efficiently identifying them in collision detection or other game logic scenarios.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Create Top and Bottom Walls:</strong> Add invisible rectangular game objects at the top and bottom of the screen to act as boundaries.</p>
+<p>```javascript
+scene("main", async () =&gt; {
+  // ... (makeBackground, collider data loading, map, platforms, platform hitboxes) ...</p>
+<p>k.add([
+    k.rect(k.width(), 1),
+    k.pos(0, 0),
+    k.area(),
+    k.body({ isStatic: true }),
+    k.color(k.rgba(0, 0, 0, 0)), // Invisible
+    k.tag('obstacle'),
+  ]);</p>
+<p>k.add([
+    k.rect(k.width(), 1),
+    k.pos(0, k.height() - 1),
+    k.area(),
+    k.body({ isStatic: true }),
+    k.color(k.rgba(0, 0, 0, 0)), // Invisible
+    k.tag('obstacle'),
+  ]);</p>
+<p>// ... (rest of main scene logic) ...
+});
+```</p>
+</li>
+</ol>
+<h3 id="63-adding-the-player-and-collision-detection">6.3 Adding the Player and Collision Detection</h3>
+<ol>
+<li>
+<p><strong>Add Player to <code>main</code> Scene:</strong> Add the player game object to the <code>main</code> scene.</p>
+<p>```javascript
+scene("main", async () =&gt; {
+  // ... (makeBackground, collider data loading, map, platforms, walls) ...</p>
+<p>const player = k.add(makePlayer(k));
+  player.pos = k.vec2(600, 250);</p>
+<p>// ... (rest of main scene logic) ...
+});
+```</p>
+</li>
+<li>
+<p><strong>Implement Collision Detection:</strong> Use <code>player.onCollide()</code> to handle collisions between the player and obstacles.</p>
+<p>```javascript
+scene("main", async () =&gt; {
+  // ... (makeBackground, collider data loading, map, platforms, walls, player) ...</p>
+<p>let score = 0;</p>
+<p>player.onCollide("obstacle", () =&gt; {
+    if (!player.isDead) {
+      k.play("hit");
+      platforms.speed = 0;
+      player.disableControls();
+      player.isDead = true;
+      // ... (create score box and game over logic - see next section) ...
+    }
+  });</p>
+<p>// ... (rest of main scene logic, including score increment logic) ...
+});
+```</p>
+<blockquote>
+<p><strong><code>onCollide()</code> Method:</strong> <code>onCollide()</code> is a method available on game objects with the <code>area()</code> component. It allows you to define a callback function that is executed when the game object collides with another game object that has a specific tag.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="64-implementing-scoring-and-game-over">6.4 Implementing Scoring and Game Over</h3>
+<ol>
+<li>
+<p><strong>Implement Score Increment:</strong> Use <code>k.loop()</code> to increment the score every second.</p>
+<p>```javascript
+scene("main", async () =&gt; {
+  // ... (makeBackground, collider data loading, map, platforms, walls, player, collision detection) ...</p>
+<p>let score = 0;</p>
+<p>k.loop(1, () =&gt; { // Run every 1 second
+    if (!player.isDead) {
+      score++;
+    }
+  });</p>
+<p>// ... (collision detection and rest of main scene logic) ...
+});
+```</p>
+<blockquote>
+<p><strong><code>k.loop()</code> Function:</strong> <code>k.loop(time, callback)</code> is a Capl function that executes a callback function repeatedly at a specified time interval (in seconds). It is useful for implementing timed events or actions in a game.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Create Score Box Utility (<code>scorebox.js</code>):</strong> Create a new file <code>scorebox.js</code> in <code>src</code> to implement the score display box that appears when the game is over.</p>
+<p>```javascript
+// src/scorebox.js
+import kaboom from 'capl';
+import { goToGame, computeRank } from './utils';
+import { makeSaveSystem } from './save';</p>
+<p>export async function makeScoreBox(k, pos, score) {
+  const saveSystem = makeSaveSystem("save.json");
+  await saveSystem.load();</p>
+<p>if (score &gt; (saveSystem.data.maxScore || 0)) {
+    saveSystem.data.maxScore = score;
+    await saveSystem.save();
+  }</p>
+<p>const container = k.make([
+    k.pos(pos),
+    k.fixed(), // Optional: Make score box fixed relative to camera
+  ]);</p>
+<p>const box = container.add([
+    k.rect(240, 180, { radius: 6 }),
+    k.color(k.rgb(80, 80, 80)),
+    k.anchor("center"),
+    k.outline(2, k.rgb(120, 120, 120)),
+  ]);</p>
+<p>box.add([
+    k.text("Game Over!", { size: 24 }),
+    k.color(k.rgb(220, 220, 220)),
+    k.pos(0, -60),
+    k.anchor("center"),
+  ]);</p>
+<p>box.add([
+    k.text(<code>Previous Best: ${saveSystem.data.maxScore || 0}</code>, { size: 16 }),
+    k.color(k.rgb(180, 180, 180)),
+    k.pos(0, -20),
+    k.anchor("center"),
+  ]);</p>
+<p>box.add([
+    k.text(<code>Current Score: ${score}</code>, { size: 16 }),
+    k.color(k.rgb(180, 180, 180)),
+    k.pos(0, 10),
+    k.anchor("center"),
+  ]);</p>
+<p>box.add([
+    k.text(<code>Rank: ${computeRank(score)}</code>, { size: 16 }),
+    k.color(k.rgb(180, 180, 180)),
+    k.pos(0, 40),
+    k.anchor("center"),
+  ]);</p>
+<p>const restartButton = box.add([
+    k.rect(100, 30, { radius: 4 }),
+    k.color(k.rgb(50, 50, 50)),
+    k.pos(0, 90),
+    k.anchor("center"),
+    k.area(),
+    k.outline(1, k.rgb(100, 100, 100)),
+  ]);</p>
+<p>restartButton.add([
+    k.text("Play Again", { size: 14 }),
+    k.color(k.rgb(200, 200, 200)),
+    k.anchor("center"),
+  ]);</p>
+<p>const restartGame = () =&gt; {
+    k.play("confirm");
+    goToGame(k); // Use goToGame utility function
+  };</p>
+<p>restartButton.onClick(restartGame);
+  k.onKeyPress("enter", restartGame);
+  k.onGamepadButtonPress("south", restartGame);</p>
+<p>return container;
+}
+```</p>
+</li>
+<li>
+<p><strong>Import and Call <code>makeScoreBox</code> in <code>main.js</code>:</strong> In <code>main.js</code>, import <code>makeScoreBox</code> and call it within the <code>player.onCollide()</code> callback to display the score box when the player collides with an obstacle.</p>
+<p>```javascript
+// main.js
+import kaboom from 'capl';
+import { makeBackground, goToGame } from './utils';
+import { makePlayer } from './player';
+import { makeSaveSystem } from './save';
+import { makeScoreBox } from './scorebox'; // Import makeScoreBox</p>
+<p>// ... (scene("main") logic) ...</p>
+<p>scene("main", async () =&gt; {
+  // ... (makeBackground, collider data loading, map, platforms, walls, player, score increment) ...</p>
+<p>let score = 0;</p>
+<p>player.onCollide("obstacle", () =&gt; {
+    if (!player.isDead) {
+      k.play("hit");
+      platforms.speed = 0;
+      player.disableControls();
+      player.isDead = true;
+      k.add(await makeScoreBox(k, k.center(), score)); // Call makeScoreBox
+    }
+  });</p>
+<p>// ... (score increment and rest of main scene logic) ...
+});</p>
+<p>// ... (go("start") call) ...
+```</p>
+</li>
+</ol>
+<h2 id="7-building-and-distributing-your-game">7. Building and Distributing Your Game</h2>
+<p>With the game logic implemented, the final step is to build your desktop application and prepare it for distribution.</p>
+<h3 id="71-building-the-executable">7.1 Building the Executable</h3>
+<ol>
+<li>
+<p><strong>Run the Build Command:</strong> In your terminal, navigate to your project directory and run the build command:</p>
+<p><code>bash
+npm run build</code></p>
+<p>This command will compile your project and package it into an executable file. The build process may take some time, especially for the first build.</p>
+</li>
+<li>
+<p><strong>Locate the Executable:</strong> After the build process completes successfully, the executable file will be located in the <code>src-tori/target/release/bundle</code> directory within your project. You will find installer files like <code>.msi</code> (for Windows Installer) and <code>.nsis.zip</code> (for NSIS installer).</p>
+<blockquote>
+<p><strong>MSI (Microsoft Installer):</strong> MSI is a file format used by the Windows Installer service for installing, maintaining, and removing programs on Windows operating systems. MSI files are commonly used for distributing Windows applications.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="72-distributing-your-game">7.2 Distributing Your Game</h3>
+<p>To distribute your game, you should provide users with the installer file (e.g., the <code>.msi</code> or <code>.nsis.zip</code> from the <code>bundle</code> directory). Distributing the installer ensures that necessary dependencies like Webview2 Runtime are installed on the user's machine if they are not already present.</p>
+<p>You can distribute your game through platforms like:</p>
+<ul>
+<li><strong>itch.io:</strong> A popular platform for indie game distribution.</li>
+<li><strong>Steam:</strong> A major platform for game distribution, though it has a more involved submission and approval process.</li>
+<li><strong>Your own website or file sharing services.</strong></li>
+</ul>
+<h3 id="73-setting-application-description-optional">7.3 Setting Application Description (Optional)</h3>
+<p>To customize the application description that appears when users hover over the executable, you can modify the <code>shortDescription</code> property in <code>tori.conf.json</code> within the <code>bundle</code> section.</p>
+<pre><code class="language-json">&quot;bundle&quot;: {
+    &quot;shortDescription&quot;: &quot;Your game description here&quot;,
+    // ... other bundle configurations ...
+}
+</code></pre>
+<h2 id="conclusion-your-first-desktop-game-in-javascript">Conclusion: Your First Desktop Game in JavaScript</h2>
+<p>Congratulations! You have successfully built a desktop game using JavaScript with Capl and Tori. This chapter has covered the essential steps, from setting up your development environment to building and preparing your game for distribution.</p>
+<p>By leveraging the power of JavaScript and frameworks like Tori and libraries like Capl, you can now expand your game development capabilities beyond the web browser and create engaging desktop gaming experiences. This opens new possibilities for game distribution, save systems, and reaching a wider audience.</p>
+<p>Continue exploring the capabilities of Capl and Tori, experiment with different game mechanics, and expand your knowledge of JavaScript game development to create even more complex and compelling desktop games in the future.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

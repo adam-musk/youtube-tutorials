@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Advanced JavaScript Concepts: A Crash Course for Front-End Developers - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#advanced-javascript-concepts-a-crash-course-for-front-end-developers">Advanced JavaScript Concepts: A Crash Course for Front-End Developers</a></li>
+        <li><a href="#introduction">Introduction</a></li><li><a href="#scope-nested-functions-scope">Scope: Nested Functions Scope</a></li><li><a href="#closures">Closures</a></li><li><a href="#currying">Currying</a></li><li><a href="#the-this-keyword">The this Keyword</a></li><li><a href="#prototype-and-prototypal-inheritance">Prototype and Prototypal Inheritance</a></li><li><a href="#classes">Classes</a></li><li><a href="#iterables-and-iterators">Iterables and Iterators</a></li><li><a href="#generators">Generators</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="advanced-javascript-concepts-a-crash-course-for-front-end-developers">Advanced JavaScript Concepts: A Crash Course for Front-End Developers</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/R9I85RhI7Cg" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction">Introduction</h2>
+<p>Welcome to this crash course on advanced JavaScript! This chapter builds upon the fundamentals of JavaScript and explores key concepts essential for any front-end developer.  If you are new to JavaScript, it is highly recommended to first review the JavaScript Fundamentals Crash Course to ensure a solid foundation.</p>
+<p>This chapter will cover a curated selection of advanced JavaScript topics that are frequently encountered in front-end development interviews and daily coding tasks. While not exhaustive, these topics are crucial for professional front-end work.</p>
+<p>This is structured as a comprehensive learning resource, designed to be studied at your own pace. Feel free to pause, take breaks, and most importantly, code along with the examples provided. By the end of this chapter, you will have a strong understanding of advanced JavaScript concepts, empowering you to tackle more complex front-end challenges.</p>
+<h3 id="topics-covered">Topics Covered</h3>
+<p>This chapter will delve into the following advanced JavaScript concepts:</p>
+<ul>
+<li><strong>Scope: Nested Functions Scope</strong></li>
+<li><strong>Closures</strong></li>
+<li><strong>Currying</strong></li>
+<li><strong>The <code>this</code> Keyword</strong></li>
+<li><strong>Prototype and Prototypal Inheritance</strong></li>
+<li><strong>Classes</strong></li>
+<li><strong>Iterators and Iterables</strong></li>
+<li><strong>Generators</strong></li>
+</ul>
+<p>Asynchronous JavaScript concepts will be addressed in a subsequent chapter. Let's begin by revisiting the concept of scope, starting with nested functions.</p>
+<h2 id="scope-nested-functions-scope">Scope: Nested Functions Scope</h2>
+<h3 id="revisiting-scope-in-javascript-fundamentals">Revisiting Scope in JavaScript Fundamentals</h3>
+<p>In the JavaScript Fundamentals Crash Course, we explored the concept of scope, which determines the accessibility of variables within different parts of your code. We identified three primary types of scope:</p>
+<ul>
+<li>
+<p><strong>Block Scope:</strong> Variables declared within curly braces <code>{}</code> (e.g., within <code>if</code> statements, <code>for</code> loops, or standalone blocks) are only accessible within that block.</p>
+<blockquote>
+<p><strong>Block Scope:</strong>  Variables declared using <code>let</code> or <code>const</code> within a block of code (defined by curly braces <code>{}</code>) are only accessible within that specific block and its nested blocks. This helps in creating more predictable and less error-prone code by limiting variable visibility.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Function Scope:</strong> Variables declared inside a function are only accessible within that function.</p>
+<blockquote>
+<p><strong>Function Scope:</strong> Variables declared using <code>var</code>, <code>let</code>, or <code>const</code> inside a function are local to that function. They cannot be accessed from outside the function, ensuring data encapsulation and preventing naming conflicts.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Global Scope:</strong> Variables declared outside of any function or block are in the global scope and can be accessed from anywhere in your JavaScript code.</p>
+<blockquote>
+<p><strong>Global Scope:</strong> Variables declared outside of any function or block are considered global. They can be accessed and modified from anywhere in the script. However, excessive use of global variables is generally discouraged as it can lead to naming collisions and make code harder to maintain and debug.</p>
+</blockquote>
+</li>
+</ul>
+<p>We also learned that variables in the global scope are accessible within both block and function scopes.</p>
+<h3 id="nested-functions-scope-an-example">Nested Functions Scope: An Example</h3>
+<p>Let's examine how scope behaves when functions are nested within each other. Consider the following JavaScript code:</p>
+<pre><code class="language-javascript">let a = 10; // Global scope
+
+function outer() {
+  let b = 20; // Function scope of 'outer'
+
+  function inner() {
+    let c = 30; // Function scope of 'inner'
+    console.log(a, b, c);
+  }
+
+  inner(); // Invoking 'inner' function within 'outer'
+}
+
+outer(); // Invoking 'outer' function
+</code></pre>
+<p>When this code is executed, the output will be:</p>
+<pre><code>10 20 30
+</code></pre>
+<p>Let's break down how the JavaScript engine resolves variable access within the <code>inner</code> function's <code>console.log</code> statement:</p>
+<ol>
+<li><strong>Variable <code>c</code>:</strong> JavaScript first checks if <code>c</code> is defined within the scope of the <code>inner</code> function. It is, and its value is <code>30</code>.</li>
+<li><strong>Variable <code>b</code>:</strong> JavaScript then checks if <code>b</code> is defined within the scope of the <code>inner</code> function. It is not.  Therefore, it moves one level up to the scope of the <code>outer</code> function.  <code>b</code> is defined in the <code>outer</code> function scope with a value of <code>20</code>.</li>
+<li><strong>Variable <code>a</code>:</strong> JavaScript checks for <code>a</code> in the <code>inner</code> function scope (not found), then in the <code>outer</code> function scope (not found).  It continues moving up the scope chain until it reaches the global scope. <code>a</code> is found in the global scope with a value of <code>10</code>.</li>
+</ol>
+<p>This process illustrates <strong>lexical scoping</strong>.</p>
+<blockquote>
+<p><strong>Lexical Scoping:</strong> Also known as static scoping, lexical scoping refers to the ability of a function to access variables from its surrounding or "parent" scopes in the hierarchy at the time the function is <em>defined</em>, not when it is executed. This scope is determined by the physical location of the function in the code.</p>
+</blockquote>
+<p>In essence, when dealing with nested functions, JavaScript's variable lookup begins in the innermost function's scope and proceeds outwards through each enclosing scope until it reaches the global scope.</p>
+<p><strong>Key takeaway:</strong> Nested functions have access to variables declared in their own scope as well as variables declared in any of their outer (enclosing) scopes.</p>
+<h2 id="closures">Closures</h2>
+<p>Building upon our understanding of nested functions and scope, we now explore <strong>closures</strong>, a fundamental concept in JavaScript.</p>
+<h3 id="defining-closures">Defining Closures</h3>
+<p>According to Mozilla Developer Network (MDN), a closure is:</p>
+<blockquote>
+<p><strong>Closure (MDN Definition):</strong> The combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.</p>
+</blockquote>
+<p>While this definition is accurate, it might not be immediately intuitive. Let's delve deeper into what closures are and how they work with a practical example.</p>
+<h3 id="understanding-closures-with-an-example">Understanding Closures with an Example</h3>
+<p>Consider a simplified version of our nested function example:</p>
+<pre><code class="language-javascript">function outer() {
+  let counter = 0;
+
+  function inner() {
+    counter++;
+    console.log(counter);
+  }
+
+  inner(); // Invoking 'inner' within 'outer'
+}
+
+outer(); // First invocation of 'outer'
+outer(); // Second invocation of 'outer'
+</code></pre>
+<p>When you run this code, the output is:</p>
+<pre><code>1
+1
+</code></pre>
+<p>This is because each time <code>outer()</code> is called, a new execution context is created.  The <code>counter</code> variable is initialized to <code>0</code> within each execution context, incremented to <code>1</code> by <code>inner()</code>, and then the value <code>1</code> is logged.  Each call to <code>outer()</code> results in an independent execution and a fresh <code>counter</code>.</p>
+<p>Now, let's modify the code to return the <code>inner</code> function from <code>outer</code>:</p>
+<pre><code class="language-javascript">function outer() {
+  let counter = 0;
+
+  function inner() {
+    counter++;
+    console.log(counter);
+  }
+
+  return inner; // Returning the 'inner' function
+}
+
+const fn = outer(); // Assign the returned 'inner' function to 'fn'
+
+fn(); // First invocation of 'fn' (which is 'inner')
+fn(); // Second invocation of 'fn'
+</code></pre>
+<p>Running this modified code yields a different output:</p>
+<pre><code>1
+2
+</code></pre>
+<p>This output demonstrates the concept of closures. We expected <code>1</code> and <code>1</code> as before, but we got <code>1</code> and <code>2</code>. This is because of how closures work in JavaScript.</p>
+<h3 id="a-simpler-definition-of-closures">A Simpler Definition of Closures</h3>
+<p>Here's a more straightforward definition of closures:</p>
+<blockquote>
+<p><strong>Closure (Simplified Definition):</strong> In JavaScript, when a function is returned from another function, it's not just the function definition that is returned. It's also returned along with its surrounding scope. This creates a persistent memory for the returned function, allowing it to remember and access variables from its outer function's scope, even after the outer function has finished executing. This combination of the function and its scope chain is called a closure.</p>
+</blockquote>
+<h3 id="breakdown-of-the-closure-example">Breakdown of the Closure Example</h3>
+<p>In our example:</p>
+<ol>
+<li>When <code>outer()</code> is called, it returns the <code>inner</code> function. Importantly, it also "closes over" the <code>counter</code> variable from its scope.</li>
+<li>The returned <code>inner</code> function is assigned to the variable <code>fn</code>.</li>
+<li>When <code>fn()</code> is invoked for the first time, it accesses the <code>counter</code> variable from its closed-over scope. <code>counter</code> is incremented to <code>1</code>, and <code>1</code> is logged.</li>
+<li>Crucially, <code>fn</code> remembers the state of <code>counter</code> (which is now <code>1</code>).</li>
+<li>When <code>fn()</code> is invoked a second time, it again accesses the same <code>counter</code> variable from its closed-over scope.  <code>counter</code> is incremented again to <code>2</code>, and <code>2</code> is logged.</li>
+</ol>
+<p>The key takeaway is that <strong>closures allow inner functions to retain access to variables in their outer function's scope even after the outer function has completed execution.</strong> This persistent memory and access are what define a closure.</p>
+<p>Closures are a powerful feature in JavaScript, enabling data encapsulation, creating private variables, and implementing patterns like function factories.</p>
+<h2 id="currying">Currying</h2>
+<p>Now that we understand closures, let's move on to <strong>currying</strong>, a technique in functional programming that utilizes closures.</p>
+<h3 id="what-is-currying">What is Currying?</h3>
+<blockquote>
+<p><strong>Currying:</strong> Currying is a transformation process in functional programming where a function that takes multiple arguments is transformed into a sequence of nested functions. Each nested function takes only one argument at a time.</p>
+</blockquote>
+<p>Consider a function <code>f(a, b, c)</code>. Currying transforms it into <code>f(a)(b)(c)</code>. It's important to note that currying doesn't immediately <em>call</em> the function; it <em>transforms</em> it.</p>
+<h3 id="currying-example-in-javascript">Currying Example in JavaScript</h3>
+<p>Let's start with a function <code>sum</code> that adds three numbers:</p>
+<pre><code class="language-javascript">function sum(a, b, c) {
+  return a + b + c;
+}
+
+console.log(sum(2, 3, 5)); // Output: 10
+</code></pre>
+<p>To curry this <code>sum</code> function, we'll create a <code>curry</code> function that takes <code>sum</code> as an argument and returns its curried version:</p>
+<pre><code class="language-javascript">function curry(fn) {
+  return function(a) {
+    return function(b) {
+      return function(c) {
+        return fn(a, b, c); // Call the original function with all arguments
+      };
+    };
+  };
+}
+
+const curriedSum = curry(sum);
+
+console.log(curriedSum(2)(3)(5)); // Output: 10
+</code></pre>
+<p>In this <code>curry</code> function:</p>
+<ol>
+<li>It takes a function <code>fn</code> (in our case, <code>sum</code>) as input.</li>
+<li>It returns a series of nested functions. Each function takes one argument (<code>a</code>, <code>b</code>, <code>c</code>).</li>
+<li>The innermost function finally calls the original function <code>fn</code> (our <code>sum</code> function) with all the accumulated arguments.</li>
+</ol>
+<p>We can break down the invocation <code>curriedSum(2)(3)(5)</code>:</p>
+<pre><code class="language-javascript">const add2 = curriedSum(2);     // add2 is now a function that expects 'b'
+const add3 = add2(3);          // add3 is now a function that expects 'c'
+const add5 = add3(5);          // add5 is now the result of sum(2, 3, 5)
+
+console.log(add5);             // Output: 10
+</code></pre>
+<h3 id="applications-of-currying">Applications of Currying</h3>
+<p>Currying is useful for creating reusable and specialized functions. For example, you can create functions like <code>logInfo</code>, <code>logError</code>, etc., where the logging level is pre-set, and you only need to provide the message.</p>
+<p>Currying enhances function composition and code reusability in functional programming paradigms.</p>
+<h2 id="the-this-keyword">The <code>this</code> Keyword</h2>
+<p>The <code>this</code> keyword in JavaScript is a source of confusion for many developers. Understanding how <code>this</code> behaves is crucial for mastering the language.</p>
+<h3 id="understanding-this">Understanding <code>this</code></h3>
+<blockquote>
+<p><strong><code>this</code> Keyword:</strong> In JavaScript, the <code>this</code> keyword within a function refers to the object that the function belongs to. Its value is dynamic and determined entirely by <em>how</em> the function is called (its invocation context).</p>
+</blockquote>
+<p>The value of <code>this</code> is not defined by where the function is declared, but rather by how it is invoked.</p>
+<h3 id="determining-this-value-invocation-rules">Determining <code>this</code> Value: Invocation Rules</h3>
+<p>There are four primary rules to determine the value of <code>this</code> in JavaScript:</p>
+<ol>
+<li><strong>Implicit Binding:</strong></li>
+<li><strong>Explicit Binding:</strong></li>
+<li><strong>New Binding:</strong></li>
+<li><strong>Default Binding:</strong></li>
+</ol>
+<p>Let's examine each rule with examples.</p>
+<h3 id="1-implicit-binding">1. Implicit Binding</h3>
+<p><strong>Rule:</strong> When a function is invoked using dot notation (<code>.</code>), the object to the <em>left</em> of the dot becomes the value of <code>this</code> inside the function.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-javascript">const person = {
+  name: &quot;Vishwas&quot;,
+  sayMyName: function() {
+    console.log(&quot;My name is &quot; + this.name);
+  }
+};
+
+person.sayMyName(); // Output: My name is Vishwas
+</code></pre>
+<p>In <code>person.sayMyName()</code>, <code>person</code> is to the left of the dot. Therefore, inside <code>sayMyName</code>, <code>this</code> refers to the <code>person</code> object.</p>
+<h3 id="2-explicit-binding">2. Explicit Binding</h3>
+<p><strong>Rule:</strong> Explicit binding allows you to explicitly set the value of <code>this</code> using methods like <code>call()</code>, <code>apply()</code>, or <code>bind()</code>.</p>
+<p><strong>Example using <code>call()</code>:</strong></p>
+<pre><code class="language-javascript">function sayMyName() {
+  console.log(&quot;My name is &quot; + this.name);
+}
+
+const person = {
+  name: &quot;Vishwas&quot;
+};
+
+sayMyName.call(person); // Output: My name is Vishwas
+</code></pre>
+<p><code>sayMyName.call(person)</code> invokes <code>sayMyName</code> and explicitly sets <code>this</code> to the <code>person</code> object using the <code>call()</code> method. The first argument to <code>call()</code> is always the desired <code>this</code> value.</p>
+<h3 id="3-new-binding">3. New Binding</h3>
+<p><strong>Rule:</strong> When a function is invoked using the <code>new</code> keyword (constructor function), <code>this</code> inside the function will always point to a newly created empty object.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-javascript">function Person(name) {
+  // 'this' is an empty object {}
+  this.name = name; // Add 'name' property to 'this'
+  // Implicitly return 'this'
+}
+
+const p1 = new Person(&quot;Vishwas&quot;);
+const p2 = new Person(&quot;Batman&quot;);
+
+console.log(p1.name); // Output: Vishwas
+console.log(p2.name); // Output: Batman
+</code></pre>
+<p>When <code>new Person("Vishwas")</code> is executed:</p>
+<ol>
+<li>A new empty object <code>{}</code> is created.</li>
+<li><code>Person</code> function is called with <code>this</code> bound to the new object.</li>
+<li><code>this.name = name</code> adds the <code>name</code> property to the new object.</li>
+<li>The new object (now with the <code>name</code> property) is implicitly returned.</li>
+</ol>
+<h3 id="4-default-binding">4. Default Binding</h3>
+<p><strong>Rule:</strong> If none of the other three rules apply, JavaScript defaults to the global scope for <code>this</code>. In non-strict mode, <code>this</code> will point to the global object (e.g., <code>window</code> in browsers, global in Node.js). In strict mode, <code>this</code> will be <code>undefined</code>.</p>
+<p><strong>Example (Non-strict mode in Node.js):</strong></p>
+<pre><code class="language-javascript">function sayMyName() {
+  console.log(&quot;My name is &quot; + this.name);
+}
+
+// In global scope (Node.js), 'this' refers to the global object
+sayMyName(); // Output: My name is undefined (because global object likely doesn't have 'name' property directly)
+
+// However, if you declare a global variable 'name'
+global.name = &quot;Superman&quot;; // In Node.js, use 'global' to set global properties
+sayMyName(); // Output: My name is Superman
+</code></pre>
+<p><strong>Precedence of Rules:</strong></p>
+<p>When multiple rules could apply, the order of precedence is:</p>
+<ol>
+<li><strong>New Binding</strong> (highest priority)</li>
+<li><strong>Explicit Binding</strong></li>
+<li><strong>Implicit Binding</strong></li>
+<li><strong>Default Binding</strong> (lowest priority)</li>
+</ol>
+<p>Understanding these rules is essential for correctly predicting and controlling the behavior of <code>this</code> in your JavaScript code.</p>
+<h2 id="prototype-and-prototypal-inheritance">Prototype and Prototypal Inheritance</h2>
+<p><strong>Prototype</strong> and <strong>prototypal inheritance</strong> are core concepts in JavaScript's object-oriented nature. They provide a mechanism for object sharing and inheritance that is different from class-based inheritance in languages like Java or C++.</p>
+<h3 id="understanding-prototypes">Understanding Prototypes</h3>
+<blockquote>
+<p><strong>Prototype (in JavaScript):</strong> In JavaScript, every function has a property called <code>prototype</code>. This <code>prototype</code> property is an object itself. When a function is used as a constructor (invoked with <code>new</code>), the <code>prototype</code> object is used as the prototype for the newly created objects (instances).</p>
+</blockquote>
+<p>Let's define a <code>Person</code> constructor function:</p>
+<pre><code class="language-javascript">function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const p1 = new Person(&quot;Bruce&quot;, &quot;Wayne&quot;);
+const p2 = new Person(&quot;Clark&quot;, &quot;Kent&quot;);
+</code></pre>
+<p>We can add a method to all <code>Person</code> instances using the <code>prototype</code> property:</p>
+<pre><code class="language-javascript">Person.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+console.log(p1.getFullName()); // Output: Bruce Wayne
+console.log(p2.getFullName()); // Output: Clark Kent
+</code></pre>
+<p>Here, <code>Person.prototype.getFullName</code> adds the <code>getFullName</code> method to the <code>prototype</code> object of the <code>Person</code> function.  Now, every instance of <code>Person</code> (like <code>p1</code> and <code>p2</code>) can access and use the <code>getFullName</code> method.</p>
+<h3 id="prototypal-inheritance">Prototypal Inheritance</h3>
+<blockquote>
+<p><strong>Prototypal Inheritance:</strong> JavaScript's inheritance mechanism is based on prototypes. Objects inherit properties and methods from their prototypes.  When you try to access a property on an object, and the object itself doesn't have that property, JavaScript looks up the prototype chain to find the property.</p>
+</blockquote>
+<p>Let's create a <code>Superhero</code> that inherits from <code>Person</code>. A superhero is a person but has additional superhero-specific properties and methods.</p>
+<pre><code class="language-javascript">function Superhero(firstName, lastName, isSuperhero) {
+  // Call Person constructor to inherit firstName and lastName
+  Person.call(this, firstName, lastName);
+  this.isSuperhero = isSuperhero;
+}
+
+// Set up prototype chain: Superhero.prototype inherits from Person.prototype
+Superhero.prototype = Object.create(Person.prototype);
+
+Superhero.prototype.fightCrime = function() {
+  console.log(&quot;Fighting crime!&quot;);
+};
+
+// Correct the constructor property of Superhero.prototype
+Superhero.prototype.constructor = Superhero;
+
+const batman = new Superhero(&quot;Bruce&quot;, &quot;Wayne&quot;, true);
+
+console.log(batman.getFullName()); // Output: Bruce Wayne (inherited from Person)
+batman.fightCrime();             // Output: Fighting crime! (Superhero specific)
+console.log(batman.isSuperhero);  // Output: true (Superhero specific property)
+</code></pre>
+<p><strong>Explanation of Prototypal Inheritance Steps:</strong></p>
+<ol>
+<li><strong>Constructor Chaining:</strong> <code>Person.call(this, firstName, lastName);</code> calls the <code>Person</code> constructor with <code>this</code> context of <code>Superhero</code> instance, inheriting <code>firstName</code> and <code>lastName</code> properties.</li>
+<li><strong>Prototype Delegation:</strong> <code>Superhero.prototype = Object.create(Person.prototype);</code> sets up the prototype chain. <code>Superhero.prototype</code> now inherits from <code>Person.prototype</code>.  <code>Object.create</code> creates a new object that prototypally inherits from <code>Person.prototype</code>.</li>
+<li><strong>Adding Superhero-Specific Methods:</strong> <code>Superhero.prototype.fightCrime = ...</code> adds methods specific to <code>Superhero</code> to its prototype.</li>
+<li><strong>Constructor Correction:</strong> <code>Superhero.prototype.constructor = Superhero;</code> is important to correct the <code>constructor</code> property of <code>Superhero.prototype</code>, which would otherwise incorrectly point to <code>Person</code>.</li>
+</ol>
+<p>Now, <code>batman</code> (a <code>Superhero</code> instance) inherits properties and methods from both <code>Superhero.prototype</code> and <code>Person.prototype</code>, demonstrating prototypal inheritance.</p>
+<h2 id="classes">Classes</h2>
+<p>Introduced in ECMAScript 2015 (ES6), the <code>class</code> keyword provides a more familiar syntax for creating objects and dealing with inheritance in JavaScript, especially for developers coming from class-based languages.</p>
+<h3 id="classes-as-syntactical-sugar">Classes as Syntactical Sugar</h3>
+<blockquote>
+<p><strong>JavaScript Classes:</strong>  Classes in JavaScript are primarily <strong>syntactical sugar</strong> over the existing prototypal inheritance mechanism. They provide a cleaner and more structured way to work with prototypes and inheritance but do not introduce a new object-oriented model.</p>
+</blockquote>
+<p>Let's rewrite our <code>Person</code> and <code>Superhero</code> examples using classes.</p>
+<h3 id="person-class">Person Class</h3>
+<pre><code class="language-javascript">class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const classPerson1 = new Person(&quot;Bruce&quot;, &quot;Wayne&quot;);
+console.log(classPerson1.getFullName()); // Output: Bruce Wayne
+</code></pre>
+<p><strong>Class Syntax Breakdown:</strong></p>
+<ul>
+<li><code>class Person { ... }</code>:  Declares a class named <code>Person</code>.</li>
+<li><code>constructor(firstName, lastName) { ... }</code>: Defines the constructor method. This method is called when you create a new instance using <code>new Person()</code>. It initializes object properties.</li>
+<li><code>getFullName() { ... }</code>: Defines a method on the <code>Person.prototype</code>.</li>
+</ul>
+<h3 id="superhero-class-inheritance-with-extends-and-super">Superhero Class (Inheritance with <code>extends</code> and <code>super</code>)</h3>
+<pre><code class="language-javascript">class Superhero extends Person {
+  constructor(firstName, lastName, isSuperhero) {
+    super(firstName, lastName); // Call the parent class (Person) constructor
+    this.isSuperhero = isSuperhero;
+  }
+
+  fightCrime() {
+    console.log(&quot;Fighting crime!&quot;);
+  }
+}
+
+const classBatman = new Superhero(&quot;Bruce&quot;, &quot;Wayne&quot;, true);
+console.log(classBatman.getFullName()); // Output: Bruce Wayne (inherited)
+classBatman.fightCrime();             // Output: Fighting crime!
+console.log(classBatman.isSuperhero);  // Output: true
+</code></pre>
+<p><strong>Class Inheritance Syntax:</strong></p>
+<ul>
+<li><code>class Superhero extends Person { ... }</code>:  Declares <code>Superhero</code> class that inherits from <code>Person</code> class using <code>extends</code>.</li>
+<li><code>super(firstName, lastName);</code>:  Inside the <code>Superhero</code> constructor, <code>super()</code> calls the constructor of the parent class (<code>Person</code>). It's essential to call <code>super()</code> first in the constructor of the derived class to correctly initialize inherited properties.</li>
+</ul>
+<p>Classes provide a more structured and readable way to define objects and inheritance in JavaScript, but it's crucial to remember they are built upon the foundation of prototypal inheritance.</p>
+<h2 id="iterables-and-iterators">Iterables and Iterators</h2>
+<p><strong>Iterables</strong> and <strong>iterators</strong> are protocols introduced in ECMAScript 2015 (ES6) to standardize how objects can be iterated over in JavaScript.  They provide a uniform way to access elements of various data structures.</p>
+<h3 id="iteration-before-iterables-and-iterators">Iteration Before Iterables and Iterators</h3>
+<p>Before ES6, iteration in JavaScript relied heavily on <code>for</code> loops, <code>while</code> loops, and <code>do...while</code> loops.  Iterating over strings and arrays, for example, required different approaches:</p>
+<pre><code class="language-javascript">// Iterating over a string (pre-ES6 approach)
+const str = &quot;vishwas&quot;;
+for (let i = 0; i &lt; str.length; i++) {
+  console.log(str[i]);
+}
+
+// Iterating over an array (pre-ES6 approach)
+const arr = ['v', 'i', 's', 'h', 'w', 'a', 's'];
+for (let i = 0; i &lt; arr.length; i++) {
+  console.log(arr[i]);
+}
+</code></pre>
+<p>This approach had some drawbacks:</p>
+<ul>
+<li><strong>Complexity of Accessing Elements:</strong>  Requires manual index tracking and condition checks.</li>
+<li><strong>Data Structure Specificity:</strong> Iteration logic was often tied to the specific data structure (string vs. array).</li>
+</ul>
+<h3 id="iterables-and-iterators-a-uniform-approach">Iterables and Iterators: A Uniform Approach</h3>
+<p>Iterables and iterators provide a more abstract and uniform way to iterate over data structures.</p>
+<blockquote>
+<p><strong>Iterable:</strong> An object that implements the <strong>iterable protocol</strong>. This protocol requires an object to have a method at the key <code>Symbol.iterator</code>. This method must return an <strong>iterator</strong>. Built-in iterables in JavaScript include: <code>String</code>, <code>Array</code>, <code>Map</code>, and <code>Set</code>.</p>
+<p><strong>Iterator:</strong> An object that conforms to the <strong>iterator protocol</strong>. This protocol requires an object to have a <code>next()</code> method. The <code>next()</code> method must return an object with two properties:
+*   <code>value</code>: The current element being iterated over.
+*   <code>done</code>: A boolean value indicating whether there are more elements to iterate over (<code>false</code> if more elements exist, <code>true</code> if iteration is complete).</p>
+</blockquote>
+<p>The <strong><code>for...of</code> loop</strong> was introduced to work with iterables.</p>
+<pre><code class="language-javascript">// Iterating over a string using for...of (ES6 iterables)
+const str = &quot;vishwas&quot;;
+for (const char of str) {
+  console.log(char);
+}
+
+// Iterating over an array using for...of (ES6 iterables)
+const arr = ['v', 'i', 's', 'h', 'w', 'a', 's'];
+for (const item of arr) {
+  console.log(item);
+}
+</code></pre>
+<p>The <code>for...of</code> loop simplifies iteration by automatically handling the iterator and providing each element in sequence, abstracting away the complexity of index management.</p>
+<h3 id="creating-a-custom-iterable-and-iterator">Creating a Custom Iterable and Iterator</h3>
+<p>Let's create a custom object that is iterable:</p>
+<pre><code class="language-javascript">const obj = {
+  [Symbol.iterator]: function() { // Iterable protocol: Symbol.iterator method
+    let step = 0;
+    const iterator = {         // Iterator protocol: iterator object
+      next: function() {       // Iterator protocol: next() method
+        step++;
+        if (step === 1) {
+          return { value: &quot;hello&quot;, done: false };
+        } else if (step === 2) {
+          return { value: &quot;world&quot;, done: false };
+        } else {
+          return { value: undefined, done: true }; // End of iteration
+        }
+      }
+    };
+    return iterator; // Return the iterator
+  }
+};
+
+for (const word of obj) {
+  console.log(word); // Output: hello, then world
+}
+</code></pre>
+<p><strong>Breakdown of Custom Iterable/Iterator:</strong></p>
+<ol>
+<li><strong>Iterable Protocol:</strong> <code>obj[Symbol.iterator] = function() { ... }</code> makes <code>obj</code> iterable by defining the <code>Symbol.iterator</code> method.</li>
+<li><strong>Iterator Object:</strong> Inside <code>Symbol.iterator</code>, we create an <code>iterator</code> object with a <code>next()</code> method.</li>
+<li><strong>Iterator Protocol:</strong> The <code>next()</code> method returns an object with <code>value</code> and <code>done</code> properties according to the iterator protocol.</li>
+<li><strong>Iteration Logic:</strong> The <code>step</code> variable and conditional logic within <code>next()</code> define the sequence of values to be iterated over ("hello", "world").</li>
+</ol>
+<p>This example demonstrates how to create your own iterables and iterators in JavaScript, although in practice, you'll primarily use built-in iterables and the <code>for...of</code> loop.</p>
+<h2 id="generators">Generators</h2>
+<p><strong>Generators</strong> are a special type of function in JavaScript that simplify the creation of iterators. They provide a more concise and readable way to define custom iteration behavior.</p>
+<h3 id="what-are-generators">What are Generators?</h3>
+<blockquote>
+<p><strong>Generator Function:</strong> A generator function is a special type of function in JavaScript that can be paused and resumed during its execution. It allows you to define an iterative algorithm in a more declarative and less verbose way.</p>
+</blockquote>
+<p>Generator functions are defined using the <code>function*</code> syntax (function keyword followed by an asterisk). They use the <code>yield</code> keyword to pause execution and return a value.</p>
+<h3 id="generator-example-rewriting-the-iterable-example">Generator Example: Rewriting the Iterable Example</h3>
+<p>Let's rewrite our "hello world" iterable example using a generator function:</p>
+<pre><code class="language-javascript">function* generatorFunction() { // Generator function syntax
+  yield &quot;hello&quot;;               // Pause execution and yield &quot;hello&quot;
+  yield &quot;world&quot;;               // Pause execution and yield &quot;world&quot;
+}
+
+const generatorObject = generatorFunction(); // Invoke generator to get iterator
+
+for (const word of generatorObject) {
+  console.log(word); // Output: hello, then world
+}
+</code></pre>
+<p><strong>Generator Function Breakdown:</strong></p>
+<ol>
+<li><strong><code>function* generatorFunction() { ... }</code>:</strong>  Defines a generator function named <code>generatorFunction</code>.</li>
+<li><strong><code>yield "hello";</code> and <code>yield "world";</code>:</strong> The <code>yield</code> keyword pauses the generator function's execution at each <code>yield</code> statement and returns the value following <code>yield</code>.</li>
+<li><strong><code>const generatorObject = generatorFunction();</code>:</strong>  Invoking a generator function does <em>not</em> execute the function code immediately. Instead, it returns a <strong>generator object</strong>. This generator object is an <strong>iterator</strong>.</li>
+<li><strong><code>for...of generatorObject</code>:</strong>  The <code>for...of</code> loop iterates over the generator object (iterator). Each iteration implicitly calls the <code>next()</code> method of the iterator. When <code>next()</code> is called, the generator function resumes execution from where it was paused at the last <code>yield</code>.</li>
+</ol>
+<h3 id="benefits-of-generators-for-iterators">Benefits of Generators for Iterators</h3>
+<p>Generators significantly simplify iterator creation by:</p>
+<ul>
+<li><strong>Implicit Iterator Creation:</strong> Generator functions automatically create iterator objects.</li>
+<li><strong>Simplified <code>next()</code> Logic:</strong> You don't need to manually implement the <code>next()</code> method or manage state variables like <code>step</code>. The generator function's execution flow and <code>yield</code> statements inherently define the iteration logic.</li>
+<li><strong>Readability:</strong> Generator functions often lead to more readable and concise code for defining iterative behaviors.</li>
+</ul>
+<p>Generators are a powerful tool for creating custom iterators and managing complex iteration logic in JavaScript.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This crash course has covered a range of advanced JavaScript concepts crucial for front-end developers. From understanding scope and closures to mastering the <code>this</code> keyword, prototypes, classes, iterators, and generators, you now have a solid foundation in these essential topics.</p>
+<p>Remember to practice coding along with the examples and explore further resources to deepen your understanding. These concepts are not only important for front-end interviews but are also frequently applied in daily development tasks.</p>
+<p>The next step in your JavaScript journey is to delve into asynchronous JavaScript, which will be covered in a subsequent chapter. Continue to explore, practice, and build upon this knowledge to become a proficient JavaScript developer!</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

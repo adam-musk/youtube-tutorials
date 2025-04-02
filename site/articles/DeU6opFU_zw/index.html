@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Managing Work in Progress with Git Stash - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#managing-work-in-progress-with-git-stash">Managing Work in Progress with Git Stash</a></li>
+        <li><a href="#introduction-the-challenge-of-interruptions-and-context-switching">Introduction: The Challenge of Interruptions and Context Switching</a></li><li><a href="#understanding-git-stash">Understanding Git Stash</a></li><li><a href="#basic-stashing-git-stash">Basic Stashing: git stash</a></li><li><a href="#applying-a-stash-git-stash-apply">Applying a Stash: git stash apply</a></li><li><a href="#listing-stashes-git-stash-list">Listing Stashes: git stash list</a></li><li><a href="#applying-specific-stashes-git-stash-apply-index">Applying Specific Stashes: git stash apply &lt;index&gt;</a></li><li><a href="#stashing-with-a-message-git-stash-push-m-message">Stashing with a Message: git stash push -m "&lt;message&gt;"</a></li><li><a href="#removing-stashes-git-stash-drop-index">Removing Stashes: git stash drop &lt;index&gt;</a></li><li><a href="#applying-and-removing-a-stash-in-one-step-git-stash-pop-index">Applying and Removing a Stash in One Step: git stash pop &lt;index&gt;</a></li><li><a href="#clearing-all-stashes-git-stash-clear">Clearing All Stashes: git stash clear</a></li><li><a href="#conclusion-efficiently-managing-interruptions-with-git-stash">Conclusion: Efficiently Managing Interruptions with Git Stash</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="managing-work-in-progress-with-git-stash">Managing Work in Progress with Git Stash</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/DeU6opFU_zw" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="introduction-the-challenge-of-interruptions-and-context-switching">Introduction: The Challenge of Interruptions and Context Switching</h3>
+<p>When working on software development projects using Git, developers often encounter situations where they need to switch contexts or address urgent issues while in the middle of implementing a new feature or fixing a bug.  Imagine you are diligently working on a new feature branch when a critical bug is reported in the main branch. You need to quickly switch to the main branch, fix the bug, and then return to your feature work.</p>
+<p>However, your current changes for the feature might not be in a state ready to be committed. Creating a commit at this stage might lead to what are sometimes referred to as "dirty commits"—commits that contain unfinished, potentially broken, or unstable code. These commits can clutter the project history and make it difficult to track meaningful changes.</p>
+<blockquote>
+<p><strong>Dirty commits:</strong>  Commits made with unfinished or unstable code, often created to save work in progress but not intended to be part of the permanent, clean project history. These can make the commit history less clear and harder to manage.</p>
+</blockquote>
+<p>Fortunately, Git provides a powerful tool to handle such scenarios gracefully: <strong>Git Stash</strong>. This chapter will explore how to use Git Stash to temporarily shelve your changes, allowing you to switch contexts seamlessly and maintain a clean and organized project history.</p>
+<h3 id="understanding-git-stash">Understanding Git Stash</h3>
+<p>Git Stash allows you to save your uncommitted changes—both staged and unstaged—and revert your working directory to a clean state, matching the last commit. Think of it as a temporary shelf where you can put aside your current work, allowing you to work on something else without committing incomplete changes. Later, you can retrieve your stashed changes and continue working where you left off.</p>
+<blockquote>
+<p><strong>Stash:</strong> A temporary storage area within Git for saving uncommitted changes. It allows you to clean your working directory and switch contexts without losing your work in progress.</p>
+</blockquote>
+<h3 id="basic-stashing-git-stash">Basic Stashing: <code>git stash</code></h3>
+<p>Let's illustrate the basic usage of <code>git stash</code>. Assume you are working on a project and have made some changes to a file, perhaps adding a new feature.  Your working directory now deviates from the last commit.</p>
+<p>To stash these changes, you simply open your <strong>command line</strong> or <strong>terminal</strong> in your project directory and execute the following command:</p>
+<pre><code class="language-bash">git stash
+</code></pre>
+<blockquote>
+<p><strong>Command Line / Terminal:</strong> A text-based interface for interacting with your computer's operating system. In the context of Git, it's used to execute Git commands.</p>
+</blockquote>
+<p>After running this command, you will observe the following:</p>
+<ul>
+<li>Your working directory will revert to the state of your last commit. Any changes you made will seemingly disappear from your working files.</li>
+<li>Git has created a new stash entry containing your saved changes.</li>
+</ul>
+<p>To verify that your working directory is clean and reflects the last commit, you can use the <code>git log</code> command.</p>
+<blockquote>
+<p><strong>Git Log:</strong> A Git command that displays the commit history of the current branch. It provides information about commits, including commit messages, authors, dates, and the changes introduced.</p>
+</blockquote>
+<pre><code class="language-bash">git log --oneline
+</code></pre>
+<p>This command will show the commit history, and you should see that your working directory now matches the latest commit displayed.</p>
+<h3 id="applying-a-stash-git-stash-apply">Applying a Stash: <code>git stash apply</code></h3>
+<p>To bring back the stashed changes into your working directory, you can use the <code>git stash apply</code> command. By default, <code>git stash apply</code> will apply the most recently created stash.</p>
+<pre><code class="language-bash">git stash apply
+</code></pre>
+<p>After executing this command:</p>
+<ul>
+<li>Your stashed changes will be reapplied to your working directory. You will see the feature you were working on reappear in your files.</li>
+<li>Crucially, the stash itself remains in the stash list. This means you can apply the same stash multiple times if needed.</li>
+<li>Your working directory will now contain the changes from the stash, but these changes are still uncommitted. You can now continue working on them, make further modifications, and eventually commit them.</li>
+</ul>
+<h3 id="listing-stashes-git-stash-list">Listing Stashes: <code>git stash list</code></h3>
+<p>When you stash multiple times, Git keeps a list of your stashes. To see this list, use the command:</p>
+<pre><code class="language-bash">git stash list
+</code></pre>
+<p>This command will display a list of your stashes, each identified by an index number and a name. The most recent stash will be at the top of the list with index <code>stash@{0}</code>, the next most recent with <code>stash@{1}</code>, and so on.</p>
+<blockquote>
+<p><strong>Index (in stash list context):</strong> A numerical identifier assigned to each stash entry in the stash list. It's used to reference specific stashes when applying, dropping, or popping them.</p>
+</blockquote>
+<p>For example, the output might look like this:</p>
+<pre><code>stash@{0}: WIP on main: 5d2abf1 Starting code
+stash@{1}: WIP on main: 5d2abf1 Starting code
+</code></pre>
+<p>Each stash entry also includes a brief description, often automatically generated, indicating the branch and commit the stash was created from.</p>
+<h3 id="applying-specific-stashes-git-stash-apply-index">Applying Specific Stashes: <code>git stash apply &lt;index&gt;</code></h3>
+<p>If you have multiple stashes and want to apply a specific one that is not the most recent, you can use the index from the <code>git stash list</code> command.  For example, to apply the stash with index <code>1</code> (the second most recent stash in the list), you would use:</p>
+<pre><code class="language-bash">git stash apply stash@{1}
+</code></pre>
+<p>This will apply the changes from the specified stash to your working directory, leaving the stash in the stash list.</p>
+<h3 id="stashing-with-a-message-git-stash-push-m-message">Stashing with a Message: <code>git stash push -m "&lt;message&gt;"</code></h3>
+<p>To make your stashes more descriptive and easier to identify later, you can add a message when creating a stash using the <code>git stash push</code> command with the <code>-m</code> flag.</p>
+<blockquote>
+<p><strong>Push (in <code>stash push</code> context):</strong> In the context of <code>git stash push -m "&lt;message&gt;"</code>,  it's used to create a new stash and associate a descriptive message with it for easier identification. This is different from <code>git push</code> used to upload commits to a remote repository.</p>
+</blockquote>
+<p>For example:</p>
+<pre><code class="language-bash">git stash push -m &quot;feat: Add awesome feature&quot;
+</code></pre>
+<p>This command will create a new stash and associate the message "feat: Add awesome feature" with it. When you run <code>git stash list</code>, you will see this message alongside the stash, making it much easier to remember what each stash contains.</p>
+<h3 id="removing-stashes-git-stash-drop-index">Removing Stashes: <code>git stash drop &lt;index&gt;</code></h3>
+<p>If you have stashes that you no longer need, you can permanently remove them from the stash list using the <code>git stash drop</code> command followed by the index of the stash you want to remove.</p>
+<blockquote>
+<p><strong>Drop:</strong>  In the context of Git stash, to permanently delete a specific stash from the stash list.</p>
+</blockquote>
+<p>For example, to remove the stash with index <code>1</code>:</p>
+<pre><code class="language-bash">git stash drop stash@{1}
+</code></pre>
+<p>Git will confirm that the stash has been dropped. After dropping a stash, it is permanently deleted and cannot be recovered.</p>
+<h3 id="applying-and-removing-a-stash-in-one-step-git-stash-pop-index">Applying and Removing a Stash in One Step: <code>git stash pop &lt;index&gt;</code></h3>
+<p>The <code>git stash pop</code> command combines the actions of <code>git stash apply</code> and <code>git stash drop</code>. It applies a stash to your working directory and immediately removes it from the stash list. By default, <code>git stash pop</code> applies and removes the most recent stash (<code>stash@{0}</code>).</p>
+<blockquote>
+<p><strong>Pop:</strong> In the context of Git stash, to apply a stash to the working directory and simultaneously remove it from the stash list. It's a convenient way to retrieve and clean up stashes in a single step.</p>
+</blockquote>
+<pre><code class="language-bash">git stash pop
+</code></pre>
+<p>You can also specify an index to pop a specific stash:</p>
+<pre><code class="language-bash">git stash pop stash@{1}
+</code></pre>
+<p>After using <code>git stash pop</code>, the specified stash will be applied to your working directory and removed from the stash list.</p>
+<h3 id="clearing-all-stashes-git-stash-clear">Clearing All Stashes: <code>git stash clear</code></h3>
+<p>If you want to remove all stashes at once, you can use the <code>git stash clear</code> command.</p>
+<blockquote>
+<p><strong>Clear:</strong> In the context of Git stash, to remove all stashes from the stash list, effectively emptying the stash storage.</p>
+</blockquote>
+<pre><code class="language-bash">git stash clear
+</code></pre>
+<p>This command will remove all entries from your stash list, effectively cleaning up your stash storage. Use this command with caution, as it permanently deletes all stashed changes.</p>
+<h3 id="conclusion-efficiently-managing-interruptions-with-git-stash">Conclusion: Efficiently Managing Interruptions with Git Stash</h3>
+<p>Git Stash is an invaluable tool for managing interruptions and context switching in your development workflow. It allows you to:</p>
+<ul>
+<li>Temporarily save uncommitted changes.</li>
+<li>Switch branches or work on other tasks without committing incomplete work.</li>
+<li>Maintain a clean working directory and commit history.</li>
+<li>Easily retrieve and reapply stashed changes when you are ready to resume your work.</li>
+</ul>
+<p>By mastering Git Stash, you can significantly improve your efficiency and maintain a more organized and manageable Git repository, even when dealing with frequent interruptions and context shifts. This command is a cornerstone of effective Git usage for developers of all levels.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

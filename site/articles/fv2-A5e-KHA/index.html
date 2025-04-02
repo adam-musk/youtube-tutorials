@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Introduction to MongoDB and Entity Framework Core for .NET Development - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#introduction-to-mongodb-and-entity-framework-core-for-net-development">Introduction to MongoDB and Entity Framework Core for .NET Development</a></li>
+        <li><a href="#11-introduction-to-mongodb-a-nosql-database">1.1 Introduction to MongoDB: A NoSQL Database</a></li><li><a href="#12-introduction-to-entity-framework-core-ef-core-an-orm-for-net">1.2 Introduction to Entity Framework Core (EF Core): An ORM for .NET</a></li><li><a href="#13-bridging-mongodb-and-ef-core-the-mongodb-ef-core-provider">1.3 Bridging MongoDB and EF Core: The MongoDB EF Core Provider</a></li><li><a href="#14-building-a-restaurant-reservation-system-a-practical-project">1.4 Building a Restaurant Reservation System: A Practical Project</a></li><li><a href="#15-advanced-mongodb-atlas-features-atlas-search-and-vector-search">1.5 Advanced MongoDB Atlas Features: Atlas Search and Vector Search</a></li><li><a href="#16-conclusion">1.6 Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="introduction-to-mongodb-and-entity-framework-core-for-net-development">Introduction to MongoDB and Entity Framework Core for .NET Development</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/fv2-A5e-KHA" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter provides an introduction to using MongoDB, a NoSQL database, with Microsoft's Entity Framework Core (EF Core), an Object-Relational Mapper (ORM) for .NET. We will explore the fundamental concepts of MongoDB, understand the benefits of EF Core, and learn how to bridge these technologies using the MongoDB EF Core provider. By the end of this chapter, you will have a foundational understanding of how to leverage MongoDB's flexibility and scalability within the .NET ecosystem using the familiar patterns of EF Core.</p>
+<h3 id="11-introduction-to-mongodb-a-nosql-database">1.1 Introduction to MongoDB: A NoSQL Database</h3>
+<p>MongoDB is a widely adopted NoSQL database renowned for its ability to manage large datasets, deliver high performance, and offer excellent scalability and flexibility. Unlike traditional relational databases, MongoDB adopts a document-oriented approach, storing data in flexible, JSON-like documents.</p>
+<blockquote>
+<p><strong>NoSQL Database:</strong> A type of database that deviates from the traditional relational database model. NoSQL databases are designed to handle large volumes of unstructured or semi-structured data, offering flexibility and scalability.</p>
+</blockquote>
+<h4 id="111-document-oriented-approach">1.1.1 Document-Oriented Approach</h4>
+<p>MongoDB's document-oriented structure allows for a more natural and intuitive representation of complex data. Instead of rigid tables and schemas, data is organized into collections of documents.</p>
+<blockquote>
+<p><strong>Document:</strong> In MongoDB, a document is a set of key-value pairs, similar to a JSON object. It is the basic unit of data in MongoDB and can have a flexible schema.</p>
+</blockquote>
+<p>Consider an example of storing user information. In MongoDB, a user document might look like this:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;John Doe&quot;,
+  &quot;email&quot;: &quot;john.doe@example.com&quot;,
+  &quot;age&quot;: 30,
+  &quot;address&quot;: {
+    &quot;street&quot;: &quot;123 Main St&quot;,
+    &quot;city&quot;: &quot;Anytown&quot;,
+    &quot;state&quot;: &quot;CA&quot;,
+    &quot;zip&quot;: &quot;12345&quot;
+  },
+  &quot;hobbies&quot;: [&quot;reading&quot;, &quot;hiking&quot;, &quot;coding&quot;]
+}
+</code></pre>
+<p>Here, <code>address</code> is an <strong>embedded document</strong>, and <code>hobbies</code> is an <strong>array</strong>, demonstrating the ability to store complex, nested data within a single document.</p>
+<blockquote>
+<p><strong>Embedded Document:</strong> A document nested within another document, representing a sub-structure of data. This allows for rich and hierarchical data representation within a single MongoDB document.</p>
+</blockquote>
+<h4 id="112-collections-organizing-documents">1.1.2 Collections: Organizing Documents</h4>
+<p>In MongoDB, documents are grouped into <strong>collections</strong>, which are analogous to tables in relational databases. However, a key distinction is that collections in MongoDB do not enforce a fixed schema.</p>
+<blockquote>
+<p><strong>Collection:</strong> A grouping of MongoDB documents, similar to a table in relational databases. Collections are schema-less, meaning documents within the same collection can have different structures and fields.</p>
+</blockquote>
+<p>This schema-less nature provides significant flexibility, allowing for documents within the same collection to have varying structures. This is particularly advantageous when dealing with unstructured or semi-structured data where the data schema might evolve or differ significantly across entries.</p>
+<h4 id="113-bson-binary-json">1.1.3 BSON: Binary JSON</h4>
+<p>While MongoDB documents resemble JSON, they are actually stored in a binary format called <strong>BSON (Binary JSON)</strong>.</p>
+<blockquote>
+<p><strong>BSON (Binary JSON):</strong> A binary-encoded serialization of JSON-like documents. BSON extends JSON to include additional data types and is optimized for efficient storage and retrieval in MongoDB.</p>
+</blockquote>
+<p>BSON extends the JSON model by incorporating additional data types such as integers, floats, dates, and binary data. This binary format is optimized for both performance and flexibility, enabling MongoDB to efficiently store and retrieve data.</p>
+<h4 id="114-scalability-and-performance">1.1.4 Scalability and Performance</h4>
+<p>MongoDB is designed for horizontal scalability, a crucial feature for handling large datasets and ensuring high availability.</p>
+<blockquote>
+<p><strong>Horizontal Scalability:</strong> The ability to increase the capacity of a system by adding more servers or nodes to distribute the workload. MongoDB is designed to scale horizontally, allowing it to handle increasing data volumes and traffic.</p>
+</blockquote>
+<p>Horizontal scalability means that data can be distributed across multiple servers. This distribution simplifies the management of large datasets and ensures high availability, as the system can remain operational even if some servers fail.</p>
+<p>Beyond scalability, MongoDB offers robust querying capabilities, indexing, and aggregation functionalities. These features make it a powerful tool for diverse applications ranging from e-commerce and content management systems to real-time analytics and Internet of Things (IoT) applications. Its flexibility and scalability make MongoDB an excellent choice for modern applications dealing with diverse and dynamic data.</p>
+<h3 id="12-introduction-to-entity-framework-core-ef-core-an-orm-for-net">1.2 Introduction to Entity Framework Core (EF Core): An ORM for .NET</h3>
+<p>Moving to the .NET development side, <strong>Entity Framework Core (EF Core)</strong>, often abbreviated as EF Core, is a modern <strong>Object-Relational Mapper (ORM)</strong> for .NET.</p>
+<blockquote>
+<p><strong>Object-Relational Mapper (ORM):</strong> A programming technique that bridges the gap between object-oriented programming languages and relational databases. ORMs allow developers to interact with databases using object-oriented paradigms, reducing the need for manual SQL coding.</p>
+</blockquote>
+<p>EF Core simplifies database interactions by allowing developers to work with databases using .NET objects. This abstraction eliminates the need for extensive data access code that developers typically have to write when interacting directly with databases.</p>
+<p>EF Core is lightweight, extensible, and cross-platform, evolving from the popular Entity Framework data access technology. It supports various database engines, including SQL Server, SQLite, and, importantly for our focus, MongoDB.</p>
+<h4 id="121-benefits-of-using-ef-core">1.2.1 Benefits of Using EF Core</h4>
+<p>One of the primary advantages of EF Core is its ability to enable developers to interact with data in a more intuitive and object-oriented manner. Instead of writing raw SQL queries, developers can utilize <strong>LINQ (Language Integrated Query)</strong> and strongly-typed classes to interact with their database.</p>
+<blockquote>
+<p><strong>LINQ (Language Integrated Query):</strong> A powerful feature in .NET that allows developers to write queries against various data sources using a consistent syntax directly within C# or VB.NET code.</p>
+</blockquote>
+<p>Consider a simple <code>Product</code> class in .NET:</p>
+<pre><code class="language-csharp">public class Product
+{
+    public int ProductId { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+</code></pre>
+<p>With EF Core, you can create a <strong>context class</strong> that represents a session with the database and includes a <strong>DbSet</strong> for each entity type you wish to query or save.</p>
+<blockquote>
+<p><strong>Context Class (DbContext):</strong> In EF Core, a class that inherits from <code>DbContext</code>. It represents a session with the database and is used to query and save instances of your entities.</p>
+<p><strong>DbSet:</strong> A property within a DbContext class that represents a collection of entities of a specific type, corresponding to a table or collection in the database.</p>
+</blockquote>
+<p>For example, an <code>AppDbContext</code> class might look like this:</p>
+<pre><code class="language-csharp">using Microsoft.EntityFrameworkCore;
+
+public class AppDbContext : DbContext
+{
+    public DbSet&lt;Product&gt; Products { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer(&quot;YourConnectionString&quot;); // Placeholder for SQL Server connection
+    }
+}
+</code></pre>
+<p>This code defines <code>AppDbContext</code> inheriting from <code>DbContext</code>. It includes a <code>DbSet&lt;Product&gt;</code> named <code>Products</code>, representing a collection of <code>Product</code> entities (and conceptually, a table named "Products" in a relational database if using SQL Server as in this example). The <code>OnConfiguring</code> method configures the database connection, specifying SQL Server as the provider using <code>UseSqlServer</code>.  Note that for MongoDB, we will use <code>UseMongoDB</code> later.</p>
+<h4 id="122-crud-operations-with-ef-core">1.2.2 CRUD Operations with EF Core</h4>
+<p>With EF Core, performing <strong>CRUD (Create, Read, Update, Delete)</strong> operations becomes straightforward.</p>
+<blockquote>
+<p><strong>CRUD (Create, Read, Update, Delete):</strong> The four basic operations performed on data in persistent storage. EF Core simplifies these operations for .NET developers.</p>
+</blockquote>
+<p><strong>Creating Data:</strong> To add a new product, you can use the following code:</p>
+<pre><code class="language-csharp">using (var context = new AppDbContext())
+{
+    var newProduct = new Product { Name = &quot;Laptop&quot;, Price = 999.99m };
+    context.Products.Add(newProduct);
+    context.SaveChanges();
+}
+</code></pre>
+<p>This code creates an instance of <code>AppDbContext</code>, instantiates a new <code>Product</code> object, adds it to the <code>Products</code> DbSet, and then calls <code>SaveChanges()</code> to persist the changes to the database.</p>
+<p><strong>Reading Data:</strong> To query products, you can use LINQ:</p>
+<pre><code class="language-csharp">using (var context = new AppDbContext())
+{
+    var products = context.Products
+        .Where(p =&gt; p.Price &gt; 500)
+        .ToList();
+
+    foreach (var product in products)
+    {
+        Console.WriteLine($&quot;Name: {product.Name}, Price: {product.Price}&quot;);
+    }
+}
+</code></pre>
+<p>This code retrieves all products with a price greater than 500 using a LINQ query. EF Core translates this LINQ query into the appropriate SQL commands for the configured database.</p>
+<p>EF Core also supports advanced features such as change tracking, lazy loading, and migrations, which are crucial for managing database schema evolution over time.</p>
+<p>In summary, EF Core is a powerful ORM that simplifies data access in .NET applications. It allows developers to work with data using .NET objects and LINQ, supporting multiple database engines and offering extensibility for various application needs.</p>
+<h3 id="13-bridging-mongodb-and-ef-core-the-mongodb-ef-core-provider">1.3 Bridging MongoDB and EF Core: The MongoDB EF Core Provider</h3>
+<p>The <strong>MongoDB EF Core provider</strong> acts as a bridge between MongoDB and EF Core, enabling developers to use MongoDB with the familiar API and design patterns of EF Core.</p>
+<blockquote>
+<p><strong>MongoDB EF Core Provider:</strong> A NuGet package that allows Entity Framework Core to interact with MongoDB databases. It translates EF Core operations into MongoDB commands.</p>
+</blockquote>
+<p>This provider allows you to utilize code-first and LINQ query methodologies with MongoDB, similar to how you would with relational databases. This significantly streamlines development and reduces the learning curve for developers already familiar with EF Core.</p>
+<h4 id="131-key-capabilities-of-the-mongodb-ef-core-provider">1.3.1 Key Capabilities of the MongoDB EF Core Provider</h4>
+<p>The MongoDB EF Core provider supports several key features that facilitate seamless integration:</p>
+<ul>
+<li>
+<p><strong>Code-First Workflows:</strong> Define your data models in C# and let EF Core generate the MongoDB schema. This approach is particularly beneficial for MongoDB, where schema flexibility is a core advantage.</p>
+<blockquote>
+<p><strong>Code-First Workflow:</strong> A development approach in EF Core where you define your data models as C# classes first, and EF Core then generates the database schema based on these models.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>CRUD Operations:</strong> Supports standard Create, Read, Update, and Delete operations, allowing you to manipulate data in MongoDB using EF Core methods.</p>
+</li>
+<li>
+<p><strong>LINQ Query Support:</strong> Enables you to perform queries against MongoDB using LINQ, leveraging your existing .NET skills.</p>
+</li>
+<li>
+<p><strong>Change Tracking:</strong> EF Core's change tracking capabilities are supported, automatically detecting and saving modifications to your data entities.</p>
+</li>
+<li>
+<p><strong>Embedded Documents Support:</strong> Allows you to work with MongoDB's embedded documents, maintaining the natural document structure within your .NET application.</p>
+</li>
+<li>
+<p><strong>Class Mapping and Serialization:</strong> Maps your C# classes to MongoDB collections, handling data type conversions and serialization settings to ensure correct data storage.</p>
+</li>
+</ul>
+<h4 id="132-setting-up-the-mongodb-ef-core-provider">1.3.2 Setting Up the MongoDB EF Core Provider</h4>
+<p>To begin using the MongoDB EF Core provider, you need to add the necessary <strong>NuGet packages</strong> to your .NET project.</p>
+<blockquote>
+<p><strong>NuGet Packages:</strong>  Packages of reusable code for .NET projects, distributed through the NuGet Package Manager. They simplify the process of adding libraries and dependencies to your projects.</p>
+</blockquote>
+<p>These packages enable your application to interact with MongoDB through EF Core, utilizing the same context and entity definitions you would use with a relational database.</p>
+<p>Before performing CRUD operations, you need to set up a MongoDB Atlas cluster and establish a connection from your application to it. <strong>MongoDB Atlas</strong> is a fully-managed cloud database service.</p>
+<blockquote>
+<p><strong>MongoDB Atlas:</strong> MongoDB's fully managed cloud database service. It simplifies deployment, operations, and scaling of MongoDB databases.</p>
+</blockquote>
+<p>The general steps involve:</p>
+<ol>
+<li><strong>Sign up for a MongoDB Atlas account.</strong> A free tier is available for development and small-scale applications.</li>
+<li><strong>Create a new cluster</strong> within MongoDB Atlas.</li>
+<li>
+<p><strong>Obtain a connection string</strong> from the MongoDB Atlas dashboard. This string contains the necessary credentials to connect to your cluster. A typical connection string looks like:</p>
+<p><code>mongodb+srv://&lt;username&gt;:&lt;password&gt;@&lt;cluster-url&gt;/&lt;database-name&gt;?retryWrites=true&amp;w=majority</code></p>
+<p>Remember to replace placeholders like <code>&lt;username&gt;</code>, <code>&lt;password&gt;</code>, <code>&lt;cluster-url&gt;</code>, and <code>&lt;database-name&gt;</code> with your actual credentials.</p>
+</li>
+</ol>
+<h4 id="133-defining-data-models-and-performing-crud-operations">1.3.3 Defining Data Models and Performing CRUD Operations</h4>
+<p>To use the provider, you first define your data model classes. For example, a <code>Customer</code> class might be defined as:</p>
+<pre><code class="language-csharp">using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace YourNamespace.Models
+{
+    [BsonCollection(&quot;customers&quot;)] // Attribute to specify the MongoDB collection name
+    public class Customer
+    {
+        [BsonId] // Attribute to specify the primary key
+        [BsonRepresentation(BsonType.ObjectId)] // Attribute to represent ID as ObjectId
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Order { get; set; }
+    }
+}
+</code></pre>
+<p>The <code>[BsonCollection]</code> attribute specifies the MongoDB collection name ("customers"). <code>[BsonId]</code> and <code>[BsonRepresentation(BsonType.ObjectId)]</code> attributes are used to configure the <code>Id</code> property as the primary key and map it to MongoDB's <code>ObjectId</code> type.</p>
+<p>Next, create a <code>DbContext</code> class, such as <code>RestaurantReservationDbContext</code>, inheriting from <code>DbContext</code>:</p>
+<pre><code class="language-csharp">using Microsoft.EntityFrameworkCore;
+using YourNamespace.Models;
+
+namespace YourNamespace.Services
+{
+    public class RestaurantReservationDbContext : DbContext
+    {
+        public RestaurantReservationDbContext(DbContextOptions&lt;RestaurantReservationDbContext&gt; options) : base(options)
+        {
+        }
+
+        public DbSet&lt;Customer&gt; Customers { get; set; }
+    }
+}
+</code></pre>
+<p>In the <code>Startup.cs</code> or <code>Program.cs</code> file, configure the <code>DbContext</code> to use the MongoDB provider, typically within the <code>ConfigureServices</code> method:</p>
+<pre><code class="language-csharp">services.AddDbContext&lt;RestaurantReservationDbContext&gt;(options =&gt;
+    options.UseMongoDB(&quot;mongodb://&lt;connection-string&gt;/&lt;database-name&gt;&quot;) // Replace with your connection string and database name
+);
+</code></pre>
+<p>Replace <code>"mongodb://&lt;connection-string&gt;/&lt;database-name&gt;"</code> with your actual MongoDB Atlas connection string.</p>
+<p>Now you can perform CRUD operations using your <code>DbContext</code>.</p>
+<p><strong>Create:</strong></p>
+<pre><code class="language-csharp">using (var context = new RestaurantReservationDbContext())
+{
+    var newCustomer = new Customer { Name = &quot;Alice Smith&quot;, Email = &quot;alice@example.com&quot;, Order = &quot;Pizza&quot; };
+    context.Customers.Add(newCustomer);
+    context.SaveChanges();
+}
+</code></pre>
+<p><strong>Read:</strong></p>
+<pre><code class="language-csharp">using (var context = new RestaurantReservationDbContext())
+{
+    var allCustomers = context.Customers.ToList();
+    foreach (var customer in allCustomers)
+    {
+        Console.WriteLine($&quot;Customer Name: {customer.Name}, Order: {customer.Order}&quot;);
+    }
+}
+</code></pre>
+<p><strong>Update:</strong></p>
+<pre><code class="language-csharp">using (var context = new RestaurantReservationDbContext())
+{
+    var customerToUpdate = context.Customers.FirstOrDefault(c =&gt; c.Name == &quot;John Doe&quot;);
+    if (customerToUpdate != null)
+    {
+        customerToUpdate.Order = &quot;Smartphone&quot;;
+        context.SaveChanges();
+    }
+}
+</code></pre>
+<p><strong>Delete:</strong></p>
+<pre><code class="language-csharp">using (var context = new RestaurantReservationDbContext())
+{
+    var customerToDelete = context.Customers.FirstOrDefault(c =&gt; c.Name == &quot;Bo KS&quot;);
+    if (customerToDelete != null)
+    {
+        context.Customers.Remove(customerToDelete);
+        context.SaveChanges();
+    }
+}
+</code></pre>
+<p>EF Core's change tracking efficiently updates documents, generating MongoDB commands to modify only the changed fields. By using the MongoDB EF provider, you can seamlessly integrate MongoDB's flexible document model with EF Core's robust ORM capabilities, creating powerful and adaptable applications.</p>
+<h3 id="14-building-a-restaurant-reservation-system-a-practical-project">1.4 Building a Restaurant Reservation System: A Practical Project</h3>
+<p>To demonstrate the practical application of MongoDB with EF Core, we will develop a restaurant reservation system. This project will utilize sample restaurant data provided by MongoDB Atlas to create a functional application.</p>
+<h4 id="141-project-setup-and-mongodb-atlas-integration">1.4.1 Project Setup and MongoDB Atlas Integration</h4>
+<p>The project setup involves:</p>
+<ol>
+<li><strong>Creating a new .NET Web Application (Model-View-Controller)</strong> project in Visual Studio or Visual Studio Code.</li>
+<li><strong>Adding the MongoDB EF Core NuGet package</strong> to the project.</li>
+<li><strong>Setting up a MongoDB Atlas cluster</strong> (as outlined in Section 1.3.2).</li>
+<li><strong>Loading sample data into the MongoDB Atlas cluster.</strong> MongoDB Atlas provides sample datasets, including restaurant data, which can be easily loaded into your cluster.</li>
+<li><strong>Configuring the connection string</strong> in your application's <code>appsettings.json</code> file to connect to your MongoDB Atlas cluster.</li>
+</ol>
+<h4 id="142-data-models-and-dbcontext-for-the-reservation-system">1.4.2 Data Models and DbContext for the Reservation System</h4>
+<p>Define data models for <code>Restaurant</code> and <code>Reservation</code> entities, reflecting the structure of the sample restaurant data and the requirements of a reservation system.</p>
+<p>Create a <code>DbContext</code> class, <code>RestaurantReservationDbContext</code>, with <code>DbSet</code> properties for <code>Restaurant</code> and <code>Reservation</code> entities. Configure this <code>DbContext</code> to use the MongoDB provider in your <code>Program.cs</code> file, referencing the connection string from your configuration.</p>
+<h4 id="143-implementing-crud-operations-and-user-interface">1.4.3 Implementing CRUD Operations and User Interface</h4>
+<p>Implement services for performing CRUD operations on <code>Restaurant</code> and <code>Reservation</code> entities using the <code>RestaurantReservationDbContext</code>. These services will encapsulate data access logic and be used by the application's controllers.</p>
+<p>Develop MVC controllers (<code>RestaurantController</code> and <code>ReservationController</code>) to handle user requests and interact with the services. Create corresponding Razor views to provide a user interface for listing restaurants, making reservations, and managing restaurant and reservation data.</p>
+<p>The user interface should allow for:</p>
+<ul>
+<li>Viewing a list of restaurants.</li>
+<li>Adding new restaurants.</li>
+<li>Editing existing restaurant information.</li>
+<li>Deleting restaurants.</li>
+<li>Making reservations for restaurants, including selecting date and time.</li>
+<li>Viewing a list of reservations.</li>
+<li>Editing and deleting reservations.</li>
+</ul>
+<p>Bootstrap CSS framework, which is included by default in ASP.NET MVC projects, can be used to style the user interface and make it responsive.</p>
+<h4 id="144-running-and-testing-the-application">1.4.4 Running and Testing the Application</h4>
+<p>After implementing the backend services, controllers, and frontend views, run the application. Test all CRUD operations for both restaurants and reservations to ensure the system functions correctly and interacts with the MongoDB Atlas database as expected. Verify that data is correctly created, read, updated, and deleted in MongoDB.</p>
+<h3 id="15-advanced-mongodb-atlas-features-atlas-search-and-vector-search">1.5 Advanced MongoDB Atlas Features: Atlas Search and Vector Search</h3>
+<p>Beyond basic CRUD operations, MongoDB Atlas offers advanced features like <strong>Atlas Search</strong> and <strong>Vector Search</strong> that can significantly enhance application capabilities.</p>
+<blockquote>
+<p><strong>Atlas Search:</strong> A fully-managed, full-text search engine within MongoDB Atlas, allowing for complex search queries on MongoDB data.</p>
+<p><strong>Vector Search:</strong> A feature in MongoDB Atlas that enables searching documents based on vector similarity, useful for applications involving semantic search, recommendations, and machine learning.</p>
+</blockquote>
+<h4 id="151-atlas-search-integration">1.5.1 Atlas Search Integration</h4>
+<p>Atlas Search provides a full-text search engine for MongoDB data. To integrate Atlas Search with your EF Core application:</p>
+<ol>
+<li><strong>Set up Search Indexes in MongoDB Atlas:</strong> Create a new search index in your MongoDB Atlas cluster, specifying the fields you want to make searchable.</li>
+<li><strong>Define Searchable Fields in Models:</strong> Ensure the fields you intend to search are properly defined in your .NET models.</li>
+<li><strong>Perform Search Queries using MongoDB .NET Driver:</strong> Since EF Core does not directly support MongoDB-specific search syntax, you need to use the MongoDB .NET driver in conjunction with EF Core for search operations.</li>
+</ol>
+<p>Example of performing a text search using the MongoDB .NET driver:</p>
+<pre><code class="language-csharp">using MongoDB.Driver;
+using MongoDB.Entities; // Assuming you are using MongoDB.Entities for driver access
+
+// Assuming 'DB' is initialized with your MongoDB connection
+var collection = DB.Collection&lt;Product&gt;(); // Get the MongoDB collection for Product
+
+var filter = Builders&lt;Product&gt;.Filter.Text(&quot;search term&quot;); // Create a text search filter
+var searchResults = await collection.Find(filter).ToListAsync(); // Execute the search query
+</code></pre>
+<h4 id="152-vector-search-capabilities">1.5.2 Vector Search Capabilities</h4>
+<p>Vector Search in MongoDB allows for similarity-based searches, which is particularly valuable for applications involving machine learning and semantic understanding.</p>
+<p>While the MongoDB EF Core provider simplifies CRUD operations, advanced features like Vector Search typically require direct interaction with the MongoDB .NET driver. You can integrate these operations within your EF Core-based application by using the driver for search functionalities and EF Core for general data management.</p>
+<p>By combining EF Core with advanced MongoDB Atlas features, you can build powerful, flexible applications that leverage the strengths of both technologies: EF Core's structured data access patterns and MongoDB's powerful search and data handling capabilities.</p>
+<h3 id="16-conclusion">1.6 Conclusion</h3>
+<p>This chapter has provided a comprehensive introduction to using MongoDB with Entity Framework Core in .NET development. We explored the core concepts of MongoDB, the benefits of EF Core, and how to bridge these technologies using the MongoDB EF Core provider. Through a practical restaurant reservation system project, we demonstrated how to implement CRUD operations and build a functional application leveraging both MongoDB and EF Core. Finally, we touched upon advanced MongoDB Atlas features like Atlas Search and Vector Search, highlighting their potential to enhance application functionalities.</p>
+<p>By combining the flexibility and scalability of MongoDB with the familiar and structured approach of EF Core, developers can create robust, scalable, and adaptable .NET applications, making the most of MongoDB's powerful features while leveraging the well-established EF Core framework. This combination equips developers with the tools and knowledge to build modern, data-driven applications that meet the demands of today's dynamic data landscape.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

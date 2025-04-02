@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Backend Development Fundamentals: Building a CRUD API with Node.js, Express, and MongoDB - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#backend-development-fundamentals-building-a-crud-api-with-nodejs-express-and-mongodb">Backend Development Fundamentals: Building a CRUD API with Node.js, Express, and MongoDB</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li><li><a href="#project-setup">Project Setup</a></li><li><a href="#creating-the-backend-server-expressjs">Creating the Backend Server (Express.js)</a></li><li><a href="#testing-apis-with-tools-thunder-client-insomnia-and-postman">Testing APIs with Tools: Thunder Client, Insomnia, and Postman</a></li><li><a href="#version-control-with-git-and-ignoring-node_modules">Version Control with Git and Ignoring node_modules</a></li><li><a href="#automatic-server-restart-with-nodemon">Automatic Server Restart with Nodemon</a></li><li><a href="#connecting-to-mongodb-atlas">Connecting to MongoDB Atlas</a></li><li><a href="#defining-a-mongoose-schema-and-model">Defining a Mongoose Schema and Model</a></li><li><a href="#implementing-crud-operations">Implementing CRUD Operations</a></li><li><a href="#handling-form-url-encoded-data">Handling Form URL-Encoded Data</a></li><li><a href="#refactoring-for-better-code-organization-routes-and-controllers">Refactoring for Better Code Organization: Routes and Controllers</a></li><li><a href="#pushing-code-to-github">Pushing Code to GitHub</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="backend-development-fundamentals-building-a-crud-api-with-nodejs-express-and-mongodb">Backend Development Fundamentals: Building a CRUD API with Node.js, Express, and MongoDB</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/_7UQPve99r4" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter provides a beginner's guide to backend development, focusing on building a <strong>CRUD (Create, Read, Update, Delete)</strong> API using Node.js, Express, and MongoDB. We will construct a RESTful API from scratch, leveraging the core components of the <strong>MERN stack</strong> (MongoDB, Express, React, Node.js), albeit without the React frontend (hence, "MERN stack without the R"). This hands-on approach will solidify your understanding of backend principles and equip you with the skills to create functional APIs.</p>
+<blockquote>
+<p><strong>CRUD (Create, Read, Update, Delete):</strong>  CRUD represents the four basic operations that can be performed on data in a database. These operations are fundamental to most applications that manage persistent data.</p>
+<p><strong>API (Application Programming Interface):</strong> An API is a set of rules and specifications that software programs can follow to communicate with each other. In web development, APIs often define how different software components should interact over a network.</p>
+<p><strong>RESTful API (Representational State Transfer API):</strong> A RESTful API is an architectural style for designing networked applications. It relies on a stateless, client-server communication protocol, and often uses standard HTTP methods (GET, POST, PUT, DELETE) to perform operations.</p>
+<p><strong>MERN Stack:</strong> MERN is an acronym for MongoDB, Express.js, React.js, and Node.js. It represents a popular JavaScript-based technology stack used for building full-stack web applications.</p>
+</blockquote>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before we begin, ensure you have the following software installed on your system:</p>
+<ul>
+<li><strong>Visual Studio Code (VS Code):</strong> A powerful and widely used code editor. Download and install it from the official website.</li>
+<li>
+<p><strong>Node.js:</strong> A JavaScript runtime environment that allows you to run JavaScript code outside of a web browser.</p>
+<ul>
+<li>Download the "Latest LTS Version" from <a href="https://nodejs.org/">nodejs.org</a>.</li>
+<li>Follow the installation steps provided by the installer.</li>
+<li>Verify the installation by opening your command prompt (CMD) or terminal and typing:
+    <code>bash
+    node --version</code>
+    This command should display the installed Node.js version.</li>
+</ul>
+</li>
+</ul>
+<h2 id="project-setup">Project Setup</h2>
+<ol>
+<li>
+<p><strong>Create a Project Folder:</strong></p>
+<ul>
+<li>Create a new folder on your computer to house your project. Name it something descriptive, such as <code>simple-crud-app</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Open the Project in VS Code:</strong></p>
+<ul>
+<li>Navigate into your project folder.</li>
+<li>Right-click within the folder and select "Open with Code" (or open VS Code and then open the folder).</li>
+</ul>
+</li>
+<li>
+<p><strong>Initialize a Node.js Project:</strong></p>
+<ul>
+<li>Open the integrated terminal in VS Code (using the shortcut <code>Ctrl +</code>backtick`` or by selecting "Terminal" &gt; "New Terminal" from the menu).</li>
+<li>
+<p>In the terminal, run the following command to initialize a <code>package.json</code> file:
+    <code>bash
+    npm init -y</code></p>
+<blockquote>
+<p><strong>npm (Node Package Manager):</strong> npm is the default package manager for Node.js. It is used to install, manage, and share JavaScript packages and libraries.</p>
+<p><strong>package.json:</strong> This file is essential for Node.js projects. It contains metadata about the project, including its name, version, dependencies, and scripts.</p>
+</blockquote>
+</li>
+<li>
+<p>This command creates a <code>package.json</code> file in your project directory with default settings. You can examine this file to understand its structure and initial content.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="creating-the-backend-server-expressjs">Creating the Backend Server (Express.js)</h2>
+<ol>
+<li>
+<p><strong>Create <code>index.js</code>:</strong></p>
+<ul>
+<li>In VS Code, create a new file named <code>index.js</code> in the root of your project folder. This file will serve as the main entry point for your backend application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Install Express.js:</strong></p>
+<ul>
+<li>Open your terminal (if it's not already open).</li>
+<li>
+<p>Run the following command to install Express.js and save it as a project dependency:
+    <code>bash
+    npm install express</code></p>
+<blockquote>
+<p><strong>Express.js:</strong> Express.js is a minimalist and flexible Node.js web application framework that provides a robust set of features for building web and mobile applications. It simplifies the process of creating server-side applications with Node.js.</p>
+</blockquote>
+</li>
+<li>
+<p>This command will download and install Express.js and add it to the <code>dependencies</code> section of your <code>package.json</code> file. You will also notice a <code>node_modules</code> folder and a <code>package-lock.json</code> file created in your project.</p>
+<blockquote>
+<p><strong>node_modules:</strong> This folder contains all the installed npm packages and their dependencies for your project.</p>
+<p><strong>package-lock.json:</strong> This file ensures that dependencies are installed consistently across different environments by locking down the specific versions of packages used.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Basic Express Server in <code>index.js</code>:</strong></p>
+<ul>
+<li>
+<p>Open <code>index.js</code> and add the following code:</p>
+<p>```javascript
+const express = require('express');
+const app = express();
+const port = 3000;</p>
+<p>app.get('/', (req, res) =&gt; {
+  res.send('Hello from Node API Server!');
+});</p>
+<p>app.listen(port, () =&gt; {
+  console.log(<code>Server is running on port ${port}</code>);
+});
+```</p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>const express = require('express');</code>: Imports the Express.js library.</li>
+<li><code>const app = express();</code>: Creates an Express application instance.</li>
+<li><code>const port = 3000;</code>: Defines the port number on which the server will listen (port 3000 is commonly used for development).</li>
+<li><code>app.get('/', (req, res) =&gt; { ... });</code>: Defines a route for handling GET requests to the root path (<code>/</code>).<ul>
+<li><code>req</code> (request): An object containing information about the incoming HTTP request from the client.</li>
+<li><code>res</code> (response): An object used to send responses back to the client.</li>
+<li><code>res.send('Hello from Node API Server!');</code>: Sends a simple text response back to the client.</li>
+</ul>
+</li>
+<li><code>app.listen(port, () =&gt; { ... });</code>: Starts the server and makes it listen for incoming requests on the specified port.<ul>
+<li>The callback function <code>() =&gt; { ... }</code> is executed once the server starts successfully.</li>
+<li><code>console.log(...)</code>: Logs a message to the console indicating that the server is running.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the Server:</strong></p>
+<ul>
+<li>In your terminal, run the following command to start the server using Node.js:
+    <code>bash
+    node index.js</code></li>
+<li>You should see the message <code>Server is running on port 3000</code> in your terminal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Access the API in a Browser:</strong></p>
+<ul>
+<li>Open your web browser and navigate to <code>http://localhost:3000</code>.</li>
+<li>You should see the message "Hello from Node API Server!" displayed in your browser.</li>
+</ul>
+</li>
+</ol>
+<h2 id="testing-apis-with-tools-thunder-client-insomnia-and-postman">Testing APIs with Tools: Thunder Client, Insomnia, and Postman</h2>
+<p>To effectively test your API endpoints (especially those beyond simple GET requests in a browser), dedicated API testing tools are invaluable. Here's a brief overview of popular options:</p>
+<ul>
+<li>
+<p><strong>Thunder Client (VS Code Extension):</strong> A lightweight and integrated API client directly within VS Code. It's convenient for quick testing during development.</p>
+</li>
+<li>
+<p><strong>Insomnia:</strong> A feature-rich, standalone API client available as a desktop application. It offers advanced features like collections, environments, and collaboration. You can download the free version from <a href="https://insomnia.rest/">insomnia.rest</a>.</p>
+</li>
+<li>
+<p><strong>Postman:</strong> Another widely used, powerful API platform for building, testing, and documenting APIs. It also offers a desktop application and a web interface. You can download the free version from <a href="https://postman.com/">postman.com</a>.</p>
+</li>
+</ul>
+<p>These tools allow you to:</p>
+<ul>
+<li><strong>Send requests to different API endpoints.</strong></li>
+<li><strong>Specify HTTP methods (GET, POST, PUT, DELETE, etc.).</strong></li>
+<li><strong>Set headers and request bodies (e.g., JSON data).</strong></li>
+<li><strong>Inspect responses (status codes, headers, body).</strong></li>
+<li><strong>Organize and save API requests for reuse.</strong></li>
+</ul>
+<p>For this tutorial, you can choose any of these tools to test the API endpoints we will build.</p>
+<h2 id="version-control-with-git-and-ignoring-node_modules">Version Control with Git and Ignoring <code>node_modules</code></h2>
+<blockquote>
+<p><strong>Git:</strong> Git is a distributed version control system that tracks changes in files over time. It is essential for managing code, collaborating with others, and reverting to previous versions if needed.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Install Git Bash (if not already installed):</strong></p>
+<ul>
+<li>Git is often pre-installed on macOS and Linux systems. For Windows, download and install Git Bash from <a href="https://git-scm.com/download/win">git-scm.com</a>.</li>
+<li>Verify installation by running <code>git --version</code> in your terminal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>.gitignore</code> File:</strong></p>
+<ul>
+<li>In the root of your project, create a new file named <code>.gitignore</code> (no file extension).</li>
+<li>
+<p>Add the following line to the <code>.gitignore</code> file:
+    <code>node_modules</code></p>
+<blockquote>
+<p><strong>.gitignore:</strong> This file specifies intentionally untracked files that Git should ignore. It is commonly used to exclude temporary files, build artifacts, and dependency folders like <code>node_modules</code> from version control.</p>
+</blockquote>
+</li>
+<li>
+<p>This ensures that the <code>node_modules</code> folder (which can be large and is easily regenerated) is not included when you commit your code to Git repositories like GitHub.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="automatic-server-restart-with-nodemon">Automatic Server Restart with Nodemon</h2>
+<blockquote>
+<p><strong>Nodemon:</strong> Nodemon is a utility that automatically restarts your Node.js application when it detects file changes in the directory. This significantly improves development workflow by eliminating the need to manually restart the server after every code modification.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Install Nodemon as a Development Dependency:</strong></p>
+<ul>
+<li>
+<p>In your terminal, run the following command:
+    <code>bash
+    npm install nodemon -D</code></p>
+<ul>
+<li><code>-D</code> or <code>--save-dev</code>:  Installs Nodemon as a development dependency, meaning it's primarily used during development and not necessarily required in production.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure <code>npm run dev</code> Script:</strong></p>
+<ul>
+<li>Open your <code>package.json</code> file.</li>
+<li>
+<p>In the <code>scripts</code> section, add a new script named <code>dev</code>:</p>
+<p><code>json
+"scripts": {
+  "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
+  "serve": "node index.js",
+  "dev": "nodemon index.js"
+},</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>"dev": "nodemon index.js"</code>: This script defines a new command <code>npm run dev</code>. When executed, it will run <code>nodemon index.js</code>, which starts your server using Nodemon.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the Server with Nodemon:</strong></p>
+<ul>
+<li>In your terminal, run:
+    <code>bash
+    npm run dev</code></li>
+<li>You will see a Nodemon-specific message indicating that it's monitoring your files.</li>
+<li>Now, whenever you save changes to your <code>index.js</code> or other project files, Nodemon will automatically restart the server, and you can immediately see the updates in your browser or API testing tool without manual restarts.</li>
+</ul>
+</li>
+</ol>
+<h2 id="connecting-to-mongodb-atlas">Connecting to MongoDB Atlas</h2>
+<blockquote>
+<p><strong>MongoDB:</strong> MongoDB is a popular NoSQL database that stores data in flexible, JSON-like documents. It is well-suited for web applications due to its scalability and ease of use.</p>
+<p><strong>MongoDB Atlas:</strong> MongoDB Atlas is a fully managed cloud database service provided by MongoDB. It simplifies the process of setting up, operating, and scaling MongoDB deployments.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Sign up for MongoDB Atlas:</strong></p>
+<ul>
+<li>Go to <a href="https://mongodb.com/atlas">mongodb.com/atlas</a> and sign up for a free account.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a New Project and Cluster:</strong></p>
+<ul>
+<li>Once logged in, create a new project (e.g., "node-api").</li>
+<li>Within the project, create a new cluster. Choose the "M0 Free Tier" option for development purposes.</li>
+<li>Select your preferred region (e.g., Mumbai if geographically closer).</li>
+<li>You can name your cluster (e.g., "backendDB").</li>
+<li>Click "Create Cluster."</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Database Access and Network Access:</strong></p>
+<ul>
+<li><strong>Database Access:</strong><ul>
+<li>Set up a username and password for database access.  <strong>Important:</strong> Store these credentials securely.</li>
+<li>Click "Create User."</li>
+</ul>
+</li>
+<li><strong>Network Access:</strong><ul>
+<li>Choose "Add My Current IP Address" for local development, or "Allow Access from Anywhere" (0.0.0.0/0) for broader access (use with caution in production, consider restricting IP access).</li>
+<li>Click "Add Entry" and then "Finish and Close."</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Get the Connection String:</strong></p>
+<ul>
+<li>Click the "Connect" button for your cluster.</li>
+<li>Select "Drivers" and choose "Node.js" as the driver and the latest Node.js version.</li>
+<li>Copy the provided connection string. It will look something like this:
+    <code>mongodb+srv://&lt;username&gt;:&lt;password&gt;@&lt;cluster-name&gt;.mongodb.net/?retryWrites=true&amp;w=majority</code></li>
+<li><strong>Important:</strong> Replace <code>&lt;username&gt;</code> and <code>&lt;password&gt;</code> with the username and password you created, and <code>&lt;cluster-name&gt;</code> with your cluster name.</li>
+</ul>
+</li>
+<li>
+<p><strong>Install MongoDB Driver for Node.js:</strong></p>
+<ul>
+<li>In your terminal, stop your server (<code>Ctrl + C</code> if running with <code>npm run dev</code>).</li>
+<li>Run the following command to install the official MongoDB driver:
+    <code>bash
+    npm install mongodb</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Install Mongoose ODM (Optional but Recommended):</strong></p>
+<ul>
+<li>Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides a higher-level abstraction for interacting with MongoDB, making it easier to define schemas, validate data, and perform database operations.</li>
+<li>
+<p>Install Mongoose:
+    <code>bash
+    npm install mongoose</code></p>
+<blockquote>
+<p><strong>Mongoose:</strong> Mongoose is a popular Object Data Modeling (ODM) library for MongoDB and Node.js. It simplifies database interactions by providing schema definitions, data validation, and query building tools.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Connect to MongoDB in <code>index.js</code> using Mongoose:</strong></p>
+<ul>
+<li>
+<p>Modify your <code>index.js</code> file to include the following code (replace <code>"YOUR_MONGODB_CONNECTION_STRING"</code> with the actual connection string you copied from MongoDB Atlas):</p>
+<p>```javascript
+const express = require('express');
+const mongoose = require('mongoose'); // Import Mongoose
+const app = express();
+const port = 3000;</p>
+<p>// Middleware to parse JSON request bodies
+app.use(express.json());</p>
+<p>// Middleware to parse URL-encoded request bodies
+app.use(express.urlencoded({ extended: false }));</p>
+<p>// MongoDB Connection
+mongoose.connect("YOUR_MONGODB_CONNECTION_STRING", {
+  useNewUrlParser: true, // Recommended options for newer MongoDB drivers
+  useUnifiedTopology: true,
+})
+.then(() =&gt; {
+  console.log("Connected to MongoDB Database");
+})
+.catch((error) =&gt; {
+  console.error("MongoDB Connection Failed", error);
+});</p>
+<p>app.get('/', (req, res) =&gt; {
+  res.send('Hello from Node API Server!');
+});</p>
+<p>app.listen(port, () =&gt; {
+  console.log(<code>Server is running on port ${port}</code>);
+});
+```</p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>const mongoose = require('mongoose');</code>: Imports the Mongoose library.</li>
+<li><code>mongoose.connect(...)</code>: Establishes a connection to your MongoDB database using the provided connection string.</li>
+<li><code>.then(...)</code>:  A promise-based approach to handle successful connection. If the connection is successful, it logs "Connected to MongoDB Database" to the console.</li>
+<li><code>.catch(...)</code>: Handles potential connection errors. If the connection fails, it logs "MongoDB Connection Failed" and the error details to the console.</li>
+<li><code>useNewUrlParser: true, useUnifiedTopology: true</code>: These are recommended options for newer MongoDB drivers to avoid deprecation warnings and ensure proper functionality.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the Server Again:</strong></p>
+<ul>
+<li>Start your server using <code>npm run dev</code>.</li>
+<li>If the connection is successful, you should see the message "Connected to MongoDB Database" in your console, along with "Server is running on port 3000".</li>
+</ul>
+</li>
+</ol>
+<h2 id="defining-a-mongoose-schema-and-model">Defining a Mongoose Schema and Model</h2>
+<blockquote>
+<p><strong>Schema:</strong> In Mongoose, a schema defines the structure of documents within a MongoDB collection. It specifies the fields, data types, validation rules, and other properties of the data.</p>
+<p><strong>Model:</strong> A Mongoose model is a constructor compiled from a schema definition.  Models allow you to create instances of documents, save them to the database, query data, and perform other database operations based on the defined schema.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Create a <code>models</code> Folder:</strong></p>
+<ul>
+<li>In your project root, create a new folder named <code>models</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>product.model.js</code>:</strong></p>
+<ul>
+<li>Inside the <code>models</code> folder, create a new file named <code>product.model.js</code>.</li>
+<li>
+<p>Add the following code to define a product schema and model:</p>
+<p>```javascript
+const mongoose = require('mongoose');</p>
+<p>const productSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Please enter product name"],
+    },
+    quantity: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    price: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    image: {
+      type: String,
+      required: false, // Image is optional
+    },
+  },
+  {
+    timestamps: true, // Automatically adds createdAt and updatedAt fields
+  }
+);</p>
+<p>const Product = mongoose.model('Product', productSchema); // 'Product' model for 'products' collection (Mongoose pluralizes)
+module.exports = Product; // Export the model
+```</p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>const productSchema = new mongoose.Schema({...});</code>: Creates a new Mongoose schema named <code>productSchema</code>.</li>
+<li><strong>Schema Definition:</strong><ul>
+<li><code>name</code>: String, required, with a custom error message for validation failure.</li>
+<li><code>quantity</code>: Number, required, default value of 0.</li>
+<li><code>price</code>: Number, required, default value of 0.</li>
+<li><code>image</code>: String, optional (not required).</li>
+</ul>
+</li>
+<li><code>timestamps: true</code>: Enables automatic creation and updating of <code>createdAt</code> and <code>updatedAt</code> timestamp fields for each document.</li>
+<li><code>const Product = mongoose.model('Product', productSchema);</code>: Creates a Mongoose model named <code>Product</code> based on the <code>productSchema</code>. Mongoose will automatically create a MongoDB collection named "products" (pluralized and lowercase version of the model name).</li>
+<li><code>module.exports = Product;</code>: Exports the <code>Product</code> model so it can be used in other files.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="implementing-crud-operations">Implementing CRUD Operations</h2>
+<p>Now, let's implement the CRUD operations for our <code>Product</code> model in <code>index.js</code>.</p>
+<h3 id="1-create-post-add-a-product">1. Create (POST) - Add a Product</h3>
+<ol>
+<li>
+<p><strong>Import the <code>Product</code> Model in <code>index.js</code>:</strong></p>
+<ul>
+<li>
+<p>At the top of your <code>index.js</code> file, after importing <code>mongoose</code>, add:</p>
+<p><code>javascript
+const Product = require('./models/product.model');</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a POST Route for Adding Products:</strong></p>
+<ul>
+<li>
+<p>In <code>index.js</code>, add the following route handler:</p>
+<p><code>javascript
+app.post('/api/products', async (req, res) =&gt; {
+  try {
+    const product = await Product.create(req.body); // Create a new product document
+    res.status(200).json(product); // Respond with the created product
+  } catch (error) {
+    console.error("Error creating product:", error);
+    res.status(500).json({ message: error.message }); // Respond with error message
+  }
+});</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>app.post('/api/products', ...)</code>: Defines a route for handling POST requests to <code>/api/products</code>. This endpoint will be used to create new products.</li>
+<li><code>async (req, res) =&gt; { ... }</code>:  Marks the route handler as asynchronous, allowing the use of <code>await</code> for database operations.</li>
+<li><code>try...catch</code>:  Implements error handling.</li>
+<li><code>const product = await Product.create(req.body);</code>:<ul>
+<li><code>Product.create(req.body)</code>: Uses the <code>Product</code> model's <code>create()</code> method to create a new product document in the database.  <code>req.body</code> is expected to contain the product data (name, quantity, price, image) sent in the request body (typically in JSON format).</li>
+<li><code>await</code>:  Pauses execution until the <code>Product.create()</code> operation completes.</li>
+</ul>
+</li>
+<li><code>res.status(200).json(product);</code>: If successful, sends a 200 OK status code and the newly created <code>product</code> document in JSON format as the response.</li>
+<li><code>res.status(500).json({ message: error.message });</code>: If an error occurs during product creation, sends a 500 Internal Server Error status code and an error message in JSON format.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the POST API:</strong></p>
+<ul>
+<li>Start your server (<code>npm run dev</code>).</li>
+<li>Use Insomnia, Postman, or Thunder Client:<ul>
+<li>Create a new POST request.</li>
+<li>Set the URL to <code>http://localhost:3000/api/products</code>.</li>
+<li>Set the request body type to "JSON".</li>
+<li>
+<p>In the body, provide product data in JSON format, for example:</p>
+<p><code>json
+{
+  "name": "Pizza",
+  "quantity": 10,
+  "price": 5.99
+}</code>
+        *   Send the request.
+        *   You should receive a 200 OK response with the created product data (including the MongoDB-generated <code>_id</code> and timestamps) in the response body. You can also verify that the product is added to your MongoDB Atlas collection by browsing collections in Atlas.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-read-get-get-all-products">2. Read (GET) - Get All Products</h3>
+<ol>
+<li>
+<p><strong>Create a GET Route for Retrieving All Products:</strong></p>
+<ul>
+<li>
+<p>In <code>index.js</code>, add the following route handler:</p>
+<p><code>javascript
+app.get('/api/products', async (req, res) =&gt; {
+  try {
+    const products = await Product.find({}); // Find all product documents
+    res.status(200).json(products); // Respond with the array of products
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).json({ message: error.message }); // Respond with error message
+  }
+});</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>app.get('/api/products', ...)</code>: Defines a route for handling GET requests to <code>/api/products</code>. This endpoint will retrieve all products.</li>
+<li><code>const products = await Product.find({});</code>:<ul>
+<li><code>Product.find({})</code>: Uses the <code>Product</code> model's <code>find()</code> method to retrieve all documents from the "products" collection. The empty object <code>{}</code> as the argument means "find all".</li>
+<li><code>await</code>: Pauses execution until the <code>Product.find()</code> operation completes.</li>
+</ul>
+</li>
+<li><code>res.status(200).json(products);</code>: If successful, sends a 200 OK status code and an array of all <code>product</code> documents in JSON format as the response.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the GET All API:</strong></p>
+<ul>
+<li>Start your server (<code>npm run dev</code>).</li>
+<li>Use Insomnia, Postman, or Thunder Client:<ul>
+<li>Create a new GET request.</li>
+<li>Set the URL to <code>http://localhost:3000/api/products</code>.</li>
+<li>Send the request.</li>
+<li>You should receive a 200 OK response with an array of product objects in JSON format.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-read-get-get-a-single-product-by-id">3. Read (GET) - Get a Single Product by ID</h3>
+<ol>
+<li>
+<p><strong>Create a GET Route for Retrieving a Single Product:</strong></p>
+<ul>
+<li>
+<p>In <code>index.js</code>, add the following route handler:</p>
+<p><code>javascript
+app.get('/api/products/:id', async (req, res) =&gt; {
+  try {
+    const { id } = req.params; // Extract the product ID from the URL parameters
+    const product = await Product.findById(id); // Find product by ID
+    if (!product) {
+      return res.status(404).json({ message: `Product not found with ID: ${id}` }); // Respond with 404 if product not found
+    }
+    res.status(200).json(product); // Respond with the found product
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    res.status(500).json({ message: error.message }); // Respond with error message
+  }
+});</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>app.get('/api/products/:id', ...)</code>: Defines a route for handling GET requests to <code>/api/products/:id</code>. The <code>:id</code> is a URL parameter placeholder that will capture the product ID from the URL.</li>
+<li><code>const { id } = req.params;</code>: Extracts the value of the <code>id</code> URL parameter from <code>req.params</code>.</li>
+<li><code>const product = await Product.findById(id);</code>:<ul>
+<li><code>Product.findById(id)</code>: Uses the <code>Product</code> model's <code>findById()</code> method to search for a product document with the matching <code>_id</code> (MongoDB's unique identifier).</li>
+<li><code>await</code>: Pauses execution until the <code>Product.findById()</code> operation completes.</li>
+</ul>
+</li>
+<li><code>if (!product) { ... }</code>: Checks if a product with the given ID was found. If not found (<code>product</code> is null), it returns a 404 Not Found status code and an error message.</li>
+<li><code>res.status(200).json(product);</code>: If a product is found, sends a 200 OK status code and the <code>product</code> document in JSON format.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the GET Single API:</strong></p>
+<ul>
+<li>Start your server (<code>npm run dev</code>).</li>
+<li>Use Insomnia, Postman, or Thunder Client:<ul>
+<li>Create a new GET request.</li>
+<li>Set the URL to <code>http://localhost:3000/api/products/{product_id}</code>. Replace <code>{product_id}</code> with the actual <code>_id</code> of a product from your database (you can get this ID from the GET All Products API response).</li>
+<li>Send the request.</li>
+<li>You should receive a 200 OK response with the details of the specific product in JSON format. If you use an invalid or non-existent ID, you should receive a 404 Not Found response.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-update-put-update-a-product-by-id">4. Update (PUT) - Update a Product by ID</h3>
+<ol>
+<li>
+<p><strong>Create a PUT Route for Updating a Product:</strong></p>
+<ul>
+<li>
+<p>In <code>index.js</code>, add the following route handler:</p>
+<p><code>javascript
+app.put('/api/products/:id', async (req, res) =&gt; {
+  try {
+    const { id } = req.params; // Extract product ID
+    const product = await Product.findByIdAndUpdate(id, req.body, {
+      new: true, // Return the updated document
+      runValidators: true, // Run schema validators during update
+    });
+    if (!product) {
+      return res.status(404).json({ message: `Product not found with ID: ${id}` }); // 404 if product not found
+    }
+    res.status(200).json(product); // Respond with the updated product
+  } catch (error) {
+    console.error("Error updating product:", error);
+    res.status(500).json({ message: error.message }); // Respond with error message
+  }
+});</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>app.put('/api/products/:id', ...)</code>: Defines a route for handling PUT requests to <code>/api/products/:id</code>.</li>
+<li><code>const product = await Product.findByIdAndUpdate(id, req.body, { ... });</code>:<ul>
+<li><code>Product.findByIdAndUpdate(id, req.body, { ... })</code>: Uses the <code>Product</code> model's <code>findByIdAndUpdate()</code> method to find a product by its <code>_id</code> and update it with the data provided in <code>req.body</code>.</li>
+<li><code>id</code>: The product ID to update.</li>
+<li><code>req.body</code>: The data to update the product with (sent in the request body, typically JSON).</li>
+<li><code>{ new: true, runValidators: true }</code>: Options object:<ul>
+<li><code>new: true</code>:  Ensures that the method returns the <em>updated</em> document after the modification, not the original document before the update.</li>
+<li><code>runValidators: true</code>:  Forces Mongoose to run the schema validators defined in <code>productSchema</code> during the update operation, ensuring data integrity.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Error handling and 404 response logic are similar to the GET Single API.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the PUT API:</strong></p>
+<ul>
+<li>Start your server (<code>npm run dev</code>).</li>
+<li>Use Insomnia, Postman, or Thunder Client:<ul>
+<li>Create a new PUT request.</li>
+<li>Set the URL to <code>http://localhost:3000/api/products/{product_id}</code> (replace <code>{product_id}</code>).</li>
+<li>Set the request body type to "JSON".</li>
+<li>
+<p>In the body, provide the fields you want to update, for example, to update the price:</p>
+<p><code>json
+{
+  "price": 7.99
+}</code>
+        *   Send the request.
+        *   You should receive a 200 OK response with the updated product data in JSON format. Verify the update by fetching the product again using the GET Single API.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-delete-delete-delete-a-product-by-id">5. Delete (DELETE) - Delete a Product by ID</h3>
+<ol>
+<li>
+<p><strong>Create a DELETE Route for Deleting a Product:</strong></p>
+<ul>
+<li>
+<p>In <code>index.js</code>, add the following route handler:</p>
+<p><code>javascript
+app.delete('/api/products/:id', async (req, res) =&gt; {
+  try {
+    const { id } = req.params; // Extract product ID
+    const product = await Product.findByIdAndDelete(id); // Delete product by ID
+    if (!product) {
+      return res.status(404).json({ message: `Product not found with ID: ${id}` }); // 404 if product not found
+    }
+    res.status(200).json({ message: "Product deleted successfully" }); // Respond with success message
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    res.status(500).json({ message: error.message }); // Respond with error message
+  }
+});</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>app.delete('/api/products/:id', ...)</code>: Defines a route for handling DELETE requests to <code>/api/products/:id</code>.</li>
+<li><code>const product = await Product.findByIdAndDelete(id);</code>:<ul>
+<li><code>Product.findByIdAndDelete(id)</code>: Uses the <code>Product</code> model's <code>findByIdAndDelete()</code> method to find a product by its <code>_id</code> and delete it from the database.</li>
+<li><code>await</code>: Pauses execution until the <code>Product.findByIdAndDelete()</code> operation completes.</li>
+</ul>
+</li>
+<li>Error handling and 404 response logic are similar to the GET Single API.</li>
+<li><code>res.status(200).json({ message: "Product deleted successfully" });</code>: If successful, sends a 200 OK status code and a success message in JSON format.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the DELETE API:</strong></p>
+<ul>
+<li>Start your server (<code>npm run dev</code>).</li>
+<li>Use Insomnia, Postman, or Thunder Client:<ul>
+<li>Create a new DELETE request.</li>
+<li>Set the URL to <code>http://localhost:3000/api/products/{product_id}</code> (replace <code>{product_id}</code>).</li>
+<li>Send the request.</li>
+<li>You should receive a 200 OK response with the message "Product deleted successfully" in JSON format. Verify deletion by attempting to fetch the product again using the GET Single API (which should now return a 404) or by using the GET All Products API (the deleted product should no longer be listed).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="handling-form-url-encoded-data">Handling Form URL-Encoded Data</h2>
+<blockquote>
+<p><strong>Middleware:</strong> In Express.js, middleware functions are functions that have access to the request object (<code>req</code>), the response object (<code>res</code>), and the next middleware function in the application’s request-response cycle. Middleware functions can perform various tasks, such as parsing request bodies, handling authentication, logging, and more.</p>
+</blockquote>
+<p>By default, Express.js only parses JSON request bodies using the <code>express.json()</code> middleware. If you want to handle form data submitted using <code>application/x-www-form-urlencoded</code> (common for HTML forms), you need to add the <code>express.urlencoded()</code> middleware:</p>
+<pre><code class="language-javascript">app.use(express.urlencoded({ extended: false }));
+</code></pre>
+<ul>
+<li><code>extended: false</code>:  Uses the built-in querystring library for parsing. For more complex scenarios, you might use <code>extended: true</code> (which uses the <code>qs</code> library), but <code>false</code> is sufficient for basic form data.</li>
+</ul>
+<p>We added this middleware earlier in the <code>index.js</code> file. Now, your API can handle both JSON and form URL-encoded data in POST and PUT requests.</p>
+<h2 id="refactoring-for-better-code-organization-routes-and-controllers">Refactoring for Better Code Organization: Routes and Controllers</h2>
+<p>For larger applications, it's best practice to separate your route definitions and request handling logic into separate files and folders to improve code organization and maintainability.</p>
+<ol>
+<li>
+<p><strong>Create <code>routes</code> and <code>controllers</code> Folders:</strong></p>
+<ul>
+<li>In your project root, create two new folders: <code>routes</code> and <code>controllers</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>product.route.js</code> in <code>routes</code> Folder:</strong></p>
+<ul>
+<li>Inside the <code>routes</code> folder, create a new file named <code>product.route.js</code>.</li>
+<li>
+<p>Add the following code to define product routes:</p>
+<p>```javascript
+const express = require('express');
+const router = express.Router(); // Create an Express Router instance
+const productController = require('../controllers/product.controller'); // Import product controller functions</p>
+<p>// Define routes and associate them with controller functions
+router.get('/', productController.getProducts); // GET all products
+router.get('/:id', productController.getProduct); // GET single product by ID
+router.post('/', productController.createProduct); // POST - create a new product
+router.put('/:id', productController.updateProduct); // PUT - update a product by ID
+router.delete('/:id', productController.deleteProduct); // DELETE - delete a product by ID</p>
+<p>module.exports = router; // Export the router
+```</p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>const router = express.Router();</code>: Creates an Express Router instance. Routers are used to define modular sets of routes.</li>
+<li><code>const productController = require('../controllers/product.controller');</code>: Imports the controller functions from <code>product.controller.js</code> (which we will create next).</li>
+<li><code>router.get('/', productController.getProducts);</code>: Defines a GET route for <code>/</code> (which will be <code>/api/products</code> when mounted in <code>index.js</code>) and associates it with the <code>getProducts</code> function from the <code>productController</code>. Similar routing is done for other CRUD operations.</li>
+<li><code>module.exports = router;</code>: Exports the <code>router</code> instance so it can be used in <code>index.js</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>product.controller.js</code> in <code>controllers</code> Folder:</strong></p>
+<ul>
+<li>Inside the <code>controllers</code> folder, create a new file named <code>product.controller.js</code>.</li>
+<li>
+<p>Add the following code to define controller functions (copy the logic from your route handlers in <code>index.js</code> and paste them into these functions):</p>
+<p>```javascript
+const Product = require('../models/product.model');</p>
+<p>// Controller function to get all products
+exports.getProducts = async (req, res) =&gt; {
+  try {
+    const products = await Product.find({});
+    res.status(200).json(products);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).json({ message: error.message });
+  }
+};</p>
+<p>// Controller function to get a single product by ID
+exports.getProduct = async (req, res) =&gt; {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    if (!product) {
+      return res.status(404).json({ message: <code>Product not found with ID: ${id}</code> });
+    }
+    res.status(200).json(product);
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    res.status(500).json({ message: error.message });
+  }
+};</p>
+<p>// Controller function to create a new product
+exports.createProduct = async (req, res) =&gt; {
+  try {
+    const product = await Product.create(req.body);
+    res.status(200).json(product);
+  } catch (error) {
+    console.error("Error creating product:", error);
+    res.status(500).json({ message: error.message });
+  }
+};</p>
+<p>// Controller function to update a product by ID
+exports.updateProduct = async (req, res) =&gt; {
+  try {
+    const { id } = req.params;
+    const product = await Product.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!product) {
+      return res.status(404).json({ message: <code>Product not found with ID: ${id}</code> });
+    }
+    res.status(200).json(product);
+  } catch (error) {
+    console.error("Error updating product:", error);
+    res.status(500).json({ message: error.message });
+  }
+};</p>
+<p>// Controller function to delete a product by ID
+exports.deleteProduct = async (req, res) =&gt; {
+  try {
+    const { id } = req.params;
+    const product = await Product.findByIdAndDelete(id);
+    if (!product) {
+      return res.status(404).json({ message: <code>Product not found with ID: ${id}</code> });
+    }
+    res.status(200).json({ message: "Product deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+```</p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Each function (<code>getProducts</code>, <code>getProduct</code>, <code>createProduct</code>, <code>updateProduct</code>, <code>deleteProduct</code>) corresponds to one of the CRUD operations.</li>
+<li>The code within each function is essentially the request handling logic that was previously in your <code>index.js</code> route handlers.</li>
+<li><code>exports.functionName = ...</code>: Exports each function so it can be imported and used in <code>product.route.js</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Mount the Product Router in <code>index.js</code>:</strong></p>
+<ul>
+<li>
+<p>In your <code>index.js</code> file, replace the individual route definitions (<code>app.get('/api/products', ...)</code>, <code>app.post('/api/products', ...)</code>, etc.) with the following middleware mounting line:</p>
+<p>```javascript
+const productRoute = require('./routes/product.route'); // Import the product route</p>
+<p>// ... other code ...</p>
+<p>// Mount the product routes at /api/products
+app.use('/api/products', productRoute);</p>
+<p>// ... rest of index.js ...
+```</p>
+</li>
+<li>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>const productRoute = require('./routes/product.route');</code>: Imports the <code>router</code> instance exported from <code>product.route.js</code>.</li>
+<li><code>app.use('/api/products', productRoute);</code>: Mounts the <code>productRoute</code> at the path <code>/api/products</code>. This means that all routes defined in <code>product.route.js</code> will now be prefixed with <code>/api/products</code>. For example, the route defined as <code>router.get('/', ...)</code> in <code>product.route.js</code> will now be accessible at <code>/api/products/</code> in your application.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Clean up <code>index.js</code>:</strong></p>
+<ul>
+<li>Remove the individual route handlers for products (the <code>app.get('/api/products', ...)</code>, <code>app.post('/api/products', ...)</code>, etc. blocks) from your <code>index.js</code> file as they are now handled by the <code>productRoute</code>. Your <code>index.js</code> should now be significantly cleaner and primarily responsible for server setup, middleware configuration, and database connection.</li>
+</ul>
+</li>
+<li>
+<p><strong>Test Again:</strong></p>
+<ul>
+<li>Start your server (<code>npm run dev</code>).</li>
+<li>Test all your CRUD API endpoints using Insomnia, Postman, or Thunder Client. Everything should function exactly as before, but your code is now much better organized.</li>
+</ul>
+</li>
+</ol>
+<h2 id="pushing-code-to-github">Pushing Code to GitHub</h2>
+<ol>
+<li>
+<p><strong>Create a GitHub Repository:</strong></p>
+<ul>
+<li>Go to <a href="https://github.com">github.com</a> and create a new repository (e.g., "simple-crud-app-backend").</li>
+</ul>
+</li>
+<li>
+<p><strong>Initialize Git and Commit (if not already done):</strong></p>
+<ul>
+<li>If you haven't already initialized Git in your project (using <code>git init</code>) and made an initial commit (<code>git add .</code>, <code>git commit -m "Initial commit"</code>), do so now.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Remote Repository:</strong></p>
+<ul>
+<li>In your terminal, run the following command, replacing <code>&lt;your_github_username&gt;</code> and <code>&lt;repository_name&gt;</code> with your GitHub username and repository name:
+    <code>bash
+    git remote add origin https://github.com/&lt;your_github_username&gt;/&lt;repository_name&gt;.git</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Push to GitHub:</strong></p>
+<ul>
+<li>Push your local repository to the remote GitHub repository:
+    <code>bash
+    git push -u origin main</code></li>
+<li>This will upload your code to GitHub. You can now access your project code online in your GitHub repository.</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully built a complete RESTful CRUD API for managing products using Node.js, Express, and MongoDB. This chapter covered fundamental backend development concepts, including:</p>
+<ul>
+<li>Setting up a Node.js project.</li>
+<li>Creating an Express.js server.</li>
+<li>Connecting to a MongoDB Atlas database.</li>
+<li>Defining Mongoose schemas and models.</li>
+<li>Implementing CRUD operations (Create, Read, Update, Delete).</li>
+<li>Testing APIs with tools like Insomnia and Postman.</li>
+<li>Organizing code with routes and controllers.</li>
+<li>Using Git for version control and pushing to GitHub.</li>
+</ul>
+<p>This project serves as a solid foundation for further exploration into backend development. You can expand upon this API by adding features like:</p>
+<ul>
+<li>Authentication and authorization.</li>
+<li>More complex data models and relationships.</li>
+<li>File uploads.</li>
+<li>Search and filtering functionalities.</li>
+<li>Deployment to a cloud platform.</li>
+</ul>
+<p>Keep practicing and building, and you'll become a proficient backend developer!</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

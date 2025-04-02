@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Data Structures in JavaScript: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#data-structures-in-javascript-a-comprehensive-guide">Data Structures in JavaScript: A Comprehensive Guide</a></li>
+        <li><a href="#introduction-to-data-structures">Introduction to Data Structures</a></li><li><a href="#what-are-data-structures-and-why-are-they-important">What are Data Structures and Why are They Important?</a></li><li><a href="#built-in-data-structures-in-detail">Built-in Data Structures in Detail</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="data-structures-in-javascript-a-comprehensive-guide">Data Structures in JavaScript: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/41GSinwoMYA" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-data-structures">Introduction to Data Structures</h2>
+<p>Welcome to this exploration of JavaScript data structures. This chapter will guide you step-by-step through the fundamental concepts and practical applications of data structures in programming, specifically within the JavaScript ecosystem. We will begin by examining the built-in data structures provided by JavaScript, including sets, maps, arrays, and objects.  Subsequently, we will delve into the creation and utilization of custom data structures, such as stacks, queues, trees (including binary search trees), priority queues, heaps, and graphs.</p>
+<p>This course is designed to be thorough and detailed, explaining the problems each data structure is designed to solve and equipping you with the skills to build and manipulate these structures independently.</p>
+<p><strong>Prerequisites:</strong></p>
+<p>To maximize your learning experience in this chapter, a foundational understanding of JavaScript algorithms and time complexity is recommended. Familiarity with these concepts, perhaps from a prior course on JavaScript algorithms, will be beneficial.</p>
+<p>Let's embark on this journey to understand and master data structures in JavaScript.</p>
+<h2 id="what-are-data-structures-and-why-are-they-important">What are Data Structures and Why are They Important?</h2>
+<p>The fundamental question we must address is: <strong>What exactly are data structures in programming, and why are they essential?</strong></p>
+<p>Data structures are the mechanisms within your code that enable you to effectively <strong>manage data</strong>.  In essence, they are the tools you use to:</p>
+<ul>
+<li><strong>Store</strong> data.</li>
+<li><strong>Retrieve</strong> data.</li>
+<li><strong>Delete</strong> data.</li>
+<li><strong>Manage</strong> data in general.</li>
+</ul>
+<p>In JavaScript, and across most programming languages, common examples of data structures include:</p>
+<ul>
+<li>Arrays</li>
+<li>Objects</li>
+<li>Maps</li>
+<li>Sets</li>
+</ul>
+<p>These are the foundational building blocks for organizing and manipulating information within your programs.</p>
+<p>To illustrate, consider these JavaScript examples:</p>
+<ul>
+<li>
+<p><strong>Arrays:</strong> Used for storing ordered lists of data, such as a sequence of numbers or strings.</p>
+<p><code>javascript
+[10, 20, 30, 40, 50] // An array of numbers
+["apple", "banana", "cherry"] // An array of strings</code></p>
+</li>
+<li>
+<p><strong>Objects:</strong>  Used for grouping related data together, often as key-value pairs. For instance, representing a person with their name and age.</p>
+<p><code>javascript
+{
+  name: "Alice",
+  age: 30
+} // An object representing a person</code></p>
+</li>
+<li>
+<p><strong>Maps:</strong>  Similar to objects but offer more flexibility, especially in key types. (We will explore maps in detail later).</p>
+</li>
+<li>
+<p><strong>Sets:</strong> Collections of unique values, useful when you need to ensure no duplicates exist.</p>
+<p><code>javascript
+new Set([1, 2, 2, 3, 4, 4, 5]) // A set will only store unique values: {1, 2, 3, 4, 5}</code></p>
+</li>
+</ul>
+<p>You will encounter data structures analogous to these in virtually every programming language. They are the universal tools for data management in the world of coding.</p>
+<h3 id="the-necessity-of-diverse-data-structures">The Necessity of Diverse Data Structures</h3>
+<p>Why do we require such a variety of data structures? The answer lies in the nature of programs and the tasks they perform. Programs are inherently about <em>doing</em> something, and that "something" invariably involves working with data. This data could be:</p>
+<ul>
+<li>Input data that the program receives.</li>
+<li>Intermediate results generated during computation.</li>
+<li>Output data that the program produces.</li>
+</ul>
+<p>Different tasks demand different ways of managing data. Consider these common scenarios:</p>
+<ul>
+<li><strong>Ordered Lists with Duplicates:</strong>  Sometimes, you need to maintain a list where the order of items is crucial, and duplicate entries are acceptable or even desired.</li>
+<li><strong>Unordered Unique Values:</strong> In other cases, the order might be irrelevant, and you might need to ensure that all values are unique, without any repetitions.</li>
+<li><strong>Key-Value Pair Mappings:</strong> You might need to associate values with specific identifiers (keys), creating key-value pairs. These pairs could be ordered or unordered, depending on the requirements.</li>
+</ul>
+<p>For each of these use cases, different data structures offer optimal solutions.</p>
+<h4 id="arrays-for-ordered-lists">Arrays for Ordered Lists</h4>
+<p>Arrays are ideal when you need <strong>ordered lists of data</strong> where <strong>duplicate values are permitted</strong>.</p>
+<blockquote>
+<p><strong>Ordered List:</strong> In the context of data structures, "ordered" signifies that the sequence of elements is maintained based on their insertion order. It does not necessarily imply that the elements are sorted in ascending or descending order based on their values.</p>
+</blockquote>
+<p>In JavaScript, arrays are created using square brackets <code>[]</code>:</p>
+<pre><code class="language-javascript">[10, 5, 25, 15, 30] // An array in JavaScript
+</code></pre>
+<p>It's crucial to understand that in this context, "ordered" means the <strong>insertion order is preserved</strong>.  For instance, in the example above, <code>5</code> will always be the second element, and its position will not change unless you explicitly modify the array. This order is fundamental to how arrays function.</p>
+<h4 id="sets-for-unique-values">Sets for Unique Values</h4>
+<p>If the <strong>order of data is not important</strong> and you require <strong>unique values only</strong>, a set is the appropriate choice.</p>
+<p>Sets in JavaScript are created using the <code>Set</code> constructor:</p>
+<pre><code class="language-javascript">const mySet = new Set();
+mySet.add(10);
+mySet.add(20);
+mySet.add(10); // Adding a duplicate value - will be ignored
+</code></pre>
+<p>Sets inherently ensure uniqueness; any attempt to add a duplicate value will be disregarded.</p>
+<h4 id="objects-and-maps-for-key-value-pairs">Objects and Maps for Key-Value Pairs</h4>
+<p>When you need to work with <strong>key-value pairs</strong>, JavaScript offers both <strong>objects</strong> and <strong>maps</strong>. Objects are a fundamental part of JavaScript and allow you to group data with named properties (keys).</p>
+<pre><code class="language-javascript">const person = {
+  firstName: &quot;Maximilian&quot;,
+  age: 31
+}; // An object with key-value pairs
+</code></pre>
+<p>You can assign <strong>keys (identifiers)</strong> of your choice and retrieve the associated <strong>values</strong> using these keys.</p>
+<p><strong>Maps</strong> in JavaScript serve a similar purpose to objects but offer some distinct advantages and differences, which we will explore in more detail later in this chapter.</p>
+<h3 id="focus-on-custom-data-structures">Focus on Custom Data Structures</h3>
+<p>This chapter's primary focus will be on <strong>custom data structures</strong>. These are data structures that you, as a developer, build yourself, typically based on the built-in data structures of the language (like arrays and objects). Custom data structures enhance and extend the functionalities of these built-in structures to meet specific needs.</p>
+<p>To effectively delve into custom data structures, we will first thoroughly examine the <strong>built-in data structures</strong> in JavaScript. Understanding the fundamentals of arrays, sets, objects, and maps is crucial because custom data structures are often built upon these foundations.  This foundational knowledge will empower you to grasp how custom structures are derived and how they function.</p>
+<p>Following our exploration of built-in data structures, we will transition to examining and constructing custom data structures. We will begin with a practical example of a custom data structure to solidify your understanding and demonstrate the power of building your own data management tools.</p>
+<h2 id="built-in-data-structures-in-detail">Built-in Data Structures in Detail</h2>
+<p>Let's now delve into a detailed examination of JavaScript's built-in data structures, starting with <strong>arrays</strong>.</p>
+<h3 id="arrays-ordered-lists-in-depth">Arrays: Ordered Lists in Depth</h3>
+<p>Arrays are fundamental data structures for managing lists of data. In JavaScript, arrays are created using the <strong>square bracket notation</strong> <code>[]</code>. They are essentially <strong>ordered lists</strong> of comma-separated data.</p>
+<pre><code class="language-javascript">const numbers = [1, 3, 2, 4, 5]; // Example array
+</code></pre>
+<p>Arrays in JavaScript possess several key characteristics:</p>
+<ul>
+<li><strong>Insertion Order is Preserved:</strong> JavaScript remembers the order in which elements are added to the array. The element <code>3</code> in the example above will always be the second element, unless explicitly moved or removed. This order is maintained consistently.</li>
+<li>
+<p><strong>Index-Based Access:</strong>  Elements in an array are accessed using an <strong>index</strong>, which represents the element's position in the array.  Indices start at <code>0</code>.</p>
+<blockquote>
+<p><strong>Index:</strong> In the context of arrays (and other ordered data structures), an index is a numerical value that denotes the position of an element within the structure. Indices typically start from zero for the first element.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Iterable:</strong> Arrays are <strong>iterable</strong>, meaning you can easily loop through their elements using constructs like the <code>for...of</code> loop. This allows for straightforward iteration over all values in the array.</p>
+<blockquote>
+<p><strong>Iterable:</strong> An iterable object is an object that can be looped over, meaning its elements can be accessed sequentially, often using a <code>for...of</code> loop in JavaScript. Arrays, Sets, and Maps in JavaScript are examples of iterable objects.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Dynamic Size:</strong> Arrays in JavaScript are <strong>dynamic</strong>. Their size adjusts automatically as you add or remove elements. You don't need to predefine the array's length. This is a significant advantage compared to some other programming languages where array sizes are fixed.</p>
+<blockquote>
+<p><strong>Dynamic Array:</strong> A dynamic array (also known as a resizable array or growable array) is an array that can automatically resize itself as elements are added or removed. Unlike static arrays, dynamic arrays do not have a fixed size defined at the time of creation.</p>
+</blockquote>
+<p>This dynamic nature simplifies development and memory management as JavaScript handles the resizing process behind the scenes.
+*   <strong>Duplicate Values Allowed:</strong> Arrays can contain duplicate values.  You can have multiple instances of the same value within a single array.
+*   <strong>Mixed Data Types:</strong> JavaScript arrays are flexible enough to hold elements of <strong>mixed data types</strong>. You can combine numbers, strings, objects, and even nested arrays within the same array.</p>
+<p><code>javascript
+const mixedArray = [10, "hello", { name: "John" }, [1, 2, 3]]; // Array with mixed data types</code></p>
+</li>
+</ul>
+<h4 id="performance-considerations-with-arrays">Performance Considerations with Arrays</h4>
+<p>Despite their versatility, arrays have a potential downside: <strong>deletion and searching for elements can be less performant</strong> in certain scenarios.</p>
+<ul>
+<li><strong>Deletion Overhead:</strong> When you delete an element from an array (especially from the middle or beginning), JavaScript might need to shift subsequent elements to fill the gap. This shifting process can be computationally intensive, especially for large arrays.</li>
+<li><strong>Search Efficiency:</strong> Finding a specific element in an array (when you don't know its index) often requires iterating through the array from the beginning until the element is found. This is known as a linear search and can be time-consuming for large arrays.</li>
+</ul>
+<p>Let's illustrate these points with a practical code example.</p>
+<h4 id="array-code-example-exploring-functionality">Array Code Example: Exploring Functionality</h4>
+<p>Consider a simple JavaScript setup with an <code>index.html</code> file (containing a script import to <code>app.js</code>) and an <code>app.js</code> file. We will use the browser's JavaScript console to observe the behavior of arrays.</p>
+<pre><code class="language-javascript">// app.js
+const names = [&quot;Max&quot;, &quot;Manu&quot;, &quot;Julie&quot;];
+
+// Mixed types and duplicates are allowed
+names.push(25);
+names.push([&quot;sports&quot;, &quot;cooking&quot;]);
+names.push(&quot;Max&quot;);
+
+console.log(names); // Output: [&quot;Max&quot;, &quot;Manu&quot;, &quot;Julie&quot;, 25, [&quot;sports&quot;, &quot;cooking&quot;], &quot;Max&quot;]
+
+// Accessing element by index
+console.log(names[1]); // Output: &quot;Manu&quot; (index starts at 0)
+
+// Iterating through an array
+for (const name of names) {
+  console.log(name);
+}
+// Output:
+// Max
+// Manu
+// Julie
+// 25
+// [&quot;sports&quot;, &quot;cooking&quot;]
+// Max
+
+// Dynamic length adjustment
+console.log(names.length); // Output: 6 (initial length)
+names.push(&quot;Julie&quot;);
+console.log(names.length); // Output: 7 (length after push)
+
+// Finding element index
+const julieIndex = names.findIndex(element =&gt; element === &quot;Julie&quot;);
+console.log(&quot;Index of Julie:&quot;, julieIndex); // Output: Index of Julie: 2
+
+// Deleting element using splice
+names.splice(2, 1); // Remove 1 element starting from index 2 (Julie)
+console.log(names); // Output: [&quot;Max&quot;, &quot;Manu&quot;, 25, [&quot;sports&quot;, &quot;cooking&quot;], &quot;Max&quot;, &quot;Julie&quot;]
+</code></pre>
+<p>In this example, we demonstrate:</p>
+<ul>
+<li>Array creation and initialization.</li>
+<li>Mixing data types and adding duplicates.</li>
+<li>Accessing elements by index.</li>
+<li>Iteration using <code>for...of</code>.</li>
+<li>Dynamic length adjustment with <code>push()</code>.</li>
+<li>Finding an element's index using <code>findIndex()</code>.</li>
+<li>Deleting elements using <code>splice()</code>.</li>
+</ul>
+<p>The <code>findIndex()</code> method iterates through the array until it finds an element that satisfies the provided condition (in this case, being equal to "Julie"). Similarly, <code>splice()</code> modifies the array by removing elements and potentially shifting subsequent elements. These operations can become less efficient as the array size grows, especially for deletions in the middle of large arrays.</p>
+<h3 id="sets-collections-of-unique-values">Sets: Collections of Unique Values</h3>
+<p>Now, let's explore <strong>sets</strong>, another fundamental built-in data structure in JavaScript. Sets are designed to store <strong>collections of unique values</strong>. Unlike arrays, sets do not allow duplicate elements.</p>
+<p>Sets are created using the <code>Set</code> constructor:</p>
+<pre><code class="language-javascript">const idSet = new Set();
+idSet.add(&quot;abc&quot;);
+idSet.add(123);
+idSet.add(&quot;abc&quot;); // Duplicate - will be ignored
+</code></pre>
+<p>Key characteristics of sets include:</p>
+<ul>
+<li><strong>Uniqueness of Elements:</strong> Sets inherently store only unique values. If you attempt to add a value that is already present in the set, it will be ignored.</li>
+<li><strong>No Insertion Order Guarantee:</strong> Unlike arrays, sets do <strong>not guarantee to maintain the insertion order</strong> of elements. While in some JavaScript implementations, the order might appear to be preserved, it is not a reliable feature, and you should not depend on it.</li>
+<li><strong>No Index-Based Access:</strong> You cannot access elements in a set using an index. Sets are not designed for index-based retrieval.</li>
+<li><strong>Iterable:</strong> Sets are <strong>iterable</strong>, allowing you to loop through their elements using <code>for...of</code>. However, the order of iteration is not guaranteed to be the insertion order.</li>
+<li><strong>Dynamic Size:</strong> Like arrays, sets are <strong>dynamic</strong> and adjust their size automatically as elements are added or removed.</li>
+<li><strong>Efficient Element Lookup and Deletion:</strong> Sets are optimized for efficient checking of whether a value exists in the set and for deleting elements. These operations are generally faster in sets compared to arrays, especially for large collections.</li>
+</ul>
+<h4 id="performance-advantages-of-sets">Performance Advantages of Sets</h4>
+<p>Sets offer performance advantages in specific scenarios compared to arrays:</p>
+<ul>
+<li><strong>Faster Lookups (Existence Checks):</strong> Checking if a value is present in a set is typically faster than searching for a value in an array, especially for large collections. Sets often use hash-based implementations internally, which allow for near-constant time complexity for lookups on average.</li>
+<li><strong>Faster Deletions:</strong> Deleting elements from a set is generally more efficient than deleting elements from an array, as sets do not require shifting elements to fill gaps after deletion.</li>
+</ul>
+<h4 id="set-code-example-exploring-functionality">Set Code Example: Exploring Functionality</h4>
+<pre><code class="language-javascript">// app.js
+const uniqueIds = new Set();
+
+uniqueIds.add(&quot;abc&quot;);
+uniqueIds.add(1);
+uniqueIds.add(&quot;bb2&quot;);
+uniqueIds.add(1); // Duplicate - ignored
+
+console.log(uniqueIds); // Output: Set(3) {&quot;abc&quot;, 1, &quot;bb2&quot;} (Order may vary)
+
+// Iterating through a set
+for (const id of uniqueIds) {
+  console.log(id);
+}
+// Output: (Order may vary)
+// abc
+// 1
+// bb2
+
+// Checking for element existence
+console.log(uniqueIds.has(&quot;abc&quot;)); // Output: true
+console.log(uniqueIds.has(&quot;xyz&quot;)); // Output: false
+
+// Deleting an element
+uniqueIds.delete(&quot;bb2&quot;);
+console.log(uniqueIds); // Output: Set(2) {&quot;abc&quot;, 1} (bb2 removed)
+</code></pre>
+<p>In this example, we observe:</p>
+<ul>
+<li>Set creation using <code>new Set()</code>.</li>
+<li>Adding elements using <code>add()</code>, noting that duplicates are ignored.</li>
+<li>Iteration using <code>for...of</code> (order not guaranteed).</li>
+<li>Checking for element existence using <code>has()</code>.</li>
+<li>Deleting elements using <code>delete()</code>.</li>
+</ul>
+<p>The key takeaway is that sets are optimized for managing collections of unique values where order is not a primary concern and efficient lookups and deletions are important.</p>
+<h3 id="arrays-vs-sets-a-comparative-summary">Arrays vs. Sets: A Comparative Summary</h3>
+<p>| Feature             | Arrays                                  | Sets                                       |
+| </p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

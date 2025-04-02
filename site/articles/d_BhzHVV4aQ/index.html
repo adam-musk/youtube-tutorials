@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Remix Crash Course: Building Full-Stack Applications - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#remix-crash-course-building-full-stack-applications">Remix Crash Course: Building Full-Stack Applications</a></li>
+        <li><a href="#introduction-to-remix">Introduction to Remix</a></li><li><a href="#why-remix-benefits-of-a-full-stack-framework">Why Remix? Benefits of a Full-Stack Framework</a></li><li><a href="#building-a-blog-application-a-practical-example">Building a Blog Application: A Practical Example</a></li><li><a href="#setting-up-the-remix-application">Setting Up the Remix Application</a></li><li><a href="#exploring-core-remix-files-and-concepts">Exploring Core Remix Files and Concepts</a></li><li><a href="#setting-up-the-root-route-rootjsx">Setting up the Root Route (root.jsx)</a></li><li><a href="#routing-in-remix-creating-routes-for-blog-functionality">Routing in Remix: Creating Routes for Blog Functionality</a></li><li><a href="#loaders-and-data-fetching-displaying-blog-posts">Loaders and Data Fetching: Displaying Blog Posts</a></li><li><a href="#actions-and-form-handling-creating-new-blog-posts">Actions and Form Handling: Creating New Blog Posts</a></li><li><a href="#error-handling-implementing-error-boundaries">Error Handling: Implementing Error Boundaries</a></li><li><a href="#integrating-prisma-and-sqlite-setting-up-the-database">Integrating Prisma and SQLite: Setting up the Database</a></li><li><a href="#database-seeding-adding-initial-blog-posts">Database Seeding: Adding Initial Blog Posts</a></li><li><a href="#fetching-data-with-loaders-database-integration">Fetching Data with Loaders (Database Integration)</a></li><li><a href="#creating-new-posts-with-actions-database-integration">Creating New Posts with Actions (Database Integration)</a></li><li><a href="#displaying-single-posts">Displaying Single Posts</a></li><li><a href="#deleting-posts">Deleting Posts</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="remix-crash-course-building-full-stack-applications">Remix Crash Course: Building Full-Stack Applications</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/d_BhzHVV4aQ" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-remix">Introduction to Remix</h2>
+<p>Welcome to an educational journey into Remix, a modern, full-stack JavaScript framework designed for building robust and user-centric web applications. This chapter will guide you through the fundamental concepts of Remix, exploring its benefits and demonstrating its practical application in building a blog application.</p>
+<p>Remix is not just another framework; it's a deliberate approach to web development, created by the same minds behind React Router. It addresses many challenges inherent in traditional Single Page Applications (SPAs) by embracing server-side rendering and leveraging web fundamentals. While frameworks like Next.js also offer server-side rendering for React, Remix distinguishes itself with its unique data loading and form handling mechanisms, particularly through the use of <strong>loaders</strong> and <strong>actions</strong>.</p>
+<blockquote>
+<p><strong>Framework:</strong> In software development, a framework provides a structured environment and pre-built components to simplify and accelerate the development process. It offers a foundation upon which developers can build applications, reducing boilerplate code and promoting best practices.</p>
+</blockquote>
+<p>This chapter will not delve into a comparative analysis between Remix and Next.js. Both are powerful frameworks, but Remix offers a distinct philosophy and approach to server-rendered React applications, which we will explore in detail. The industry trend is clearly shifting towards server-rendered applications, and Remix is at the forefront of this movement.</p>
+<h2 id="why-remix-benefits-of-a-full-stack-framework">Why Remix? Benefits of a Full-Stack Framework</h2>
+<p>Remix offers a compelling set of advantages, particularly for React developers seeking to build performant and user-friendly web applications. Let's explore some of the key benefits:</p>
+<h3 id="1-server-side-rendering-ssr">1. Server-Side Rendering (SSR)</h3>
+<blockquote>
+<p><strong>Server-Side Rendering (SSR):</strong>  A technique where the initial HTML of a web page is rendered on the server rather than in the user's browser. This allows the browser to display content faster, improving initial load times and Search Engine Optimization (SEO).</p>
+</blockquote>
+<p>Server-side rendering is a cornerstone of Remix's architecture, providing significant benefits:</p>
+<ul>
+<li><strong>Improved SEO:</strong> Search engines can easily crawl and index server-rendered content, boosting your website's visibility in search results.</li>
+<li><strong>Faster Initial Load Times:</strong> Users see content faster, leading to a better user experience, especially on slower networks or devices.</li>
+<li><strong>Enhanced Performance:</strong>  The server handles the initial rendering, reducing the workload on the client-side browser.</li>
+</ul>
+<h3 id="2-file-system-routing">2. File System Routing</h3>
+<blockquote>
+<p><strong>File System Routing:</strong> A routing mechanism where the structure of your application's routes is determined by the file system directory structure. Creating a file within a specific directory automatically defines a route, eliminating the need for explicit route configuration.</p>
+</blockquote>
+<p>Remix adopts file system routing, simplifying route management:</p>
+<ul>
+<li><strong>Intuitive Route Definition:</strong> Routes are implicitly defined by the file structure within your <code>routes</code> directory. Creating a file automatically establishes a corresponding route.</li>
+<li><strong>Reduced Configuration:</strong>  Developers don't need to manually configure and maintain route definitions, streamlining the development process.</li>
+<li><strong>Clearer Project Structure:</strong>  The file system directly reflects the application's routing structure, enhancing project organization and maintainability.</li>
+</ul>
+<p>This approach is reminiscent of traditional server-side frameworks and offers a straightforward way to manage application navigation.</p>
+<h3 id="3-nested-routes">3. Nested Routes</h3>
+<blockquote>
+<p><strong>Nested Routes:</strong> A routing pattern that allows for hierarchical route structures. Child routes are rendered within the context of their parent routes, enabling the creation of layouts and reusable UI components that are shared across multiple related routes.</p>
+</blockquote>
+<p>Remix supports nested routes, enabling complex and organized application layouts:</p>
+<ul>
+<li><strong>Hierarchical UI Structure:</strong>  Build applications with nested layouts, where components like navigation bars or sidebars can be shared across multiple related pages.</li>
+<li><strong>Code Reusability:</strong> Utilize React Router's <code>Outlet</code> component to define placeholders where child route content will be rendered within a parent route's layout.</li>
+<li><strong>Enhanced Organization:</strong>  Structure routes logically, mirroring the application's UI hierarchy and improving code organization.</li>
+</ul>
+<p>Remix leverages React Router's <code>Outlet</code> component to facilitate nested routing, offering a hybrid approach that combines the benefits of SPAs and server-rendered applications.</p>
+<blockquote>
+<p><strong>React Router:</strong> A popular JavaScript library for declarative routing in React applications. It provides components and hooks for managing navigation and defining application routes.</p>
+</blockquote>
+<h3 id="4-loaders-and-actions-core-remix-concepts">4. Loaders and Actions: Core Remix Concepts</h3>
+<p><strong>Loaders</strong> and <strong>Actions</strong> are central to Remix's data handling and form submission approach, distinguishing it from traditional SPAs and even other server-rendered frameworks.</p>
+<h4 id="loaders">Loaders</h4>
+<blockquote>
+<p><strong>Loaders:</strong> Functions defined within Remix route modules that execute on the server to fetch data required for rendering a specific route. Loaders run before the route component is rendered, ensuring data is available when the page loads.</p>
+</blockquote>
+<p>Loaders provide a powerful mechanism for server-side data fetching:</p>
+<ul>
+<li><strong>Server-Side Data Fetching:</strong> Loaders execute exclusively on the server, enabling secure and efficient data retrieval from databases, APIs, or any server-side data source.</li>
+<li><strong>Data Availability on Page Load:</strong>  Loaders ensure data is fetched and ready before the React component for a route is rendered, preventing loading spinners and improving user experience.</li>
+<li><strong>Integration with Data Sources:</strong> Loaders can seamlessly integrate with various data sources, including databases (like SQLite using Prisma, as demonstrated in the transcript), APIs, and file systems.</li>
+</ul>
+<p>In the context of the blog application, loaders will be used to fetch blog posts from the database and provide them to the React components for display.</p>
+<h4 id="actions">Actions</h4>
+<blockquote>
+<p><strong>Actions:</strong> Functions defined within Remix route modules that handle form submissions and mutations on the server. Actions are invoked when a form is submitted to a route, allowing server-side processing of form data and performing actions like database updates or user authentication.</p>
+</blockquote>
+<p>Actions revolutionize form handling in web applications:</p>
+<ul>
+<li><strong>Form Submission without JavaScript:</strong> Remix allows traditional HTML form submissions to be handled directly by server-side action functions, eliminating the need for client-side JavaScript form handling in many cases.</li>
+<li><strong>Server-Side Form Processing:</strong> Actions execute on the server, providing a secure and reliable way to process form data, perform validations, and interact with databases.</li>
+<li><strong>Simplified Form Handling:</strong>  By leveraging actions, developers can simplify form logic and reduce the amount of client-side JavaScript required for form interactions.</li>
+</ul>
+<p>Actions enable a more traditional, server-centric approach to form processing, reminiscent of frameworks like PHP, while leveraging the power of React for UI rendering.</p>
+<h3 id="5-easy-access-to-head-tags">5. Easy Access to Head Tags</h3>
+<p>Remix provides convenient ways to manage <code>&lt;head&gt;</code> tags within route modules:</p>
+<ul>
+<li><strong>Meta Tags and SEO:</strong> Easily add meta tags (like keywords and descriptions) to individual routes, improving SEO and providing contextual information to search engines and browsers.</li>
+<li><strong>CSS and Link Management:</strong>  Include route-specific CSS files or other links within the <code>&lt;head&gt;</code> section, ensuring proper styling and resource loading for each page.</li>
+</ul>
+<h3 id="6-built-in-error-handling">6. Built-in Error Handling</h3>
+<p>Remix simplifies error management in web applications:</p>
+<ul>
+<li><strong>Route-Specific Error Boundaries:</strong> Define <code>ErrorBoundary</code> components within route modules to handle errors that occur specifically within that route, providing localized error handling.</li>
+<li><strong>Root Error Boundary:</strong>  Create a root <code>ErrorBoundary</code> to catch errors that occur outside of specific routes, providing a global error handling mechanism for the entire application.</li>
+</ul>
+<blockquote>
+<p><strong>Error Boundary:</strong> A React component that catches JavaScript errors anywhere in its child component tree, logs those errors, and displays a fallback UI instead of crashing the whole component tree.</p>
+</blockquote>
+<h3 id="7-typescript-support-out-of-the-box">7. TypeScript Support Out of the Box</h3>
+<blockquote>
+<p><strong>TypeScript:</strong> A superset of JavaScript that adds optional static typing. TypeScript enhances code maintainability, readability, and helps catch errors during development.</p>
+</blockquote>
+<p>Remix offers seamless TypeScript integration:</p>
+<ul>
+<li><strong>TypeScript Boilerplate:</strong>  Generate Remix applications with TypeScript support from the outset, leveraging the benefits of static typing.</li>
+<li><strong>Gradual Adoption:</strong>  Easily transition JavaScript files to TypeScript by simply changing the file extension to <code>.tsx</code>, allowing for gradual adoption of TypeScript within an existing project.</li>
+</ul>
+<h3 id="8-built-in-support-for-cookies-and-sessions">8. Built-in Support for Cookies and Sessions</h3>
+<p>Remix provides robust support for managing user sessions and cookies:</p>
+<ul>
+<li><strong><code>createCookie</code> Function:</strong>  A utility function provided by Remix to simplify cookie creation and management.</li>
+<li><strong>Session Management:</strong> Built-in support for session handling using cookies, file system storage, server memory, or custom storage solutions.</li>
+</ul>
+<blockquote>
+<p><strong>Cookies:</strong> Small pieces of data that websites store on a user's computer to remember information about the user, such as login status or preferences.</p>
+<p><strong>Sessions:</strong> A way to store information about a user across multiple requests, typically using cookies to identify the user's session. Sessions are often used for user authentication and maintaining stateful interactions.</p>
+</blockquote>
+<h2 id="building-a-blog-application-a-practical-example">Building a Blog Application: A Practical Example</h2>
+<p>To solidify your understanding of Remix, we will embark on building a blog application. This hands-on approach will demonstrate the practical application of Remix concepts such as loaders, actions, and routing. We will also integrate Prisma, an Object-Relational Mapper (ORM), and SQLite, a lightweight database, to manage blog post data.</p>
+<blockquote>
+<p><strong>Object-Relational Mapper (ORM):</strong> A software layer that sits between an application and a relational database. ORMs allow developers to interact with databases using object-oriented programming concepts, abstracting away the complexities of raw SQL queries.</p>
+<p><strong>Prisma:</strong> A modern ORM for Node.js and TypeScript that simplifies database access and management. Prisma provides a type-safe and intuitive API for interacting with databases.</p>
+<p><strong>SQLite:</strong> A lightweight, file-based relational database engine. SQLite is self-contained, serverless, and requires no separate server process, making it ideal for development and smaller applications.</p>
+</blockquote>
+<p>This blog application will feature basic functionalities including:</p>
+<ul>
+<li>Displaying a list of blog posts.</li>
+<li>Creating new blog posts.</li>
+<li>Viewing individual blog posts.</li>
+<li>Deleting blog posts.</li>
+<li>(Future Enhancement) User authentication (to be covered in a subsequent chapter).</li>
+</ul>
+<h2 id="setting-up-the-remix-application">Setting Up the Remix Application</h2>
+<p>Let's begin by setting up a new Remix application. Open your terminal and follow these steps:</p>
+<ol>
+<li>
+<p><strong>Create a new Remix project:</strong></p>
+<p><code>bash
+npx create-remix@latest remix-blog</code></p>
+<p>You can choose to use <code>@latest</code> or specify a version like <code>1.0.6</code> as mentioned in the transcript.</p>
+</li>
+<li>
+<p><strong>Select deployment target:</strong> Choose "Remix App Server" for simplicity in this tutorial.</p>
+</li>
+<li>
+<p><strong>Choose TypeScript or JavaScript:</strong> For this tutorial, we will use JavaScript for broader accessibility. However, in production, TypeScript is highly recommended. Select "Just JavaScript".</p>
+</li>
+<li>
+<p><strong>Run <code>npm install</code>:</strong>  Answer "Yes" to run <code>npm install</code> to install project dependencies.</p>
+</li>
+<li>
+<p><strong>Navigate to the project directory:</strong></p>
+<p><code>bash
+cd remix-blog</code></p>
+</li>
+<li>
+<p><strong>Open the project in your code editor:</strong> Use your preferred code editor (like Visual Studio Code).</p>
+</li>
+<li>
+<p><strong>Start the development server:</strong></p>
+<p><code>bash
+npm run dev</code></p>
+<p>This command will start the Remix development server, typically accessible at <code>http://localhost:3000</code>. You should see a default Remix welcome page.</p>
+</li>
+</ol>
+<h2 id="exploring-core-remix-files-and-concepts">Exploring Core Remix Files and Concepts</h2>
+<p>Let's examine the key files and folders within your newly created Remix application:</p>
+<ul>
+<li><strong><code>package.json</code>:</strong> Contains project dependencies, scripts (like <code>dev</code> and <code>build</code>), and other project metadata.</li>
+<li><strong><code>public/</code>:</strong>  A directory for static assets like images, fonts, and other files that are served directly to the browser.</li>
+<li><strong><code>app/</code>:</strong> The heart of your Remix application. This directory contains:<ul>
+<li><strong><code>entry.client.jsx</code>:</strong> The client-side entry point of your application. This is the first JavaScript code that runs in the browser. It handles client-side rendering and hydration of React components.</li>
+<li><strong><code>entry.server.jsx</code>:</strong> The server-side entry point. This code is executed on the server for every request. It's responsible for handling requests, fetching data, rendering the initial HTML, and sending responses.</li>
+<li><strong><code>root.jsx</code>:</strong> The root component of your application. It defines the basic HTML structure (<code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>) and includes essential components like <code>Outlet</code> for rendering routes and <code>LiveReload</code> for development.</li>
+<li><strong><code>routes/</code>:</strong> This directory houses your route modules. Each file within this directory defines a route in your application. Remix uses file system routing, so the file structure directly maps to your application's URLs.</li>
+<li><strong><code>styles/</code>:</strong> Contains global stylesheets and potentially route-specific stylesheets.</li>
+<li><strong><code>utils/</code>:</strong> (To be created) A directory for utility functions, including database connection logic (<code>db.server.ts</code> in the transcript, we will create <code>db.server.js</code> for JavaScript).</li>
+</ul>
+</li>
+</ul>
+<h2 id="setting-up-the-root-route-rootjsx">Setting up the Root Route (<code>root.jsx</code>)</h2>
+<p>Let's customize the <code>root.jsx</code> file to establish the basic structure of our application. Replace the existing content of <code>root.jsx</code> with the following:</p>
+<pre><code class="language-jsx">import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from &quot;remix&quot;;
+import globalStylesUrl from &quot;./styles/global.css&quot;;
+
+export const links = () =&gt; {
+  return [{ rel: &quot;stylesheet&quot;, href: globalStylesUrl }];
+};
+
+export default function App() {
+  return (
+    &lt;Document&gt;
+      &lt;Layout&gt;
+        &lt;Outlet /&gt;
+      &lt;/Layout&gt;
+    &lt;/Document&gt;
+  );
+}
+
+function Document({ children, title }) {
+  return (
+    &lt;html lang=&quot;en&quot;&gt;
+      &lt;head&gt;
+        &lt;Meta /&gt;
+        &lt;Meta charSet=&quot;utf-8&quot; /&gt;
+        &lt;Meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+        &lt;Title&gt;{title ? title : &quot;My Remix Blog&quot;}&lt;/Title&gt;
+        &lt;Links /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        {children}
+        &lt;ScrollRestoration /&gt;
+        &lt;Scripts /&gt;
+        &lt;LiveReload /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}
+
+function Layout({ children }) {
+  return (
+    &lt;&gt;
+      &lt;nav className=&quot;navbar&quot;&gt;
+        &lt;Link to=&quot;/&quot; className=&quot;logo&quot;&gt;
+          Remix Blog
+        &lt;/Link&gt;
+        &lt;ul className=&quot;nav&quot;&gt;
+          &lt;li&gt;
+            &lt;Link to=&quot;/posts&quot;&gt;Posts&lt;/Link&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+      &lt;div className=&quot;container&quot;&gt;{children}&lt;/div&gt;
+    &lt;/&gt;
+  );
+}
+
+function Title({ children }) {
+  return &lt;title&gt;{children}&lt;/title&gt;;
+}
+
+function Link({ to, children, className }) {
+  return (
+    &lt;a href={to} className={className}&gt;
+      {children}
+    &lt;/a&gt;
+  );
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Imports:</strong> Imports essential components from Remix, including <code>Links</code>, <code>LiveReload</code>, <code>Meta</code>, <code>Outlet</code>, <code>Scripts</code>, and <code>ScrollRestoration</code>.</li>
+<li><strong><code>links</code> export:</strong>  Exports a <code>links</code> function to include global stylesheets. In this case, it links to <code>global.css</code>.</li>
+<li><strong><code>App</code> Component:</strong> The main application component that renders the <code>Document</code> and <code>Layout</code> components, with <code>Outlet</code> acting as a placeholder for route-specific content.</li>
+<li><strong><code>Document</code> Component:</strong> Defines the basic HTML document structure, including <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags. It includes <code>Meta</code>, <code>Title</code>, <code>Links</code>, <code>Scripts</code>, <code>ScrollRestoration</code>, and <code>LiveReload</code> components provided by Remix.</li>
+<li><strong><code>Layout</code> Component:</strong> Creates a basic layout with a navigation bar containing a logo and a "Posts" link. It wraps the <code>Outlet</code> within a <code>container</code> div for styling.</li>
+<li><strong><code>Title</code> and <code>Link</code> Components:</strong> Simple helper components for rendering <code>&lt;title&gt;</code> and <code>&lt;a&gt;</code> tags.</li>
+</ul>
+<p><strong>Create <code>global.css</code>:</strong></p>
+<p>Create a <code>global.css</code> file inside the <code>app/styles</code> directory and paste the CSS styles provided in the transcript or your own styles. This will style the basic layout and components.</p>
+<h2 id="routing-in-remix-creating-routes-for-blog-functionality">Routing in Remix: Creating Routes for Blog Functionality</h2>
+<p>Now, let's create the routes for our blog application within the <code>routes</code> directory.</p>
+<h3 id="1-home-page-routesindexjsx">1. Home Page (<code>routes/index.jsx</code>)</h3>
+<p>Create <code>routes/index.jsx</code> and add the following content:</p>
+<pre><code class="language-jsx">export default function Home() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Welcome to My Remix Blog&lt;/h1&gt;
+      &lt;p&gt;This is a simple blog application built with Remix, Prisma, and SQLite.&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>This will be the home page of your blog, accessible at <code>/</code>.</p>
+<h3 id="2-posts-route-and-nested-routes-routespostsjsx-and-routesposts">2. Posts Route and Nested Routes (<code>routes/posts.jsx</code> and <code>routes/posts/</code>)</h3>
+<p>Create a folder named <code>posts</code> inside the <code>routes</code> directory.</p>
+<p><strong>Parent Posts Route (<code>routes/posts.jsx</code>):</strong></p>
+<p>Create <code>routes/posts.jsx</code> and add the following:</p>
+<pre><code class="language-jsx">import { Outlet } from &quot;remix&quot;;
+
+export default function PostsRoute() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Posts&lt;/h1&gt;
+      &lt;Outlet /&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>This serves as the parent route for all post-related routes (like listing posts, creating new posts, viewing individual posts). The <code>Outlet</code> component will render content from nested routes within this parent route.</p>
+<p><strong>Posts Index Route (<code>routes/posts/index.jsx</code>):</strong></p>
+<p>Create <code>routes/posts/index.jsx</code> and add the following:</p>
+<pre><code class="language-jsx">export default function PostItems() {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;All Posts&lt;/h2&gt;
+      {/* Post list will be rendered here */}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>This will be the index route for posts, accessible at <code>/posts</code>. We will later populate this with a list of blog posts fetched from the database using a loader.</p>
+<p><strong>New Post Route (<code>routes/posts/new.jsx</code>):</strong></p>
+<p>Create <code>routes/posts/new.jsx</code> and add the following:</p>
+<pre><code class="language-jsx">import { Link } from &quot;remix&quot;;
+
+export default function NewPost() {
+  return (
+    &lt;div&gt;
+      &lt;Link to=&quot;/posts&quot; className=&quot;btn btn-reverse&quot;&gt;
+        Back to Posts
+      &lt;/Link&gt;
+      &lt;h1&gt;New Post&lt;/h1&gt;
+      {/* Form for creating new posts will be added here */}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>This route, accessible at <code>/posts/new</code>, will contain the form for creating new blog posts.</p>
+<p><strong>Dynamic Post Route (<code>routes/posts/$postId.jsx</code>):</strong></p>
+<p>Create <code>routes/posts/$postId.jsx</code> and add the following:</p>
+<pre><code class="language-jsx">import { useParams, Link } from &quot;remix&quot;;
+
+export default function Post() {
+  const params = useParams();
+  const postId = params.postId;
+
+  return (
+    &lt;div&gt;
+      &lt;Link to=&quot;/posts&quot; className=&quot;btn btn-reverse&quot;&gt;
+        Back to Posts
+      &lt;/Link&gt;
+      &lt;h1&gt;Post ID: {postId}&lt;/h1&gt;
+      {/* Single post content will be displayed here */}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>This is a dynamic route, accessible at URLs like <code>/posts/123</code>, <code>/posts/abc</code>. The <code>$postId</code> part indicates a dynamic segment in the URL. <code>useParams</code> hook is used to extract the <code>postId</code> from the URL parameters.</p>
+<h2 id="loaders-and-data-fetching-displaying-blog-posts">Loaders and Data Fetching: Displaying Blog Posts</h2>
+<p>Now, let's implement data fetching using loaders to display blog posts on the <code>/posts</code> route.</p>
+<p><strong>Modify <code>routes/posts/index.jsx</code>:</strong></p>
+<pre><code class="language-jsx">import { useLoaderData, Link } from &quot;remix&quot;;
+
+export async function loader() {
+  // Placeholder data - replace with database fetch later
+  const posts = [
+    { id: 1, title: &quot;Post 1&quot;, body: &quot;This is a test post 1&quot; },
+    { id: 2, title: &quot;Post 2&quot;, body: &quot;This is a test post 2&quot; },
+    { id: 3, title: &quot;Post 3&quot;, body: &quot;This is a test post 3&quot; },
+  ];
+  return { posts };
+}
+
+export default function PostItems() {
+  const { posts } = useLoaderData();
+
+  return (
+    &lt;div&gt;
+      &lt;div className=&quot;page-header&quot;&gt;
+        &lt;h1&gt;Posts&lt;/h1&gt;
+        &lt;Link to=&quot;/posts/new&quot; className=&quot;btn&quot;&gt;
+          New Post
+        &lt;/Link&gt;
+      &lt;/div&gt;
+      &lt;ul className=&quot;post-list&quot;&gt;
+        {posts.map((post) =&gt; (
+          &lt;li key={post.id}&gt;
+            &lt;Link to={`/posts/${post.id}`}&gt;
+              &lt;h3&gt;{post.title}&lt;/h3&gt;
+            &lt;/Link&gt;
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>loader</code> function:</strong> An asynchronous function exported as <code>loader</code>. This is the loader function for this route.<ul>
+<li>It currently returns hardcoded placeholder <code>posts</code> data. We will replace this with database fetching later.</li>
+<li>It returns an object with <code>posts</code> property, which will be available to the component.</li>
+</ul>
+</li>
+<li><strong><code>useLoaderData</code> hook:</strong>  In the <code>PostItems</code> component, <code>useLoaderData</code> hook is used to access the data returned by the <code>loader</code> function.</li>
+<li><strong>Rendering Post List:</strong> The component maps over the <code>posts</code> array and renders a list of posts, each with a link to its individual post page (<code>/posts/${post.id}</code>).</li>
+</ul>
+<h2 id="actions-and-form-handling-creating-new-blog-posts">Actions and Form Handling: Creating New Blog Posts</h2>
+<p>Let's implement form handling using actions to allow users to create new blog posts on the <code>/posts/new</code> route.</p>
+<p><strong>Modify <code>routes/posts/new.jsx</code>:</strong></p>
+<pre><code class="language-jsx">import { ActionFunction, Form, Link, useActionData, redirect } from &quot;remix&quot;;
+
+export const action: ActionFunction = async ({ request }) =&gt; {
+  const formData = await request.formData();
+  const title = formData.get(&quot;title&quot;);
+  const body = formData.get(&quot;body&quot;);
+
+  // Placeholder - submit to database later
+  console.log(&quot;Form Data:&quot;, { title, body });
+
+  return redirect(&quot;/posts&quot;);
+};
+
+export default function NewPost() {
+  return (
+    &lt;div&gt;
+      &lt;div className=&quot;page-header&quot;&gt;
+        &lt;Link to=&quot;/posts&quot; className=&quot;btn btn-reverse&quot;&gt;
+          Back to Posts
+        &lt;/Link&gt;
+        &lt;h1&gt;New Post&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;page-content&quot;&gt;
+        &lt;Form method=&quot;post&quot;&gt;
+          &lt;div className=&quot;form-control&quot;&gt;
+            &lt;label htmlFor=&quot;title&quot;&gt;Title&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;title&quot; id=&quot;title&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;form-control&quot;&gt;
+            &lt;label htmlFor=&quot;body&quot;&gt;Post Body&lt;/label&gt;
+            &lt;textarea name=&quot;body&quot; id=&quot;body&quot; /&gt;
+          &lt;/div&gt;
+          &lt;button type=&quot;submit&quot; className=&quot;btn btn-block&quot;&gt;
+            Add Post
+          &lt;/button&gt;
+        &lt;/Form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>action</code> function:</strong> An asynchronous function exported as <code>action</code>. This is the action function for this route, triggered on form submission.<ul>
+<li>It receives a <code>request</code> object containing information about the incoming request.</li>
+<li><code>request.formData()</code> is used to parse the form data submitted via the POST request.</li>
+<li><code>formData.get("title")</code> and <code>formData.get("body")</code> extract the values of the "title" and "body" input fields from the form data.</li>
+<li><strong>Placeholder:</strong> <code>console.log</code> is used to temporarily display the form data. We will replace this with database interaction later.</li>
+<li><code>redirect("/posts")</code> redirects the user back to the <code>/posts</code> route after form submission.</li>
+</ul>
+</li>
+<li><strong><code>Form</code> component:</strong>  The <code>Form</code> component from Remix is used to create the HTML form.<ul>
+<li><code>method="post"</code> specifies that the form will be submitted using a POST request.</li>
+<li><code>name</code> attributes on input fields (<code>name="title"</code>, <code>name="body"</code>) are crucial for accessing form data in the action function.</li>
+</ul>
+</li>
+</ul>
+<h2 id="error-handling-implementing-error-boundaries">Error Handling: Implementing Error Boundaries</h2>
+<p>Let's implement error handling by adding an <code>ErrorBoundary</code> component to the <code>root.jsx</code> file.</p>
+<p><strong>Modify <code>root.jsx</code>:</strong></p>
+<pre><code class="language-jsx">// ... (previous imports and components) ...
+
+export function ErrorBoundary({ error }) {
+  console.error(error);
+  return (
+    &lt;Document&gt;
+      &lt;Layout&gt;
+        &lt;div className=&quot;page-content&quot;&gt;
+          &lt;h1&gt;Error&lt;/h1&gt;
+          &lt;p&gt;Oops! Something went wrong.&lt;/p&gt;
+          &lt;pre&gt;{error.message}&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/Layout&gt;
+    &lt;/Document&gt;
+  );
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>ErrorBoundary</code> component:</strong>  A function component exported as <code>ErrorBoundary</code>. This component will catch errors that occur during rendering of any route in your application.<ul>
+<li>It receives an <code>error</code> object containing details about the error.</li>
+<li>It logs the error to the console (<code>console.error(error)</code>).</li>
+<li>It renders a fallback UI with an error message and the error message from the <code>error</code> object.</li>
+</ul>
+</li>
+</ul>
+<p>Now, if an error occurs during rendering, Remix will catch it and render this <code>ErrorBoundary</code> component, providing a user-friendly error message instead of a broken page.</p>
+<h2 id="integrating-prisma-and-sqlite-setting-up-the-database">Integrating Prisma and SQLite: Setting up the Database</h2>
+<p>Let's integrate Prisma and SQLite into our Remix application to persist blog post data in a database.</p>
+<ol>
+<li>
+<p><strong>Install Prisma CLI and Client:</strong></p>
+<p><code>bash
+npm install prisma @prisma/client</code></p>
+</li>
+<li>
+<p><strong>Initialize Prisma:</strong></p>
+<p><code>bash
+npx prisma init --datasource-provider sqlite</code></p>
+<p>This command creates a <code>prisma</code> directory with <code>schema.prisma</code> file and sets up SQLite as the database provider.</p>
+</li>
+<li>
+<p><strong>Define the Prisma Schema (<code>prisma/schema.prisma</code>):</strong></p>
+<p>Replace the contents of <code>prisma/schema.prisma</code> with the following:</p>
+<p>```prisma
+generator client {
+  provider = "prisma-client-js"
+}</p>
+<p>datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}</p>
+<p>model Post {
+  id        String   @id @default(uuid())
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+```</p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>generator client</code>:</strong> Configures the Prisma Client generation.</li>
+<li><strong><code>datasource db</code>:</strong> Configures the database connection.<ul>
+<li><code>provider = "sqlite"</code> specifies SQLite as the database.</li>
+<li><code>url = "file:./dev.db"</code> sets the database file to <code>dev.db</code> in the <code>prisma</code> directory.</li>
+</ul>
+</li>
+<li><strong><code>model Post</code>:</strong> Defines the <code>Post</code> model, representing the blog post table in the database.<ul>
+<li><code>id</code>: Unique identifier for each post (String, UUID, primary key).</li>
+<li><code>title</code>: Title of the post (String).</li>
+<li><code>body</code>: Content of the post (String).</li>
+<li><code>createdAt</code>: Timestamp of post creation (DateTime, automatically set on creation).</li>
+<li><code>updatedAt</code>: Timestamp of last post update (DateTime, automatically updated on update).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Push the schema to the database:</strong></p>
+<p><code>bash
+npx prisma db push</code></p>
+<p>This command creates the <code>dev.db</code> SQLite database file and applies the schema defined in <code>schema.prisma</code>.</p>
+</li>
+<li>
+<p><strong>Create <code>db.server.js</code> (<code>app/utils/db.server.js</code>):</strong></p>
+<p>Create a <code>utils</code> directory inside <code>app</code> and then create <code>db.server.js</code> with the following content:</p>
+<p>```javascript
+import { PrismaClient } from "@prisma/client";</p>
+<p>let prisma;</p>
+<p>if (process.env.NODE_ENV === "production") {
+  prisma = new PrismaClient();
+  prisma.$connect();
+} else {
+  if (!global.__db) {
+    global.__db = new PrismaClient();
+    global.__db.$connect();
+  }
+  prisma = global.__db;
+}</p>
+<p>export default prisma;
+```</p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Import <code>PrismaClient</code>:</strong> Imports the Prisma Client constructor.</li>
+<li><strong>Global Prisma Instance:</strong>  Creates a global <code>prisma</code> instance to reuse database connections in development and ensure a new connection in production.</li>
+<li><strong>Conditional Connection:</strong><ul>
+<li><strong>Production:</strong> Creates a new <code>PrismaClient</code> and connects to the database directly.</li>
+<li><strong>Development:</strong> Uses a global variable (<code>global.__db</code>) to store the Prisma Client instance. If it doesn't exist, it creates a new one and stores it globally. This prevents creating new database connections on every code change during development, improving performance.</li>
+</ul>
+</li>
+<li><strong>Export <code>prisma</code>:</strong> Exports the <code>prisma</code> instance, making it available for use in other modules.</li>
+</ul>
+</li>
+</ol>
+<h2 id="database-seeding-adding-initial-blog-posts">Database Seeding: Adding Initial Blog Posts</h2>
+<p>Let's create a database seeder to populate our SQLite database with initial blog posts.</p>
+<ol>
+<li>
+<p><strong>Create <code>prisma/seed.js</code>:</strong></p>
+<p>Create a <code>seed.js</code> file inside the <code>prisma</code> directory with the following content:</p>
+<p>```javascript
+const { PrismaClient } = require("@prisma/client");
+const db = new PrismaClient();</p>
+<p>async function getPosts() {
+  return [
+    {
+      title: "First Post",
+      body: "This is the body of the first post.",
+    },
+    {
+      title: "Second Post",
+      body: "This is the body of the second post.",
+    },
+    {
+      title: "Third Post",
+      body: "This is the body of the third post.",
+    },
+    {
+      title: "Fourth Post",
+      body: "This is the body of the fourth post.",
+    },
+  ];
+}</p>
+<p>async function seed() {
+  await Promise.all(
+    getPosts().map((post) =&gt; {
+      return db.post.create({ data: post });
+    })
+  );
+}</p>
+<p>seed()
+  .catch((e) =&gt; {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () =&gt; {
+    await db.$disconnect();
+  });
+```</p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Import <code>PrismaClient</code>:</strong> Imports <code>PrismaClient</code> using <code>require</code> (CommonJS syntax).</li>
+<li><strong><code>getPosts</code> function:</strong> Returns an array of sample post objects with <code>title</code> and <code>body</code>.</li>
+<li><strong><code>seed</code> function:</strong> An asynchronous function that:<ul>
+<li>Uses <code>Promise.all</code> and <code>map</code> to iterate over the posts from <code>getPosts</code>.</li>
+<li>For each post, it uses <code>db.post.create({ data: post })</code> to create a new <code>Post</code> record in the database with the post data.</li>
+</ul>
+</li>
+<li><strong>Run <code>seed</code> function:</strong> Calls the <code>seed</code> function and handles potential errors and database disconnection.</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the seeder:</strong></p>
+<p><code>bash
+node prisma/seed.js</code></p>
+<p>This command executes the <code>seed.js</code> script, populating your <code>dev.db</code> database with the sample posts.</p>
+</li>
+</ol>
+<h2 id="fetching-data-with-loaders-database-integration">Fetching Data with Loaders (Database Integration)</h2>
+<p>Now, let's modify the loader in <code>routes/posts/index.jsx</code> to fetch blog posts from the SQLite database using Prisma.</p>
+<p><strong>Modify <code>routes/posts/index.jsx</code>:</strong></p>
+<pre><code class="language-jsx">import { useLoaderData, Link } from &quot;remix&quot;;
+import prisma from &quot;~/utils/db.server&quot;; // Import Prisma client
+
+export async function loader() {
+  const posts = await prisma.post.findMany({
+    take: 20, // Limit to 20 posts
+    select: {
+      id: true,
+      title: true,
+      createdAt: true,
+    },
+    orderBy: {
+      createdAt: &quot;desc&quot;, // Order by creation date descending
+    },
+  });
+  return { posts };
+}
+
+// ... (PostItems component remains the same) ...
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Import <code>prisma</code>:</strong> Imports the Prisma Client instance from <code>~/utils/db.server.js</code>.</li>
+<li><strong>Database Query in <code>loader</code>:</strong><ul>
+<li><code>await prisma.post.findMany(...)</code> uses Prisma Client to fetch multiple <code>Post</code> records from the database.</li>
+<li><code>take: 20</code>: Limits the number of fetched posts to 20.</li>
+<li><code>select: { ... }</code>: Specifies which fields to retrieve (id, title, createdAt) for optimization, as we only need these for the post list.</li>
+<li><code>orderBy: { createdAt: "desc" }</code>: Orders the posts by <code>createdAt</code> in descending order (newest first).</li>
+</ul>
+</li>
+</ul>
+<p>Now, when you navigate to <code>/posts</code>, the list of blog posts will be dynamically fetched from your SQLite database.</p>
+<h2 id="creating-new-posts-with-actions-database-integration">Creating New Posts with Actions (Database Integration)</h2>
+<p>Let's update the action in <code>routes/posts/new.jsx</code> to persist new blog posts to the database.</p>
+<p><strong>Modify <code>routes/posts/new.jsx</code>:</strong></p>
+<pre><code class="language-jsx">import { ActionFunction, Form, Link, redirect } from &quot;remix&quot;;
+import prisma from &quot;~/utils/db.server&quot;; // Import Prisma client
+
+export const action: ActionFunction = async ({ request }) =&gt; {
+  const formData = await request.formData();
+  const title = formData.get(&quot;title&quot;);
+  const body = formData.get(&quot;body&quot;);
+
+  if (!title || typeof title !== &quot;string&quot; || title.length === 0) {
+    return { errors: { title: &quot;Title is required&quot; } }; // Basic validation
+  }
+  if (!body || typeof body !== &quot;string&quot; || body.length === 0) {
+    return { errors: { body: &quot;Body is required&quot; } }; // Basic validation
+  }
+
+  const post = await prisma.post.create({
+    data: {
+      title,
+      body,
+    },
+  });
+
+  return redirect(`/posts/${post.id}`);
+};
+
+export default function NewPost() {
+  // ... (rest of the component, you can add useActionData for error display if needed) ...
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Import <code>prisma</code>:</strong> Imports the Prisma Client instance.</li>
+<li><strong>Database <code>create</code> Operation in <code>action</code>:</strong><ul>
+<li><code>await prisma.post.create({ data: { title, body } })</code> uses Prisma Client to create a new <code>Post</code> record in the database with the <code>title</code> and <code>body</code> extracted from the form data.</li>
+<li>Basic validation is added to check if title and body are present. You can expand this validation further.</li>
+</ul>
+</li>
+<li><strong>Redirect to Post Page:</strong> <code>redirect(</code>/posts/${post.id}<code>)</code> redirects the user to the newly created post's individual page after successful creation.</li>
+</ul>
+<p>Now, when you submit the form on <code>/posts/new</code>, a new blog post will be created in your SQLite database, and you will be redirected to the post's page.</p>
+<h2 id="displaying-single-posts">Displaying Single Posts</h2>
+<p>Let's modify the loader in <code>routes/posts/$postId.jsx</code> to fetch and display a single blog post from the database.</p>
+<p><strong>Modify <code>routes/posts/$postId.jsx</code>:</strong></p>
+<pre><code class="language-jsx">import { useLoaderData, useParams, Link } from &quot;remix&quot;;
+import prisma from &quot;~/utils/db.server&quot;; // Import Prisma client
+
+export async function loader({ params }) {
+  const postId = params.postId;
+  const post = await prisma.post.findUnique({
+    where: {
+      id: postId,
+    },
+  });
+
+  if (!post) {
+    throw new Error(&quot;Post not found&quot;); // Error handling if post not found
+  }
+
+  return { post };
+}
+
+export default function Post() {
+  const { post } = useLoaderData();
+
+  return (
+    &lt;div&gt;
+      &lt;div className=&quot;page-header&quot;&gt;
+        &lt;Link to=&quot;/posts&quot; className=&quot;btn btn-reverse&quot;&gt;
+          Back to Posts
+        &lt;/Link&gt;
+        &lt;h1&gt;{post.title}&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;page-content&quot;&gt;
+        &lt;p&gt;{post.body}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Import <code>prisma</code>:</strong> Imports the Prisma Client instance.</li>
+<li><strong>Database <code>findUnique</code> Query in <code>loader</code>:</strong><ul>
+<li><code>await prisma.post.findUnique({ where: { id: postId } })</code> uses Prisma Client to fetch a single <code>Post</code> record from the database based on the <code>postId</code> URL parameter.</li>
+<li>Error handling is added: If <code>post</code> is not found (null), it throws an error, which will be caught by the <code>ErrorBoundary</code>.</li>
+</ul>
+</li>
+<li><strong>Displaying Post Data:</strong> The <code>Post</code> component now uses <code>useLoaderData</code> to access the fetched <code>post</code> data and displays the post's <code>title</code> and <code>body</code>.</li>
+</ul>
+<p>Now, when you navigate to URLs like <code>/posts/123</code>, you will see the content of the corresponding blog post fetched from the database.</p>
+<h2 id="deleting-posts">Deleting Posts</h2>
+<p>Finally, let's add the functionality to delete blog posts on the single post page (<code>routes/posts/$postId.jsx</code>).</p>
+<p><strong>Modify <code>routes/posts/$postId.jsx</code>:</strong></p>
+<pre><code class="language-jsx">import { useLoaderData, useParams, Link, Form, ActionFunction, redirect } from &quot;remix&quot;;
+import prisma from &quot;~/utils/db.server&quot;; // Import Prisma client
+
+export const action: ActionFunction = async ({ request, params }) =&gt; {
+  const formData = await request.formData();
+  const method = formData.get(&quot;_method&quot;);
+
+  if (method === &quot;delete&quot;) {
+    const postId = params.postId;
+    await prisma.post.delete({
+      where: {
+        id: postId,
+      },
+    });
+    return redirect(&quot;/posts&quot;);
+  }
+
+  return null; // Handle other actions if needed
+};
+
+// ... (loader function remains the same) ...
+
+export default function Post() {
+  const { post } = useLoaderData();
+
+  return (
+    &lt;div&gt;
+      &lt;div className=&quot;page-header&quot;&gt;
+        &lt;Link to=&quot;/posts&quot; className=&quot;btn btn-reverse&quot;&gt;
+          Back to Posts
+        &lt;/Link&gt;
+        &lt;h1&gt;{post.title}&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;page-content&quot;&gt;
+        &lt;p&gt;{post.body}&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;page-footer&quot;&gt;
+        &lt;Form method=&quot;post&quot;&gt;
+          &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;delete&quot; /&gt;
+          &lt;button type=&quot;submit&quot; className=&quot;btn btn-delete&quot;&gt;
+            Delete Post
+          &lt;/button&gt;
+        &lt;/Form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>action</code> function:</strong>  An action function is added to handle the delete request.<ul>
+<li>It extracts the <code>_method</code> field from the form data.</li>
+<li>If <code>_method</code> is "delete", it proceeds with the delete operation.</li>
+<li><code>await prisma.post.delete({ where: { id: postId } })</code> uses Prisma Client to delete the <code>Post</code> record with the matching <code>postId</code>.</li>
+<li><code>redirect("/posts")</code> redirects the user back to the posts list after deletion.</li>
+</ul>
+</li>
+<li><strong>Delete Form in <code>Post</code> Component:</strong><ul>
+<li>A <code>Form</code> with <code>method="post"</code> is added to the <code>page-footer</code>.</li>
+<li><code>&lt;input type="hidden" name="_method" value="delete" /&gt;</code> adds a hidden input field named <code>_method</code> with the value "delete". This is a common Remix pattern to simulate DELETE requests using HTML forms, as HTML forms natively only support GET and POST methods.</li>
+</ul>
+</li>
+</ul>
+<p>Now, you have a delete button on each post page. Submitting this form will trigger the <code>action</code> function, delete the post from the database, and redirect you back to the posts list.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully built a basic blog application using Remix, Prisma, and SQLite. This chapter covered a wide range of Remix concepts, including:</p>
+<ul>
+<li><strong>Introduction to Remix and its benefits.</strong></li>
+<li><strong>File system routing and nested routes.</strong></li>
+<li><strong>Loaders for server-side data fetching.</strong></li>
+<li><strong>Actions for handling form submissions.</strong></li>
+<li><strong>Error handling with Error Boundaries.</strong></li>
+<li><strong>Integration with Prisma ORM and SQLite database.</strong></li>
+</ul>
+<p>Remix offers a compelling approach to full-stack web development, combining the power of React with server-side rendering and a streamlined development experience. This chapter serves as a foundation for further exploration of Remix and its advanced features. In future chapters, we can expand this blog application with features like user authentication, post editing, and more complex UI interactions, further demonstrating the capabilities of Remix.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

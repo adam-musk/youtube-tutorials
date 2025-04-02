@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Setting Up a Linux Server and Deploying a MERN Stack Application - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#setting-up-a-linux-server-and-deploying-a-mern-stack-application">Setting Up a Linux Server and Deploying a MERN Stack Application</a></li>
+        <li><a href="#1-introduction-to-server-setup-and-deployment">1. Introduction to Server Setup and Deployment</a></li><li><a href="#2-server-setup-with-lenode-or-any-ubuntu-server">2. Server Setup with Lenode (or any Ubuntu Server)</a></li><li><a href="#3-setting-up-ssh-keys-for-secure-access">3. Setting up SSH Keys for Secure Access</a></li><li><a href="#4-creating-a-new-user-for-enhanced-security">4. Creating a New User for Enhanced Security</a></li><li><a href="#5-transferring-application-files-with-git">5. Transferring Application Files with Git</a></li><li><a href="#6-setting-up-a-mongodb-database-with-mongodb-atlas">6. Setting up a MongoDB Database with MongoDB Atlas</a></li><li><a href="#7-installing-nodejs-and-application-dependencies">7. Installing Node.js and Application Dependencies</a></li><li><a href="#8-using-pm2-process-manager-to-run-the-nodejs-application">8. Using PM2 Process Manager to Run the Node.js Application</a></li><li><a href="#9-configuring-a-firewall-ufw-for-security">9. Configuring a Firewall (UFW) for Security</a></li><li><a href="#10-setting-up-nginx-as-a-reverse-proxy">10. Setting up Nginx as a Reverse Proxy</a></li><li><a href="#11-optional-domain-name-configuration">11. (Optional) Domain Name Configuration</a></li><li><a href="#12-optional-setting-up-sslhttps-with-lets-encrypt">12. (Optional) Setting up SSL/HTTPS with Let's Encrypt</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="setting-up-a-linux-server-and-deploying-a-mern-stack-application">Setting Up a Linux Server and Deploying a MERN Stack Application</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/7aRjGIhwyQM" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will guide you through the process of setting up a Linux server from scratch and deploying a MERN stack application to production. We will be using Ubuntu Server as our operating system and Lenode as our cloud hosting provider, although the principles and steps outlined here are applicable to any Ubuntu server environment. This comprehensive guide aims to provide a deep understanding of the deployment process, offering more control and customization compared to simplified hosting platforms.</p>
+<h2 id="1-introduction-to-server-setup-and-deployment">1. Introduction to Server Setup and Deployment</h2>
+<p>Deploying a web application to production involves making it accessible to users on the internet. While various hosting platforms offer simplified deployment processes, understanding how to set up a server manually provides invaluable control and insight into the underlying infrastructure. This chapter focuses on a hands-on approach, guiding you through each step of setting up a server and deploying a MERN stack application.</p>
+<h3 id="11-why-manual-server-setup">1.1 Why Manual Server Setup?</h3>
+<p>Choosing to set up a server manually, rather than using automated platforms, offers several advantages:</p>
+<ul>
+<li><strong>Complete Control:</strong> You have full control over the server environment, allowing for deep customization and optimization.</li>
+<li><strong>Understanding Infrastructure:</strong>  Manual setup fosters a deeper understanding of server architecture, networking, and deployment processes.</li>
+<li><strong>Cost Efficiency (Potentially):</strong> Depending on your needs and scale, managing your own server can be more cost-effective than using managed services.</li>
+<li><strong>Flexibility:</strong> You are not restricted by the limitations of specific platforms and can tailor the server to your exact application requirements.</li>
+</ul>
+<p>However, it is important to acknowledge that manual setup requires more technical expertise and time compared to using automated platforms. This chapter is designed to equip you with the necessary knowledge and skills to confidently navigate this process.</p>
+<h3 id="12-overview-of-the-deployment-process">1.2 Overview of the Deployment Process</h3>
+<p>This chapter will cover the following key steps to deploy a MERN stack application:</p>
+<ul>
+<li><strong>Setting up a Server:</strong>  Provisioning a virtual server instance using a cloud hosting provider.</li>
+<li><strong>Configuring SSH Keys:</strong> Enhancing security by using SSH keys for server access instead of passwords.</li>
+<li><strong>Creating a New User:</strong>  Improving security by creating a non-root user for day-to-day server operations.</li>
+<li><strong>Transferring Application Files with Git:</strong>  Using Git to securely and efficiently transfer application code to the server.</li>
+<li><strong>Setting up a MongoDB Database:</strong> Configuring a MongoDB database to store application data.</li>
+<li><strong>Installing Node.js and Dependencies:</strong> Setting up the runtime environment and installing necessary application dependencies.</li>
+<li><strong>Utilizing PM2 Process Manager:</strong> Employing PM2 to reliably run and manage the Node.js application in the background.</li>
+<li><strong>Configuring a Firewall (UFW):</strong> Securing the server by restricting access to essential ports only.</li>
+<li><strong>Setting up Nginx as a Reverse Proxy:</strong> Configuring Nginx to serve the application on standard HTTP ports (port 80) and handle incoming requests.</li>
+<li><strong>(Optional) Domain Name Configuration:</strong>  Associating a domain name with the server for easy access.</li>
+</ul>
+<h2 id="2-server-setup-with-lenode-or-any-ubuntu-server">2. Server Setup with Lenode (or any Ubuntu Server)</h2>
+<p>For this guide, we will utilize Lenode, a cloud hosting provider, to provision an Ubuntu server. However, the steps are generally applicable to any Ubuntu server, whether it's hosted on a different cloud platform or even running locally.</p>
+<blockquote>
+<p><strong>Cloud Hosting Provider:</strong> A company that provides computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud"). These providers offer on-demand access to computing resources, typically on a pay-as-you-go basis.</p>
+</blockquote>
+<p>Lenode has generously provided a credit for users to follow along with this tutorial. You can access this offer through the provided link.</p>
+<h3 id="21-creating-a-lenode-instance">2.1 Creating a Lenode Instance</h3>
+<ol>
+<li><strong>Access the Lenode Dashboard:</strong> Log in to your Lenode account or create a new one. Navigate to the dashboard where you can manage your server instances (Nodes).</li>
+<li><strong>Create a New Node:</strong> Click on the button to create a new Lenode instance.</li>
+<li>
+<p><strong>Choose an Operating System (Distro):</strong> Select Ubuntu as the distribution. We recommend using Ubuntu 22.04 LTS (Long Term Support) for stability.</p>
+<blockquote>
+<p><strong>Distro (Distribution):</strong>  In the context of Linux, a distribution is an operating system made from a software collection that is based upon the Linux kernel. Ubuntu, Debian, Fedora, and CentOS are examples of popular Linux distributions.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Select a Region:</strong> Choose a region geographically closest to your target audience or yourself for optimal latency.</p>
+</li>
+<li><strong>Choose a Plan (Package):</strong> Select a server plan that meets your application's resource requirements. For demonstration purposes, a dedicated 4GB plan is suitable.</li>
+<li><strong>Set a Label:</strong> Provide a descriptive label for your server instance (e.g., "youtube-linux-server").</li>
+<li><strong>Set a Root Password:</strong>  Create a strong password for the root user. This password will be used for initial access to the server.</li>
+<li><strong>SSH Key Setup (Recommended):</strong>  For enhanced security, we will configure SSH keys. For now, you can skip this step and revisit it later in Section 3.</li>
+<li><strong>Create Lenode:</strong> Click the "Create Lenode" button to provision your server. This process typically takes a few minutes.</li>
+</ol>
+<h3 id="22-accessing-your-server-via-ssh">2.2 Accessing Your Server via SSH</h3>
+<p>Once your Lenode instance is running, you will be provided with an IP address. You can use this IP address to connect to your server via SSH (Secure Shell).</p>
+<blockquote>
+<p><strong>SSH (Secure Shell):</strong> A cryptographic network protocol that allows you to securely access and manage a remote computer or server over an unsecured network. SSH provides encrypted communication, preventing eavesdropping and man-in-the-middle attacks.</p>
+</blockquote>
+<ol>
+<li><strong>Open a Terminal:</strong> Open your terminal application (e.g., Terminal on macOS/Linux, Command Prompt or PowerShell on Windows).</li>
+<li>
+<p><strong>Connect as Root User:</strong> Use the following command, replacing <code>YOUR_SERVER_IP</code> with the actual IP address of your server:</p>
+<p><code>bash
+ssh root@YOUR_SERVER_IP</code>
+3.  <strong>Password Authentication:</strong> The first time you connect, you will be prompted to confirm the connection. Type <code>yes</code> and press Enter. Then, enter the root password you set during server creation when prompted.</p>
+</li>
+</ol>
+<p>You are now logged into your Ubuntu server as the root user.</p>
+<h3 id="23-updating-packages">2.3 Updating Packages</h3>
+<p>After logging in, it's best practice to update the system packages to their latest versions.</p>
+<ol>
+<li>
+<p><strong>Update Package Lists:</strong> Run the following command to update the package lists:</p>
+<p><code>bash
+apt update</code></p>
+<blockquote>
+<p><strong>apt (Advanced Package Tool):</strong> A powerful command-line package manager used in Debian-based Linux distributions like Ubuntu. It simplifies the process of installing, updating, and removing software packages.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Upgrade Packages:</strong> After updating the lists, run the following command to upgrade installed packages to their latest versions:</p>
+<p><code>bash
+apt upgrade</code></p>
+<p>Confirm the upgrade by typing <code>y</code> when prompted. This process may take some time depending on the number of packages to be upgraded.</p>
+</li>
+</ol>
+<h2 id="3-setting-up-ssh-keys-for-secure-access">3. Setting up SSH Keys for Secure Access</h2>
+<p>Using SSH keys is a more secure and convenient method for accessing your server compared to password-based authentication. SSH keys involve a pair of keys: a private key, which you keep secret on your local machine, and a public key, which you place on the server.</p>
+<h3 id="31-generating-ssh-key-pair-on-your-client-machine">3.1 Generating SSH Key Pair on Your Client Machine</h3>
+<ol>
+<li><strong>Open a Terminal on your Local Machine:</strong> Open a terminal or command prompt on your computer (the machine you will use to connect to the server).</li>
+<li>
+<p><strong>Generate SSH Key Pair:</strong> Run the following command:</p>
+<p><code>bash
+ssh-keygen</code>
+3.  <strong>Key Storage Location:</strong> You will be prompted to enter a file in which to save the key. The default location (<code>~/.ssh/id_rsa</code>) is usually fine. To create a key specifically for this server setup, you can specify a different name, for example: <code>~/.ssh/id_rsa_lenode</code>.
+4.  <strong>Passphrase (Optional):</strong> You can set a passphrase to protect your private key. This adds an extra layer of security. If you don't want a passphrase, just press Enter twice.</p>
+</li>
+</ol>
+<p>This command will generate two files in the <code>.ssh</code> directory (which might be hidden):</p>
+<ul>
+<li><code>id_rsa_lenode</code> (or <code>id_rsa</code> if you used the default): This is your <strong>private key</strong>. Keep this file secure and do not share it.</li>
+<li><code>id_rsa_lenode.pub</code> (or <code>id_rsa.pub</code> if you used the default): This is your <strong>public key</strong>. This is the key you will place on the server.</li>
+</ul>
+<h3 id="32-adding-the-public-key-to-the-server">3.2 Adding the Public Key to the Server</h3>
+<ol>
+<li>
+<p><strong>Display Public Key:</strong> Use the <code>cat</code> command to display the contents of your public key file in the terminal. Replace <code>id_rsa_lenode.pub</code> with the actual name of your public key file if you used a different name:</p>
+<p><code>bash
+cat ~/.ssh/id_rsa_lenode.pub</code>
+2.  <strong>Copy the Public Key:</strong> Carefully copy the entire output, starting from <code>ssh-rsa</code> and ending with your username or hostname.
+3.  <strong>Add Public Key to Lenode (if not done during server creation):</strong>
+*   In the Lenode dashboard, navigate to your server instance.
+*   Look for the "SSH Keys" section (often found under the "Settings" or "Access" tab).
+*   Click "Add SSH Key" or a similar button.
+*   Paste the copied public key into the text box.
+*   Give the key a descriptive label (e.g., "My Laptop").
+*   Click "Add Key" or "Save".</p>
+<p><strong>Alternatively, add the public key directly to the server (if already logged in via password):</strong></p>
+<ul>
+<li>
+<p>On your server terminal (logged in as root), navigate to the root user's SSH directory:</p>
+<p><code>bash
+cd ~/.ssh</code></p>
+</li>
+<li>
+<p>If the <code>.ssh</code> directory doesn't exist, create it: <code>mkdir .ssh</code></p>
+</li>
+<li>Create or edit the <code>authorized_keys</code> file: <code>nano authorized_keys</code></li>
+<li>Paste the copied public key into this file.</li>
+<li>Save and close the file (Ctrl+X, then Y, then Enter in Nano).</li>
+<li>
+<p>Ensure the correct permissions for the <code>.ssh</code> directory and <code>authorized_keys</code> file:</p>
+<p><code>bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="33-logging-in-with-ssh-keys">3.3 Logging in with SSH Keys</h3>
+<p>Now you should be able to log in to your server using your SSH key without needing to enter a password.</p>
+<ol>
+<li><strong>Open a Terminal on your Local Machine.</strong></li>
+<li>
+<p><strong>Connect via SSH:</strong> Use the following command, replacing <code>YOUR_SERVER_IP</code> with your server's IP address:</p>
+<p><code>bash
+ssh root@YOUR_SERVER_IP</code></p>
+<p>If you generated a key with a name other than <code>id_rsa</code>, you might need to specify the private key file using the <code>-i</code> option:</p>
+<p><code>bash
+ssh -i ~/.ssh/id_rsa_lenode root@YOUR_SERVER_IP</code></p>
+</li>
+</ol>
+<p>If you set a passphrase for your private key, you will be prompted to enter it. Otherwise, you should be logged in directly without a password prompt.</p>
+<h3 id="34-disabling-password-authentication-for-root-user-optional-recommended-for-security">3.4 Disabling Password Authentication for Root User (Optional, Recommended for Security)</h3>
+<p>For enhanced security, you can disable password authentication for the root user, forcing SSH key-based login.</p>
+<ol>
+<li>
+<p><strong>Edit SSH Configuration File:</strong> Log in to your server as root via SSH. Open the SSH configuration file using a text editor like Nano:</p>
+<p><code>bash
+sudo nano /etc/ssh/sshd_config</code>
+2.  <strong>Find <code>PasswordAuthentication</code> and <code>PermitRootLogin</code>:</strong> Locate the lines <code>PasswordAuthentication yes</code> and <code>PermitRootLogin yes</code>.
+3.  <strong>Modify the Lines:</strong> Change <code>PasswordAuthentication yes</code> to <code>PasswordAuthentication no</code>. You can also consider changing <code>PermitRootLogin yes</code> to <code>PermitRootLogin no</code> to further restrict root access, but for this tutorial, we will leave it as <code>yes</code> for simplicity.
+4.  <strong>Save and Close:</strong> Save the file (Ctrl+X, then Y, then Enter in Nano).
+5.  <strong>Restart SSH Service:</strong> Restart the SSH service to apply the changes:</p>
+<p><code>bash
+sudo systemctl restart sshd</code></p>
+<blockquote>
+<p><strong>systemctl:</strong> A command-line utility in Linux used to manage and control the systemd system and service manager. It allows you to start, stop, restart, enable, disable, and check the status of services.</p>
+</blockquote>
+</li>
+</ol>
+<p>After this, password-based login for the root user will be disabled. Ensure you have SSH key-based access configured correctly before disabling password authentication.</p>
+<h2 id="4-creating-a-new-user-for-enhanced-security">4. Creating a New User for Enhanced Security</h2>
+<p>It is a security best practice to avoid using the root user for day-to-day server operations. Instead, create a new user with <code>sudo</code> privileges for administrative tasks.</p>
+<blockquote>
+<p><strong>Root User:</strong> The administrator user in Linux and other Unix-like operating systems. The root user has unrestricted access to all commands, files, and resources, making it crucial to use this account cautiously and primarily for system administration tasks.</p>
+</blockquote>
+<h3 id="41-adding-a-new-user">4.1 Adding a New User</h3>
+<ol>
+<li><strong>Log in as Root via SSH.</strong></li>
+<li>
+<p><strong>Add a New User:</strong> Use the <code>adduser</code> command to create a new user. Replace <code>your_username</code> with your desired username:</p>
+<p><code>bash
+adduser your_username</code>
+3.  <strong>Set Password:</strong> You will be prompted to set a password for the new user. Enter and confirm a strong password.
+4.  <strong>User Information (Optional):</strong> You will be asked for some user information like full name, room number, etc. You can press Enter to skip these fields if you wish.
+5.  <strong>Confirm Information:</strong> Confirm the information is correct by typing <code>y</code> and pressing Enter.</p>
+</li>
+</ol>
+<h3 id="42-adding-user-to-the-sudo-group">4.2 Adding User to the <code>sudo</code> Group</h3>
+<p>To grant the new user administrative privileges, add them to the <code>sudo</code> group.</p>
+<blockquote>
+<p><strong>sudo (Superuser Do):</strong> A command-line utility that allows permitted users to execute commands with the security privileges of another user, typically the root user. It is used to perform administrative tasks that require elevated permissions.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Add User to <code>sudo</code> Group:</strong> Use the <code>usermod</code> command:</p>
+<p><code>bash
+usermod -aG sudo your_username</code></p>
+<p>This command adds the user <code>your_username</code> to the <code>sudo</code> group.</p>
+</li>
+</ol>
+<h3 id="43-ssh-key-setup-for-the-new-user">4.3 SSH Key Setup for the New User</h3>
+<p>You need to add your public SSH key to the new user's account to enable SSH key-based login for this user.</p>
+<ol>
+<li>
+<p><strong>Switch to the New User's Home Directory:</strong></p>
+<p><code>bash
+cd /home/your_username</code>
+2.  <strong>Create <code>.ssh</code> Directory:</strong> If it doesn't exist, create the <code>.ssh</code> directory:</p>
+<p><code>bash
+mkdir .ssh</code>
+3.  <strong>Navigate to <code>.ssh</code> Directory:</strong></p>
+<p><code>bash
+cd .ssh</code>
+4.  <strong>Create <code>authorized_keys</code> File:</strong> Create an empty file named <code>authorized_keys</code>:</p>
+<p><code>bash
+touch authorized_keys</code>
+5.  <strong>Edit <code>authorized_keys</code> File:</strong> Open the file with Nano:</p>
+<p><code>bash
+nano authorized_keys</code>
+6.  <strong>Paste Public Key:</strong> Paste your public SSH key (the same one you used for the root user, or a different one if you prefer) into this file.
+7.  <strong>Save and Close:</strong> Save the file (Ctrl+X, then Y, then Enter in Nano).
+8.  <strong>Set Permissions:</strong> Ensure correct permissions:</p>
+<p><code>bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys</code></p>
+</li>
+</ol>
+<h3 id="44-logging-in-as-the-new-user">4.4 Logging in as the New User</h3>
+<p>Now you can log out of the root user session (type <code>logout</code> or <code>exit</code>) and attempt to log in as the new user using SSH.</p>
+<ol>
+<li><strong>Open a Terminal on your Local Machine.</strong></li>
+<li>
+<p><strong>Connect via SSH:</strong> Use the following command, replacing <code>your_username</code> with the username you created and <code>YOUR_SERVER_IP</code> with your server's IP address:</p>
+<p><code>bash
+ssh your_username@YOUR_SERVER_IP</code></p>
+<p>You should now be logged in as the new user using SSH key authentication. You can verify your current user by running the command <code>whoami</code>.</p>
+</li>
+</ol>
+<h2 id="5-transferring-application-files-with-git">5. Transferring Application Files with Git</h2>
+<p>Git is a version control system that provides an efficient and secure way to transfer your application files to the server.</p>
+<blockquote>
+<p><strong>Git:</strong> A distributed version control system that tracks changes in computer files and coordinates work on those files among multiple people. It is primarily used for source code management in software development.</p>
+</blockquote>
+<h3 id="51-installing-git-on-the-server">5.1 Installing Git on the Server</h3>
+<p>If Git is not already installed on your server, install it using <code>apt</code>:</p>
+<pre><code class="language-bash">sudo apt install git
+</code></pre>
+<h3 id="52-cloning-your-application-repository">5.2 Cloning Your Application Repository</h3>
+<ol>
+<li>
+<p><strong>Navigate to the Desired Directory:</strong> Decide where you want to store your application files on the server. A common practice is to create a <code>sites</code> directory in your home directory.</p>
+<p><code>bash
+mkdir sites
+cd sites</code>
+2.  <strong>Clone the Repository:</strong> Use <code>git clone</code> to clone your application's Git repository to the server. Replace <code>YOUR_REPOSITORY_URL</code> with the URL of your Git repository (e.g., from GitHub, GitLab, or Bitbucket).</p>
+<p><code>bash
+git clone YOUR_REPOSITORY_URL</code></p>
+<p>For example, to clone the "mern-tutorial" repository:</p>
+<p><code>bash
+git clone https://github.com/bradtraversy/mern-tutorial.git</code>
+3.  <strong>Navigate to Application Directory:</strong> Change directory into the newly cloned repository:</p>
+<p><code>bash
+cd mern-tutorial</code></p>
+</li>
+</ol>
+<h2 id="6-setting-up-a-mongodb-database-with-mongodb-atlas">6. Setting up a MongoDB Database with MongoDB Atlas</h2>
+<p>For MERN stack applications, a MongoDB database is required. MongoDB Atlas is a cloud-based database service that provides a convenient way to set up and manage MongoDB databases.</p>
+<blockquote>
+<p><strong>MongoDB:</strong> A popular NoSQL document database program. It is designed for scalability and flexibility and is often used in web applications and other modern data-intensive applications.</p>
+<p><strong>MongoDB Atlas:</strong> A fully managed cloud database service provided by MongoDB. It simplifies the deployment, operation, and scaling of MongoDB databases in the cloud.</p>
+</blockquote>
+<h3 id="61-creating-a-mongodb-atlas-account-and-project">6.1 Creating a MongoDB Atlas Account and Project</h3>
+<ol>
+<li><strong>Go to MongoDB Atlas Website:</strong> Navigate to the MongoDB Atlas website (<a href="https://www.mongodb.com/atlas">https://www.mongodb.com/atlas</a>) and create an account or log in if you already have one.</li>
+<li><strong>Create a New Project:</strong> After logging in, you will be prompted to create a new project. Follow the on-screen instructions to create a project.</li>
+<li><strong>Build a Database:</strong> Within your project, click the "Build a Database" button.</li>
+<li><strong>Choose Shared (Free) Tier:</strong> Select the "Shared" option (Free Tier) for demonstration purposes. This is suitable for development and learning.</li>
+<li><strong>Configure Database Settings:</strong> Choose a cloud provider (AWS is common), region, and cluster tier. You can leave most settings at their defaults for a basic setup.</li>
+<li><strong>Cluster Name:</strong> Give your cluster a name (e.g., "Cluster0").</li>
+<li><strong>Create Cluster:</strong> Click "Create Cluster". Atlas will begin provisioning your MongoDB cluster, which may take a few minutes.</li>
+</ol>
+<h3 id="62-configuring-database-access">6.2 Configuring Database Access</h3>
+<ol>
+<li><strong>Database Access:</strong> Once the cluster is provisioned, navigate to the "Database Access" section in your Atlas project.</li>
+<li><strong>Add a New Database User:</strong> Click "Add New Database User".</li>
+<li><strong>Username and Password:</strong> Enter a username and password for your database user. Make sure to use strong credentials.</li>
+<li><strong>User Privileges:</strong> For simplicity, you can grant the user "Read and write to any database" privileges for this tutorial.</li>
+<li><strong>Add User:</strong> Click "Add User".</li>
+<li><strong>Network Access:</strong> Navigate to the "Network Access" section.</li>
+<li><strong>Add IP Address:</strong> Click "Add IP Address".</li>
+<li><strong>Whitelist Server IP:</strong> Choose "Add Current IP Address" if you are configuring from your local machine. <strong>Crucially, to allow your server to connect, you must add the public IP address of your Lenode server.</strong> You can find your server's IP address in the Lenode dashboard. Click "Confirm".</li>
+<li><strong>Finish and Close:</strong> Click "Finish and Close" and then "Go to Databases".</li>
+</ol>
+<h3 id="63-getting-the-connection-string">6.3 Getting the Connection String</h3>
+<ol>
+<li><strong>Navigate to Databases:</strong> In your Atlas project, go to the "Databases" section.</li>
+<li><strong>Connect:</strong> Click the "Connect" button for your cluster.</li>
+<li><strong>Choose Connection Method:</strong> Select "Connect your application".</li>
+<li>
+<p><strong>Copy Connection String:</strong> Choose the "Connection String only" option and copy the provided connection string. It will look something like:</p>
+<p><code>mongodb+srv://&lt;username&gt;:&lt;password&gt;@&lt;cluster-name&gt;.mongodb.net/?retryWrites=true&amp;w=majority</code>
+5.  <strong>Modify Connection String:</strong>
+*   Replace <code>&lt;username&gt;</code> with the username you created in Database Access.
+*   Replace <code>&lt;password&gt;</code> with the password for that user.
+*   After the cluster name and before <code>?retryWrites</code>, you can optionally add the database name if you want to connect to a specific database upon initial connection. For instance, if your database is named "goalsetter", append <code>/goalsetter</code> after <code>.net/</code>.</p>
+</li>
+</ol>
+<h2 id="7-installing-nodejs-and-application-dependencies">7. Installing Node.js and Application Dependencies</h2>
+<p>Node.js is the runtime environment for your backend server in a MERN stack application. You need to install Node.js and then install the application's dependencies using npm (Node Package Manager).</p>
+<blockquote>
+<p><strong>Node.js:</strong> An open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside of a web browser. It is commonly used to build server-side and networking applications.</p>
+<p><strong>npm (Node Package Manager):</strong> The default package manager for Node.js. It is used to install, manage, and share JavaScript packages and modules.</p>
+</blockquote>
+<h3 id="71-installing-nodejs-and-npm">7.1 Installing Node.js and npm</h3>
+<ol>
+<li><strong>Install <code>curl</code> (if not already installed):</strong> <code>sudo apt install curl</code></li>
+<li>
+<p><strong>Add NodeSource Repository:</strong> Use <code>curl</code> to add the NodeSource repository for Node.js v18 (or your desired version):</p>
+<p><code>bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -</code>
+3.  <strong>Install Node.js:</strong> Install Node.js and npm using <code>apt</code>:</p>
+<p><code>bash
+sudo apt install -y nodejs</code>
+4.  <strong>Verify Installation:</strong> Check the installed versions of Node.js and npm:</p>
+<p><code>bash
+node -v
+npm -v</code></p>
+</li>
+</ol>
+<h3 id="72-installing-backend-dependencies">7.2 Installing Backend Dependencies</h3>
+<ol>
+<li><strong>Navigate to Backend Directory:</strong> Change directory to the root of your application repository (where your <code>package.json</code> file for the backend is located). In the "mern-tutorial" example, this is the root directory of the cloned repository.</li>
+<li>
+<p><strong>Install Dependencies:</strong> Run <code>npm install</code> to install all the backend dependencies listed in <code>package.json</code>:</p>
+<p><code>bash
+npm install</code></p>
+</li>
+</ol>
+<h3 id="73-installing-frontend-dependencies-and-building-the-frontend">7.3 Installing Frontend Dependencies and Building the Frontend</h3>
+<ol>
+<li>
+<p><strong>Navigate to Frontend Directory:</strong> Change directory to the frontend directory of your application:</p>
+<p><code>bash
+cd frontend</code>
+2.  <strong>Install Frontend Dependencies:</strong> Run <code>npm install</code> to install frontend dependencies:</p>
+<p><code>bash
+npm install</code>
+3.  <strong>Build the Frontend:</strong> Build the React frontend application for production:</p>
+<p><code>bash
+npm run build</code></p>
+<p>This command compiles your React application and creates a <code>build</code> directory containing static assets ready for production deployment.</p>
+</li>
+</ol>
+<h3 id="74-configuring-environment-variables">7.4 Configuring Environment Variables</h3>
+<p>Your application likely uses environment variables to store sensitive information like database connection strings.</p>
+<ol>
+<li>
+<p><strong>Rename <code>.env.example</code> to <code>.env</code>:</strong> In the root directory of your application, rename the <code>.env.example</code> file (if it exists) to <code>.env</code>:</p>
+<p><code>bash
+mv .env.example .env</code>
+2.  <strong>Edit <code>.env</code> File:</strong> Open the <code>.env</code> file using a text editor:</p>
+<p><code>bash
+sudo nano .env</code>
+3.  <strong>Set Environment Variables:</strong> Add or modify the environment variables in this file. <strong>Crucially, set your MongoDB connection URI.</strong>  For example:</p>
+<p><code>NODE_ENV=production
+MONGO_URI=mongodb+srv://your_atlas_connection_string
+PORT=5000</code></p>
+<p>Replace <code>mongodb+srv://your_atlas_connection_string</code> with the connection string you obtained from MongoDB Atlas, including your username, password, and database name.</p>
+<p>Set <code>NODE_ENV=production</code> to ensure your application runs in production mode. You can also specify the port your backend server will listen on (e.g., <code>PORT=5000</code>).</p>
+</li>
+<li>
+<p><strong>Save and Close:</strong> Save the <code>.env</code> file (Ctrl+X, then Y, then Enter in Nano).</p>
+</li>
+</ol>
+<h2 id="8-using-pm2-process-manager-to-run-the-nodejs-application">8. Using PM2 Process Manager to Run the Node.js Application</h2>
+<p>PM2 is a process manager for Node.js applications that keeps your application running reliably, even after crashes or server reboots.</p>
+<blockquote>
+<p><strong>PM2 (Process Manager 2):</strong> A production process manager for Node.js applications. It allows you to daemonize applications, manage processes, monitor performance, and ensure high availability and resilience for your Node.js applications.</p>
+</blockquote>
+<h3 id="81-installing-pm2-globally">8.1 Installing PM2 Globally</h3>
+<p>Install PM2 globally using npm:</p>
+<pre><code class="language-bash">sudo npm install -g pm2
+</code></pre>
+<h3 id="82-starting-the-application-with-pm2">8.2 Starting the Application with PM2</h3>
+<ol>
+<li><strong>Navigate to Application Root Directory:</strong> Ensure you are in the root directory of your application (where <code>backend/server.js</code> or your main server file is located).</li>
+<li>
+<p><strong>Start Application with PM2:</strong> Use the <code>pm2 start</code> command to start your Node.js application. Specify the entry point to your backend server file (e.g., <code>backend/server.js</code>):</p>
+<p><code>bash
+pm2 start backend/server.js --name your-app-name</code></p>
+<p>Replace <code>your-app-name</code> with a descriptive name for your application process in PM2 (e.g., "mern-app-backend").</p>
+</li>
+<li>
+<p><strong>Verify Application Status:</strong> Check the status of your application using <code>pm2 status</code> or <code>pm2 list</code>. You should see your application listed with a status of "online".</p>
+</li>
+<li><strong>Access Application (Initially on Port 5000):</strong> Your application is now running and should be accessible on the port specified in your <code>.env</code> file (e.g., port 5000). You can access it in a web browser using your server's IP address and the port number: <code>http://YOUR_SERVER_IP:5000</code>.</li>
+</ol>
+<h3 id="83-pm2-management-commands">8.3 PM2 Management Commands</h3>
+<p>Here are some useful PM2 commands:</p>
+<ul>
+<li><code>pm2 stop your-app-name</code>: Stops the application process named "your-app-name".</li>
+<li><code>pm2 restart your-app-name</code>: Restarts the application process.</li>
+<li><code>pm2 delete your-app-name</code>: Deletes the application process from PM2's process list.</li>
+<li><code>pm2 logs your-app-name</code>: Shows logs for the application.</li>
+<li><code>pm2 monit</code>: Opens a monitoring dashboard in the terminal.</li>
+<li><code>pm2 startup systemd</code>: Generates and configures a startup script for PM2 to automatically start your applications on server reboot. Follow the instructions output by this command to complete the setup.</li>
+<li><code>pm2 save</code>: Saves the current PM2 process list so that applications are automatically restarted after a server reboot. Run this after starting your application with PM2.</li>
+</ul>
+<h2 id="9-configuring-a-firewall-ufw-for-security">9. Configuring a Firewall (UFW) for Security</h2>
+<p>A firewall is essential to secure your server by controlling network traffic and blocking unauthorized access. Ubuntu comes with UFW (Uncomplicated Firewall) which is easy to configure.</p>
+<blockquote>
+<p><strong>Firewall:</strong> A network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. It acts as a barrier between a trusted internal network and an untrusted external network, such as the Internet.</p>
+<p><strong>UFW (Uncomplicated Firewall):</strong> A user-friendly frontend for <code>iptables</code>, a powerful command-line firewall utility in Linux. UFW simplifies the process of configuring and managing firewall rules.</p>
+</blockquote>
+<h3 id="91-enabling-ufw">9.1 Enabling UFW</h3>
+<ol>
+<li>
+<p><strong>Enable UFW:</strong> Enable the firewall:</p>
+<p><code>bash
+sudo ufw enable</code></p>
+<p>You might get a warning about SSH connections being broken. Since we are already connected via SSH, we can proceed. Type <code>y</code> and press Enter.</p>
+</li>
+</ol>
+<h3 id="92-allowing-essential-ports">9.2 Allowing Essential Ports</h3>
+<p>By default, UFW blocks all incoming traffic. You need to allow traffic on the ports required for your application and SSH access.</p>
+<ol>
+<li>
+<p><strong>Allow SSH Port (Port 22):</strong> Allow incoming SSH connections (port 22):</p>
+<p><code>bash
+sudo ufw allow ssh</code>
+2.  <strong>Allow HTTP Port (Port 80):</strong> Allow incoming HTTP traffic (port 80):</p>
+<p><code>bash
+sudo ufw allow http</code>
+3.  <strong>Allow HTTPS Port (Port 443):</strong> Allow incoming HTTPS traffic (port 443):</p>
+<p><code>bash
+sudo ufw allow https</code>
+4.  <strong>Allow Application Port (Port 5000, if needed temporarily):</strong> If you need to access your application directly on port 5000 temporarily before setting up Nginx, allow this port:</p>
+<p><code>bash
+sudo ufw allow 5000</code>
+<strong>Note:</strong> After setting up Nginx, you will typically access your application through port 80, and you can remove this rule if desired: <code>sudo ufw delete allow 5000</code>.</p>
+</li>
+</ol>
+<h3 id="93-checking-ufw-status">9.3 Checking UFW Status</h3>
+<p>Verify the UFW status and the allowed rules:</p>
+<pre><code class="language-bash">sudo ufw status
+</code></pre>
+<p>You should see that UFW is active and rules are set for SSH, HTTP, and HTTPS (and optionally port 5000 if you added it).</p>
+<h2 id="10-setting-up-nginx-as-a-reverse-proxy">10. Setting up Nginx as a Reverse Proxy</h2>
+<p>Nginx is a high-performance web server and reverse proxy server. We will configure Nginx to act as a reverse proxy, forwarding requests from port 80 (HTTP) to your Node.js application running on port 5000. This allows users to access your application using standard HTTP port without needing to specify port 5000 in the URL.</p>
+<blockquote>
+<p><strong>Nginx (Engine X):</strong> A popular open-source web server, reverse proxy, load balancer, HTTP cache, and media streamer. It is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption.</p>
+<p><strong>Reverse Proxy:</strong> A server that sits in front of backend servers and forwards client requests to those backend servers. Reverse proxies can provide benefits such as load balancing, security, SSL termination, and caching.</p>
+</blockquote>
+<h3 id="101-installing-nginx">10.1 Installing Nginx</h3>
+<p>Install Nginx using <code>apt</code>:</p>
+<pre><code class="language-bash">sudo apt install nginx
+</code></pre>
+<h3 id="102-configuring-nginx-for-reverse-proxy">10.2 Configuring Nginx for Reverse Proxy</h3>
+<ol>
+<li>
+<p><strong>Edit Nginx Configuration File:</strong> Open the default Nginx server block configuration file:</p>
+<p><code>bash
+sudo nano /etc/nginx/sites-available/default</code>
+2.  <strong>Modify Server Block:</strong> Inside the <code>server</code> block, locate the <code>location /</code> block. Replace the contents of the <code>location /</code> block with the following configuration to set up a reverse proxy to your Node.js application running on <code>localhost:5000</code>:</p>
+<p><code>nginx
+location / {
+    proxy_pass http://localhost:5000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}</code></p>
+<p>Optionally, you can also configure the <code>server_name</code> directive within the <code>server</code> block to match your domain name if you have one. For example:</p>
+<p>```nginx
+server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com; # Replace with your domain</p>
+<pre><code>location / {
+    proxy_pass http://localhost:5000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}
+</code></pre>
+<p>}
+```</p>
+<p>Replace <code>yourdomain.com</code> and <code>www.yourdomain.com</code> with your actual domain name.</p>
+</li>
+<li>
+<p><strong>Save and Close:</strong> Save the file (Ctrl+X, then Y, then Enter in Nano).</p>
+</li>
+<li>
+<p><strong>Test Nginx Configuration:</strong> Test the Nginx configuration for syntax errors:</p>
+<p><code>bash
+sudo nginx -t</code></p>
+<p>If the configuration is okay, you will see a message like: <code>nginx: configuration file /etc/nginx/nginx.conf test is successful</code>.
+5.  <strong>Restart Nginx:</strong> Restart the Nginx service to apply the changes:</p>
+<p><code>bash
+sudo systemctl restart nginx</code></p>
+</li>
+</ol>
+<h3 id="103-accessing-application-via-port-80">10.3 Accessing Application via Port 80</h3>
+<p>Now, you should be able to access your application in a web browser using just your server's IP address (or domain name if configured), without specifying port 5000. Nginx will forward requests to your Node.js application running in the background.</p>
+<p><code>http://YOUR_SERVER_IP</code> or <code>http://yourdomain.com</code></p>
+<h2 id="11-optional-domain-name-configuration">11. (Optional) Domain Name Configuration</h2>
+<p>To make your application easily accessible with a domain name instead of an IP address, you need to configure your domain registrar and Lenode DNS (or your DNS provider).</p>
+<h3 id="111-configuring-domain-registrar">11.1 Configuring Domain Registrar</h3>
+<ol>
+<li><strong>Access Domain Registrar:</strong> Log in to your domain registrar account (e.g., Namecheap, GoDaddy, etc.) where you registered your domain name.</li>
+<li><strong>Manage DNS Settings:</strong> Find the DNS management settings for your domain.</li>
+<li><strong>Update Name Servers:</strong> Update the name servers for your domain to point to Lenode's name servers. Lenode provides name servers like <code>ns1.lenode.com</code>, <code>ns2.lenode.com</code>, <code>ns3.lenode.com</code>, <code>ns4.lenode.com</code>, <code>ns5.lenode.com</code>. The exact name servers may be found in your Lenode dashboard under "DNS" or "Domains".</li>
+<li><strong>Save Changes:</strong> Save the changes in your domain registrar's settings. DNS propagation may take some time (up to 48 hours) for the changes to fully take effect across the internet.</li>
+</ol>
+<h3 id="112-configuring-lenode-dns-or-your-dns-provider">11.2 Configuring Lenode DNS (or your DNS Provider)</h3>
+<ol>
+<li><strong>Access Lenode DNS Manager:</strong> In your Lenode dashboard, navigate to the "DNS" or "Domains" section.</li>
+<li><strong>Create a Domain Zone:</strong> If you haven't already, create a new domain zone for your domain name.</li>
+<li><strong>Add A Records:</strong> Add "A" records to point your domain and <code>www</code> subdomain to your server's IP address.<ul>
+<li><strong>Record Type:</strong> A (Address)</li>
+<li><strong>Hostname:</strong> <code>@</code> (for your domain root, e.g., <code>yourdomain.com</code>)</li>
+<li><strong>IP Address:</strong> Your server's IP address</li>
+<li><strong>TTL:</strong> (Default is usually fine)</li>
+<li><strong>Record Type:</strong> A (Address)</li>
+<li><strong>Hostname:</strong> <code>www</code> (for <code>www.yourdomain.com</code>)</li>
+<li><strong>IP Address:</strong> Your server's IP address</li>
+<li><strong>TTL:</strong> (Default is usually fine)</li>
+</ul>
+</li>
+<li><strong>Save Changes:</strong> Save the DNS records in Lenode's DNS manager.</li>
+</ol>
+<p>After DNS propagation is complete, your application should be accessible via your domain name (e.g., <code>http://yourdomain.com</code>).</p>
+<h2 id="12-optional-setting-up-sslhttps-with-lets-encrypt">12. (Optional) Setting up SSL/HTTPS with Let's Encrypt</h2>
+<p>To secure your application with HTTPS, you can obtain a free SSL certificate from Let's Encrypt and configure Nginx to use it.</p>
+<blockquote>
+<p><strong>SSL/HTTPS (Secure Sockets Layer/Hypertext Transfer Protocol Secure):</strong> A protocol that provides encrypted communication over the Internet. HTTPS uses SSL/TLS to encrypt HTTP requests and responses, protecting data in transit and ensuring secure communication between a web browser and a web server.</p>
+<p><strong>Let's Encrypt:</strong> A free, automated, and open certificate authority (CA) that provides SSL/TLS certificates for enabling HTTPS on websites.</p>
+</blockquote>
+<h3 id="121-installing-certbot">12.1 Installing Certbot</h3>
+<p>Certbot is a free, open-source software tool for automatically using Let's Encrypt certificates on manually-administered websites to enable HTTPS.</p>
+<pre><code class="language-bash">sudo apt install certbot python3-certbot-nginx
+</code></pre>
+<h3 id="122-obtaining-ssl-certificate">12.2 Obtaining SSL Certificate</h3>
+<p>Run Certbot to obtain and install an SSL certificate for your domain, automatically configuring Nginx:</p>
+<pre><code class="language-bash">sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+</code></pre>
+<p>Replace <code>yourdomain.com</code> and <code>www.yourdomain.com</code> with your actual domain name. Follow the prompts from Certbot to complete the process, including agreeing to terms of service and providing an email address.</p>
+<p>Certbot will automatically modify your Nginx configuration to use the SSL certificate.</p>
+<h3 id="123-verifying-https">12.3 Verifying HTTPS</h3>
+<p>After Certbot completes successfully, your application should now be accessible via HTTPS. Try accessing your application using <code>https://yourdomain.com</code> in your web browser. You should see a secure connection indicator (e.g., a padlock icon) in your browser's address bar.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully set up a Linux server, deployed a MERN stack application, configured essential security measures, and made your application accessible via a domain name and HTTPS. This comprehensive guide provides a solid foundation for understanding server setup and deployment processes. While this setup is a starting point, further exploration into areas like automated deployment, containerization (Docker), and orchestration (Kubernetes) can enhance your deployment workflow and scalability as your application grows.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

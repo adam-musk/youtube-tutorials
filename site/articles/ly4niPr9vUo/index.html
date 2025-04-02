@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Introduction to Git and GitHub: A Beginner's Guide to Version Control - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#introduction-to-git-and-github-a-beginners-guide-to-version-control">Introduction to Git and GitHub: A Beginner's Guide to Version Control</a></li>
+        <li><a href="#1-understanding-the-what-and-why-of-git-and-github">1. Understanding the "What and Why" of Git and GitHub</a></li><li><a href="#2-course-overview-learning-path-and-key-modules">2. Course Overview: Learning Path and Key Modules</a></li><li><a href="#3-git-basics-core-concepts-in-detail">3. Git Basics: Core Concepts in Detail</a></li><li><a href="#4-setting-up-your-development-environment-installation-of-git-and-visual-studio-code">4. Setting Up Your Development Environment: Installation of Git and Visual Studio Code</a></li><li><a href="#5-basic-git-workflow-initializing-staging-committing-branching-and-merging">5. Basic Git Workflow: Initializing, Staging, Committing, Branching, and Merging</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="introduction-to-git-and-github-a-beginners-guide-to-version-control">Introduction to Git and GitHub: A Beginner's Guide to Version Control</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/ly4niPr9vUo" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter provides a foundational understanding of Git and GitHub, essential tools for modern software development and collaborative projects. We will explore the core concepts of version control, the functionalities of Git and GitHub, and their combined benefits for developers and teams.  This material is adapted from an introductory video designed to help beginners grasp the fundamentals of these powerful tools.</p>
+<h2 id="1-understanding-the-what-and-why-of-git-and-github">1. Understanding the "What and Why" of Git and GitHub</h2>
+<p>Git and GitHub are often discussed together, but it's crucial to understand that they are distinct yet interconnected tools.  Let's break down each one:</p>
+<h3 id="11-what-is-git">1.1 What is Git?</h3>
+<p>Git is a <strong>version control system (VCS)</strong>.</p>
+<blockquote>
+<p>A <strong>version control system</strong> is a software tool that tracks changes to files over time. It allows you to revert to previous versions, compare changes, see who modified what and when, and collaborate more effectively with others.</p>
+</blockquote>
+<p>At its core, Git is designed to manage and track changes in your <strong>source code</strong>.</p>
+<blockquote>
+<p><strong>Source code</strong> refers to the human-readable instructions that make up a software program. It is typically written in languages like Python, Java, JavaScript, or HTML.</p>
+</blockquote>
+<p>Think of Git as a sophisticated system that keeps snapshots of your project at different stages. This allows you to:</p>
+<ul>
+<li><strong>Save different versions of your code:</strong>  Git records the history of your project, enabling you to access any previous state.</li>
+<li><strong>Track changes over time:</strong>  You can easily see what modifications were made, when they were made, and by whom.</li>
+<li><strong>Revert to earlier versions:</strong> If you make a mistake or want to revisit a previous feature, you can effortlessly jump back to an older version of your code.</li>
+</ul>
+<p>Git operates primarily as a <strong>local tool</strong>.</p>
+<blockquote>
+<p>A <strong>local development environment</strong> refers to the setup on your personal computer where you write, test, and manage your code.</p>
+</blockquote>
+<p>It's free to download and use on your computer, making it ideal for individual projects and local development.</p>
+<h3 id="12-what-is-github">1.2 What is GitHub?</h3>
+<p>While Git is a local version control system, GitHub extends its capabilities into the realm of online collaboration and hosting. GitHub is a <strong>hosting and collaboration provider</strong> specifically designed for Git <strong>repositories</strong>.</p>
+<blockquote>
+<p>A <strong>hosting provider</strong> is a company that offers services and infrastructure to store and manage data and applications online.</p>
+<p>A <strong>collaboration provider</strong> facilitates teamwork and shared access to resources, enabling multiple individuals to work together on a project.</p>
+<p>A <strong>Git repository</strong> is a folder or project that is being tracked by Git. It contains all the project files and the history of changes managed by Git.</p>
+</blockquote>
+<p>GitHub provides a platform to:</p>
+<ul>
+<li><strong>Host Git repositories in the cloud:</strong>  It allows you to upload your local Git projects to a remote server, making them accessible online.</li>
+<li><strong>Enable team collaboration:</strong>  GitHub facilitates teamwork by providing tools for managing access, reviewing code changes, and coordinating contributions from multiple developers.</li>
+<li><strong>Enhance project accessibility:</strong>  By hosting projects in the <strong>cloud environment</strong>,</li>
+</ul>
+<blockquote>
+<p>A <strong>cloud environment</strong> refers to a network of remote servers hosted on the internet that are used to store, manage, and process data, rather than using a local server or a personal computer directly.</p>
+</blockquote>
+<p>GitHub makes them accessible from anywhere with an internet connection, and by multiple collaborators.
+*   <strong>Serve as a server-based solution:</strong></p>
+<blockquote>
+<p>A <strong>server-based solution</strong> is a system where data and applications are stored and processed on a central server, rather than on individual client devices.</p>
+</blockquote>
+<p>GitHub acts as a central server for your Git repositories, streamlining collaboration and project management.</p>
+<h3 id="13-why-use-git-and-github">1.3 Why Use Git and GitHub?</h3>
+<p>To understand the "why," let's consider common scenarios developers face:</p>
+<ul>
+<li><strong>Managing Multiple Drafts:</strong> Imagine writing an essay or working on a text document.  Without version control, you might create multiple copies (e.g., "essay_draft1," "essay_draft2," "essay_final"). This approach is disorganized and inefficient.</li>
+<li><strong>Avoiding Data Loss:</strong> Alternatively, you might work on a single file, constantly overwriting previous versions.  This risks losing earlier progress or valuable sections you might want to revisit.</li>
+</ul>
+<p><strong>Version control systems like Git offer a superior solution.</strong>  With Git:</p>
+<ul>
+<li><strong>Single File Approach with History:</strong> You work within a single project folder, but Git maintains a complete history of all changes.</li>
+<li><strong>Easy Reversion:</strong> You can easily "check out" (retrieve) any previous version or "draft" without creating multiple copies.</li>
+<li><strong>Clean Project Structure:</strong> Your project folder remains clean and organized, containing only the current version of your files.</li>
+</ul>
+<p><strong>Beyond basic version management, Git and GitHub offer numerous advantages, especially for developers:</strong></p>
+<ul>
+<li><strong>Collaboration:</strong>  Essential for team projects, enabling multiple developers to work on the same codebase simultaneously without conflicts.</li>
+<li><strong>Feature Branching:</strong>  Allows developers to work on new features or bug fixes in isolation, without disrupting the main project.</li>
+<li><strong>Code Review:</strong>  GitHub provides tools for reviewing code changes before they are integrated, improving code quality.</li>
+<li><strong>Issue Tracking:</strong>  GitHub offers issue tracking systems to manage bugs, feature requests, and tasks related to the project.</li>
+<li><strong>Project Hosting and Sharing:</strong>  GitHub serves as a central hub for hosting and sharing code, facilitating open-source contributions and project visibility.</li>
+</ul>
+<p>While primarily designed for developers, Git's version control capabilities can theoretically be applied to various file types, even documents like Word files. However, its strengths are most pronounced in managing code and facilitating software development workflows.</p>
+<h2 id="2-course-overview-learning-path-and-key-modules">2. Course Overview:  Learning Path and Key Modules</h2>
+<p>This course is structured to guide you from Git and GitHub beginners to proficient users.  It covers essential concepts and practical skills through a series of modules:</p>
+<ul>
+<li>
+<p><strong>Optional: Mac Terminal and Windows Command Prompt Basics:</strong> This module provides a refresher on using the <strong>command line</strong> interface on both macOS (<strong>Terminal</strong>) and Windows (<strong>Command Prompt</strong>).</p>
+<blockquote>
+<p>The <strong>command line</strong> is a text-based interface for interacting with a computer's operating system. Users type commands to instruct the computer to perform specific tasks, in contrast to using a graphical user interface (GUI) with a mouse and icons.</p>
+</blockquote>
+<p>Understanding the command line is crucial for working with Git, as Git commands are primarily executed through this interface. This module is optional for those already comfortable with these tools.</p>
+</li>
+<li>
+<p><strong>Git Basics:</strong>  This core module introduces fundamental Git concepts and commands:</p>
+<ul>
+<li><strong>Installation:</strong> Setting up Git on your local machine.</li>
+<li>
+<p><strong>Core Concepts:</strong> Understanding the <strong>working directory</strong>, <strong>staging area (or index)</strong>, and <strong>repository</strong>.</p>
+<blockquote>
+<p>The <strong>working directory</strong> is the folder on your computer where your project files are located and where you make changes to your code. It's the area where you directly interact with your project's files.</p>
+<p>The <strong>staging area</strong>, also known as the <strong>index</strong>, is an intermediate area where you prepare changes from your working directory to be included in the next commit. It acts as a buffer between your working directory and the Git repository.</p>
+<p>The <strong>repository</strong> in Git, often referred to as the <strong>Git repository</strong>, is a hidden folder (typically named <code>.git</code>) within your project directory that stores the entire history of changes, commits, branches, and other metadata related to your version-controlled project. It's the database where Git keeps track of all versions of your files.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Commits:</strong> Learning how to create <strong>commits</strong> to save snapshots of your project's state.</p>
+<blockquote>
+<p>A <strong>commit</strong> in Git is a snapshot of your project at a specific point in time. It represents a saved version of your changes and includes metadata such as a commit message, author, and timestamp. Commits form the history of your project in Git.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Branches:</strong> Understanding and working with <strong>branches</strong> to manage parallel development and features.</p>
+<blockquote>
+<p>A <strong>branch</strong> in Git is a parallel version of your repository. It allows you to diverge from the main line of development and work on new features or bug fixes without affecting the stability of the main project. Branches are essential for collaborative development and feature isolation in Git.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Basic Branch Operations:</strong> Creating, deleting, and switching between branches.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Git Deep Dive:</strong> This module explores more advanced Git concepts and commands for deeper understanding and control:</p>
+<ul>
+<li><strong>Git Stash and Reflog:</strong>  Tools for managing temporary changes and recovering lost commits.</li>
+<li><strong>Branch Combination:</strong>  Techniques for integrating changes from different branches, including:<ul>
+<li><strong>Git Merge:</strong> Combining branches to integrate changes.</li>
+<li><strong>Git Rebase:</strong>  Another method for integrating changes, often used to maintain a cleaner commit history.</li>
+<li><strong>Cherry Picking:</strong>  Selecting specific commits from one branch to apply to another.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>GitHub Integration:</strong> This module bridges the gap between local Git projects and the cloud with GitHub:</p>
+<ul>
+<li><strong>Remote Repositories:</strong> Understanding how to work with remote repositories hosted on GitHub.</li>
+<li><strong>Remote Branches:</strong>  Managing branches on remote repositories.</li>
+<li><strong>Remote Tracking Branches and Local Tracking Branches:</strong> Concepts related to synchronizing local and remote branches.</li>
+<li><strong>Essential GitHub Commands:</strong><ul>
+<li><strong>Git Clone:</strong>  Downloading a remote repository to your local machine.</li>
+<li><strong>Git Push:</strong>  Uploading local commits to a remote repository.</li>
+<li><strong>Git Pull:</strong>  Downloading changes from a remote repository to your local machine.</li>
+<li><strong>Git Fetch:</strong>  Retrieving changes from a remote repository without automatically merging them.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>By completing these modules, you will gain a comprehensive understanding of Git and GitHub, equipping you to effectively manage your projects and collaborate with others in a version-controlled environment.</p>
+<h2 id="3-git-basics-core-concepts-in-detail">3. Git Basics: Core Concepts in Detail</h2>
+<p>Let's delve deeper into the fundamental concepts of Git and how it manages version control. We'll use a simplified example of a webshop project to illustrate these concepts.</p>
+<h3 id="31-working-directory-and-initial-project-state">3.1 Working Directory and Initial Project State</h3>
+<p>Imagine you have a project folder named "webshop." Initially, it might contain files like:</p>
+<ul>
+<li><code>index.html</code> (structure of the webpage)</li>
+<li><code>style.css</code> (styling of the webpage)</li>
+<li><code>images/</code> (folder containing images)</li>
+</ul>
+<p>At this stage, your project is simply a folder with files on your computer. Git is not yet involved.</p>
+<h3 id="32-turning-a-project-into-a-working-directory">3.2 Turning a Project into a Working Directory</h3>
+<p>To bring Git into the picture, you need to initialize Git within your project folder. This transforms your project folder into a <strong>working directory</strong> managed by Git.  This is typically done using the <code>git init</code> command (which we will explore later).</p>
+<h3 id="33-commits-saving-project-snapshots">3.3 Commits: Saving Project Snapshots</h3>
+<p>Once Git is initialized, you can start saving snapshots of your project's state. These snapshots are called <strong>commits</strong>.  Think of a commit as a saved draft of your project at a particular moment.</p>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li><strong>Initial Commit:</strong> You create your initial project structure (<code>index.html</code>, <code>style.css</code>, <code>images/</code>) and create your first commit. This commit represents the first version of your webshop project.</li>
+<li><strong>Second Commit (Style Changes):</strong> You then work on <code>style.css</code>, making changes to the website's appearance. You create a second commit. Git intelligently tracks only the changes made to <code>style.css</code> since the first commit, rather than saving the entire project again. This is efficient in terms of storage and tracking changes.</li>
+<li><strong>Third Commit (Adding JavaScript):</strong> You add a new file, <code>script.js</code> (a JavaScript file for website interactivity). You create a third commit.  Git records the addition of this new file and any changes in relation to the previous state.</li>
+</ol>
+<h3 id="34-branches-managing-parallel-development">3.4 Branches: Managing Parallel Development</h3>
+<p>Internally, Git organizes commits within <strong>branches</strong>. The <strong>master branch</strong> (now often referred to as <strong>main branch</strong>) is the default primary branch in a Git repository. It's often considered the main line of development or the "production-ready" version of your project.</p>
+<p><strong>Branching for Feature Development:</strong></p>
+<p>Branches become powerful when you want to work on new features or experiment without directly altering the main project (master branch).</p>
+<p><strong>Example: Landing Page Feature</strong></p>
+<ol>
+<li><strong>Creating a Branch:</strong> You decide to work on a new landing page for your webshop. You create a new branch called "landing-page" (or similar). This branch is essentially a copy of your master branch at the point of creation.</li>
+<li><strong>Working on the Branch:</strong> You switch to the "landing-page" branch and make changes specifically for the landing page (e.g., add new files, modify existing ones). These changes and subsequent commits are isolated within the "landing-page" branch and do not affect the master branch.</li>
+<li><strong>Merging Back to Master:</strong> Once the landing page feature is complete and tested on the "landing-page" branch, you can <strong>merge</strong> the "landing-page" branch back into the master branch. This integrates the changes from the feature branch into the main project.</li>
+</ol>
+<h3 id="35-git-repository-the-engine-behind-version-control">3.5 Git Repository: The Engine Behind Version Control</h3>
+<p>To understand how Git manages all this versioning, we need to look at the <strong>Git repository</strong>.  When you initialize Git in your project (using <code>git init</code>), Git creates a hidden folder named <code>.git</code> within your project directory. This <code>.git</code> folder is the <strong>Git repository</strong>.</p>
+<p>The repository contains two key areas:</p>
+<ul>
+<li><strong>Staging Area (Index):</strong>  This is a temporary holding area. When you make changes to files in your working directory, you first <strong>stage</strong> these changes (using <code>git add</code>) to indicate that they should be included in the next commit. The staging area is like a draft area where you prepare your changes before making them permanent in the repository's history.</li>
+<li><strong>Commits (Objects Folder):</strong> The repository stores all the commits (snapshots) of your project in an efficient manner.  Critically, Git doesn't save entire file copies with each commit. Instead, it intelligently tracks and stores only the <strong>changes</strong> (differences) between commits. This minimizes storage space and makes version history efficient.</li>
+</ul>
+<p><strong>Workflow Summary:</strong></p>
+<ol>
+<li><strong>Working Directory:</strong> You make changes to files in your project folder (working directory).</li>
+<li><strong>Staging Area:</strong> You use <code>git add</code> to stage the changes you want to include in your next commit.</li>
+<li><strong>Repository (Commits):</strong> You use <code>git commit</code> to create a new commit (snapshot) from the staged changes. Git stores these commits and their history in the <code>.git</code> repository.</li>
+</ol>
+<h2 id="4-setting-up-your-development-environment-installation-of-git-and-visual-studio-code">4. Setting Up Your Development Environment: Installation of Git and Visual Studio Code</h2>
+<p>To start working with Git practically, you need to install Git on your computer and ideally have a code editor or <strong>Integrated Development Environment (IDE)</strong>.</p>
+<blockquote>
+<p>An <strong>IDE (Integrated Development Environment)</strong> is a software application that provides comprehensive facilities to computer programmers for software development. An IDE normally consists of at least a source code editor, build automation tools, and a debugger.</p>
+</blockquote>
+<h3 id="41-git-installation">4.1 Git Installation</h3>
+<ol>
+<li><strong>Download Git:</strong>  Visit the official Git website (<a href="https://git-scm.com/">https://git-scm.com/</a>) and download the appropriate installer for your operating system (Windows or macOS).</li>
+<li><strong>Run the Installer:</strong> Execute the downloaded installer file.</li>
+<li>
+<p><strong>Installation Options:</strong>  During installation, you'll be presented with various options. For most options, the default settings are sufficient for beginners.  Pay attention to these points:</p>
+<ul>
+<li><strong>Windows Explorer Integration:</strong>  You can untick this option as it's not essential for this course.</li>
+<li><strong>Adjusting your PATH environment:</strong> Ensure "Git from the command line and also from 3rd-party software" is selected (the recommended option).</li>
+<li><strong>Choosing the SSH executable:</strong>  "Use bundled OpenSSL library" is generally fine.</li>
+<li><strong>Configuring line ending conversions:</strong>  Select "Checkout Windows-style, commit Unix-style line endings" for cross-platform compatibility, especially if collaborating with users on different operating systems (Windows and macOS).</li>
+<li><strong>Choosing the terminal emulator to use with Git Bash:</strong> Select "Use Windows' default console window" to align with the course's use of the Command Prompt.</li>
+<li><strong>Configuring extra options:</strong>  Enable file system caching (default is fine).</li>
+</ul>
+</li>
+<li>
+<p><strong>Verify Installation:</strong> After installation, open the <strong>Command Prompt</strong> (on Windows) or <strong>Terminal</strong> (on macOS). Type the command <code>git --version</code> and press Enter. If Git is installed correctly, you should see the installed Git version number displayed.</p>
+</li>
+</ol>
+<h3 id="42-installing-visual-studio-code-vs-code">4.2 Installing Visual Studio Code (VS Code)</h3>
+<p>While you can use any text editor, <strong>Visual Studio Code (VS Code)</strong> is a highly recommended, free, and cross-platform IDE that is well-suited for Git-based development.</p>
+<ol>
+<li><strong>Download VS Code:</strong> Go to the VS Code website (<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>) and download the installer for your operating system.</li>
+<li><strong>Run the Installer:</strong> Execute the downloaded installer file.</li>
+<li><strong>Installation Options:</strong><ul>
+<li>Accept the license agreement.</li>
+<li>Choose the installation location (default is usually fine).</li>
+<li>On the "Select Additional Tasks" page, ensure "Add to PATH" is checked. This allows you to use VS Code commands from the command line.</li>
+</ul>
+</li>
+<li><strong>Launch VS Code:</strong> After installation, launch Visual Studio Code.</li>
+<li>
+<p><strong>Integrated Terminal:</strong> VS Code has an integrated <strong>terminal</strong>,</p>
+<blockquote>
+<p>In software development, a <strong>terminal</strong> (also known as a command prompt or shell) is a text-based interface that allows users to interact with the operating system and execute commands. It provides a way to control the computer by typing commands, rather than using a graphical user interface (GUI).</p>
+</blockquote>
+<p>which is very convenient for working with Git. To use the Command Prompt in VS Code (on Windows):
+*   Go to "View" &gt; "Appearance" &gt; "Panel" to show the panel (terminal area).
+*   Click the dropdown arrow in the panel and select "Select Default Shell."
+*   Choose "Command Prompt" and confirm.
+*   You can remove other shells (like PowerShell) by clicking the "Remove" icon if you want to keep only the Command Prompt.</p>
+</li>
+<li>
+<p><strong>Open Your Project Folder:</strong> In VS Code, go to "File" &gt; "Open Folder" and navigate to your project folder (e.g., "git-basics" or "initial-project") and select it. Your project files will now be visible in VS Code's Explorer pane.</p>
+</li>
+</ol>
+<p>With Git and VS Code installed and set up, you are now ready to start using Git commands to manage your projects.</p>
+<h2 id="5-basic-git-workflow-initializing-staging-committing-branching-and-merging">5. Basic Git Workflow: Initializing, Staging, Committing, Branching, and Merging</h2>
+<p>Let's walk through a basic Git workflow using commands in the Command Prompt within VS Code.</p>
+<h3 id="51-initializing-a-git-repository-git-init">5.1 Initializing a Git Repository (<code>git init</code>)</h3>
+<ol>
+<li><strong>Navigate to Your Project Folder:</strong> Open the Command Prompt within VS Code (or your system's command prompt) and use the <code>cd</code> command to navigate to your project folder (e.g., <code>cd Desktop\git-basics</code>).</li>
+<li><strong>Initialize Git:</strong> Type the command <code>git init</code> and press Enter. This command initializes a new Git repository in your current folder. You'll see a confirmation message indicating that an empty Git repository has been initialized.  A hidden <code>.git</code> folder will be created in your project directory.</li>
+</ol>
+<h3 id="52-checking-git-status-git-status">5.2 Checking Git Status (<code>git status</code>)</h3>
+<ol>
+<li><strong>Check Status:</strong> Type <code>git status</code> and press Enter. This command provides information about the current state of your working directory and staging area.<ul>
+<li>
+<p>Initially, after <code>git init</code>, <code>git status</code> might show "No commits yet" and "Untracked files."  <strong>Untracked files</strong> are files in your working directory that Git is not yet aware of.</p>
+<blockquote>
+<p><strong>Untracked files</strong> in Git are files in your working directory that Git is not currently monitoring or including in version control. These are typically new files that have been added to the project folder but haven't been explicitly added to the staging area using <code>git add</code>.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="53-staging-files-git-add">5.3 Staging Files (<code>git add</code>)</h3>
+<ol>
+<li><strong>Create a File:</strong> Create a new text file within your project folder (e.g., <code>initial-commit.txt</code>) using VS Code or any text editor. Add some text to the file and save it.</li>
+<li><strong>Stage the File:</strong>  Use the <code>git add</code> command to stage the file.<ul>
+<li>To stage a specific file: <code>git add initial-commit.txt</code></li>
+<li>To stage all changes in the current directory: <code>git add .</code> (the dot represents the current directory)</li>
+</ul>
+</li>
+<li>
+<p><strong>Check Status Again:</strong> Run <code>git status</code> again. You should now see "Changes to be committed" and your newly added file listed under "New file."  This indicates that the file is now in the <strong>staging area</strong> and ready to be committed.</p>
+<blockquote>
+<p><strong>Changes to be committed</strong> in Git refers to modifications in your staging area that are ready to be saved as a new commit in your repository's history. These changes have been explicitly added to the staging area using <code>git add</code> and are waiting to be permanently recorded with a <code>git commit</code> command.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="54-committing-staged-changes-git-commit">5.4 Committing Staged Changes (<code>git commit</code>)</h3>
+<ol>
+<li>
+<p><strong>Commit Changes:</strong> Use the <code>git commit</code> command to create a commit.  It's essential to include a commit message to describe the changes you are saving. Use the <code>-m</code> flag followed by your message in quotation marks:</p>
+<ul>
+<li><code>git commit -m "Added initial text file"</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Configure User Identity (if prompted):</strong> If this is your first commit, Git might prompt you to configure your user name and email. This information is recorded with each commit. Use the following commands, replacing <code>"Your Name"</code> and <code>"your.email@example.com"</code> with your actual details:</p>
+<ul>
+<li><code>git config --global user.email "your.email@example.com"</code></li>
+<li><code>git config --global user.name "Your Name"</code></li>
+<li>After configuring your identity, re-run the <code>git commit</code> command.</li>
+</ul>
+</li>
+<li>
+<p><strong>Check Status After Commit:</strong> Run <code>git status</code>. You should see "nothing to commit, working tree clean." This means your changes have been successfully committed, and your working directory is in sync with the latest commit.</p>
+</li>
+</ol>
+<h3 id="55-viewing-commit-history-git-log">5.5 Viewing Commit History (<code>git log</code>)</h3>
+<ol>
+<li><strong>View Commit Log:</strong> Type <code>git log</code> and press Enter. This command displays the commit history for the current branch.<ul>
+<li>You'll see information about each commit, including:<ul>
+<li><strong>Commit ID (SHA):</strong> A unique identifier for each commit.</li>
+<li><strong>Author:</strong>  Your name and email (as configured).</li>
+<li><strong>Date:</strong>  Timestamp of the commit.</li>
+<li><strong>Commit Message:</strong> The message you provided when creating the commit.</li>
+</ul>
+</li>
+<li>Press <code>q</code> to quit the <code>git log</code> view.</li>
+</ul>
+</li>
+</ol>
+<h3 id="56-creating-and-switching-branches-git-branch-git-checkout">5.6 Creating and Switching Branches (<code>git branch</code>, <code>git checkout</code>)</h3>
+<ol>
+<li><strong>List Branches:</strong> Type <code>git branch</code> and press Enter. This command lists all branches in your repository. Initially, you'll only see the <code>master</code> (or <code>main</code>) branch, indicated by an asterisk <code>*</code> and green highlighting.</li>
+<li><strong>Create a New Branch:</strong> To create a new branch named "second-branch," use:<ul>
+<li><code>git branch second-branch</code></li>
+</ul>
+</li>
+<li><strong>List Branches Again:</strong> Run <code>git branch</code> again. You'll now see both <code>master</code> and <code>second-branch</code> listed, but you are still on the <code>master</code> branch (indicated by the asterisk).</li>
+<li>
+<p><strong>Switch to a Branch:</strong> To switch to the "second-branch," use the <code>git checkout</code> command:</p>
+<ul>
+<li><code>git checkout second-branch</code></li>
+<li>You'll see a confirmation message "Switched to branch 'second-branch'."  <code>git branch</code> will now show the asterisk next to <code>second-branch</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create and Checkout a Branch in One Step (Shortcut):</strong>  You can create and switch to a new branch in a single command using <code>git checkout -b</code>:</p>
+<ul>
+<li><code>git checkout -b third-branch</code></li>
+<li>This creates a branch named "third-branch" and immediately switches you to it.</li>
+</ul>
+</li>
+</ol>
+<h3 id="57-working-on-a-branch-and-committing-changes">5.7 Working on a Branch and Committing Changes</h3>
+<ol>
+<li><strong>Make Changes on the Branch:</strong> While on the "third-branch," create a new file (e.g., <code>working-with-branches.txt</code>) and add some text to it. Save the file.</li>
+<li><strong>Stage and Commit Changes:</strong>  Use <code>git add working-with-branches.txt</code> and then <code>git commit -m "Added branches text file"</code> to stage and commit the new file on the "third-branch."</li>
+<li><strong>View Log on the Branch:</strong> <code>git log</code> will show the commit you just made on "third-branch," along with the previous commits from the base branch (likely master).</li>
+</ol>
+<h3 id="58-switching-back-to-master-branch">5.8 Switching Back to Master Branch</h3>
+<ol>
+<li><strong>Switch to Master:</strong> Use <code>git checkout master</code> to switch back to the master branch.</li>
+<li><strong>Observe File Changes:</strong> Notice that the <code>working-with-branches.txt</code> file you created on "third-branch" disappears from your working directory when you switch back to "master." This is because branches are isolated.</li>
+<li><strong>View Log on Master:</strong> <code>git log</code> on the master branch will not show the "Added branches text file" commit, as that commit exists only on the "third-branch."</li>
+</ol>
+<h3 id="59-merging-branches-git-merge">5.9 Merging Branches (<code>git merge</code>)</h3>
+<ol>
+<li><strong>Checkout Master Branch:</strong> Ensure you are on the master branch (<code>git checkout master</code>).</li>
+<li><strong>Merge Third-Branch into Master:</strong> To bring the changes from "third-branch" into "master," use the <code>git merge</code> command, specifying the branch to merge from:<ul>
+<li><code>git merge third-branch</code></li>
+<li>Git will attempt to automatically merge the changes. In simple cases like this, it will likely be a "fast-forward" merge.</li>
+</ul>
+</li>
+<li><strong>Observe File Changes After Merge:</strong> After merging, you will see that the <code>working-with-branches.txt</code> file now appears in your working directory on the master branch.</li>
+<li><strong>View Log on Master After Merge:</strong> <code>git log</code> on the master branch will now show the "Added branches text file" commit from "third-branch," indicating that the changes have been successfully merged into the master branch.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>This chapter has provided a comprehensive introduction to Git and GitHub, covering the fundamental concepts of version control, the roles of Git and GitHub, and a basic Git workflow. You have learned how to initialize a Git repository, stage and commit changes, work with branches, and merge branches.  These are the foundational skills necessary to begin using Git for your projects and collaborative endeavors.  Further exploration of advanced Git features and GitHub functionalities will build upon this solid understanding.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

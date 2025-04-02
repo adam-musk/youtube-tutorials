@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Retrieval Augmented Generation (RAG): A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#retrieval-augmented-generation-rag-a-comprehensive-guide">Retrieval Augmented Generation (RAG): A Comprehensive Guide</a></li>
+        <li><a href="#introduction-to-retrieval-augmented-generation-rag">Introduction to Retrieval Augmented Generation (RAG)</a></li><li><a href="#setting-up-your-development-environment">Setting Up Your Development Environment</a></li><li><a href="#deep-dive-into-retrieval-augmented-generation">Deep Dive into Retrieval Augmented Generation</a></li><li><a href="#hands-on-with-naive-rag-building-a-document-chat-system">Hands-On with Naive RAG: Building a Document Chat System</a></li><li><a href="#load-environment-variables">Load environment variables</a></li>
+        <li><a href="#initialize-openai-client">Initialize OpenAI client</a></li>
+        <li><a href="#initialize-embedding-function-openai">Initialize embedding function (OpenAI)</a></li>
+        <li><a href="#initialize-chroma-client-and-collection">Initialize Chroma client and collection</a></li>
+        <li><a href="#function-to-load-documents-from-directory">Function to load documents from directory</a></li>
+        <li><a href="#function-to-split-text-into-chunks">Function to split text into chunks</a></li>
+        <li><a href="#function-to-generate-openai-embeddings">Function to generate OpenAI embeddings</a></li>
+        <li><a href="#function-to-query-documents">Function to query documents</a></li>
+        <li><a href="#function-to-generate-response-using-openai-chat-api">Function to generate response using OpenAI Chat API</a></li>
+        <li><a href="#_1"></a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="retrieval-augmented-generation-rag-a-comprehensive-guide">Retrieval Augmented Generation (RAG): A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/ea2W8IogX80" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-retrieval-augmented-generation-rag">Introduction to Retrieval Augmented Generation (RAG)</h2>
+<p>This chapter provides a comprehensive introduction to Retrieval Augmented Generation (RAG), a powerful technique for enhancing Large Language Models (LLMs) with external knowledge. We will begin by defining RAG, exploring its motivation, and outlining its core components. This will lay the foundation for understanding how RAG systems can be built and utilized effectively.</p>
+<h3 id="what-is-retrieval-augmented-generation-rag">What is Retrieval Augmented Generation (RAG)?</h3>
+<p>Retrieval Augmented Generation, or RAG, is a framework that enhances the capabilities of Large Language Models (LLMs) by enabling them to access and incorporate information from external sources during the generation process.</p>
+<blockquote>
+<p><strong>Retrieval Augmented Generation (RAG):</strong> A framework that combines retrieval-based systems and generation-based models. It enhances the accuracy and contextual relevance of generated responses by grounding them in information retrieved from external knowledge sources.</p>
+</blockquote>
+<p>In simpler terms, RAG empowers LLMs to "chat with your documents" or leverage your specific data to provide more informed and relevant responses.</p>
+<h3 id="motivation-behind-rag">Motivation Behind RAG</h3>
+<p>Large Language Models are trained on vast datasets, enabling them to generate human-quality text, translate languages, and answer a wide range of questions. However, LLMs have limitations:</p>
+<ul>
+<li><strong>Limited Knowledge of Specific Data:</strong> LLMs are trained on general knowledge and lack access to private, specific, or real-time data. For example, an LLM might know the capital of France but not the name of your first pet.</li>
+<li><strong>Knowledge Cut-off:</strong> LLMs have a knowledge cut-off point, meaning they are unaware of events or information created after their training data was compiled.</li>
+<li><strong>Hallucinations:</strong> LLMs can sometimes generate factually incorrect or nonsensical information, often referred to as "hallucinations," as they rely solely on their internal knowledge.</li>
+</ul>
+<p>RAG addresses these limitations by:</p>
+<ul>
+<li><strong>Injecting External Knowledge:</strong> RAG systems allow you to "inject" your own data – documents, databases, text files, or any unstructured data – into the LLM's process.</li>
+<li><strong>Contextualizing Responses:</strong> By accessing your data during response generation, the LLM can provide answers grounded in your specific context, overcoming the limitations of its pre-trained knowledge.</li>
+<li><strong>Improving Accuracy and Relevance:</strong> RAG enhances the accuracy and relevance of LLM responses by ensuring they are informed by up-to-date or domain-specific information.</li>
+</ul>
+<h3 id="advantages-of-rag">Advantages of RAG</h3>
+<ul>
+<li><strong>Customization:</strong> RAG provides an efficient way to customize LLMs with your own data without requiring extensive retraining of the model itself.</li>
+<li><strong>Contextual Relevance:</strong>  RAG ensures that LLM responses are contextually relevant to the user's specific information and queries.</li>
+<li><strong>Accuracy Enhancement:</strong> By grounding responses in retrieved documents, RAG reduces the likelihood of hallucinations and improves factual accuracy.</li>
+<li><strong>Access to Up-to-date Information:</strong> RAG can be connected to live data sources, enabling LLMs to provide responses based on the most current information.</li>
+</ul>
+<h2 id="setting-up-your-development-environment">Setting Up Your Development Environment</h2>
+<p>To effectively learn about and implement RAG systems, a properly configured development environment is essential. This section outlines the necessary software and accounts you will need to follow along with practical examples.</p>
+<h3 id="essential-software-and-accounts">Essential Software and Accounts</h3>
+<ul>
+<li>
+<p><strong>Python:</strong> Python is the primary programming language used for developing RAG systems. Ensure you have Python installed on your machine. Instructions for installation across different operating systems (Windows, macOS, Linux) are readily available online.</p>
+<blockquote>
+<p><strong>Python:</strong> A high-level, interpreted, general-purpose programming language. It is widely used in data science, machine learning, and web development due to its readability and extensive libraries.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Code Editor (VS Code Recommended):</strong> A code editor is crucial for writing and managing your Python code. Visual Studio Code (VS Code) is a highly recommended, free, and feature-rich editor. While not strictly required, using VS Code will align with the examples and demonstrations presented.
+    &gt; <strong>VS Code (Visual Studio Code):</strong> A free source-code editor made by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring.</p>
+</li>
+<li>
+<p><strong>OpenAI Account and API Key:</strong>  To interact with powerful LLMs like those from OpenAI, you will need an OpenAI account and an API key.  This key acts as your authentication and allows your code to access OpenAI's models and services. You can create an account and generate an API key on the OpenAI website.</p>
+<blockquote>
+<p><strong>API Key (Application Programming Interface Key):</strong> A code used to identify and authenticate an application or user when calling an API. It is used to track and control how the API is being used, for example, to prevent abuse or unauthorized access.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="setting-up-python-and-openai-account">Setting up Python and OpenAI Account</h3>
+<ul>
+<li>
+<p><strong>Python Installation:</strong> If you do not have Python installed, follow the instructions provided at the official Python website (python.org) to download and install the appropriate version for your operating system.</p>
+</li>
+<li>
+<p><strong>OpenAI Account and API Key Creation:</strong></p>
+<ol>
+<li>Visit the OpenAI website (<a href="https://openai.com">openai.com</a>).</li>
+<li>Sign up for an account or log in if you already have one.</li>
+<li>Navigate to your account settings and find the "API keys" section.</li>
+<li>Create a new API key.  <strong>Important:</strong> Keep your API key secure and do not share it publicly.</li>
+</ol>
+</li>
+</ul>
+<p>With these components set up, you will be ready to delve deeper into the workings of RAG and build your own RAG-based applications.</p>
+<h2 id="deep-dive-into-retrieval-augmented-generation">Deep Dive into Retrieval Augmented Generation</h2>
+<p>This section provides a more detailed exploration of RAG, breaking down its components and illustrating the process with a practical example of "Naive RAG."</p>
+<h3 id="core-components-of-rag">Core Components of RAG</h3>
+<p>RAG systems fundamentally consist of two main components:</p>
+<ul>
+<li>
+<p><strong>Retriever:</strong> The retriever's role is to identify and fetch relevant documents from a knowledge source (your data) based on the user's query. This component is responsible for searching and retrieving information that is pertinent to the question being asked.</p>
+</li>
+<li>
+<p><strong>Generator:</strong> The generator, typically an LLM, takes the retrieved documents and the original user query as input. It then generates a coherent and contextually relevant response, leveraging both the user's question and the information provided by the retriever.</p>
+</li>
+</ul>
+<p>The synergy between these two components is what defines RAG. The retriever provides the necessary context, and the generator synthesizes a meaningful answer based on that context.</p>
+<h3 id="defining-rag-a-framework-for-enhanced-responses">Defining RAG: A Framework for Enhanced Responses</h3>
+<p>Synthesizing the components, we can define RAG more formally as:</p>
+<blockquote>
+<p><strong>Retrieval Augmented Generation (RAG):</strong> A framework that combines the strengths of retrieval-based systems and generation-based models to produce more accurate and contextually relevant responses.</p>
+</blockquote>
+<p>The key objective of RAG is to achieve <strong>contextually relevant responses</strong>. This means providing answers that are not only accurate but also directly address the user's query within the context of their specific data.</p>
+<h3 id="rag-in-action-customizing-llms-with-your-data">RAG in Action: Customizing LLMs with Your Data</h3>
+<p>At its core, RAG offers an efficient method to customize an LLM with your own data. LLMs are trained on vast amounts of public data, which is both their strength and limitation. RAG overcomes this limitation by:</p>
+<ul>
+<li><strong>Injecting Your Data:</strong> RAG allows you to feed your specific data into the LLM's process, expanding its knowledge base beyond its pre-training data.</li>
+<li><strong>Enhanced Knowledge:</strong>  The LLM now possesses knowledge of your specific, contextual data in addition to its general knowledge.</li>
+<li><strong>Targeted Question Answering:</strong>  This enhanced knowledge enables the LLM to answer questions related to your specific data accurately and effectively.</li>
+</ul>
+<h3 id="overview-of-the-rag-workflow">Overview of the RAG Workflow</h3>
+<p>The typical RAG workflow can be visualized as follows:</p>
+<ol>
+<li>
+<p><strong>Document Preparation:</strong> Your documents are processed and divided into smaller, manageable chunks. This process is known as <strong>chunking</strong>.</p>
+<blockquote>
+<p><strong>Chunking:</strong> The process of dividing large documents or text into smaller segments or chunks. This is often done to manage the context window limitations of Large Language Models and to improve retrieval efficiency.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Embedding Generation:</strong> Each document chunk is passed through an <strong>embedding model</strong>, typically another LLM, to create <strong>embeddings</strong>. Embeddings are numerical representations of text, capturing their semantic meaning in a vector space.</p>
+<blockquote>
+<p><strong>Embedding Model:</strong> A machine learning model that converts text or other data into numerical vectors called embeddings. These vectors represent the semantic meaning of the input data and are used for tasks like similarity search and clustering.
+<strong>Embeddings:</strong> Numerical representations of data, such as text or images, in a vector space. Embeddings capture the semantic meaning and relationships between data points, allowing for efficient similarity comparisons.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Vector Storage:</strong> These embeddings are stored in a <strong>vector database</strong> or <strong>vector store</strong>. A vector database is optimized for efficient storage and retrieval of vector embeddings, enabling rapid similarity searches.</p>
+<blockquote>
+<p><strong>Vector Database (Vector Store):</strong> A database specifically designed for storing and querying vector embeddings. Vector databases excel at similarity searches, allowing for efficient retrieval of vectors that are semantically similar to a query vector.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Query Processing:</strong> When a user asks a question (the <strong>query</strong>), it undergoes the same embedding process as the documents, transforming it into a query embedding.</p>
+<blockquote>
+<p><strong>Query:</strong> In the context of information retrieval, a query is the user's question or search input used to retrieve relevant information from a knowledge base.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Retrieval:</strong> The query embedding is used to search the vector database for the most similar document embeddings. This <strong>similarity search</strong> identifies document chunks that are semantically related to the user's query.</p>
+<blockquote>
+<p><strong>Similarity Search:</strong> The process of finding data points (e.g., vector embeddings) that are most similar to a given query point in a vector space. This is often used to retrieve relevant documents or information based on semantic similarity.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Augmentation:</strong> The retrieved documents are combined with the original query. This process is called <strong>augmentation</strong>, as it enriches the query with relevant contextual information.</p>
+<blockquote>
+<p><strong>Augmentation:</strong> In RAG, augmentation refers to the process of adding retrieved context (relevant documents) to the user's query before passing it to the Large Language Model for response generation.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Response Generation:</strong> The augmented query (original query + retrieved documents) is fed into the LLM (the <strong>generator</strong>). The LLM uses this combined input to generate a final, contextually informed response for the user.</p>
+<blockquote>
+<p><strong>Generator:</strong> In RAG, the generator is typically a Large Language Model (LLM) that takes the augmented query (user query + retrieved documents) as input and generates a coherent and contextually relevant response.</p>
+</blockquote>
+</li>
+</ol>
+<p>This workflow illustrates how RAG effectively bridges the gap between the vast general knowledge of LLMs and the specific data relevant to a user's needs.</p>
+<h3 id="naive-rag-a-step-by-step-breakdown">Naive RAG: A Step-by-Step Breakdown</h3>
+<p>To further clarify the RAG process, let's examine a "Naive RAG" implementation in detail. "Naive RAG" refers to a basic, straightforward implementation of RAG, highlighting the core steps without advanced optimizations.</p>
+<p><strong>Indexing Phase:</strong></p>
+<ol>
+<li><strong>Documents:</strong> You begin with your collection of documents.</li>
+<li>
+<p><strong>Parsing and Pre-processing:</strong>  Documents are <strong>parsed</strong> (analyzed and structured) and <strong>pre-processed</strong> (cleaned and prepared for further processing). This includes:</p>
+<ul>
+<li><strong>Chunking:</strong> Dividing documents into smaller chunks.</li>
+<li>Text cleaning (removing noise, formatting).</li>
+</ul>
+<blockquote>
+<p><strong>Parsing:</strong> The process of analyzing and structuring text or data into a format that can be easily understood and processed by a computer program.
+<strong>Pre-processing:</strong> The stage of preparing raw data before it is used in a machine learning model or other data processing tasks. This can include cleaning, formatting, and transforming the data.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Embedding Model:</strong> The chunks are passed through an embedding model to <strong>vectorize</strong> them, creating vector embeddings.</p>
+<blockquote>
+<p><strong>Vectorizing:</strong> The process of converting text or other data into numerical vectors. In the context of RAG, vectorizing is used to create embeddings of document chunks and user queries.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Vector Store:</strong> The generated embeddings are saved into a vector store or vector database. This completes the <strong>indexing</strong> phase, making your documents searchable.</p>
+<blockquote>
+<p><strong>Indexing:</strong> In RAG, indexing refers to the process of preparing documents for efficient retrieval. This involves chunking documents, generating embeddings, and storing them in a vector database.</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>Query Phase:</strong></p>
+<ol>
+<li><strong>User Query:</strong> A user poses a question or query.</li>
+<li><strong>Embedding Model:</strong> The user query is also passed through the same embedding model to create a query embedding.</li>
+<li><strong>Vector Database Search:</strong> The query embedding is used to perform a similarity search in the vector database. This retrieves the most relevant document chunks based on vector similarity.</li>
+<li>
+<p><strong>Augmentation Phase:</strong> The retrieved documents are combined with the user's query.  This might involve simply concatenating them or using a more structured approach to create a <strong>prompt</strong>. A prompt is a carefully crafted input to the LLM that includes both the user's question and the relevant context from the retrieved documents.</p>
+<blockquote>
+<p><strong>Prompt:</strong> In the context of Large Language Models, a prompt is the input text provided to the model to guide its response generation. In RAG, prompts often include the user query and retrieved context to instruct the model on how to generate a relevant answer.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Large Language Model (Generator):</strong> The augmented prompt is passed to the LLM (generator).</p>
+</li>
+<li>
+<p><strong>Response Generation:</strong> The LLM generates a <strong>coherent</strong> and <strong>contextually relevant response</strong> based on the augmented prompt.</p>
+<blockquote>
+<p><strong>Coherent:</strong> In the context of language generation, coherence refers to the logical flow and consistency of the generated text. A coherent response is one that is well-structured, makes sense, and is easy to follow.
+<strong>Contextually Relevant Response:</strong> A response that is appropriate and pertinent to the context of the user's query and the information provided. In RAG, contextual relevance is achieved by grounding responses in retrieved documents.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>User Response:</strong> The generated response is returned to the user.</p>
+</li>
+</ol>
+<p>This detailed breakdown of Naive RAG provides a solid foundation for understanding the fundamental principles behind Retrieval Augmented Generation.  In the subsequent sections, we will explore more advanced techniques and address the limitations of this basic approach.</p>
+<h2 id="hands-on-with-naive-rag-building-a-document-chat-system">Hands-On with Naive RAG: Building a Document Chat System</h2>
+<p>This section guides you through a practical, hands-on example of building a Naive RAG system. We will create a system that can chat with a collection of news articles, demonstrating the core concepts of RAG in action.</p>
+<h3 id="project-setup">Project Setup</h3>
+<ol>
+<li><strong>Project Directory:</strong> Create a new directory for your RAG project, for example, "rag_intro."</li>
+<li>
+<p><strong>Virtual Environment:</strong> It is highly recommended to create a virtual environment for your project to manage dependencies in isolation.</p>
+<blockquote>
+<p><strong>Virtual Environment:</strong> A self-contained directory that holds a specific Python installation and packages, isolated from the system-wide Python installation. This helps manage dependencies and avoid conflicts between projects.</p>
+</blockquote>
+<ul>
+<li>Navigate to your project directory in the terminal.</li>
+<li>Create a virtual environment using: <code>python -m venv venv</code> (or <code>python3 -m venv venv</code> on some systems).</li>
+<li>Activate the virtual environment:<ul>
+<li><strong>Windows:</strong> <code>venv\Scripts\activate</code></li>
+<li><strong>macOS/Linux:</strong> <code>source venv/bin/activate</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>.env File:</strong> Create a file named <code>.env</code> in your project directory. This file will store your OpenAI API key securely. Add the following line to your <code>.env</code> file, replacing <code>YOUR_OPENAI_API_KEY</code> with your actual API key:</p>
+<p><code>OPENAI_API_KEY=YOUR_OPENAI_API_KEY</code></p>
+</li>
+<li>
+<p><strong>News Articles:</strong> Download or prepare a collection of news articles in <code>.txt</code> format. Create a subdirectory named "news_articles" within your project directory and place the <code>.txt</code> article files inside it.</p>
+</li>
+<li>
+<p><strong>app.py File:</strong> Create a Python file named <code>app.py</code> in your project directory. This file will contain the code for our RAG system.</p>
+</li>
+</ol>
+<h3 id="installing-dependencies">Installing Dependencies</h3>
+<p>Open your terminal in the project directory (with the virtual environment activated) and install the necessary Python packages using pip:</p>
+<pre><code class="language-bash">pip install python-dotenv openai chromadb
+</code></pre>
+<ul>
+<li><strong>python-dotenv:</strong>  Loads environment variables from the <code>.env</code> file.</li>
+<li><strong>openai:</strong>  The official OpenAI Python library for interacting with OpenAI models.</li>
+<li>
+<p><strong>chromadb:</strong> A lightweight, in-memory vector database that is easy to use for prototyping RAG systems.</p>
+<blockquote>
+<p><strong>Chroma DB:</strong> An open-source embedding database. Chroma is used to store embeddings and query them. It is designed to be developer-friendly and easy to integrate into applications.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="code-implementation-apppy">Code Implementation (app.py)</h3>
+<p>```python
+import os
+from dotenv import load_dotenv
+import openai
+import chromadb
+from chromadb.utils import embedding_functions</p>
+<h1 id="load-environment-variables">Load environment variables</h1>
+<p>load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")</p>
+<h1 id="initialize-openai-client">Initialize OpenAI client</h1>
+<p>openai.api_key = openai_api_key
+openai_client = openai.OpenAI()</p>
+<h1 id="initialize-embedding-function-openai">Initialize embedding function (OpenAI)</h1>
+<p>openai_ef = embedding_functions.OpenAIEmbeddingFunction(
+    api_key=openai_api_key,
+    model_name="text-embedding-3-small" # Or another embedding model
+)</p>
+<h1 id="initialize-chroma-client-and-collection">Initialize Chroma client and collection</h1>
+<p>chroma_client = chromadb.PersistentClient(path="chroma_persistent_storage")
+collection_name = "news_articles_collection"
+chroma_collection = chroma_client.get_or_create_collection(
+    name=collection_name,
+    embedding_function=openai_ef
+)</p>
+<h1 id="function-to-load-documents-from-directory">Function to load documents from directory</h1>
+<p>def load_documents_from_directory(directory_path):
+    documents = []
+    print(f"Loading documents from: {directory_path}")
+    for filename in os.listdir(directory_path):
+        if filename.endswith(".txt"):
+            filepath = os.path.join(directory_path, filename)
+            with open(filepath, "r", encoding="utf-8") as f:
+                documents.append(f.read())
+    return documents</p>
+<h1 id="function-to-split-text-into-chunks">Function to split text into chunks</h1>
+<p>def split_text(text, chunk_size=1000, chunk_overlap=20):
+    chunks = []
+    start = 0
+    while start &lt; len(text):
+        end = min(start + chunk_size, len(text))
+        chunk = text[start:end]
+        chunks.append(chunk)
+        start += chunk_size - chunk_overlap
+    return chunks</p>
+<h1 id="function-to-generate-openai-embeddings">Function to generate OpenAI embeddings</h1>
+<p>def get_openai_embeddings(text_chunks):
+    embeddings = []
+    for chunk in text_chunks:
+        response = openai_client.embeddings.create(
+            input=chunk,
+            model="text-embedding-3-small"
+        )
+        embeddings.append(response.data[0].embedding)
+    return embeddings</p>
+<h1 id="function-to-query-documents">Function to query documents</h1>
+<p>def query_documents(query_text, num_results=5):
+    results = chroma_collection.query(
+        query_texts=[query_text],
+        n_results=num_results
+    )
+    relevant_chunks = results['documents'][0]
+    return relevant_chunks</p>
+<h1 id="function-to-generate-response-using-openai-chat-api">Function to generate response using OpenAI Chat API</h1>
+<p>def generate_response(query_text, relevant_chunks):
+    context = "\n".join(relevant_chunks)
+    prompt = f"""You are a helpful assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say "I don't know."
+    Context:
+    {context}
+    Question: {query_text}
+    Answer:"""</p>
+<pre><code>response = openai_client.chat.completions.create(
+    model="gpt-3.5-turbo", # Or another chat model
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": prompt}
+    ],
+    max_tokens=200  # Adjust as needed
+)
+return response.choices[0].message.content
+</code></pre>
+<h1 id="_1"></h1>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

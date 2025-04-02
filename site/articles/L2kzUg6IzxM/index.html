@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>React Router v6.4: Revolutionizing Data Handling in React Applications - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#react-router-v64-revolutionizing-data-handling-in-react-applications">React Router v6.4: Revolutionizing Data Handling in React Applications</a></li>
+        <li><a href="#introduction-to-react-router-v64">Introduction to React Router v6.4</a></li><li><a href="#simplifying-data-fetching-with-loaders">Simplifying Data Fetching with Loaders</a></li><li><a href="#handling-errors-during-data-loading">Handling Errors During Data Loading</a></li><li><a href="#simplifying-data-submission-with-actions">Simplifying Data Submission with Actions</a></li><li><a href="#deferred-data-loading-with-defer-and-await">Deferred Data Loading with defer and Await</a></li><li><a href="#background-data-mutations-with-usefetcher">Background Data Mutations with useFetcher</a></li><li><a href="#conclusion-embracing-the-power-of-react-router-v64">Conclusion: Embracing the Power of React Router v6.4</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="react-router-v64-revolutionizing-data-handling-in-react-applications">React Router v6.4: Revolutionizing Data Handling in React Applications</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/L2kzUg6IzxM" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-react-router-v64">Introduction to React Router v6.4</h2>
+<p>React Router, a cornerstone library for navigation in React applications, has released version 6.4. While seemingly a minor version update, v6.4 introduces significant new features designed to fundamentally simplify data fetching and submission within React applications. This chapter will explore these groundbreaking additions, demonstrating how they can streamline your development process and enhance the efficiency of your React apps.</p>
+<p>This update offers powerful tools to manage data loading and form submissions more declaratively, reducing boilerplate code and improving the user experience.  It's important to note that adopting these new features is entirely optional. You can continue to use the familiar syntax of React Router v6 or even older versions. However, the benefits offered by v6.4 are compelling and well worth considering for your next React projects.</p>
+<p>To illustrate these new features, we will examine practical examples based on a demo React application. This application, built using a modern build tool, showcases common React patterns and scenarios.</p>
+<blockquote>
+<p><strong>Vite:</strong> A build tool that aims to provide a faster and leaner development experience for modern web projects. It is often used as an alternative to Create React App.</p>
+</blockquote>
+<h2 id="simplifying-data-fetching-with-loaders">Simplifying Data Fetching with Loaders</h2>
+<p>Traditionally, data fetching in React components often involves using the <code>useEffect</code> hook. This typically requires managing loading states, error states, and manually initiating requests within component lifecycle methods.</p>
+<h3 id="the-traditional-approach-to-data-fetching-pre-v64">The Traditional Approach to Data Fetching (Pre-v6.4)</h3>
+<p>Before React Router v6.4, a typical approach to fetching data within a route component might look like this:</p>
+<ul>
+<li>Utilizing the <code>useEffect</code> hook to trigger data fetching when the component mounts.</li>
+<li>Managing state variables to track loading status, fetched data, and potential errors.</li>
+<li>Implementing conditional rendering based on the loading and error states to display appropriate UI elements.</li>
+<li>Writing boilerplate code for handling HTTP requests using the <code>fetch</code> API or other HTTP client libraries.</li>
+</ul>
+<blockquote>
+<p><strong>useEffect:</strong> A React Hook that lets you perform side effects in functional components. It is commonly used for data fetching, setting up subscriptions, and manually changing the DOM.</p>
+<p><strong>fetch API:</strong> A modern JavaScript interface for making network requests. It provides a powerful and flexible way to interact with servers to retrieve or send data.</p>
+</blockquote>
+<p>This method, while functional, can lead to verbose and repetitive code, especially in larger applications with numerous data dependencies. Furthermore, data fetching only begins after the component has rendered, potentially leading to a delayed display of content and a less optimal user experience.</p>
+<h3 id="introducing-loaders-in-react-router-v64">Introducing Loaders in React Router v6.4</h3>
+<p>React Router v6.4 introduces a more declarative and efficient approach to data fetching through the concept of <strong>loaders</strong>. Loaders are functions associated with routes that are executed <em>before</em> the route component renders. They are responsible for fetching the necessary data for that route.</p>
+<p>Here's how loaders revolutionize data fetching:</p>
+<ul>
+<li><strong>Declarative Data Fetching:</strong>  Data fetching logic is moved out of the component and into a dedicated <code>loader</code> function, making components cleaner and focused on presentation.</li>
+<li><strong>Early Data Fetching:</strong> Loaders execute <em>before</em> the component renders, ensuring data is available as soon as the component mounts, leading to faster initial render times.</li>
+<li><strong>Automatic State Management:</strong> React Router automatically handles the loading state and makes the fetched data readily available to the component, eliminating the need for manual state management.</li>
+</ul>
+<h3 id="implementing-loaders">Implementing Loaders</h3>
+<p>To utilize loaders, you need to define a function, conventionally named <code>loader</code> (though the name is customizable), within your route component file. This function should:</p>
+<ol>
+<li>Return the data required by the component. This can be a simple value, an object, an array, or, most commonly, a Promise that resolves with the data.</li>
+<li>Be exported from the component file.</li>
+</ol>
+<pre><code class="language-javascript">// BlogPostsPage.jsx
+import { getPosts } from './api';
+
+export const blogPostsLoader = async () =&gt; {
+  const posts = await getPosts();
+  return posts;
+};
+
+const BlogPostsPage = () =&gt; {
+  // ... component logic, data access using useLoaderData hook ...
+};
+
+export default BlogPostsPage;
+</code></pre>
+<h3 id="registering-loaders-in-route-definitions">Registering Loaders in Route Definitions</h3>
+<p>Once you've defined your <code>loader</code> function, you need to register it with the corresponding route in your route configuration. This is done using the new <code>loader</code> prop within your route definitions.</p>
+<pre><code class="language-javascript">// App.jsx
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from 'react-router-dom';
+import RootLayout from './pages/RootLayout';
+import BlogPostsPage, { blogPostsLoader } from './pages/BlogPostsPage';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    &lt;Route path=&quot;/&quot; element={&lt;RootLayout /&gt;}&gt;
+      &lt;Route index element={&lt;HomePage /&gt;} /&gt;
+      &lt;Route path=&quot;blog&quot; element={&lt;BlogPostsPage /&gt;} loader={blogPostsLoader} /&gt;
+      {/* ... other routes */}
+    &lt;/Route&gt;
+  )
+);
+
+function App() {
+  return &lt;RouterProvider router={router} /&gt;;
+}
+
+export default App;
+</code></pre>
+<h3 id="accessing-loader-data-with-useloaderdata">Accessing Loader Data with <code>useLoaderData</code></h3>
+<p>Inside your route component, you can access the data fetched by the <code>loader</code> function using the <code>useLoaderData</code> hook, provided by <code>react-router-dom</code>. This hook returns the data returned by the registered loader.</p>
+<pre><code class="language-javascript">// BlogPostsPage.jsx
+import { useLoaderData } from 'react-router-dom';
+
+const BlogPostsPage = () =&gt; {
+  const posts = useLoaderData(); // Access data fetched by blogPostsLoader
+
+  return (
+    // ... render posts ...
+  );
+};
+</code></pre>
+<h3 id="transitioning-to-routerprovider-and-createbrowserrouter">Transitioning to <code>RouterProvider</code> and <code>createBrowserRouter</code></h3>
+<p>To leverage loaders and other new features in React Router v6.4, you need to update your routing setup. Instead of using <code>&lt;BrowserRouter&gt;</code>, you must use <code>&lt;RouterProvider&gt;</code> and define your routes using <code>createBrowserRouter</code> or <code>createRoutesFromElements</code>.</p>
+<blockquote>
+<p><strong>BrowserRouter:</strong> A React Router component that uses the HTML5 history API to keep your UI in sync with the URL. It is the most common router for browser-based applications.</p>
+<p><strong>RouterProvider:</strong> A React Router component introduced in v6.4 that is required when using data routers created with <code>createBrowserRouter</code> or <code>createHashRouter</code>. It provides the router instance to the application.</p>
+</blockquote>
+<p><code>createBrowserRouter</code> and <code>createRoutesFromElements</code> provide functions to define your route configuration in a more structured and data-driven way, enabling the use of loaders, actions, and other v6.4 features.</p>
+<h3 id="nested-routes-index-routes-and-the-outlet-component">Nested Routes, Index Routes, and the <code>Outlet</code> Component</h3>
+<p>React Router v6 introduced the concepts of nested routes and index routes, which are further enhanced in v6.4.</p>
+<ul>
+<li><strong>Nested Routes:</strong> Routes can be nested within each other to represent hierarchical UI structures. A parent route can render a layout that wraps its child routes.</li>
+<li><strong>Index Routes:</strong>  An index route is the default child route rendered when its parent route's path is matched exactly.</li>
+</ul>
+<p>To support nested routes, the parent route component should use the <code>&lt;Outlet&gt;</code> component.</p>
+<blockquote>
+<p><strong>Outlet:</strong> A React Router component used in parent route components to render the content of its matched child route. It acts as a placeholder for nested route components.</p>
+</blockquote>
+<pre><code class="language-javascript">// RootLayout.jsx
+import { Outlet } from 'react-router-dom';
+import MainNavigation from '../components/MainNavigation';
+
+const RootLayout = () =&gt; {
+  return (
+    &lt;&gt;
+      &lt;MainNavigation /&gt;
+      &lt;main&gt;
+        &lt;Outlet /&gt; {/* Child routes will be rendered here */}
+      &lt;/main&gt;
+    &lt;/&gt;
+  );
+};
+
+export default RootLayout;
+</code></pre>
+<p>By switching to <code>RouterProvider</code>, <code>createBrowserRouter</code>, and utilizing loaders, you can significantly simplify data fetching logic, improve performance, and create cleaner, more maintainable React components.</p>
+<h2 id="handling-errors-during-data-loading">Handling Errors During Data Loading</h2>
+<p>React Router v6.4 provides a declarative way to handle errors that occur during data loading through the <code>errorElement</code> prop on route definitions.</p>
+<h3 id="the-errorelement-prop">The <code>errorElement</code> Prop</h3>
+<p>Similar to the <code>element</code> prop, which specifies the component to render for a successful route match, the <code>errorElement</code> prop defines a component or JSX to render if an error occurs during the execution of a route's loader.</p>
+<pre><code class="language-javascript">// App.jsx
+&lt;Route path=&quot;blog&quot; element={&lt;BlogPostsPage /&gt;} loader={blogPostsLoader} errorElement={&lt;ErrorPage /&gt;} /&gt;
+</code></pre>
+<p>If a loader function throws an error, React Router will automatically catch it and render the <code>errorElement</code> associated with the route. Error elements can be defined at any level of the route hierarchy. If an error occurs in a nested route, React Router will traverse up the route tree until it finds the nearest <code>errorElement</code> and render it.</p>
+<h3 id="accessing-error-information-with-userouteerror">Accessing Error Information with <code>useRouteError</code></h3>
+<p>Within your <code>errorElement</code> component, you can access details about the error that occurred using the <code>useRouteError</code> hook. This hook returns the error object that was thrown by the loader.</p>
+<pre><code class="language-javascript">// ErrorPage.jsx
+import { useRouteError } from 'react-router-dom';
+
+const ErrorPage = () =&gt; {
+  const error = useRouteError();
+  console.error(error); // Log the error for debugging
+
+  let errorMessage = &quot;An unexpected error occurred!&quot;;
+  if (error.message) {
+    errorMessage = error.message; // Display error message if available
+  }
+
+  return (
+    &lt;&gt;
+      &lt;MainNavigation /&gt;
+      &lt;main&gt;
+        &lt;h1&gt;An Error Occurred!&lt;/h1&gt;
+        &lt;p&gt;{errorMessage}&lt;/p&gt;
+      &lt;/main&gt;
+    &lt;/&gt;
+  );
+};
+
+export default ErrorPage;
+</code></pre>
+<p>By utilizing <code>errorElement</code> and <code>useRouteError</code>, you can implement robust and user-friendly error handling for data fetching in your React Router applications, without cluttering your components with manual error state management.</p>
+<h2 id="simplifying-data-submission-with-actions">Simplifying Data Submission with Actions</h2>
+<p>React Router v6.4 also introduces significant improvements for handling form submissions through the concept of <strong>actions</strong>. Actions are functions associated with routes that are executed when a form is submitted to that route.</p>
+<h3 id="the-traditional-approach-to-form-submission-pre-v64">The Traditional Approach to Form Submission (Pre-v6.4)</h3>
+<p>Before v6.4, handling form submissions typically involved:</p>
+<ul>
+<li>Preventing default form submission behavior using <code>event.preventDefault()</code>.</li>
+<li>Manually extracting form data using <code>refs</code> or state management.</li>
+<li>Managing submission states (e.g., <code>isSubmitting</code>, <code>error</code>).</li>
+<li>Sending HTTP requests using <code>fetch</code> or other HTTP client libraries.</li>
+<li>Handling success and error responses, potentially navigating the user or displaying error messages.</li>
+</ul>
+<p>This approach, similar to traditional data fetching, requires significant boilerplate code and manual state management within components.</p>
+<h3 id="introducing-actions-in-react-router-v64">Introducing Actions in React Router v6.4</h3>
+<p>Actions in React Router v6.4 provide a more streamlined and declarative way to handle form submissions.</p>
+<ul>
+<li><strong>Declarative Form Handling:</strong>  Form submission logic is moved out of the component and into dedicated <code>action</code> functions.</li>
+<li><strong>Automatic Request Handling:</strong> React Router automatically creates a request object containing form data and passes it to the <code>action</code> function.</li>
+<li><strong>Simplified Submission Flow:</strong> Actions simplify the submission process by handling request creation, data extraction, and response handling in a centralized manner.</li>
+</ul>
+<h3 id="implementing-actions">Implementing Actions</h3>
+<p>To use actions, you define a function, conventionally named <code>action</code>, within your route component file. This function should:</p>
+<ol>
+<li>Process the form submission. This typically involves sending data to a backend API.</li>
+<li>Optionally return data. This could be used for validation errors or other feedback.</li>
+<li>Optionally throw an error to trigger the <code>errorElement</code>.</li>
+<li>Optionally return a <code>redirect</code> to navigate the user after successful submission.</li>
+</ol>
+<pre><code class="language-javascript">// NewPost.jsx
+import { savePost } from './api';
+import { redirect } from 'react-router-dom';
+
+export const newPostAction = async ({ request }) =&gt; {
+  const formData = await request.formData();
+  const post = {
+    title: formData.get('title'),
+    body: formData.get('post-text'),
+  };
+
+  try {
+    await savePost(post);
+    return redirect('/blog'); // Redirect on success
+  } catch (error) {
+    if (error.status === 422) {
+      return error; // Return validation error
+    }
+    throw error; // Re-throw other errors for errorElement
+  }
+};
+
+const NewPost = () =&gt; {
+  // ... component logic, form using &lt;Form&gt; component ...
+};
+
+export default NewPost;
+</code></pre>
+<h3 id="registering-actions-in-route-definitions">Registering Actions in Route Definitions</h3>
+<p>Similar to loaders, you register actions with routes using the <code>action</code> prop in your route definitions.</p>
+<pre><code class="language-javascript">// App.jsx
+&lt;Route path=&quot;blog/new&quot; element={&lt;NewPost /&gt;} action={newPostAction} /&gt;
+</code></pre>
+<h3 id="using-the-form-component">Using the <code>&lt;Form&gt;</code> Component</h3>
+<p>To trigger an action, you must use the <code>&lt;Form&gt;</code> component provided by <code>react-router-dom</code> instead of the standard HTML <code>&lt;form&gt;</code> element. The <code>&lt;Form&gt;</code> component integrates with React Router's action mechanism.</p>
+<pre><code class="language-javascript">// NewPostForm.jsx
+import { Form } from 'react-router-dom';
+
+const NewPostForm = () =&gt; {
+  return (
+    &lt;Form method=&quot;post&quot; action=&quot;/blog/new&quot;&gt; {/* Target route with action */}
+      {/* Form fields with 'name' attributes */}
+      &lt;p&gt;
+        &lt;label htmlFor=&quot;title&quot;&gt;Title&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;title&quot; name=&quot;title&quot; required /&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;label htmlFor=&quot;post-text&quot;&gt;Text&lt;/label&gt;
+        &lt;textarea id=&quot;post-text&quot; name=&quot;post-text&quot; required rows={5} /&gt;
+      &lt;/p&gt;
+      &lt;button type=&quot;submit&quot;&gt;Save&lt;/button&gt;
+    &lt;/Form&gt;
+  );
+};
+</code></pre>
+<p>Key points about the <code>&lt;Form&gt;</code> component:</p>
+<ul>
+<li><strong><code>method</code> Prop:</strong> Specifies the HTTP method for the form submission (e.g., "post", "get", "put", "patch", "delete").</li>
+<li><strong><code>action</code> Prop:</strong> Specifies the route path to which the form data should be submitted. This should match the path of the route with the registered <code>action</code> function.</li>
+<li><strong><code>name</code> Attributes:</strong>  Ensure your form input fields have <code>name</code> attributes. These names are used to access form data in the <code>action</code> function using <code>formData.get('name')</code>.</li>
+</ul>
+<h3 id="accessing-form-data-in-actions">Accessing Form Data in Actions</h3>
+<p>Within the <code>action</code> function, you receive an object as an argument. This object contains a <code>request</code> property. The <code>request</code> object is a standard <code>Request</code> object (part of the Fetch API) and provides access to the submitted form data.</p>
+<p>You can extract form data using <code>request.formData()</code>, which returns a Promise that resolves to a <code>FormData</code> object. The <code>FormData</code> object allows you to access individual form field values using the <code>get('name')</code> method, where 'name' corresponds to the <code>name</code> attribute of the form input field.</p>
+<h3 id="redirecting-after-successful-submission">Redirecting after Successful Submission</h3>
+<p>After successfully processing a form submission in an action (e.g., saving data to a database), you can redirect the user to a different page using the <code>redirect</code> function from <code>react-router-dom</code>.</p>
+<pre><code class="language-javascript">import { redirect } from 'react-router-dom';
+
+// ... inside action function ...
+return redirect('/blog'); // Redirect to /blog route
+</code></pre>
+<p>The <code>redirect</code> function returns a special response object that instructs React Router to perform a client-side navigation to the specified path.</p>
+<h3 id="handling-validation-errors-and-useactiondata">Handling Validation Errors and <code>useActionData</code></h3>
+<p>In cases of form validation errors or other scenarios where you want to provide feedback to the user without redirecting to an error page, you can return data from your <code>action</code> function instead of throwing an error or redirecting.</p>
+<p>This returned data can then be accessed in your component using the <code>useActionData</code> hook.</p>
+<pre><code class="language-javascript">// NewPost.jsx - action function
+export const newPostAction = async ({ request }) =&gt; {
+  // ... validation logic ...
+  if (validationFails) {
+    return { errors: validationErrors }; // Return validation errors
+  }
+  // ...
+};
+
+// NewPostForm.jsx - component
+import { useActionData } from 'react-router-dom';
+
+const NewPostForm = () =&gt; {
+  const actionData = useActionData(); // Access data returned by action
+
+  return (
+    &lt;Form method=&quot;post&quot; action=&quot;/blog/new&quot;&gt;
+      {actionData?.errors &amp;&amp; ( // Display validation errors if present
+        &lt;ul&gt;
+          {Object.values(actionData.errors).map((error, index) =&gt; (
+            &lt;li key={index}&gt;{error}&lt;/li&gt;
+          ))}
+        &lt;/ul&gt;
+      )}
+      {/* ... form fields ... */}
+    &lt;/Form&gt;
+  );
+};
+</code></pre>
+<h3 id="managing-submission-state-with-usenavigation">Managing Submission State with <code>useNavigation</code></h3>
+<p>To provide visual feedback to the user during form submission (e.g., disabling buttons, showing a loading spinner), you can use the <code>useNavigation</code> hook.</p>
+<blockquote>
+<p><strong>useNavigation:</strong> A React Router hook that provides information about the current navigation state, including whether a navigation is in progress (loading or submitting).</p>
+</blockquote>
+<p>The <code>useNavigation</code> hook returns a navigation object that has a <code>state</code> property. The <code>state</code> property can have three possible values:</p>
+<ul>
+<li><code>idle</code>: No navigation is in progress.</li>
+<li><code>loading</code>: A loader is currently running.</li>
+<li><code>submitting</code>: An action is currently running.</li>
+</ul>
+<pre><code class="language-javascript">// NewPostForm.jsx
+import { useNavigation } from 'react-router-dom';
+
+const NewPostForm = () =&gt; {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
+
+  return (
+    &lt;Form method=&quot;post&quot; action=&quot;/blog/new&quot;&gt;
+      {/* ... form fields ... */}
+      &lt;button type=&quot;submit&quot; disabled={isSubmitting}&gt;
+        {isSubmitting ? 'Submitting...' : 'Save'}
+      &lt;/button&gt;
+    &lt;/Form&gt;
+  );
+};
+</code></pre>
+<p>By leveraging actions, the <code>&lt;Form&gt;</code> component, and related hooks like <code>useActionData</code> and <code>useNavigation</code>, React Router v6.4 dramatically simplifies form submission handling, reduces component complexity, and enhances the user experience.</p>
+<h2 id="deferred-data-loading-with-defer-and-await">Deferred Data Loading with <code>defer</code> and <code>Await</code></h2>
+<p>React Router v6.4 introduces the concept of deferred data loading to improve perceived performance, especially when dealing with slow data sources.</p>
+<h3 id="the-problem-of-blocking-data-fetching">The Problem of Blocking Data Fetching</h3>
+<p>In standard loader implementations, React Router waits for all loaders associated with a route to complete before rendering the route component. While ensuring data availability, this can lead to a noticeable delay if some data sources are slow, blocking the initial page rendering.</p>
+<h3 id="introducing-defer">Introducing <code>defer</code></h3>
+<p>The <code>defer</code> function allows you to defer the resolution of certain data promises returned by your loader. This enables React Router to render the route component <em>before</em> all data is fully loaded, improving the perceived loading speed.</p>
+<pre><code class="language-javascript">// DeferredBlogPost.jsx
+import { defer } from 'react-router-dom';
+import { getSlowPosts } from './api';
+
+export const deferredBlogPostsLoader = () =&gt; {
+  return defer({
+    posts: getSlowPosts(), // Defer loading of posts data
+  });
+};
+</code></pre>
+<p>The <code>defer</code> function takes an object as an argument, where each key-value pair represents a piece of data to be deferred. The value should be a Promise that eventually resolves with the data.</p>
+<h3 id="using-the-await-component-and-suspense">Using the <code>&lt;Await&gt;</code> Component and <code>Suspense</code></h3>
+<p>To handle deferred data in your component, you use the <code>&lt;Await&gt;</code> component within a <code>&lt;Suspense&gt;</code> boundary.</p>
+<blockquote>
+<p><strong>Suspense:</strong> A React component that lets you "suspend" rendering until its children components are ready to be displayed. It is often used for code splitting and data fetching scenarios.</p>
+<p><strong>Await:</strong> A React Router component used within a <code>Suspense</code> boundary to wait for a deferred data promise to resolve. It displays a fallback UI while waiting.</p>
+</blockquote>
+<pre><code class="language-javascript">// DeferredBlogPost.jsx
+import { useLoaderData, Await } from 'react-router-dom';
+import { Suspense } from 'react';
+import Posts from '../components/Posts';
+
+const DeferredBlogPost = () =&gt; {
+  const loaderData = useLoaderData();
+
+  return (
+    &lt;Suspense fallback={&lt;p&gt;Loading posts...&lt;/p&gt;}&gt;
+      &lt;Await resolve={loaderData.posts} errorElement={&lt;p&gt;Error loading blog posts!&lt;/p&gt;}&gt;
+        {(loadedPosts) =&gt; &lt;Posts blogPosts={loadedPosts} /&gt;}
+      &lt;/Await&gt;
+    &lt;/Suspense&gt;
+  );
+};
+</code></pre>
+<ul>
+<li><strong><code>&lt;Suspense fallback&gt;</code>:</strong>  Defines the fallback UI to display while waiting for the deferred data to load.</li>
+<li><strong><code>&lt;Await resolve&gt;</code>:</strong>  Takes a <code>resolve</code> prop, which should be a pointer to the deferred promise (e.g., <code>loaderData.posts</code>).</li>
+<li><strong><code>&lt;Await errorElement&gt;</code>:</strong>  Optional prop to specify an error UI to display if the deferred promise rejects.</li>
+<li><strong>Render Props within <code>&lt;Await&gt;</code>:</strong> The <code>&lt;Await&gt;</code> component uses render props. The child of <code>&lt;Await&gt;</code> should be a function that receives the resolved data as an argument. This function is executed and its return value is rendered <em>after</em> the promise resolves.</li>
+</ul>
+<blockquote>
+<p><strong>Render Props:</strong> A technique in React where a component with a <code>render</code> prop takes a function that returns a React element and calls it instead of implementing its own rendering logic. This allows for more flexible and reusable component behavior.</p>
+</blockquote>
+<h3 id="controlling-data-loading-with-await-in-loaders">Controlling Data Loading with <code>await</code> in Loaders</h3>
+<p>Within your loader function, you can mix deferred data with immediately resolved data by using <code>await</code> for certain promises and <code>defer</code> for others.</p>
+<pre><code class="language-javascript">// MixedDataLoader.jsx
+export const mixedDataLoader = () =&gt; {
+  return defer({
+    criticalData: getCriticalData(), // Load critical data immediately
+    nonCriticalData: defer(getNonCriticalData()), // Defer loading non-critical data
+  });
+};
+</code></pre>
+<p>By using <code>await</code> before a promise within the <code>defer</code> object, you instruct React Router to wait for that promise to resolve <em>before</em> initially rendering the component. Promises wrapped in <code>defer</code> are loaded asynchronously and do not block the initial render.</p>
+<p>Deferred data loading with <code>defer</code> and <code>&lt;Await&gt;</code> provides a powerful mechanism to optimize the loading experience in React Router applications, especially when dealing with varying data source speeds.</p>
+<h2 id="background-data-mutations-with-usefetcher">Background Data Mutations with <code>useFetcher</code></h2>
+<p>React Router v6.4 introduces the <code>useFetcher</code> hook, which allows you to trigger data mutations (like form submissions) or data reloads <em>without</em> causing a full page navigation.</p>
+<h3 id="the-usefetcher-hook">The <code>useFetcher</code> Hook</h3>
+<p>The <code>useFetcher</code> hook provides a way to interact with actions and loaders in the background, without changing the current route. This is particularly useful for scenarios like:</p>
+<ul>
+<li>Submitting forms without page transitions (e.g., newsletter signup forms, inline editing).</li>
+<li>Prefetching data for a route that the user is likely to navigate to.</li>
+<li>Implementing optimistic updates.</li>
+</ul>
+<pre><code class="language-javascript">// NewsletterSignup.jsx
+import { useFetcher } from 'react-router-dom';
+
+const NewsletterSignup = () =&gt; {
+  const fetcher = useFetcher();
+
+  return (
+    &lt;fetcher.Form method=&quot;post&quot; action=&quot;/newsletter&quot;&gt; {/* Target newsletter action */}
+      &lt;input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Your Email&quot; required /&gt;
+      &lt;button type=&quot;submit&quot; disabled={fetcher.state !== 'idle'}&gt;
+        {fetcher.state === 'submitting' ? 'Signing Up...' : 'Sign Up'}
+      &lt;/button&gt;
+    &lt;/fetcher.Form&gt;
+  );
+};
+</code></pre>
+<h3 id="fetcherform-component"><code>fetcher.Form</code> Component</h3>
+<p>The <code>useFetcher</code> hook provides a <code>fetcher.Form</code> component, which is similar to the regular <code>&lt;Form&gt;</code> component but does <em>not</em> trigger a page navigation when submitted. Instead, it submits the form data in the background to the specified action.</p>
+<h3 id="state-management-with-usefetcher">State Management with <code>useFetcher</code></h3>
+<p>The <code>fetcher</code> object returned by <code>useFetcher</code> also has a <code>state</code> property, similar to the <code>navigation</code> object from <code>useNavigation</code>. This state allows you to track the status of the background request (e.g., <code>idle</code>, <code>loading</code>, <code>submitting</code>) and update your UI accordingly.</p>
+<h3 id="use-cases-for-usefetcher">Use Cases for <code>useFetcher</code></h3>
+<ul>
+<li><strong>In-Page Forms:</strong> For forms that should not cause a page reload, such as signup forms embedded within a page or inline editing forms.</li>
+<li><strong>Prefetching:</strong> You can use <code>fetcher.load('/some/route')</code> to prefetch data for a route in the background, improving navigation speed when the user eventually navigates to that route.</li>
+</ul>
+<p>By using <code>useFetcher</code>, you can create more interactive and dynamic React applications with background data mutations and updates, without disrupting the user's navigation flow.</p>
+<h2 id="conclusion-embracing-the-power-of-react-router-v64">Conclusion: Embracing the Power of React Router v6.4</h2>
+<p>React Router v6.4 introduces a paradigm shift in how data fetching and submission are handled in React applications. By embracing loaders and actions, you can create cleaner, more performant, and more maintainable code.</p>
+<p>These new features, particularly loaders, actions, <code>defer</code>, <code>Await</code>, and <code>useFetcher</code>, offer a more declarative and efficient approach to data management, reducing boilerplate code and improving the overall development experience.</p>
+<p>The design principles behind React Router v6.4 share similarities with Remix, a full-stack React framework built by the same team. This consistency reflects a unified vision for data handling in React applications, whether front-end only or full-stack.</p>
+<blockquote>
+<p><strong>Remix:</strong> A full-stack web framework built on React Router, designed for fast user experiences and web standards. It allows developers to build both the frontend and backend of web applications using React.</p>
+</blockquote>
+<p>It's crucial to remember that even with these new features, React Router remains a front-end library. Actions and loaders execute within the browser, and while they can interact with backend APIs, the code itself runs client-side.</p>
+<p>To fully explore the capabilities of React Router v6.4 and delve into more advanced use cases, consulting the official React Router documentation is highly recommended. This chapter provides a comprehensive introduction and overview, empowering you to start leveraging these powerful new features in your React projects and build more efficient and user-friendly applications.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

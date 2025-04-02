@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Analyzing Multimodal Data with Large Language Models: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#analyzing-multimodal-data-with-large-language-models-a-comprehensive-guide">Analyzing Multimodal Data with Large Language Models: A Comprehensive Guide</a></li>
+        <li><a href="#introduction">Introduction</a></li><li><a href="#1-the-rise-of-multimodal-large-language-models">1. The Rise of Multimodal Large Language Models</a></li><li><a href="#2-setting-up-your-python-environment-for-llm-interaction">2. Setting Up Your Python Environment for LLM Interaction</a></li><li><a href="#3-text-classification-sentiment-analysis-with-llms">3. Text Classification: Sentiment Analysis with LLMs</a></li><li><a href="#4-image-question-answering-multimodal-analysis">4. Image Question Answering: Multimodal Analysis</a></li><li><a href="#5-audio-transcription-speech-to-text-conversion">5. Audio Transcription: Speech-to-Text Conversion</a></li><li><a href="#6-tabular-data-analysis-natural-language-to-sql-queries">6. Tabular Data Analysis: Natural Language to SQL Queries</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="analyzing-multimodal-data-with-large-language-models-a-comprehensive-guide">Analyzing Multimodal Data with Large Language Models: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/3-4qAkFRpAk" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction">Introduction</h2>
+<p>Welcome to this educational exploration of analyzing multimodal data leveraging the power of cutting-edge Large Language Models (LLMs) and Python. In this chapter, we will delve into the capabilities of models like <strong>GPT-4 Omni</strong>, which are revolutionizing data analysis by processing diverse data types including text, images, and audio. You will learn practical techniques to classify text sentiment, answer questions based on image content, transcribe speech to text, and even build natural language interfaces for querying SQL databases. By the end of this chapter, you will be equipped to start developing your own LLM-powered applications and unlock the transformative potential of LLMs in your data analysis workflows.</p>
+<p>This chapter is based on the teachings of Emanuel Trumer, an Associate Professor at Cornell University with a PhD in Computer Science. His expertise will guide you through the practical applications of these powerful technologies.</p>
+<h2 id="1-the-rise-of-multimodal-large-language-models">1. The Rise of Multimodal Large Language Models</h2>
+<p><strong>Large Language Models (LLMs)</strong> have emerged as a disruptive force in computer science, demonstrating remarkable abilities in areas such as text processing and code generation.</p>
+<blockquote>
+<p><strong>Large Language Models (LLMs):</strong>  Advanced artificial intelligence models trained on vast amounts of text data. They are capable of understanding, generating, and manipulating human language for various tasks.</p>
+</blockquote>
+<p>The latest generation of these models, exemplified by <strong>GPT-4 Omni</strong>, exhibits <strong>multimodal</strong> capabilities.</p>
+<blockquote>
+<p><strong>Multimodal:</strong>  Refers to the ability of a system or model to process and understand multiple types of data input, such as text, images, audio, and video, simultaneously.</p>
+</blockquote>
+<p>This signifies a significant leap forward, as these models can now process not only textual input but also various other data formats like images and sound files. This chapter will guide you through using these LLMs with Python to analyze diverse data types, all through a unified and accessible Python API.</p>
+<h2 id="2-setting-up-your-python-environment-for-llm-interaction">2. Setting Up Your Python Environment for LLM Interaction</h2>
+<p>To begin working with LLMs in Python, specifically focusing on OpenAI models like GPT-4 Omni, we need to set up our development environment. This involves installing the necessary Python library and configuring access to your OpenAI account.</p>
+<h3 id="21-installing-the-openai-python-library">2.1 Installing the OpenAI Python Library</h3>
+<p>The first step is to install the official OpenAI Python library. This library provides the necessary tools to interact with OpenAI's models programmatically. Open your terminal or command prompt and execute the following command using <strong>pip</strong>, the Python package installer:</p>
+<pre><code class="language-bash">pip install openai
+</code></pre>
+<blockquote>
+<p><strong>pip:</strong>  A package installer for Python. It allows you to easily install and manage libraries and dependencies for your Python projects.</p>
+</blockquote>
+<p>This command will download and install the latest version of the <code>openai</code> library. You might see a message indicating that the library is already installed if you have used it before. The transcript mentions version <code>1.2.9</code> as an example, and while minor version differences usually don't cause issues, you can ensure compatibility by specifying a version during installation:</p>
+<pre><code class="language-bash">pip install openai==1.2.9
+</code></pre>
+<h3 id="22-configuring-openai-api-access">2.2 Configuring OpenAI API Access</h3>
+<p>After installing the library, you need to connect it to your OpenAI account to authorize your requests to use their models. This involves obtaining an <strong>API key</strong> and setting it as an <strong>environment variable</strong>.</p>
+<blockquote>
+<p><strong>API Key:</strong>  A unique secret key that authenticates your requests to an Application Programming Interface (API), like the OpenAI API, allowing you to access and use its services.</p>
+<p><strong>Environment Variable:</strong>  A named value that is part of the operating system's environment. It can be accessed by programs running in that environment, allowing for configuration settings to be set outside of the code itself.</p>
+</blockquote>
+<p><strong>Steps to Obtain and Set Your API Key:</strong></p>
+<ol>
+<li><strong>Visit the OpenAI Platform:</strong> Go to <a href="platform.openai.com">platform.openai.com</a> in your web browser.</li>
+<li><strong>Log In or Sign Up:</strong> Log in if you already have an OpenAI account. If not, you will need to create one.</li>
+<li><strong>Navigate to API Keys:</strong> Once logged in, go to your profile page and find the "User API Keys" section (often found under "Profile" or similar).</li>
+<li><strong>Create a New Secret Key:</strong> Click on the "Create new secret key" button. You can provide a name for your key for easy identification.</li>
+<li><strong>Copy Your Secret Key:</strong>  After creation, you will be presented with your secret API key. <strong>Copy this key immediately and store it securely.</strong> You will not be able to see it again.</li>
+</ol>
+<p><strong>Setting the Environment Variable:</strong></p>
+<p>The method for setting environment variables depends on your operating system.</p>
+<ul>
+<li>
+<p><strong>macOS/Linux (Terminal):</strong> Open your terminal and use the <code>export</code> command:</p>
+<p><code>bash
+export OPENAI_API_KEY='your_secret_api_key_here'</code>
+Replace <code>'your_secret_api_key_here'</code> with the actual key you copied.</p>
+</li>
+<li>
+<p><strong>Windows (Command Prompt):</strong> Open your command prompt and use the <code>setx</code> command:</p>
+<p><code>bash
+setx OPENAI_API_KEY "your_secret_api_key_here"</code>
+Replace <code>"your_secret_api_key_here"</code> with your API key. Note that <code>setx</code> changes environment variables permanently for future sessions. You might need to restart your command prompt for the changes to take effect.</p>
+</li>
+<li>
+<p><strong>Windows (PowerShell):</strong>  Use the <code>$env:</code> syntax:</p>
+<p><code>powershell
+$env:OPENAI_API_KEY = "your_secret_api_key_here"</code>
+Replace <code>"your_secret_api_key_here"</code> with your API key. This sets the variable for the current PowerShell session. To make it permanent, you can use <code>setx</code> as in the Command Prompt instructions.</p>
+</li>
+</ul>
+<p>After setting the environment variable, the OpenAI Python library will automatically detect it and use it to authenticate your requests. You no longer need to explicitly pass the API key in your Python code, enhancing security and code cleanliness.</p>
+<p>With the library installed and API key configured, you are now ready to start using OpenAI's LLMs in Python.</p>
+<h2 id="3-text-classification-sentiment-analysis-with-llms">3. Text Classification: Sentiment Analysis with LLMs</h2>
+<p>One of the fundamental applications of LLMs is text classification. A common example is <strong>sentiment classification</strong>, also known as sentiment analysis, where the goal is to determine the emotional tone or sentiment expressed in a piece of text, typically as positive, negative, or neutral.</p>
+<blockquote>
+<p><strong>Sentiment Classification (Sentiment Analysis):</strong>  A natural language processing task that involves determining the emotional tone or subjective opinion expressed in text. It is often categorized into positive, negative, and neutral sentiments.</p>
+</blockquote>
+<p>Let's explore how to implement sentiment classification using GPT-4 Omni and Python.</p>
+<h3 id="31-python-implementation-for-sentiment-classification">3.1 Python Implementation for Sentiment Classification</h3>
+<p>We will create a Python script that takes text input (either directly or from a CSV file) and uses GPT-4 Omni to classify its sentiment as positive or negative.</p>
+<p><strong>3.1.1 Setting up the Python Script</strong></p>
+<p>First, import the necessary libraries: <code>openai</code> to interact with the OpenAI API and <code>argparse</code> to handle command-line arguments. We'll also import <code>pandas</code> later when we process CSV files.</p>
+<pre><code class="language-python">import openai
+import argparse
+import pandas as pd # Import pandas for CSV processing
+</code></pre>
+<p><strong>3.1.2 Creating the OpenAI Client</strong></p>
+<p>Instantiate an OpenAI client object. This object will be used to send requests to the OpenAI API. As we've set the <code>OPENAI_API_KEY</code> as an environment variable, the client will automatically authenticate.</p>
+<pre><code class="language-python">client = openai.OpenAI()
+</code></pre>
+<p><strong>3.1.3 Creating a Prompt Function</strong></p>
+<p>The <strong>prompt</strong> is the instruction you give to the LLM, guiding it to perform the desired task.  For sentiment classification, the prompt should include the text to be classified and clear instructions on what the LLM should do.</p>
+<blockquote>
+<p><strong>Prompt:</strong> In the context of Large Language Models, a prompt is the input text you provide to the model to elicit a specific response or action. It serves as instructions and context for the model.</p>
+</blockquote>
+<p>Let's define a function <code>create_prompt</code> that takes text as input and generates a well-structured prompt:</p>
+<pre><code class="language-python">def create_prompt(text):
+    &quot;&quot;&quot;
+    Creates the input prompt for the language model for sentiment classification.
+
+    Args:
+        text (str): The text to classify.
+
+    Returns:
+        str: The prompt for text classification.
+    &quot;&quot;&quot;
+    instruction = &quot;Determine if the sentiment of the following text is positive or negative.&quot;
+    formatting_instructions = &quot;Answer with either 'positive' or 'negative'.&quot;
+    prompt_text = f&quot;&quot;&quot;
+    Text to classify:
+    {text}
+
+    Instructions:
+    {instruction}
+
+    Format your answer as:
+    {formatting_instructions}
+
+    Sentiment:
+    &quot;&quot;&quot;
+    return prompt_text
+</code></pre>
+<p>This function constructs a prompt that clearly presents the text to be analyzed, instructs the model to determine the sentiment (positive or negative), and specifies the desired output format ("positive" or "negative").</p>
+<p><strong>3.1.4 Calling the Language Model (LLM)</strong></p>
+<p>Now, we create a function <code>call_llm</code> to send the prompt to the GPT-4 Omni model and retrieve its response. We will use the <code>chat.completions.create</code> method, as GPT-4 Omni is a <strong>chat model</strong>.</p>
+<blockquote>
+<p><strong>Chat Models:</strong> Large Language Models designed and optimized for conversational interactions. They typically expect a sequence of messages as input and are designed to generate responses in a dialogue-like format.</p>
+<p><strong>Completions Endpoint:</strong> In the OpenAI API, the completions endpoint is used to generate text completions based on a given prompt. For chat models, it's specifically accessed through <code>chat.completions</code>.</p>
+</blockquote>
+<pre><code class="language-python">def call_llm(prompt):
+    &quot;&quot;&quot;
+    Calls the Large Language Model with the input prompt to get a reply.
+
+    Args:
+        prompt (str): The prompt to send to the language model.
+
+    Returns:
+        str: The answer obtained from the language model.
+    &quot;&quot;&quot;
+    messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}] # Structure prompt as a user message
+    response = client.chat.completions.create(
+        model=&quot;gpt-4-turbo-preview&quot;, # Using GPT-4 Omni (preview model for now)
+        messages=messages
+    )
+    return response.choices[0].message.content # Extract and return the model's answer
+</code></pre>
+<p>Here, we structure the prompt as a single "user" message within a list of messages, which is the expected format for chat models. We specify <code>gpt-4-turbo-preview</code> as the model (referring to GPT-4 Omni at the time of the transcript). The function then extracts and returns the text content of the model's generated message.</p>
+<p><strong>3.1.5 Command Line Argument Parsing and Execution</strong></p>
+<p>To make our script executable from the command line, we use <code>argparse</code> to handle input arguments. In this initial version, we will accept the text to classify directly as a command-line argument.</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser(description=&quot;Classify text sentiment using GPT-4 Omni.&quot;)
+    parser.add_argument(&quot;text&quot;, type=str, help=&quot;The text to classify.&quot;)
+    args = parser.parse_args()
+
+    prompt = create_prompt(args.text)
+    answer = call_llm(prompt)
+    print(f&quot;Sentiment: {answer}&quot;)
+</code></pre>
+<p>This code block ensures that the following code is executed only when the script is run directly (not imported as a module). It sets up an argument parser to accept a text string as input.  It then creates the prompt, calls the LLM, and prints the resulting sentiment classification.</p>
+<p><strong>3.1.6 Running the Script</strong></p>
+<p>Save the code as a Python file (e.g., <code>sentiment_classifier.py</code>).  You can run it from your terminal like this:</p>
+<pre><code class="language-bash">python sentiment_classifier.py &quot;The movie was fantastic!&quot;
+</code></pre>
+<p>The output should be something like:</p>
+<pre><code>Sentiment: positive
+</code></pre>
+<h3 id="32-processing-sentiment-from-a-csv-file">3.2 Processing Sentiment from a CSV File</h3>
+<p>To handle multiple reviews or text entries efficiently, we can modify the script to read text from a CSV file and classify the sentiment for each entry.</p>
+<p><strong>3.2.1 Modifying Argument Parsing</strong></p>
+<p>Instead of taking text directly as an argument, we will now take the path to a CSV file.</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser(description=&quot;Classify text sentiment from a CSV file using GPT-4 Omni.&quot;)
+    parser.add_argument(&quot;csv_path&quot;, type=str, help=&quot;Path to the input CSV file.&quot;) # Changed argument to csv_path
+    args = parser.parse_args()
+    csv_path = args.csv_path # Get the path from arguments
+</code></pre>
+<p><strong>3.2.2 Reading CSV with Pandas</strong></p>
+<p>Use pandas to read the CSV file into a DataFrame. We assume the CSV file has a column named 'text' containing the reviews or text entries.</p>
+<pre><code class="language-python">    df = pd.read_csv(csv_path) # Read CSV into a pandas DataFrame
+</code></pre>
+<p><strong>3.2.3 Applying Sentiment Classification to Each Row</strong></p>
+<p>We will define a <code>classify_text</code> function that encapsulates the prompt creation and LLM call for a single text entry. This function will then be applied to each row of the DataFrame using pandas' <code>apply</code> function.</p>
+<pre><code class="language-python">def classify_text(text):
+    &quot;&quot;&quot;
+    Classifies the sentiment of the input text using GPT-4 Omni.
+
+    Args:
+        text (str): The text to classify.
+
+    Returns:
+        str: The sentiment class ('positive' or 'negative').
+    &quot;&quot;&quot;
+    prompt = create_prompt(text)
+    answer = call_llm(prompt)
+    return answer
+
+    # ... (rest of the script in if __name__ == &quot;__main__&quot;: block)
+
+    df['class'] = df['text'].apply(classify_text) # Apply classify_text to each 'text' entry
+    print(df) # Print the DataFrame with the added 'class' column
+</code></pre>
+<p>We apply the <code>classify_text</code> function to the 'text' column of the DataFrame and store the results in a new column named 'class'. Finally, we print the entire DataFrame, now including the sentiment classifications.</p>
+<p><strong>3.2.4 Running with CSV Input</strong></p>
+<p>Create a CSV file (e.g., <code>reviews.csv</code>) with a 'text' column containing review texts. Run the script, providing the path to the CSV file as a command-line argument:</p>
+<pre><code class="language-bash">python sentiment_classifier.py data/reviews.csv
+</code></pre>
+<p>The output will be the DataFrame printed to the console, with an added 'class' column showing the sentiment classification for each review.</p>
+<h2 id="4-image-question-answering-multimodal-analysis">4. Image Question Answering: Multimodal Analysis</h2>
+<p>GPT-4 Omni's multimodal nature extends beyond text to include images. We can build applications that analyze images and answer questions about their content. Let's create a simple image question answering system.</p>
+<h3 id="41-python-implementation-for-image-question-answering">4.1 Python Implementation for Image Question Answering</h3>
+<p>This script will take an image URL and a question as input and use GPT-4 Omni to answer the question based on the image content.</p>
+<p><strong>4.1.1 Setting up the Python Script</strong></p>
+<p>Import necessary libraries: <code>openai</code> and <code>argparse</code>.</p>
+<pre><code class="language-python">import openai
+import argparse
+</code></pre>
+<p><strong>4.1.2 Creating the OpenAI Client (Same as before)</strong></p>
+<pre><code class="language-python">client = openai.OpenAI()
+</code></pre>
+<p><strong>4.1.3 Creating the <code>analyze_image</code> Function</strong></p>
+<p>This function will take the image URL and the question as input and interact with GPT-4 Omni to get the answer.</p>
+<pre><code class="language-python">def analyze_image(image_url, question):
+    &quot;&quot;&quot;
+    Answers questions about the input image using GPT-4 Omni.
+
+    Args:
+        image_url (str): URL of the image to analyze.
+        question (str): The question to ask about the image.
+
+    Returns:
+        str: The answer to the question.
+    &quot;&quot;&quot;
+    messages = [
+        {
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: [
+                {&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: question}, # Text component: the question
+                {&quot;type&quot;: &quot;image_url&quot;, &quot;image_url&quot;: {&quot;url&quot;: image_url}}, # Image component: URL
+            ],
+        }
+    ]
+
+    response = client.chat.completions.create(
+        model=&quot;gpt-4-turbo-preview&quot;, # GPT-4 Omni model
+        messages=messages,
+        max_tokens=300 # Limit response length if needed
+    )
+    return response.choices[0].message.content
+</code></pre>
+<p>In this function, the <code>messages</code> are structured to include both text and image components within the <code>content</code> list. The text component contains the question, and the image component specifies the <code>image_url</code> and its URL. We again use <code>gpt-4-turbo-preview</code> and the <code>chat.completions.create</code> method.</p>
+<p><strong>4.1.4 Command Line Argument Parsing and Execution</strong></p>
+<p>Set up <code>argparse</code> to accept the image URL and the question as command-line arguments.</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser(description=&quot;Answer questions about images using GPT-4 Omni.&quot;)
+    parser.add_argument(&quot;image_url&quot;, type=str, help=&quot;URL of the image.&quot;)
+    parser.add_argument(&quot;question&quot;, type=str, help=&quot;Question about the image.&quot;)
+    args = parser.parse_args()
+
+    image_url = args.image_url
+    question = args.question
+
+    answer = analyze_image(image_url, question)
+    print(f&quot;Answer: {answer}&quot;)
+</code></pre>
+<p>This section parses the <code>image_url</code> and <code>question</code> from the command line, calls the <code>analyze_image</code> function, and prints the generated answer.</p>
+<p><strong>4.1.5 Running the Image QA Script</strong></p>
+<p>Save the code as <code>image_qa.py</code>. Run it from your terminal, providing an image URL and a question:</p>
+<pre><code class="language-bash">python image_qa.py &quot;URL_OF_AN_APPLE_IMAGE&quot; &quot;What kind of fruit is this?&quot;
+</code></pre>
+<p>Replace <code>"URL_OF_AN_APPLE_IMAGE"</code> with an actual URL of an image. The output will be the LLM's answer to your question about the image.</p>
+<h3 id="42-comparing-two-images">4.2 Comparing Two Images</h3>
+<p>We can extend this to compare two images by providing two image URLs in the prompt.</p>
+<p><strong>4.2.1 Modifying <code>analyze_image</code> for Two Images</strong></p>
+<p>Update the <code>analyze_image</code> function to accept two image URLs.</p>
+<pre><code class="language-python">def analyze_image(image_url1, image_url2, question):
+    &quot;&quot;&quot;
+    Answers questions about two input images using GPT-4 Omni.
+
+    Args:
+        image_url1 (str): URL of the first image.
+        image_url2 (str): URL of the second image.
+        question (str): Question comparing the images.
+
+    Returns:
+        str: The comparative answer.
+    &quot;&quot;&quot;
+    messages = [
+        {
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: [
+                {&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: question},
+                {&quot;type&quot;: &quot;image_url&quot;, &quot;image_url&quot;: {&quot;url&quot;: image_url1}},
+                {&quot;type&quot;: &quot;image_url&quot;, &quot;image_url&quot;: {&quot;url&quot;: image_url2}}, # Added second image
+            ],
+        }
+    ]
+    response = client.chat.completions.create(
+        model=&quot;gpt-4-turbo-preview&quot;,
+        messages=messages,
+        max_tokens=500 # Increased max_tokens for potentially longer comparative answers
+    )
+    return response.choices[0].message.content
+</code></pre>
+<p>We've added a second <code>image_url</code> parameter and included a second image URL component in the <code>messages</code> list. We also increased <code>max_tokens</code> to accommodate potentially longer comparative answers.</p>
+<p><strong>4.2.2 Modifying Command Line Arguments</strong></p>
+<p>Update <code>argparse</code> to accept two image URLs.</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser(description=&quot;Compare two images using GPT-4 Omni.&quot;)
+    parser.add_argument(&quot;image_url1&quot;, type=str, help=&quot;URL of the first image.&quot;)
+    parser.add_argument(&quot;image_url2&quot;, type=str, help=&quot;URL of the second image.&quot;)
+    parser.add_argument(&quot;question&quot;, type=str, help=&quot;Question to compare the images.&quot;)
+    args = parser.parse_args()
+
+    image_url1 = args.image_url1
+    image_url2 = args.image_url2
+    question = args.question
+
+    answer = analyze_image(image_url1, image_url2, question)
+    print(f&quot;Answer: {answer}&quot;)
+</code></pre>
+<p><strong>4.2.3 Running the Image Comparison Script</strong></p>
+<p>Run the script with two image URLs and a comparative question:</p>
+<pre><code class="language-bash">python image_qa.py &quot;URL_OF_APPLES_IMAGE&quot; &quot;URL_OF_ORANGES_IMAGE&quot; &quot;Compare these two images.&quot;
+</code></pre>
+<p>The output will be GPT-4 Omni's comparison of the two images based on your question.</p>
+<h2 id="5-audio-transcription-speech-to-text-conversion">5. Audio Transcription: Speech-to-Text Conversion</h2>
+<p>Another powerful application of LLMs is audio processing, specifically speech-to-text transcription. While GPT-4 Omni's audio capabilities via API might have been limited at the time of the transcript, OpenAI provides the <strong>Whisper model</strong>, specifically designed for audio transcription.</p>
+<blockquote>
+<p><strong>Whisper Model:</strong> An OpenAI-developed neural network model specifically trained for robust and accurate speech-to-text transcription across various languages and audio conditions.</p>
+</blockquote>
+<p>We will use the Whisper model to transcribe audio files in Python.</p>
+<h3 id="51-python-implementation-for-audio-transcription">5.1 Python Implementation for Audio Transcription</h3>
+<p>This script will take the path to an audio file as input and output the transcribed text.</p>
+<p><strong>5.1.1 Setting up the Python Script</strong></p>
+<p>Import <code>openai</code> and <code>argparse</code>.</p>
+<pre><code class="language-python">import openai
+import argparse
+</code></pre>
+<p><strong>5.1.2 Creating the OpenAI Client (Same as before)</strong></p>
+<pre><code class="language-python">client = openai.OpenAI()
+</code></pre>
+<p><strong>5.1.3 Creating the <code>transcribe_audio</code> Function</strong></p>
+<p>This function will take the audio file path, open the file in binary mode, and use the Whisper model to transcribe it.</p>
+<pre><code class="language-python">def transcribe_audio(audio_path):
+    &quot;&quot;&quot;
+    Transcribes an audio file using the OpenAI Whisper model.
+
+    Args:
+        audio_path (str): Path to the audio file.
+
+    Returns:
+        str: The transcribed text.
+    &quot;&quot;&quot;
+    with open(audio_path, &quot;rb&quot;) as audio_file: # Open audio file in binary read mode
+        transcript = client.audio.transcriptions.create(
+            model=&quot;whisper-1&quot;, # Using the Whisper-1 model
+            file=audio_file
+        )
+    return transcript.text
+</code></pre>
+<p>Here, we open the audio file in binary read mode (<code>"rb"</code>) as required by the OpenAI API for audio uploads. We use <code>client.audio.transcriptions.create</code> with <code>model="whisper-1"</code> to specify the Whisper model. The function returns the transcribed text from the <code>transcript</code> object.</p>
+<p><strong>5.1.4 Command Line Argument Parsing and Execution</strong></p>
+<p>Set up <code>argparse</code> to accept the audio file path as a command-line argument.</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser(description=&quot;Transcribe audio files using OpenAI Whisper.&quot;)
+    parser.add_argument(&quot;audio_path&quot;, type=str, help=&quot;Path to the audio file.&quot;)
+    args = parser.parse_args()
+
+    audio_path = args.audio_path
+
+    transcription = transcribe_audio(audio_path)
+    print(f&quot;Transcription: {transcription}&quot;)
+</code></pre>
+<p>This part parses the <code>audio_path</code>, calls <code>transcribe_audio</code>, and prints the resulting transcription.</p>
+<p><strong>5.1.5 Running the Audio Transcription Script</strong></p>
+<p>Save the code as <code>audio_transcriber.py</code>. Run it from your terminal, providing the path to an audio file (e.g., MP3, WAV, etc.):</p>
+<pre><code class="language-bash">python audio_transcriber.py data/audio_example.mp3
+</code></pre>
+<p>Replace <code>data/audio_example.mp3</code> with the actual path to your audio file. The output will be the transcribed text of the audio.</p>
+<h2 id="6-tabular-data-analysis-natural-language-to-sql-queries">6. Tabular Data Analysis: Natural Language to SQL Queries</h2>
+<p>Analyzing tabular data, especially large databases, poses unique challenges for LLMs. Directly feeding large tables to LLMs can be inefficient and costly. A more effective approach is to use LLMs to translate natural language questions into <strong>SQL (Structured Query Language)</strong> queries.</p>
+<blockquote>
+<p><strong>SQL (Structured Query Language):</strong> A standard programming language designed for managing and querying data held in a relational database management system (RDBMS).</p>
+<p><strong>Relational Database Management System (RDBMS):</strong>  A system for managing data that is structured in tables with relationships between them. Examples include MySQL, PostgreSQL, and SQLite.</p>
+</blockquote>
+<p>We will build a system that takes natural language questions about a database and converts them into SQL queries that can be executed against the database.</p>
+<h3 id="61-python-implementation-for-natural-language-to-sql">6.1 Python Implementation for Natural Language to SQL</h3>
+<p>This script will take a database file path and a natural language question as input and output the corresponding SQL query and the query result. We will use <strong>SQLite</strong>, a lightweight and file-based database system.</p>
+<blockquote>
+<p><strong>SQLite:</strong> A self-contained, serverless, zero-configuration, transactional SQL database engine. It is widely used for local/client storage in application software.</p>
+</blockquote>
+<p><strong>6.1.1 Setting up the Python Script</strong></p>
+<p>Import <code>openai</code>, <code>argparse</code>, <code>sqlite3</code>, and <code>re</code> (for regular expressions to extract SQL from LLM output).</p>
+<pre><code class="language-python">import openai
+import argparse
+import sqlite3
+import re # For regular expression processing
+</code></pre>
+<p><strong>6.1.2 Creating the OpenAI Client (Same as before)</strong></p>
+<pre><code class="language-python">client = openai.OpenAI()
+</code></pre>
+<p><strong>6.1.3 Function to Extract Database Structure</strong></p>
+<p>We need to provide the LLM with the database schema (table and column definitions). We create a function <code>extract_structure</code> to automatically extract this from an SQLite database file.</p>
+<pre><code class="language-python">def extract_structure(db_path):
+    &quot;&quot;&quot;
+    Extracts CREATE TABLE statements from an SQLite database file.
+
+    Args:
+        db_path (str): Path to the SQLite database file.
+
+    Returns:
+        str: String containing CREATE TABLE statements.
+    &quot;&quot;&quot;
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute(&quot;SELECT sql FROM sqlite_master WHERE type='table';&quot;) # Query to get CREATE TABLE SQL
+    table_schemas = cursor.fetchall()
+    conn.close()
+    structure_string = &quot;\n&quot;.join([schema[0] for schema in table_schemas if schema[0] is not None]) # Join schemas into a single string
+    return structure_string
+</code></pre>
+<p>This function connects to the SQLite database, queries the <code>sqlite_master</code> table to retrieve the SQL <code>CREATE TABLE</code> statements, and returns them as a single string.</p>
+<p><strong>6.1.4 Creating the Prompt Function for SQL Translation</strong></p>
+<p>We create a <code>create_prompt</code> function that takes the question and the database structure and generates a prompt for SQL translation.</p>
+<pre><code class="language-python">def create_prompt(question, database_structure):
+    &quot;&quot;&quot;
+    Creates a prompt for translating natural language questions to SQL queries.
+
+    Args:
+        question (str): The natural language question.
+        database_structure (str): Database structure description (CREATE TABLE SQL).
+
+    Returns:
+        str: The prompt for SQL translation.
+    &quot;&quot;&quot;
+    parts = [
+        &quot;Database schema:\n&quot; + database_structure, # Database structure description
+        &quot;\nTranslate this question to SQL:\n&quot; + question, # Question to translate
+    ]
+    return &quot;\n&quot;.join(parts) # Combine parts with newlines
+</code></pre>
+<p>The prompt includes the database schema description followed by the question, instructing the LLM to translate the question into SQL, considering the provided schema.</p>
+<p><strong>6.1.5 Function to Call the LLM (Similar to before)</strong></p>
+<pre><code class="language-python">def call_llm(prompt):
+    &quot;&quot;&quot;
+    Calls the Large Language Model with the input prompt to get a reply.
+
+    Args:
+        prompt (str): The prompt to send to the language model.
+
+    Returns:
+        str: The answer obtained from the language model.
+    &quot;&quot;&quot;
+    messages = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}]
+    response = client.chat.completions.create(
+        model=&quot;gpt-4-turbo-preview&quot;,
+        messages=messages,
+        max_tokens=500 # Adjust max_tokens as needed
+    )
+    raw_answer = response.choices[0].message.content
+    # Extract SQL query using regular expressions
+    sql_query_matches = re.findall(r&quot;```sql\s*(.*?)\s*```&quot;, raw_answer, re.DOTALL) # Regex to find SQL code blocks
+    if sql_query_matches:
+        return sql_query_matches[0].strip() # Return the first matched SQL query
+    else:
+        return &quot;No SQL query found in the response.&quot; # Handle case where no SQL is extracted
+
+</code></pre>
+<p>This <code>call_llm</code> function is similar to the previous ones, but now it includes regular expression processing to extract the SQL query from the LLM's response. It searches for code blocks enclosed in <code>sql ...</code> and returns the extracted SQL query.</p>
+<p><strong>6.1.6 Function to Process SQL Query and Get Results</strong></p>
+<p>We create a <code>process_query</code> function to execute the generated SQL query against the database and return the results.</p>
+<pre><code class="language-python">def process_query(db_path, sql_query):
+    &quot;&quot;&quot;
+    Processes the input SQL query on the SQLite database and returns results.
+
+    Args:
+        db_path (str): Path to the SQLite database file.
+        sql_query (str): The SQL query to execute.
+
+    Returns:
+        str: Query results as a string.
+    &quot;&quot;&quot;
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    try:
+        cursor.execute(sql_query) # Execute the SQL query
+        results = cursor.fetchall() # Fetch all results
+        conn.close()
+        return &quot;\n&quot;.join([str(row) for row in results]) # Format results as strings
+    except sqlite3.Error as e:
+        conn.close()
+        return f&quot;Error executing SQL query: {e}&quot; # Handle potential SQL errors
+</code></pre>
+<p>This function connects to the database, executes the provided SQL query, fetches all results, formats them as strings (one row per line), and returns the formatted results. It also includes error handling for potential SQL execution errors.</p>
+<p><strong>6.1.7 Command Line Argument Parsing and Interactive Loop</strong></p>
+<p>Set up <code>argparse</code> to accept the database path and then create an interactive loop for users to ask questions repeatedly.</p>
+<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser(description=&quot;Natural Language to SQL query interface.&quot;)
+    parser.add_argument(&quot;db_path&quot;, type=str, help=&quot;Path to the SQLite database file.&quot;)
+    args = parser.parse_args()
+    db_path = args.db_path
+
+    database_structure = extract_structure(db_path) # Extract database structure once
+
+    while True: # Interactive loop
+        question = input(&quot;Enter your question (or 'quit' to exit): &quot;)
+        if question.lower() == &quot;quit&quot;:
+            break
+
+        prompt = create_prompt(question, database_structure) # Create prompt with question and structure
+        sql_query = call_llm(prompt) # Get SQL query from LLM
+        print(f&quot;Generated SQL Query: {sql_query}&quot;) # Print the generated SQL
+
+        if &quot;No SQL query found&quot; not in sql_query and &quot;Error&quot; not in sql_query: # Check if a valid SQL query was generated
+             query_result = process_query(db_path, sql_query) # Process the query
+             print(f&quot;Query Result:\n{query_result}&quot;) # Print the query result
+</code></pre>
+<p>This section first parses the database path. Then, it enters an infinite loop (<code>while True</code>). Inside the loop, it prompts the user for a question. If the question is "quit", the loop breaks. Otherwise, it creates the prompt, calls the LLM to get the SQL query, prints the generated query, and if a valid SQL query was obtained, it executes the query using <code>process_query</code> and prints the results.</p>
+<p><strong>6.1.8 Running the Natural Language to SQL Script</strong></p>
+<p>Save the code as <code>nl_to_sql.py</code>. Run it from your terminal, providing the path to your SQLite database file:</p>
+<pre><code class="language-bash">python nl_to_sql.py data/games.db
+</code></pre>
+<p>The script will then start prompting you to enter questions. You can ask questions about the data in your database in natural language, and the system will attempt to translate them into SQL, execute the queries, and show you the results. Type "quit" to exit the interactive session.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This chapter has provided a comprehensive guide to analyzing multimodal data using Large Language Models and Python. We have explored practical implementations for:</p>
+<ul>
+<li><strong>Text Classification (Sentiment Analysis):</strong>  Classifying text sentiment as positive or negative using GPT-4 Omni.</li>
+<li><strong>Image Question Answering:</strong>  Answering questions about image content and comparing multiple images with GPT-4 Omni.</li>
+<li><strong>Audio Transcription:</strong>  Converting speech in audio files to text using the OpenAI Whisper model.</li>
+<li><strong>Tabular Data Analysis (Natural Language to SQL):</strong>  Translating natural language questions into SQL queries to analyze tabular data in SQLite databases using GPT-4 Omni.</li>
+</ul>
+<p>These examples demonstrate the versatility and power of LLMs in handling diverse data types. By leveraging Python and the OpenAI API, you can build sophisticated data analysis applications and workflows.</p>
+<p>To further explore this field, consider visiting the instructor's website (as mentioned in the original transcript) for additional resources, tutorials, and code samples related to multimodal data analysis and Large Language Models. This rapidly evolving field offers vast opportunities for innovation and problem-solving across various domains.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

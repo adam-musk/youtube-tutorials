@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Authentication and User Management in Web Applications: A Comprehensive Guide Using Clerk - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#authentication-and-user-management-in-web-applications-a-comprehensive-guide-using-clerk">Authentication and User Management in Web Applications: A Comprehensive Guide Using Clerk</a></li>
+        <li><a href="#introduction-the-necessity-and-challenges-of-authentication">Introduction: The Necessity and Challenges of Authentication</a></li><li><a href="#introducing-clerk-simplifying-authentication-and-user-management">Introducing Clerk: Simplifying Authentication and User Management</a></li><li><a href="#project-demo-a-nextjs-application-with-clerk-authentication">Project Demo: A Next.js Application with Clerk Authentication</a></li><li><a href="#setting-up-a-nextjs-project-with-clerk">Setting up a Next.js Project with Clerk</a></li><li><a href="#creating-ui-components-header-and-navigation">Creating UI Components: Header and Navigation</a></li><li><a href="#protecting-pages-with-middleware">Protecting Pages with Middleware</a></li><li><a href="#creating-sign-in-and-sign-up-pages">Creating Sign-in and Sign-up Pages</a></li><li><a href="#creating-a-protected-dashboard-page">Creating a Protected Dashboard Page</a></li><li><a href="#creating-a-user-profile-page">Creating a User Profile Page</a></li><li><a href="#customizing-themes">Customizing Themes</a></li><li><a href="#creating-a-custom-registration-form">Creating a Custom Registration Form</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="authentication-and-user-management-in-web-applications-a-comprehensive-guide-using-clerk">Authentication and User Management in Web Applications: A Comprehensive Guide Using Clerk</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/RHFmsoiVtKE" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-the-necessity-and-challenges-of-authentication">Introduction: The Necessity and Challenges of Authentication</h2>
+<p>Building web applications today invariably involves tackling the critical aspect of <strong>authentication</strong> and <strong>user management</strong>.  This process, while essential for security and personalization, is often cited as one of the most complex aspects of web development.</p>
+<blockquote>
+<p><strong>Authentication:</strong> The process of verifying the identity of a user or device. It ensures that users are who they claim to be, granting access to resources and functionalities based on their verified identity.</p>
+</blockquote>
+<p>Traditionally, developers have had to implement authentication systems from scratch, often relying on methods like <strong>JSON Web Tokens (JWT)</strong> or <strong>OAuth</strong>.</p>
+<blockquote>
+<p><strong>JSON Web Tokens (JWT):</strong>  A standard for creating access tokens that assert claims. They are commonly used for authentication and authorization in web APIs and applications. JWTs are self-contained and securely transmit information as a JSON object.</p>
+<p><strong>OAuth:</strong> An open standard authorization protocol and framework that allows a user to grant a third-party application limited access to their resources on an HTTP service, without sharing their credentials. It is often used for "Sign in with Google," "Sign in with Facebook," etc.</p>
+</blockquote>
+<p>While these methods offer control and flexibility, they can be time-consuming and require significant expertise to implement securely and effectively.  Furthermore, managing user accounts, profiles, and security features adds another layer of complexity.</p>
+<h2 id="introducing-clerk-simplifying-authentication-and-user-management">Introducing Clerk: Simplifying Authentication and User Management</h2>
+<p>This chapter introduces <strong>Clerk</strong>, a powerful tool designed to streamline and simplify authentication and user management, particularly within <strong>React</strong> projects.</p>
+<blockquote>
+<p><strong>React:</strong> A JavaScript library for building user interfaces or UI components. It allows developers to create reusable UI components and manage the state of these components efficiently, making it popular for building interactive web applications.</p>
+</blockquote>
+<p>Clerk offers a comprehensive suite of features that significantly reduce the development effort associated with authentication, allowing developers to focus on building core application functionalities.  It is compatible with various React-based frameworks, including <strong>Single Page Applications (SPAs)</strong>, <strong>Next.js</strong>, and <strong>Remix</strong>.</p>
+<blockquote>
+<p><strong>Single Page Applications (SPAs):</strong> Web applications that load a single HTML page and dynamically update the page content as the user interacts with the application, without requiring full page reloads. This provides a more fluid and responsive user experience.</p>
+<p><strong>Next.js:</strong> A popular React framework for building server-rendered and statically generated web applications. It provides features like routing, API routes, and optimized performance, making it a robust choice for production-ready applications.</p>
+<p><strong>Remix:</strong> Another full-stack web framework built on React that emphasizes web fundamentals and a focus on user experience. It is known for its data loading and mutation capabilities, aiming for fast and resilient web applications.</p>
+</blockquote>
+<p>This chapter will focus on using Clerk with Next.js to demonstrate its capabilities in a practical project.</p>
+<h3 id="key-features-of-clerk">Key Features of Clerk:</h3>
+<ul>
+<li><strong>Simplified Implementation:</strong> Clerk offers an intuitive and easy-to-integrate solution for adding full authentication to your React projects.</li>
+<li><strong>Comprehensive User Management:</strong> Provides a complete user management system, including user registration, login, profile management, and administrative controls.</li>
+<li><strong>Pre-built UI Components:</strong> Offers ready-to-use UI components for common authentication flows like sign-in and sign-up forms, accelerating development.</li>
+<li><strong>Customization Options:</strong> Allows customization of UI elements and authentication flows for a tailored user experience.</li>
+<li><strong>Multiple Authentication Methods:</strong> Supports a wide range of authentication providers, including email/password, social logins (Google, GitHub, and many more), phone numbers, and usernames.</li>
+<li><strong>Security Features:</strong> Incorporates built-in security features, reducing the burden of implementing security measures from scratch.</li>
+<li><strong>Free Tier Availability:</strong> Offers a free tier, making it accessible for learning and development purposes.</li>
+</ul>
+<h2 id="project-demo-a-nextjs-application-with-clerk-authentication">Project Demo: A Next.js Application with Clerk Authentication</h2>
+<p>Before diving into implementation, let's examine a demo application built with Next.js and Clerk to illustrate the functionalities we will be creating.</p>
+<p>The demo application showcases:</p>
+<ul>
+<li><strong>Sign-in and Sign-up Pages:</strong>  Dedicated pages for user registration and login, seamlessly integrated into the application.</li>
+<li><strong>Social Login Options:</strong>  Integration with providers like GitHub and Google, allowing users to authenticate using their existing accounts.</li>
+<li><strong>Email/Password Registration:</strong>  Standard email and password-based registration flow, including email verification.</li>
+<li><strong>User Profile Page:</strong> A dedicated page for users to manage their account details, connected accounts, and profile information.</li>
+<li><strong>Admin User Management System:</strong>  A backend interface within Clerk's platform for administrators to manage users, authentication settings, and application configurations.</li>
+<li><strong>Customizable UI:</strong> Demonstrates both pre-defined UI components provided by Clerk and the ability to create completely custom UI for authentication flows.</li>
+</ul>
+<h3 id="authentication-flow-demonstration">Authentication Flow Demonstration:</h3>
+<ol>
+<li>
+<p><strong>Sign-up Process:</strong> Users can choose to sign up using various methods:</p>
+<ul>
+<li><strong>Social Logins (GitHub, Google):</strong>  Utilizing pre-built forms from the Clerk package, users can authenticate via their social accounts.</li>
+<li><strong>Email and Password:</strong> Users can register using an email address and password.  Clerk handles email verification by sending a verification code to the provided email.</li>
+<li><strong>Customizable Forms:</strong>  For more control, developers can create custom sign-up forms using Clerk's tools, maintaining the same authentication flow but with a unique UI.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sign-in Process:</strong>  Similar to sign-up, users can sign in using their chosen method. Pre-built forms or custom UI can be employed.</p>
+</li>
+<li>
+<p><strong>User Account Management:</strong> Upon successful login, users gain access to:</p>
+<ul>
+<li><strong>Manage Account Modal:</strong>  A modal provided by Clerk allows users to:<ul>
+<li>Add or change email addresses.</li>
+<li>Connect additional social accounts.</li>
+<li>Delete their account.</li>
+<li>Manage password settings.</li>
+</ul>
+</li>
+<li><strong>Profile Page:</strong>  A dedicated page displaying user profile information, which can be embedded into the application using Clerk's components.</li>
+</ul>
+</li>
+<li>
+<p><strong>Clerk Dashboard (Admin Side):</strong>  Logging into the Clerk platform (clerk.com) provides administrators with:</p>
+<ul>
+<li><strong>User Management Interface:</strong>  A comprehensive system to view and manage registered users.</li>
+<li><strong>User Profiles:</strong> Detailed profiles for each user, including their authentication methods and activities.</li>
+<li><strong>Authentication Settings:</strong> Configuration options for authentication methods, verification processes (email links, SMS), and user data collection (first name, last name).</li>
+<li><strong>Integration Options:</strong> Settings for integrating Clerk with other services and platforms.</li>
+</ul>
+</li>
+</ol>
+<h2 id="setting-up-a-nextjs-project-with-clerk">Setting up a Next.js Project with Clerk</h2>
+<p>Let's now move on to the practical implementation of Clerk authentication within a Next.js project.</p>
+<h3 id="1-creating-a-new-nextjs-project">1. Creating a New Next.js Project</h3>
+<p>Begin by creating a new Next.js project using the <code>create-next-app</code> command. Open your terminal and navigate to your desired project directory. Run the following command:</p>
+<pre><code class="language-bash">npx create-next-app@latest clerk-app
+</code></pre>
+<p>Follow the prompts and choose the default options for a basic Next.js setup. Ensure you select "App Router" as the routing system.</p>
+<h3 id="2-project-setup-and-cleanup">2. Project Setup and Cleanup</h3>
+<p>Once the project is created, navigate into the project directory:</p>
+<pre><code class="language-bash">cd clerk-app
+</code></pre>
+<p>Open the project in your preferred code editor (e.g., VS Code).</p>
+<ul>
+<li>
+<p><strong>Rename Page Extensions (Optional):</strong>  For consistency, you can rename the default <code>page.js</code> and <code>layout.js</code> files in the <code>app</code> directory to <code>page.jsx</code> and <code>layout.jsx</code> respectively. This is a matter of preference and does not affect functionality.</p>
+</li>
+<li>
+<p><strong>Clean up <code>page.jsx</code>:</strong>  Open <code>app/page.jsx</code> and remove the boilerplate code within the <code>return</code> statement. Replace it with a basic structure to display a "Home" heading:</p>
+<p><code>jsx
+export default function Home() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Home&lt;/h1&gt;
+    
+  );
+}</code></p>
+</li>
+<li>
+<p><strong>Clean up <code>globals.css</code>:</strong> Open <code>app/globals.css</code> and remove the default styles, leaving only the Tailwind CSS directives:</p>
+<p><code>css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;</code></p>
+</li>
+</ul>
+<h3 id="3-running-the-development-server">3. Running the Development Server</h3>
+<p>Start the Next.js development server to ensure the basic project is running correctly:</p>
+<pre><code class="language-bash">npm run dev
+</code></pre>
+<p>Open your browser and navigate to <code>http://localhost:3000</code>. You should see a simple page displaying "Home."</p>
+<h3 id="4-installing-the-clerk-package">4. Installing the Clerk Package</h3>
+<p>Open a new terminal in your project directory and install the Clerk Next.js package:</p>
+<pre><code class="language-bash">npm install @clerk/nextjs
+</code></pre>
+<p>This command adds the necessary Clerk library to your project.</p>
+<h3 id="5-setting-up-a-clerk-application-and-obtaining-api-keys">5. Setting up a Clerk Application and Obtaining API Keys</h3>
+<ol>
+<li><strong>Go to Clerk Website:</strong> Navigate to <a href="https://clerk.com">clerk.com</a> and sign up or log in.</li>
+<li><strong>Create a New Application:</strong> Click on "Add application" or a similar button to create a new Clerk application.</li>
+<li><strong>Application Name:</strong> Provide a name for your application (e.g., "Clerk YouTube App").</li>
+<li><strong>Authentication Methods:</strong> Choose the authentication methods you want to enable for your application (e.g., Email address, Google, GitHub). You can select from a wide range of providers.</li>
+<li><strong>Create Application:</strong> Click "Create application."</li>
+<li><strong>Obtain API Keys:</strong> After creating the application, Clerk will display your <strong>API keys</strong>. These keys are crucial for connecting your Next.js application to your Clerk backend. <strong>Copy these keys.</strong></li>
+</ol>
+<h3 id="6-configuring-environment-variables">6. Configuring Environment Variables</h3>
+<ol>
+<li><strong>Create <code>.env.local</code> File:</strong> In the root directory of your Next.js project, create a new file named <code>.env.local</code>.</li>
+<li>
+<p><strong>Paste API Keys:</strong> Paste the API keys you copied from Clerk into the <code>.env.local</code> file. They should look similar to this:</p>
+<p><code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key_here
+CLERK_SECRET_KEY=your_secret_key_here</code></p>
+<blockquote>
+<p><strong>API Keys:</strong>  Codes used to authenticate and authorize access to an Application Programming Interface (API). In the context of Clerk, API keys are used to connect your frontend application with Clerk's backend services, enabling authentication and user management features.</p>
+</blockquote>
+<p><strong>Note:</strong>  While the transcript mentions only copying two keys, Clerk might provide more depending on the setup. Ensure you copy all relevant keys provided by Clerk and prefix the publishable key with <code>NEXT_PUBLIC_</code>.</p>
+</li>
+<li>
+<p><strong>Clerk Provider in <code>layout.jsx</code>:</strong> Open <code>app/layout.jsx</code>. Import the <code>ClerkProvider</code> component from <code>@clerk/nextjs</code> at the top of the file:</p>
+<p><code>jsx
+import { ClerkProvider } from '@clerk/nextjs';</code></p>
+<p>Wrap the <code>children</code> prop within the <code>body</code> tag with the <code>ClerkProvider</code>:</p>
+<p>```jsx
+import { ClerkProvider } from '@clerk/nextjs';
+import './globals.css'</p>
+<p>export const metadata = {
+  title: 'Create Next App',
+  description: 'Generated by create next app',
+}</p>
+<p>export default function RootLayout({ children }) {
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
+  )
+}
+```</p>
+<p>The <code>ClerkProvider</code> makes Clerk's authentication context available throughout your application.</p>
+</li>
+</ol>
+<h3 id="7-basic-styling-with-tailwind-css-optional">7. Basic Styling with Tailwind CSS (Optional)</h3>
+<p>The transcript utilizes Tailwind CSS for styling. You can add basic container styling to your <code>layout.jsx</code> to center content on the page.</p>
+<ol>
+<li>
+<p><strong>Modify <code>body</code> in <code>layout.jsx</code>:</strong>  Update the <code>body</code> tag in <code>app/layout.jsx</code> to include Tailwind CSS classes for centering content:</p>
+<p><code>jsx
+&lt;body&gt;
+  &lt;main className="container mx-auto flex items-start justify-center min-h-screen"&gt;
+    &lt;div className="mt-20"&gt;
+      {children}
+    &lt;/div&gt;
+  &lt;/main&gt;
+&lt;/body&gt;</code></p>
+<p>This adds a container, centers content horizontally and vertically, and adds top margin.</p>
+</li>
+<li>
+<p><strong>Tailwind Configuration (Optional Centering):</strong> To automatically center containers without explicitly adding <code>mx-auto</code> each time, you can modify your <code>tailwind.config.js</code> file. Inside the <code>theme</code> object, within <code>extend</code>, add the container configuration:</p>
+<p><code>javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      container: {
+        center: true,
+      },
+    },
+  },
+  plugins: [],
+}</code></p>
+<p>This configuration ensures that any element with the <code>container</code> class will be automatically centered.</p>
+</li>
+</ol>
+<h2 id="creating-ui-components-header-and-navigation">Creating UI Components: Header and Navigation</h2>
+<p>To enhance the user interface, let's create a header component with navigation links.</p>
+<h3 id="1-create-components-folder-and-headerjsx">1. Create <code>components</code> Folder and <code>Header.jsx</code></h3>
+<p>In the <code>app</code> directory, create a new folder named <code>components</code>. Inside the <code>components</code> folder, create a new file named <code>Header.jsx</code>.</p>
+<h3 id="2-header-component-code">2. Header Component Code</h3>
+<p>Add the following code to <code>Header.jsx</code>:</p>
+<pre><code class="language-jsx">import Link from 'next/link';
+import { auth, UserButton } from '@clerk/nextjs';
+
+const Header = () =&gt; {
+  const { userId } = auth();
+
+  return (
+    &lt;nav className=&quot;bg-blue-700 py-4 px-6 flex items-center justify-between mb-5&quot;&gt;
+      &lt;div className=&quot;flex items-center&quot;&gt;
+        &lt;Link href=&quot;/&quot; className=&quot;text-lg uppercase font-bold text-white&quot;&gt;
+          Clerk App
+        &lt;/Link&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;flex items-center text-white&quot;&gt;
+        {!userId ? (
+          &lt;&gt;
+            &lt;Link href=&quot;/sign-in&quot; className=&quot;text-gray-300 hover:text-white mr-4&quot;&gt;
+              Sign In
+            &lt;/Link&gt;
+            &lt;Link href=&quot;/sign-up&quot; className=&quot;text-gray-300 hover:text-white&quot;&gt;
+              Sign Up
+            &lt;/Link&gt;
+          &lt;/&gt;
+        ) : (
+          &lt;&gt;
+            &lt;Link href=&quot;/profile&quot; className=&quot;text-gray-300 hover:text-white mr-4&quot;&gt;
+              Profile
+            &lt;/Link&gt;
+            &lt;UserButton afterSignOutUrl=&quot;/&quot; /&gt;
+          &lt;/&gt;
+        )}
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  );
+};
+
+export default Header;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>Imports:</strong> Imports <code>Link</code> from <code>next/link</code> for navigation and <code>auth</code> and <code>UserButton</code> from <code>@clerk/nextjs</code> for authentication state and user button component.</li>
+<li><strong><code>auth()</code> Hook:</strong>  The <code>auth()</code> hook from Clerk is used to retrieve the current user's authentication state. <code>userId</code> is destructured from the return value.</li>
+<li><strong>Conditional Rendering:</strong><ul>
+<li><code>!userId</code>: If <code>userId</code> is not present (user is not logged in), it renders "Sign In" and "Sign Up" links.</li>
+<li><code>userId</code>: If <code>userId</code> is present (user is logged in), it renders a "Profile" link and the <code>UserButton</code> component.</li>
+</ul>
+</li>
+<li><strong><code>UserButton</code> Component:</strong>  This component, provided by Clerk, displays the user's avatar (if available) and a dropdown menu with options like "Manage Account" (profile settings) and "Sign Out." The <code>afterSignOutUrl</code> prop specifies the URL to redirect to after sign-out (in this case, the home page "/").</li>
+<li><strong>Styling:</strong> Tailwind CSS classes are used for basic styling of the header and links.</li>
+</ul>
+<h3 id="3-integrate-header-into-layoutjsx">3. Integrate Header into <code>layout.jsx</code></h3>
+<p>Open <code>app/layout.jsx</code> and import the <code>Header</code> component:</p>
+<pre><code class="language-jsx">import Header from './components/Header'; // Adjust path if needed
+// ... other imports
+</code></pre>
+<p>Place the <code>&lt;Header /&gt;</code> component within the <code>body</code> tag, before the <code>main</code> tag:</p>
+<pre><code class="language-jsx">&lt;body&gt;
+  &lt;Header /&gt;
+  &lt;main className=&quot;...&quot;&gt;
+    {children}
+  &lt;/main&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Now, when you run your application, you should see a header with "Clerk App" logo and "Sign In" and "Sign Up" links (when logged out) or "Profile" and user avatar (when logged in).</p>
+<h2 id="protecting-pages-with-middleware">Protecting Pages with Middleware</h2>
+<p>To secure specific pages and require authentication to access them, Clerk utilizes <strong>middleware</strong>.</p>
+<blockquote>
+<p><strong>Middleware:</strong> Functions that execute before a request reaches your application's routes or handlers. In the context of web applications, middleware is commonly used for tasks like authentication, authorization, logging, and request modification.</p>
+</blockquote>
+<h3 id="1-create-middlewarejs-file">1. Create <code>middleware.js</code> File</h3>
+<p>In the root directory of your project (the same level as <code>app</code> and <code>pages</code> if you have one), create a file named <code>middleware.js</code>.</p>
+<h3 id="2-middleware-configuration">2. Middleware Configuration</h3>
+<p>Add the following code to <code>middleware.js</code>:</p>
+<pre><code class="language-javascript">import { authMiddleware } from '@clerk/nextjs';
+
+export default authMiddleware({
+  publicRoutes: ['/', '/sign-in(.*)', '/sign-up(.*)', '/register'], // Add '/register' here
+});
+
+export const config = {
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+};
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>authMiddleware</code>:</strong> This function from <code>@clerk/nextjs</code> is the core of Clerk's middleware.</li>
+<li><strong><code>publicRoutes</code> Option:</strong>  This array defines routes that should be publicly accessible, even without authentication.<ul>
+<li><code>'/'</code>:  The home page is set as public.</li>
+<li><code>'/sign-in(.*)'</code>, <code>'/sign-up(.*)'</code>:  These use regular expressions to match any route starting with <code>/sign-in</code> or <code>/sign-up</code>, including catch-all routes we'll create later.</li>
+<li><code>'/register'</code>:  We add <code>/register</code> to make our custom registration page public.</li>
+</ul>
+</li>
+<li><strong><code>matcher</code> Config:</strong>  This configuration specifies which paths should be processed by the middleware. The provided matcher is a common pattern in Next.js to apply middleware to all routes except static files and Next.js internal routes.</li>
+</ul>
+<p><strong>Functionality:</strong> With this middleware, any route <em>not</em> listed in <code>publicRoutes</code> will be protected. If an unauthenticated user tries to access a protected route, they will be redirected to the sign-in page.</p>
+<h3 id="3-customizing-sign-in-and-sign-up-urls-environment-variables">3. Customizing Sign-in and Sign-up URLs (Environment Variables)</h3>
+<p>By default, Clerk redirects to its hosted sign-in and sign-up pages. To use custom pages within your application, configure environment variables.</p>
+<ol>
+<li><strong>Create <code>.env</code> File:</strong> In the root directory (alongside <code>.env.local</code>), create a new file named <code>.env</code>.</li>
+<li>
+<p><strong>Add Clerk URL Variables:</strong> Add the following environment variables to <code>.env</code>:</p>
+<p><code>NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard</code></p>
+<blockquote>
+<p><strong>Environment Variables:</strong>  Variables set outside the application code to configure its behavior in different environments (development, production, etc.). They are commonly used to store sensitive information like API keys or configuration settings. In Next.js, environment variables prefixed with <code>NEXT_PUBLIC_</code> are accessible in the browser.</p>
+</blockquote>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>NEXT_PUBLIC_CLERK_SIGN_IN_URL</code>:  Sets the URL for your custom sign-in page (<code>/sign-in</code>).</li>
+<li><code>NEXT_PUBLIC_CLERK_SIGN_UP_URL</code>: Sets the URL for your custom sign-up page (<code>/sign-up</code>).</li>
+<li><code>NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL</code>:  Specifies the URL to redirect users to after successful sign-in (<code>/dashboard</code>).</li>
+<li><code>NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL</code>: Specifies the URL to redirect users to after successful sign-up (<code>/dashboard</code>).</li>
+</ul>
+</li>
+</ol>
+<h2 id="creating-sign-in-and-sign-up-pages">Creating Sign-in and Sign-up Pages</h2>
+<p>Now, let's create the sign-in and sign-up pages within your Next.js application. We'll use Clerk's pre-built components initially for ease of setup.</p>
+<h3 id="1-create-sign-in-and-sign-up-folders-with-catch-all-routes">1. Create <code>sign-in</code> and <code>sign-up</code> Folders with Catch-all Routes</h3>
+<p>In the <code>app</code> directory, create two folders:</p>
+<ul>
+<li><code>sign-in</code></li>
+<li><code>sign-up</code></li>
+</ul>
+<p>Inside each of these folders, create another folder using bracket notation for a <strong>catch-all route</strong>:</p>
+<ul>
+<li><code>sign-in/[[...sign-in]]</code></li>
+<li><code>sign-up/[[...sign-up]]</code></li>
+</ul>
+<blockquote>
+<p><strong>Catch-all Routes:</strong>  A Next.js routing feature that allows a single route segment to match multiple path segments. Using <code>[[...routeName]]</code> creates an optional catch-all route, meaning it will match both <code>/routeName</code> and any paths under it (e.g., <code>/routeName/something</code>).</p>
+</blockquote>
+<p>Inside each catch-all route folder, create a <code>page.jsx</code> file.</p>
+<h3 id="2-sign-in-page-code-appsign-insign-inpagejsx">2. Sign-in Page Code (<code>app/sign-in/[[...sign-in]]/page.jsx</code>)</h3>
+<pre><code class="language-jsx">'use client';
+import { SignIn } from &quot;@clerk/nextjs&quot;;
+
+const SignInPage = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;SignIn /&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default SignInPage;
+</code></pre>
+<h3 id="3-sign-up-page-code-appsign-upsign-uppagejsx">3. Sign-up Page Code (<code>app/sign-up/[[...sign-up]]/page.jsx</code>)</h3>
+<pre><code class="language-jsx">'use client';
+import { SignUp } from &quot;@clerk/nextjs&quot;;
+
+const SignUpPage = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;SignUp /&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default SignUpPage;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>
+<p><strong><code>'use client'</code> Directive:</strong>  This directive at the top of the file marks these components as <strong>client-side components</strong>.</p>
+<blockquote>
+<p><strong>Client-side Component:</strong> In React and Next.js, components that are rendered in the user's browser (client-side) rather than on the server. Client-side components are necessary for using React hooks like <code>useState</code>, <code>useEffect</code>, and for handling browser-specific interactions.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Import <code>SignIn</code> and <code>SignUp</code>:</strong> Imports the <code>SignIn</code> and <code>SignUp</code> components from <code>@clerk/nextjs</code>. These are pre-built UI components provided by Clerk.</p>
+</li>
+<li><strong>Component Rendering:</strong>  Each page simply renders the respective <code>SignIn</code> or <code>SignUp</code> component.</li>
+</ul>
+<p>Now, when you navigate to <code>/sign-in</code> or <code>/sign-up</code>, you should see Clerk's pre-built sign-in and sign-up forms, respectively, integrated into your application's layout.</p>
+<h2 id="creating-a-protected-dashboard-page">Creating a Protected Dashboard Page</h2>
+<p>Let's create a dashboard page that is protected by authentication, meaning only logged-in users can access it.</p>
+<h3 id="1-create-dashboard-folder-and-pagejsx">1. Create <code>dashboard</code> Folder and <code>page.jsx</code></h3>
+<p>In the <code>app</code> directory, create a folder named <code>dashboard</code>. Inside the <code>dashboard</code> folder, create a file named <code>page.jsx</code>.</p>
+<h3 id="2-dashboard-page-code-appdashboardpagejsx">2. Dashboard Page Code (<code>app/dashboard/page.jsx</code>)</h3>
+<pre><code class="language-jsx">const DashboardPage = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;h1 className=&quot;text-2xl font-bold mb-5&quot;&gt;Dashboard&lt;/h1&gt;
+      &lt;p className=&quot;mb-5&quot;&gt;Welcome to the dashboard!&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default DashboardPage;
+</code></pre>
+<p>This is a simple dashboard page with a heading and welcome message.</p>
+<p><strong>Functionality:</strong>  Because <code>/dashboard</code> is not listed in <code>publicRoutes</code> in <code>middleware.js</code>, it is automatically protected. If you try to access <code>/dashboard</code> without being logged in, you will be redirected to the sign-in page. After successful sign-in, you will be redirected to <code>/dashboard</code> as configured in the <code>.env</code> file (<code>NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL</code>).</p>
+<h2 id="creating-a-user-profile-page">Creating a User Profile Page</h2>
+<p>Let's create a user profile page to display user account information.</p>
+<h3 id="1-create-profile-folder-and-pagejsx">1. Create <code>profile</code> Folder and <code>page.jsx</code></h3>
+<p>In the <code>app</code> directory, create a folder named <code>profile</code>. Inside the <code>profile</code> folder, create a file named <code>page.jsx</code>.</p>
+<h3 id="2-profile-page-code-appprofilepagejsx">2. Profile Page Code (<code>app/profile/page.jsx</code>)</h3>
+<pre><code class="language-jsx">'use client';
+import { UserProfile } from &quot;@clerk/nextjs&quot;;
+
+const ProfilePage = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;UserProfile /&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default ProfilePage;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>'use client'</code> Directive:</strong>  Marks this component as client-side.</li>
+<li><strong>Import <code>UserProfile</code>:</strong> Imports the <code>UserProfile</code> component from <code>@clerk/nextjs</code>.</li>
+<li><strong>Component Rendering:</strong> Renders the <code>UserProfile</code> component. This component displays a user interface for managing user account information, similar to the "Manage Account" modal accessible from the <code>UserButton</code>.</li>
+</ul>
+<p>Now, a "Profile" link is available in the header when logged in, leading to <code>/profile</code> where the <code>UserProfile</code> component is rendered.</p>
+<h2 id="customizing-themes">Customizing Themes</h2>
+<p>Clerk allows customization of the visual appearance of its pre-built components through <strong>themes</strong>.</p>
+<blockquote>
+<p><strong>Themes:</strong>  Sets of styles and configurations that define the visual appearance of UI components. Themes allow developers to easily change the look and feel of their application without modifying individual component styles directly.</p>
+</blockquote>
+<h3 id="1-install-clerkthemes-package">1. Install <code>@clerk/themes</code> Package</h3>
+<p>Open a terminal and install the <code>@clerk/themes</code> package:</p>
+<pre><code class="language-bash">npm install @clerk/themes
+</code></pre>
+<h3 id="2-apply-a-theme-in-layoutjsx">2. Apply a Theme in <code>layout.jsx</code></h3>
+<ol>
+<li>
+<p><strong>Import <code>darkTheme</code> (or <code>lightTheme</code>, <code>baseTheme</code>):</strong> In <code>app/layout.jsx</code>, import a theme from <code>@clerk/themes</code>. For example, to use a dark theme:</p>
+<p><code>jsx
+import { ClerkProvider } from '@clerk/nextjs';
+import { darkTheme } from '@clerk/themes'; // Import darkTheme
+// ... rest of imports</code></p>
+</li>
+<li>
+<p><strong>Add <code>appearance</code> Prop to <code>ClerkProvider</code>:</strong>  Add the <code>appearance</code> prop to the <code>ClerkProvider</code> in <code>layout.jsx</code> and set the <code>baseTheme</code> option to the imported theme:</p>
+<p><code>jsx
+&lt;ClerkProvider appearance={{ baseTheme: darkTheme }}&gt; {/* Apply darkTheme */}
+  &lt;html lang="en"&gt;
+    &lt;body&gt;{children}&lt;/body&gt;
+  &lt;/html&gt;
+&lt;/ClerkProvider&gt;</code></p>
+<p>You can replace <code>darkTheme</code> with <code>lightTheme</code> (for a light theme) or <code>baseTheme</code> (for the default theme) or explore creating custom themes as documented by Clerk.</p>
+</li>
+</ol>
+<h2 id="creating-a-custom-registration-form">Creating a Custom Registration Form</h2>
+<p>For more UI control and customization, you can build completely custom sign-up and sign-in forms using Clerk's hooks and APIs. Let's create a custom registration (sign-up) form as an example.</p>
+<h3 id="1-create-register-folder-and-pagejsx">1. Create <code>register</code> Folder and <code>page.jsx</code></h3>
+<p>In the <code>app</code> directory, create a folder named <code>register</code>. Inside the <code>register</code> folder, create a file named <code>page.jsx</code>.</p>
+<h3 id="2-custom-register-page-code-appregisterpagejsx">2. Custom Register Page Code (<code>app/register/page.jsx</code>)</h3>
+<pre><code class="language-jsx">'use client';
+import { useState } from 'react';
+import { useSignUp } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+
+const RegisterPage = () =&gt; {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [code, setCode] = useState('');
+  const [pendingVerification, setPendingVerification] = useState(false);
+
+  const { isLoaded, signUp, setActive } = useSignUp();
+  const router = useRouter();
+
+  const handleSubmit = async (e) =&gt; {
+    e.preventDefault();
+
+    if (!isLoaded) {
+      return;
+    }
+
+    try {
+      await signUp.create({
+        first_name: firstName,
+        last_name: lastName,
+        email_address: email,
+        password: password,
+      });
+
+      await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
+      setPendingVerification(true);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onPressVerify = async () =&gt; {
+    if (!isLoaded) {
+      return;
+    }
+
+    try {
+      const completeSignUp = await signUp.attemptEmailAddressVerification({
+        code,
+      });
+
+      if (completeSignUp.status !== 'complete') {
+        // Investigate the response for more details.
+        console.error(&quot;Sign up not complete&quot;, completeSignUp);
+        return;
+      }
+
+      await setActive({ session: completeSignUp.createdSessionId });
+      router.push('/'); // Redirect to home page after successful registration
+    } catch (error) {
+      console.error('Verification error:', error);
+    }
+  };
+
+
+  return (
+    &lt;div className=&quot;border p-5 rounded&quot; style={{ width: '500px' }}&gt;
+      &lt;h1 className=&quot;text-2xl font-bold mb-4&quot;&gt;Register&lt;/h1&gt;
+      {!pendingVerification ? (
+        &lt;form onSubmit={handleSubmit}&gt;
+          &lt;div&gt;
+            &lt;label htmlFor=&quot;firstName&quot;&gt;First Name:&lt;/label&gt;
+            &lt;input
+              type=&quot;text&quot;
+              id=&quot;firstName&quot;
+              className=&quot;border rounded p-2 block w-full mb-3&quot;
+              value={firstName}
+              onChange={(e) =&gt; setFirstName(e.target.value)}
+            /&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;label htmlFor=&quot;lastName&quot;&gt;Last Name:&lt;/label&gt;
+            &lt;input
+              type=&quot;text&quot;
+              id=&quot;lastName&quot;
+              className=&quot;border rounded p-2 block w-full mb-3&quot;
+              value={lastName}
+              onChange={(e) =&gt; setLastName(e.target.value)}
+            /&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;label htmlFor=&quot;email&quot;&gt;Email Address:&lt;/label&gt;
+            &lt;input
+              type=&quot;email&quot;
+              id=&quot;email&quot;
+              className=&quot;border rounded p-2 block w-full mb-3&quot;
+              value={email}
+              onChange={(e) =&gt; setEmail(e.target.value)}
+            /&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;label htmlFor=&quot;password&quot;&gt;Password:&lt;/label&gt;
+            &lt;input
+              type=&quot;password&quot;
+              id=&quot;password&quot;
+              className=&quot;border rounded p-2 block w-full mb-3&quot;
+              value={password}
+              onChange={(e) =&gt; setPassword(e.target.value)}
+            /&gt;
+          &lt;/div&gt;
+          &lt;button type=&quot;submit&quot; className=&quot;bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600&quot;&gt;
+            Create Account
+          &lt;/button&gt;
+        &lt;/form&gt;
+      ) : (
+        &lt;div&gt;
+          &lt;p className=&quot;mb-4&quot;&gt;Verification code sent to your email.&lt;/p&gt;
+          &lt;form onSubmit={onPressVerify}&gt;
+            &lt;div&gt;
+              &lt;label htmlFor=&quot;code&quot;&gt;Verification Code:&lt;/label&gt;
+              &lt;input
+                type=&quot;text&quot;
+                id=&quot;code&quot;
+                className=&quot;border rounded p-2 block w-full mb-3&quot;
+                value={code}
+                onChange={(e) =&gt; setCode(e.target.value)}
+              /&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; className=&quot;bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600&quot;&gt;
+              Verify Email
+            &lt;/button&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
+  );
+};
+
+export default RegisterPage;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>'use client'</code> Directive:</strong>  Marks this as a client-side component to use React hooks.</li>
+<li>
+<p><strong>Imports:</strong></p>
+<ul>
+<li><code>useState</code>:  From React for managing component state (form input values, verification state).</li>
+<li><code>useSignUp</code>: From <code>@clerk/nextjs</code> to access Clerk's sign-up functionality.</li>
+<li><code>useRouter</code>: From <code>next/navigation</code> for client-side routing (redirecting after successful registration).</li>
+</ul>
+<blockquote>
+<p><strong>Hooks:</strong> Special functions in React that let you "hook into" React state and lifecycle features from within functional components. Hooks were introduced to make state and other React features accessible in functional components, simplifying component logic. <code>useState</code> is a hook for managing state, <code>useSignUp</code> is a custom hook provided by Clerk, and <code>useRouter</code> is a hook from Next.js for navigation.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>State Variables:</strong></p>
+<ul>
+<li><code>firstName</code>, <code>lastName</code>, <code>email</code>, <code>password</code>:  State variables to store form input values.</li>
+<li><code>code</code>:  State variable to store the email verification code entered by the user.</li>
+<li><code>pendingVerification</code>:  Boolean state to control conditional rendering of the form (either registration form or verification code form).</li>
+</ul>
+</li>
+<li><strong><code>useSignUp</code> Hook:</strong><ul>
+<li><code>isLoaded</code>:  Indicates if the <code>signUp</code> object is loaded and ready to use.</li>
+<li><code>signUp</code>:  Object containing methods for sign-up actions (e.g., <code>create</code>, <code>prepareEmailAddressVerification</code>, <code>attemptEmailAddressVerification</code>).</li>
+<li><code>setActive</code>:  Function to set the user session as active after successful verification.</li>
+</ul>
+</li>
+<li><strong><code>useRouter</code> Hook:</strong>  Used for redirecting the user after successful registration.</li>
+<li><strong><code>handleSubmit</code> Function:</strong><ul>
+<li>Called when the registration form is submitted.</li>
+<li>Prevents default form submission behavior.</li>
+<li>Checks if <code>isLoaded</code> is true.</li>
+<li>Calls <code>signUp.create()</code> to create a new user with provided details.</li>
+<li>Calls <code>signUp.prepareEmailAddressVerification()</code> to send the email verification code.</li>
+<li>Sets <code>pendingVerification</code> to <code>true</code> to switch to the verification code form.</li>
+<li>Handles potential errors with <code>try...catch</code>.</li>
+</ul>
+</li>
+<li><strong><code>onPressVerify</code> Function:</strong><ul>
+<li>Called when the verification code form is submitted.</li>
+<li>Prevents default form submission.</li>
+<li>Checks if <code>isLoaded</code> is true.</li>
+<li>Calls <code>signUp.attemptEmailAddressVerification()</code> to verify the code.</li>
+<li>Checks <code>completeSignUp.status</code>:<ul>
+<li>If not <code>'complete'</code>, logs an error.</li>
+<li>If <code>'complete'</code>, calls <code>setActive()</code> to activate the user session using <code>completeSignUp.createdSessionId</code>.</li>
+<li>Redirects to the home page using <code>router.push('/')</code>.</li>
+</ul>
+</li>
+<li>Handles potential errors with <code>try...catch</code>.</li>
+</ul>
+</li>
+<li><strong>Conditional Rendering in <code>return</code>:</strong><ul>
+<li><code>!pendingVerification</code>: Renders the initial registration form with fields for first name, last name, email, and password.</li>
+<li><code>pendingVerification</code>: Renders the verification code form with a field for entering the verification code.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Functionality:</strong> This custom registration page implements the same email verification flow as Clerk's pre-built components but with a completely custom UI. You can further customize the styling and form fields as needed.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This chapter has provided a comprehensive guide to implementing authentication and user management in Next.js applications using Clerk. By leveraging Clerk's pre-built components and hooks, developers can significantly simplify the process of adding robust authentication features to their web applications. Furthermore, the ability to customize UI and authentication flows offers flexibility to tailor the user experience to specific application requirements. Clerk empowers developers to focus on building core application functionalities while ensuring secure and efficient user management.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

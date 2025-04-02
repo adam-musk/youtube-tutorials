@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Deploying Web Applications: A Comprehensive Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#deploying-web-applications-a-comprehensive-guide">Deploying Web Applications: A Comprehensive Guide</a></li>
+        <li><a href="#introduction-to-web-application-deployment">Introduction to Web Application Deployment</a></li><li><a href="#section-1-open-source-deployment-options">Section 1: Open-Source Deployment Options</a></li><li><a href="#section-2-cloud-provider-deployment-microsoft-azure">Section 2: Cloud Provider Deployment: Microsoft Azure</a></li><li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="deploying-web-applications-a-comprehensive-guide">Deploying Web Applications: A Comprehensive Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/vROMXzOWqec" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-web-application-deployment">Introduction to Web Application Deployment</h2>
+<p>Welcome to this tutorial on deploying web applications. In this chapter, we will explore various methods and platforms for deploying your web applications, ensuring they are accessible to users online. We will cover both open-source solutions and cloud platform deployments, providing you with the knowledge to choose the most suitable option for your projects. The steps outlined in this chapter are broadly applicable across different programming languages and frameworks. The technologies demonstrated serve as practical examples to guide you through the deployment process.</p>
+<blockquote>
+<p><strong>Web applications:</strong>  These are applications accessed via a web browser over a network like the internet. They are distinct from traditional desktop applications and leverage web technologies for functionality and user interaction.</p>
+<p><strong>Framework:</strong> In software development, a framework provides a standardized structure and set of tools to build applications. It simplifies development by offering pre-built components and conventions.</p>
+<p><strong>Open Source:</strong> This term refers to software with source code that is publicly accessible. Users can freely use, modify, and distribute open-source software, fostering collaboration and community-driven development.</p>
+</blockquote>
+<p>This chapter is divided into two main sections:</p>
+<ul>
+<li><strong>Section 1: Open-Source Deployment Options:</strong>  We will begin by exploring deployment methods using open-source platforms, focusing on ease of use and accessibility, especially for hobby projects and learning purposes.</li>
+<li><strong>Section 2: Cloud Provider Deployment (Microsoft Azure):</strong>  We will then delve into deploying applications using a major cloud provider, Microsoft Azure, demonstrating how to leverage cloud infrastructure for robust and scalable deployments.</li>
+</ul>
+<p>Let's embark on this journey to make your web applications live and accessible to the world.</p>
+<h2 id="section-1-open-source-deployment-options">Section 1: Open-Source Deployment Options</h2>
+<p>This section will guide you through deploying web applications using open-source platforms. We will explore two different approaches, utilizing platforms that offer free tiers suitable for development, testing, and hobby projects.</p>
+<h3 id="11-deployment-using-render">1.1 Deployment using Render</h3>
+<p>Render is a platform that simplifies the deployment of both frontend and backend components of web applications. It supports various programming languages and frameworks and offers a user-friendly interface.</p>
+<blockquote>
+<p><strong>Backend:</strong> This is the server-side component of a web application, responsible for data storage, processing, and business logic. It typically interacts with databases and APIs to manage and serve data to the frontend.</p>
+<p><strong>Frontend:</strong> This is the client-side component of a web application, which users directly interact with in their web browser. It is responsible for the user interface and user experience, displaying information and handling user interactions.</p>
+</blockquote>
+<p>Let's deploy our first application, "exams," which consists of a backend API and a frontend.</p>
+<h4 id="111-backend-deployment-with-render">1.1.1 Backend Deployment with Render</h4>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Sign up for Render:</strong></p>
+<ul>
+<li>Navigate to the Render website and register for an account.</li>
+<li>Verify your email address to activate your account.</li>
+<li>Set up your account profile as prompted.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a PostgreSQL Database:</strong></p>
+<ul>
+<li>Render requires a PostgreSQL database for the "exams" backend.</li>
+<li>In the Render dashboard, create a new PostgreSQL database instance.</li>
+<li>Provide a unique name for your database (e.g., "myDB").</li>
+<li><strong>Crucially, select the same region for your database and backend web servers (e.g., Frankfurt).</strong> This minimizes latency and improves performance.</li>
+<li>Choose the free tier suitable for hobby projects.</li>
+<li>Create the database.</li>
+</ul>
+<blockquote>
+<p><strong>PostgreSQL (Postgres or POS):</strong> This is a powerful, open-source relational database management system (RDBMS) known for its reliability, feature richness, and SQL compliance. It's often used for web application backends.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Create a Web Service for the Backend:</strong></p>
+<ul>
+<li>In the Render dashboard, create a new "Web Service."</li>
+<li>Select "Deploy from a public Git repository."</li>
+<li>Paste the URL of your backend API's Git repository.<ul>
+<li>Render automatically detects the use of Node.js and sets the region to Frankfurt (matching the database).</li>
+</ul>
+</li>
+<li><strong>Configure Build and Start Commands:</strong><ul>
+<li><strong>Build Command:</strong><ul>
+<li><code>npm install</code> (installs Node.js dependencies)</li>
+<li><code>npm run db:generate</code> (generates Prisma client for database interaction - specific to this project)</li>
+<li><code>npm run build</code> (transpiles TypeScript code to JavaScript - specific to TypeScript projects)</li>
+</ul>
+</li>
+<li><strong>Start Command:</strong> <code>npm start</code> (starts the Node.js backend server)</li>
+</ul>
+</li>
+<li>Choose the free instance type.</li>
+</ul>
+<blockquote>
+<p><strong>Repository:</strong> In version control systems like Git, a repository is a storage location for all the files and revision history of a project. It allows for tracking changes and collaboration.</p>
+<p><strong>API (Application Programming Interface):</strong> An API is a set of rules and specifications that software programs can follow to communicate with each other. In web applications, APIs often define how the frontend interacts with the backend to request and exchange data.</p>
+<p><strong>Node.js:</strong> This is a JavaScript runtime environment that allows you to execute JavaScript code server-side. It's popular for building web application backends due to its event-driven, non-blocking architecture.</p>
+<p><strong>npm (Node Package Manager):</strong> npm is the default package manager for Node.js. It's used to install, manage, and share JavaScript packages and libraries, simplifying dependency management in Node.js projects.</p>
+<p><strong>TypeScript:</strong> This is a superset of JavaScript that adds optional static typing. It enhances code maintainability and scalability, especially in large projects, by catching type-related errors during development.</p>
+<p><strong>Prisma:</strong> Prisma is an open-source ORM (Object-Relational Mapper) for Node.js and TypeScript. It simplifies database access and management by providing a type-safe and intuitive way to interact with databases.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Set Environment Variables:</strong></p>
+<ul>
+<li>Environment variables are used to configure applications without hardcoding sensitive information or settings directly into the code.</li>
+<li>Refer to the <code>.env.example</code> file in your backend repository for required environment variables.</li>
+<li><strong>Database URL:</strong><ul>
+<li>Navigate to your PostgreSQL database instance in the Render dashboard.</li>
+<li>Copy the "Internal Database URL" provided by Render.</li>
+<li>Add a new environment variable named <code>DATABASE_URL</code> in your web service settings and paste the copied URL as the value.</li>
+</ul>
+</li>
+<li><strong>JWT Secret Key:</strong><ul>
+<li>Generate a random, secure value for the <code>JWT_SECRET_KEY</code> environment variable. This key is used for signing and verifying JSON Web Tokens for authentication and authorization.</li>
+<li>Add a new environment variable named <code>JWT_SECRET_KEY</code> and paste the generated random value.</li>
+</ul>
+</li>
+<li><strong>Admin Credentials (Username &amp; Password):</strong><ul>
+<li>Set environment variables for <code>ADMIN_USERNAME</code> and <code>ADMIN_PASSWORD</code> to define the credentials for the application administrator.</li>
+</ul>
+</li>
+<li>Skip the "Advanced" section and create the web service.</li>
+</ul>
+<blockquote>
+<p><strong>Environment variables:</strong> These are dynamic named values that can affect the behavior of programs running on a computer. They are often used to configure applications without modifying their source code, especially for settings that vary between environments (development, staging, production).</p>
+<p><strong>JWT (JSON Web Token) Secret Key:</strong> JWTs are used for securely transmitting information between parties as a JSON object. A secret key is used to digitally sign these tokens, ensuring their integrity and authenticity. It's crucial for security to keep this key confidential.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Deployment Process:</strong></p>
+<ul>
+<li>Render will clone your repository, execute the build commands (<code>npm install</code>, <code>npm run db:generate</code>, <code>npm run build</code>), and then start the application using the start command (<code>npm start</code>).</li>
+<li>Monitor the deployment progress in the Render dashboard.</li>
+<li>Once deployment is successful, Render will indicate that your service is live and provide a URL to access your backend API.</li>
+</ul>
+</li>
+<li>
+<p><strong>Testing the Backend:</strong></p>
+<ul>
+<li>Access the provided URL for your backend API.</li>
+<li>Test an endpoint, such as <code>/questions</code>, to verify the backend is running correctly. You should expect a response indicating that a token is needed, confirming the API is functional and protected.</li>
+</ul>
+</li>
+</ol>
+<h4 id="112-frontend-deployment-with-render">1.1.2 Frontend Deployment with Render</h4>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Create a Static Site on Render:</strong></p>
+<ul>
+<li>In the Render dashboard, create a new "Static Site."</li>
+<li>Select "Deploy from a public Git repository."</li>
+<li>Paste the URL of your frontend repository.</li>
+<li>Render automatically detects the necessary settings.</li>
+<li><strong>Configure Build Settings:</strong><ul>
+<li><strong>Build Command:</strong> <code>npm install &amp;&amp; npm run build</code></li>
+<li><strong>Publish directory:</strong> <code>dist</code> (or the directory where your frontend build output is located)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Static site:</strong> A static website consists of web pages served to the user exactly as stored, in contrast to dynamic websites which generate content on the server-side. Static sites are often used for frontends built with frameworks like React, Vue, or Svelte after they are compiled into static HTML, CSS, and JavaScript files.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Set Environment Variables:</strong></p>
+<ul>
+<li>You need to configure the base URL for your backend API in the frontend environment variables so that the frontend knows where to send API requests.</li>
+<li><strong>API Base URL:</strong><ul>
+<li>Add an environment variable named <code>VITE_API_BASE_URL</code> (or the appropriate variable name used in your frontend project - check your frontend's configuration files).</li>
+<li>Set the value to the base URL of your deployed backend API (obtained from the previous backend deployment steps).</li>
+</ul>
+</li>
+<li>Create the static site.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deployment and Testing:</strong></p>
+<ul>
+<li>Render will clone your frontend repository, run the build command, and deploy the static files from the specified publish directory.</li>
+<li>Once deployed, Render will provide a URL for your static site.</li>
+<li>Access the provided URL to view your frontend application.</li>
+<li>Use browser developer tools (Network tab) to verify that the frontend is correctly sending requests to your deployed backend API. Test functionalities like form submissions to ensure end-to-end connectivity.</li>
+</ul>
+</li>
+</ol>
+<h3 id="12-deployment-using-kibo-and-cloudflare-pages">1.2 Deployment using Kibo and Cloudflare Pages</h3>
+<p>This section will guide you through deploying another web application, "my super awesome app," using a combination of Kibo for backend deployment and Cloudflare Pages for frontend deployment. This setup also leverages free tiers and demonstrates deployment with different technologies like Bun and MongoDB.</p>
+<blockquote>
+<p><strong>Bun:</strong> Bun is a fast, all-in-one JavaScript runtime, bundler, transpiler, and package manager. It's designed to be a faster alternative to Node.js and npm, offering performance improvements in JavaScript and TypeScript development.</p>
+<p><strong>MongoDB:</strong> This is a popular NoSQL database, categorized as a document database. It's known for its flexibility, scalability, and ease of use, often chosen for applications requiring flexible data schemas and high availability.</p>
+<p><strong>NoSQL database:</strong> NoSQL databases (Not only SQL) are databases that do not adhere to the traditional relational database structure (tables with rows and columns). They are designed for scalability, flexibility, and performance, often handling unstructured or semi-structured data.</p>
+</blockquote>
+<h4 id="121-backend-deployment-with-kibo">1.2.1 Backend Deployment with Kibo</h4>
+<p>Kibo is a platform designed for deploying Dockerized applications. It provides a straightforward way to deploy applications defined by Dockerfiles.</p>
+<blockquote>
+<p><strong>Dockerfile:</strong> A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble a Docker image. It automates the process of creating container images.</p>
+<p><strong>Docker image:</strong> A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. Images are used to create containers.</p>
+</blockquote>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Set up MongoDB Atlas:</strong></p>
+<ul>
+<li>MongoDB Atlas is a cloud database service for MongoDB.</li>
+<li>Register for a MongoDB Atlas account.</li>
+<li>Verify your email address.</li>
+<li>Follow the setup prompts, choosing the free tier and unchecking "Preload Sample Dataset."</li>
+<li>Create a deployment.</li>
+<li><strong>Configure Network Access:</strong><ul>
+<li>In MongoDB Atlas, navigate to "Network Access."</li>
+<li>Add your current IP address for local connectivity. For broader access during development, you can "Allow Access from Anywhere," but for production, restrict access to known IP addresses.</li>
+</ul>
+</li>
+<li><strong>Create a Database User:</strong><ul>
+<li>Navigate to "Database Access."</li>
+<li>Add a new database user (e.g., "user1").</li>
+<li>Auto-generate a secure password and save it securely.</li>
+<li>Grant the user "Read and write to any database" role.</li>
+</ul>
+</li>
+<li><strong>Get Connection String:</strong><ul>
+<li>Go to "Database" and click "Connect."</li>
+<li>Select "Drivers" and choose "Node.js."</li>
+<li>Copy the provided connection string.</li>
+<li>Replace the <code>&lt;password&gt;</code> placeholder in the connection string with the password you generated for your database user. Save this updated connection string.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>MongoDB Atlas:</strong> This is MongoDB's fully managed cloud database service. It simplifies deploying, operating, and scaling MongoDB databases in the cloud, handling infrastructure management and providing features like automated backups and monitoring.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Set up MailerSend (Email API):</strong></p>
+<ul>
+<li>MailerSend is an email delivery service.</li>
+<li>Sign up for a MailerSend account.</li>
+<li>Verify your email address.</li>
+<li>Navigate to "SMTP Relays" and then "Manage."</li>
+<li>Note the trial domain provided by MailerSend, which you can use for sending emails.</li>
+<li>Generate a new API token (e.g., "my super awesome token") and copy the value. Save this API token.</li>
+</ul>
+<blockquote>
+<p><strong>API key:</strong> An API key is a code used to identify and authenticate an application or user when calling an API. It's a security measure to control access and track API usage.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Set up ImageHippo (Image Upload API):</strong></p>
+<ul>
+<li>ImageHippo is a free image hosting service.</li>
+<li>Create an account on ImageHippo.</li>
+<li>Go to "API" and add a new API key.</li>
+<li>Copy and save the API key.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sign up for Kibo:</strong></p>
+<ul>
+<li>Register for a Kibo account.</li>
+<li>Verify your email address.</li>
+<li>Set up your organization and name.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a Web Service on Kibo for the Backend:</strong></p>
+<ul>
+<li>In the Kibo dashboard, create a new "Web Service."</li>
+<li>Select "GitHub" and enter the URL of your backend API's public GitHub repository.</li>
+<li>Choose the free CPU option.</li>
+<li>For "Configuration," select "Dockerfile." Kibo will detect the Dockerfile in your repository.</li>
+<li><strong>Set Environment Variables:</strong><ul>
+<li>Select "Bulk Import" and upload your <code>.env.example</code> file from your backend repository.</li>
+<li>Remove the <code>PORT</code> definition as Kibo manages port assignment.</li>
+<li>Update the <code>MONGODB_URI</code> environment variable with the MongoDB connection string you configured earlier (including the password).</li>
+<li>Set the following environment variables using the credentials you obtained:<ul>
+<li><code>EMAIL_API_KEY</code> (from MailerSend)</li>
+<li><code>EMAIL_FROM_NAME</code> (e.g., "My Awesome App")</li>
+<li><code>EMAIL_FROM_ADDRESS</code> (e.g., <code>abc@your-mailersend-domain.mailersend.net</code> - using the MailerSend trial domain)</li>
+<li><code>IMAGE_UPLOAD_API_KEY</code> (from ImageHippo)</li>
+<li>Leave <code>FRONTEND_BASE_URI</code> empty for now. We will update this after deploying the frontend.</li>
+</ul>
+</li>
+<li>Save the environment variables.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy the Backend:</strong></p>
+<ul>
+<li>Create the web service in Kibo.</li>
+<li>Kibo will build the Docker image using the Dockerfile in your repository and deploy the container.</li>
+<li>Monitor the deployment progress in the Kibo dashboard.</li>
+<li>Once deployment is successful, Kibo will provide a base URL for your backend API.</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the Backend:</strong></p>
+<ul>
+<li>Access the provided backend API base URL.</li>
+<li>Test an endpoint like <code>/articles</code> to verify the backend is running and responding.</li>
+</ul>
+</li>
+</ol>
+<h4 id="122-frontend-deployment-with-cloudflare-pages">1.2.2 Frontend Deployment with Cloudflare Pages</h4>
+<p>Cloudflare Pages is a platform for deploying static websites and frontend applications. It offers fast deployment and integration with Cloudflare's global network.</p>
+<blockquote>
+<p><strong>Cloudflare Pages:</strong> This is a platform from Cloudflare specifically designed for deploying static websites and frontend applications. It offers fast global content delivery, serverless functions, and seamless integration with Cloudflare's CDN and security features.</p>
+</blockquote>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Sign up for Cloudflare Pages:</strong></p>
+<ul>
+<li>Register for a Cloudflare account.</li>
+<li>Verify your email address.</li>
+<li>Navigate to "Workers &amp; Pages" and click "Pages."</li>
+<li>Connect to GitHub and authorize Cloudflare Pages to access your GitHub account.</li>
+<li>Select your frontend repository ("my super awesome app frontend").</li>
+<li>Begin setup.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Deployment Settings:</strong></p>
+<ul>
+<li>For "Framework preset," choose "Svelte" (or the framework your frontend uses).</li>
+<li>Set the "Build command" to <code>npm run build</code>.</li>
+<li>Set the "Build output directory" to <code>dist</code>.</li>
+<li><strong>Set Environment Variables:</strong><ul>
+<li>Add an environment variable <code>VITE_API_BASE_URL</code> (or the appropriate variable name for your frontend project).</li>
+<li>Set the value to the base URL of your backend API deployed on Kibo.</li>
+</ul>
+</li>
+<li>Save and deploy.</li>
+</ul>
+<blockquote>
+<p><strong>Svelte:</strong> Svelte is a free and open-source compiler that turns your declarative components into highly efficient JavaScript that surgically updates the DOM. It's a frontend framework like React and Vue.js, but with a different approach to performance and reactivity.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Deployment and Testing:</strong></p>
+<ul>
+<li>Cloudflare Pages will clone your frontend repository, build the application, and deploy the static files to its global network.</li>
+<li>Deployment is typically very fast.</li>
+<li>Once deployed, Cloudflare Pages will provide a URL for your frontend application. It may take a few minutes for the URL to become fully active.</li>
+<li>Access the provided URL to view your frontend application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update Backend Environment Variables with Frontend URL:</strong></p>
+<ul>
+<li>Now that your frontend is deployed and has a URL, you need to update the backend environment variables in Kibo.</li>
+<li>Go back to Kibo, navigate to your "my super awesome API" service, and go to "Settings" -&gt; "Environment Variables."</li>
+<li>Update the <code>FRONTEND_BASE_URI</code> environment variable with the URL of your deployed frontend from Cloudflare Pages.</li>
+<li>Trigger a "Build and Deploy" in Kibo to redeploy the backend with the updated environment variable. This is necessary for features like email verification that rely on the frontend URL.</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the Complete Application:</strong></p>
+<ul>
+<li>Access your frontend application via the Cloudflare Pages URL.</li>
+<li>Test functionalities like user signup, login, creating articles, and image uploads to ensure everything is working correctly end-to-end. Verify that email verification is working as expected.</li>
+</ul>
+</li>
+</ol>
+<h2 id="section-2-cloud-provider-deployment-microsoft-azure">Section 2: Cloud Provider Deployment: Microsoft Azure</h2>
+<p>This section will guide you through deploying a full-stack web application on Microsoft Azure, a leading cloud computing platform. We will use Azure Virtual Machines to host our application, providing a more hands-on approach to server management within a cloud environment.</p>
+<blockquote>
+<p><strong>Cloud Provider:</strong> A cloud provider is a company that offers cloud computing services, which include infrastructure (like servers, storage, and networks), platforms (for application development and deployment), and software (applications delivered over the internet). Examples include Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).</p>
+<p><strong>Microsoft Azure:</strong> This is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It offers a wide range of services, including virtual machines, databases, and web application hosting.</p>
+<p><strong>Azure Virtual Machine:</strong> This is an on-demand, scalable computing resource available in Azure. It provides you with the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. You can choose from a gallery of operating systems, including Windows and Linux.</p>
+</blockquote>
+<h3 id="21-deploying-on-azure-virtual-machine">2.1 Deploying on Azure Virtual Machine</h3>
+<p>We will deploy the "exams" application (previously deployed on Render) on an Azure Virtual Machine. This will involve setting up a virtual machine, configuring the server environment, and deploying both the frontend and backend components.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Create an Azure Virtual Machine:</strong></p>
+<ul>
+<li>Log in to the Azure portal.</li>
+<li>Search for "Virtual machines" and create a new virtual machine.</li>
+<li>
+<p><strong>Basic Configuration:</strong></p>
+<ul>
+<li><strong>Name:</strong> Choose a name for your virtual machine (e.g., "HelloWorld-VM").</li>
+<li><strong>Region:</strong> Select a region geographically close to your users.</li>
+<li><strong>Image:</strong> Choose "Ubuntu 22.04 LTS" (a common Linux distribution).</li>
+<li><strong>Size:</strong> Select "Standard_B1s" (or a suitable size based on your needs and budget; <code>Standard_B1s</code> is a basic, cost-effective option).</li>
+<li>
+<p><strong>Administrator account:</strong></p>
+<ul>
+<li><strong>Authentication type:</strong> Select "SSH public key."</li>
+</ul>
+<blockquote>
+<p><strong>SSH (Secure Shell):</strong> SSH is a cryptographic network protocol that allows you to securely access and manage servers over an unsecured network. It provides encrypted communication between two computers, commonly used for remote server administration and file transfers.</p>
+<p><strong>Key pair:</strong> A key pair consists of a public key and a private key used for SSH authentication. The public key is placed on the server, and the private key is kept securely by the user. When connecting via SSH, the private key is used to prove identity without transmitting a password.</p>
+</blockquote>
+<ul>
+<li><strong>Username:</strong> Set a username (e.g., <code>azureuser</code>).</li>
+<li><strong>Key pair name:</strong> "HelloWorld-key" (or a descriptive name).
+        *   <strong>Inbound rules:</strong></li>
+<li><strong>Public inbound ports:</strong> Allow "HTTP (80)" and "HTTPS (443)" traffic to make your web application accessible over the internet.</li>
+</ul>
+<blockquote>
+<p><strong>Inbound traffic:</strong> In network security, inbound traffic refers to network communication originating from outside a network (like the internet) and directed towards resources within the network (like a server or virtual machine).</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>Create the virtual machine.</p>
+</li>
+<li>Download the private key file (<code>HelloWorld-key.pem</code>). <strong>Store this file securely as it's essential for accessing your virtual machine.</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Connect to the Virtual Machine via SSH:</strong></p>
+<ul>
+<li><strong>Change Permissions of Private Key:</strong><ul>
+<li>Open a terminal and navigate to the directory where you downloaded the private key file.</li>
+<li>Use the command <code>chmod 400 HelloWorld-key.pem</code> to restrict permissions to only the owner (you), enhancing security.</li>
+</ul>
+</li>
+<li><strong>Connect using SSH command:</strong><ul>
+<li>In the Azure portal, navigate to your virtual machine, click "Connect," and select "SSH."</li>
+<li>Copy the provided SSH command. It will look similar to: <code>ssh azureuser@&lt;public-ip-address&gt; -i HelloWorld-key.pem</code></li>
+<li>Replace <code>HelloWorld-key.pem</code> with the actual path to your downloaded private key file if necessary.</li>
+<li>Run the SSH command in your terminal. Type <code>yes</code> if prompted to continue connecting. You will be logged into your Azure Virtual Machine's terminal.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Install Node.js and Dependencies:</strong></p>
+<ul>
+<li><strong>Install <code>unzip</code>:</strong> <code>sudo apt update &amp;&amp; sudo apt install unzip</code> (needed for <code>fnm</code> installation).</li>
+<li><strong>Install <code>fnm</code> (Fast Node.js Manager):</strong><ul>
+<li><code>curl -fsSL https://fnm.vercel.app/install.sh | bash</code></li>
+<li>Follow the on-screen instructions to set up <code>fnm</code> in your shell environment (usually involves adding a line to your <code>.bashrc</code> or <code>.zshrc</code> file and sourcing it).</li>
+<li>After setup, verify <code>fnm</code> is working by running <code>fnm --version</code>.</li>
+</ul>
+</li>
+<li><strong>Install Node.js LTS:</strong> <code>fnm install lts</code> (installs the latest Long-Term Support version of Node.js).</li>
+<li>Verify Node.js installation: <code>node -v</code> and <code>npm -v</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Node Version Manager (nvm or fnm):</strong> These tools allow you to manage multiple versions of Node.js on your system. This is helpful for projects that may require different Node.js versions. <code>fnm</code> (Fast Node.js Manager) is a Node.js version manager written in Rust, known for its speed and efficiency.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Deploy Backend API:</strong></p>
+<ul>
+<li><strong>Clone Backend Repository:</strong><ul>
+<li>On your VM terminal, navigate to your home directory (<code>cd ~</code>).</li>
+<li>Clone your backend API repository using <code>git clone &lt;backend-repository-url&gt; exams-backend</code>.</li>
+<li>Navigate into the backend directory: <code>cd exams-backend</code>.</li>
+</ul>
+</li>
+<li><strong>Install Backend Dependencies:</strong> <code>npm install</code>.</li>
+<li><strong>Copy Environment File:</strong> <code>cp .env.example .env</code>.</li>
+<li><strong>Generate Prisma Client and Build (if necessary):</strong><ul>
+<li><code>npm run db:generate</code></li>
+<li><code>npm run build</code> (if it's a TypeScript project).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Set up PostgreSQL Database in Docker:</strong></p>
+<ul>
+<li><strong>Install Docker:</strong><ul>
+<li><code>sudo apt update</code></li>
+<li><code>sudo apt install docker.io</code></li>
+<li><code>sudo systemctl start docker</code></li>
+<li><code>sudo systemctl enable docker</code></li>
+<li><code>sudo usermod -aG docker $USER</code> (add current user to the Docker group - you may need to log out and back in or run <code>newgrp docker</code> for this to take effect).</li>
+</ul>
+</li>
+<li><strong>Run PostgreSQL Docker Container:</strong><ul>
+<li><code>docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres:16</code><ul>
+<li><code>-d</code>: Runs the container in detached mode (in the background).</li>
+<li><code>-p 5432:5432</code>: Maps port 5432 on the host (VM) to port 5432 in the container (PostgreSQL default port).</li>
+<li><code>-e POSTGRES_PASSWORD=mysecretpassword</code>: Sets the PostgreSQL superuser password. <strong>Change <code>mysecretpassword</code> to a strong, secure password for production environments.</strong></li>
+<li><code>postgres:16</code>: Specifies the PostgreSQL Docker image to use (version 16).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Docker containerization:</strong> Containerization is a method of packaging software code with its dependencies into isolated units called containers. Docker is a popular platform for containerization, enabling consistent application deployment across different environments.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Configure Backend Environment Variables:</strong></p>
+<ul>
+<li>Edit the <code>.env</code> file in your <code>exams-backend</code> directory using a text editor like <code>nano</code> or <code>vim</code>.</li>
+<li>Update the <code>DATABASE_URL</code> to point to the PostgreSQL database running in Docker. The connection string will typically be: <code>postgresql://postgres:mysecretpassword@localhost:5432/postgres?schema=public</code> (adjust username, password, host, port, and database name if needed).</li>
+<li>Set other necessary environment variables (e.g., <code>JWT_SECRET_KEY</code>, <code>ADMIN_USERNAME</code>, <code>ADMIN_PASSWORD</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Start Backend Application:</strong></p>
+<ul>
+<li><strong>Using <code>npm start</code> (for testing):</strong> <code>npm start</code> to run the backend directly in the terminal.</li>
+<li>
+<p><strong>Using <code>pm2</code> (Process Manager for production):</strong></p>
+<blockquote>
+<p><strong>Process manager (pm2):</strong> A process manager is a tool that helps you manage and daemonize applications, ensuring they run continuously in the background, automatically restart upon crashes, and provide features for monitoring and logging. <code>pm2</code> is a popular process manager for Node.js applications.</p>
+</blockquote>
+<ul>
+<li><strong>Install <code>pm2</code> globally:</strong> <code>npm install pm2 -g</code>.</li>
+<li><strong>Start backend with <code>pm2</code>:</strong> <code>pm2 start npm -- start</code>. This starts your backend using <code>npm start</code> and manages it with <code>pm2</code>.</li>
+<li><strong>Save process list:</strong> <code>pm2 save</code> (makes sure your application restarts automatically after server reboot).</li>
+<li><strong>List managed processes:</strong> <code>pm2 list</code> or <code>pm2 status</code> to check the status of your backend application.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Test Backend:</strong></p>
+<ul>
+<li>From your local machine's browser, access your VM's public IP address followed by the backend API port (default is often 5000, e.g., <code>http://&lt;vm-public-ip&gt;:5000</code>).</li>
+<li>Test API endpoints (like <code>/questions</code>) to verify the backend is running and accessible.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy Frontend Application:</strong></p>
+<ul>
+<li><strong>Clone Frontend Repository:</strong><ul>
+<li>On your VM terminal, navigate to your home directory (<code>cd ~</code>).</li>
+<li>Clone your frontend repository using <code>git clone &lt;frontend-repository-url&gt; exams-frontend</code>.</li>
+<li>Navigate into the frontend directory: <code>cd exams-frontend</code>.</li>
+</ul>
+</li>
+<li><strong>Install Frontend Dependencies:</strong> <code>npm install</code>.</li>
+<li><strong>Build Frontend:</strong> <code>npm run build</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Install and Configure Caddy Web Server:</strong></p>
+<blockquote>
+<p><strong>Web server (Caddy):</strong> A web server is software that handles HTTP requests from clients (web browsers) and serves web content, such as HTML pages, images, and other files. Caddy is a modern, easy-to-configure web server known for its automatic HTTPS and simplicity.</p>
+<p><strong>DNS (Domain Name System):</strong> DNS is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates domain names (like <code>example.com</code>) into IP addresses that computers use to locate each other.</p>
+<p><strong>Subdomain:</strong> A subdomain is a domain that is part of a larger domain. For example, <code>api.example.com</code> is a subdomain of <code>example.com</code>. Subdomains are used to organize and separate different parts of a website or application.</p>
+<p><strong>HTTPS (Hypertext Transfer Protocol Secure):</strong> HTTPS is a secure version of HTTP, the protocol over which data is sent between your browser and the website you are connected to. The 'S' stands for 'Secure' and it means all communication between your browser and the website is encrypted.</p>
+<p><strong>TLS certificate (Transport Layer Security certificate):</strong> A TLS certificate (often referred to as an SSL certificate) is a digital certificate that verifies the identity of a website and encrypts traffic to and from the site using the TLS/SSL protocol. This ensures secure communication over HTTPS.</p>
+</blockquote>
+<ul>
+<li><strong>Install Caddy:</strong><ul>
+<li>Follow the official Caddy installation instructions for Ubuntu. Typically involves adding the Caddy repository and using <code>apt install caddy</code>.</li>
+</ul>
+</li>
+<li><strong>Check Caddy Status:</strong> <code>sudo systemctl status caddy</code>. Ensure it is "active (running)."</li>
+<li><strong>Get VM Public IP Address:</strong> In the Azure portal, find the public IP address of your virtual machine.</li>
+<li><strong>Configure DNS (using freedns.afraid.org as an example):</strong><ul>
+<li>Sign up for a free DNS service like freedns.afraid.org.</li>
+<li>Add two subdomains:<ul>
+<li><code>exams.&lt;your-chosen-domain&gt;</code> pointing to your VM's public IP address.</li>
+<li><code>api.exams.&lt;your-chosen-domain&gt;</code> pointing to your VM's public IP address.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Caddyfile:</strong></p>
+<ul>
+<li>Edit the Caddyfile configuration file: <code>sudo nano /etc/caddy/Caddyfile</code>.</li>
+<li>Replace the default content with the following Caddyfile configuration:</li>
+</ul>
+<p>```caddyfile
+exams.<your-chosen-domain> {
+    root * /var/www/html/exams-frontend/dist
+    file_server
+    try_files {path} /index.html
+}</p>
+<p>api.exams.<your-chosen-domain> {
+    reverse_proxy localhost:5000
+}
+```</p>
+<ul>
+<li>Replace <code>&lt;your-chosen-domain&gt;</code> with the domain you registered in your DNS settings.</li>
+<li><code>root * /var/www/html/exams-frontend/dist</code>: Sets the root directory for serving static files for the frontend.</li>
+<li><code>file_server</code>: Enables serving static files.</li>
+<li><code>try_files {path} /index.html</code>:  Handles single-page application routing by directing all requests to <code>index.html</code> if the requested file is not found.</li>
+</ul>
+<blockquote>
+<p><strong>File server:</strong> A file server is a computer responsible for the central storage and management of data files so that other computers on the same network can access those files. In web servers, it refers to the component that serves static files like HTML, CSS, JavaScript, and images.</p>
+<p><strong>Port forwarding (reverse proxy):</strong> Port forwarding, often implemented as a reverse proxy in web servers, is a technique to redirect network requests from one port or IP address to another. In this context, Caddy is acting as a reverse proxy, forwarding requests to <code>api.exams.&lt;your-chosen-domain&gt;</code> to the backend application running on <code>localhost:5000</code> on the same VM.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Move Frontend Build Files:</strong></p>
+<ul>
+<li>Create directories: <code>sudo mkdir -p /var/www/html/exams-frontend</code>.</li>
+<li>Move the built frontend files from <code>~/exams-frontend/dist</code> to <code>/var/www/html/exams-frontend/dist</code>: <code>sudo mv ~/exams-frontend/dist/* /var/www/html/exams-frontend/dist/</code>.</li>
+</ul>
+</li>
+<li><strong>Reload Caddy Configuration:</strong> <code>sudo systemctl reload caddy</code>.</li>
+<li><strong>Check Caddy Status:</strong> <code>sudo systemctl status caddy</code> to ensure there are no errors and TLS certificate generation is successful. Caddy automatically obtains TLS certificates for HTTPS.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update Frontend API Base URL:</strong></p>
+<ul>
+<li>In your frontend application's configuration (e.g., environment variables or config file), update the API base URL to <code>https://api.exams.&lt;your-chosen-domain&gt;</code>.</li>
+<li>Rebuild and redeploy the frontend if necessary (in this Azure VM setup, you would rebuild on the VM and move the new <code>dist</code> folder contents to <code>/var/www/html/exams-frontend/dist</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Access and Test Application:</strong></p>
+<ul>
+<li>Access your deployed application in your browser using the domain you configured: <code>https://exams.&lt;your-chosen-domain&gt;</code>.</li>
+<li>Test all functionalities, including frontend-backend interactions, user signup, login, and exam functionalities. Verify that HTTPS is enabled (check for the padlock icon in your browser's address bar).</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You have successfully deployed web applications using both open-source platforms (Render, Kibo, Cloudflare Pages) and a cloud provider (Microsoft Azure Virtual Machine). This chapter has provided a comprehensive overview of different deployment strategies, from simplified platform-as-a-service solutions to more hands-on infrastructure management in the cloud. You now have a solid foundation to choose the most appropriate deployment method for your web projects based on your requirements, scale, and technical expertise. Remember to always consider security best practices, monitor your applications, and scale your infrastructure as needed.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

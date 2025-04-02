@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Styled Components in React: An In-Depth Guide - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#styled-components-in-react-an-in-depth-guide">Styled Components in React: An In-Depth Guide</a></li>
+        <li><a href="#introduction-to-styled-components">Introduction to Styled Components</a></li><li><a href="#setting-up-and-fundamentals">Setting Up and Fundamentals</a></li><li><a href="#conclusion-of-fundamentals">Conclusion of Fundamentals</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="styled-components-in-react-an-in-depth-guide">Styled Components in React: An In-Depth Guide</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/02zO0hZmwnw" frameborder="0" allowfullscreen></iframe>
+
+<p>This chapter will explore Styled Components, a popular library for styling React applications. Styled Components allows developers to write CSS directly within their JavaScript code in an elegant and reusable manner. While various approaches exist for styling React components, Styled Components offers a unique method focused on component encapsulation and maintainability.</p>
+<h2 id="introduction-to-styled-components">Introduction to Styled Components</h2>
+<p>Styled Components provides a way to write CSS in JavaScript (often referred to as CSS-in-JS). This approach offers several benefits, including component-level styling and improved code organization.</p>
+<blockquote>
+<p><strong>CSS-in-JS</strong>: A technique of writing CSS styles within JavaScript files, often associated with component-based frameworks like React. It allows for component-scoped styling and dynamic styling capabilities.</p>
+</blockquote>
+<p>While some developers may prefer traditional CSS stylesheets, Styled Components presents a compelling alternative, particularly for projects emphasizing component-based architecture.</p>
+<h3 id="why-consider-styled-components">Why Consider Styled Components?</h3>
+<p>There isn't a single "correct" way to style React applications. The choice often comes down to personal or team preference and project requirements.  While global stylesheets are perfectly valid, Styled Components excels in scenarios where:</p>
+<ul>
+<li><strong>Component Encapsulation is Key:</strong> Styled Components promotes a style encapsulation approach, where styles are directly associated with the components they style. This reduces the risk of style conflicts and enhances component reusability.</li>
+<li><strong>Maintainability and Organization are Prioritized:</strong> By co-locating styles with components, Styled Components improves code organization and makes it easier to maintain styles as the application grows.</li>
+<li><strong>Dynamic Styling is Frequently Used:</strong> Styled Components simplifies dynamic styling based on component props or application state.</li>
+</ul>
+<p>Styled Components is widely adopted within the React ecosystem. Understanding it is beneficial, as you are likely to encounter it in various projects.</p>
+<h3 id="course-structure">Course Structure</h3>
+<p>This chapter is structured in two parts:</p>
+<ul>
+<li>
+<p><strong>Fundamentals (First Section):</strong> We will begin by covering the fundamental concepts of Styled Components, including:</p>
+<ul>
+<li>Creating Styled Components</li>
+<li>Nesting Styles</li>
+<li>Using Props for Dynamic Styling</li>
+<li>Implementing Themes for Consistent Styling</li>
+<li>Applying Global Styles</li>
+</ul>
+</li>
+<li>
+<p><strong>Project-Based Learning (Subsequent Sections):</strong>  After establishing a solid understanding of the fundamentals, we will apply our knowledge by building a practical project: a landing page inspired by the "Huddle landing page" challenge from Front-End Mentor. This project will allow us to utilize the concepts learned, including props, media queries, and more.</p>
+</li>
+</ul>
+<p>Let's begin by setting up our development environment and exploring the basics of Styled Components.</p>
+<h2 id="setting-up-and-fundamentals">Setting Up and Fundamentals</h2>
+<p>To start, we assume you have a basic React application set up, ideally using Create React App. If you don't, you can quickly create one using the following command in your terminal:</p>
+<pre><code class="language-bash">npx create-react-app styled-components-demo
+cd styled-components-demo
+npm start
+</code></pre>
+<p>This will create a new React application and start the development server.</p>
+<h3 id="installation">Installation</h3>
+<p>First, we need to install the <code>styled-components</code> library. Open a new terminal window, navigate to your project directory, and run the following command using npm or yarn:</p>
+<pre><code class="language-bash">npm install styled-components
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">yarn add styled-components
+</code></pre>
+<p>This command will add Styled Components as a dependency to your project.</p>
+<h3 id="cleaning-up-the-default-react-app">Cleaning Up the Default React App</h3>
+<p>After installation, let's clean up the default React app to start with a clean slate.</p>
+<ol>
+<li>
+<p><strong>Delete Unnecessary Files:</strong> Navigate to the <code>src</code> folder and delete:</p>
+<ul>
+<li><code>logo.svg</code> (if present)</li>
+<li><code>App.css</code></li>
+<li><code>index.css</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Update <code>index.js</code>:</strong> Open <code>index.js</code> and remove the line that imports <code>index.css</code>:</p>
+<p><code>javascript
+// Remove this line:
+// import './index.css';</code></p>
+</li>
+<li>
+<p><strong>Update <code>App.js</code>:</strong> Open <code>App.js</code> and:</p>
+<ul>
+<li>Remove the import statements for <code>logo.svg</code>, <code>App.css</code>, and <code>index.css</code>.</li>
+<li>Clear the content within the main <code>div</code> in the <code>return</code> statement and replace it with a simple <code>&lt;h1&gt;Hello World&lt;/h1&gt;</code>.</li>
+</ul>
+<p>```javascript
+import React from 'react';
+// Remove these lines:
+// import logo from './logo.svg';
+// import './App.css';</p>
+<p>function App() {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+}</p>
+<p>export default App;
+```</p>
+</li>
+</ol>
+<p>With these steps, you have a basic, unstyled React application ready for integrating Styled Components.</p>
+<h3 id="creating-your-first-styled-component">Creating Your First Styled Component</h3>
+<p>In traditional React styling, you might add classes (using <code>className</code> in JSX) to HTML elements and then define those classes in separate CSS files. However, Styled Components allows us to create styled components directly in our JavaScript files.</p>
+<p>Let's create a <code>Container</code> component that centers content on the page and sets a specific width.</p>
+<ol>
+<li><strong>Create a <code>styles</code> folder:</strong> Inside the <code>src</code> folder, create a new folder named <code>styles</code>.</li>
+<li>
+<p><strong>Create <code>Container.styled.js</code>:</strong> Inside the <code>styles</code> folder, create a new file named <code>Container.styled.js</code>. The <code>.styled.js</code> naming convention is a common practice to distinguish Styled Component files.</p>
+</li>
+<li>
+<p><strong>Define the Styled <code>Container</code>:</strong> Open <code>Container.styled.js</code> and add the following code:</p>
+<p>```javascript
+import styled from 'styled-components';</p>
+<p>export const Container = styled.div<code>max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;</code>;
+```</p>
+<p>Let's break down this code:</p>
+<ul>
+<li><code>import styled from 'styled-components';</code>: This line imports the <code>styled</code> object from the <code>styled-components</code> library. This object is the primary tool for creating styled components.</li>
+<li><code>export const Container = styled.div``...``;</code>: This line creates and exports a styled component named <code>Container</code>.<ul>
+<li><code>styled.div</code>: This indicates that we are creating a styled <code>div</code> element. You can use other HTML tags like <code>styled.span</code>, <code>styled.header</code>, <code>styled.button</code>, etc., to style different HTML elements.</li>
+<li><code>`...`</code>: These are backticks, which are used to define a tagged template literal in JavaScript. Within these backticks, you write standard CSS syntax.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Import and Use <code>Container</code> in <code>App.js</code>:</strong> Open <code>App.js</code> and modify it as follows:</p>
+<p>```javascript
+import React from 'react';
+import { Container } from './styles/Container.styled'; // Import the Container component</p>
+<p>function App() {
+  return (
+    <Container> {/<em> Use the Container component </em>/}
+      <h1>Hello World</h1>
+    </Container>
+  );
+}</p>
+<p>export default App;
+```</p>
+<ul>
+<li><code>import { Container } from './styles/Container.styled';</code>:  This line imports the <code>Container</code> styled component we just created. Note the curly braces <code>{}</code> because it's not a default export.</li>
+<li><code>&lt;Container&gt;</code> and <code>&lt;/Container&gt;</code>: We wrap our <code>&lt;h1&gt;Hello World&lt;/h1&gt;</code> element with the <code>Container</code> component. This applies the styles defined in <code>Container.styled.js</code> to the content within it.</li>
+</ul>
+</li>
+</ol>
+<p>Now, if you run your React application, you should see "Hello World" centered on the page with padding on the left and right, due to the styles applied by the <code>Container</code> component.</p>
+<h3 id="understanding-tagged-template-literals">Understanding Tagged Template Literals</h3>
+<p>Styled Components utilizes JavaScript's tagged template literals.</p>
+<blockquote>
+<p><strong>Tagged Template Literal</strong>: A more advanced form of template literals in JavaScript that allows functions to have control over how template literals are interpreted. In Styled Components, the <code>styled.div</code> (or other HTML tag) acts as the "tag" function, processing the CSS within the backticks.</p>
+</blockquote>
+<p>The CSS written inside the backticks is not just a regular string. Styled Components parses this CSS, and when the <code>Container</code> component (in our example) is rendered, it dynamically generates unique class names and injects the corresponding CSS into the document's <code>&lt;head&gt;</code> section. This ensures that the styles are scoped to the <code>Container</code> component and don't interfere with other parts of the application.</p>
+<h3 id="creating-a-header-component-with-styled-components">Creating a Header Component with Styled Components</h3>
+<p>Let's create a more complex component, a <code>Header</code>, and apply styles using Styled Components.</p>
+<ol>
+<li><strong>Create <code>Header.js</code>:</strong> Inside the <code>src/components</code> folder (create this folder if it doesn't exist), create a new file named <code>Header.js</code>. This will be our regular React component.</li>
+<li>
+<p><strong>Create <code>Header.styled.js</code>:</strong> Inside the <code>src/styles</code> folder, create a new file named <code>Header.styled.js</code>. This will contain the Styled Components for our <code>Header</code>.</p>
+</li>
+<li>
+<p><strong>Define Styled Components in <code>Header.styled.js</code>:</strong> Open <code>Header.styled.js</code> and add the following code:</p>
+<p>```javascript
+import styled from 'styled-components';</p>
+<p>export const StyledHeader = styled.header<code>background-color: #ebfbff;
+  padding: 40px 0;</code>;</p>
+<p>export const StyledNav = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;</p>
+<p>@media (max-width: ${({ theme }) =&gt; theme.mobile}) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;</p>
+<p>export const StyledLogo = styled.img<code>@media (max-width: ${({ theme }) =&gt; theme.mobile}) {
+    margin-bottom: 40px;
+  }</code>;
+```</p>
+<p>Here, we've created three styled components:</p>
+<ul>
+<li><code>StyledHeader</code>: Styles the <code>&lt;header&gt;</code> HTML5 tag with a background color and padding.</li>
+<li><code>StyledNav</code>: Styles the <code>&lt;nav&gt;</code> tag to create a navigation bar using flexbox, with responsiveness for smaller screens using a media query.</li>
+<li><code>StyledLogo</code>: Styles <code>&lt;img&gt;</code> tag for logo, adding margin-bottom in mobile view using media query.</li>
+</ul>
+<blockquote>
+<p><strong>Media Query</strong>:  A CSS technique that allows applying different styles based on the characteristics of the device or browser, most commonly the viewport width. In Styled Components, media queries are written directly within the CSS template literal, often leveraging template literals for dynamic values.</p>
+</blockquote>
+<ul>
+<li><code>@media (max-width: ${({ theme }) =&gt; theme.mobile})</code>: This is a media query targeting screens with a maximum width defined by <code>theme.mobile</code> (we will define themes later).</li>
+</ul>
+</li>
+<li>
+<p><strong>Create <code>Header</code> React Component in <code>Header.js</code>:</strong> Open <code>Header.js</code> and add the following code:</p>
+<p>```javascript
+import React from 'react';
+import { StyledHeader, StyledNav, StyledLogo } from '../styles/Header.styled'; // Import styled components
+import { Container } from '../styles/Container.styled'; // Import Container component</p>
+<p>function Header() {
+  return (
+    <StyledHeader>
+      <Container>
+        <StyledNav>
+          <StyledLogo src="./images/logo.svg" alt="" />
+          <button>Try It Free</button>
+        </StyledNav></p>
+<pre><code>    {/* ... rest of header content will be added later ... */}
+
+  &lt;/Container&gt;
+&lt;/StyledHeader&gt;
+</code></pre>
+<p>);
+}</p>
+<p>export default Header;
+```</p>
+<ul>
+<li>We import the styled components <code>StyledHeader</code>, <code>StyledNav</code>, and <code>StyledLogo</code> from <code>Header.styled.js</code>, and the <code>Container</code> component.</li>
+<li>We use these styled components instead of regular HTML tags in our JSX structure.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update <code>App.js</code> to include <code>Header</code>:</strong> Open <code>App.js</code> and update it to include the <code>Header</code> component:</p>
+<p>```javascript
+import React, { Fragment } from 'react'; // Import Fragment
+import Header from './components/Header'; // Import Header component
+import { Container } from './styles/Container.styled';</p>
+<p>function App() {
+  return (
+    <Fragment> {/<em> Use Fragment to wrap multiple components </em>/}
+      <Header />
+      <Container>
+        <h1>Hello World</h1>
+      </Container>
+    </Fragment>
+  );
+}</p>
+<p>export default App;
+```</p>
+<ul>
+<li>We import <code>Fragment</code> from React to wrap multiple components in the <code>return</code> statement without adding an extra DOM element.</li>
+<li>We import and render the <code>Header</code> component above the <code>Container</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Now, your application should display a styled header with a navigation bar containing a logo (you'll need to place <code>logo.svg</code> in the <code>public/images</code> folder - you can get it from the mentioned GitHub repository or use any SVG logo for testing) and a "Try It Free" button.</p>
+<h3 id="nesting-styles">Nesting Styles</h3>
+<p>Styled Components allows you to nest CSS selectors, similar to CSS pre-processors like Sass or Less. This improves the organization and readability of your styles, especially for complex components.</p>
+<p>In <code>Header.styled.js</code>, within the <code>StyledHeader</code> definition, we can add styles for the <code>h1</code> element that might be present inside the header:</p>
+<pre><code class="language-javascript">export const StyledHeader = styled.header`
+  background-color: #ebfbff;
+  padding: 40px 0;
+
+  h1 { /* Nested style for h1 within StyledHeader */
+    color: red;
+  }
+
+  &amp;:hover { /* Nesting for pseudo-selector :hover for StyledHeader itself */
+    background-color: black; /* Example, not to be kept for header */
+    color: white; /* Example, not to be kept for header */
+  }
+`;
+</code></pre>
+<ul>
+<li><code>h1 { ... }</code>:  Styles any <code>h1</code> element that is a direct or indirect child of the <code>StyledHeader</code> component.</li>
+<li><code>&amp;:hover { ... }</code>:  Uses the ampersand <code>&amp;</code> to refer to the <code>StyledHeader</code> component itself, allowing you to style pseudo-selectors like <code>:hover</code>, <code>:active</code>, <code>:focus</code>, etc.</li>
+</ul>
+<blockquote>
+<p><strong>CSS Pre-processor</strong>: A tool that extends the capabilities of standard CSS by adding features like variables, nesting, mixins, and functions. Sass and Less are popular examples. Styled Components' nesting feature provides a similar organizational benefit within JavaScript.</p>
+</blockquote>
+<p><strong>Note:</strong> While nesting is available, it's important to use it judiciously to maintain clarity and avoid overly complex selectors. Over-nesting can sometimes make styles harder to understand and maintain.</p>
+<h3 id="using-props-for-dynamic-styling">Using Props for Dynamic Styling</h3>
+<p>One of the powerful features of Styled Components is the ability to dynamically style components based on props passed to them.</p>
+<p>Let's modify the <code>StyledHeader</code> to accept a <code>bg</code> prop to change its background color dynamically.</p>
+<ol>
+<li>
+<p><strong>Modify <code>StyledHeader</code> in <code>Header.styled.js</code>:</strong></p>
+<p><code>javascript
+export const StyledHeader = styled.header`
+  background-color: ${(props) =&gt; props.bg || '#ebfbff'}; /* Dynamic background color from props */
+  padding: 40px 0;
+`;</code></p>
+<ul>
+<li><code>background-color: ${(props) =&gt; props.bg || '#ebfbff'};</code>:  This line sets the <code>background-color</code> style dynamically.<ul>
+<li><code>${(props) =&gt; props.bg || '#ebfbff'}</code>:  This is a JavaScript arrow function within the CSS template literal. It receives the <code>props</code> object as an argument.</li>
+<li><code>props.bg</code>: Accesses the <code>bg</code> prop passed to the <code>StyledHeader</code> component.</li>
+<li><code>|| '#ebfbff'</code>:  If the <code>bg</code> prop is not provided (or is falsy), it defaults to <code>#ebfbff</code> (the original light blue color).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Pass the <code>bg</code> prop in <code>App.js</code> (or <code>Header.js</code>):</strong></p>
+<p>In <code>App.js</code> (or within the <code>Header</code> component if you want to set it there), you can now pass the <code>bg</code> prop to the <code>Header</code> component:</p>
+<p><code>javascript
+// In App.js
+&lt;Header bg="red" /&gt;; // Example: set background to red
+&lt;Header /&gt;;        // Example: use default background color</code></p>
+<p>Or within <code>Header.js</code>:</p>
+<p>```javascript
+// In Header.js
+<StyledHeader bg="lightgreen"> {/<em> Example: set background to light green </em>/}
+    {/<em> ... header content ... </em>/}
+</StyledHeader></p>
+<p><StyledHeader> {/<em> Example: use default background color </em>/}
+    {/<em> ... header content ... </em>/}
+</StyledHeader>
+```</p>
+</li>
+</ol>
+<p>Now, if you pass the <code>bg</code> prop, the header's background color will change accordingly. If you don't pass the <code>bg</code> prop, it will use the default light blue color.</p>
+<h3 id="themes-for-consistent-styling">Themes for Consistent Styling</h3>
+<p>Themes in Styled Components provide a centralized way to manage and share styling values across your application, such as colors, fonts, breakpoints, and spacing units. This promotes consistency and makes it easier to update your application's visual style.</p>
+<ol>
+<li>
+<p><strong>Create a Theme Object in <code>App.js</code>:</strong></p>
+<p>In <code>App.js</code>, before the <code>App</code> component function, define a <code>theme</code> object:</p>
+<p><code>javascript
+const theme = {
+  colors: {
+    header: '#ebfbff',
+    body: '#fff',
+    footer: '#003333',
+  },
+  mobile: '768px', // Example mobile breakpoint
+};</code></p>
+<p>This <code>theme</code> object contains:</p>
+<ul>
+<li><code>colors</code>: An object holding color values for different parts of the application (header, body, footer).</li>
+<li><code>mobile</code>: A breakpoint value for mobile devices.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use <code>ThemeProvider</code> to Provide the Theme:</strong></p>
+<p>Import <code>ThemeProvider</code> from <code>styled-components</code> in <code>App.js</code> and wrap your application's components with it. Pass the <code>theme</code> object as a prop to <code>ThemeProvider</code>:</p>
+<p>```javascript
+import React, { Fragment } from 'react';
+import Header from './components/Header';
+import { Container } from './styles/Container.styled';
+import { ThemeProvider } from 'styled-components'; // Import ThemeProvider</p>
+<p>const theme = { /<em> ... theme object defined earlier ... </em>/ };</p>
+<p>function App() {
+  return (
+    <ThemeProvider theme={theme}> {/<em> Wrap components with ThemeProvider </em>/}
+      <Fragment>
+        <Header />
+        <Container>
+          <h1>Hello World</h1>
+        </Container>
+      </Fragment>
+    </ThemeProvider>
+  );
+}</p>
+<p>export default App;
+```</p>
+</li>
+<li>
+<p><strong>Access Theme Values in Styled Components:</strong></p>
+<p>Now, you can access theme values within your styled components using the <code>theme</code> prop. For example, in <code>Header.styled.js</code>, modify <code>StyledHeader</code> to use the <code>header</code> color from the theme:</p>
+<p><code>javascript
+export const StyledHeader = styled.header`
+  background-color: ${({ theme }) =&gt; theme.colors.header}; /* Access header color from theme */
+  padding: 40px 0;
+`;</code></p>
+<ul>
+<li><code>background-color: ${({ theme }) =&gt; theme.colors.header};</code>: We use destructuring in the arrow function's parameter list to directly access the <code>theme</code> prop. Then, we access <code>theme.colors.header</code> to get the header color defined in our theme object.</li>
+</ul>
+</li>
+</ol>
+<p>Now, the <code>StyledHeader</code>'s background color is driven by the <code>theme.colors.header</code> value. If you change the color in the <code>theme</code> object, it will automatically update across all components using that theme value.</p>
+<h3 id="global-styles-for-baseline-and-reset">Global Styles for Baseline and Reset</h3>
+<p>Styled Components also allows you to define global styles, which are applied to the entire application. This is useful for setting baseline styles, resets, and common styles for HTML elements like <code>body</code>, <code>p</code>, <code>a</code>, etc.</p>
+<ol>
+<li>
+<p><strong>Create <code>GlobalStyles.js</code> in <code>styles</code> folder:</strong></p>
+<p>Inside the <code>src/styles</code> folder, create a new file named <code>GlobalStyles.js</code>.</p>
+</li>
+<li>
+<p><strong>Define Global Styles:</strong></p>
+<p>Open <code>GlobalStyles.js</code> and add the following code:</p>
+<p>```javascript
+import { createGlobalStyle } from 'styled-components';</p>
+<p>const GlobalStyles = createGlobalStyle`
+  <em>,
+  </em>::before,
+  <em>::after {
+    box-sizing: border-box; /</em> Apply border-box to all elements */
+  }</p>
+<p>body {
+    background: ${({ theme }) =&gt; theme.colors.body}; /<em> Body background from theme </em>/
+    color: hsl(192, 100%, 9%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15em;
+    margin: 0;
+  }</p>
+<p>p {
+    opacity: 0.6;
+    line-height: 1.5;
+  }</p>
+<p>img {
+    max-width: 100%;
+  }
+`;</p>
+<p>export default GlobalStyles;
+```</p>
+<ul>
+<li><code>import { createGlobalStyle } from 'styled-components';</code>: Imports <code>createGlobalStyle</code> function.</li>
+<li><code>const GlobalStyles = createGlobalStyle``...``;</code>: Creates a global style component using <code>createGlobalStyle</code>.</li>
+<li>Within the backticks, you write CSS that will be applied globally.<ul>
+<li>Reset styles like <code>box-sizing: border-box;</code></li>
+<li><code>body</code> styles including background color from the theme (<code>theme.colors.body</code>).</li>
+<li>Styles for <code>p</code> and <code>img</code> elements.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Global Styles</strong>: CSS styles that are intended to affect the entire webpage or application, typically including resets, baseline styles for common HTML elements, and application-wide styling rules.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Import and Include <code>GlobalStyles</code> in <code>App.js</code>:</strong></p>
+<p>Import <code>GlobalStyles</code> in <code>App.js</code> and render it as a component, typically at the top level, inside the <code>ThemeProvider</code>:</p>
+<p>```javascript
+import React, { Fragment } from 'react';
+import Header from './components/Header';
+import { Container } from './styles/Container.styled';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styles/GlobalStyles'; // Import GlobalStyles</p>
+<p>const theme = { /<em> ... theme object ... </em>/ };</p>
+<p>function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles /> {/<em> Include GlobalStyles component </em>/}
+      <Fragment>
+        <Header />
+        <Container>
+          <h1>Hello World</h1>
+        </Container>
+      </Fragment>
+    </ThemeProvider>
+  );
+}</p>
+<p>export default App;
+```</p>
+</li>
+</ol>
+<p>Now, the global styles defined in <code>GlobalStyles.js</code> will be applied to your entire application. This includes the body background color being taken from the theme, font styles, and the box-sizing reset.</p>
+<h2 id="conclusion-of-fundamentals">Conclusion of Fundamentals</h2>
+<p>This section covered the fundamental concepts of Styled Components. You have learned how to:</p>
+<ul>
+<li>Create basic styled components using <code>styled.tagname``...``;</code></li>
+<li>Nest styles within styled components</li>
+<li>Use props to dynamically style components</li>
+<li>Implement themes for consistent styling across your application</li>
+<li>Apply global styles for resets and baseline styling</li>
+</ul>
+<p>With these fundamentals in place, you are now ready to move on to building a practical project to further solidify your understanding and explore more advanced techniques with Styled Components. The next sections will guide you through building a landing page project.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

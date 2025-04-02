@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Building a QR Code Generator with Vanilla JavaScript - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#building-a-qr-code-generator-with-vanilla-javascript">Building a QR Code Generator with Vanilla JavaScript</a></li>
+        <li><a href="#introduction-to-qr-code-generation">Introduction to QR Code Generation</a></li><li><a href="#project-overview-and-potential">Project Overview and Potential</a></li><li><a href="#technologies-and-libraries">Technologies and Libraries</a></li><li><a href="#setting-up-the-project-environment">Setting Up the Project Environment</a></li><li><a href="#building-the-user-interface-with-html-and-tailwind-css">Building the User Interface with HTML and Tailwind CSS</a></li><li><a href="#implementing-javascript-functionality">Implementing JavaScript Functionality</a></li><li><a href="#testing-and-further-development">Testing and Further Development</a></li><li><a href="#conclusion-side-projects-and-continuous-learning">Conclusion: Side Projects and Continuous Learning</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="building-a-qr-code-generator-with-vanilla-javascript">Building a QR Code Generator with Vanilla JavaScript</h1>
+<blockquote>
+<p>No description provided.</p>
+</blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/qNiUlml9MDk" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="introduction-to-qr-code-generation">Introduction to QR Code Generation</h2>
+<p>In today's digital age, QR codes (Quick Response codes) have become ubiquitous.  You've likely encountered them everywhere, from restaurant menus to advertisements and payment systems. These matrix barcodes offer a quick and efficient way to share information, primarily URLs, with users via a simple scan using a smartphone camera.</p>
+<p>This chapter will guide you through the process of building your own QR code generator using <strong>vanilla JavaScript</strong>.</p>
+<blockquote>
+<p><strong>Vanilla JavaScript:</strong> Refers to using plain JavaScript without relying on any external libraries or frameworks. It emphasizes writing code using the core features of the JavaScript language.</p>
+</blockquote>
+<p>This project is inspired by the practical application of QR codes in restaurants, where they are often used to provide customers with digital menus.  Imagine visiting a restaurant and scanning a QR code to instantly access the menu on your phone – that's the kind of functionality we aim to enable with our generator.</p>
+<p>We will create a web application that allows users to input a URL, select a desired size for the QR code, and then generate the corresponding visual code.  Users will also have the option to save the generated QR code as an image for printing or digital sharing.</p>
+<h2 id="project-overview-and-potential">Project Overview and Potential</h2>
+<p>This project is designed to be a simple yet functional application, achievable within a few hours of development time.  The core features of our QR code generator will include:</p>
+<ul>
+<li><strong>URL Input:</strong> A user-friendly form field for entering the website address or any text-based information to be encoded in the QR code.</li>
+<li><strong>Size Selection:</strong> Options to choose the dimensions of the generated QR code, allowing for customization based on intended use.</li>
+<li><strong>QR Code Generation:</strong>  Utilizing a JavaScript library to dynamically create the QR code image based on the user's input.</li>
+<li><strong>Download Functionality:</strong> A feature to save the generated QR code as a downloadable image file (e.g., PNG format).</li>
+</ul>
+<p>Beyond its practical utility, this project serves as an excellent example of a <strong>side project</strong> with several potential benefits.</p>
+<blockquote>
+<p><strong>Side Project:</strong> A project undertaken in one's free time, often for personal enjoyment, skill development, or to explore new ideas outside of regular work or study.</p>
+</blockquote>
+<p>Such projects, even simple ones, can be valuable for:</p>
+<ul>
+<li><strong>Portfolio Building:</strong> Demonstrating practical coding skills and problem-solving abilities to potential employers.</li>
+<li><strong>Skill Enhancement:</strong>  Providing hands-on experience with JavaScript, HTML, and CSS.</li>
+<li><strong>Potential Revenue Generation:</strong>  With further development and marketing efforts, a QR code generator could potentially generate <strong>monthly recurring revenue</strong> through avenues like advertising or premium features.</li>
+</ul>
+<blockquote>
+<p><strong>Monthly Recurring Revenue (MRR):</strong> A predictable income stream that a business can expect to receive every month, often from subscriptions or ongoing services.</p>
+</blockquote>
+<p>While the QR code generator market is competitive, creating your own version is a worthwhile endeavor for learning and portfolio enrichment.  It exemplifies how a relatively small project can offer significant learning opportunities and potential real-world applications.</p>
+<h2 id="technologies-and-libraries">Technologies and Libraries</h2>
+<p>To build our QR code generator, we will leverage the following technologies and libraries:</p>
+<ul>
+<li><strong>Vanilla JavaScript:</strong> As mentioned, we will use core JavaScript for the application's logic and functionality, avoiding the complexities of larger frameworks for this relatively simple project.</li>
+<li>
+<p><strong>Tailwind CSS:</strong> For styling the user interface (<strong>UI</strong>) and creating a visually appealing design without writing custom <strong>CSS</strong>.</p>
+<blockquote>
+<p><strong>User Interface (UI):</strong>  The means by which a user interacts with a computer system, application, or device. In web development, it refers to the visual elements and interactive components of a website or web application that users see and interact with.</p>
+<p><strong>CSS (Cascading Style Sheets):</strong> A stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+</blockquote>
+<p><strong>Tailwind CSS</strong> is a utility-first CSS framework that provides pre-defined classes for styling HTML elements directly within the HTML markup. This approach accelerates UI development and promotes consistency in design.</p>
+</li>
+<li>
+<p><strong>QRCode.js:</strong> A JavaScript library specifically designed for generating QR codes in the browser.  This library simplifies the complex process of QR code creation by providing a straightforward <strong>API</strong> to generate QR codes from text or URLs.</p>
+<blockquote>
+<p><strong>API (Application Programming Interface):</strong> A set of rules and specifications that software programs can follow to communicate with each other.  An API allows developers to use pre-built functionalities and services from other software components or systems.</p>
+</blockquote>
+</li>
+</ul>
+<p>We will include both Tailwind CSS and QRCode.js in our project using <strong>CDNs</strong> (Content Delivery Networks) for simplicity and ease of setup.</p>
+<blockquote>
+<p><strong>CDN (Content Delivery Network):</strong> A geographically distributed network of servers that cache static content (like CSS, JavaScript files, and images) and deliver it to users based on their location. Using a CDN improves website loading speed and performance.</p>
+</blockquote>
+<h2 id="setting-up-the-project-environment">Setting Up the Project Environment</h2>
+<p>Let's begin by setting up our development environment.  We will need the following:</p>
+<ol>
+<li><strong>Text Editor:</strong> A code editor to write our HTML, CSS (via Tailwind classes), and JavaScript code. VS Code (Visual Studio Code) is a popular and highly recommended free option.</li>
+<li><strong>Web Browser:</strong> A modern web browser (like Chrome, Firefox, or Safari) to view and test our QR code generator.</li>
+<li><strong>Live Server (Optional but Recommended):</strong>  A development server that automatically reloads your web page in the browser whenever you save changes to your code. VS Code extensions like "Live Server" can provide this functionality.</li>
+</ol>
+<p><strong>Project Structure:</strong></p>
+<p>Create a new project folder for your QR code generator. Inside this folder, create the following files and folders:</p>
+<ul>
+<li><code>index.html</code>:  The main HTML file to structure the webpage.</li>
+<li><code>js/script.js</code>: A folder named <code>js</code> containing a <code>script.js</code> file for our JavaScript code.</li>
+<li><code>img/</code>: A folder named <code>img</code> to store any images (optional for this project, but good practice).</li>
+</ul>
+<p><strong>index.html - Basic Structure:</strong></p>
+<p>Open <code>index.html</code> in your text editor and start with an HTML5 <strong>boilerplate</strong>.</p>
+<blockquote>
+<p><strong>Boilerplate:</strong> A basic template of code that can be reused as a starting point for projects. In HTML, a boilerplate typically includes the basic HTML structure (<code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags) and essential meta tags.</p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;QR Code Generator&lt;/title&gt;
+    &lt;script src=&quot;js/script.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;QR Code Generator&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code>: Declares the document type as HTML5.</li>
+<li><code>&lt;html lang="en"&gt;</code>:  The root element of the HTML document, specifying the language as English.</li>
+<li>
+<p><code>&lt;head&gt;</code>: Contains meta-information about the HTML document, such as character set, viewport settings, and title.</p>
+<ul>
+<li><code>&lt;meta charset="UTF-8"&gt;</code>: Sets the character encoding to UTF-8, supporting a wide range of characters.</li>
+<li>
+<p><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>: Configures the <strong>viewport</strong> for responsive design, ensuring proper scaling on different devices.</p>
+<blockquote>
+<p><strong>Viewport:</strong> The visible area of a web page to the user. It varies with the device screen size. The viewport meta tag controls how the page is scaled and sized on different devices.</p>
+</blockquote>
+</li>
+<li>
+<p><code>&lt;title&gt;QR Code Generator&lt;/title&gt;</code>: Sets the title that appears in the browser tab or window title bar.</p>
+</li>
+<li><code>&lt;script src="js/script.js" defer&gt;&lt;/script&gt;</code>: Links our external JavaScript file <code>script.js</code>. The <code>defer</code> attribute ensures that the script is executed after the HTML document has been fully parsed, but before the browser finishes rendering the page.</li>
+</ul>
+</li>
+<li>
+<p><code>&lt;body&gt;</code>: Contains the visible content of the HTML document.</p>
+</li>
+</ul>
+<p><strong>Including Tailwind CSS and QRCode.js:</strong></p>
+<p>To include Tailwind CSS and QRCode.js, we will use their respective CDN links. Add the following <code>&lt;script&gt;</code> tags within the <code>&lt;head&gt;</code> section of your <code>index.html</code> file, above the link to your <code>script.js</code>:</p>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;/head&gt;
+    &lt;!-- Tailwind CSS CDN --&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;!-- Tailwind Configuration for Poppins Font --&gt;
+    &lt;script&gt;
+        tailwind.config = {
+          theme: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+          }
+        }
+      &lt;/script&gt;
+    &lt;!-- QRCode.js CDN --&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/script.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+<ul>
+<li><strong>Tailwind CSS CDN:</strong>  <code>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</code> includes the Tailwind CSS library in our project.</li>
+<li><strong>Tailwind Configuration:</strong> The <code>&lt;script&gt;</code> block configures Tailwind CSS to use the "Poppins" font as the default sans-serif font. This customizes the default font family of Tailwind CSS.</li>
+<li><strong>QRCode.js CDN:</strong> <code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"&gt;&lt;/script&gt;</code> includes the QRCode.js library, enabling us to generate QR codes.</li>
+</ul>
+<p>With these steps completed, we have set up the basic project structure and included the necessary libraries to start building our QR code generator.</p>
+<h2 id="building-the-user-interface-with-html-and-tailwind-css">Building the User Interface with HTML and Tailwind CSS</h2>
+<p>Now, let's construct the user interface for our QR code generator using HTML and Tailwind CSS classes.  We will structure the UI into the following sections:</p>
+<ol>
+<li><strong>Header:</strong>  A prominent header section displaying the title of the application.</li>
+<li><strong>Main Content Area:</strong> This area will be a <strong>flexbox</strong> container, divided into two main sections:<ul>
+<li><strong>Text and Form Section:</strong>  Contains introductory text and the input form for URL and size selection.</li>
+<li><strong>Image Section:</strong>  Displays a placeholder image initially and will later house the generated QR code.</li>
+</ul>
+</li>
+<li>
+<p><strong>Generated QR Code Output Area:</strong>  A section below the main content to display the generated QR code and a download button.</p>
+<blockquote>
+<p><strong>Flexbox:</strong> A CSS layout module that provides an efficient way to arrange, align, and distribute space among items in a container, even when their size is unknown or dynamic. It's particularly useful for creating responsive layouts.</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>HTML Structure within <code>&lt;body&gt;</code>:</strong></p>
+<p>Replace the <code>&lt;h1&gt;QR Code Generator&lt;/h1&gt;</code> in your <code>index.html</code> <code>&lt;body&gt;</code> with the following structure:</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;header class=&quot;bg-red-500 p-4 mb-10&quot;&gt;
+        &lt;div class=&quot;max-w-5xl mx-auto text-xl font-bold text-white&quot;&gt;
+            QR Code Generator
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;main class=&quot;max-w-5xl mx-auto flex flex-col-reverse md:flex-row md:max-w-4xl items-center justify-center mt-20 p-10&quot;&gt;
+        &lt;div class=&quot;w-full md:w-2/3 md:mr-24 self-center&quot;&gt;
+            &lt;h1 class=&quot;text-3xl font-bold mb-5 md:text-4xl&quot;&gt;QR Code Generator&lt;/h1&gt;
+            &lt;p class=&quot;mb-4&quot;&gt;This is a simple QR code generator built with Vanilla JavaScript and Tailwind CSS.&lt;/p&gt;
+            &lt;p class=&quot;mb-4&quot;&gt;Enter a URL below to generate a QR code.&lt;/p&gt;
+
+            &lt;form id=&quot;generate-form&quot; class=&quot;mt-4&quot;&gt;
+                &lt;input type=&quot;url&quot; id=&quot;url&quot; class=&quot;w-full border-2 border-gray-200 rounded p-3 text-gray-700 mr-2 focus:outline-none mb-5&quot; placeholder=&quot;Enter a URL&quot; required&gt;
+
+                &lt;select id=&quot;size&quot; class=&quot;w-full border-2 border-gray-200 rounded p-3 text-gray-700 mr-2 focus:outline-none mb-5&quot;&gt;
+                    &lt;option value=&quot;100&quot;&gt;100x100&lt;/option&gt;
+                    &lt;option value=&quot;200&quot;&gt;200x200&lt;/option&gt;
+                    &lt;option value=&quot;300&quot; selected&gt;300x300&lt;/option&gt;
+                    &lt;option value=&quot;400&quot;&gt;400x400&lt;/option&gt;
+                    &lt;option value=&quot;500&quot;&gt;500x500&lt;/option&gt;
+                    &lt;option value=&quot;600&quot;&gt;600x600&lt;/option&gt;
+                    &lt;option value=&quot;700&quot;&gt;700x700&lt;/option&gt;
+                &lt;/select&gt;
+
+                &lt;button type=&quot;submit&quot; class=&quot;bg-gray-600 rounded w-full text-white py-3 px-4 mt-5 hover:bg-black&quot;&gt;Generate QR Code&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;w-full md:w-1/3 self-center mb-10 md:mb-0&quot;&gt;
+            &lt;img src=&quot;img/qr-code.png&quot; class=&quot;w-1/2 mx-auto md:w-full mb-10 md:mb-0&quot; alt=&quot;QR Code Example&quot;&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;div id=&quot;generated&quot; class=&quot;max-w-5xl mx-auto flex flex-col items-center justify-center text-center mt-20&quot;&gt;
+        &lt;div id=&quot;spinner&quot; class=&quot;hidden&quot;&gt;
+            &lt;svg class=&quot;animate-spin -ml-1 mr-3 h-10 w-10 text-gray-700&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                &lt;circle class=&quot;opacity-25&quot; cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;4&quot;&gt;&lt;/circle&gt;
+                &lt;path class=&quot;opacity-75&quot; fill=&quot;currentColor&quot; d=&quot;M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z&quot;&gt;&lt;/path&gt;
+            &lt;/svg&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;qrcode&quot; class=&quot;mx-auto&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;style&gt;
+        #spinner { display: none; }
+    &lt;/style&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>Explanation of HTML Structure and Tailwind CSS Classes:</strong></p>
+<ul>
+<li>
+<p><strong><code>&lt;header&gt;</code>:</strong></p>
+<ul>
+<li><code>bg-red-500</code>: Sets the background color to red-500 from Tailwind's color palette.</li>
+<li><code>p-4</code>: Adds padding of size 4 on all sides.</li>
+<li><code>mb-10</code>: Adds margin-bottom of size 10.</li>
+<li><code>&lt;div class="max-w-5xl mx-auto text-xl font-bold text-white"&gt;</code>:  A container to limit the header's width and center its content.<ul>
+<li><code>max-w-5xl</code>: Sets the maximum width to Tailwind's 5xl breakpoint.</li>
+<li><code>mx-auto</code>: Centers the container horizontally using auto margins.</li>
+<li><code>text-xl</code>: Sets the text size to extra-large.</li>
+<li><code>font-bold</code>: Makes the text bold.</li>
+<li><code>text-white</code>: Sets the text color to white.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>&lt;main&gt;</code>:</strong></p>
+<ul>
+<li><code>max-w-5xl mx-auto</code>:  Container for the main content, similar to the header container.</li>
+<li>
+<p><code>flex flex-col-reverse md:flex-row md:max-w-4xl items-center justify-center mt-20 p-10</code>:  Configures the main content as a flex container.</p>
+<ul>
+<li><code>flex</code>: Enables flexbox layout.</li>
+<li><code>flex-col-reverse</code>:  Stacks flex items vertically in reverse order (image on top on small screens).</li>
+<li>
+<p><code>md:flex-row</code>:  On medium screens and above (<strong>responsive layout</strong>), switches to a horizontal row layout.</p>
+<blockquote>
+<p><strong>Responsive Layout:</strong> A web design approach that aims to make web pages render well on a variety of devices and screen sizes by using flexible grids and layouts, images, and CSS media queries.</p>
+</blockquote>
+</li>
+<li>
+<p><code>md:max-w-4xl</code>:  On medium screens and above, sets the maximum width to 4xl.</p>
+</li>
+<li><code>items-center</code>: Aligns items vertically to the center within the flex container.</li>
+<li><code>justify-center</code>: Centers items horizontally within the flex container.</li>
+<li><code>mt-20</code>: Adds margin-top of size 20.</li>
+<li><code>p-10</code>: Adds padding of size 10 on all sides.</li>
+</ul>
+</li>
+<li>
+<p><strong>Text and Form Section (<code>&lt;div&gt;</code> with <code>w-full md:w-2/3 md:mr-24 self-center</code>):</strong></p>
+<ul>
+<li><code>w-full</code>:  Takes full width on small screens.</li>
+<li><code>md:w-2/3</code>:  On medium screens and above, takes two-thirds width.</li>
+<li><code>md:mr-24</code>:  On medium screens and above, adds margin-right of size 24.</li>
+<li><code>self-center</code>: Aligns this flex item to the center vertically within the flex container.</li>
+<li><code>&lt;h1 class="text-3xl font-bold mb-5 md:text-4xl"&gt;</code>:  Heading for the section.<ul>
+<li><code>text-3xl</code>: Text size 3xl.</li>
+<li><code>font-bold</code>: Bold text.</li>
+<li><code>mb-5</code>: Margin-bottom of size 5.</li>
+<li><code>md:text-4xl</code>: On medium screens and above, text size 4xl.</li>
+</ul>
+</li>
+<li><code>&lt;p class="mb-4"&gt;</code>: Paragraph elements with <code>mb-4</code> for margin-bottom.</li>
+<li>
+<p><code>&lt;form id="generate-form" class="mt-4"&gt;</code>: The form element.</p>
+<ul>
+<li>
+<p><code>id="generate-form"</code>:  Sets the <strong>ID</strong> of the form to <code>generate-form</code> for JavaScript access.</p>
+<blockquote>
+<p><strong>ID:</strong> A unique identifier assigned to an HTML element within a document. IDs are used to target and manipulate specific elements using CSS and JavaScript.</p>
+</blockquote>
+</li>
+<li>
+<p><code>class="mt-4"</code>: Adds margin-top of size 4.</p>
+</li>
+<li><code>&lt;input type="url" id="url" ...&gt;</code>: URL input field.<ul>
+<li><code>type="url"</code>: Specifies the input type as URL, providing browser-side validation for URLs.</li>
+<li><code>id="url"</code>: Sets the ID to <code>url</code> for JavaScript access.</li>
+<li><code>class="w-full border-2 border-gray-200 rounded p-3 text-gray-700 mr-2 focus:outline-none mb-5"</code>: Styles the input field using Tailwind classes for width, border, rounded corners, padding, text color, and focus outline removal.</li>
+</ul>
+</li>
+<li><code>&lt;select id="size" ...&gt;</code>: Size selection dropdown.<ul>
+<li><code>id="size"</code>: Sets the ID to <code>size</code> for JavaScript access.</li>
+<li><code>class="..."</code>:  Styles the select dropdown similar to the input field.</li>
+<li><code>&lt;option value="..."&gt;</code>: Options within the dropdown, each with a <code>value</code> and displayed text.</li>
+</ul>
+</li>
+<li><code>&lt;button type="submit" ...&gt;</code>: Generate QR Code button.<ul>
+<li><code>type="submit"</code>:  Specifies the button as a form submission button.</li>
+<li><code>class="..."</code>: Styles the button with Tailwind classes for background color, rounded corners, text color, padding, and hover effect.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Image Section (<code>&lt;div&gt;</code> with <code>w-full md:w-1/3 self-center mb-10 md:mb-0</code>):</strong></p>
+<ul>
+<li><code>w-full</code>: Takes full width on small screens.</li>
+<li><code>md:w-1/3</code>: On medium screens and above, takes one-third width.</li>
+<li><code>self-center</code>: Aligns this flex item to the center vertically.</li>
+<li><code>mb-10 md:mb-0</code>: Adds margin-bottom of size 10 on small screens, removes it on medium screens and above.</li>
+<li><code>&lt;img src="img/qr-code.png" class="w-1/2 mx-auto md:w-full mb-10 md:mb-0" alt="QR Code Example"&gt;</code>:  Displays a placeholder image.<ul>
+<li><code>src="img/qr-code.png"</code>: Sets the image source. (You'll need to place a <code>qr-code.png</code> image in the <code>img</code> folder).</li>
+<li><code>class="w-1/2 mx-auto md:w-full mb-10 md:mb-0"</code>: Styles the image for width and centering on different screen sizes.</li>
+<li><code>alt="QR Code Example"</code>: Provides alternative text for accessibility.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Generated QR Code Output Area (<code>&lt;div id="generated" ...&gt;</code>):</strong></p>
+<ul>
+<li><code>id="generated"</code>: Sets the ID to <code>generated</code> for JavaScript access.</li>
+<li><code>max-w-5xl mx-auto flex flex-col items-center justify-center text-center mt-20</code>: Container for the generated QR code and spinner.<ul>
+<li><code>flex flex-col items-center justify-center text-center</code>: Configures as a flex column, centering items horizontally and vertically, and text alignment.</li>
+<li><code>mt-20</code>: Adds margin-top of size 20.</li>
+</ul>
+</li>
+<li><strong>Spinner (<code>&lt;div id="spinner" class="hidden"&gt;</code>):</strong><ul>
+<li><code>id="spinner"</code>: Sets the ID to <code>spinner</code> for JavaScript access.</li>
+<li><code>class="hidden"</code>: Initially hides the spinner using Tailwind's <code>hidden</code> utility. We will show it using JavaScript when generating the QR code.</li>
+<li><code>&lt;svg class="animate-spin -ml-1 mr-3 h-10 w-10 text-gray-700" ...&gt;</code>: SVG code for a spinning animation. Tailwind's <code>animate-spin</code> class applies a spinning animation.</li>
+<li><code>&lt;span class="sr-only"&gt;Loading...&lt;/span&gt;</code>:  Provides screen reader-only text for accessibility, indicating "Loading...".</li>
+</ul>
+</li>
+<li><strong>QR Code Container (<code>&lt;div id="qrcode" class="mx-auto"&gt;&lt;/div&gt;</code>):</strong><ul>
+<li><code>id="qrcode"</code>: Sets the ID to <code>qrcode</code> for JavaScript access. This empty <code>&lt;div&gt;</code> will be used to insert the generated QR code using JavaScript.</li>
+<li><code>class="mx-auto"</code>: Centers the QR code horizontally.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>&lt;style&gt;</code> block:</strong></p>
+<ul>
+<li><code>#spinner { display: none; }</code>:  CSS rule to initially hide the spinner. This provides a fallback in case the Tailwind <code>hidden</code> class is not immediately applied.</li>
+</ul>
+</li>
+</ul>
+<p>This HTML structure, combined with Tailwind CSS classes, creates a responsive and visually appealing user interface for our QR code generator.</p>
+<h2 id="implementing-javascript-functionality">Implementing JavaScript Functionality</h2>
+<p>Now, let's add the JavaScript code in <code>js/script.js</code> to make our QR code generator interactive. We will implement the following functionalities:</p>
+<ol>
+<li><strong>Get DOM Elements:</strong>  Select the necessary HTML elements (form, QR code container) using their IDs.</li>
+<li>
+<p><strong>Form Submission Event Listener:</strong>  Attach an <strong>event listener</strong> to the form to handle the <code>submit</code> event.</p>
+<blockquote>
+<p><strong>Event Listener:</strong> A procedure or function in JavaScript that waits for a specific event to occur (like a user clicking a button, submitting a form, or a page loading) and then executes code in response to that event.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Prevent Default Form Submission:</strong>  Prevent the default form submission behavior, which would cause the page to reload.</p>
+</li>
+<li><strong>Get Input Values:</strong> Retrieve the URL and size values entered by the user from the form.</li>
+<li><strong>Input Validation:</strong>  Check if the URL input field is empty. If so, display an alert message.</li>
+<li><strong>Show and Hide Spinner:</strong>  Implement functions to display a loading spinner while the QR code is being generated and hide it afterwards.</li>
+<li><strong>Generate QR Code:</strong> Use the QRCode.js library to generate the QR code image based on the user's input URL and size, and embed it in the designated <code>&lt;div&gt;</code>.</li>
+<li><strong>Clear UI:</strong> Create a function to clear any previously generated QR code and save button from the UI before generating a new one.</li>
+<li><strong>Create Save Button:</strong> Dynamically create a download button that allows users to save the generated QR code as an image.</li>
+</ol>
+<p><strong>JavaScript Code in <code>js/script.js</code>:</strong></p>
+<pre><code class="language-javascript">// Get DOM elements
+const form = document.getElementById('generate-form');
+const qrCodeDiv = document.getElementById('qrcode');
+const qr = document.getElementById('qrcode'); // Another reference for clearing
+const spinner = document.getElementById('spinner');
+const generatedDiv = document.getElementById('generated');
+
+// Function to show the spinner
+const showSpinner = () =&gt; {
+    spinner.classList.remove('hidden');
+};
+
+// Function to hide the spinner
+const hideSpinner = () =&gt; {
+    spinner.classList.add('hidden');
+};
+
+// Function to clear the QR code and save button from UI
+const clearUI = () =&gt; {
+    qrCodeDiv.innerHTML = '';
+    const saveButton = document.getElementById('save-link');
+    if (saveButton) {
+        saveButton.remove();
+    }
+};
+
+// Function to generate QR code using QRCode.js
+const generateQRCode = (url, size) =&gt; {
+    clearUI();
+    new QRCode(qrCodeDiv, {
+        text: url,
+        width: size,
+        height: size,
+    });
+    // Create save button after a short delay to ensure QR code is rendered in DOM
+    setTimeout(() =&gt; {
+        const qrCodeImage = qrCodeDiv.querySelector('img');
+        if (qrCodeImage) {
+            createSaveButton(qrCodeImage.src);
+        }
+    }, 50); // Short delay to allow QR code to be rendered
+};
+
+// Function to create and append the save button
+const createSaveButton = (saveUrl) =&gt; {
+    const link = document.createElement('a');
+    link.id = 'save-link';
+    link.classList.add('bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-2', 'rounded', 'w-1/3', 'text-center', 'mx-auto', 'my-5', 'block');
+    link.href = saveUrl;
+    link.download = 'qrcode'; // Default filename for download
+    link.innerHTML = 'Save Image';
+    generatedDiv.appendChild(link);
+};
+
+// Event listener for form submission
+form.addEventListener('submit', (e) =&gt; {
+    e.preventDefault(); // Prevent default form submission
+
+    clearUI(); // Clear previous QR code and button
+
+    const url = document.getElementById('url').value;
+    const size = document.getElementById('size').value;
+
+    if (url === '') {
+        alert('Please enter a URL'); // Basic validation
+    } else {
+        showSpinner(); // Show spinner
+        setTimeout(() =&gt; {
+            hideSpinner(); // Hide spinner after a short delay
+            generateQRCode(url, size); // Generate QR code
+        }, 1000); // Simulate processing time (1 second)
+    }
+});
+
+// Initially hide spinner (in case CSS is not loaded immediately)
+hideSpinner();
+</code></pre>
+<p><strong>Explanation of JavaScript Code:</strong></p>
+<ul>
+<li>
+<p><strong>DOM Element Selection:</strong></p>
+<ul>
+<li><code>const form = document.getElementById('generate-form');</code></li>
+<li><code>const qrCodeDiv = document.getElementById('qrcode');</code></li>
+<li><code>const qr = document.getElementById('qrcode');</code> (Another reference to the same element)</li>
+<li><code>const spinner = document.getElementById('spinner');</code></li>
+<li>
+<p><code>const generatedDiv = document.getElementById('generated');</code>
+These lines use <code>document.getElementById()</code> to select HTML elements based on their <strong>IDs</strong> and store them in JavaScript <strong>variables</strong>.</p>
+<blockquote>
+<p><strong>DOM (Document Object Model):</strong> A programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as a tree of objects.</p>
+<p><strong>Variable:</strong> A named storage location in a computer's memory that can hold a value. In JavaScript, variables are declared using <code>const</code>, <code>let</code>, or <code>var</code>.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>showSpinner()</code> and <code>hideSpinner()</code> functions:</strong></p>
+<ul>
+<li>
+<p><code>spinner.classList.remove('hidden');</code> and <code>spinner.classList.add('hidden');</code> use the <strong>classList API</strong> to toggle the <code>hidden</code> class on the spinner element, effectively showing and hiding it.</p>
+<blockquote>
+<p><strong>classList API:</strong> A property of DOM elements that returns a live <code>DOMTokenList</code> representing the set of CSS class attributes of the element. It provides methods like <code>add()</code>, <code>remove()</code>, <code>toggle()</code>, and <code>contains()</code> to manipulate the element's classes.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>clearUI()</code> function:</strong></p>
+<ul>
+<li><code>qrCodeDiv.innerHTML = '';</code> clears the content of the QR code container, removing any previously generated QR code.</li>
+<li>
+<p><code>const saveButton = document.getElementById('save-link');</code> and the <code>if (saveButton) { saveButton.remove(); }</code> block checks if a save button exists (by checking its ID) and removes it from the <strong>DOM</strong> if it does.</p>
+<blockquote>
+<p><strong>DOM (Document Object Model):</strong>  (Refer to previous definition)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>generateQRCode(url, size)</code> function:</strong></p>
+<ul>
+<li><code>clearUI();</code> calls the <code>clearUI()</code> function to ensure a clean slate.</li>
+<li>
+<p><code>new QRCode(qrCodeDiv, { ... });</code> creates a new QR code object using the <code>QRCode</code> constructor from the QRCode.js library. It takes the <code>qrCodeDiv</code> element as the container and an <strong>object</strong> as the second argument to configure the QR code.</p>
+<blockquote>
+<p><strong>Object:</strong> In JavaScript, an object is a collection of key-value pairs. It's a fundamental data type used to represent structured data.</p>
+</blockquote>
+<ul>
+<li><code>text: url</code>:  Sets the text to be encoded in the QR code to the provided <code>url</code>.</li>
+<li><code>width: size</code>, <code>height: size</code>: Sets the dimensions of the QR code.<ul>
+<li><code>setTimeout(() =&gt; { ... }, 50);</code> uses <code>setTimeout()</code> to introduce a short delay. This is a workaround to ensure that the QR code image is fully rendered in the <strong>DOM</strong> before we try to access its <code>src</code> attribute to create the save button.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>setTimeout():</strong> A JavaScript function that allows you to execute a function or code snippet after a specified delay in milliseconds. It's commonly used for asynchronous operations or to delay actions.</p>
+</blockquote>
+<ul>
+<li><code>const qrCodeImage = qrCodeDiv.querySelector('img');</code>:  Uses <code>querySelector()</code> to find the <code>&lt;img&gt;</code> element that QRCode.js inserts within the <code>qrCodeDiv</code>.</li>
+<li>
+<p><code>if (qrCodeImage) { createSaveButton(qrCodeImage.src); }</code>: Checks if an image element was found (QR code generated successfully) and calls <code>createSaveButton()</code> passing the image's source (<code>src</code>) as the <strong>argument</strong>.</p>
+<blockquote>
+<p><strong>Argument:</strong> A value passed to a function when it is called. Arguments provide input to the function, allowing it to operate on different data.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>createSaveButton(saveUrl)</code> function:</strong></p>
+<ul>
+<li><code>const link = document.createElement('a');</code>: Creates a new <code>&lt;a&gt;</code> (anchor) element using <code>document.createElement()</code>. This element will act as our download button.</li>
+<li><code>link.id = 'save-link';</code>: Sets the <strong>ID</strong> of the link to <code>save-link</code>.</li>
+<li><code>link.classList.add(...);</code>: Adds multiple Tailwind CSS classes to style the button.</li>
+<li>
+<p><code>link.href = saveUrl;</code>: Sets the <code>href</code> <strong>attribute</strong> of the link to the <code>saveUrl</code>, which is the data URL of the QR code image.</p>
+<blockquote>
+<p><strong>Attribute:</strong> A characteristic or property of an HTML element that provides additional information or instructions to the element. Attributes are defined within the opening tag of an HTML element (e.g., <code>&lt;a href="..."&gt;</code>).</p>
+</blockquote>
+</li>
+<li>
+<p><code>link.download = 'qrcode';</code>: Sets the <code>download</code> <strong>attribute</strong>, which instructs the browser to download the linked resource (the QR code image) when the link is clicked, with a default filename "qrcode".</p>
+</li>
+<li><code>link.innerHTML = 'Save Image';</code>: Sets the text content of the link to "Save Image".</li>
+<li><code>generatedDiv.appendChild(link);</code>: Appends the newly created link element as a child to the <code>generatedDiv</code> element, making it visible in the UI.</li>
+</ul>
+</li>
+<li>
+<p><strong>Form Submission Event Listener:</strong></p>
+<ul>
+<li>
+<p><code>form.addEventListener('submit', (e) =&gt; { ... });</code>: Attaches an event listener to the <code>form</code> element that listens for the <code>submit</code> <strong>event</strong>. When the form is submitted (when the "Generate QR Code" button is clicked), the provided <strong>function</strong> (the arrow function <code>(e) =&gt; { ... }</code>) is executed.</p>
+<blockquote>
+<p><strong>Function:</strong> A block of organized, reusable code that performs a specific task. Functions are fundamental building blocks in programming, allowing you to modularize code and make it more readable and maintainable.</p>
+</blockquote>
+<ul>
+<li><code>e.preventDefault();</code>: Prevents the default form submission behavior (page reload). <code>e</code> is the <strong>event object</strong> passed to the event listener function, representing the <code>submit</code> event.</li>
+<li><code>clearUI();</code>: Calls <code>clearUI()</code> to clear any previous QR code and button.</li>
+<li>
+<p><code>const url = document.getElementById('url').value;</code> and <code>const size = document.getElementById('size').value;</code>: Get the URL and size values from the input fields using <code>document.getElementById()</code> and accessing the <code>.value</code> <strong>property</strong> of the input elements.</p>
+<blockquote>
+<p><strong>Property:</strong> A characteristic or attribute of an object. In JavaScript, objects have properties that can be accessed and modified using dot notation (e.g., <code>object.property</code>) or bracket notation (e.g., <code>object['property']</code>).</p>
+</blockquote>
+</li>
+<li>
+<p><code>if (url === '') { alert('Please enter a URL'); }</code>: <strong>Validation</strong> check to ensure the URL input is not empty. If it's empty, an alert message is displayed.</p>
+<blockquote>
+<p><strong>Validation:</strong> The process of checking if user input or data meets certain criteria or rules before processing it. Input validation helps ensure data integrity and prevent errors or security vulnerabilities.</p>
+</blockquote>
+</li>
+<li>
+<p><code>else { showSpinner(); setTimeout(() =&gt; { hideSpinner(); generateQRCode(url, size); }, 1000); }</code>: If the URL is not empty:</p>
+<ul>
+<li><code>showSpinner();</code>: Shows the loading spinner.</li>
+<li><code>setTimeout(() =&gt; { ... }, 1000);</code>: Uses <code>setTimeout()</code> to introduce a 1-second delay (1000 milliseconds) to simulate processing time.<ul>
+<li><code>hideSpinner();</code>: Hides the spinner after the delay.</li>
+<li><code>generateQRCode(url, size);</code>: Calls <code>generateQRCode()</code> to generate the QR code, passing the retrieved <code>url</code> and <code>size</code> as <strong>arguments</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>hideSpinner();</code> (initial call):</strong>  This line is placed at the end of the script to ensure that the spinner is initially hidden when the page loads. This handles cases where the CSS rule to hide the spinner might not be applied immediately.</p>
+</li>
+</ul>
+<p>With this JavaScript code in place, our QR code generator is now fully functional. Users can input a URL, select a size, generate a QR code, and download it as an image.</p>
+<h2 id="testing-and-further-development">Testing and Further Development</h2>
+<p>To test your QR code generator:</p>
+<ol>
+<li>Open <code>index.html</code> in your web browser (ideally using Live Server for automatic reloading during development).</li>
+<li>Enter a valid URL in the input field.</li>
+<li>Select a desired size from the dropdown.</li>
+<li>Click the "Generate QR Code" button.</li>
+<li>Observe the spinner appear briefly, followed by the generated QR code appearing below.</li>
+<li>Click the "Save Image" button to download the QR code as a PNG image.</li>
+<li>Scan the generated QR code with a QR code scanner app on your smartphone to verify that it correctly redirects to the entered URL.</li>
+</ol>
+<p><strong>Further Development Ideas:</strong></p>
+<ul>
+<li><strong>Customizable Colors:</strong> Allow users to customize the colors of the QR code (foreground and background).</li>
+<li><strong>Error Correction Level:</strong> Implement options to adjust the error correction level of the QR code, which affects its robustness against damage.</li>
+<li><strong>Input Type Selection:</strong>  Allow users to choose different input types besides URLs, such as plain text, contact information (vCard), or Wi-Fi credentials.</li>
+<li><strong>More Advanced Validation:</strong> Implement more robust input validation and error handling.</li>
+<li><strong>Improved UI/UX:</strong> Enhance the user interface and user experience with better styling, feedback messages, and potentially using a JavaScript framework for more complex UI interactions if further features are added.</li>
+<li><strong>Deployment:</strong> Deploy your QR code generator to a web hosting platform to make it accessible online, as demonstrated by the example mentioned in the transcript (qrcodes.tech).</li>
+</ul>
+<h2 id="conclusion-side-projects-and-continuous-learning">Conclusion: Side Projects and Continuous Learning</h2>
+<p>This chapter demonstrated how to build a functional QR code generator using vanilla JavaScript, Tailwind CSS, and the QRCode.js library. This project serves as a practical example of how relatively simple side projects can be valuable for learning, portfolio building, and even potential revenue generation.</p>
+<p>Remember that side projects, regardless of their scale, offer excellent opportunities to:</p>
+<ul>
+<li><strong>Apply Learned Skills:</strong>  Put theoretical knowledge into practice and solidify your understanding.</li>
+<li><strong>Experiment and Innovate:</strong> Explore new technologies, libraries, and approaches in a low-pressure environment.</li>
+<li><strong>Build a Portfolio:</strong> Showcase your abilities and projects to potential employers or clients.</li>
+<li><strong>Learn by Doing:</strong>  Gain hands-on experience and develop problem-solving skills through real-world application.</li>
+</ul>
+<p>Even if your primary goal is to work for a large tech company, having a portfolio of side projects demonstrates initiative, passion for technology, and practical coding skills, which are highly valued.</p>
+<p>Continue to explore, experiment, and build small projects like this to enhance your skills and expand your knowledge in web development. Every project, no matter how small, contributes to your growth and opens up new possibilities.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

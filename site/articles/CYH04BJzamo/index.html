@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="YouTube-Courses transforms YouTube videos and playlists into structured courses, making learning more efficient and organized."> 
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Introduction to Prisma: A Modern ORM for Database Interactions - YouTube Courses - Learn Smarter</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">YouTube Courses - Learn Smarter</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#introduction-to-prisma-a-modern-orm-for-database-interactions">Introduction to Prisma: A Modern ORM for Database Interactions</a></li>
+        <li><a href="#what-is-prisma">What is Prisma?</a></li><li><a href="#key-components-of-prisma">Key Components of Prisma</a></li><li><a href="#data-modeling-in-prisma">Data Modeling in Prisma</a></li><li><a href="#setting-up-prisma-a-step-by-step-guide">Setting Up Prisma: A Step-by-Step Guide</a></li><li><a href="#interacting-with-the-database-using-prisma-client">Interacting with the Database using Prisma Client</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="introduction-to-prisma-a-modern-orm-for-database-interactions">Introduction to Prisma: A Modern ORM for Database Interactions</h1>
+<blockquote></blockquote>
+<iframe width="100%" height="auto" style="aspect-ratio: 16/9; border: none;" src="https://www.youtube.com/embed/CYH04BJzamo" frameborder="0" allowfullscreen></iframe>
+
+<p>In the rapidly evolving landscape of web development, selecting the right tools and frameworks is crucial for efficient and effective application building. Prisma has emerged as a prominent tool, gaining significant traction as an open-source Object-Relational Mapper (ORM) specifically designed for Node.js and TypeScript environments. Prisma simplifies the process of interacting with databases, making it an invaluable asset for developers.</p>
+<p>This chapter will provide a comprehensive introduction to Prisma, covering its core concepts, benefits, and practical usage. We will explore:</p>
+<ul>
+<li>What Prisma is and its key features.</li>
+<li>The advantages of using Prisma in web development projects.</li>
+<li>A hands-on guide to setting up and utilizing Prisma.</li>
+<li>Data modeling with Prisma and schema definition.</li>
+<li>Interacting with databases using the Prisma Client.</li>
+<li>Managing database schema migrations with Prisma Migrate.</li>
+<li>Visualizing and editing data with Prisma Studio.</li>
+</ul>
+<h2 id="what-is-prisma">What is Prisma?</h2>
+<p>Prisma is an open-source, modern database ORM and toolkit that streamlines database interactions for developers. It simplifies the complexities of database management, allowing developers to focus on building application logic rather than writing verbose database queries.</p>
+<blockquote>
+<p>An <strong>Object-Relational Mapper (ORM)</strong> is a programming technique that bridges the gap between object-oriented programming languages and relational databases. ORMs allow developers to interact with databases using object-oriented paradigms, rather than writing raw SQL queries.</p>
+</blockquote>
+<p>Instead of writing tedious and error-prone raw SQL queries, Prisma offers a clean, object-oriented interface. This approach is similar to other ORMs like Sequelize for SQL databases and Mongoose for MongoDB, providing a more developer-friendly experience. Prisma is versatile and can be used in various application types, including:</p>
+<ul>
+<li>REST APIs</li>
+<li>GraphQL APIs</li>
+<li>Full-stack applications</li>
+<li>Command-line interfaces (CLIs)</li>
+</ul>
+<h3 id="type-safety-and-error-prevention">Type Safety and Error Prevention</h3>
+<p>A significant advantage of Prisma is its emphasis on type safety. By leveraging TypeScript (though it can also be used with JavaScript), Prisma helps catch data-related errors during development, before runtime. This proactive error detection leads to more reliable and robust applications with fewer bugs. While Prisma encourages the use of TypeScript, it is also accessible to developers with only JavaScript experience, as demonstrated in the practical examples later in this chapter.</p>
+<h3 id="database-flexibility">Database Flexibility</h3>
+<p>Prisma is designed to work seamlessly with various database systems. While commonly used with relational databases such as PostgreSQL, MySQL, and SQLite, it also supports NoSQL databases like MongoDB.</p>
+<blockquote>
+<p><strong>Relational Databases</strong> are a type of database that structures data in tables with rows and columns, defining relationships between these tables. Examples include PostgreSQL, MySQL, and SQLite.</p>
+<p><strong>NoSQL Databases</strong>, also known as non-relational databases, offer flexible schemas and are designed for scalability and performance with large volumes of unstructured or semi-structured data. MongoDB is a popular example of a NoSQL database.</p>
+</blockquote>
+<p>One of the key strengths of Prisma is database abstraction.  The core application code and data models remain consistent regardless of the underlying database system.  Switching between databases, for instance from SQLite to PostgreSQL, can be accomplished by simply modifying the <code>.env</code> file, which contains environment variables, and updating the database connection details. This flexibility significantly simplifies database management and deployment.</p>
+<h2 id="key-components-of-prisma">Key Components of Prisma</h2>
+<p>Prisma comprises three primary components that work together to provide a comprehensive database toolkit:</p>
+<ol>
+<li>
+<p><strong>Prisma Client:</strong>  This is an auto-generated and type-safe query builder for Node.js and TypeScript. It acts as a data access layer, allowing applications to interact with the database using intuitive, type-safe queries.</p>
+<blockquote>
+<p>A <strong>Query Builder</strong> is a programming tool that provides an interface for constructing database queries programmatically, often offering a more user-friendly and less error-prone alternative to writing raw SQL.</p>
+</blockquote>
+<ul>
+<li><strong>Features:</strong><ul>
+<li>Auto-completion and type checking within Integrated Development Environments (IDEs) like VS Code, enhancing developer experience and reducing errors.</li>
+<li>Compatibility with various application architectures, from single-page applications (SPAs) to full-stack frameworks.</li>
+<li>Ideal for server-side operations in conjunction with frameworks like Next.js, Express, or NestJS.</li>
+<li>In Next.js applications utilizing React Server Components, Prisma Client can be directly used within server components for efficient data fetching.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Prisma Migrate:</strong>  This component handles declarative data modeling and database schema migration. It simplifies the process of evolving the database schema as application requirements change.</p>
+<blockquote>
+<p><strong>Database Schema Migration</strong> is the process of managing and applying changes to the structure of a database, such as adding or modifying tables, columns, or relationships, while ensuring data integrity and minimizing disruption.</p>
+</blockquote>
+<ul>
+<li><strong>Features:</strong><ul>
+<li>Automates database schema management, reducing manual SQL schema modifications.</li>
+<li>Designed to preserve existing data during schema migrations, minimizing data loss risks.</li>
+<li>Uses a declarative approach, where developers define the desired schema state, and Prisma Migrate figures out the necessary migration steps.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Prisma Studio:</strong> This is a graphical user interface (GUI) for viewing and editing data directly within the database. While it is the only component of Prisma that is not open-source, it offers valuable data management capabilities.</p>
+<blockquote>
+<p>A <strong>Graphical User Interface (GUI)</strong> is a type of user interface that allows users to interact with electronic devices through visual indicator representations and graphical icons rather than text-based user interfaces.</p>
+</blockquote>
+<ul>
+<li><strong>Features:</strong><ul>
+<li>Provides a user-friendly browser-based interface for database interaction.</li>
+<li>Allows viewing, editing, and managing database records.</li>
+<li>Offers a visual representation of database data, simplifying data inspection and manipulation.</li>
+<li>Optional to use, as Prisma can be fully utilized without Prisma Studio.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="data-modeling-in-prisma">Data Modeling in Prisma</h2>
+<p>Data modeling is a fundamental aspect of database design and application development. It involves defining the data requirements and structure of a system, specifically for a database.</p>
+<blockquote>
+<p><strong>Data Modeling</strong> is the process of creating a conceptual representation of data structures, relationships between data, and rules governing data, used to organize and define data within an information system.</p>
+</blockquote>
+<p>In Prisma, data modeling is crucial because it establishes the foundation upon which all database operations and queries are built. Effective data modeling ensures:</p>
+<ul>
+<li>Efficient data structuring.</li>
+<li>Data accuracy and integrity.</li>
+<li>Alignment with application requirements.</li>
+</ul>
+<p>In Prisma, data modeling is primarily done within the <code>schema.prisma</code> file, where you define models that represent database tables and their relationships.  Traditionally, with relational databases, database schemas (tables, fields, types, relationships, constraints) are often created directly at the database level before application coding begins. However, Prisma streamlines this process. Developers define data models in the Prisma schema, and then Prisma Migrate automatically generates the database schema and applies migrations to synchronize the database structure with the defined models. This approach simplifies development and promotes a code-first database management workflow.</p>
+<h2 id="setting-up-prisma-a-step-by-step-guide">Setting Up Prisma: A Step-by-Step Guide</h2>
+<p>Let's walk through the initial setup of Prisma in a new project. These steps are crucial to get Prisma operational and ready for database interactions.</p>
+<p><strong>1. Project Initialization and TypeScript Setup:</strong></p>
+<ul>
+<li><strong>Create a project directory:</strong> Start by creating a new folder for your project, for example, <code>prisma-crash-course</code>.</li>
+<li>
+<p><strong>Initialize npm:</strong> Navigate into your project directory in your terminal and run <code>npm init -y</code> to create a <code>package.json</code> file, which manages project dependencies.</p>
+<blockquote>
+<p><strong>npm init -y</strong> is a command used in Node.js projects to quickly initialize a <code>package.json</code> file with default settings. <code>npm</code> stands for Node Package Manager, and <code>init</code> is the command to initialize a new package. The <code>-y</code> flag automatically answers "yes" to all prompts, creating a default configuration file.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Install Development Dependencies:</strong> Install TypeScript, <code>ts-node</code>, and Node.js type definitions as development dependencies. Run the following command:</p>
+<p><code>bash
+npm install typescript ts-node @types/node --save-dev</code></p>
+<blockquote>
+<p><strong>ts-node</strong> is a Node.js package that allows you to execute TypeScript code directly, without pre-compiling it to JavaScript. It's particularly useful during development for running TypeScript files quickly.</p>
+<p><strong>@types/node</strong> is a package that provides TypeScript type definitions for the Node.js runtime environment. These definitions enable TypeScript to understand and provide type checking for Node.js APIs, improving code quality and reducing errors.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Initialize TypeScript Configuration:</strong> Initialize TypeScript by running <code>npx tsc --init</code>. This command creates a <code>tsconfig.json</code> file in your project root, which configures TypeScript compiler options. While we won't be deeply configuring TypeScript in this introductory example, initializing it is a prerequisite for Prisma's TypeScript integration.</p>
+</li>
+</ul>
+<p><strong>2. Install and Initialize Prisma:</strong></p>
+<ul>
+<li>
+<p><strong>Install Prisma CLI:</strong> Install the Prisma Command-Line Interface (CLI) as a development dependency:</p>
+<p><code>bash
+npm install prisma --save-dev</code></p>
+<blockquote>
+<p><strong>Prisma CLI (Command-Line Interface)</strong> is a tool that allows developers to interact with Prisma functionalities directly from the command line. It's used for tasks like initializing Prisma, generating the Prisma Client, running migrations, and interacting with Prisma Studio.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Initialize Prisma:</strong> Initialize Prisma within your project. This step sets up the basic Prisma project structure, including the <code>prisma</code> directory and the <code>schema.prisma</code> file. Specify SQLite as the database provider for simplicity and ease of setup.</p>
+<p><code>bash
+npx prisma init --datasource-provider sqlite</code></p>
+<p>This command generates:
+*   A <code>prisma</code> directory containing <code>schema.prisma</code> (the Prisma schema file).
+*   A <code>.env</code> file to manage environment variables, including the database connection URL.</p>
+</li>
+</ul>
+<p><strong>3. Database Configuration:</strong></p>
+<ul>
+<li>
+<p><strong><code>.env</code> File:</strong> Open the <code>.env</code> file in your project root. You will see the <code>DATABASE_URL</code> environment variable pre-configured for SQLite, pointing to a <code>dev.db</code> file in the project root.</p>
+<p><code>DATABASE_URL="file:./dev.db"</code></p>
+<p>For SQLite, this default configuration is sufficient. Prisma will automatically create the <code>dev.db</code> file when the first migration is run. If you were using other databases like PostgreSQL or MySQL, you would modify the <code>DATABASE_URL</code> to include the connection string for your specific database instance. Prisma provides documentation and connection URL examples for various databases, accessible through the provided URL in the <code>.env</code> file.</p>
+</li>
+</ul>
+<p><strong>4. Prisma Schema Definition (<code>schema.prisma</code>):</strong></p>
+<ul>
+<li>
+<p><strong>Open <code>schema.prisma</code>:</strong> Navigate to the <code>prisma</code> directory and open the <code>schema.prisma</code> file. This file is where you define your data models, database connection, and Prisma client generator configuration.</p>
+</li>
+<li>
+<p><strong>Schema Structure:</strong> The <code>schema.prisma</code> file typically consists of three main blocks:</p>
+<ul>
+<li>
+<p><strong><code>datasource</code> block:</strong> Defines the database connection. It specifies the database provider (e.g., <code>sqlite</code>, <code>postgresql</code>, <code>mysql</code>, <code>mongodb</code>) and the connection URL, which is usually referenced from the <code>.env</code> file.</p>
+<p><code>prisma
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}</code></p>
+</li>
+<li>
+<p><strong><code>generator</code> block:</strong> Configures the Prisma Client generation. It specifies the generator name (typically "client") and the output location for the generated Prisma Client code.  It also indicates which programming language to generate the client for, commonly "prisma-client-js" for JavaScript and TypeScript projects.</p>
+<p><code>prisma
+generator client {
+  provider = "prisma-client-js"
+}</code></p>
+</li>
+<li>
+<p><strong><code>model</code> blocks:</strong> Define your data models. Each <code>model</code> block represents a database table and includes fields with their data types and attributes. Relationships between models are also defined within these blocks.</p>
+<p>Initially, the <code>schema.prisma</code> file will contain basic configurations for the data source and generator. The next step is to define your data models within this file.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>5. Data Modeling: Defining User and Article Models</strong></p>
+<p>Let's define two models: <code>User</code> and <code>Article</code>, and establish a relationship where a user can author multiple articles.</p>
+<ul>
+<li>
+<p><strong>User Model:</strong> Add the following <code>model</code> block to your <code>schema.prisma</code> file:</p>
+<p><code>prisma
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  articles  Article[]
+}</code></p>
+<ul>
+<li><code>model User</code>: Declares a model named <code>User</code>, which will correspond to a database table named "User".</li>
+<li><code>id Int @id @default(autoincrement())</code>: Defines an integer field named <code>id</code> as the primary key (<code>@id</code>) and configures it to auto-increment (<code>@default(autoincrement())</code>).</li>
+<li><code>email String @unique</code>: Defines a string field named <code>email</code> that must be unique across all user records (<code>@unique</code>).</li>
+<li><code>name String?</code>: Defines an optional string field named <code>name</code>. The <code>?</code> signifies that this field is nullable or optional.</li>
+<li><code>articles Article[]</code>: Establishes a relationship with the <code>Article</code> model. <code>Article[]</code> indicates that a User can have multiple Articles. This is a relation field, not directly stored in the database but used by Prisma Client for relationship queries.</li>
+</ul>
+</li>
+<li>
+<p><strong>Article Model:</strong> Add the <code>Article</code> model below the <code>User</code> model in <code>schema.prisma</code>:</p>
+<p><code>prisma
+model Article {
+  id        Int      @id @default(autoincrement())
+  title     String
+  body      String?
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}</code></p>
+<ul>
+<li><code>model Article</code>: Declares a model named <code>Article</code>, corresponding to an "Article" database table.</li>
+<li><code>id Int @id @default(autoincrement())</code>:  Defines the primary key <code>id</code> for articles, similar to the User model.</li>
+<li><code>title String</code>: Defines a required string field <code>title</code> for the article title.</li>
+<li><code>body String?</code>: Defines an optional string field <code>body</code> for the article content.</li>
+<li><code>author User @relation(fields: [authorId], references: [id])</code>: Defines a relationship to the <code>User</code> model.<ul>
+<li><code>@relation(fields: [authorId], references: [id])</code>: Specifies this field as a relation field. <code>fields: [authorId]</code> indicates that the <code>authorId</code> field in the <code>Article</code> model is used to store the foreign key. <code>references: [id]</code> specifies that it references the <code>id</code> field of the <code>User</code> model.</li>
+</ul>
+</li>
+<li><code>authorId Int</code>: Defines an integer field <code>authorId</code> to store the foreign key referencing the <code>User</code> table's <code>id</code>. This field, along with the <code>@relation</code> attribute on the <code>author</code> field, establishes the relationship between Article and User models.</li>
+</ul>
+</li>
+<li>
+<p><strong>Saving Schema:</strong> Save the <code>schema.prisma</code> file after defining your models.</p>
+</li>
+</ul>
+<p><strong>6. Running Database Migrations:</strong></p>
+<p>After defining your data models in the <code>schema.prisma</code> file, you need to synchronize these models with your database schema. Prisma Migrate automates this process.</p>
+<ul>
+<li>
+<p><strong>Generate Migration:</strong> Run the following command in your terminal to generate and apply a migration:</p>
+<p><code>bash
+npx prisma migrate dev --name init</code></p>
+<blockquote>
+<p><strong>npx prisma migrate dev</strong> is a Prisma CLI command used to generate and apply database migrations during development. It compares the current Prisma schema with the database schema, generates migration files for any changes, and then applies these migrations to the development database. The <code>--name init</code> part allows you to give a descriptive name ("init" in this case) to your migration, which helps in tracking and managing migrations over time.</p>
+</blockquote>
+<ul>
+<li><code>npx prisma migrate dev</code>:  Executes the Prisma Migrate command in development mode.</li>
+<li><code>--name init</code>: Assigns the name "init" to this migration, providing a descriptive label for tracking schema changes.</li>
+</ul>
+<p>This command does the following:</p>
+<ol>
+<li><strong>Schema Comparison:</strong> Prisma Migrate compares your current <code>schema.prisma</code> file with the existing database schema (if any).</li>
+<li><strong>Migration File Generation:</strong> If there are differences, Prisma Migrate generates a new migration folder in the <code>prisma/migrations</code> directory. This folder contains SQL files that describe the schema changes needed to bring your database in sync with your Prisma schema.</li>
+<li><strong>Database Synchronization:</strong> Prisma Migrate executes the generated SQL migration scripts against your database, creating tables, columns, relationships, and constraints as defined in your models.</li>
+<li><strong><code>dev.db</code> Creation:</strong> If you are using SQLite and the <code>dev.db</code> file does not exist, Prisma Migrate will create it.</li>
+</ol>
+</li>
+<li>
+<p><strong>Verification:</strong> After the migration completes successfully, you will see a message in the console confirming that your database is now in sync with your Prisma schema. For SQLite, a <code>dev.db</code> file will be created in your project root. You can inspect the <code>prisma/migrations</code> directory to view the generated SQL migration files, which detail the database schema changes.</p>
+</li>
+</ul>
+<p><strong>7. Generate Prisma Client:</strong></p>
+<p>After running migrations, you need to generate the Prisma Client. The Prisma Client is a type-safe query builder that allows your application code to interact with the database based on your defined Prisma schema.</p>
+<ul>
+<li>
+<p><strong>Generate Command:</strong> Run the following command in your terminal:</p>
+<p><code>bash
+npx prisma generate</code></p>
+<blockquote>
+<p><strong>npx prisma generate</strong> is a Prisma CLI command that generates the Prisma Client based on the current Prisma schema (<code>schema.prisma</code>). The Prisma Client is a type-safe query builder that provides auto-completion and type checking for database interactions in your application code. This command needs to be re-run whenever you make changes to your Prisma schema to ensure the Prisma Client is up-to-date with your data models and database structure.</p>
+</blockquote>
+<p>This command reads your <code>schema.prisma</code> file and generates the Prisma Client code in the <code>node_modules/@prisma/client</code> directory. This generated client is tailored to your schema, providing type-safe access to your models and database operations.</p>
+</li>
+</ul>
+<h2 id="interacting-with-the-database-using-prisma-client">Interacting with the Database using Prisma Client</h2>
+<p>With Prisma set up and the Prisma Client generated, you can now start interacting with your database in a type-safe and intuitive manner. Let's create an <code>index.ts</code> file in your project root to write code that uses the Prisma Client to perform database operations.</p>
+<p><strong>1. Create <code>index.ts</code> File:</strong></p>
+<p>Create a new file named <code>index.ts</code> in the root of your project. This file will contain the TypeScript code to interact with your database using Prisma Client.</p>
+<p><strong>2. Import Prisma Client:</strong></p>
+<p>In your <code>index.ts</code> file, import the <code>PrismaClient</code> class from the <code>@prisma/client</code> package:</p>
+<pre><code class="language-typescript">import { PrismaClient } from '@prisma/client';
+</code></pre>
+<p><strong>3. Instantiate Prisma Client:</strong></p>
+<p>Create an instance of <code>PrismaClient</code>. This instance will be used to send queries to your database.</p>
+<pre><code class="language-typescript">const prisma = new PrismaClient();
+</code></pre>
+<p><strong>4. Write Database Queries within an <code>async</code> <code>main</code> function:</strong></p>
+<p>Encapsulate your Prisma queries within an <code>async</code> function named <code>main</code>. This is a common practice in Node.js to handle asynchronous operations cleanly.</p>
+<pre><code class="language-typescript">async function main() {
+  // Your Prisma queries will go here
+}
+</code></pre>
+<p><strong>5. Call <code>main</code> function and handle connection lifecycle:</strong></p>
+<p>Call the <code>main</code> function to execute your queries. It's important to manage the Prisma Client connection lifecycle. Use <code>.finally()</code> to ensure that the Prisma Client is disconnected after the queries are executed, regardless of success or failure.  Also implement error handling using <code>.catch()</code>.</p>
+<pre><code class="language-typescript">main()
+  .then(async () =&gt; {
+    await prisma.$disconnect()
+  })
+  .catch(async (e) =&gt; {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })
+</code></pre>
+<p><strong>6. Example Queries:</strong></p>
+<p>Now, let's add some example queries within the <code>main</code> function to demonstrate basic CRUD (Create, Read, Update, Delete) operations using Prisma Client.</p>
+<ul>
+<li>
+<p><strong>Create a User:</strong></p>
+<p><code>typescript
+const user = await prisma.user.create({
+  data: {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+  },
+});
+console.log('Created user:', user);</code></p>
+<ul>
+<li><code>prisma.user</code>: Accesses the <code>User</code> model through the Prisma Client.</li>
+<li><code>.create()</code>:  A Prisma Client method to create a new record in the <code>User</code> table.</li>
+<li><code>data</code>: An object containing the data for the new user record, mapping to the fields defined in the <code>User</code> model.</li>
+</ul>
+</li>
+<li>
+<p><strong>Get All Users:</strong></p>
+<p><code>typescript
+const users = await prisma.user.findMany();
+console.log('All users:', users);</code></p>
+<ul>
+<li><code>prisma.user.findMany()</code>: Retrieves all records from the <code>User</code> table.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create an Article and Associate with a User:</strong></p>
+<p><code>typescript
+const article = await prisma.article.create({
+  data: {
+    title: "John's First Article",
+    body: "This is John's first article.",
+    author: {
+      connect: { id: 1 }, // Assuming user with ID 1 exists
+    },
+  },
+});
+console.log('Created article:', article);</code></p>
+<ul>
+<li><code>author: { connect: { id: 1 } }</code>: Establishes a relationship to an existing User with <code>id: 1</code>. The <code>connect</code> property is used to link to existing records based on their unique identifiers.</li>
+</ul>
+</li>
+<li>
+<p><strong>Get All Articles:</strong></p>
+<p><code>typescript
+const articles = await prisma.article.findMany();
+console.log('All articles:', articles);</code></p>
+</li>
+<li>
+<p><strong>Create User and Article Simultaneously:</strong></p>
+<p><code>typescript
+const userWithArticle = await prisma.user.create({
+  data: {
+    name: 'Sarah Smith',
+    email: 'sarah.smith@example.com',
+    articles: {
+      create: {
+        title: "Sarah's First Article",
+        body: "This is Sarah's first article.",
+      },
+    },
+  },
+  include: {
+    articles: true, // Include the created articles in the result
+  },
+});
+console.log('Created user with article:', userWithArticle);</code></p>
+<ul>
+<li><code>articles: { create: { ... } }</code>: Creates a new Article record and automatically associates it with the newly created User. The <code>create</code> property is used to create related records inline.</li>
+<li><code>include: { articles: true }</code>: Specifies that the <code>articles</code> relation should be included in the query result. This is known as eager loading, fetching related data in the same query.</li>
+</ul>
+</li>
+<li>
+<p><strong>Get Users with Articles:</strong></p>
+<p><code>typescript
+const usersWithArticles = await prisma.user.findMany({
+  include: {
+    articles: true,
+  },
+});
+console.log('Users with articles:', usersWithArticles);</code></p>
+</li>
+<li>
+<p><strong>Loop Through Users and Their Articles:</strong></p>
+<p>```typescript
+const usersWithArticles = await prisma.user.findMany({
+  include: {
+    articles: true,
+  },
+});</p>
+<p>usersWithArticles.forEach(user =&gt; {
+  console.log(<code>User: ${user.name}, Email: ${user.email}</code>);
+  console.log('Articles:');
+  user.articles.forEach(article =&gt; {
+    console.log(<code>- Title: ${article.title}, Body: ${article.body}</code>);
+  });
+  console.log('\n</p>
+</li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>
